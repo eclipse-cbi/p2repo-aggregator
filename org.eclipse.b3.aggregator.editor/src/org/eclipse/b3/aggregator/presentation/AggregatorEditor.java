@@ -175,8 +175,8 @@ import org.eclipse.ui.views.properties.PropertySheetPage;
  * @generated
  */
 @SuppressWarnings("unused")
-public class AggregatorEditor extends MultiPageEditorPart implements IEditingDomainProvider, ISelectionProvider,
-		IMenuListener, IViewerProvider, IGotoMarker {
+public class AggregatorEditor extends MultiPageEditorPart
+		implements IEditingDomainProvider, ISelectionProvider, IMenuListener, IViewerProvider, IGotoMarker {
 
 	static class MDRComparator implements Comparator<MetadataRepositoryReference> {
 		@Override
@@ -371,6 +371,18 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 
 	}
 
+	public static final String AGGREGATOR_EDITOR_ID = "org.eclipse.b3.aggregator.presentation.AggregatorEditorID";
+
+	public static final String AGGREGATOR_EDITOR_SCOPE = "org.eclipse.b3.aggregator.presentation.aggregatorEditorScope";
+
+	public static final String AGGREGATOR_PROBLEM_MARKER = "org.eclipse.b3.aggregator.editor.diagnostic";
+
+	public static final String AGGREGATOR_PERSISTENT_PROBLEM_MARKER = "org.eclipse.b3.aggregator.editor.diagnostic.persistent";
+
+	public static final String AGGREGATOR_NONPERSISTENT_PROBLEM_MARKER = "org.eclipse.b3.aggregator.editor.diagnostic.nonpersistent";
+
+	protected static Collection<Object> CLIPBOARD;
+
 	/**
 	 * This looks up a string in the plugin's plugin.properties file.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -390,18 +402,6 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	private static String getString(String key, Object s1) {
 		return AggregatorEditorPlugin.INSTANCE.getString(key, new Object[] { s1 });
 	}
-
-	public static final String AGGREGATOR_EDITOR_ID = "org.eclipse.b3.aggregator.presentation.AggregatorEditorID";
-
-	public static final String AGGREGATOR_EDITOR_SCOPE = "org.eclipse.b3.aggregator.presentation.aggregatorEditorScope";
-
-	public static final String AGGREGATOR_PROBLEM_MARKER = "org.eclipse.b3.aggregator.editor.diagnostic";
-
-	public static final String AGGREGATOR_PERSISTENT_PROBLEM_MARKER = "org.eclipse.b3.aggregator.editor.diagnostic.persistent";
-
-	public static final String AGGREGATOR_NONPERSISTENT_PROBLEM_MARKER = "org.eclipse.b3.aggregator.editor.diagnostic.nonpersistent";
-
-	protected static Collection<Object> CLIPBOARD;
 
 	private IContextActivation contextActivation;
 
@@ -878,8 +878,8 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 		if(resource != null && (!resource.getErrors().isEmpty() || !resource.getWarnings().isEmpty())) {
 			synchronized(resource) {
 				BasicDiagnostic basicDiagnostic = new BasicDiagnostic(
-					Diagnostic.ERROR, "org.eclipse.b3.aggregator.editor", 0, getString(
-						"_UI_CreateModelError_message", resource.getURI()), new Object[] { exception == null
+					Diagnostic.ERROR, "org.eclipse.b3.aggregator.editor", 0,
+					getString("_UI_CreateModelError_message", resource.getURI()), new Object[] { exception == null
 							? (Object) resource
 							: exception });
 				Diagnostic diagnostic = computeDiagnostic(resource, true, true, managedProblems);
@@ -893,10 +893,12 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 			}
 		}
 		else if(exception != null) {
-			return new BasicDiagnostic(Diagnostic.ERROR, "org.eclipse.b3.aggregator.editor", 0, getString(
-				"_UI_CreateModelError_message", resource == null
+			return new BasicDiagnostic(
+				Diagnostic.ERROR, "org.eclipse.b3.aggregator.editor", 0,
+				getString("_UI_CreateModelError_message", resource == null
 						? null
-						: resource.getURI()), new Object[] { exception });
+						: resource.getURI()),
+				new Object[] { exception });
 		}
 		else {
 			return Diagnostic.OK_INSTANCE;
@@ -929,8 +931,9 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 				if(resourceDiagnostic instanceof ResourceDiagnosticImpl)
 					messagePrefix = getLabelPrefix(resourceDiagnostic.getLocation());
 
-				diagnostic = new BasicDiagnostic(Diagnostic.ERROR, "org.eclipse.emf.ecore.resource", 0, messagePrefix +
-						resourceDiagnostic.getMessage(), new Object[] { resourceDiagnostic });
+				diagnostic = new BasicDiagnostic(
+					Diagnostic.ERROR, "org.eclipse.emf.ecore.resource", 0,
+					messagePrefix + resourceDiagnostic.getMessage(), new Object[] { resourceDiagnostic });
 			}
 			basicDiagnostic.add(diagnostic);
 		}
@@ -957,8 +960,8 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 						messagePrefix = getLabelPrefix(resourceDiagnostic.getLocation());
 
 					diagnostic = new BasicDiagnostic(
-						Diagnostic.WARNING, "org.eclipse.emf.ecore.resource", 0, messagePrefix +
-								resourceDiagnostic.getMessage(), new Object[] { resourceDiagnostic });
+						Diagnostic.WARNING, "org.eclipse.emf.ecore.resource", 0,
+						messagePrefix + resourceDiagnostic.getMessage(), new Object[] { resourceDiagnostic });
 				}
 				basicDiagnostic.add(diagnostic);
 			}
@@ -986,8 +989,8 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 						messagePrefix = getLabelPrefix(resourceDiagnostic.getLocation());
 
 					diagnostic = new BasicDiagnostic(
-						Diagnostic.INFO, "org.eclipse.emf.ecore.resource", 0, messagePrefix +
-								resourceDiagnostic.getMessage(), new Object[] { resourceDiagnostic });
+						Diagnostic.INFO, "org.eclipse.emf.ecore.resource", 0,
+						messagePrefix + resourceDiagnostic.getMessage(), new Object[] { resourceDiagnostic });
 				}
 				basicDiagnostic.add(diagnostic);
 			}
@@ -1174,8 +1177,8 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 			setCurrentViewer(selectionViewer);
 
 			selectionViewer.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
-			selectionViewer.setLabelProvider(new AdapterFactoryLabelProvider.FontAndColorProvider(
-				adapterFactory, selectionViewer));
+			selectionViewer.setLabelProvider(
+				new AdapterFactoryLabelProvider.FontAndColorProvider(adapterFactory, selectionViewer));
 			selectionViewer.setInput(editingDomain.getResourceSet());
 			selectionViewer.setSelection(
 				new StructuredSelection(editingDomain.getResourceSet().getResources().get(0)), true);
@@ -1490,8 +1493,8 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 					// Set up the tree viewer.
 					//
 					contentOutlineViewer.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
-					contentOutlineViewer.setLabelProvider(new AdapterFactoryLabelProvider.FontAndColorProvider(
-						adapterFactory, contentOutlineViewer));
+					contentOutlineViewer.setLabelProvider(
+						new AdapterFactoryLabelProvider.FontAndColorProvider(adapterFactory, contentOutlineViewer));
 					contentOutlineViewer.setInput(editingDomain.getResourceSet());
 
 					// Make sure our popups work.
@@ -1501,8 +1504,8 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 					if(!editingDomain.getResourceSet().getResources().isEmpty()) {
 						// Select the root object in the view.
 						//
-						contentOutlineViewer.setSelection(new StructuredSelection(
-							editingDomain.getResourceSet().getResources().get(0)), true);
+						contentOutlineViewer.setSelection(
+							new StructuredSelection(editingDomain.getResourceSet().getResources().get(0)), true);
 					}
 				}
 
@@ -1593,7 +1596,8 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 			propertySheetPage.setPropertySourceProvider(new AdapterFactoryContentProvider(adapterFactory) {
 
 				@Override
-				protected IPropertySource createPropertySource(Object object, IItemPropertySource itemPropertySource) {
+				protected IPropertySource createPropertySource(final Object object,
+						IItemPropertySource itemPropertySource) {
 					return new PropertySource(object, itemPropertySource) {
 
 						@Override
@@ -1607,7 +1611,8 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 										return null;
 									}
 
-									final EStructuralFeature feature = (EStructuralFeature) itemPropertyDescriptor.getFeature(object);
+									final EStructuralFeature feature = (EStructuralFeature) itemPropertyDescriptor.getFeature(
+										object);
 									final EClassifier eType = feature.getEType();
 
 									if(VersionRange.class.isAssignableFrom(eType.getInstanceClass())) {
@@ -1618,7 +1623,8 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 											@Override
 											protected Object openDialogBox(Control cellEditorWindow) {
 												VersionRangeEditorDialog dialog = new VersionRangeEditorDialog(
-													cellEditorWindow.getShell(), editLabelProvider, doGetValue());
+													cellEditorWindow.getShell(), editLabelProvider, doGetValue(),
+													object);
 												dialog.open();
 												return dialog.getResult();
 											}
@@ -1743,8 +1749,8 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 		}
 
 		AggregatorEditorPlugin.INSTANCE.setActiveEditingDomain(editingDomain);
-		contextActivation = ((IContextService) getSite().getWorkbenchWindow().getWorkbench().getAdapter(
-			IContextService.class)).activateContext(AGGREGATOR_EDITOR_SCOPE);
+		contextActivation = getSite().getWorkbenchWindow().getWorkbench().getAdapter(
+			IContextService.class).activateContext(AGGREGATOR_EDITOR_SCOPE);
 	}
 
 	/**
@@ -1816,7 +1822,8 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 		AggregatorEditorPlugin.INSTANCE.setActiveEditingDomain(null);
 
 		if(contextActivation != null)
-			((IContextService) getSite().getWorkbenchWindow().getWorkbench().getAdapter(IContextService.class)).deactivateContext(contextActivation);
+			getSite().getWorkbenchWindow().getWorkbench().getAdapter(IContextService.class).deactivateContext(
+				contextActivation);
 	}
 
 	/**
@@ -1988,7 +1995,8 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 
 		// Create the editing domain with a special command stack and a shared clipboard.
 		//
-		editingDomain = new AdapterFactoryEditingDomain(adapterFactory, commandStack, new HashMap<Resource, Boolean>()) {
+		editingDomain = new AdapterFactoryEditingDomain(
+			adapterFactory, commandStack, new HashMap<Resource, Boolean>()) {
 
 			{
 				final ResourceSet resourceSet = getResourceSet();
@@ -2001,11 +2009,10 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 
 					@Override
 					protected Resource.Factory delegatedGetFactory(URI uri, String contentTypeIdentifier) {
-						return convert(getFactory(
-							uri,
-							Resource.Factory.Registry.INSTANCE.getProtocolToFactoryMap(),
+						return convert(getFactory(uri, Resource.Factory.Registry.INSTANCE.getProtocolToFactoryMap(),
 							// override the default extension resource factory
-							extensionToFactoryOverrideMap.override(Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap()),
+							extensionToFactoryOverrideMap.override(
+								Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap()),
 							Resource.Factory.Registry.INSTANCE.getContentTypeToFactoryMap(), contentTypeIdentifier,
 							false));
 					}
@@ -2257,13 +2264,14 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 						break;
 					}
 					case 1: {
-						String text = new AdapterFactoryItemDelegator(adapterFactory).getText(collection.iterator().next());
+						String text = new AdapterFactoryItemDelegator(adapterFactory).getText(
+							collection.iterator().next());
 						statusLineManager.setMessage(getString("_UI_SingleObjectSelected", text));
 						break;
 					}
 					default: {
-						statusLineManager.setMessage(getString(
-							"_UI_MultiObjectSelected", Integer.toString(collection.size())));
+						statusLineManager.setMessage(
+							getString("_UI_MultiObjectSelected", Integer.toString(collection.size())));
 						break;
 					}
 				}

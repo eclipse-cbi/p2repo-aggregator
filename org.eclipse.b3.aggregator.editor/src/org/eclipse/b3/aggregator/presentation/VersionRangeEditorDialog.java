@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2006-2007, Cloudsmith Inc.
+ * Copyright (c) 2006-2016 Cloudsmith Inc. and others
  * The code, documentation and other materials contained herein have been
  * licensed under the Eclipse Public License - v 1.0 by the copyright holder
  * listed above, as the Initial Contributor under such license. The text of
@@ -8,6 +8,9 @@
 
 package org.eclipse.b3.aggregator.presentation;
 
+import org.eclipse.b3.aggregator.AvailableVersion;
+import org.eclipse.b3.aggregator.B3Messages;
+import org.eclipse.b3.aggregator.Feature;
 import org.eclipse.equinox.internal.p2.metadata.VersionFormat;
 import org.eclipse.equinox.p2.metadata.IVersionFormat;
 import org.eclipse.equinox.p2.metadata.Version;
@@ -17,6 +20,7 @@ import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.resource.JFaceColors;
 import org.eclipse.jface.viewers.ILabelProvider;
+import org.eclipse.osgi.util.NLS;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
@@ -30,6 +34,7 @@ import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Link;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.internal.ide.IDEWorkbenchMessages;
@@ -134,11 +139,16 @@ public class VersionRangeEditorDialog extends Dialog {
 
 	private Exception formatStringException;
 
-	protected VersionRangeEditorDialog(Shell parent, ILabelProvider labelProvider, Object object) {
+	private Feature feature;
+
+	protected VersionRangeEditorDialog(Shell parent, ILabelProvider labelProvider, Object object, Object eObject) {
 		super(parent);
 		setShellStyle(getShellStyle() | SWT.RESIZE | SWT.MAX);
 		this.labelProvider = labelProvider;
 		this.versionRange = (VersionRange) object;
+		if(eObject instanceof Feature) {
+			this.feature = (Feature) eObject;
+		}
 		IVersionFormat versionFormat = versionRange.getMinimum().getFormat();
 
 		currentVersionTypeIdx = 0;
@@ -334,6 +344,40 @@ public class VersionRangeEditorDialog extends Dialog {
 		layoutData.horizontalSpan = 3;
 		statusLabel.setLayoutData(layoutData);
 
+		if(feature != null) {
+			Label setToAvailableVersionLabel = new Label(topComposite, SWT.NONE);
+			setToAvailableVersionLabel.setText(B3Messages.VersionRangeDialog_AvailableVersions);
+			if(feature.getAvailableVersions() != null && !feature.getAvailableVersions().isEmpty()) {
+				Link versions = new Link(topComposite, SWT.NONE);
+				versions.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, false, 2, 1));
+				StringBuilder versionString = new StringBuilder();
+				String separator = ", "; //$NON-NLS-1$
+				for(AvailableVersion version : feature.getAvailableVersions()) {
+					versionString.append("<A>"); //$NON-NLS-1$
+					versionString.append(version.getVersion().toString());
+					versionString.append("</A>"); //$NON-NLS-1$
+					versionString.append(separator);
+				}
+				versionString.delete(versionString.length() - 2, versionString.length());
+				versions.setText(versionString.toString());
+				versions.addSelectionListener(new SelectionAdapter() {
+					@Override
+					public void widgetSelected(SelectionEvent e) {
+						String version = e.text;
+						minVersionText.setText(version);
+						maxVersionText.setText(version);
+						okButton.setEnabled(isOKEnabled());
+					}
+				});
+			}
+			else {
+				Label errorLabel = new Label(topComposite, SWT.NONE);
+				errorLabel.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, false, 2, 1));
+				errorLabel.setText(NLS.bind(B3Messages.VersionRangeDialog_NoVersionFound, this.feature.getName()));
+				errorLabel.setForeground(getShell().getDisplay().getSystemColor(SWT.COLOR_RED));
+			}
+		}
+
 		advancedComposite = new Composite(topComposite, SWT.NONE);
 		advancedComposite.setFont(topComposite.getFont());
 		layoutData = new GridData(GridData.FILL_HORIZONTAL);
@@ -374,8 +418,9 @@ public class VersionRangeEditorDialog extends Dialog {
 		String maxVersionString = UIUtils.trimmedValue(maxVersionText);
 
 		if(minVersionString == null)
-			throw new IllegalArgumentException(getString("_UI_VersionRangeEditor_minimumVersionMessage") + " " +
-					getString("_UI_VersionRangeEditor_notSpecifiedMessage"));
+			throw new IllegalArgumentException(
+				getString("_UI_VersionRangeEditor_minimumVersionMessage") + " " +
+						getString("_UI_VersionRangeEditor_notSpecifiedMessage"));
 
 		Version minVersion = null;
 		Version maxVersion = null;
@@ -387,8 +432,8 @@ public class VersionRangeEditorDialog extends Dialog {
 				minVersion = currentFormat.parse(minVersionString);
 		}
 		catch(IllegalArgumentException e) {
-			throw new IllegalArgumentException(getString("_UI_VersionRangeEditor_minimumVersionMessage") + " " +
-					e.getMessage());
+			throw new IllegalArgumentException(
+				getString("_UI_VersionRangeEditor_minimumVersionMessage") + " " + e.getMessage());
 		}
 
 		if(maxVersionString != null) {
@@ -399,14 +444,14 @@ public class VersionRangeEditorDialog extends Dialog {
 					maxVersion = currentFormat.parse(maxVersionString);
 			}
 			catch(IllegalArgumentException e) {
-				throw new IllegalArgumentException(getString("_UI_VersionRangeEditor_maximumVersionMessage") + " " +
-						e.getMessage());
+				throw new IllegalArgumentException(
+					getString("_UI_VersionRangeEditor_maximumVersionMessage") + " " + e.getMessage());
 			}
 		}
 
 		return new VersionRange(
-			minVersion, minVersionInclusiveCombo.getSelectionIndex() == 0, maxVersion, maxVersion == null ||
-					maxVersionInclusiveCombo.getSelectionIndex() == 0);
+			minVersion, minVersionInclusiveCombo.getSelectionIndex() == 0, maxVersion,
+			maxVersion == null || maxVersionInclusiveCombo.getSelectionIndex() == 0);
 	}
 
 	// "format(S)" -> "S"
