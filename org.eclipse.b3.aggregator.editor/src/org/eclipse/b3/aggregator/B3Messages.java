@@ -19,6 +19,10 @@ public class B3Messages extends NLS {
 
 	public static String VersionRangeDialog_AvailableVersions;
 
+	public static String FixVersionDialog_Title;
+
+	public static String FixVersionDialog_UpdateMessage;
+
 	static {
 		NLS.initializeMessages(B3Messages.class.getPackage().getName() + ".messages", B3Messages.class); // #NON-NLS-1$
 	}

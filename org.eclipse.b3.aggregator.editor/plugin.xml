@@ -128,5 +128,31 @@
          	class="org.eclipse.b3.aggregator.presentation.DiagnosticMarkerResolutionGenerator">
          </markerResolutionGenerator>
     </extension>
+    <extension
+          point="org.eclipse.ui.commands">
+       <command
+             defaultHandler="org.eclipse.b3.aggregator.presentation.FixVersionHandler"
+             id="org.eclipse.b3.aggregator.editor.fixVersion"
+             name="%fixVersion.command">
+       </command>
+    </extension>
+    <extension
+          point="org.eclipse.ui.commandImages">
+       <image
+             commandId="org.eclipse.b3.aggregator.editor.fixVersion"
+             icon="icons/full/obj16/fixVersions.png">
+       </image>
+    </extension>
+    <extension
+          point="org.eclipse.ui.menus">
+       <menuContribution
+             allPopups="false"
+             locationURI="popup:org.eclipse.b3.aggregator.presentation.AggregatorEditorID?before=additions">
+          <command
+                commandId="org.eclipse.b3.aggregator.editor.fixVersion"
+                style="push">
+          </command>
+       </menuContribution>
+    </extension>
  
 </plugin>
