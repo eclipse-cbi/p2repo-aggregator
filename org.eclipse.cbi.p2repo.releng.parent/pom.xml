@@ -37,6 +37,7 @@
     <module>../org.eclipse.cbi.p2repo.p2.maven</module>
     <module>../org.eclipse.cbi.p2repo.p2.maven.indexer</module>
     <module>../org.eclipse.cbi.p2repo.p2.maven.indexer.feature</module>
+    <module>../org.eclipse.cbi.tycho</module>
     <module>../org.eclipse.cbi.p2repo.p2.tests</module>
     <module>../org.eclipse.cbi.p2repo.releng.target</module>
     <module>../org.eclipse.cbi.p2repo.site.eclipse</module>

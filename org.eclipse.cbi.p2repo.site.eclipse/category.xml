@@ -21,6 +21,9 @@
    <feature id="org.eclipse.cbi.p2repo.tests.feature.source" version="0.0.0">
       <category name="org.eclipse.cbi.p2Repo.aggregator.misc"/>
    </feature>
+   <bundle id="org.eclipse.cbi.tycho" version="0.0.0">
+      <category name="org.eclipse.cbi.p2Repo.aggregator.misc"/>
+   </bundle>
    <category-def name="org.eclipse.cbi.p2Repo.aggregator" label="Eclipse CBI p2Repo Aggregator Editor">
       <description>
          The Eclipse CBI p2Repo Aggregator Editor, engine, and related features. (Previously known as the "b 3 Aggregator".)

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.cbi.p2repo.aggregator.presentation.AggregatorEditorID?before=additions">
+         <command
+               commandId="org.eclipse.cbi.tycho.generateCategoryAndPom"
+               style="push">
+            <visibleWhen
+                  checkEnabled="true">
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            id="org.eclipse.cbi.tycho.generateCategoryAndPom"
+            name="Generate category.xml and pom.xml from this model">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="org.eclipse.cbi.tycho.GenerateCategoryAndPomHandler"
+            commandId="org.eclipse.cbi.tycho.generateCategoryAndPom">
+         <enabledWhen>
+            <and>
+               <count
+                     value="1">
+               </count>
+               <iterate>
+                  <instanceof
+                        value="org.eclipse.cbi.p2repo.aggregator.Aggregation">
+                  </instanceof>
+               </iterate>
+            </and>
+         </enabledWhen>
+      </handler>
+   </extension>
+   <extension
+         id="generateTychoBuild"
+         point="org.eclipse.core.runtime.applications">
+      <application
+            cardinality="singleton-global"
+            thread="main"
+            visible="true">
+         <run
+               class="org.eclipse.cbi.tycho.GenerateTychoBuildApplication">
+         </run>
+         <run
+               class="org.eclipse.cbi.tycho.Application1">
+         </run>
+      </application>
+   </extension>
+
+</plugin>

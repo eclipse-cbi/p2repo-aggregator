@@ -1,0 +1,14 @@
+<project default="removeUncategorized">
+
+	<target name="removeUncategorized">
+		<echo>
+			repo = ${repository}
+		</echo>
+		<p2.remove.iu>
+			<repository kind="metadata" location="${repository}" />
+			<iu query="property[@name='org.eclipse.equinox.p2.name' @value='Uncategorized']" />
+			<iu query="property[@name='org.eclipse.equinox.p2.type.category' @value='true']" />
+		</p2.remove.iu>
+	</target>
+
+</project>
