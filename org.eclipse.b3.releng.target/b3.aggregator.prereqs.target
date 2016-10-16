@@ -2,77 +2,75 @@
 <?pde version="3.8"?>
 
 <target name="b3.aggregator.prereqs" sequenceNumber="6">
-<locations>
+  <locations>
 
-<location includeAllPlatforms="true" includeConfigurePhase="false" includeMode="slicer" includeSource="false" type="InstallableUnit">
-<unit id="org.eclipse.emf.common.feature.group" version="2.11.1.v20160126-0936"/>
-<unit id="org.eclipse.emf.common.source.feature.group" version="2.11.1.v20160126-0936"/>
-<unit id="org.eclipse.emf.ecore.feature.group" version="2.11.2.v20160126-0936"/>
-<unit id="org.eclipse.emf.ecore.source.feature.group" version="2.11.2.v20160126-0936"/>
-<repository location="http://download.eclipse.org/modeling/emf/emf/updates/2.11.x/base/S201601260936/"/>
-</location>
-
-<location includeAllPlatforms="true" includeConfigurePhase="false" includeMode="slicer" includeSource="false" type="InstallableUnit">
-<unit id="org.eclipse.emf.edit" version="2.11.1.v20160201-0740"/>
-<unit id="org.eclipse.emf.edit.ui" version="2.11.1.v20160201-0740"/>
-<unit id="org.eclipse.emf.common.ui" version="2.10.1.v20160201-0740"/>
-<repository location="http://download.eclipse.org/modeling/emf/emf/updates/2.11.x/core/S201602010740/"/>
-</location>
-
-<location includeAllPlatforms="true" includeConfigurePhase="false" includeMode="slicer" includeSource="false" type="InstallableUnit">
-  <unit id="org.kohsuke.args4j" version="2.0.21.v201301150030"/>
-  <unit id="org.apache.ant" version="1.9.6.v201510161327"/>
-  <unit id="org.apache.httpcomponents.httpclient" version="4.3.6.v201411290715"/>
-  <unit id="org.apache.httpcomponents.httpclient.source" version="4.3.6.v201411290715"/>
-  <unit id="org.apache.httpcomponents.httpcore" version="4.3.3.v201411290715"/>
-  <unit id="org.apache.httpcomponents.httpcore.source" version="4.3.3.v201411290715"/>
-  <unit id="org.slf4j.api" version="1.7.2.v20121108-1250" />
-  <unit id="org.junit" version="0.0.0" />
-  <unit id="ch.qos.logback.classic" version="0.0.0" />
-  <unit id="ch.qos.logback.core" version="0.0.0" />
-  <unit id="ch.qos.logback.slf4j" version="0.0.0" />
-  <unit id="org.tukaani.xz" version="0.0.0" />
-  <repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20151221205849/repository/"/>
-</location>
-
-    <location includeAllPlatforms="true" includeMode="slicer" type="InstallableUnit">
-      <unit id="org.eclipse.license.feature.group" version="1.0.1.v20140414-1359"/>
-      <repository location="http://download.eclipse.org/cbi/updates/license/1.0.1.v20140414-1359/"/>
+    <location includeAllPlatforms="true" includeConfigurePhase="false" includeMode="slicer" includeSource="false" type="InstallableUnit">
+      <unit id="org.eclipse.emf.common.feature.group" version="2.11.1.v20160208-0816" />
+      <unit id="org.eclipse.emf.common.source.feature.group" version="2.11.1.v20160208-0816" />
+      <unit id="org.eclipse.emf.ecore.feature.group" version="2.11.2.v20160208-0816" />
+      <unit id="org.eclipse.emf.ecore.source.feature.group" version="2.11.2.v20160208-0816" />
+      <repository location="http://download.eclipse.org/modeling/emf/emf/updates/2.11.x/base/R201602080816/" />
     </location>
 
-<!-- TODO: make more specific for platform and ecf -->
-<location includeAllPlatforms="true" includeConfigurePhase="false" includeMode="slicer" includeSource="false" type="InstallableUnit">
-<unit id="org.eclipse.platform.feature.group" version="4.5.2.v20160203-1230"/>
-<unit id="org.eclipse.equinox.executable.feature.group" version="0.0.0" />
-<unit id="org.eclipse.ui.views.log" version="0.0.0" />
-<repository location="http://download.eclipse.org/eclipse/updates/4.5-M-builds/M-4.5.2RC3-201602031000/"/>
-</location>
-
-    <location includeAllPlatforms="true" includeMode="slicer" type="InstallableUnit">
-      <unit id="org.eclipse.ecf.core.feature.feature.group" version="1.2.0.v20151130-0157"/>
-      <unit id="org.eclipse.ecf.core.ssl.feature.feature.group" version="1.1.0.v20151130-0157"/>
-      <unit id="org.eclipse.ecf.filetransfer.feature.feature.group" version="3.12.0.v20151130-0157"/>
-      <unit id="org.eclipse.ecf.filetransfer.httpclient4.feature.feature.group" version="3.12.0.v20151130-0157"/>
-      <unit id="org.eclipse.ecf.filetransfer.httpclient4.ssl.feature.feature.group" version="1.1.0.v20151130-0157"/>
-      <unit id="org.eclipse.ecf.filetransfer.ssl.feature.feature.group" version="1.1.0.v20151130-0157"/>
-      <unit id="org.eclipse.ecf.core.source.feature.feature.group" version="1.2.0.v20151130-0157"/>
-      <unit id="org.eclipse.ecf.core.ssl.source.feature.feature.group" version="1.1.0.v20151130-0157"/>
-      <unit id="org.eclipse.ecf.filetransfer.source.feature.feature.group" version="3.12.0.v20151130-0157"/>
-      <unit id="org.eclipse.ecf.filetransfer.httpclient4.source.feature.feature.group" version="3.12.0.v20151130-0157"/>
-      <unit id="org.eclipse.ecf.filetransfer.httpclient4.ssl.source.feature.feature.group" version="1.1.0.v20151130-0157"/>
-      <unit id="org.eclipse.ecf.filetransfer.ssl.source.feature.feature.group" version="1.1.0.v20151130-0157"/>
-      <repository location="http://download.eclipse.org/rt/ecf/3.12.0/site.p2/"/>
+    <location includeAllPlatforms="true" includeConfigurePhase="false" includeMode="slicer" includeSource="false" type="InstallableUnit">
+      <unit id="org.eclipse.emf.edit" version="2.11.1.v20160208-0841" />
+      <unit id="org.eclipse.emf.edit.ui" version="2.11.1.v20160208-0841" />
+      <unit id="org.eclipse.emf.common.ui" version="2.10.1.v20160208-0841" />
+      <repository location="http://download.eclipse.org/modeling/emf/emf/updates/2.11.x/core/R201602080841/" />
     </location>
 
-<location includeAllPlatforms="true" includeConfigurePhase="false" includeMode="slicer" includeSource="false" type="InstallableUnit">
-<unit id="org.eclipse.m2e.archetype.common" version="1.6.2.20150902-0001" />
-<unit id="org.eclipse.m2e.maven.runtime" version="1.6.2.20150902-0001" />
-<unit id="org.eclipse.m2e.maven.runtime.slf4j.simple" version="1.6.2.20150902-0001" />
-<unit id="org.eclipse.m2e.maven.indexer" version="1.6.2.20150902-0001" />
-<repository location="http://download.eclipse.org/technology/m2e/releases/1.6/1.6.2.20150902-0002/" />
-</location>
+    <location includeAllPlatforms="true" includeConfigurePhase="false" includeMode="slicer" includeSource="false" type="InstallableUnit">
+      <unit id="org.kohsuke.args4j" version="2.0.21.v201301150030" />
+      <unit id="org.apache.ant" version="1.9.6.v201510161327" />
+      <unit id="org.apache.httpcomponents.httpclient" version="4.3.6.v201411290715B" />
+      <unit id="org.apache.httpcomponents.httpclient.source" version="4.3.6.v201411290715B" />
+      <unit id="org.apache.httpcomponents.httpcore" version="4.3.3.v201411290715" />
+      <unit id="org.apache.httpcomponents.httpcore.source" version="4.3.3.v201411290715" />
+      <unit id="org.slf4j.api" version="1.7.2.v20121108-1250" />
+      <unit id="org.junit" version="0.0.0" />
+      <unit id="ch.qos.logback.classic" version="0.0.0" />
+      <unit id="ch.qos.logback.core" version="0.0.0" />
+      <unit id="ch.qos.logback.slf4j" version="0.0.0" />
+      <unit id="org.tukaani.xz" version="0.0.0" />
+      <repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20160221192158/repository/" />
+    </location>
 
+    <location includeAllPlatforms="true" includeMode="slicer" type="InstallableUnit">
+      <unit id="org.eclipse.license.feature.group" version="1.0.1.v20140414-1359" />
+      <repository location="http://download.eclipse.org/cbi/updates/license/1.0.1.v20140414-1359/" />
+    </location>
 
+    <!-- TODO: make more specific for platform and ecf -->
+    <location includeAllPlatforms="true" includeConfigurePhase="false" includeMode="slicer" includeSource="false" type="InstallableUnit">
+      <unit id="org.eclipse.platform.feature.group" version="4.5.2.v20160212-1500" />
+      <unit id="org.eclipse.equinox.executable.feature.group" version="0.0.0" />
+      <unit id="org.eclipse.ui.views.log" version="0.0.0" />
+      <repository location="http://download.eclipse.org/eclipse/updates/4.5/R-4.5.2-201602121500/" />
+    </location>
 
-</locations>
+    <location includeAllPlatforms="true" includeMode="slicer" type="InstallableUnit">
+      <unit id="org.eclipse.ecf.core.feature.feature.group" version="1.2.0.v20151130-0157" />
+      <unit id="org.eclipse.ecf.core.ssl.feature.feature.group" version="1.1.0.v20151130-0157" />
+      <unit id="org.eclipse.ecf.filetransfer.feature.feature.group" version="3.12.0.v20151130-0157" />
+      <unit id="org.eclipse.ecf.filetransfer.httpclient4.feature.feature.group" version="3.12.0.v20151130-0157" />
+      <unit id="org.eclipse.ecf.filetransfer.httpclient4.ssl.feature.feature.group" version="1.1.0.v20151130-0157" />
+      <unit id="org.eclipse.ecf.filetransfer.ssl.feature.feature.group" version="1.1.0.v20151130-0157" />
+      <unit id="org.eclipse.ecf.core.source.feature.feature.group" version="1.2.0.v20151130-0157" />
+      <unit id="org.eclipse.ecf.core.ssl.source.feature.feature.group" version="1.1.0.v20151130-0157" />
+      <unit id="org.eclipse.ecf.filetransfer.source.feature.feature.group" version="3.12.0.v20151130-0157" />
+      <unit id="org.eclipse.ecf.filetransfer.httpclient4.source.feature.feature.group" version="3.12.0.v20151130-0157" />
+      <unit id="org.eclipse.ecf.filetransfer.httpclient4.ssl.source.feature.feature.group" version="1.1.0.v20151130-0157" />
+      <unit id="org.eclipse.ecf.filetransfer.ssl.source.feature.feature.group" version="1.1.0.v20151130-0157" />
+      <repository location="http://download.eclipse.org/rt/ecf/3.12.0/site.p2/" />
+    </location>
+
+    <location includeAllPlatforms="true" includeConfigurePhase="false" includeMode="slicer" includeSource="false" type="InstallableUnit">
+      <unit id="org.eclipse.m2e.archetype.common" version="1.6.2.20150902-0001" />
+      <unit id="org.eclipse.m2e.maven.runtime" version="1.6.2.20150902-0001" />
+      <unit id="org.eclipse.m2e.maven.runtime.slf4j.simple" version="1.6.2.20150902-0001" />
+      <unit id="org.eclipse.m2e.maven.indexer" version="1.6.2.20150902-0001" />
+      <repository location="http://download.eclipse.org/technology/m2e/releases/1.6/1.6.2.20150902-0002/" />
+    </location>
+
+  </locations>
 </target>
