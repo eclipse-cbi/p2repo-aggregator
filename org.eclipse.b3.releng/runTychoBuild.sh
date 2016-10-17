@@ -1,19 +1,30 @@
+#!/usr/bin/env bash
 
+BUILD_HOME=/home/davidw/gitCBI/
+export TMP_DIR=${BUILD_HOME}/aggr/TMP
+export LOCAL_REPO=${BUILD_HOME}/aggr/LOCALMVNREPO
 
-export TMP_DIR=/shared/TMP
-export LOCAL_REPO=/shared/LOCALMVNREPO
-export POM_DIR=~/gitb3/b3/org.eclipse.b3.releng.parent
-#export POM_DIR=~/gitb3mirror/b3/org.eclipse.b3.releng.parent
+REPO_DIR=${BUILD_HOME}/org.eclipse.cbi.p2repo.aggregator
+export POM_DIR=${REPO_DIR}/org.eclipse.b3.releng.parent
+
+out_file=${BUILD_HOME}/aggr/buildOutput.txt
+
+# This first write does not "append", the rest need to.
+env | tee ${out_file}
+
 
 if [[ $1 == -clean ]]
 then
   rm -fr ${TMP_DIR}
   rm -fr ${LOCAL_REPO}
+  printf "\n\t[INFO] %s\n\n "-clean argument was specified on command line, so tmp and local maven repo were removed" | tee -a ${out_file}
+else
+  printf "\n\t[WARNING] %s\n\n "No -clean argument was specified on command line, so tmp and local maven repo were not removed" | tee -a ${out_file}
 fi
 mkdir -p ${TMP_DIR}
 mkdir -p ${LOCAL_REPO}
 
-# But, without the ANT_OPTS, we do get messages about "to get repeatable builds, to ignore sysclasspath"
+# Without the ANT_OPTS, we do get messages about "to get repeatable builds, to ignore sysclasspath"
 export ANT_HOME=${ANT_HOME:-/shared/common/apache-ant-1.9.6}
 export ANT_OPTS=${ANT_OPTS:-"-Dbuild.sysclasspath=ignore -Dincludeantruntime=false"}
 export MAVEN_OPTS=${MAVEN_OPTS:--Xms1048m -Xmx2096m -Djava.io.tmpdir=${TMP_DIR} -Dtycho.localArtifacts=ignore ${MIRROR_SETTING}}
@@ -24,9 +35,13 @@ export PATH=$JAVA_HOME/bin:$MAVEN_PATH:$ANT_HOME/bin:$PATH
 
 cd ${POM_DIR}
 
-mvn -version
+printf "\n\t[INFO] %s\n\n" "Maven Version:" | tee -a ${out_file}
+mvn -version | tee -a ${out_file}
 
-java -version
+printf "\n\t[INFO] %s\n\n" "Java Version:" | tee -a ${out_file}
+java -version | tee -a ${out_file}
 
-mvn clean verify -X -e -DskipTests=true -Dmaven.repo.local=$LOCAL_REPO -Pbree-libs  2>&1 | tee ~/temp/out.txt
+printf "\n\t[INFO] %s\n\n" "mvn clean verify ...:" | tee -a ${out_file}
+mvn clean verify -X -e -DskipTests=true -Dmaven.repo.local=$LOCAL_REPO -Pbree-libs  2>&1 | tee -a ${out_file}
 
+printf "\n\t[INFO] %s\n\n" "Build Output in ${out_file}"
