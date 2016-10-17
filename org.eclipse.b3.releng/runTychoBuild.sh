@@ -36,10 +36,10 @@ export PATH=$JAVA_HOME/bin:$MAVEN_PATH:$ANT_HOME/bin:$PATH
 cd ${POM_DIR}
 
 printf "\n\t[INFO] %s\n\n" "Maven Version:" | tee -a ${out_file}
-mvn -version | tee -a ${out_file}
+mvn -version 2>&1 | tee -a ${out_file}
 
 printf "\n\t[INFO] %s\n\n" "Java Version:" | tee -a ${out_file}
-java -version | tee -a ${out_file}
+java -version 2>&1 | tee -a ${out_file}
 
 printf "\n\t[INFO] %s\n\n" "mvn clean verify ...:" | tee -a ${out_file}
 mvn clean verify -X -e -DskipTests=true -Dmaven.repo.local=$LOCAL_REPO -Pbree-libs  2>&1 | tee -a ${out_file}
