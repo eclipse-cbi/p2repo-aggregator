@@ -17,22 +17,22 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Dependency Management</b></em>'. <!--
- * end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object
+ * '<em><b>Dependency Management</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.DependencyManagementImpl#getDependencies <em>Dependencies</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.DependencyManagementImpl#getDependencies <em>Dependencies</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class DependencyManagementImpl extends EObjectImpl implements DependencyManagement {
 	/**
-	 * The cached value of the '{@link #getDependencies() <em>Dependencies</em>}' containment reference. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * The cached value of the '{@link #getDependencies() <em>Dependencies</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getDependencies()
 	 * @generated
 	 * @ordered
@@ -41,7 +41,6 @@ public class DependencyManagementImpl extends EObjectImpl implements DependencyM
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected DependencyManagementImpl() {
@@ -50,17 +49,15 @@ public class DependencyManagementImpl extends EObjectImpl implements DependencyM
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetDependencies(DependenciesType newDependencies, NotificationChain msgs) {
 		DependenciesType oldDependencies = dependencies;
 		dependencies = newDependencies;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, PomPackage.DEPENDENCY_MANAGEMENT__DEPENDENCIES, oldDependencies,
-				newDependencies);
-			if(msgs == null)
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					PomPackage.DEPENDENCY_MANAGEMENT__DEPENDENCIES, oldDependencies, newDependencies);
+			if (msgs == null)
 				msgs = notification;
 			else
 				msgs.add(notification);
@@ -70,12 +67,11 @@ public class DependencyManagementImpl extends EObjectImpl implements DependencyM
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.DEPENDENCY_MANAGEMENT__DEPENDENCIES:
 				return getDependencies();
 		}
@@ -84,12 +80,11 @@ public class DependencyManagementImpl extends EObjectImpl implements DependencyM
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.DEPENDENCY_MANAGEMENT__DEPENDENCIES:
 				return basicSetDependencies(null, msgs);
 		}
@@ -98,12 +93,11 @@ public class DependencyManagementImpl extends EObjectImpl implements DependencyM
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.DEPENDENCY_MANAGEMENT__DEPENDENCIES:
 				return dependencies != null;
 		}
@@ -112,12 +106,11 @@ public class DependencyManagementImpl extends EObjectImpl implements DependencyM
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.DEPENDENCY_MANAGEMENT__DEPENDENCIES:
 				setDependencies((DependenciesType) newValue);
 				return;
@@ -127,12 +120,11 @@ public class DependencyManagementImpl extends EObjectImpl implements DependencyM
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.DEPENDENCY_MANAGEMENT__DEPENDENCIES:
 				setDependencies((DependenciesType) null);
 				return;
@@ -142,7 +134,6 @@ public class DependencyManagementImpl extends EObjectImpl implements DependencyM
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -152,33 +143,28 @@ public class DependencyManagementImpl extends EObjectImpl implements DependencyM
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setDependencies(DependenciesType newDependencies) {
-		if(newDependencies != dependencies) {
+		if (newDependencies != dependencies) {
 			NotificationChain msgs = null;
-			if(dependencies != null)
-				msgs = ((InternalEObject) dependencies).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.DEPENDENCY_MANAGEMENT__DEPENDENCIES, null, msgs);
-			if(newDependencies != null)
-				msgs = ((InternalEObject) newDependencies).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.DEPENDENCY_MANAGEMENT__DEPENDENCIES, null, msgs);
+			if (dependencies != null)
+				msgs = ((InternalEObject) dependencies).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.DEPENDENCY_MANAGEMENT__DEPENDENCIES, null, msgs);
+			if (newDependencies != null)
+				msgs = ((InternalEObject) newDependencies).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.DEPENDENCY_MANAGEMENT__DEPENDENCIES, null, msgs);
 			msgs = basicSetDependencies(newDependencies, msgs);
-			if(msgs != null)
+			if (msgs != null)
 				msgs.dispatch();
-		}
-		else if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, PomPackage.DEPENDENCY_MANAGEMENT__DEPENDENCIES, newDependencies,
-					newDependencies));
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.DEPENDENCY_MANAGEMENT__DEPENDENCIES,
+					newDependencies, newDependencies));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override

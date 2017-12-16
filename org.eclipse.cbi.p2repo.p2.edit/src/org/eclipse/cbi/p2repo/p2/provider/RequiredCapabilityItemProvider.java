@@ -21,17 +21,16 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.cbi.p2repo.p2.RequiredCapability} object.
- * <!-- begin-user-doc -->
- * <!-- end-user-doc -->
+ * This is the item provider adapter for a
+ * {@link org.eclipse.cbi.p2repo.p2.RequiredCapability} object. <!--
+ * begin-user-doc --> <!-- end-user-doc -->
  *
  * @generated
  */
 public class RequiredCapabilityItemProvider extends RequirementItemProvider {
 	/**
-	 * This constructs an instance from a factory and a notifier.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This constructs an instance from a factory and a notifier. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated
 	 */
@@ -41,66 +40,56 @@ public class RequiredCapabilityItemProvider extends RequirementItemProvider {
 
 	/**
 	 * This adds a property descriptor for the Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(
-			createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_IRequiredCapability_name_feature"),
-				getString(
-					"_UI_PropertyDescriptor_description", "_UI_IRequiredCapability_name_feature",
-					"_UI_IRequiredCapability_type"),
-				P2Package.Literals.IREQUIRED_CAPABILITY__NAME, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_IRequiredCapability_name_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_IRequiredCapability_name_feature",
+								"_UI_IRequiredCapability_type"),
+						P2Package.Literals.IREQUIRED_CAPABILITY__NAME, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Namespace feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This adds a property descriptor for the Namespace feature. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated
 	 */
 	protected void addNamespacePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(
-			createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_IRequiredCapability_namespace_feature"),
-				getString(
-					"_UI_PropertyDescriptor_description", "_UI_IRequiredCapability_namespace_feature",
-					"_UI_IRequiredCapability_type"),
-				P2Package.Literals.IREQUIRED_CAPABILITY__NAMESPACE, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_IRequiredCapability_namespace_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_IRequiredCapability_namespace_feature",
+								"_UI_IRequiredCapability_type"),
+						P2Package.Literals.IREQUIRED_CAPABILITY__NAMESPACE, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Range feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This adds a property descriptor for the Range feature. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated
 	 */
 	protected void addRangePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(
-			createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_IRequiredCapability_range_feature"),
-				getString(
-					"_UI_PropertyDescriptor_description", "_UI_IRequiredCapability_range_feature",
-					"_UI_IRequiredCapability_type"),
-				P2Package.Literals.IREQUIRED_CAPABILITY__RANGE, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_IRequiredCapability_range_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_IRequiredCapability_range_feature",
+								"_UI_IRequiredCapability_type"),
+						P2Package.Literals.IREQUIRED_CAPABILITY__RANGE, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
+	 * describing the children that can be created under this object. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated
 	 */
@@ -111,9 +100,8 @@ public class RequiredCapabilityItemProvider extends RequirementItemProvider {
 
 	/**
 	 * This returns RequiredCapability.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -122,15 +110,14 @@ public class RequiredCapabilityItemProvider extends RequirementItemProvider {
 	}
 
 	/**
-	 * This returns the property descriptors for the adapted class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This returns the property descriptors for the adapted class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
@@ -142,32 +129,29 @@ public class RequiredCapabilityItemProvider extends RequirementItemProvider {
 
 	/**
 	 * This returns the label text for the adapted class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
 		String label = ((RequiredCapability) object).getName();
-		return label == null || label.length() == 0
-				? getString("_UI_RequiredCapability_type")
+		return label == null || label.length() == 0 ? getString("_UI_RequiredCapability_type")
 				: getString("_UI_RequiredCapability_type") + " " + label;
 	}
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch(notification.getFeatureID(RequiredCapability.class)) {
+		switch (notification.getFeatureID(RequiredCapability.class)) {
 			case P2Package.REQUIRED_CAPABILITY__NAME:
 			case P2Package.REQUIRED_CAPABILITY__NAMESPACE:
 			case P2Package.REQUIRED_CAPABILITY__RANGE:

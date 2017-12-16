@@ -9,12 +9,13 @@ package org.eclipse.cbi.p2repo.p2.maven.pom;
 import org.eclipse.emf.ecore.EObject;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Notifier</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object
+ * '<em><b>Notifier</b></em>'. <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
  * 4.0.0
  *
- * Configures one method for notifying users/developers when a build breaks.
+ *         Configures one method for notifying users/developers when a build breaks.
  *
  * <!-- end-model-doc -->
  *
@@ -22,13 +23,13 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Notifier#getType <em>Type</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Notifier#isSendOnError <em>Send On Error</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Notifier#isSendOnFailure <em>Send On Failure</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Notifier#isSendOnSuccess <em>Send On Success</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Notifier#isSendOnWarning <em>Send On Warning</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Notifier#getAddress <em>Address</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Notifier#getConfiguration <em>Configuration</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Notifier#getType <em>Type</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Notifier#isSendOnError <em>Send On Error</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Notifier#isSendOnFailure <em>Send On Failure</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Notifier#isSendOnSuccess <em>Send On Success</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Notifier#isSendOnWarning <em>Send On Warning</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Notifier#getAddress <em>Address</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Notifier#getConfiguration <em>Configuration</em>}</li>
  * </ul>
  *
  * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getNotifier()
@@ -37,10 +38,11 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Notifier extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Address</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc --> <!--
-	 * begin-model-doc --> 4.0.0
+	 * Returns the value of the '<em><b>Address</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc --> 4.0.0
 	 *
-	 * &lt;b&gt;Deprecated&lt;/b&gt;. Where to send the notification to - eg email address.
+	 * &lt;b&gt;Deprecated&lt;/b&gt;. Where to send the notification to - eg
+	 * email address.
 	 *
 	 * <!-- end-model-doc -->
 	 *
@@ -48,27 +50,31 @@ public interface Notifier extends EObject {
 	 * @see #setAddress(String)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getNotifier_Address()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
-	 *        extendedMetaData="kind='element' name='address' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='address'
+	 *        namespace='##targetNamespace'"
 	 * @generated
 	 */
 	String getAddress();
 
 	/**
-	 * Returns the value of the '<em><b>Configuration</b></em>' containment reference. <!-- begin-user-doc --> <!--
-	 * end-user-doc --> <!-- begin-model-doc --> 0.0.0+ Extended configuration specific to this notifier goes here. <!--
-	 * end-model-doc -->
+	 * Returns the value of the '<em><b>Configuration</b></em>' containment
+	 * reference. <!-- begin-user-doc --> <!-- end-user-doc --> <!--
+	 * begin-model-doc --> 0.0.0+ Extended configuration specific to this
+	 * notifier goes here. <!-- end-model-doc -->
 	 *
 	 * @return the value of the '<em>Configuration</em>' containment reference.
 	 * @see #setConfiguration(ConfigurationType)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getNotifier_Configuration()
-	 * @model containment="true" extendedMetaData="kind='element' name='configuration' namespace='##targetNamespace'"
+	 * @model containment="true" extendedMetaData="kind='element'
+	 *        name='configuration' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	ConfigurationType getConfiguration();
 
 	/**
-	 * Returns the value of the '<em><b>Type</b></em>' attribute. The default value is <code>"mail"</code>. <!--
-	 * begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc --> 4.0.0 The mechanism used to deliver
+	 * Returns the value of the '<em><b>Type</b></em>' attribute. The default
+	 * value is <code>"mail"</code>. <!-- begin-user-doc --> <!-- end-user-doc
+	 * --> <!-- begin-model-doc --> 4.0.0 The mechanism used to deliver
 	 * notifications. <!-- end-model-doc -->
 	 *
 	 * @return the value of the '<em>Type</em>' attribute.
@@ -76,80 +82,94 @@ public interface Notifier extends EObject {
 	 * @see #unsetType()
 	 * @see #setType(String)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getNotifier_Type()
-	 * @model default="mail" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.String"
-	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
+	 * @model default="mail" unsettable="true"
+	 *        dataType="org.eclipse.emf.ecore.xml.type.String"
+	 *        extendedMetaData="kind='element' name='type'
+	 *        namespace='##targetNamespace'"
 	 * @generated
 	 */
 	String getType();
 
 	/**
-	 * Returns the value of the '<em><b>Send On Error</b></em>' attribute. The default value is <code>"true"</code>.
-	 * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc --> 4.0.0 Whether to send notifications on
-	 * error. <!-- end-model-doc -->
+	 * Returns the value of the '<em><b>Send On Error</b></em>' attribute. The
+	 * default value is <code>"true"</code>. <!-- begin-user-doc --> <!--
+	 * end-user-doc --> <!-- begin-model-doc --> 4.0.0 Whether to send
+	 * notifications on error. <!-- end-model-doc -->
 	 *
 	 * @return the value of the '<em>Send On Error</em>' attribute.
 	 * @see #isSetSendOnError()
 	 * @see #unsetSendOnError()
 	 * @see #setSendOnError(boolean)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getNotifier_SendOnError()
-	 * @model default="true" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Boolean"
-	 *        extendedMetaData="kind='element' name='sendOnError' namespace='##targetNamespace'"
+	 * @model default="true" unsettable="true"
+	 *        dataType="org.eclipse.emf.ecore.xml.type.Boolean"
+	 *        extendedMetaData="kind='element' name='sendOnError'
+	 *        namespace='##targetNamespace'"
 	 * @generated
 	 */
 	boolean isSendOnError();
 
 	/**
-	 * Returns the value of the '<em><b>Send On Failure</b></em>' attribute. The default value is <code>"true"</code>.
-	 * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc --> 4.0.0 Whether to send notifications on
-	 * failure. <!-- end-model-doc -->
+	 * Returns the value of the '<em><b>Send On Failure</b></em>' attribute. The
+	 * default value is <code>"true"</code>. <!-- begin-user-doc --> <!--
+	 * end-user-doc --> <!-- begin-model-doc --> 4.0.0 Whether to send
+	 * notifications on failure. <!-- end-model-doc -->
 	 *
 	 * @return the value of the '<em>Send On Failure</em>' attribute.
 	 * @see #isSetSendOnFailure()
 	 * @see #unsetSendOnFailure()
 	 * @see #setSendOnFailure(boolean)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getNotifier_SendOnFailure()
-	 * @model default="true" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Boolean"
-	 *        extendedMetaData="kind='element' name='sendOnFailure' namespace='##targetNamespace'"
+	 * @model default="true" unsettable="true"
+	 *        dataType="org.eclipse.emf.ecore.xml.type.Boolean"
+	 *        extendedMetaData="kind='element' name='sendOnFailure'
+	 *        namespace='##targetNamespace'"
 	 * @generated
 	 */
 	boolean isSendOnFailure();
 
 	/**
-	 * Returns the value of the '<em><b>Send On Success</b></em>' attribute. The default value is <code>"true"</code>.
-	 * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc --> 4.0.0 Whether to send notifications on
-	 * success. <!-- end-model-doc -->
+	 * Returns the value of the '<em><b>Send On Success</b></em>' attribute. The
+	 * default value is <code>"true"</code>. <!-- begin-user-doc --> <!--
+	 * end-user-doc --> <!-- begin-model-doc --> 4.0.0 Whether to send
+	 * notifications on success. <!-- end-model-doc -->
 	 *
 	 * @return the value of the '<em>Send On Success</em>' attribute.
 	 * @see #isSetSendOnSuccess()
 	 * @see #unsetSendOnSuccess()
 	 * @see #setSendOnSuccess(boolean)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getNotifier_SendOnSuccess()
-	 * @model default="true" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Boolean"
-	 *        extendedMetaData="kind='element' name='sendOnSuccess' namespace='##targetNamespace'"
+	 * @model default="true" unsettable="true"
+	 *        dataType="org.eclipse.emf.ecore.xml.type.Boolean"
+	 *        extendedMetaData="kind='element' name='sendOnSuccess'
+	 *        namespace='##targetNamespace'"
 	 * @generated
 	 */
 	boolean isSendOnSuccess();
 
 	/**
-	 * Returns the value of the '<em><b>Send On Warning</b></em>' attribute. The default value is <code>"true"</code>.
-	 * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc --> 4.0.0 Whether to send notifications on
-	 * warning. <!-- end-model-doc -->
+	 * Returns the value of the '<em><b>Send On Warning</b></em>' attribute. The
+	 * default value is <code>"true"</code>. <!-- begin-user-doc --> <!--
+	 * end-user-doc --> <!-- begin-model-doc --> 4.0.0 Whether to send
+	 * notifications on warning. <!-- end-model-doc -->
 	 *
 	 * @return the value of the '<em>Send On Warning</em>' attribute.
 	 * @see #isSetSendOnWarning()
 	 * @see #unsetSendOnWarning()
 	 * @see #setSendOnWarning(boolean)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getNotifier_SendOnWarning()
-	 * @model default="true" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Boolean"
-	 *        extendedMetaData="kind='element' name='sendOnWarning' namespace='##targetNamespace'"
+	 * @model default="true" unsettable="true"
+	 *        dataType="org.eclipse.emf.ecore.xml.type.Boolean"
+	 *        extendedMetaData="kind='element' name='sendOnWarning'
+	 *        namespace='##targetNamespace'"
 	 * @generated
 	 */
 	boolean isSendOnWarning();
 
 	/**
 	 * Returns whether the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Notifier#isSendOnError <em>Send On Error</em>}' attribute is set.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @return whether the value of the '<em>Send On Error</em>' attribute is set.
 	 * @see #unsetSendOnError()
 	 * @see #isSendOnError()
@@ -159,10 +179,9 @@ public interface Notifier extends EObject {
 	boolean isSetSendOnError();
 
 	/**
-	 * Returns whether the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Notifier#isSendOnFailure <em>Send On Failure</em>}' attribute is
-	 * set.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * Returns whether the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Notifier#isSendOnFailure <em>Send On Failure</em>}' attribute is set.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @return whether the value of the '<em>Send On Failure</em>' attribute is set.
 	 * @see #unsetSendOnFailure()
 	 * @see #isSendOnFailure()
@@ -172,10 +191,9 @@ public interface Notifier extends EObject {
 	boolean isSetSendOnFailure();
 
 	/**
-	 * Returns whether the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Notifier#isSendOnSuccess <em>Send On Success</em>}' attribute is
-	 * set.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * Returns whether the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Notifier#isSendOnSuccess <em>Send On Success</em>}' attribute is set.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @return whether the value of the '<em>Send On Success</em>' attribute is set.
 	 * @see #unsetSendOnSuccess()
 	 * @see #isSendOnSuccess()
@@ -185,10 +203,9 @@ public interface Notifier extends EObject {
 	boolean isSetSendOnSuccess();
 
 	/**
-	 * Returns whether the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Notifier#isSendOnWarning <em>Send On Warning</em>}' attribute is
-	 * set.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * Returns whether the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Notifier#isSendOnWarning <em>Send On Warning</em>}' attribute is set.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @return whether the value of the '<em>Send On Warning</em>' attribute is set.
 	 * @see #unsetSendOnWarning()
 	 * @see #isSendOnWarning()
@@ -199,8 +216,8 @@ public interface Notifier extends EObject {
 
 	/**
 	 * Returns whether the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Notifier#getType <em>Type</em>}' attribute is set.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @return whether the value of the '<em>Type</em>' attribute is set.
 	 * @see #unsetType()
 	 * @see #getType()
@@ -210,8 +227,10 @@ public interface Notifier extends EObject {
 	boolean isSetType();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Notifier#getAddress <em>Address</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the
+	 * '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Notifier#getAddress
+	 * <em>Address</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
 	 *
 	 * @param value
 	 *            the new value of the '<em>Address</em>' attribute.
@@ -222,10 +241,9 @@ public interface Notifier extends EObject {
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Notifier#getConfiguration <em>Configuration</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Configuration</em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Configuration</em>' containment reference.
 	 * @see #getConfiguration()
 	 * @generated
 	 */
@@ -233,10 +251,9 @@ public interface Notifier extends EObject {
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Notifier#isSendOnError <em>Send On Error</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Send On Error</em>' attribute.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * @param value the new value of the '<em>Send On Error</em>' attribute.
 	 * @see #isSetSendOnError()
 	 * @see #unsetSendOnError()
 	 * @see #isSendOnError()
@@ -246,10 +263,9 @@ public interface Notifier extends EObject {
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Notifier#isSendOnFailure <em>Send On Failure</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Send On Failure</em>' attribute.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * @param value the new value of the '<em>Send On Failure</em>' attribute.
 	 * @see #isSetSendOnFailure()
 	 * @see #unsetSendOnFailure()
 	 * @see #isSendOnFailure()
@@ -259,10 +275,9 @@ public interface Notifier extends EObject {
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Notifier#isSendOnSuccess <em>Send On Success</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Send On Success</em>' attribute.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * @param value the new value of the '<em>Send On Success</em>' attribute.
 	 * @see #isSetSendOnSuccess()
 	 * @see #unsetSendOnSuccess()
 	 * @see #isSendOnSuccess()
@@ -272,10 +287,9 @@ public interface Notifier extends EObject {
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Notifier#isSendOnWarning <em>Send On Warning</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Send On Warning</em>' attribute.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * @param value the new value of the '<em>Send On Warning</em>' attribute.
 	 * @see #isSetSendOnWarning()
 	 * @see #unsetSendOnWarning()
 	 * @see #isSendOnWarning()
@@ -286,9 +300,7 @@ public interface Notifier extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Notifier#getType <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Type</em>' attribute.
+	 * @param value the new value of the '<em>Type</em>' attribute.
 	 * @see #isSetType()
 	 * @see #unsetType()
 	 * @see #getType()
@@ -298,8 +310,8 @@ public interface Notifier extends EObject {
 
 	/**
 	 * Unsets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Notifier#isSendOnError <em>Send On Error</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #isSetSendOnError()
 	 * @see #isSendOnError()
 	 * @see #setSendOnError(boolean)
@@ -309,8 +321,8 @@ public interface Notifier extends EObject {
 
 	/**
 	 * Unsets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Notifier#isSendOnFailure <em>Send On Failure</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #isSetSendOnFailure()
 	 * @see #isSendOnFailure()
 	 * @see #setSendOnFailure(boolean)
@@ -320,8 +332,8 @@ public interface Notifier extends EObject {
 
 	/**
 	 * Unsets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Notifier#isSendOnSuccess <em>Send On Success</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #isSetSendOnSuccess()
 	 * @see #isSendOnSuccess()
 	 * @see #setSendOnSuccess(boolean)
@@ -331,8 +343,8 @@ public interface Notifier extends EObject {
 
 	/**
 	 * Unsets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Notifier#isSendOnWarning <em>Send On Warning</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #isSetSendOnWarning()
 	 * @see #isSendOnWarning()
 	 * @see #setSendOnWarning(boolean)
@@ -343,7 +355,6 @@ public interface Notifier extends EObject {
 	/**
 	 * Unsets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Notifier#getType <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @see #isSetType()
 	 * @see #getType()
 	 * @see #setType(String)

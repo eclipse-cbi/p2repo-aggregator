@@ -10,13 +10,14 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Roles Type</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object '<em><b>Roles
+ * Type</b></em>'. <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.RolesType#getRole <em>Role</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.RolesType#getRole <em>Role</em>}</li>
  * </ul>
  *
  * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getRolesType()
@@ -29,10 +30,10 @@ public interface RolesType extends EObject {
 	 * The list contents are of type {@link java.lang.String}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Role</em>' attribute list isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Role</em>' attribute list isn't clear, there
+	 * really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Role</em>' attribute list.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getRolesType_Role()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.xml.type.String"

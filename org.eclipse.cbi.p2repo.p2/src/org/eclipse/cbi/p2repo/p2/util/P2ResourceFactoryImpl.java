@@ -20,23 +20,20 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceFactoryImpl;
 
 /**
- * <!-- begin-user-doc -->
- * The <b>Resource Factory</b> associated with the package.
- * <!-- end-user-doc -->
- *
+ * <!-- begin-user-doc --> The <b>Resource Factory</b> associated with the
+ * package. <!-- end-user-doc -->
  * @see org.eclipse.cbi.p2repo.p2.util.P2ResourceImpl
  * @generated
  */
 public class P2ResourceFactoryImpl extends ResourceFactoryImpl {
 	private static final Pattern URI_LOADER_PATTERN = Pattern.compile("^([^:]+):.*");
 
-	private Map<String, IConfigurationElement> loaderConfigurations = new HashMap<String, IConfigurationElement>();
+	private Map<String, IConfigurationElement> loaderConfigurations = new HashMap<>();
 
 	/**
 	 * Creates an instance of the resource factory.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @generated
 	 */
 	public P2ResourceFactoryImpl() {
@@ -44,9 +41,8 @@ public class P2ResourceFactoryImpl extends ResourceFactoryImpl {
 	}
 
 	/**
-	 * Creates an instance of the resource.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Creates an instance of the resource. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
@@ -54,24 +50,22 @@ public class P2ResourceFactoryImpl extends ResourceFactoryImpl {
 	public Resource createResource(URI uri) {
 		String nature;
 		Matcher matcher = URI_LOADER_PATTERN.matcher(uri.opaquePart());
-		if(matcher.matches())
+		if (matcher.matches())
 			nature = matcher.group(1);
 		else
 			throw new RuntimeException("Unexpected URI format: " + uri.toString());
 
 		IConfigurationElement loaderConfiguration = loaderConfigurations.get(nature);
-		if(loaderConfiguration == null || !loaderConfiguration.isValid())
+		if (loaderConfiguration == null || !loaderConfiguration.isValid())
 			try {
 				loaderConfiguration = RepositoryLoaderUtils.getLoaderFor(matcher.group(1));
-			}
-			catch(CoreException e) {
+			} catch (CoreException e) {
 				throw new RuntimeException(e.getMessage(), e);
 			}
 
 		try {
 			return new P2ResourceImpl(uri, (IRepositoryLoader) loaderConfiguration.createExecutableExtension("class"));
-		}
-		catch(CoreException e) {
+		} catch (CoreException e) {
 			throw new RuntimeException(e.getMessage(), e);
 		}
 	}

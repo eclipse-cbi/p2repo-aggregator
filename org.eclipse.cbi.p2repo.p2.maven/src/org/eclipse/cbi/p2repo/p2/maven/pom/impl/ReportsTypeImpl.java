@@ -17,12 +17,13 @@ import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Reports Type</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Reports
+ * Type</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ReportsTypeImpl#getAny <em>Any</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ReportsTypeImpl#getAny <em>Any</em>}</li>
  * </ul>
  *
  * @generated
@@ -30,9 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class ReportsTypeImpl extends EObjectImpl implements ReportsType {
 	/**
 	 * The cached value of the '{@link #getAny() <em>Any</em>}' attribute list.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getAny()
 	 * @generated
 	 * @ordered
@@ -41,7 +40,6 @@ public class ReportsTypeImpl extends EObjectImpl implements ReportsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected ReportsTypeImpl() {
@@ -50,14 +48,13 @@ public class ReportsTypeImpl extends EObjectImpl implements ReportsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.REPORTS_TYPE__ANY:
-				if(coreType)
+				if (coreType)
 					return getAny();
 				return ((FeatureMap.Internal) getAny()).getWrapper();
 		}
@@ -66,12 +63,11 @@ public class ReportsTypeImpl extends EObjectImpl implements ReportsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.REPORTS_TYPE__ANY:
 				return ((InternalEList<?>) getAny()).basicRemove(otherEnd, msgs);
 		}
@@ -80,12 +76,11 @@ public class ReportsTypeImpl extends EObjectImpl implements ReportsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.REPORTS_TYPE__ANY:
 				return any != null && !any.isEmpty();
 		}
@@ -94,12 +89,11 @@ public class ReportsTypeImpl extends EObjectImpl implements ReportsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.REPORTS_TYPE__ANY:
 				((FeatureMap.Internal) getAny()).set(newValue);
 				return;
@@ -109,12 +103,11 @@ public class ReportsTypeImpl extends EObjectImpl implements ReportsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.REPORTS_TYPE__ANY:
 				getAny().clear();
 				return;
@@ -124,12 +117,11 @@ public class ReportsTypeImpl extends EObjectImpl implements ReportsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public FeatureMap getAny() {
-		if(any == null) {
+		if (any == null) {
 			any = new BasicFeatureMap(this, PomPackage.REPORTS_TYPE__ANY);
 		}
 		return any;
@@ -137,12 +129,11 @@ public class ReportsTypeImpl extends EObjectImpl implements ReportsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if(eIsProxy())
+		if (eIsProxy())
 			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
@@ -154,7 +145,6 @@ public class ReportsTypeImpl extends EObjectImpl implements ReportsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override

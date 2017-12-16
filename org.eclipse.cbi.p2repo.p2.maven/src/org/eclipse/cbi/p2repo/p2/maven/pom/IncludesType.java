@@ -10,13 +10,14 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Includes Type</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object '<em><b>Includes
+ * Type</b></em>'. <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.IncludesType#getInclude <em>Include</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.IncludesType#getInclude <em>Include</em>}</li>
  * </ul>
  *
  * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getIncludesType()
@@ -27,12 +28,13 @@ public interface IncludesType extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Include</b></em>' attribute list.
 	 * The list contents are of type {@link java.lang.String}.
-	 * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc
+	 * -->
 	 * <p>
-	 * If the meaning of the '<em>Include</em>' attribute list isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Include</em>' attribute list isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Include</em>' attribute list.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getIncludesType_Include()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.xml.type.String"

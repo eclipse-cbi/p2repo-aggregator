@@ -37,41 +37,42 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Model</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object
+ * '<em><b>Model</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModelImpl#getParent <em>Parent</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModelImpl#getModelVersion <em>Model Version</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModelImpl#getGroupId <em>Group Id</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModelImpl#getArtifactId <em>Artifact Id</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModelImpl#getPackaging <em>Packaging</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModelImpl#getName <em>Name</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModelImpl#getVersion <em>Version</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModelImpl#getDescription <em>Description</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModelImpl#getUrl <em>Url</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModelImpl#getPrerequisites <em>Prerequisites</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModelImpl#getIssueManagement <em>Issue Management</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModelImpl#getCiManagement <em>Ci Management</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModelImpl#getInceptionYear <em>Inception Year</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModelImpl#getMailingLists <em>Mailing Lists</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModelImpl#getDevelopers <em>Developers</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModelImpl#getContributors <em>Contributors</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModelImpl#getLicenses <em>Licenses</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModelImpl#getScm <em>Scm</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModelImpl#getOrganization <em>Organization</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModelImpl#getBuild <em>Build</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModelImpl#getProfiles <em>Profiles</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModelImpl#getModules <em>Modules</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModelImpl#getRepositories <em>Repositories</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModelImpl#getPluginRepositories <em>Plugin Repositories</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModelImpl#getDependencies <em>Dependencies</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModelImpl#getReports <em>Reports</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModelImpl#getReporting <em>Reporting</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModelImpl#getDependencyManagement <em>Dependency Management</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModelImpl#getDistributionManagement <em>Distribution Management</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModelImpl#getProperties <em>Properties</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModelImpl#getParent <em>Parent</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModelImpl#getModelVersion <em>Model Version</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModelImpl#getGroupId <em>Group Id</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModelImpl#getArtifactId <em>Artifact Id</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModelImpl#getPackaging <em>Packaging</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModelImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModelImpl#getVersion <em>Version</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModelImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModelImpl#getUrl <em>Url</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModelImpl#getPrerequisites <em>Prerequisites</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModelImpl#getIssueManagement <em>Issue Management</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModelImpl#getCiManagement <em>Ci Management</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModelImpl#getInceptionYear <em>Inception Year</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModelImpl#getMailingLists <em>Mailing Lists</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModelImpl#getDevelopers <em>Developers</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModelImpl#getContributors <em>Contributors</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModelImpl#getLicenses <em>Licenses</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModelImpl#getScm <em>Scm</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModelImpl#getOrganization <em>Organization</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModelImpl#getBuild <em>Build</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModelImpl#getProfiles <em>Profiles</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModelImpl#getModules <em>Modules</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModelImpl#getRepositories <em>Repositories</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModelImpl#getPluginRepositories <em>Plugin Repositories</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModelImpl#getDependencies <em>Dependencies</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModelImpl#getReports <em>Reports</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModelImpl#getReporting <em>Reporting</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModelImpl#getDependencyManagement <em>Dependency Management</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModelImpl#getDistributionManagement <em>Distribution Management</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModelImpl#getProperties <em>Properties</em>}</li>
  * </ul>
  *
  * @generated
@@ -79,9 +80,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 public class ModelImpl extends EObjectImpl implements Model {
 	/**
 	 * The cached value of the '{@link #getParent() <em>Parent</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getParent()
 	 * @generated
 	 * @ordered
@@ -90,9 +89,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * The default value of the '{@link #getModelVersion() <em>Model Version</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getModelVersion()
 	 * @generated
 	 * @ordered
@@ -101,9 +98,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * The cached value of the '{@link #getModelVersion() <em>Model Version</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getModelVersion()
 	 * @generated
 	 * @ordered
@@ -112,9 +107,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * The default value of the '{@link #getGroupId() <em>Group Id</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getGroupId()
 	 * @generated
 	 * @ordered
@@ -123,9 +116,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * The cached value of the '{@link #getGroupId() <em>Group Id</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getGroupId()
 	 * @generated
 	 * @ordered
@@ -134,9 +125,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * The default value of the '{@link #getArtifactId() <em>Artifact Id</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getArtifactId()
 	 * @generated
 	 * @ordered
@@ -145,9 +134,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * The cached value of the '{@link #getArtifactId() <em>Artifact Id</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getArtifactId()
 	 * @generated
 	 * @ordered
@@ -156,9 +143,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * The default value of the '{@link #getPackaging() <em>Packaging</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getPackaging()
 	 * @generated
 	 * @ordered
@@ -167,9 +152,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * The cached value of the '{@link #getPackaging() <em>Packaging</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getPackaging()
 	 * @generated
 	 * @ordered
@@ -178,17 +161,16 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * This is true if the Packaging attribute has been set.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	protected boolean packagingESet;
 
 	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 *
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -196,9 +178,8 @@ public class ModelImpl extends EObjectImpl implements Model {
 	protected static final String NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 *
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -207,9 +188,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getVersion()
 	 * @generated
 	 * @ordered
@@ -218,9 +197,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getVersion()
 	 * @generated
 	 * @ordered
@@ -229,9 +206,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getDescription()
 	 * @generated
 	 * @ordered
@@ -240,9 +215,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getDescription()
 	 * @generated
 	 * @ordered
@@ -250,8 +223,8 @@ public class ModelImpl extends EObjectImpl implements Model {
 	protected String description = DESCRIPTION_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getUrl() <em>Url</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The default value of the '{@link #getUrl() <em>Url</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @see #getUrl()
 	 * @generated
@@ -260,8 +233,8 @@ public class ModelImpl extends EObjectImpl implements Model {
 	protected static final String URL_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getUrl() <em>Url</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getUrl() <em>Url</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @see #getUrl()
 	 * @generated
@@ -270,9 +243,9 @@ public class ModelImpl extends EObjectImpl implements Model {
 	protected String url = URL_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getPrerequisites() <em>Prerequisites</em>}' containment reference. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * The cached value of the '{@link #getPrerequisites() <em>Prerequisites</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getPrerequisites()
 	 * @generated
 	 * @ordered
@@ -280,9 +253,9 @@ public class ModelImpl extends EObjectImpl implements Model {
 	protected Prerequisites prerequisites;
 
 	/**
-	 * The cached value of the '{@link #getIssueManagement() <em>Issue Management</em>}' containment reference. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * The cached value of the '{@link #getIssueManagement() <em>Issue Management</em>}' containment reference.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #getIssueManagement()
 	 * @generated
 	 * @ordered
@@ -290,9 +263,9 @@ public class ModelImpl extends EObjectImpl implements Model {
 	protected IssueManagement issueManagement;
 
 	/**
-	 * The cached value of the '{@link #getCiManagement() <em>Ci Management</em>}' containment reference. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * The cached value of the '{@link #getCiManagement() <em>Ci Management</em>}' containment reference.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #getCiManagement()
 	 * @generated
 	 * @ordered
@@ -301,9 +274,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * The default value of the '{@link #getInceptionYear() <em>Inception Year</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getInceptionYear()
 	 * @generated
 	 * @ordered
@@ -312,9 +283,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * The cached value of the '{@link #getInceptionYear() <em>Inception Year</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getInceptionYear()
 	 * @generated
 	 * @ordered
@@ -322,9 +291,9 @@ public class ModelImpl extends EObjectImpl implements Model {
 	protected String inceptionYear = INCEPTION_YEAR_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getMailingLists() <em>Mailing Lists</em>}' containment reference. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * The cached value of the '{@link #getMailingLists() <em>Mailing Lists</em>}' containment reference.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #getMailingLists()
 	 * @generated
 	 * @ordered
@@ -333,9 +302,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * The cached value of the '{@link #getDevelopers() <em>Developers</em>}' containment reference.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getDevelopers()
 	 * @generated
 	 * @ordered
@@ -343,9 +310,9 @@ public class ModelImpl extends EObjectImpl implements Model {
 	protected DevelopersType developers;
 
 	/**
-	 * The cached value of the '{@link #getContributors() <em>Contributors</em>}' containment reference. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * The cached value of the '{@link #getContributors() <em>Contributors</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getContributors()
 	 * @generated
 	 * @ordered
@@ -354,9 +321,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * The cached value of the '{@link #getLicenses() <em>Licenses</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getLicenses()
 	 * @generated
 	 * @ordered
@@ -365,9 +330,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * The cached value of the '{@link #getScm() <em>Scm</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getScm()
 	 * @generated
 	 * @ordered
@@ -375,9 +338,9 @@ public class ModelImpl extends EObjectImpl implements Model {
 	protected Scm scm;
 
 	/**
-	 * The cached value of the '{@link #getOrganization() <em>Organization</em>}' containment reference. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * The cached value of the '{@link #getOrganization() <em>Organization</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getOrganization()
 	 * @generated
 	 * @ordered
@@ -386,9 +349,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * The cached value of the '{@link #getBuild() <em>Build</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getBuild()
 	 * @generated
 	 * @ordered
@@ -397,9 +358,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * The cached value of the '{@link #getProfiles() <em>Profiles</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getProfiles()
 	 * @generated
 	 * @ordered
@@ -408,9 +367,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * The cached value of the '{@link #getModules() <em>Modules</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getModules()
 	 * @generated
 	 * @ordered
@@ -418,9 +375,9 @@ public class ModelImpl extends EObjectImpl implements Model {
 	protected ModulesType modules;
 
 	/**
-	 * The cached value of the '{@link #getRepositories() <em>Repositories</em>}' containment reference. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * The cached value of the '{@link #getRepositories() <em>Repositories</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getRepositories()
 	 * @generated
 	 * @ordered
@@ -429,8 +386,8 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * The cached value of the '{@link #getPluginRepositories() <em>Plugin Repositories</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #getPluginRepositories()
 	 * @generated
 	 * @ordered
@@ -438,9 +395,9 @@ public class ModelImpl extends EObjectImpl implements Model {
 	protected PluginRepositoriesType pluginRepositories;
 
 	/**
-	 * The cached value of the '{@link #getDependencies() <em>Dependencies</em>}' containment reference. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * The cached value of the '{@link #getDependencies() <em>Dependencies</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getDependencies()
 	 * @generated
 	 * @ordered
@@ -449,9 +406,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * The cached value of the '{@link #getReports() <em>Reports</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getReports()
 	 * @generated
 	 * @ordered
@@ -460,9 +415,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * The cached value of the '{@link #getReporting() <em>Reporting</em>}' containment reference.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getReporting()
 	 * @generated
 	 * @ordered
@@ -471,8 +424,8 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * The cached value of the '{@link #getDependencyManagement() <em>Dependency Management</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #getDependencyManagement()
 	 * @generated
 	 * @ordered
@@ -480,8 +433,9 @@ public class ModelImpl extends EObjectImpl implements Model {
 	protected DependencyManagement dependencyManagement;
 
 	/**
-	 * The cached value of the '{@link #getDistributionManagement() <em>Distribution Management</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getDistributionManagement()
+	 * <em>Distribution Management</em>}' containment reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @see #getDistributionManagement()
 	 * @generated
@@ -491,9 +445,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getProperties()
 	 * @generated
 	 * @ordered
@@ -502,7 +454,6 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected ModelImpl() {
@@ -511,16 +462,15 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetBuild(Build newBuild, NotificationChain msgs) {
 		Build oldBuild = build;
 		build = newBuild;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, PomPackage.MODEL__BUILD, oldBuild, newBuild);
-			if(msgs == null)
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__BUILD,
+					oldBuild, newBuild);
+			if (msgs == null)
 				msgs = notification;
 			else
 				msgs.add(notification);
@@ -530,16 +480,15 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetCiManagement(CiManagement newCiManagement, NotificationChain msgs) {
 		CiManagement oldCiManagement = ciManagement;
 		ciManagement = newCiManagement;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, PomPackage.MODEL__CI_MANAGEMENT, oldCiManagement, newCiManagement);
-			if(msgs == null)
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					PomPackage.MODEL__CI_MANAGEMENT, oldCiManagement, newCiManagement);
+			if (msgs == null)
 				msgs = notification;
 			else
 				msgs.add(notification);
@@ -549,16 +498,15 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetContributors(ContributorsType newContributors, NotificationChain msgs) {
 		ContributorsType oldContributors = contributors;
 		contributors = newContributors;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, PomPackage.MODEL__CONTRIBUTORS, oldContributors, newContributors);
-			if(msgs == null)
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					PomPackage.MODEL__CONTRIBUTORS, oldContributors, newContributors);
+			if (msgs == null)
 				msgs = notification;
 			else
 				msgs.add(notification);
@@ -568,16 +516,15 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetDependencies(DependenciesType newDependencies, NotificationChain msgs) {
 		DependenciesType oldDependencies = dependencies;
 		dependencies = newDependencies;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, PomPackage.MODEL__DEPENDENCIES, oldDependencies, newDependencies);
-			if(msgs == null)
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					PomPackage.MODEL__DEPENDENCIES, oldDependencies, newDependencies);
+			if (msgs == null)
 				msgs = notification;
 			else
 				msgs.add(notification);
@@ -587,18 +534,16 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetDependencyManagement(DependencyManagement newDependencyManagement,
 			NotificationChain msgs) {
 		DependencyManagement oldDependencyManagement = dependencyManagement;
 		dependencyManagement = newDependencyManagement;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, PomPackage.MODEL__DEPENDENCY_MANAGEMENT, oldDependencyManagement,
-				newDependencyManagement);
-			if(msgs == null)
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					PomPackage.MODEL__DEPENDENCY_MANAGEMENT, oldDependencyManagement, newDependencyManagement);
+			if (msgs == null)
 				msgs = notification;
 			else
 				msgs.add(notification);
@@ -608,16 +553,15 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetDevelopers(DevelopersType newDevelopers, NotificationChain msgs) {
 		DevelopersType oldDevelopers = developers;
 		developers = newDevelopers;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, PomPackage.MODEL__DEVELOPERS, oldDevelopers, newDevelopers);
-			if(msgs == null)
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__DEVELOPERS,
+					oldDevelopers, newDevelopers);
+			if (msgs == null)
 				msgs = notification;
 			else
 				msgs.add(notification);
@@ -627,18 +571,16 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetDistributionManagement(DistributionManagement newDistributionManagement,
 			NotificationChain msgs) {
 		DistributionManagement oldDistributionManagement = distributionManagement;
 		distributionManagement = newDistributionManagement;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, PomPackage.MODEL__DISTRIBUTION_MANAGEMENT, oldDistributionManagement,
-				newDistributionManagement);
-			if(msgs == null)
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					PomPackage.MODEL__DISTRIBUTION_MANAGEMENT, oldDistributionManagement, newDistributionManagement);
+			if (msgs == null)
 				msgs = notification;
 			else
 				msgs.add(notification);
@@ -648,16 +590,15 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetIssueManagement(IssueManagement newIssueManagement, NotificationChain msgs) {
 		IssueManagement oldIssueManagement = issueManagement;
 		issueManagement = newIssueManagement;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, PomPackage.MODEL__ISSUE_MANAGEMENT, oldIssueManagement, newIssueManagement);
-			if(msgs == null)
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					PomPackage.MODEL__ISSUE_MANAGEMENT, oldIssueManagement, newIssueManagement);
+			if (msgs == null)
 				msgs = notification;
 			else
 				msgs.add(notification);
@@ -667,16 +608,15 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetLicenses(LicensesType newLicenses, NotificationChain msgs) {
 		LicensesType oldLicenses = licenses;
 		licenses = newLicenses;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, PomPackage.MODEL__LICENSES, oldLicenses, newLicenses);
-			if(msgs == null)
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__LICENSES,
+					oldLicenses, newLicenses);
+			if (msgs == null)
 				msgs = notification;
 			else
 				msgs.add(notification);
@@ -686,16 +626,15 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetMailingLists(MailingListsType newMailingLists, NotificationChain msgs) {
 		MailingListsType oldMailingLists = mailingLists;
 		mailingLists = newMailingLists;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, PomPackage.MODEL__MAILING_LISTS, oldMailingLists, newMailingLists);
-			if(msgs == null)
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					PomPackage.MODEL__MAILING_LISTS, oldMailingLists, newMailingLists);
+			if (msgs == null)
 				msgs = notification;
 			else
 				msgs.add(notification);
@@ -705,16 +644,15 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetModules(ModulesType newModules, NotificationChain msgs) {
 		ModulesType oldModules = modules;
 		modules = newModules;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, PomPackage.MODEL__MODULES, oldModules, newModules);
-			if(msgs == null)
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__MODULES,
+					oldModules, newModules);
+			if (msgs == null)
 				msgs = notification;
 			else
 				msgs.add(notification);
@@ -724,16 +662,15 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetOrganization(Organization newOrganization, NotificationChain msgs) {
 		Organization oldOrganization = organization;
 		organization = newOrganization;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, PomPackage.MODEL__ORGANIZATION, oldOrganization, newOrganization);
-			if(msgs == null)
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					PomPackage.MODEL__ORGANIZATION, oldOrganization, newOrganization);
+			if (msgs == null)
 				msgs = notification;
 			else
 				msgs.add(notification);
@@ -743,16 +680,15 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetParent(Parent newParent, NotificationChain msgs) {
 		Parent oldParent = parent;
 		parent = newParent;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, PomPackage.MODEL__PARENT, oldParent, newParent);
-			if(msgs == null)
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__PARENT,
+					oldParent, newParent);
+			if (msgs == null)
 				msgs = notification;
 			else
 				msgs.add(notification);
@@ -762,18 +698,16 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetPluginRepositories(PluginRepositoriesType newPluginRepositories,
 			NotificationChain msgs) {
 		PluginRepositoriesType oldPluginRepositories = pluginRepositories;
 		pluginRepositories = newPluginRepositories;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, PomPackage.MODEL__PLUGIN_REPOSITORIES, oldPluginRepositories,
-				newPluginRepositories);
-			if(msgs == null)
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					PomPackage.MODEL__PLUGIN_REPOSITORIES, oldPluginRepositories, newPluginRepositories);
+			if (msgs == null)
 				msgs = notification;
 			else
 				msgs.add(notification);
@@ -783,16 +717,15 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetPrerequisites(Prerequisites newPrerequisites, NotificationChain msgs) {
 		Prerequisites oldPrerequisites = prerequisites;
 		prerequisites = newPrerequisites;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, PomPackage.MODEL__PREREQUISITES, oldPrerequisites, newPrerequisites);
-			if(msgs == null)
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					PomPackage.MODEL__PREREQUISITES, oldPrerequisites, newPrerequisites);
+			if (msgs == null)
 				msgs = notification;
 			else
 				msgs.add(notification);
@@ -802,16 +735,15 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetProfiles(ProfilesType newProfiles, NotificationChain msgs) {
 		ProfilesType oldProfiles = profiles;
 		profiles = newProfiles;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, PomPackage.MODEL__PROFILES, oldProfiles, newProfiles);
-			if(msgs == null)
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__PROFILES,
+					oldProfiles, newProfiles);
+			if (msgs == null)
 				msgs = notification;
 			else
 				msgs.add(notification);
@@ -821,16 +753,15 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetProperties(PropertiesType newProperties, NotificationChain msgs) {
 		PropertiesType oldProperties = properties;
 		properties = newProperties;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, PomPackage.MODEL__PROPERTIES, oldProperties, newProperties);
-			if(msgs == null)
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__PROPERTIES,
+					oldProperties, newProperties);
+			if (msgs == null)
 				msgs = notification;
 			else
 				msgs.add(notification);
@@ -840,16 +771,15 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetReporting(Reporting newReporting, NotificationChain msgs) {
 		Reporting oldReporting = reporting;
 		reporting = newReporting;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, PomPackage.MODEL__REPORTING, oldReporting, newReporting);
-			if(msgs == null)
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__REPORTING,
+					oldReporting, newReporting);
+			if (msgs == null)
 				msgs = notification;
 			else
 				msgs.add(notification);
@@ -859,16 +789,15 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetReports(ReportsType newReports, NotificationChain msgs) {
 		ReportsType oldReports = reports;
 		reports = newReports;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, PomPackage.MODEL__REPORTS, oldReports, newReports);
-			if(msgs == null)
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__REPORTS,
+					oldReports, newReports);
+			if (msgs == null)
 				msgs = notification;
 			else
 				msgs.add(notification);
@@ -878,16 +807,15 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetRepositories(RepositoriesType newRepositories, NotificationChain msgs) {
 		RepositoriesType oldRepositories = repositories;
 		repositories = newRepositories;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, PomPackage.MODEL__REPOSITORIES, oldRepositories, newRepositories);
-			if(msgs == null)
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					PomPackage.MODEL__REPOSITORIES, oldRepositories, newRepositories);
+			if (msgs == null)
 				msgs = notification;
 			else
 				msgs.add(notification);
@@ -897,16 +825,15 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetScm(Scm newScm, NotificationChain msgs) {
 		Scm oldScm = scm;
 		scm = newScm;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, PomPackage.MODEL__SCM, oldScm, newScm);
-			if(msgs == null)
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__SCM,
+					oldScm, newScm);
+			if (msgs == null)
 				msgs = notification;
 			else
 				msgs.add(notification);
@@ -916,12 +843,11 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.MODEL__PARENT:
 				return getParent();
 			case PomPackage.MODEL__MODEL_VERSION:
@@ -988,12 +914,11 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.MODEL__PARENT:
 				return basicSetParent(null, msgs);
 			case PomPackage.MODEL__PREREQUISITES:
@@ -1042,44 +967,30 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.MODEL__PARENT:
 				return parent != null;
 			case PomPackage.MODEL__MODEL_VERSION:
-				return MODEL_VERSION_EDEFAULT == null
-						? modelVersion != null
+				return MODEL_VERSION_EDEFAULT == null ? modelVersion != null
 						: !MODEL_VERSION_EDEFAULT.equals(modelVersion);
 			case PomPackage.MODEL__GROUP_ID:
-				return GROUP_ID_EDEFAULT == null
-						? groupId != null
-						: !GROUP_ID_EDEFAULT.equals(groupId);
+				return GROUP_ID_EDEFAULT == null ? groupId != null : !GROUP_ID_EDEFAULT.equals(groupId);
 			case PomPackage.MODEL__ARTIFACT_ID:
-				return ARTIFACT_ID_EDEFAULT == null
-						? artifactId != null
-						: !ARTIFACT_ID_EDEFAULT.equals(artifactId);
+				return ARTIFACT_ID_EDEFAULT == null ? artifactId != null : !ARTIFACT_ID_EDEFAULT.equals(artifactId);
 			case PomPackage.MODEL__PACKAGING:
 				return isSetPackaging();
 			case PomPackage.MODEL__NAME:
-				return NAME_EDEFAULT == null
-						? name != null
-						: !NAME_EDEFAULT.equals(name);
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case PomPackage.MODEL__VERSION:
-				return VERSION_EDEFAULT == null
-						? version != null
-						: !VERSION_EDEFAULT.equals(version);
+				return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
 			case PomPackage.MODEL__DESCRIPTION:
-				return DESCRIPTION_EDEFAULT == null
-						? description != null
-						: !DESCRIPTION_EDEFAULT.equals(description);
+				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 			case PomPackage.MODEL__URL:
-				return URL_EDEFAULT == null
-						? url != null
-						: !URL_EDEFAULT.equals(url);
+				return URL_EDEFAULT == null ? url != null : !URL_EDEFAULT.equals(url);
 			case PomPackage.MODEL__PREREQUISITES:
 				return prerequisites != null;
 			case PomPackage.MODEL__ISSUE_MANAGEMENT:
@@ -1087,8 +998,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 			case PomPackage.MODEL__CI_MANAGEMENT:
 				return ciManagement != null;
 			case PomPackage.MODEL__INCEPTION_YEAR:
-				return INCEPTION_YEAR_EDEFAULT == null
-						? inceptionYear != null
+				return INCEPTION_YEAR_EDEFAULT == null ? inceptionYear != null
 						: !INCEPTION_YEAR_EDEFAULT.equals(inceptionYear);
 			case PomPackage.MODEL__MAILING_LISTS:
 				return mailingLists != null;
@@ -1130,12 +1040,11 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.MODEL__PARENT:
 				setParent((Parent) newValue);
 				return;
@@ -1232,12 +1141,11 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.MODEL__PARENT:
 				setParent((Parent) null);
 				return;
@@ -1334,7 +1242,6 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -1344,7 +1251,6 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -1354,7 +1260,6 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -1364,7 +1269,6 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -1374,7 +1278,6 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -1384,7 +1287,6 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -1394,7 +1296,6 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -1404,7 +1305,6 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -1414,7 +1314,6 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -1424,7 +1323,6 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -1434,7 +1332,6 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -1444,7 +1341,6 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -1454,7 +1350,6 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -1464,7 +1359,6 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -1474,7 +1368,6 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -1484,7 +1377,6 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -1494,7 +1386,6 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -1504,7 +1395,6 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -1514,7 +1404,6 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -1524,7 +1413,6 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -1534,7 +1422,6 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -1544,7 +1431,6 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -1554,7 +1440,6 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -1564,7 +1449,6 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -1574,7 +1458,6 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -1584,7 +1467,6 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -1594,7 +1476,6 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -1604,7 +1485,6 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -1614,7 +1494,6 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -1624,7 +1503,6 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -1634,7 +1512,6 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -1644,391 +1521,344 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setArtifactId(String newArtifactId) {
 		String oldArtifactId = artifactId;
 		artifactId = newArtifactId;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, PomPackage.MODEL__ARTIFACT_ID, oldArtifactId, artifactId));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__ARTIFACT_ID, oldArtifactId,
+					artifactId));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setBuild(Build newBuild) {
-		if(newBuild != build) {
+		if (newBuild != build) {
 			NotificationChain msgs = null;
-			if(build != null)
-				msgs = ((InternalEObject) build).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__BUILD, null, msgs);
-			if(newBuild != null)
-				msgs = ((InternalEObject) newBuild).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__BUILD, null, msgs);
+			if (build != null)
+				msgs = ((InternalEObject) build).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__BUILD,
+						null, msgs);
+			if (newBuild != null)
+				msgs = ((InternalEObject) newBuild).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__BUILD,
+						null, msgs);
 			msgs = basicSetBuild(newBuild, msgs);
-			if(msgs != null)
+			if (msgs != null)
 				msgs.dispatch();
-		}
-		else if(eNotificationRequired())
+		} else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__BUILD, newBuild, newBuild));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setCiManagement(CiManagement newCiManagement) {
-		if(newCiManagement != ciManagement) {
+		if (newCiManagement != ciManagement) {
 			NotificationChain msgs = null;
-			if(ciManagement != null)
-				msgs = ((InternalEObject) ciManagement).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__CI_MANAGEMENT, null, msgs);
-			if(newCiManagement != null)
-				msgs = ((InternalEObject) newCiManagement).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__CI_MANAGEMENT, null, msgs);
+			if (ciManagement != null)
+				msgs = ((InternalEObject) ciManagement).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__CI_MANAGEMENT, null, msgs);
+			if (newCiManagement != null)
+				msgs = ((InternalEObject) newCiManagement).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__CI_MANAGEMENT, null, msgs);
 			msgs = basicSetCiManagement(newCiManagement, msgs);
-			if(msgs != null)
+			if (msgs != null)
 				msgs.dispatch();
-		}
-		else if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, PomPackage.MODEL__CI_MANAGEMENT, newCiManagement, newCiManagement));
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__CI_MANAGEMENT, newCiManagement,
+					newCiManagement));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setContributors(ContributorsType newContributors) {
-		if(newContributors != contributors) {
+		if (newContributors != contributors) {
 			NotificationChain msgs = null;
-			if(contributors != null)
-				msgs = ((InternalEObject) contributors).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__CONTRIBUTORS, null, msgs);
-			if(newContributors != null)
-				msgs = ((InternalEObject) newContributors).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__CONTRIBUTORS, null, msgs);
+			if (contributors != null)
+				msgs = ((InternalEObject) contributors).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__CONTRIBUTORS, null, msgs);
+			if (newContributors != null)
+				msgs = ((InternalEObject) newContributors).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__CONTRIBUTORS, null, msgs);
 			msgs = basicSetContributors(newContributors, msgs);
-			if(msgs != null)
+			if (msgs != null)
 				msgs.dispatch();
-		}
-		else if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, PomPackage.MODEL__CONTRIBUTORS, newContributors, newContributors));
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__CONTRIBUTORS, newContributors,
+					newContributors));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setDependencies(DependenciesType newDependencies) {
-		if(newDependencies != dependencies) {
+		if (newDependencies != dependencies) {
 			NotificationChain msgs = null;
-			if(dependencies != null)
-				msgs = ((InternalEObject) dependencies).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__DEPENDENCIES, null, msgs);
-			if(newDependencies != null)
-				msgs = ((InternalEObject) newDependencies).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__DEPENDENCIES, null, msgs);
+			if (dependencies != null)
+				msgs = ((InternalEObject) dependencies).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__DEPENDENCIES, null, msgs);
+			if (newDependencies != null)
+				msgs = ((InternalEObject) newDependencies).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__DEPENDENCIES, null, msgs);
 			msgs = basicSetDependencies(newDependencies, msgs);
-			if(msgs != null)
+			if (msgs != null)
 				msgs.dispatch();
-		}
-		else if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, PomPackage.MODEL__DEPENDENCIES, newDependencies, newDependencies));
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__DEPENDENCIES, newDependencies,
+					newDependencies));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setDependencyManagement(DependencyManagement newDependencyManagement) {
-		if(newDependencyManagement != dependencyManagement) {
+		if (newDependencyManagement != dependencyManagement) {
 			NotificationChain msgs = null;
-			if(dependencyManagement != null)
-				msgs = ((InternalEObject) dependencyManagement).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__DEPENDENCY_MANAGEMENT, null, msgs);
-			if(newDependencyManagement != null)
-				msgs = ((InternalEObject) newDependencyManagement).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__DEPENDENCY_MANAGEMENT, null, msgs);
+			if (dependencyManagement != null)
+				msgs = ((InternalEObject) dependencyManagement).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__DEPENDENCY_MANAGEMENT, null, msgs);
+			if (newDependencyManagement != null)
+				msgs = ((InternalEObject) newDependencyManagement).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__DEPENDENCY_MANAGEMENT, null, msgs);
 			msgs = basicSetDependencyManagement(newDependencyManagement, msgs);
-			if(msgs != null)
+			if (msgs != null)
 				msgs.dispatch();
-		}
-		else if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, PomPackage.MODEL__DEPENDENCY_MANAGEMENT, newDependencyManagement,
-					newDependencyManagement));
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__DEPENDENCY_MANAGEMENT,
+					newDependencyManagement, newDependencyManagement));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setDescription(String newDescription) {
 		String oldDescription = description;
 		description = newDescription;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, PomPackage.MODEL__DESCRIPTION, oldDescription, description));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__DESCRIPTION, oldDescription,
+					description));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setDevelopers(DevelopersType newDevelopers) {
-		if(newDevelopers != developers) {
+		if (newDevelopers != developers) {
 			NotificationChain msgs = null;
-			if(developers != null)
-				msgs = ((InternalEObject) developers).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__DEVELOPERS, null, msgs);
-			if(newDevelopers != null)
-				msgs = ((InternalEObject) newDevelopers).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__DEVELOPERS, null, msgs);
+			if (developers != null)
+				msgs = ((InternalEObject) developers).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__DEVELOPERS, null, msgs);
+			if (newDevelopers != null)
+				msgs = ((InternalEObject) newDevelopers).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__DEVELOPERS, null, msgs);
 			msgs = basicSetDevelopers(newDevelopers, msgs);
-			if(msgs != null)
+			if (msgs != null)
 				msgs.dispatch();
-		}
-		else if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, PomPackage.MODEL__DEVELOPERS, newDevelopers, newDevelopers));
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__DEVELOPERS, newDevelopers,
+					newDevelopers));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setDistributionManagement(DistributionManagement newDistributionManagement) {
-		if(newDistributionManagement != distributionManagement) {
+		if (newDistributionManagement != distributionManagement) {
 			NotificationChain msgs = null;
-			if(distributionManagement != null)
-				msgs = ((InternalEObject) distributionManagement).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__DISTRIBUTION_MANAGEMENT, null, msgs);
-			if(newDistributionManagement != null)
-				msgs = ((InternalEObject) newDistributionManagement).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__DISTRIBUTION_MANAGEMENT, null, msgs);
+			if (distributionManagement != null)
+				msgs = ((InternalEObject) distributionManagement).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__DISTRIBUTION_MANAGEMENT, null, msgs);
+			if (newDistributionManagement != null)
+				msgs = ((InternalEObject) newDistributionManagement).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__DISTRIBUTION_MANAGEMENT, null, msgs);
 			msgs = basicSetDistributionManagement(newDistributionManagement, msgs);
-			if(msgs != null)
+			if (msgs != null)
 				msgs.dispatch();
-		}
-		else if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, PomPackage.MODEL__DISTRIBUTION_MANAGEMENT, newDistributionManagement,
-					newDistributionManagement));
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__DISTRIBUTION_MANAGEMENT,
+					newDistributionManagement, newDistributionManagement));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setGroupId(String newGroupId) {
 		String oldGroupId = groupId;
 		groupId = newGroupId;
-		if(eNotificationRequired())
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__GROUP_ID, oldGroupId, groupId));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setInceptionYear(String newInceptionYear) {
 		String oldInceptionYear = inceptionYear;
 		inceptionYear = newInceptionYear;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, PomPackage.MODEL__INCEPTION_YEAR, oldInceptionYear, inceptionYear));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__INCEPTION_YEAR, oldInceptionYear,
+					inceptionYear));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setIssueManagement(IssueManagement newIssueManagement) {
-		if(newIssueManagement != issueManagement) {
+		if (newIssueManagement != issueManagement) {
 			NotificationChain msgs = null;
-			if(issueManagement != null)
-				msgs = ((InternalEObject) issueManagement).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__ISSUE_MANAGEMENT, null, msgs);
-			if(newIssueManagement != null)
-				msgs = ((InternalEObject) newIssueManagement).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__ISSUE_MANAGEMENT, null, msgs);
+			if (issueManagement != null)
+				msgs = ((InternalEObject) issueManagement).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__ISSUE_MANAGEMENT, null, msgs);
+			if (newIssueManagement != null)
+				msgs = ((InternalEObject) newIssueManagement).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__ISSUE_MANAGEMENT, null, msgs);
 			msgs = basicSetIssueManagement(newIssueManagement, msgs);
-			if(msgs != null)
+			if (msgs != null)
 				msgs.dispatch();
-		}
-		else if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, PomPackage.MODEL__ISSUE_MANAGEMENT, newIssueManagement,
-					newIssueManagement));
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__ISSUE_MANAGEMENT,
+					newIssueManagement, newIssueManagement));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setLicenses(LicensesType newLicenses) {
-		if(newLicenses != licenses) {
+		if (newLicenses != licenses) {
 			NotificationChain msgs = null;
-			if(licenses != null)
-				msgs = ((InternalEObject) licenses).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__LICENSES, null, msgs);
-			if(newLicenses != null)
-				msgs = ((InternalEObject) newLicenses).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__LICENSES, null, msgs);
+			if (licenses != null)
+				msgs = ((InternalEObject) licenses).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__LICENSES, null, msgs);
+			if (newLicenses != null)
+				msgs = ((InternalEObject) newLicenses).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__LICENSES, null, msgs);
 			msgs = basicSetLicenses(newLicenses, msgs);
-			if(msgs != null)
+			if (msgs != null)
 				msgs.dispatch();
-		}
-		else if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__LICENSES, newLicenses, newLicenses));
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__LICENSES, newLicenses,
+					newLicenses));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setMailingLists(MailingListsType newMailingLists) {
-		if(newMailingLists != mailingLists) {
+		if (newMailingLists != mailingLists) {
 			NotificationChain msgs = null;
-			if(mailingLists != null)
-				msgs = ((InternalEObject) mailingLists).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__MAILING_LISTS, null, msgs);
-			if(newMailingLists != null)
-				msgs = ((InternalEObject) newMailingLists).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__MAILING_LISTS, null, msgs);
+			if (mailingLists != null)
+				msgs = ((InternalEObject) mailingLists).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__MAILING_LISTS, null, msgs);
+			if (newMailingLists != null)
+				msgs = ((InternalEObject) newMailingLists).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__MAILING_LISTS, null, msgs);
 			msgs = basicSetMailingLists(newMailingLists, msgs);
-			if(msgs != null)
+			if (msgs != null)
 				msgs.dispatch();
-		}
-		else if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, PomPackage.MODEL__MAILING_LISTS, newMailingLists, newMailingLists));
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__MAILING_LISTS, newMailingLists,
+					newMailingLists));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setModelVersion(String newModelVersion) {
 		String oldModelVersion = modelVersion;
 		modelVersion = newModelVersion;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, PomPackage.MODEL__MODEL_VERSION, oldModelVersion, modelVersion));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__MODEL_VERSION, oldModelVersion,
+					modelVersion));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setModules(ModulesType newModules) {
-		if(newModules != modules) {
+		if (newModules != modules) {
 			NotificationChain msgs = null;
-			if(modules != null)
-				msgs = ((InternalEObject) modules).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__MODULES, null, msgs);
-			if(newModules != null)
-				msgs = ((InternalEObject) newModules).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__MODULES, null, msgs);
+			if (modules != null)
+				msgs = ((InternalEObject) modules).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__MODULES, null, msgs);
+			if (newModules != null)
+				msgs = ((InternalEObject) newModules).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__MODULES, null, msgs);
 			msgs = basicSetModules(newModules, msgs);
-			if(msgs != null)
+			if (msgs != null)
 				msgs.dispatch();
-		}
-		else if(eNotificationRequired())
+		} else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__MODULES, newModules, newModules));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
-		if(eNotificationRequired())
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__NAME, oldName, name));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setOrganization(Organization newOrganization) {
-		if(newOrganization != organization) {
+		if (newOrganization != organization) {
 			NotificationChain msgs = null;
-			if(organization != null)
-				msgs = ((InternalEObject) organization).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__ORGANIZATION, null, msgs);
-			if(newOrganization != null)
-				msgs = ((InternalEObject) newOrganization).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__ORGANIZATION, null, msgs);
+			if (organization != null)
+				msgs = ((InternalEObject) organization).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__ORGANIZATION, null, msgs);
+			if (newOrganization != null)
+				msgs = ((InternalEObject) newOrganization).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__ORGANIZATION, null, msgs);
 			msgs = basicSetOrganization(newOrganization, msgs);
-			if(msgs != null)
+			if (msgs != null)
 				msgs.dispatch();
-		}
-		else if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, PomPackage.MODEL__ORGANIZATION, newOrganization, newOrganization));
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__ORGANIZATION, newOrganization,
+					newOrganization));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -2037,264 +1867,237 @@ public class ModelImpl extends EObjectImpl implements Model {
 		packaging = newPackaging;
 		boolean oldPackagingESet = packagingESet;
 		packagingESet = true;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, PomPackage.MODEL__PACKAGING, oldPackaging, packaging, !oldPackagingESet));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__PACKAGING, oldPackaging, packaging,
+					!oldPackagingESet));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setParent(Parent newParent) {
-		if(newParent != parent) {
+		if (newParent != parent) {
 			NotificationChain msgs = null;
-			if(parent != null)
-				msgs = ((InternalEObject) parent).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__PARENT, null, msgs);
-			if(newParent != null)
-				msgs = ((InternalEObject) newParent).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__PARENT, null, msgs);
+			if (parent != null)
+				msgs = ((InternalEObject) parent).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__PARENT, null, msgs);
+			if (newParent != null)
+				msgs = ((InternalEObject) newParent).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__PARENT, null, msgs);
 			msgs = basicSetParent(newParent, msgs);
-			if(msgs != null)
+			if (msgs != null)
 				msgs.dispatch();
-		}
-		else if(eNotificationRequired())
+		} else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__PARENT, newParent, newParent));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setPluginRepositories(PluginRepositoriesType newPluginRepositories) {
-		if(newPluginRepositories != pluginRepositories) {
+		if (newPluginRepositories != pluginRepositories) {
 			NotificationChain msgs = null;
-			if(pluginRepositories != null)
-				msgs = ((InternalEObject) pluginRepositories).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__PLUGIN_REPOSITORIES, null, msgs);
-			if(newPluginRepositories != null)
-				msgs = ((InternalEObject) newPluginRepositories).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__PLUGIN_REPOSITORIES, null, msgs);
+			if (pluginRepositories != null)
+				msgs = ((InternalEObject) pluginRepositories).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__PLUGIN_REPOSITORIES, null, msgs);
+			if (newPluginRepositories != null)
+				msgs = ((InternalEObject) newPluginRepositories).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__PLUGIN_REPOSITORIES, null, msgs);
 			msgs = basicSetPluginRepositories(newPluginRepositories, msgs);
-			if(msgs != null)
+			if (msgs != null)
 				msgs.dispatch();
-		}
-		else if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, PomPackage.MODEL__PLUGIN_REPOSITORIES, newPluginRepositories,
-					newPluginRepositories));
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__PLUGIN_REPOSITORIES,
+					newPluginRepositories, newPluginRepositories));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setPrerequisites(Prerequisites newPrerequisites) {
-		if(newPrerequisites != prerequisites) {
+		if (newPrerequisites != prerequisites) {
 			NotificationChain msgs = null;
-			if(prerequisites != null)
-				msgs = ((InternalEObject) prerequisites).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__PREREQUISITES, null, msgs);
-			if(newPrerequisites != null)
-				msgs = ((InternalEObject) newPrerequisites).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__PREREQUISITES, null, msgs);
+			if (prerequisites != null)
+				msgs = ((InternalEObject) prerequisites).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__PREREQUISITES, null, msgs);
+			if (newPrerequisites != null)
+				msgs = ((InternalEObject) newPrerequisites).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__PREREQUISITES, null, msgs);
 			msgs = basicSetPrerequisites(newPrerequisites, msgs);
-			if(msgs != null)
+			if (msgs != null)
 				msgs.dispatch();
-		}
-		else if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, PomPackage.MODEL__PREREQUISITES, newPrerequisites, newPrerequisites));
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__PREREQUISITES, newPrerequisites,
+					newPrerequisites));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setProfiles(ProfilesType newProfiles) {
-		if(newProfiles != profiles) {
+		if (newProfiles != profiles) {
 			NotificationChain msgs = null;
-			if(profiles != null)
-				msgs = ((InternalEObject) profiles).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__PROFILES, null, msgs);
-			if(newProfiles != null)
-				msgs = ((InternalEObject) newProfiles).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__PROFILES, null, msgs);
+			if (profiles != null)
+				msgs = ((InternalEObject) profiles).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__PROFILES, null, msgs);
+			if (newProfiles != null)
+				msgs = ((InternalEObject) newProfiles).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__PROFILES, null, msgs);
 			msgs = basicSetProfiles(newProfiles, msgs);
-			if(msgs != null)
+			if (msgs != null)
 				msgs.dispatch();
-		}
-		else if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__PROFILES, newProfiles, newProfiles));
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__PROFILES, newProfiles,
+					newProfiles));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setProperties(PropertiesType newProperties) {
-		if(newProperties != properties) {
+		if (newProperties != properties) {
 			NotificationChain msgs = null;
-			if(properties != null)
-				msgs = ((InternalEObject) properties).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__PROPERTIES, null, msgs);
-			if(newProperties != null)
-				msgs = ((InternalEObject) newProperties).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__PROPERTIES, null, msgs);
+			if (properties != null)
+				msgs = ((InternalEObject) properties).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__PROPERTIES, null, msgs);
+			if (newProperties != null)
+				msgs = ((InternalEObject) newProperties).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__PROPERTIES, null, msgs);
 			msgs = basicSetProperties(newProperties, msgs);
-			if(msgs != null)
+			if (msgs != null)
 				msgs.dispatch();
-		}
-		else if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, PomPackage.MODEL__PROPERTIES, newProperties, newProperties));
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__PROPERTIES, newProperties,
+					newProperties));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setReporting(Reporting newReporting) {
-		if(newReporting != reporting) {
+		if (newReporting != reporting) {
 			NotificationChain msgs = null;
-			if(reporting != null)
-				msgs = ((InternalEObject) reporting).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__REPORTING, null, msgs);
-			if(newReporting != null)
-				msgs = ((InternalEObject) newReporting).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__REPORTING, null, msgs);
+			if (reporting != null)
+				msgs = ((InternalEObject) reporting).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__REPORTING, null, msgs);
+			if (newReporting != null)
+				msgs = ((InternalEObject) newReporting).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__REPORTING, null, msgs);
 			msgs = basicSetReporting(newReporting, msgs);
-			if(msgs != null)
+			if (msgs != null)
 				msgs.dispatch();
-		}
-		else if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__REPORTING, newReporting, newReporting));
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__REPORTING, newReporting,
+					newReporting));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setReports(ReportsType newReports) {
-		if(newReports != reports) {
+		if (newReports != reports) {
 			NotificationChain msgs = null;
-			if(reports != null)
-				msgs = ((InternalEObject) reports).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__REPORTS, null, msgs);
-			if(newReports != null)
-				msgs = ((InternalEObject) newReports).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__REPORTS, null, msgs);
+			if (reports != null)
+				msgs = ((InternalEObject) reports).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__REPORTS, null, msgs);
+			if (newReports != null)
+				msgs = ((InternalEObject) newReports).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__REPORTS, null, msgs);
 			msgs = basicSetReports(newReports, msgs);
-			if(msgs != null)
+			if (msgs != null)
 				msgs.dispatch();
-		}
-		else if(eNotificationRequired())
+		} else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__REPORTS, newReports, newReports));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setRepositories(RepositoriesType newRepositories) {
-		if(newRepositories != repositories) {
+		if (newRepositories != repositories) {
 			NotificationChain msgs = null;
-			if(repositories != null)
-				msgs = ((InternalEObject) repositories).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__REPOSITORIES, null, msgs);
-			if(newRepositories != null)
-				msgs = ((InternalEObject) newRepositories).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__REPOSITORIES, null, msgs);
+			if (repositories != null)
+				msgs = ((InternalEObject) repositories).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__REPOSITORIES, null, msgs);
+			if (newRepositories != null)
+				msgs = ((InternalEObject) newRepositories).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__REPOSITORIES, null, msgs);
 			msgs = basicSetRepositories(newRepositories, msgs);
-			if(msgs != null)
+			if (msgs != null)
 				msgs.dispatch();
-		}
-		else if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, PomPackage.MODEL__REPOSITORIES, newRepositories, newRepositories));
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__REPOSITORIES, newRepositories,
+					newRepositories));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setScm(Scm newScm) {
-		if(newScm != scm) {
+		if (newScm != scm) {
 			NotificationChain msgs = null;
-			if(scm != null)
-				msgs = ((InternalEObject) scm).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__SCM, null, msgs);
-			if(newScm != null)
-				msgs = ((InternalEObject) newScm).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__SCM, null, msgs);
+			if (scm != null)
+				msgs = ((InternalEObject) scm).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__SCM,
+						null, msgs);
+			if (newScm != null)
+				msgs = ((InternalEObject) newScm).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PomPackage.MODEL__SCM,
+						null, msgs);
 			msgs = basicSetScm(newScm, msgs);
-			if(msgs != null)
+			if (msgs != null)
 				msgs.dispatch();
-		}
-		else if(eNotificationRequired())
+		} else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__SCM, newScm, newScm));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setUrl(String newUrl) {
 		String oldUrl = url;
 		url = newUrl;
-		if(eNotificationRequired())
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__URL, oldUrl, url));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setVersion(String newVersion) {
 		String oldVersion = version;
 		version = newVersion;
-		if(eNotificationRequired())
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.MODEL__VERSION, oldVersion, version));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if(eIsProxy())
+		if (eIsProxy())
 			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
@@ -2305,7 +2108,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 		result.append(", artifactId: ");
 		result.append(artifactId);
 		result.append(", packaging: ");
-		if(packagingESet)
+		if (packagingESet)
 			result.append(packaging);
 		else
 			result.append("<unset>");
@@ -2325,7 +2128,6 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -2334,16 +2136,13 @@ public class ModelImpl extends EObjectImpl implements Model {
 		boolean oldPackagingESet = packagingESet;
 		packaging = PACKAGING_EDEFAULT;
 		packagingESet = false;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, PomPackage.MODEL__PACKAGING, oldPackaging, PACKAGING_EDEFAULT,
-					oldPackagingESet));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, PomPackage.MODEL__PACKAGING, oldPackaging,
+					PACKAGING_EDEFAULT, oldPackagingESet));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override

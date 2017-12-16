@@ -16,15 +16,14 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Mapping Rule</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Mapping
+ * Rule</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.impl.MappingRuleImpl#getFilter <em>Filter</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.impl.MappingRuleImpl#getOutput <em>Output</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.impl.MappingRuleImpl#getFilter <em>Filter</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.impl.MappingRuleImpl#getOutput <em>Output</em>}</li>
  * </ul>
  *
  * @generated
@@ -32,9 +31,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class MappingRuleImpl extends MinimalEObjectImpl.Container implements MappingRule {
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -42,9 +40,7 @@ public class MappingRuleImpl extends MinimalEObjectImpl.Container implements Map
 
 	/**
 	 * The default value of the '{@link #getFilter() <em>Filter</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getFilter()
 	 * @generated
 	 * @ordered
@@ -53,9 +49,7 @@ public class MappingRuleImpl extends MinimalEObjectImpl.Container implements Map
 
 	/**
 	 * The cached value of the '{@link #getFilter() <em>Filter</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getFilter()
 	 * @generated
 	 * @ordered
@@ -64,9 +58,7 @@ public class MappingRuleImpl extends MinimalEObjectImpl.Container implements Map
 
 	/**
 	 * The default value of the '{@link #getOutput() <em>Output</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getOutput()
 	 * @generated
 	 * @ordered
@@ -75,9 +67,7 @@ public class MappingRuleImpl extends MinimalEObjectImpl.Container implements Map
 
 	/**
 	 * The cached value of the '{@link #getOutput() <em>Output</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getOutput()
 	 * @generated
 	 * @ordered
@@ -85,9 +75,7 @@ public class MappingRuleImpl extends MinimalEObjectImpl.Container implements Map
 	protected String output = OUTPUT_EDEFAULT;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected MappingRuleImpl() {
@@ -95,14 +83,12 @@ public class MappingRuleImpl extends MinimalEObjectImpl.Container implements Map
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2Package.MAPPING_RULE__FILTER:
 				return getFilter();
 			case P2Package.MAPPING_RULE__OUTPUT:
@@ -112,35 +98,27 @@ public class MappingRuleImpl extends MinimalEObjectImpl.Container implements Map
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2Package.MAPPING_RULE__FILTER:
-				return FILTER_EDEFAULT == null
-						? filter != null
-						: !FILTER_EDEFAULT.equals(filter);
+				return FILTER_EDEFAULT == null ? filter != null : !FILTER_EDEFAULT.equals(filter);
 			case P2Package.MAPPING_RULE__OUTPUT:
-				return OUTPUT_EDEFAULT == null
-						? output != null
-						: !OUTPUT_EDEFAULT.equals(output);
+				return OUTPUT_EDEFAULT == null ? output != null : !OUTPUT_EDEFAULT.equals(output);
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2Package.MAPPING_RULE__FILTER:
 				setFilter((String) newValue);
 				return;
@@ -152,9 +130,7 @@ public class MappingRuleImpl extends MinimalEObjectImpl.Container implements Map
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -163,14 +139,12 @@ public class MappingRuleImpl extends MinimalEObjectImpl.Container implements Map
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2Package.MAPPING_RULE__FILTER:
 				setFilter(FILTER_EDEFAULT);
 				return;
@@ -182,9 +156,7 @@ public class MappingRuleImpl extends MinimalEObjectImpl.Container implements Map
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -193,9 +165,7 @@ public class MappingRuleImpl extends MinimalEObjectImpl.Container implements Map
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -204,42 +174,36 @@ public class MappingRuleImpl extends MinimalEObjectImpl.Container implements Map
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public void setFilter(String newFilter) {
 		String oldFilter = filter;
 		filter = newFilter;
-		if(eNotificationRequired())
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.MAPPING_RULE__FILTER, oldFilter, filter));
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public void setOutput(String newOutput) {
 		String oldOutput = output;
 		output = newOutput;
-		if(eNotificationRequired())
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.MAPPING_RULE__OUTPUT, oldOutput, output));
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if(eIsProxy())
+		if (eIsProxy())
 			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());

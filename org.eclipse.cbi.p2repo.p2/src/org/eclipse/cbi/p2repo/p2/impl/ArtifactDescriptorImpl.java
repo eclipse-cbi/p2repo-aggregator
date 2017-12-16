@@ -32,16 +32,15 @@ import org.eclipse.equinox.p2.repository.artifact.IArtifactRepository;
 import org.eclipse.equinox.p2.repository.artifact.IProcessingStepDescriptor;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Artifact Descriptor</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object
+ * '<em><b>Artifact Descriptor</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.impl.ArtifactDescriptorImpl#getArtifactKey <em>Artifact Key</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.impl.ArtifactDescriptorImpl#getPropertyMap <em>Property Map</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.impl.ArtifactDescriptorImpl#getProcessingStepList <em>Processing Step List</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.impl.ArtifactDescriptorImpl#getArtifactKey <em>Artifact Key</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.impl.ArtifactDescriptorImpl#getPropertyMap <em>Property Map</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.impl.ArtifactDescriptorImpl#getProcessingStepList <em>Processing Step List</em>}</li>
  * </ul>
  *
  * @generated
@@ -49,9 +48,8 @@ import org.eclipse.equinox.p2.repository.artifact.IProcessingStepDescriptor;
 public class ArtifactDescriptorImpl extends MinimalEObjectImpl.Container implements ArtifactDescriptor {
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -59,9 +57,7 @@ public class ArtifactDescriptorImpl extends MinimalEObjectImpl.Container impleme
 
 	/**
 	 * The cached value of the '{@link #getArtifactKey() <em>Artifact Key</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getArtifactKey()
 	 * @generated
 	 * @ordered
@@ -70,9 +66,7 @@ public class ArtifactDescriptorImpl extends MinimalEObjectImpl.Container impleme
 
 	/**
 	 * The cached value of the '{@link #getPropertyMap() <em>Property Map</em>}' map.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getPropertyMap()
 	 * @generated
 	 * @ordered
@@ -81,9 +75,8 @@ public class ArtifactDescriptorImpl extends MinimalEObjectImpl.Container impleme
 
 	/**
 	 * The cached value of the '{@link #getProcessingStepList() <em>Processing Step List</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #getProcessingStepList()
 	 * @generated
 	 * @ordered
@@ -91,9 +84,7 @@ public class ArtifactDescriptorImpl extends MinimalEObjectImpl.Container impleme
 	protected EList<IProcessingStepDescriptor> processingStepList;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected ArtifactDescriptorImpl() {
@@ -101,9 +92,7 @@ public class ArtifactDescriptorImpl extends MinimalEObjectImpl.Container impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public IArtifactKey basicGetArtifactKey() {
@@ -111,20 +100,18 @@ public class ArtifactDescriptorImpl extends MinimalEObjectImpl.Container impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2Package.ARTIFACT_DESCRIPTOR__ARTIFACT_KEY:
-				if(resolve)
+				if (resolve)
 					return getArtifactKey();
 				return basicGetArtifactKey();
 			case P2Package.ARTIFACT_DESCRIPTOR__PROPERTY_MAP:
-				if(coreType)
+				if (coreType)
 					return getPropertyMap();
 				else
 					return getPropertyMap().map();
@@ -135,14 +122,12 @@ public class ArtifactDescriptorImpl extends MinimalEObjectImpl.Container impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2Package.ARTIFACT_DESCRIPTOR__PROPERTY_MAP:
 				return ((InternalEList<?>) getPropertyMap()).basicRemove(otherEnd, msgs);
 			case P2Package.ARTIFACT_DESCRIPTOR__PROCESSING_STEP_LIST:
@@ -152,14 +137,12 @@ public class ArtifactDescriptorImpl extends MinimalEObjectImpl.Container impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2Package.ARTIFACT_DESCRIPTOR__ARTIFACT_KEY:
 				return artifactKey != null;
 			case P2Package.ARTIFACT_DESCRIPTOR__PROPERTY_MAP:
@@ -172,48 +155,45 @@ public class ArtifactDescriptorImpl extends MinimalEObjectImpl.Container impleme
 
 	@Override
 	public boolean equals(Object v) {
-		if(this == v)
+		if (this == v)
 			return true;
-		if(!(v instanceof ArtifactDescriptor))
+		if (!(v instanceof ArtifactDescriptor))
 			return false;
 
 		ArtifactDescriptor cmp = (ArtifactDescriptor) v;
-		if(!getArtifactKey().equals(cmp.getArtifactKey()))
+		if (!getArtifactKey().equals(cmp.getArtifactKey()))
 			return false;
 
 		String format = getProperty(IArtifactDescriptor.FORMAT);
 		String cmpFormat = cmp.getProperty(IArtifactDescriptor.FORMAT);
-		if(format == null) {
-			if(cmpFormat != null)
+		if (format == null) {
+			if (cmpFormat != null)
 				return false;
-		}
-		else {
-			if(!format.equals(cmpFormat))
+		} else {
+			if (!format.equals(cmpFormat))
 				return false;
 		}
 
 		EList<IProcessingStepDescriptor> steps = getProcessingStepList();
 		EList<IProcessingStepDescriptor> cmpSteps = cmp.getProcessingStepList();
 		int idx = steps.size();
-		if(idx != cmpSteps.size())
+		if (idx != cmpSteps.size())
 			return false;
 
-		while(--idx >= 0)
-			if(!steps.get(idx).equals(cmpSteps.get(idx)))
+		while (--idx >= 0)
+			if (!steps.get(idx).equals(cmpSteps.get(idx)))
 				return false;
 		return true;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2Package.ARTIFACT_DESCRIPTOR__ARTIFACT_KEY:
 				setArtifactKey((IArtifactKey) newValue);
 				return;
@@ -229,9 +209,7 @@ public class ArtifactDescriptorImpl extends MinimalEObjectImpl.Container impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -240,14 +218,12 @@ public class ArtifactDescriptorImpl extends MinimalEObjectImpl.Container impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2Package.ARTIFACT_DESCRIPTOR__ARTIFACT_KEY:
 				setArtifactKey((IArtifactKey) null);
 				return;
@@ -262,45 +238,38 @@ public class ArtifactDescriptorImpl extends MinimalEObjectImpl.Container impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public IArtifactKey getArtifactKey() {
-		if(artifactKey != null && ((EObject) artifactKey).eIsProxy()) {
+		if (artifactKey != null && ((EObject) artifactKey).eIsProxy()) {
 			InternalEObject oldArtifactKey = (InternalEObject) artifactKey;
 			artifactKey = (IArtifactKey) eResolveProxy(oldArtifactKey);
-			if(artifactKey != oldArtifactKey) {
-				if(eNotificationRequired())
-					eNotify(
-						new ENotificationImpl(
-							this, Notification.RESOLVE, P2Package.ARTIFACT_DESCRIPTOR__ARTIFACT_KEY, oldArtifactKey,
-							artifactKey));
+			if (artifactKey != oldArtifactKey) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+							P2Package.ARTIFACT_DESCRIPTOR__ARTIFACT_KEY, oldArtifactKey, artifactKey));
 			}
 		}
 		return artifactKey;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public EList<IProcessingStepDescriptor> getProcessingStepList() {
-		if(processingStepList == null) {
-			processingStepList = new EObjectContainmentEList.Resolving<IProcessingStepDescriptor>(
-				IProcessingStepDescriptor.class, this, P2Package.ARTIFACT_DESCRIPTOR__PROCESSING_STEP_LIST);
+		if (processingStepList == null) {
+			processingStepList = new EObjectContainmentEList.Resolving<>(
+					IProcessingStepDescriptor.class, this, P2Package.ARTIFACT_DESCRIPTOR__PROCESSING_STEP_LIST);
 		}
 		return processingStepList;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
@@ -311,8 +280,7 @@ public class ArtifactDescriptorImpl extends MinimalEObjectImpl.Container impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
@@ -322,8 +290,7 @@ public class ArtifactDescriptorImpl extends MinimalEObjectImpl.Container impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
@@ -333,32 +300,29 @@ public class ArtifactDescriptorImpl extends MinimalEObjectImpl.Container impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public EMap<String, String> getPropertyMap() {
-		if(propertyMap == null) {
-			propertyMap = new EcoreEMap<String, String>(
-				P2Package.Literals.PROPERTY, PropertyImpl.class, this, P2Package.ARTIFACT_DESCRIPTOR__PROPERTY_MAP);
+		if (propertyMap == null) {
+			propertyMap = new EcoreEMap<>(P2Package.Literals.PROPERTY, PropertyImpl.class, this,
+					P2Package.ARTIFACT_DESCRIPTOR__PROPERTY_MAP);
 		}
 		return propertyMap;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
 	@Override
 	public IArtifactRepository getRepository() {
 		EObject container = eContainer();
-		if(container instanceof ArtifactsByKeyImpl) {
+		if (container instanceof ArtifactsByKeyImpl) {
 			container = container.eContainer();
-			if(container instanceof IArtifactRepository)
+			if (container instanceof IArtifactRepository)
 				return (IArtifactRepository) container;
 		}
 		return null;
@@ -368,28 +332,25 @@ public class ArtifactDescriptorImpl extends MinimalEObjectImpl.Container impleme
 	public int hashCode() {
 		int hash = getArtifactKey().hashCode();
 		String format = getProperty(IArtifactDescriptor.FORMAT);
-		if(format != null)
+		if (format != null)
 			hash = 17 * hash + format.hashCode();
 		EList<IProcessingStepDescriptor> steps = getProcessingStepList();
 		int idx = steps.size();
-		while(--idx >= 0)
+		while (--idx >= 0)
 			hash = 17 * hash + steps.get(idx).hashCode();
 		return hash;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setArtifactKey(IArtifactKey newArtifactKey) {
 		IArtifactKey oldArtifactKey = artifactKey;
 		artifactKey = newArtifactKey;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, P2Package.ARTIFACT_DESCRIPTOR__ARTIFACT_KEY, oldArtifactKey, artifactKey));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.ARTIFACT_DESCRIPTOR__ARTIFACT_KEY,
+					oldArtifactKey, artifactKey));
 	}
 
 } // ArtifactDescriptorImpl

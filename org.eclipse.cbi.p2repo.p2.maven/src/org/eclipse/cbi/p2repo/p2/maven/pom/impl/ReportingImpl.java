@@ -17,14 +17,15 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Reporting</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object
+ * '<em><b>Reporting</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ReportingImpl#isExcludeDefaults <em>Exclude Defaults</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ReportingImpl#getOutputDirectory <em>Output Directory</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ReportingImpl#getPlugins <em>Plugins</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ReportingImpl#isExcludeDefaults <em>Exclude Defaults</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ReportingImpl#getOutputDirectory <em>Output Directory</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ReportingImpl#getPlugins <em>Plugins</em>}</li>
  * </ul>
  *
  * @generated
@@ -32,9 +33,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 public class ReportingImpl extends EObjectImpl implements Reporting {
 	/**
 	 * The default value of the '{@link #isExcludeDefaults() <em>Exclude Defaults</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isExcludeDefaults()
 	 * @generated
 	 * @ordered
@@ -43,9 +42,7 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 
 	/**
 	 * The cached value of the '{@link #isExcludeDefaults() <em>Exclude Defaults</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isExcludeDefaults()
 	 * @generated
 	 * @ordered
@@ -53,8 +50,8 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 	protected boolean excludeDefaults = EXCLUDE_DEFAULTS_EDEFAULT;
 
 	/**
-	 * This is true if the Exclude Defaults attribute has been set.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This is true if the Exclude Defaults attribute has been set. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated
 	 * @ordered
@@ -63,9 +60,7 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 
 	/**
 	 * The default value of the '{@link #getOutputDirectory() <em>Output Directory</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getOutputDirectory()
 	 * @generated
 	 * @ordered
@@ -74,9 +69,7 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 
 	/**
 	 * The cached value of the '{@link #getOutputDirectory() <em>Output Directory</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getOutputDirectory()
 	 * @generated
 	 * @ordered
@@ -85,9 +78,7 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 
 	/**
 	 * The cached value of the '{@link #getPlugins() <em>Plugins</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getPlugins()
 	 * @generated
 	 * @ordered
@@ -96,7 +87,6 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected ReportingImpl() {
@@ -105,16 +95,15 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetPlugins(ReportingPluginsType newPlugins, NotificationChain msgs) {
 		ReportingPluginsType oldPlugins = plugins;
 		plugins = newPlugins;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, PomPackage.REPORTING__PLUGINS, oldPlugins, newPlugins);
-			if(msgs == null)
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					PomPackage.REPORTING__PLUGINS, oldPlugins, newPlugins);
+			if (msgs == null)
 				msgs = notification;
 			else
 				msgs.add(notification);
@@ -124,12 +113,11 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.REPORTING__EXCLUDE_DEFAULTS:
 				return isExcludeDefaults();
 			case PomPackage.REPORTING__OUTPUT_DIRECTORY:
@@ -142,12 +130,11 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.REPORTING__PLUGINS:
 				return basicSetPlugins(null, msgs);
 		}
@@ -156,17 +143,15 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.REPORTING__EXCLUDE_DEFAULTS:
 				return isSetExcludeDefaults();
 			case PomPackage.REPORTING__OUTPUT_DIRECTORY:
-				return OUTPUT_DIRECTORY_EDEFAULT == null
-						? outputDirectory != null
+				return OUTPUT_DIRECTORY_EDEFAULT == null ? outputDirectory != null
 						: !OUTPUT_DIRECTORY_EDEFAULT.equals(outputDirectory);
 			case PomPackage.REPORTING__PLUGINS:
 				return plugins != null;
@@ -176,12 +161,11 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.REPORTING__EXCLUDE_DEFAULTS:
 				setExcludeDefaults((Boolean) newValue);
 				return;
@@ -197,12 +181,11 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.REPORTING__EXCLUDE_DEFAULTS:
 				unsetExcludeDefaults();
 				return;
@@ -218,7 +201,6 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -228,7 +210,6 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -238,7 +219,6 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -248,7 +228,6 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -258,7 +237,6 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -267,66 +245,58 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 		excludeDefaults = newExcludeDefaults;
 		boolean oldExcludeDefaultsESet = excludeDefaultsESet;
 		excludeDefaultsESet = true;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, PomPackage.REPORTING__EXCLUDE_DEFAULTS, oldExcludeDefaults, excludeDefaults,
-					!oldExcludeDefaultsESet));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.REPORTING__EXCLUDE_DEFAULTS,
+					oldExcludeDefaults, excludeDefaults, !oldExcludeDefaultsESet));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setOutputDirectory(String newOutputDirectory) {
 		String oldOutputDirectory = outputDirectory;
 		outputDirectory = newOutputDirectory;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, PomPackage.REPORTING__OUTPUT_DIRECTORY, oldOutputDirectory,
-					outputDirectory));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.REPORTING__OUTPUT_DIRECTORY,
+					oldOutputDirectory, outputDirectory));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setPlugins(ReportingPluginsType newPlugins) {
-		if(newPlugins != plugins) {
+		if (newPlugins != plugins) {
 			NotificationChain msgs = null;
-			if(plugins != null)
-				msgs = ((InternalEObject) plugins).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.REPORTING__PLUGINS, null, msgs);
-			if(newPlugins != null)
-				msgs = ((InternalEObject) newPlugins).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.REPORTING__PLUGINS, null, msgs);
+			if (plugins != null)
+				msgs = ((InternalEObject) plugins).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.REPORTING__PLUGINS, null, msgs);
+			if (newPlugins != null)
+				msgs = ((InternalEObject) newPlugins).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.REPORTING__PLUGINS, null, msgs);
 			msgs = basicSetPlugins(newPlugins, msgs);
-			if(msgs != null)
+			if (msgs != null)
 				msgs.dispatch();
-		}
-		else if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(this, Notification.SET, PomPackage.REPORTING__PLUGINS, newPlugins, newPlugins));
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.REPORTING__PLUGINS, newPlugins,
+					newPlugins));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if(eIsProxy())
+		if (eIsProxy())
 			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (excludeDefaults: ");
-		if(excludeDefaultsESet)
+		if (excludeDefaultsESet)
 			result.append(excludeDefaults);
 		else
 			result.append("<unset>");
@@ -338,7 +308,6 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -347,16 +316,13 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 		boolean oldExcludeDefaultsESet = excludeDefaultsESet;
 		excludeDefaults = EXCLUDE_DEFAULTS_EDEFAULT;
 		excludeDefaultsESet = false;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, PomPackage.REPORTING__EXCLUDE_DEFAULTS, oldExcludeDefaults,
-					EXCLUDE_DEFAULTS_EDEFAULT, oldExcludeDefaultsESet));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, PomPackage.REPORTING__EXCLUDE_DEFAULTS,
+					oldExcludeDefaults, EXCLUDE_DEFAULTS_EDEFAULT, oldExcludeDefaultsESet));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override

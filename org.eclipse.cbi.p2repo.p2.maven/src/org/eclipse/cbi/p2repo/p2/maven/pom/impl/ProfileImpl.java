@@ -27,31 +27,32 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Profile</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object
+ * '<em><b>Profile</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ProfileImpl#getId <em>Id</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ProfileImpl#getActivation <em>Activation</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ProfileImpl#getBuild <em>Build</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ProfileImpl#getModules <em>Modules</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ProfileImpl#getRepositories <em>Repositories</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ProfileImpl#getPluginRepositories <em>Plugin Repositories</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ProfileImpl#getDependencies <em>Dependencies</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ProfileImpl#getReports <em>Reports</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ProfileImpl#getReporting <em>Reporting</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ProfileImpl#getDependencyManagement <em>Dependency Management</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ProfileImpl#getDistributionManagement <em>Distribution Management</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ProfileImpl#getProperties <em>Properties</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ProfileImpl#getId <em>Id</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ProfileImpl#getActivation <em>Activation</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ProfileImpl#getBuild <em>Build</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ProfileImpl#getModules <em>Modules</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ProfileImpl#getRepositories <em>Repositories</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ProfileImpl#getPluginRepositories <em>Plugin Repositories</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ProfileImpl#getDependencies <em>Dependencies</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ProfileImpl#getReports <em>Reports</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ProfileImpl#getReporting <em>Reporting</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ProfileImpl#getDependencyManagement <em>Dependency Management</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ProfileImpl#getDistributionManagement <em>Distribution Management</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ProfileImpl#getProperties <em>Properties</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ProfileImpl extends EObjectImpl implements Profile {
 	/**
-	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @see #getId()
 	 * @generated
@@ -60,8 +61,8 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 	protected static final String ID_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @see #getId()
 	 * @generated
@@ -71,9 +72,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * The cached value of the '{@link #getActivation() <em>Activation</em>}' containment reference.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getActivation()
 	 * @generated
 	 * @ordered
@@ -82,9 +81,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * The cached value of the '{@link #getBuild() <em>Build</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getBuild()
 	 * @generated
 	 * @ordered
@@ -93,9 +90,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * The cached value of the '{@link #getModules() <em>Modules</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getModules()
 	 * @generated
 	 * @ordered
@@ -103,9 +98,9 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 	protected ModulesType modules;
 
 	/**
-	 * The cached value of the '{@link #getRepositories() <em>Repositories</em>}' containment reference. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * The cached value of the '{@link #getRepositories() <em>Repositories</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getRepositories()
 	 * @generated
 	 * @ordered
@@ -114,8 +109,8 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * The cached value of the '{@link #getPluginRepositories() <em>Plugin Repositories</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #getPluginRepositories()
 	 * @generated
 	 * @ordered
@@ -123,9 +118,9 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 	protected PluginRepositoriesType pluginRepositories;
 
 	/**
-	 * The cached value of the '{@link #getDependencies() <em>Dependencies</em>}' containment reference. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * The cached value of the '{@link #getDependencies() <em>Dependencies</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getDependencies()
 	 * @generated
 	 * @ordered
@@ -134,9 +129,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * The cached value of the '{@link #getReports() <em>Reports</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getReports()
 	 * @generated
 	 * @ordered
@@ -145,9 +138,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * The cached value of the '{@link #getReporting() <em>Reporting</em>}' containment reference.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getReporting()
 	 * @generated
 	 * @ordered
@@ -156,8 +147,8 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * The cached value of the '{@link #getDependencyManagement() <em>Dependency Management</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #getDependencyManagement()
 	 * @generated
 	 * @ordered
@@ -165,8 +156,9 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 	protected DependencyManagement dependencyManagement;
 
 	/**
-	 * The cached value of the '{@link #getDistributionManagement() <em>Distribution Management</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getDistributionManagement()
+	 * <em>Distribution Management</em>}' containment reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @see #getDistributionManagement()
 	 * @generated
@@ -176,9 +168,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getProperties()
 	 * @generated
 	 * @ordered
@@ -187,7 +177,6 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected ProfileImpl() {
@@ -196,16 +185,15 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetActivation(Activation newActivation, NotificationChain msgs) {
 		Activation oldActivation = activation;
 		activation = newActivation;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, PomPackage.PROFILE__ACTIVATION, oldActivation, newActivation);
-			if(msgs == null)
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					PomPackage.PROFILE__ACTIVATION, oldActivation, newActivation);
+			if (msgs == null)
 				msgs = notification;
 			else
 				msgs.add(notification);
@@ -215,16 +203,15 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetBuild(BuildBase newBuild, NotificationChain msgs) {
 		BuildBase oldBuild = build;
 		build = newBuild;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, PomPackage.PROFILE__BUILD, oldBuild, newBuild);
-			if(msgs == null)
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PomPackage.PROFILE__BUILD,
+					oldBuild, newBuild);
+			if (msgs == null)
 				msgs = notification;
 			else
 				msgs.add(notification);
@@ -234,16 +221,15 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetDependencies(DependenciesType newDependencies, NotificationChain msgs) {
 		DependenciesType oldDependencies = dependencies;
 		dependencies = newDependencies;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, PomPackage.PROFILE__DEPENDENCIES, oldDependencies, newDependencies);
-			if(msgs == null)
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					PomPackage.PROFILE__DEPENDENCIES, oldDependencies, newDependencies);
+			if (msgs == null)
 				msgs = notification;
 			else
 				msgs.add(notification);
@@ -253,18 +239,16 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetDependencyManagement(DependencyManagement newDependencyManagement,
 			NotificationChain msgs) {
 		DependencyManagement oldDependencyManagement = dependencyManagement;
 		dependencyManagement = newDependencyManagement;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, PomPackage.PROFILE__DEPENDENCY_MANAGEMENT, oldDependencyManagement,
-				newDependencyManagement);
-			if(msgs == null)
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					PomPackage.PROFILE__DEPENDENCY_MANAGEMENT, oldDependencyManagement, newDependencyManagement);
+			if (msgs == null)
 				msgs = notification;
 			else
 				msgs.add(notification);
@@ -274,18 +258,16 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetDistributionManagement(DistributionManagement newDistributionManagement,
 			NotificationChain msgs) {
 		DistributionManagement oldDistributionManagement = distributionManagement;
 		distributionManagement = newDistributionManagement;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, PomPackage.PROFILE__DISTRIBUTION_MANAGEMENT, oldDistributionManagement,
-				newDistributionManagement);
-			if(msgs == null)
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					PomPackage.PROFILE__DISTRIBUTION_MANAGEMENT, oldDistributionManagement, newDistributionManagement);
+			if (msgs == null)
 				msgs = notification;
 			else
 				msgs.add(notification);
@@ -295,16 +277,15 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetModules(ModulesType newModules, NotificationChain msgs) {
 		ModulesType oldModules = modules;
 		modules = newModules;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, PomPackage.PROFILE__MODULES, oldModules, newModules);
-			if(msgs == null)
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PomPackage.PROFILE__MODULES,
+					oldModules, newModules);
+			if (msgs == null)
 				msgs = notification;
 			else
 				msgs.add(notification);
@@ -314,18 +295,16 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetPluginRepositories(PluginRepositoriesType newPluginRepositories,
 			NotificationChain msgs) {
 		PluginRepositoriesType oldPluginRepositories = pluginRepositories;
 		pluginRepositories = newPluginRepositories;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, PomPackage.PROFILE__PLUGIN_REPOSITORIES, oldPluginRepositories,
-				newPluginRepositories);
-			if(msgs == null)
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					PomPackage.PROFILE__PLUGIN_REPOSITORIES, oldPluginRepositories, newPluginRepositories);
+			if (msgs == null)
 				msgs = notification;
 			else
 				msgs.add(notification);
@@ -335,16 +314,15 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetProperties(PropertiesType newProperties, NotificationChain msgs) {
 		PropertiesType oldProperties = properties;
 		properties = newProperties;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, PomPackage.PROFILE__PROPERTIES, oldProperties, newProperties);
-			if(msgs == null)
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					PomPackage.PROFILE__PROPERTIES, oldProperties, newProperties);
+			if (msgs == null)
 				msgs = notification;
 			else
 				msgs.add(notification);
@@ -354,16 +332,15 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetReporting(Reporting newReporting, NotificationChain msgs) {
 		Reporting oldReporting = reporting;
 		reporting = newReporting;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, PomPackage.PROFILE__REPORTING, oldReporting, newReporting);
-			if(msgs == null)
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					PomPackage.PROFILE__REPORTING, oldReporting, newReporting);
+			if (msgs == null)
 				msgs = notification;
 			else
 				msgs.add(notification);
@@ -373,16 +350,15 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetReports(ReportsType newReports, NotificationChain msgs) {
 		ReportsType oldReports = reports;
 		reports = newReports;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, PomPackage.PROFILE__REPORTS, oldReports, newReports);
-			if(msgs == null)
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PomPackage.PROFILE__REPORTS,
+					oldReports, newReports);
+			if (msgs == null)
 				msgs = notification;
 			else
 				msgs.add(notification);
@@ -392,16 +368,15 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetRepositories(RepositoriesType newRepositories, NotificationChain msgs) {
 		RepositoriesType oldRepositories = repositories;
 		repositories = newRepositories;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, PomPackage.PROFILE__REPOSITORIES, oldRepositories, newRepositories);
-			if(msgs == null)
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					PomPackage.PROFILE__REPOSITORIES, oldRepositories, newRepositories);
+			if (msgs == null)
 				msgs = notification;
 			else
 				msgs.add(notification);
@@ -411,12 +386,11 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.PROFILE__ID:
 				return getId();
 			case PomPackage.PROFILE__ACTIVATION:
@@ -447,12 +421,11 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.PROFILE__ACTIVATION:
 				return basicSetActivation(null, msgs);
 			case PomPackage.PROFILE__BUILD:
@@ -481,16 +454,13 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.PROFILE__ID:
-				return ID_EDEFAULT == null
-						? id != null
-						: !ID_EDEFAULT.equals(id);
+				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 			case PomPackage.PROFILE__ACTIVATION:
 				return activation != null;
 			case PomPackage.PROFILE__BUILD:
@@ -519,12 +489,11 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.PROFILE__ID:
 				setId((String) newValue);
 				return;
@@ -567,12 +536,11 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.PROFILE__ID:
 				setId(ID_EDEFAULT);
 				return;
@@ -615,7 +583,6 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -625,7 +592,6 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -635,7 +601,6 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -645,7 +610,6 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -655,7 +619,6 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -665,7 +628,6 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -675,7 +637,6 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -685,7 +646,6 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -695,7 +655,6 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -705,7 +664,6 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -715,7 +673,6 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -725,7 +682,6 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -735,297 +691,262 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setActivation(Activation newActivation) {
-		if(newActivation != activation) {
+		if (newActivation != activation) {
 			NotificationChain msgs = null;
-			if(activation != null)
-				msgs = ((InternalEObject) activation).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.PROFILE__ACTIVATION, null, msgs);
-			if(newActivation != null)
-				msgs = ((InternalEObject) newActivation).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.PROFILE__ACTIVATION, null, msgs);
+			if (activation != null)
+				msgs = ((InternalEObject) activation).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.PROFILE__ACTIVATION, null, msgs);
+			if (newActivation != null)
+				msgs = ((InternalEObject) newActivation).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.PROFILE__ACTIVATION, null, msgs);
 			msgs = basicSetActivation(newActivation, msgs);
-			if(msgs != null)
+			if (msgs != null)
 				msgs.dispatch();
-		}
-		else if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, PomPackage.PROFILE__ACTIVATION, newActivation, newActivation));
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.PROFILE__ACTIVATION, newActivation,
+					newActivation));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setBuild(BuildBase newBuild) {
-		if(newBuild != build) {
+		if (newBuild != build) {
 			NotificationChain msgs = null;
-			if(build != null)
-				msgs = ((InternalEObject) build).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.PROFILE__BUILD, null, msgs);
-			if(newBuild != null)
-				msgs = ((InternalEObject) newBuild).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.PROFILE__BUILD, null, msgs);
+			if (build != null)
+				msgs = ((InternalEObject) build).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.PROFILE__BUILD, null, msgs);
+			if (newBuild != null)
+				msgs = ((InternalEObject) newBuild).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.PROFILE__BUILD, null, msgs);
 			msgs = basicSetBuild(newBuild, msgs);
-			if(msgs != null)
+			if (msgs != null)
 				msgs.dispatch();
-		}
-		else if(eNotificationRequired())
+		} else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.PROFILE__BUILD, newBuild, newBuild));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setDependencies(DependenciesType newDependencies) {
-		if(newDependencies != dependencies) {
+		if (newDependencies != dependencies) {
 			NotificationChain msgs = null;
-			if(dependencies != null)
-				msgs = ((InternalEObject) dependencies).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.PROFILE__DEPENDENCIES, null, msgs);
-			if(newDependencies != null)
-				msgs = ((InternalEObject) newDependencies).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.PROFILE__DEPENDENCIES, null, msgs);
+			if (dependencies != null)
+				msgs = ((InternalEObject) dependencies).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.PROFILE__DEPENDENCIES, null, msgs);
+			if (newDependencies != null)
+				msgs = ((InternalEObject) newDependencies).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.PROFILE__DEPENDENCIES, null, msgs);
 			msgs = basicSetDependencies(newDependencies, msgs);
-			if(msgs != null)
+			if (msgs != null)
 				msgs.dispatch();
-		}
-		else if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, PomPackage.PROFILE__DEPENDENCIES, newDependencies, newDependencies));
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.PROFILE__DEPENDENCIES, newDependencies,
+					newDependencies));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setDependencyManagement(DependencyManagement newDependencyManagement) {
-		if(newDependencyManagement != dependencyManagement) {
+		if (newDependencyManagement != dependencyManagement) {
 			NotificationChain msgs = null;
-			if(dependencyManagement != null)
-				msgs = ((InternalEObject) dependencyManagement).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.PROFILE__DEPENDENCY_MANAGEMENT, null, msgs);
-			if(newDependencyManagement != null)
-				msgs = ((InternalEObject) newDependencyManagement).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.PROFILE__DEPENDENCY_MANAGEMENT, null, msgs);
+			if (dependencyManagement != null)
+				msgs = ((InternalEObject) dependencyManagement).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.PROFILE__DEPENDENCY_MANAGEMENT, null, msgs);
+			if (newDependencyManagement != null)
+				msgs = ((InternalEObject) newDependencyManagement).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.PROFILE__DEPENDENCY_MANAGEMENT, null, msgs);
 			msgs = basicSetDependencyManagement(newDependencyManagement, msgs);
-			if(msgs != null)
+			if (msgs != null)
 				msgs.dispatch();
-		}
-		else if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, PomPackage.PROFILE__DEPENDENCY_MANAGEMENT, newDependencyManagement,
-					newDependencyManagement));
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.PROFILE__DEPENDENCY_MANAGEMENT,
+					newDependencyManagement, newDependencyManagement));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setDistributionManagement(DistributionManagement newDistributionManagement) {
-		if(newDistributionManagement != distributionManagement) {
+		if (newDistributionManagement != distributionManagement) {
 			NotificationChain msgs = null;
-			if(distributionManagement != null)
-				msgs = ((InternalEObject) distributionManagement).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.PROFILE__DISTRIBUTION_MANAGEMENT, null, msgs);
-			if(newDistributionManagement != null)
-				msgs = ((InternalEObject) newDistributionManagement).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.PROFILE__DISTRIBUTION_MANAGEMENT, null, msgs);
+			if (distributionManagement != null)
+				msgs = ((InternalEObject) distributionManagement).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.PROFILE__DISTRIBUTION_MANAGEMENT, null, msgs);
+			if (newDistributionManagement != null)
+				msgs = ((InternalEObject) newDistributionManagement).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.PROFILE__DISTRIBUTION_MANAGEMENT, null, msgs);
 			msgs = basicSetDistributionManagement(newDistributionManagement, msgs);
-			if(msgs != null)
+			if (msgs != null)
 				msgs.dispatch();
-		}
-		else if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, PomPackage.PROFILE__DISTRIBUTION_MANAGEMENT, newDistributionManagement,
-					newDistributionManagement));
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.PROFILE__DISTRIBUTION_MANAGEMENT,
+					newDistributionManagement, newDistributionManagement));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setId(String newId) {
 		String oldId = id;
 		id = newId;
-		if(eNotificationRequired())
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.PROFILE__ID, oldId, id));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setModules(ModulesType newModules) {
-		if(newModules != modules) {
+		if (newModules != modules) {
 			NotificationChain msgs = null;
-			if(modules != null)
-				msgs = ((InternalEObject) modules).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.PROFILE__MODULES, null, msgs);
-			if(newModules != null)
-				msgs = ((InternalEObject) newModules).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.PROFILE__MODULES, null, msgs);
+			if (modules != null)
+				msgs = ((InternalEObject) modules).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.PROFILE__MODULES, null, msgs);
+			if (newModules != null)
+				msgs = ((InternalEObject) newModules).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.PROFILE__MODULES, null, msgs);
 			msgs = basicSetModules(newModules, msgs);
-			if(msgs != null)
+			if (msgs != null)
 				msgs.dispatch();
-		}
-		else if(eNotificationRequired())
+		} else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.PROFILE__MODULES, newModules, newModules));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setPluginRepositories(PluginRepositoriesType newPluginRepositories) {
-		if(newPluginRepositories != pluginRepositories) {
+		if (newPluginRepositories != pluginRepositories) {
 			NotificationChain msgs = null;
-			if(pluginRepositories != null)
-				msgs = ((InternalEObject) pluginRepositories).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.PROFILE__PLUGIN_REPOSITORIES, null, msgs);
-			if(newPluginRepositories != null)
-				msgs = ((InternalEObject) newPluginRepositories).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.PROFILE__PLUGIN_REPOSITORIES, null, msgs);
+			if (pluginRepositories != null)
+				msgs = ((InternalEObject) pluginRepositories).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.PROFILE__PLUGIN_REPOSITORIES, null, msgs);
+			if (newPluginRepositories != null)
+				msgs = ((InternalEObject) newPluginRepositories).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.PROFILE__PLUGIN_REPOSITORIES, null, msgs);
 			msgs = basicSetPluginRepositories(newPluginRepositories, msgs);
-			if(msgs != null)
+			if (msgs != null)
 				msgs.dispatch();
-		}
-		else if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, PomPackage.PROFILE__PLUGIN_REPOSITORIES, newPluginRepositories,
-					newPluginRepositories));
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.PROFILE__PLUGIN_REPOSITORIES,
+					newPluginRepositories, newPluginRepositories));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setProperties(PropertiesType newProperties) {
-		if(newProperties != properties) {
+		if (newProperties != properties) {
 			NotificationChain msgs = null;
-			if(properties != null)
-				msgs = ((InternalEObject) properties).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.PROFILE__PROPERTIES, null, msgs);
-			if(newProperties != null)
-				msgs = ((InternalEObject) newProperties).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.PROFILE__PROPERTIES, null, msgs);
+			if (properties != null)
+				msgs = ((InternalEObject) properties).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.PROFILE__PROPERTIES, null, msgs);
+			if (newProperties != null)
+				msgs = ((InternalEObject) newProperties).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.PROFILE__PROPERTIES, null, msgs);
 			msgs = basicSetProperties(newProperties, msgs);
-			if(msgs != null)
+			if (msgs != null)
 				msgs.dispatch();
-		}
-		else if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, PomPackage.PROFILE__PROPERTIES, newProperties, newProperties));
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.PROFILE__PROPERTIES, newProperties,
+					newProperties));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setReporting(Reporting newReporting) {
-		if(newReporting != reporting) {
+		if (newReporting != reporting) {
 			NotificationChain msgs = null;
-			if(reporting != null)
-				msgs = ((InternalEObject) reporting).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.PROFILE__REPORTING, null, msgs);
-			if(newReporting != null)
-				msgs = ((InternalEObject) newReporting).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.PROFILE__REPORTING, null, msgs);
+			if (reporting != null)
+				msgs = ((InternalEObject) reporting).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.PROFILE__REPORTING, null, msgs);
+			if (newReporting != null)
+				msgs = ((InternalEObject) newReporting).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.PROFILE__REPORTING, null, msgs);
 			msgs = basicSetReporting(newReporting, msgs);
-			if(msgs != null)
+			if (msgs != null)
 				msgs.dispatch();
-		}
-		else if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, PomPackage.PROFILE__REPORTING, newReporting, newReporting));
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.PROFILE__REPORTING, newReporting,
+					newReporting));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setReports(ReportsType newReports) {
-		if(newReports != reports) {
+		if (newReports != reports) {
 			NotificationChain msgs = null;
-			if(reports != null)
-				msgs = ((InternalEObject) reports).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.PROFILE__REPORTS, null, msgs);
-			if(newReports != null)
-				msgs = ((InternalEObject) newReports).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.PROFILE__REPORTS, null, msgs);
+			if (reports != null)
+				msgs = ((InternalEObject) reports).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.PROFILE__REPORTS, null, msgs);
+			if (newReports != null)
+				msgs = ((InternalEObject) newReports).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.PROFILE__REPORTS, null, msgs);
 			msgs = basicSetReports(newReports, msgs);
-			if(msgs != null)
+			if (msgs != null)
 				msgs.dispatch();
-		}
-		else if(eNotificationRequired())
+		} else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.PROFILE__REPORTS, newReports, newReports));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setRepositories(RepositoriesType newRepositories) {
-		if(newRepositories != repositories) {
+		if (newRepositories != repositories) {
 			NotificationChain msgs = null;
-			if(repositories != null)
-				msgs = ((InternalEObject) repositories).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.PROFILE__REPOSITORIES, null, msgs);
-			if(newRepositories != null)
-				msgs = ((InternalEObject) newRepositories).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.PROFILE__REPOSITORIES, null, msgs);
+			if (repositories != null)
+				msgs = ((InternalEObject) repositories).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.PROFILE__REPOSITORIES, null, msgs);
+			if (newRepositories != null)
+				msgs = ((InternalEObject) newRepositories).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.PROFILE__REPOSITORIES, null, msgs);
 			msgs = basicSetRepositories(newRepositories, msgs);
-			if(msgs != null)
+			if (msgs != null)
 				msgs.dispatch();
-		}
-		else if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, PomPackage.PROFILE__REPOSITORIES, newRepositories, newRepositories));
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.PROFILE__REPOSITORIES, newRepositories,
+					newRepositories));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if(eIsProxy())
+		if (eIsProxy())
 			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
@@ -1037,7 +958,6 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override

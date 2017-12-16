@@ -14,24 +14,22 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Issue Management</b></em>'. <!-- end-user-doc
- * -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Issue
+ * Management</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.IssueManagementImpl#getSystem <em>System</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.IssueManagementImpl#getUrl <em>Url</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.IssueManagementImpl#getSystem <em>System</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.IssueManagementImpl#getUrl <em>Url</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public class IssueManagementImpl extends EObjectImpl implements IssueManagement {
 	/**
 	 * The default value of the '{@link #getSystem() <em>System</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getSystem()
 	 * @generated
 	 * @ordered
@@ -40,9 +38,7 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 
 	/**
 	 * The cached value of the '{@link #getSystem() <em>System</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getSystem()
 	 * @generated
 	 * @ordered
@@ -50,8 +46,8 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 	protected String system = SYSTEM_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getUrl() <em>Url</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The default value of the '{@link #getUrl() <em>Url</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @see #getUrl()
 	 * @generated
@@ -60,8 +56,8 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 	protected static final String URL_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getUrl() <em>Url</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getUrl() <em>Url</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @see #getUrl()
 	 * @generated
@@ -71,7 +67,6 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected IssueManagementImpl() {
@@ -80,12 +75,11 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.ISSUE_MANAGEMENT__SYSTEM:
 				return getSystem();
 			case PomPackage.ISSUE_MANAGEMENT__URL:
@@ -96,32 +90,26 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.ISSUE_MANAGEMENT__SYSTEM:
-				return SYSTEM_EDEFAULT == null
-						? system != null
-						: !SYSTEM_EDEFAULT.equals(system);
+				return SYSTEM_EDEFAULT == null ? system != null : !SYSTEM_EDEFAULT.equals(system);
 			case PomPackage.ISSUE_MANAGEMENT__URL:
-				return URL_EDEFAULT == null
-						? url != null
-						: !URL_EDEFAULT.equals(url);
+				return URL_EDEFAULT == null ? url != null : !URL_EDEFAULT.equals(url);
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.ISSUE_MANAGEMENT__SYSTEM:
 				setSystem((String) newValue);
 				return;
@@ -134,12 +122,11 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.ISSUE_MANAGEMENT__SYSTEM:
 				setSystem(SYSTEM_EDEFAULT);
 				return;
@@ -152,7 +139,6 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -162,7 +148,6 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -172,39 +157,36 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setSystem(String newSystem) {
 		String oldSystem = system;
 		system = newSystem;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(this, Notification.SET, PomPackage.ISSUE_MANAGEMENT__SYSTEM, oldSystem, system));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.ISSUE_MANAGEMENT__SYSTEM, oldSystem,
+					system));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setUrl(String newUrl) {
 		String oldUrl = url;
 		url = newUrl;
-		if(eNotificationRequired())
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.ISSUE_MANAGEMENT__URL, oldUrl, url));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if(eIsProxy())
+		if (eIsProxy())
 			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
@@ -218,7 +200,6 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override

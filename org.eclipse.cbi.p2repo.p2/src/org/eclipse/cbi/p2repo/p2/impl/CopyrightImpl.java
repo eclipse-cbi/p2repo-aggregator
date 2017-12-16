@@ -17,15 +17,14 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Copyright</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object
+ * '<em><b>Copyright</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.impl.CopyrightImpl#getLocation <em>Location</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.impl.CopyrightImpl#getBody <em>Body</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.impl.CopyrightImpl#getLocation <em>Location</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.impl.CopyrightImpl#getBody <em>Body</em>}</li>
  * </ul>
  *
  * @generated
@@ -33,9 +32,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class CopyrightImpl extends MinimalEObjectImpl.Container implements Copyright {
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -43,9 +41,7 @@ public class CopyrightImpl extends MinimalEObjectImpl.Container implements Copyr
 
 	/**
 	 * The default value of the '{@link #getLocation() <em>Location</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getLocation()
 	 * @generated
 	 * @ordered
@@ -54,9 +50,7 @@ public class CopyrightImpl extends MinimalEObjectImpl.Container implements Copyr
 
 	/**
 	 * The cached value of the '{@link #getLocation() <em>Location</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getLocation()
 	 * @generated
 	 * @ordered
@@ -65,9 +59,7 @@ public class CopyrightImpl extends MinimalEObjectImpl.Container implements Copyr
 
 	/**
 	 * The default value of the '{@link #getBody() <em>Body</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getBody()
 	 * @generated
 	 * @ordered
@@ -76,9 +68,7 @@ public class CopyrightImpl extends MinimalEObjectImpl.Container implements Copyr
 
 	/**
 	 * The cached value of the '{@link #getBody() <em>Body</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getBody()
 	 * @generated
 	 * @ordered
@@ -86,9 +76,7 @@ public class CopyrightImpl extends MinimalEObjectImpl.Container implements Copyr
 	protected String body = BODY_EDEFAULT;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected CopyrightImpl() {
@@ -96,14 +84,12 @@ public class CopyrightImpl extends MinimalEObjectImpl.Container implements Copyr
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2Package.COPYRIGHT__LOCATION:
 				return getLocation();
 			case P2Package.COPYRIGHT__BODY:
@@ -113,35 +99,27 @@ public class CopyrightImpl extends MinimalEObjectImpl.Container implements Copyr
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2Package.COPYRIGHT__LOCATION:
-				return LOCATION_EDEFAULT == null
-						? location != null
-						: !LOCATION_EDEFAULT.equals(location);
+				return LOCATION_EDEFAULT == null ? location != null : !LOCATION_EDEFAULT.equals(location);
 			case P2Package.COPYRIGHT__BODY:
-				return BODY_EDEFAULT == null
-						? body != null
-						: !BODY_EDEFAULT.equals(body);
+				return BODY_EDEFAULT == null ? body != null : !BODY_EDEFAULT.equals(body);
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2Package.COPYRIGHT__LOCATION:
 				setLocation((URI) newValue);
 				return;
@@ -153,9 +131,7 @@ public class CopyrightImpl extends MinimalEObjectImpl.Container implements Copyr
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -164,14 +140,12 @@ public class CopyrightImpl extends MinimalEObjectImpl.Container implements Copyr
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2Package.COPYRIGHT__LOCATION:
 				setLocation(LOCATION_EDEFAULT);
 				return;
@@ -183,9 +157,7 @@ public class CopyrightImpl extends MinimalEObjectImpl.Container implements Copyr
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -194,9 +166,7 @@ public class CopyrightImpl extends MinimalEObjectImpl.Container implements Copyr
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -205,41 +175,35 @@ public class CopyrightImpl extends MinimalEObjectImpl.Container implements Copyr
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setBody(String newBody) {
 		String oldBody = body;
 		body = newBody;
-		if(eNotificationRequired())
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.COPYRIGHT__BODY, oldBody, body));
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setLocation(URI newLocation) {
 		URI oldLocation = location;
 		location = newLocation;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(this, Notification.SET, P2Package.COPYRIGHT__LOCATION, oldLocation, location));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.COPYRIGHT__LOCATION, oldLocation,
+					location));
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if(eIsProxy())
+		if (eIsProxy())
 			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());

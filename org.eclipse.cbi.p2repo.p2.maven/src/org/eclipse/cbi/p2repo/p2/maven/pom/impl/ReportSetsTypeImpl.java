@@ -20,22 +20,21 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Report Sets Type</b></em>'. <!-- end-user-doc
- * -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Report
+ * Sets Type</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ReportSetsTypeImpl#getReportSet <em>Report Set </em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ReportSetsTypeImpl#getReportSet <em>Report Set</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public class ReportSetsTypeImpl extends EObjectImpl implements ReportSetsType {
 	/**
-	 * The cached value of the '{@link #getReportSet() <em>Report Set</em>}' containment reference list. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * The cached value of the '{@link #getReportSet() <em>Report Set</em>}' containment reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getReportSet()
 	 * @generated
 	 * @ordered
@@ -44,7 +43,6 @@ public class ReportSetsTypeImpl extends EObjectImpl implements ReportSetsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected ReportSetsTypeImpl() {
@@ -53,12 +51,11 @@ public class ReportSetsTypeImpl extends EObjectImpl implements ReportSetsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.REPORT_SETS_TYPE__REPORT_SET:
 				return getReportSet();
 		}
@@ -67,12 +64,11 @@ public class ReportSetsTypeImpl extends EObjectImpl implements ReportSetsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.REPORT_SETS_TYPE__REPORT_SET:
 				return ((InternalEList<?>) getReportSet()).basicRemove(otherEnd, msgs);
 		}
@@ -81,12 +77,11 @@ public class ReportSetsTypeImpl extends EObjectImpl implements ReportSetsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.REPORT_SETS_TYPE__REPORT_SET:
 				return reportSet != null && !reportSet.isEmpty();
 		}
@@ -95,13 +90,12 @@ public class ReportSetsTypeImpl extends EObjectImpl implements ReportSetsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.REPORT_SETS_TYPE__REPORT_SET:
 				getReportSet().clear();
 				getReportSet().addAll((Collection<? extends ReportSet>) newValue);
@@ -112,12 +106,11 @@ public class ReportSetsTypeImpl extends EObjectImpl implements ReportSetsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.REPORT_SETS_TYPE__REPORT_SET:
 				getReportSet().clear();
 				return;
@@ -127,21 +120,19 @@ public class ReportSetsTypeImpl extends EObjectImpl implements ReportSetsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public EList<ReportSet> getReportSet() {
-		if(reportSet == null) {
-			reportSet = new EObjectContainmentEList<ReportSet>(
-				ReportSet.class, this, PomPackage.REPORT_SETS_TYPE__REPORT_SET);
+		if (reportSet == null) {
+			reportSet = new EObjectContainmentEList<>(ReportSet.class, this,
+					PomPackage.REPORT_SETS_TYPE__REPORT_SET);
 		}
 		return reportSet;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override

@@ -19,18 +19,18 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Distribution Management</b></em>'. <!--
- * end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object
+ * '<em><b>Distribution Management</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.DistributionManagementImpl#getRepository <em>Repository</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.DistributionManagementImpl#getSnapshotRepository <em>Snapshot Repository</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.DistributionManagementImpl#getSite <em>Site</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.DistributionManagementImpl#getDownloadUrl <em>Download Url</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.DistributionManagementImpl#getRelocation <em>Relocation</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.DistributionManagementImpl#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.DistributionManagementImpl#getRepository <em>Repository</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.DistributionManagementImpl#getSnapshotRepository <em>Snapshot Repository</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.DistributionManagementImpl#getSite <em>Site</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.DistributionManagementImpl#getDownloadUrl <em>Download Url</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.DistributionManagementImpl#getRelocation <em>Relocation</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.DistributionManagementImpl#getStatus <em>Status</em>}</li>
  * </ul>
  *
  * @generated
@@ -38,9 +38,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 public class DistributionManagementImpl extends EObjectImpl implements DistributionManagement {
 	/**
 	 * The cached value of the '{@link #getRepository() <em>Repository</em>}' containment reference.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getRepository()
 	 * @generated
 	 * @ordered
@@ -49,8 +47,8 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 
 	/**
 	 * The cached value of the '{@link #getSnapshotRepository() <em>Snapshot Repository</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #getSnapshotRepository()
 	 * @generated
 	 * @ordered
@@ -59,9 +57,7 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 
 	/**
 	 * The cached value of the '{@link #getSite() <em>Site</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getSite()
 	 * @generated
 	 * @ordered
@@ -70,9 +66,7 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 
 	/**
 	 * The default value of the '{@link #getDownloadUrl() <em>Download Url</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getDownloadUrl()
 	 * @generated
 	 * @ordered
@@ -81,9 +75,7 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 
 	/**
 	 * The cached value of the '{@link #getDownloadUrl() <em>Download Url</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getDownloadUrl()
 	 * @generated
 	 * @ordered
@@ -92,9 +84,7 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 
 	/**
 	 * The cached value of the '{@link #getRelocation() <em>Relocation</em>}' containment reference.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getRelocation()
 	 * @generated
 	 * @ordered
@@ -103,9 +93,7 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 
 	/**
 	 * The default value of the '{@link #getStatus() <em>Status</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getStatus()
 	 * @generated
 	 * @ordered
@@ -114,9 +102,7 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 
 	/**
 	 * The cached value of the '{@link #getStatus() <em>Status</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getStatus()
 	 * @generated
 	 * @ordered
@@ -125,7 +111,6 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected DistributionManagementImpl() {
@@ -134,16 +119,15 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetRelocation(Relocation newRelocation, NotificationChain msgs) {
 		Relocation oldRelocation = relocation;
 		relocation = newRelocation;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, PomPackage.DISTRIBUTION_MANAGEMENT__RELOCATION, oldRelocation, newRelocation);
-			if(msgs == null)
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					PomPackage.DISTRIBUTION_MANAGEMENT__RELOCATION, oldRelocation, newRelocation);
+			if (msgs == null)
 				msgs = notification;
 			else
 				msgs.add(notification);
@@ -153,16 +137,15 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetRepository(DeploymentRepository newRepository, NotificationChain msgs) {
 		DeploymentRepository oldRepository = repository;
 		repository = newRepository;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, PomPackage.DISTRIBUTION_MANAGEMENT__REPOSITORY, oldRepository, newRepository);
-			if(msgs == null)
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					PomPackage.DISTRIBUTION_MANAGEMENT__REPOSITORY, oldRepository, newRepository);
+			if (msgs == null)
 				msgs = notification;
 			else
 				msgs.add(notification);
@@ -172,16 +155,15 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetSite(Site newSite, NotificationChain msgs) {
 		Site oldSite = site;
 		site = newSite;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, PomPackage.DISTRIBUTION_MANAGEMENT__SITE, oldSite, newSite);
-			if(msgs == null)
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					PomPackage.DISTRIBUTION_MANAGEMENT__SITE, oldSite, newSite);
+			if (msgs == null)
 				msgs = notification;
 			else
 				msgs.add(notification);
@@ -191,18 +173,17 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetSnapshotRepository(DeploymentRepository newSnapshotRepository,
 			NotificationChain msgs) {
 		DeploymentRepository oldSnapshotRepository = snapshotRepository;
 		snapshotRepository = newSnapshotRepository;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, PomPackage.DISTRIBUTION_MANAGEMENT__SNAPSHOT_REPOSITORY, oldSnapshotRepository,
-				newSnapshotRepository);
-			if(msgs == null)
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					PomPackage.DISTRIBUTION_MANAGEMENT__SNAPSHOT_REPOSITORY, oldSnapshotRepository,
+					newSnapshotRepository);
+			if (msgs == null)
 				msgs = notification;
 			else
 				msgs.add(notification);
@@ -212,12 +193,11 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.DISTRIBUTION_MANAGEMENT__REPOSITORY:
 				return getRepository();
 			case PomPackage.DISTRIBUTION_MANAGEMENT__SNAPSHOT_REPOSITORY:
@@ -236,12 +216,11 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.DISTRIBUTION_MANAGEMENT__REPOSITORY:
 				return basicSetRepository(null, msgs);
 			case PomPackage.DISTRIBUTION_MANAGEMENT__SNAPSHOT_REPOSITORY:
@@ -256,12 +235,11 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.DISTRIBUTION_MANAGEMENT__REPOSITORY:
 				return repository != null;
 			case PomPackage.DISTRIBUTION_MANAGEMENT__SNAPSHOT_REPOSITORY:
@@ -269,27 +247,22 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 			case PomPackage.DISTRIBUTION_MANAGEMENT__SITE:
 				return site != null;
 			case PomPackage.DISTRIBUTION_MANAGEMENT__DOWNLOAD_URL:
-				return DOWNLOAD_URL_EDEFAULT == null
-						? downloadUrl != null
-						: !DOWNLOAD_URL_EDEFAULT.equals(downloadUrl);
+				return DOWNLOAD_URL_EDEFAULT == null ? downloadUrl != null : !DOWNLOAD_URL_EDEFAULT.equals(downloadUrl);
 			case PomPackage.DISTRIBUTION_MANAGEMENT__RELOCATION:
 				return relocation != null;
 			case PomPackage.DISTRIBUTION_MANAGEMENT__STATUS:
-				return STATUS_EDEFAULT == null
-						? status != null
-						: !STATUS_EDEFAULT.equals(status);
+				return STATUS_EDEFAULT == null ? status != null : !STATUS_EDEFAULT.equals(status);
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.DISTRIBUTION_MANAGEMENT__REPOSITORY:
 				setRepository((DeploymentRepository) newValue);
 				return;
@@ -314,12 +287,11 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.DISTRIBUTION_MANAGEMENT__REPOSITORY:
 				setRepository((DeploymentRepository) null);
 				return;
@@ -344,7 +316,6 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -354,7 +325,6 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -364,7 +334,6 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -374,7 +343,6 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -384,7 +352,6 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -394,7 +361,6 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -404,146 +370,126 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setDownloadUrl(String newDownloadUrl) {
 		String oldDownloadUrl = downloadUrl;
 		downloadUrl = newDownloadUrl;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, PomPackage.DISTRIBUTION_MANAGEMENT__DOWNLOAD_URL, oldDownloadUrl,
-					downloadUrl));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.DISTRIBUTION_MANAGEMENT__DOWNLOAD_URL,
+					oldDownloadUrl, downloadUrl));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setRelocation(Relocation newRelocation) {
-		if(newRelocation != relocation) {
+		if (newRelocation != relocation) {
 			NotificationChain msgs = null;
-			if(relocation != null)
-				msgs = ((InternalEObject) relocation).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.DISTRIBUTION_MANAGEMENT__RELOCATION, null, msgs);
-			if(newRelocation != null)
-				msgs = ((InternalEObject) newRelocation).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.DISTRIBUTION_MANAGEMENT__RELOCATION, null, msgs);
+			if (relocation != null)
+				msgs = ((InternalEObject) relocation).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.DISTRIBUTION_MANAGEMENT__RELOCATION, null, msgs);
+			if (newRelocation != null)
+				msgs = ((InternalEObject) newRelocation).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.DISTRIBUTION_MANAGEMENT__RELOCATION, null, msgs);
 			msgs = basicSetRelocation(newRelocation, msgs);
-			if(msgs != null)
+			if (msgs != null)
 				msgs.dispatch();
-		}
-		else if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, PomPackage.DISTRIBUTION_MANAGEMENT__RELOCATION, newRelocation,
-					newRelocation));
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.DISTRIBUTION_MANAGEMENT__RELOCATION,
+					newRelocation, newRelocation));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setRepository(DeploymentRepository newRepository) {
-		if(newRepository != repository) {
+		if (newRepository != repository) {
 			NotificationChain msgs = null;
-			if(repository != null)
-				msgs = ((InternalEObject) repository).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.DISTRIBUTION_MANAGEMENT__REPOSITORY, null, msgs);
-			if(newRepository != null)
-				msgs = ((InternalEObject) newRepository).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.DISTRIBUTION_MANAGEMENT__REPOSITORY, null, msgs);
+			if (repository != null)
+				msgs = ((InternalEObject) repository).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.DISTRIBUTION_MANAGEMENT__REPOSITORY, null, msgs);
+			if (newRepository != null)
+				msgs = ((InternalEObject) newRepository).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.DISTRIBUTION_MANAGEMENT__REPOSITORY, null, msgs);
 			msgs = basicSetRepository(newRepository, msgs);
-			if(msgs != null)
+			if (msgs != null)
 				msgs.dispatch();
-		}
-		else if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, PomPackage.DISTRIBUTION_MANAGEMENT__REPOSITORY, newRepository,
-					newRepository));
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.DISTRIBUTION_MANAGEMENT__REPOSITORY,
+					newRepository, newRepository));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setSite(Site newSite) {
-		if(newSite != site) {
+		if (newSite != site) {
 			NotificationChain msgs = null;
-			if(site != null)
-				msgs = ((InternalEObject) site).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.DISTRIBUTION_MANAGEMENT__SITE, null, msgs);
-			if(newSite != null)
-				msgs = ((InternalEObject) newSite).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.DISTRIBUTION_MANAGEMENT__SITE, null, msgs);
+			if (site != null)
+				msgs = ((InternalEObject) site).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.DISTRIBUTION_MANAGEMENT__SITE, null, msgs);
+			if (newSite != null)
+				msgs = ((InternalEObject) newSite).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.DISTRIBUTION_MANAGEMENT__SITE, null, msgs);
 			msgs = basicSetSite(newSite, msgs);
-			if(msgs != null)
+			if (msgs != null)
 				msgs.dispatch();
-		}
-		else if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, PomPackage.DISTRIBUTION_MANAGEMENT__SITE, newSite, newSite));
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.DISTRIBUTION_MANAGEMENT__SITE, newSite,
+					newSite));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setSnapshotRepository(DeploymentRepository newSnapshotRepository) {
-		if(newSnapshotRepository != snapshotRepository) {
+		if (newSnapshotRepository != snapshotRepository) {
 			NotificationChain msgs = null;
-			if(snapshotRepository != null)
-				msgs = ((InternalEObject) snapshotRepository).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.DISTRIBUTION_MANAGEMENT__SNAPSHOT_REPOSITORY, null, msgs);
-			if(newSnapshotRepository != null)
-				msgs = ((InternalEObject) newSnapshotRepository).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.DISTRIBUTION_MANAGEMENT__SNAPSHOT_REPOSITORY, null, msgs);
+			if (snapshotRepository != null)
+				msgs = ((InternalEObject) snapshotRepository).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.DISTRIBUTION_MANAGEMENT__SNAPSHOT_REPOSITORY, null, msgs);
+			if (newSnapshotRepository != null)
+				msgs = ((InternalEObject) newSnapshotRepository).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.DISTRIBUTION_MANAGEMENT__SNAPSHOT_REPOSITORY, null, msgs);
 			msgs = basicSetSnapshotRepository(newSnapshotRepository, msgs);
-			if(msgs != null)
+			if (msgs != null)
 				msgs.dispatch();
-		}
-		else if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, PomPackage.DISTRIBUTION_MANAGEMENT__SNAPSHOT_REPOSITORY,
-					newSnapshotRepository, newSnapshotRepository));
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					PomPackage.DISTRIBUTION_MANAGEMENT__SNAPSHOT_REPOSITORY, newSnapshotRepository,
+					newSnapshotRepository));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setStatus(String newStatus) {
 		String oldStatus = status;
 		status = newStatus;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, PomPackage.DISTRIBUTION_MANAGEMENT__STATUS, oldStatus, status));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.DISTRIBUTION_MANAGEMENT__STATUS, oldStatus,
+					status));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if(eIsProxy())
+		if (eIsProxy())
 			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
@@ -557,7 +503,6 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override

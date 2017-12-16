@@ -14,7 +14,8 @@ import org.eclipse.cbi.p2repo.p2.maven.util.XMLResourceImplWithCheck;
 import org.eclipse.emf.common.util.URI;
 
 /**
- * <!-- begin-user-doc --> The <b>Resource </b> associated with the package. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> The <b>Resource </b> associated with the package.
+ * <!-- end-user-doc -->
  *
  * @see org.eclipse.cbi.p2repo.p2.maven.pom.util.PomResourceFactoryImpl
  * @generated NOT
@@ -27,7 +28,8 @@ public class PomResourceImpl extends XMLResourceImplWithCheck {
 	private Long timestamp;
 
 	/**
-	 * Creates an instance of the resource. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Creates an instance of the resource. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 *
 	 * @param uri
 	 *            the URI of the new resource.
@@ -39,7 +41,7 @@ public class PomResourceImpl extends XMLResourceImplWithCheck {
 
 	@Override
 	public void doLoad(InputStream is, Map<?, ?> options) throws IOException {
-		if(is instanceof InputStreamWithInfo) {
+		if (is instanceof InputStreamWithInfo) {
 			InputStreamWithInfo isi = (InputStreamWithInfo) is;
 			timestamp = isi.getTimestamp();
 			md5 = isi.getMd5();

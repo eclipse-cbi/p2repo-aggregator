@@ -16,12 +16,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Versions</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object
+ * '<em><b>Versions</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.impl.VersionsImpl#getVersion <em>Version</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.impl.VersionsImpl#getVersion <em>Version</em>}</li>
  * </ul>
  *
  * @generated
@@ -29,9 +30,7 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 public class VersionsImpl extends EObjectImpl implements Versions {
 	/**
 	 * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute list.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getVersion()
 	 * @generated
 	 * @ordered
@@ -40,7 +39,6 @@ public class VersionsImpl extends EObjectImpl implements Versions {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected VersionsImpl() {
@@ -49,12 +47,11 @@ public class VersionsImpl extends EObjectImpl implements Versions {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case MetadataPackage.VERSIONS__VERSION:
 				return getVersion();
 		}
@@ -63,12 +60,11 @@ public class VersionsImpl extends EObjectImpl implements Versions {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case MetadataPackage.VERSIONS__VERSION:
 				return version != null && !version.isEmpty();
 		}
@@ -77,13 +73,12 @@ public class VersionsImpl extends EObjectImpl implements Versions {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case MetadataPackage.VERSIONS__VERSION:
 				getVersion().clear();
 				getVersion().addAll((Collection<? extends String>) newValue);
@@ -94,12 +89,11 @@ public class VersionsImpl extends EObjectImpl implements Versions {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case MetadataPackage.VERSIONS__VERSION:
 				getVersion().clear();
 				return;
@@ -109,25 +103,23 @@ public class VersionsImpl extends EObjectImpl implements Versions {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public EList<String> getVersion() {
-		if(version == null) {
-			version = new EDataTypeUniqueEList<String>(String.class, this, MetadataPackage.VERSIONS__VERSION);
+		if (version == null) {
+			version = new EDataTypeUniqueEList<>(String.class, this, MetadataPackage.VERSIONS__VERSION);
 		}
 		return version;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if(eIsProxy())
+		if (eIsProxy())
 			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
@@ -139,7 +131,6 @@ public class VersionsImpl extends EObjectImpl implements Versions {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override

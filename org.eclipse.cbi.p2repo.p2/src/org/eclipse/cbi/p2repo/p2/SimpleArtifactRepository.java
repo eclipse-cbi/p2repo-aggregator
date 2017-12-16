@@ -12,15 +12,14 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.equinox.p2.repository.artifact.IFileArtifactRepository;
 
 /**
- * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Simple Artifact Repository</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object '<em><b>Simple
+ * Artifact Repository</b></em>'. <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.SimpleArtifactRepository#getRules <em>Rules</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.SimpleArtifactRepository#getRules <em>Rules</em>}</li>
  * </ul>
  *
  * @see org.eclipse.cbi.p2repo.p2.P2Package#getSimpleArtifactRepository()
@@ -33,10 +32,10 @@ public interface SimpleArtifactRepository extends ArtifactRepository, IFileArtif
 	 * The list contents are of type {@link org.eclipse.cbi.p2repo.p2.MappingRule}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Rules</em>' containment reference list isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Rules</em>' containment reference list isn't
+	 * clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Rules</em>' containment reference list.
 	 * @see org.eclipse.cbi.p2repo.p2.P2Package#getSimpleArtifactRepository_Rules()
 	 * @model containment="true" resolveProxies="true"

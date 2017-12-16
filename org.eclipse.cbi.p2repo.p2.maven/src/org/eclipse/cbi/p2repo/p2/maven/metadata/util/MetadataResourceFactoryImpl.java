@@ -19,8 +19,8 @@ import org.eclipse.emf.ecore.util.ExtendedMetaData;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 
 /**
- * <!-- begin-user-doc --> The <b>Resource Factory</b> associated with the package. <!-- end-user-doc -->
- *
+ * <!-- begin-user-doc --> The <b>Resource Factory</b> associated with the
+ * package. <!-- end-user-doc -->
  * @see org.eclipse.cbi.p2repo.p2.maven.metadata.util.MetadataResourceImpl
  * @generated
  */
@@ -28,7 +28,8 @@ public class MetadataResourceFactoryImpl extends ResourceFactoryImpl {
 	protected ExtendedMetaData extendedMetaData;
 
 	/**
-	 * Creates an instance of the resource factory. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Creates an instance of the resource factory. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
@@ -38,14 +39,14 @@ public class MetadataResourceFactoryImpl extends ResourceFactoryImpl {
 		extendedMetaData = new BasicExtendedMetaData(new EPackageRegistryImpl(EPackage.Registry.INSTANCE)) {
 			@Override
 			public EStructuralFeature getElement(String namespace, String name) {
-				if(namespace == null)
+				if (namespace == null)
 					namespace = MetadataPackage.eNS_URI;
 				return super.getElement(namespace, name);
 			}
 
 			@Override
 			public EStructuralFeature getLocalElement(EClass eClass, String namespace, String name) {
-				if(namespace == null)
+				if (namespace == null)
 					namespace = MetadataPackage.eNS_URI;
 				return super.getLocalElement(eClass, namespace, name);
 			}
@@ -54,7 +55,8 @@ public class MetadataResourceFactoryImpl extends ResourceFactoryImpl {
 	}
 
 	/**
-	 * Creates an instance of the resource. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Creates an instance of the resource. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 *
 	 * @generated NOT
 	 */

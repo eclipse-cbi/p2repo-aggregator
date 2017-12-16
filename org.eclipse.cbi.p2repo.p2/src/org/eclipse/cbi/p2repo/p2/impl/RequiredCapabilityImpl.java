@@ -18,16 +18,15 @@ import org.eclipse.equinox.p2.metadata.VersionRange;
 import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Required Capability</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object
+ * '<em><b>Required Capability</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.impl.RequiredCapabilityImpl#getName <em>Name</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.impl.RequiredCapabilityImpl#getNamespace <em>Namespace</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.impl.RequiredCapabilityImpl#getRange <em>Range</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.impl.RequiredCapabilityImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.impl.RequiredCapabilityImpl#getNamespace <em>Namespace</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.impl.RequiredCapabilityImpl#getRange <em>Range</em>}</li>
  * </ul>
  *
  * @generated
@@ -35,9 +34,7 @@ import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
 public class RequiredCapabilityImpl extends RequirementImpl implements RequiredCapability {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -46,9 +43,7 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -57,9 +52,7 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 
 	/**
 	 * The default value of the '{@link #getNamespace() <em>Namespace</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getNamespace()
 	 * @generated
 	 * @ordered
@@ -68,9 +61,7 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 
 	/**
 	 * The cached value of the '{@link #getNamespace() <em>Namespace</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getNamespace()
 	 * @generated
 	 * @ordered
@@ -79,9 +70,7 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 
 	/**
 	 * The default value of the '{@link #getRange() <em>Range</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getRange()
 	 * @generated
 	 * @ordered
@@ -90,9 +79,7 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 
 	/**
 	 * The cached value of the '{@link #getRange() <em>Range</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getRange()
 	 * @generated
 	 * @ordered
@@ -102,9 +89,7 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	private boolean matchesDirty = true;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected RequiredCapabilityImpl() {
@@ -112,9 +97,10 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	}
 
 	synchronized private void computeMatches() {
-		if(matchesDirty) {
+		if (matchesDirty) {
 			org.eclipse.equinox.internal.p2.metadata.RequiredCapability rc = new org.eclipse.equinox.internal.p2.metadata.RequiredCapability(
-				getNamespace(), getName(), getRange(), getFilter(), getMin(), getMax(), isGreedy(), getDescription());
+					getNamespace(), getName(), getRange(), getFilter(), getMin(), getMax(), isGreedy(),
+					getDescription());
 			super.setMatches(rc.getMatches());
 		}
 
@@ -122,15 +108,13 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if(baseClass == IRequiredCapability.class) {
-			switch(derivedFeatureID) {
+		if (baseClass == IRequiredCapability.class) {
+			switch (derivedFeatureID) {
 				case P2Package.REQUIRED_CAPABILITY__NAME:
 					return P2Package.IREQUIRED_CAPABILITY__NAME;
 				case P2Package.REQUIRED_CAPABILITY__NAMESPACE:
@@ -145,15 +129,13 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if(baseClass == IRequiredCapability.class) {
-			switch(baseFeatureID) {
+		if (baseClass == IRequiredCapability.class) {
+			switch (baseFeatureID) {
 				case P2Package.IREQUIRED_CAPABILITY__NAME:
 					return P2Package.REQUIRED_CAPABILITY__NAME;
 				case P2Package.IREQUIRED_CAPABILITY__NAMESPACE:
@@ -168,14 +150,12 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2Package.REQUIRED_CAPABILITY__NAME:
 				return getName();
 			case P2Package.REQUIRED_CAPABILITY__NAMESPACE:
@@ -187,67 +167,56 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2Package.REQUIRED_CAPABILITY__NAME:
-				return NAME_EDEFAULT == null
-						? name != null
-						: !NAME_EDEFAULT.equals(name);
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case P2Package.REQUIRED_CAPABILITY__NAMESPACE:
-				return NAMESPACE_EDEFAULT == null
-						? namespace != null
-						: !NAMESPACE_EDEFAULT.equals(namespace);
+				return NAMESPACE_EDEFAULT == null ? namespace != null : !NAMESPACE_EDEFAULT.equals(namespace);
 			case P2Package.REQUIRED_CAPABILITY__RANGE:
-				return RANGE_EDEFAULT == null
-						? range != null
-						: !RANGE_EDEFAULT.equals(range);
+				return RANGE_EDEFAULT == null ? range != null : !RANGE_EDEFAULT.equals(range);
 		}
 		return super.eIsSet(featureID);
 	}
 
 	@Override
 	public boolean equals(Object obj) {
-		if(this == obj)
+		if (this == obj)
 			return true;
-		if(obj == null)
+		if (obj == null)
 			return false;
-		if(!(obj instanceof IRequiredCapability))
+		if (!(obj instanceof IRequiredCapability))
 			return false;
 		final IRequiredCapability other = (IRequiredCapability) obj;
-		if(filter == null) {
-			if(other.getFilter() != null)
+		if (filter == null) {
+			if (other.getFilter() != null)
 				return false;
-		}
-		else if(!filter.equals(other.getFilter()))
+		} else if (!filter.equals(other.getFilter()))
 			return false;
-		if(getMin() != other.getMin())
+		if (getMin() != other.getMin())
 			return false;
-		if(getMax() != other.getMax())
+		if (getMax() != other.getMax())
 			return false;
-		if(!name.equals(other.getName()))
+		if (!name.equals(other.getName()))
 			return false;
-		if(!namespace.equals(other.getNamespace()))
+		if (!namespace.equals(other.getNamespace()))
 			return false;
-		if(!range.equals(other.getRange()))
+		if (!range.equals(other.getRange()))
 			return false;
 		return true;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2Package.REQUIRED_CAPABILITY__NAME:
 				setName((String) newValue);
 				return;
@@ -262,9 +231,7 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -273,14 +240,12 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2Package.REQUIRED_CAPABILITY__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -296,16 +261,14 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 
 	@Override
 	public IMatchExpression<IInstallableUnit> getMatches() {
-		if(matchesDirty)
+		if (matchesDirty)
 			computeMatches();
 
 		return matches;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -314,9 +277,7 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -325,9 +286,7 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -339,9 +298,7 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((filter == null)
-				? 0
-				: filter.hashCode());
+		result = prime * result + ((filter == null) ? 0 : filter.hashCode());
 		result = prime * result + Integer.valueOf(getMin()).hashCode();
 		result = prime * result + Integer.valueOf(getMax()).hashCode();
 		result = prime * result + name.hashCode();
@@ -356,8 +313,7 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
@@ -367,21 +323,18 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setNameGen(String newName) {
 		String oldName = name;
 		name = newName;
-		if(eNotificationRequired())
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.REQUIRED_CAPABILITY__NAME, oldName, name));
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
@@ -391,23 +344,19 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setNamespaceGen(String newNamespace) {
 		String oldNamespace = namespace;
 		namespace = newNamespace;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, P2Package.REQUIRED_CAPABILITY__NAMESPACE, oldNamespace, namespace));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.REQUIRED_CAPABILITY__NAMESPACE,
+					oldNamespace, namespace));
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
@@ -417,48 +366,44 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setRangeGen(VersionRange newRange) {
 		VersionRange oldRange = range;
 		range = newRange;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(this, Notification.SET, P2Package.REQUIRED_CAPABILITY__RANGE, oldRange, range));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.REQUIRED_CAPABILITY__RANGE, oldRange,
+					range));
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
 	@Override
 	public String toString() {
-		if(eIsProxy())
+		if (eIsProxy())
 			return super.toString();
 
 		StringBuffer result = new StringBuffer();
-		if("osgi.bundle".equals(getNamespace())) //$NON-NLS-1$
+		if ("osgi.bundle".equals(getNamespace())) //$NON-NLS-1$
 			result.append("bundle"); //$NON-NLS-1$
-		else if("java.package".equals(getNamespace())) //$NON-NLS-1$
+		else if ("java.package".equals(getNamespace())) //$NON-NLS-1$
 			result.append("package"); //$NON-NLS-1$
-		else if(!IInstallableUnit.NAMESPACE_IU_ID.equals(getNamespace()))
+		else if (!IInstallableUnit.NAMESPACE_IU_ID.equals(getNamespace()))
 			result.append(getNamespace());
-		if(result.length() > 0)
+		if (result.length() > 0)
 			result.append(' ');
 		result.append(getName());
 		result.append(' ');
 		// for an exact version match, print a simpler expression
-		if(range.getMinimum().equals(range.getMaximum())) {
+		if (range.getMinimum().equals(range.getMaximum())) {
 			result.append('[');
 			range.getMinimum().toString(result);
 			result.append(']');
-		}
-		else
+		} else
 			range.toString(result);
 		return result.toString();
 	}

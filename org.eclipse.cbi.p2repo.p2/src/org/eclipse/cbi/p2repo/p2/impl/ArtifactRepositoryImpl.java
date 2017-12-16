@@ -39,14 +39,13 @@ import org.eclipse.equinox.p2.repository.artifact.IArtifactDescriptor;
 import org.eclipse.equinox.p2.repository.artifact.IArtifactRequest;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Artifact Repository</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object
+ * '<em><b>Artifact Repository</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.impl.ArtifactRepositoryImpl#getArtifactMap <em>Artifact Map</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.impl.ArtifactRepositoryImpl#getArtifactMap <em>Artifact Map</em>}</li>
  * </ul>
  *
  * @generated
@@ -54,9 +53,7 @@ import org.eclipse.equinox.p2.repository.artifact.IArtifactRequest;
 public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> implements ArtifactRepository {
 	/**
 	 * The cached value of the '{@link #getArtifactMap() <em>Artifact Map</em>}' map.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getArtifactMap()
 	 * @generated
 	 * @ordered
@@ -66,9 +63,7 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	private static final IArtifactDescriptor[] noDescriptors = new IArtifactDescriptor[0];
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected ArtifactRepositoryImpl() {
@@ -76,30 +71,27 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
 	@Override
 	public void addDescriptor(IArtifactDescriptor descriptor) {
-		if(!(descriptor instanceof ArtifactDescriptorImpl))
+		if (!(descriptor instanceof ArtifactDescriptorImpl))
 			descriptor = P2Bridge.importToModel(this, descriptor);
 		IArtifactKey key = descriptor.getArtifactKey();
 		EMap<IArtifactKey, EList<IArtifactDescriptor>> map = getArtifactMap();
 		EList<IArtifactDescriptor> descs = map.get(key);
-		if(descs == null) {
-			descs = new BasicEList<IArtifactDescriptor>();
+		if (descs == null) {
+			descs = new BasicEList<>();
 			descs.add(descriptor);
 			map.put(key, descs);
-		}
-		else
+		} else
 			descs.add(descriptor);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
@@ -110,20 +102,18 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
 	@Override
 	public void addDescriptors(IArtifactDescriptor[] descriptors) {
-		for(IArtifactDescriptor descriptor : descriptors)
+		for (IArtifactDescriptor descriptor : descriptors)
 			addDescriptor(descriptor);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
@@ -134,30 +124,28 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
 	@Override
 	public boolean contains(IArtifactDescriptor descriptor) {
 		EList<IArtifactDescriptor> descs = getArtifactMap().get(descriptor.getArtifactKey());
-		if(descs == null)
+		if (descs == null)
 			return false;
 
-		if(!(descriptor instanceof ArtifactDescriptorImpl))
+		if (!(descriptor instanceof ArtifactDescriptorImpl))
 			// Can't trust ArtifactDescriptor equals unless we do this
 			descriptor = P2Bridge.importToModel(this, descriptor);
 
-		for(IArtifactDescriptor ad : descs)
-			if(ad.equals(descriptor))
+		for (IArtifactDescriptor ad : descs)
+			if (ad.equals(descriptor))
 				return true;
 		return false;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
@@ -167,23 +155,21 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
 	@Override
 	public IArtifactDescriptor createArtifactDescriptor(IArtifactKey key) {
 		ArtifactDescriptorImpl desc = (ArtifactDescriptorImpl) P2Factory.eINSTANCE.createArtifactDescriptor();
-		if(!(key instanceof ArtifactKeyImpl))
+		if (!(key instanceof ArtifactKeyImpl))
 			key = P2Bridge.importToModel(key);
 		desc.setArtifactKey(key);
 		return desc;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
@@ -197,8 +183,7 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
@@ -214,16 +199,14 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2Package.ARTIFACT_REPOSITORY__ARTIFACT_MAP:
-				if(coreType)
+				if (coreType)
 					return getArtifactMap();
 				else
 					return getArtifactMap().map();
@@ -232,14 +215,12 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2Package.ARTIFACT_REPOSITORY__ARTIFACT_MAP:
 				return ((InternalEList<?>) getArtifactMap()).basicRemove(otherEnd, msgs);
 		}
@@ -247,14 +228,12 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2Package.ARTIFACT_REPOSITORY__ARTIFACT_MAP:
 				return artifactMap != null && !artifactMap.isEmpty();
 		}
@@ -262,14 +241,12 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2Package.ARTIFACT_REPOSITORY__ARTIFACT_MAP:
 				((EStructuralFeature.Setting) getArtifactMap()).set(newValue);
 				return;
@@ -278,9 +255,7 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -289,14 +264,12 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2Package.ARTIFACT_REPOSITORY__ARTIFACT_MAP:
 				getArtifactMap().clear();
 				return;
@@ -305,23 +278,20 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
 	@Override
 	public IStatus executeBatch(IRunnableWithProgress runnable, IProgressMonitor monitor) {
 		IStatus result;
-		synchronized(this) {
+		synchronized (this) {
 			try {
 				runnable.run(monitor);
 				result = Status.OK_STATUS;
-			}
-			catch(OperationCanceledException e) {
+			} catch (OperationCanceledException e) {
 				result = new Status(IStatus.CANCEL, "org.eclipse.cbi.p2repo.p2", e.getMessage(), e);
-			}
-			catch(Exception e) {
+			} catch (Exception e) {
 				result = new Status(IStatus.ERROR, "org.eclipse.cbi.p2repo.p2", e.getMessage(), e);
 			}
 		}
@@ -329,8 +299,7 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
@@ -340,38 +309,31 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
 	@Override
 	public IArtifactDescriptor[] getArtifactDescriptors(IArtifactKey key) {
 		EList<IArtifactDescriptor> result = getArtifactMap().get(key);
-		return result == null
-				? noDescriptors
-				: result.toArray(new IArtifactDescriptor[result.size()]);
+		return result == null ? noDescriptors : result.toArray(new IArtifactDescriptor[result.size()]);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public EMap<IArtifactKey, EList<IArtifactDescriptor>> getArtifactMap() {
-		if(artifactMap == null) {
-			artifactMap = new EcoreEMap<IArtifactKey, EList<IArtifactDescriptor>>(
-				P2Package.Literals.ARTIFACTS_BY_KEY, ArtifactsByKeyImpl.class, this,
-				P2Package.ARTIFACT_REPOSITORY__ARTIFACT_MAP);
+		if (artifactMap == null) {
+			artifactMap = new EcoreEMap<>(P2Package.Literals.ARTIFACTS_BY_KEY,
+					ArtifactsByKeyImpl.class, this, P2Package.ARTIFACT_REPOSITORY__ARTIFACT_MAP);
 		}
 		return artifactMap;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
@@ -381,8 +343,7 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
@@ -392,8 +353,7 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
@@ -403,8 +363,7 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
@@ -414,8 +373,7 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
@@ -425,8 +383,7 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
@@ -437,8 +394,7 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
@@ -446,25 +402,24 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	public void removeDescriptor(IArtifactDescriptor descriptor) {
 		IArtifactKey key = descriptor.getArtifactKey();
 		EList<IArtifactDescriptor> descs = getArtifactMap().get(key);
-		if(descs == null)
+		if (descs == null)
 			return;
 
-		if(!(descriptor instanceof ArtifactDescriptorImpl))
+		if (!(descriptor instanceof ArtifactDescriptorImpl))
 			// Can't trust ArtifactDescriptor equals unless we do this
 			descriptor = P2Bridge.importToModel(this, descriptor);
 		int idx = descs.indexOf(descriptor);
-		if(idx < 0)
+		if (idx < 0)
 			return;
 
 		descs.remove(idx);
-		if(descs.isEmpty())
+		if (descs.isEmpty())
 			// Remove the key since no descriptor is using it.
 			getArtifactMap().removeKey(key);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
@@ -475,8 +430,7 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
@@ -486,8 +440,7 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
@@ -498,20 +451,18 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
 	@Override
 	public void removeDescriptors(IArtifactDescriptor[] descriptors) {
-		for(IArtifactDescriptor descriptor : descriptors)
+		for (IArtifactDescriptor descriptor : descriptors)
 			removeDescriptor(descriptor);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
@@ -522,20 +473,18 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
 	@Override
 	public void removeDescriptors(IArtifactKey[] keys) {
-		for(IArtifactKey key : keys)
+		for (IArtifactKey key : keys)
 			removeDescriptor(key);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */

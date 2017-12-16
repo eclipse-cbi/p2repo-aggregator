@@ -20,22 +20,21 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Dependencies Type</b></em>'. <!-- end-user-doc
- * -->
+ * <!-- begin-user-doc --> An implementation of the model object
+ * '<em><b>Dependencies Type</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.DependenciesTypeImpl#getDependency <em>Dependency </em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.DependenciesTypeImpl#getDependency <em>Dependency</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public class DependenciesTypeImpl extends EObjectImpl implements DependenciesType {
 	/**
-	 * The cached value of the '{@link #getDependency() <em>Dependency</em>}' containment reference list. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * The cached value of the '{@link #getDependency() <em>Dependency</em>}' containment reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getDependency()
 	 * @generated
 	 * @ordered
@@ -44,7 +43,6 @@ public class DependenciesTypeImpl extends EObjectImpl implements DependenciesTyp
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected DependenciesTypeImpl() {
@@ -53,12 +51,11 @@ public class DependenciesTypeImpl extends EObjectImpl implements DependenciesTyp
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.DEPENDENCIES_TYPE__DEPENDENCY:
 				return getDependency();
 		}
@@ -67,12 +64,11 @@ public class DependenciesTypeImpl extends EObjectImpl implements DependenciesTyp
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.DEPENDENCIES_TYPE__DEPENDENCY:
 				return ((InternalEList<?>) getDependency()).basicRemove(otherEnd, msgs);
 		}
@@ -81,12 +77,11 @@ public class DependenciesTypeImpl extends EObjectImpl implements DependenciesTyp
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.DEPENDENCIES_TYPE__DEPENDENCY:
 				return dependency != null && !dependency.isEmpty();
 		}
@@ -95,13 +90,12 @@ public class DependenciesTypeImpl extends EObjectImpl implements DependenciesTyp
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.DEPENDENCIES_TYPE__DEPENDENCY:
 				getDependency().clear();
 				getDependency().addAll((Collection<? extends Dependency>) newValue);
@@ -112,12 +106,11 @@ public class DependenciesTypeImpl extends EObjectImpl implements DependenciesTyp
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.DEPENDENCIES_TYPE__DEPENDENCY:
 				getDependency().clear();
 				return;
@@ -127,21 +120,19 @@ public class DependenciesTypeImpl extends EObjectImpl implements DependenciesTyp
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public EList<Dependency> getDependency() {
-		if(dependency == null) {
-			dependency = new EObjectContainmentEList<Dependency>(
-				Dependency.class, this, PomPackage.DEPENDENCIES_TYPE__DEPENDENCY);
+		if (dependency == null) {
+			dependency = new EObjectContainmentEList<>(Dependency.class, this,
+					PomPackage.DEPENDENCIES_TYPE__DEPENDENCY);
 		}
 		return dependency;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override

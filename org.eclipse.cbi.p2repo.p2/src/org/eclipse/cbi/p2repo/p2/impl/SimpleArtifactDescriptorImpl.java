@@ -22,14 +22,13 @@ import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Simple Artifact Descriptor</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Simple
+ * Artifact Descriptor</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.impl.SimpleArtifactDescriptorImpl#getRepositoryPropertyMap <em>Repository Property Map</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.impl.SimpleArtifactDescriptorImpl#getRepositoryPropertyMap <em>Repository Property Map</em>}</li>
  * </ul>
  *
  * @generated
@@ -37,9 +36,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class SimpleArtifactDescriptorImpl extends ArtifactDescriptorImpl implements SimpleArtifactDescriptor {
 	/**
 	 * The cached value of the '{@link #getRepositoryPropertyMap() <em>Repository Property Map</em>}' map.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #getRepositoryPropertyMap()
 	 * @generated
 	 * @ordered
@@ -49,9 +47,7 @@ public class SimpleArtifactDescriptorImpl extends ArtifactDescriptorImpl impleme
 	public static final String ARTIFACT_REFERENCE = "artifact.reference"; //$NON-NLS-1$
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected SimpleArtifactDescriptorImpl() {
@@ -59,16 +55,14 @@ public class SimpleArtifactDescriptorImpl extends ArtifactDescriptorImpl impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2Package.SIMPLE_ARTIFACT_DESCRIPTOR__REPOSITORY_PROPERTY_MAP:
-				if(coreType)
+				if (coreType)
 					return getRepositoryPropertyMap();
 				else
 					return getRepositoryPropertyMap().map();
@@ -77,14 +71,12 @@ public class SimpleArtifactDescriptorImpl extends ArtifactDescriptorImpl impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2Package.SIMPLE_ARTIFACT_DESCRIPTOR__REPOSITORY_PROPERTY_MAP:
 				return ((InternalEList<?>) getRepositoryPropertyMap()).basicRemove(otherEnd, msgs);
 		}
@@ -92,14 +84,12 @@ public class SimpleArtifactDescriptorImpl extends ArtifactDescriptorImpl impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2Package.SIMPLE_ARTIFACT_DESCRIPTOR__REPOSITORY_PROPERTY_MAP:
 				return repositoryPropertyMap != null && !repositoryPropertyMap.isEmpty();
 		}
@@ -108,26 +98,23 @@ public class SimpleArtifactDescriptorImpl extends ArtifactDescriptorImpl impleme
 
 	@Override
 	public boolean equals(Object obj) {
-		if(this == obj)
+		if (this == obj)
 			return true;
-		if(!(obj instanceof SimpleArtifactDescriptorImpl))
+		if (!(obj instanceof SimpleArtifactDescriptorImpl))
 			return false;
 
 		SimpleArtifactDescriptorImpl other = (SimpleArtifactDescriptorImpl) obj;
-		return Trivial.equalsAllowNull(
-			getRepositoryProperty(ARTIFACT_REFERENCE), other.getRepositoryProperty(ARTIFACT_REFERENCE)) &&
-				super.equals(obj);
+		return Trivial.equalsAllowNull(getRepositoryProperty(ARTIFACT_REFERENCE),
+				other.getRepositoryProperty(ARTIFACT_REFERENCE)) && super.equals(obj);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2Package.SIMPLE_ARTIFACT_DESCRIPTOR__REPOSITORY_PROPERTY_MAP:
 				((EStructuralFeature.Setting) getRepositoryPropertyMap()).set(newValue);
 				return;
@@ -136,9 +123,7 @@ public class SimpleArtifactDescriptorImpl extends ArtifactDescriptorImpl impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -147,14 +132,12 @@ public class SimpleArtifactDescriptorImpl extends ArtifactDescriptorImpl impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2Package.SIMPLE_ARTIFACT_DESCRIPTOR__REPOSITORY_PROPERTY_MAP:
 				getRepositoryPropertyMap().clear();
 				return;
@@ -163,8 +146,7 @@ public class SimpleArtifactDescriptorImpl extends ArtifactDescriptorImpl impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
@@ -174,8 +156,7 @@ public class SimpleArtifactDescriptorImpl extends ArtifactDescriptorImpl impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
@@ -185,17 +166,14 @@ public class SimpleArtifactDescriptorImpl extends ArtifactDescriptorImpl impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public EMap<String, String> getRepositoryPropertyMap() {
-		if(repositoryPropertyMap == null) {
-			repositoryPropertyMap = new EcoreEMap<String, String>(
-				P2Package.Literals.PROPERTY, PropertyImpl.class, this,
-				P2Package.SIMPLE_ARTIFACT_DESCRIPTOR__REPOSITORY_PROPERTY_MAP);
+		if (repositoryPropertyMap == null) {
+			repositoryPropertyMap = new EcoreEMap<>(P2Package.Literals.PROPERTY, PropertyImpl.class, this,
+					P2Package.SIMPLE_ARTIFACT_DESCRIPTOR__REPOSITORY_PROPERTY_MAP);
 		}
 		return repositoryPropertyMap;
 	}
@@ -205,7 +183,7 @@ public class SimpleArtifactDescriptorImpl extends ArtifactDescriptorImpl impleme
 		int hash = super.hashCode();
 		String ref = getRepositoryProperty(ARTIFACT_REFERENCE);
 		hash = 31 * hash;
-		if(ref != null)
+		if (ref != null)
 			hash += ref.hashCode();
 		return hash;
 	}

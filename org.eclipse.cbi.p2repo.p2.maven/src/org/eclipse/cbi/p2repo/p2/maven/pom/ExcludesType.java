@@ -10,13 +10,14 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Excludes Type</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object '<em><b>Excludes
+ * Type</b></em>'. <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.ExcludesType#getExclude <em>Exclude</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.ExcludesType#getExclude <em>Exclude</em>}</li>
  * </ul>
  *
  * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getExcludesType()
@@ -27,12 +28,13 @@ public interface ExcludesType extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Exclude</b></em>' attribute list.
 	 * The list contents are of type {@link java.lang.String}.
-	 * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc
+	 * -->
 	 * <p>
-	 * If the meaning of the '<em>Exclude</em>' attribute list isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Exclude</em>' attribute list isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Exclude</em>' attribute list.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getExcludesType_Exclude()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.xml.type.String"

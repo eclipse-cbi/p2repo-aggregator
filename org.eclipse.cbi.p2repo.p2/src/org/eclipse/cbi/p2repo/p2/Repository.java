@@ -12,19 +12,18 @@ import org.eclipse.emf.common.util.EMap;
 import org.eclipse.equinox.p2.repository.IRepository;
 
 /**
- * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Repository</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object
+ * '<em><b>Repository</b></em>'. <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.Repository#getPropertyMap <em>Property Map</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.Repository#getPropertyMap <em>Property Map</em>}</li>
  * </ul>
  *
  * @see org.eclipse.cbi.p2repo.p2.P2Package#getRepository()
- * @model abstract="true" superTypes="org.eclipse.cbi.p2repo.p2.IRepository<T>"
+ * @model abstract="true" superTypes="org.eclipse.cbi.p2repo.p2.IRepository&lt;T&gt;"
  * @generated
  */
 public interface Repository<T> extends IRepository<T> {
@@ -34,13 +33,13 @@ public interface Repository<T> extends IRepository<T> {
 	 * and the value is of type {@link java.lang.String},
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Property Map</em>' map isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Property Map</em>' map isn't clear, there
+	 * really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Property Map</em>' map.
 	 * @see org.eclipse.cbi.p2repo.p2.P2Package#getRepository_PropertyMap()
-	 * @model mapType="org.eclipse.cbi.p2repo.p2.Property<org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EString>"
+	 * @model mapType="org.eclipse.cbi.p2repo.p2.Property&lt;org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EString&gt;"
 	 * @generated
 	 */
 	EMap<String, String> getPropertyMap();

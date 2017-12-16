@@ -20,21 +20,21 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Notifiers Type</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object
+ * '<em><b>Notifiers Type</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.NotifiersTypeImpl#getNotifier <em>Notifier</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.NotifiersTypeImpl#getNotifier <em>Notifier</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class NotifiersTypeImpl extends EObjectImpl implements NotifiersType {
 	/**
-	 * The cached value of the '{@link #getNotifier() <em>Notifier</em>}' containment reference list. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * The cached value of the '{@link #getNotifier() <em>Notifier</em>}' containment reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getNotifier()
 	 * @generated
 	 * @ordered
@@ -43,7 +43,6 @@ public class NotifiersTypeImpl extends EObjectImpl implements NotifiersType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected NotifiersTypeImpl() {
@@ -52,12 +51,11 @@ public class NotifiersTypeImpl extends EObjectImpl implements NotifiersType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.NOTIFIERS_TYPE__NOTIFIER:
 				return getNotifier();
 		}
@@ -66,12 +64,11 @@ public class NotifiersTypeImpl extends EObjectImpl implements NotifiersType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.NOTIFIERS_TYPE__NOTIFIER:
 				return ((InternalEList<?>) getNotifier()).basicRemove(otherEnd, msgs);
 		}
@@ -80,12 +77,11 @@ public class NotifiersTypeImpl extends EObjectImpl implements NotifiersType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.NOTIFIERS_TYPE__NOTIFIER:
 				return notifier != null && !notifier.isEmpty();
 		}
@@ -94,13 +90,12 @@ public class NotifiersTypeImpl extends EObjectImpl implements NotifiersType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.NOTIFIERS_TYPE__NOTIFIER:
 				getNotifier().clear();
 				getNotifier().addAll((Collection<? extends Notifier>) newValue);
@@ -111,12 +106,11 @@ public class NotifiersTypeImpl extends EObjectImpl implements NotifiersType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.NOTIFIERS_TYPE__NOTIFIER:
 				getNotifier().clear();
 				return;
@@ -126,20 +120,18 @@ public class NotifiersTypeImpl extends EObjectImpl implements NotifiersType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public EList<Notifier> getNotifier() {
-		if(notifier == null) {
-			notifier = new EObjectContainmentEList<Notifier>(Notifier.class, this, PomPackage.NOTIFIERS_TYPE__NOTIFIER);
+		if (notifier == null) {
+			notifier = new EObjectContainmentEList<>(Notifier.class, this, PomPackage.NOTIFIERS_TYPE__NOTIFIER);
 		}
 		return notifier;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override

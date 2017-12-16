@@ -17,14 +17,15 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Ci Management</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Ci
+ * Management</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.CiManagementImpl#getSystem <em>System</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.CiManagementImpl#getUrl <em>Url</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.CiManagementImpl#getNotifiers <em>Notifiers</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.CiManagementImpl#getSystem <em>System</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.CiManagementImpl#getUrl <em>Url</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.CiManagementImpl#getNotifiers <em>Notifiers</em>}</li>
  * </ul>
  *
  * @generated
@@ -32,9 +33,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 public class CiManagementImpl extends EObjectImpl implements CiManagement {
 	/**
 	 * The default value of the '{@link #getSystem() <em>System</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getSystem()
 	 * @generated
 	 * @ordered
@@ -43,9 +42,7 @@ public class CiManagementImpl extends EObjectImpl implements CiManagement {
 
 	/**
 	 * The cached value of the '{@link #getSystem() <em>System</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getSystem()
 	 * @generated
 	 * @ordered
@@ -53,8 +50,8 @@ public class CiManagementImpl extends EObjectImpl implements CiManagement {
 	protected String system = SYSTEM_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getUrl() <em>Url</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The default value of the '{@link #getUrl() <em>Url</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @see #getUrl()
 	 * @generated
@@ -63,8 +60,8 @@ public class CiManagementImpl extends EObjectImpl implements CiManagement {
 	protected static final String URL_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getUrl() <em>Url</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getUrl() <em>Url</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @see #getUrl()
 	 * @generated
@@ -74,9 +71,7 @@ public class CiManagementImpl extends EObjectImpl implements CiManagement {
 
 	/**
 	 * The cached value of the '{@link #getNotifiers() <em>Notifiers</em>}' containment reference.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getNotifiers()
 	 * @generated
 	 * @ordered
@@ -85,7 +80,6 @@ public class CiManagementImpl extends EObjectImpl implements CiManagement {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected CiManagementImpl() {
@@ -94,16 +88,15 @@ public class CiManagementImpl extends EObjectImpl implements CiManagement {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetNotifiers(NotifiersType newNotifiers, NotificationChain msgs) {
 		NotifiersType oldNotifiers = notifiers;
 		notifiers = newNotifiers;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, PomPackage.CI_MANAGEMENT__NOTIFIERS, oldNotifiers, newNotifiers);
-			if(msgs == null)
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					PomPackage.CI_MANAGEMENT__NOTIFIERS, oldNotifiers, newNotifiers);
+			if (msgs == null)
 				msgs = notification;
 			else
 				msgs.add(notification);
@@ -113,12 +106,11 @@ public class CiManagementImpl extends EObjectImpl implements CiManagement {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.CI_MANAGEMENT__SYSTEM:
 				return getSystem();
 			case PomPackage.CI_MANAGEMENT__URL:
@@ -131,12 +123,11 @@ public class CiManagementImpl extends EObjectImpl implements CiManagement {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.CI_MANAGEMENT__NOTIFIERS:
 				return basicSetNotifiers(null, msgs);
 		}
@@ -145,20 +136,15 @@ public class CiManagementImpl extends EObjectImpl implements CiManagement {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.CI_MANAGEMENT__SYSTEM:
-				return SYSTEM_EDEFAULT == null
-						? system != null
-						: !SYSTEM_EDEFAULT.equals(system);
+				return SYSTEM_EDEFAULT == null ? system != null : !SYSTEM_EDEFAULT.equals(system);
 			case PomPackage.CI_MANAGEMENT__URL:
-				return URL_EDEFAULT == null
-						? url != null
-						: !URL_EDEFAULT.equals(url);
+				return URL_EDEFAULT == null ? url != null : !URL_EDEFAULT.equals(url);
 			case PomPackage.CI_MANAGEMENT__NOTIFIERS:
 				return notifiers != null;
 		}
@@ -167,12 +153,11 @@ public class CiManagementImpl extends EObjectImpl implements CiManagement {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.CI_MANAGEMENT__SYSTEM:
 				setSystem((String) newValue);
 				return;
@@ -188,12 +173,11 @@ public class CiManagementImpl extends EObjectImpl implements CiManagement {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.CI_MANAGEMENT__SYSTEM:
 				setSystem(SYSTEM_EDEFAULT);
 				return;
@@ -209,7 +193,6 @@ public class CiManagementImpl extends EObjectImpl implements CiManagement {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -219,7 +202,6 @@ public class CiManagementImpl extends EObjectImpl implements CiManagement {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -229,7 +211,6 @@ public class CiManagementImpl extends EObjectImpl implements CiManagement {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -239,63 +220,57 @@ public class CiManagementImpl extends EObjectImpl implements CiManagement {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setNotifiers(NotifiersType newNotifiers) {
-		if(newNotifiers != notifiers) {
+		if (newNotifiers != notifiers) {
 			NotificationChain msgs = null;
-			if(notifiers != null)
-				msgs = ((InternalEObject) notifiers).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.CI_MANAGEMENT__NOTIFIERS, null, msgs);
-			if(newNotifiers != null)
-				msgs = ((InternalEObject) newNotifiers).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.CI_MANAGEMENT__NOTIFIERS, null, msgs);
+			if (notifiers != null)
+				msgs = ((InternalEObject) notifiers).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.CI_MANAGEMENT__NOTIFIERS, null, msgs);
+			if (newNotifiers != null)
+				msgs = ((InternalEObject) newNotifiers).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.CI_MANAGEMENT__NOTIFIERS, null, msgs);
 			msgs = basicSetNotifiers(newNotifiers, msgs);
-			if(msgs != null)
+			if (msgs != null)
 				msgs.dispatch();
-		}
-		else if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, PomPackage.CI_MANAGEMENT__NOTIFIERS, newNotifiers, newNotifiers));
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.CI_MANAGEMENT__NOTIFIERS, newNotifiers,
+					newNotifiers));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setSystem(String newSystem) {
 		String oldSystem = system;
 		system = newSystem;
-		if(eNotificationRequired())
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.CI_MANAGEMENT__SYSTEM, oldSystem, system));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setUrl(String newUrl) {
 		String oldUrl = url;
 		url = newUrl;
-		if(eNotificationRequired())
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.CI_MANAGEMENT__URL, oldUrl, url));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if(eIsProxy())
+		if (eIsProxy())
 			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
@@ -309,7 +284,6 @@ public class CiManagementImpl extends EObjectImpl implements CiManagement {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override

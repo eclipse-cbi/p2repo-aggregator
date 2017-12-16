@@ -18,23 +18,24 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Report Set</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Report
+ * Set</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ReportSetImpl#getId <em>Id</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ReportSetImpl#getConfiguration <em>Configuration</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ReportSetImpl#getInherited <em>Inherited</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ReportSetImpl#getReports <em>Reports</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ReportSetImpl#getId <em>Id</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ReportSetImpl#getConfiguration <em>Configuration</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ReportSetImpl#getInherited <em>Inherited</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ReportSetImpl#getReports <em>Reports</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ReportSetImpl extends EObjectImpl implements ReportSet {
 	/**
-	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @see #getId()
 	 * @generated
@@ -43,8 +44,8 @@ public class ReportSetImpl extends EObjectImpl implements ReportSet {
 	protected static final String ID_EDEFAULT = "default";
 
 	/**
-	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @see #getId()
 	 * @generated
@@ -54,17 +55,17 @@ public class ReportSetImpl extends EObjectImpl implements ReportSet {
 
 	/**
 	 * This is true if the Id attribute has been set.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	protected boolean idESet;
 
 	/**
-	 * The cached value of the '{@link #getConfiguration() <em>Configuration</em>}' containment reference. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * The cached value of the '{@link #getConfiguration() <em>Configuration</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getConfiguration()
 	 * @generated
 	 * @ordered
@@ -73,9 +74,7 @@ public class ReportSetImpl extends EObjectImpl implements ReportSet {
 
 	/**
 	 * The default value of the '{@link #getInherited() <em>Inherited</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getInherited()
 	 * @generated
 	 * @ordered
@@ -84,9 +83,7 @@ public class ReportSetImpl extends EObjectImpl implements ReportSet {
 
 	/**
 	 * The cached value of the '{@link #getInherited() <em>Inherited</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getInherited()
 	 * @generated
 	 * @ordered
@@ -95,9 +92,7 @@ public class ReportSetImpl extends EObjectImpl implements ReportSet {
 
 	/**
 	 * The cached value of the '{@link #getReports() <em>Reports</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getReports()
 	 * @generated
 	 * @ordered
@@ -106,7 +101,6 @@ public class ReportSetImpl extends EObjectImpl implements ReportSet {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected ReportSetImpl() {
@@ -115,16 +109,15 @@ public class ReportSetImpl extends EObjectImpl implements ReportSet {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetConfiguration(ConfigurationType newConfiguration, NotificationChain msgs) {
 		ConfigurationType oldConfiguration = configuration;
 		configuration = newConfiguration;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, PomPackage.REPORT_SET__CONFIGURATION, oldConfiguration, newConfiguration);
-			if(msgs == null)
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					PomPackage.REPORT_SET__CONFIGURATION, oldConfiguration, newConfiguration);
+			if (msgs == null)
 				msgs = notification;
 			else
 				msgs.add(notification);
@@ -134,16 +127,15 @@ public class ReportSetImpl extends EObjectImpl implements ReportSet {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetReports(ReportSetReportsType newReports, NotificationChain msgs) {
 		ReportSetReportsType oldReports = reports;
 		reports = newReports;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, PomPackage.REPORT_SET__REPORTS, oldReports, newReports);
-			if(msgs == null)
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					PomPackage.REPORT_SET__REPORTS, oldReports, newReports);
+			if (msgs == null)
 				msgs = notification;
 			else
 				msgs.add(notification);
@@ -153,12 +145,11 @@ public class ReportSetImpl extends EObjectImpl implements ReportSet {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.REPORT_SET__ID:
 				return getId();
 			case PomPackage.REPORT_SET__CONFIGURATION:
@@ -173,12 +164,11 @@ public class ReportSetImpl extends EObjectImpl implements ReportSet {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.REPORT_SET__CONFIGURATION:
 				return basicSetConfiguration(null, msgs);
 			case PomPackage.REPORT_SET__REPORTS:
@@ -189,20 +179,17 @@ public class ReportSetImpl extends EObjectImpl implements ReportSet {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.REPORT_SET__ID:
 				return isSetId();
 			case PomPackage.REPORT_SET__CONFIGURATION:
 				return configuration != null;
 			case PomPackage.REPORT_SET__INHERITED:
-				return INHERITED_EDEFAULT == null
-						? inherited != null
-						: !INHERITED_EDEFAULT.equals(inherited);
+				return INHERITED_EDEFAULT == null ? inherited != null : !INHERITED_EDEFAULT.equals(inherited);
 			case PomPackage.REPORT_SET__REPORTS:
 				return reports != null;
 		}
@@ -211,12 +198,11 @@ public class ReportSetImpl extends EObjectImpl implements ReportSet {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.REPORT_SET__ID:
 				setId((String) newValue);
 				return;
@@ -235,12 +221,11 @@ public class ReportSetImpl extends EObjectImpl implements ReportSet {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.REPORT_SET__ID:
 				unsetId();
 				return;
@@ -259,7 +244,6 @@ public class ReportSetImpl extends EObjectImpl implements ReportSet {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -269,7 +253,6 @@ public class ReportSetImpl extends EObjectImpl implements ReportSet {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -279,7 +262,6 @@ public class ReportSetImpl extends EObjectImpl implements ReportSet {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -289,7 +271,6 @@ public class ReportSetImpl extends EObjectImpl implements ReportSet {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -299,7 +280,6 @@ public class ReportSetImpl extends EObjectImpl implements ReportSet {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -309,32 +289,28 @@ public class ReportSetImpl extends EObjectImpl implements ReportSet {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setConfiguration(ConfigurationType newConfiguration) {
-		if(newConfiguration != configuration) {
+		if (newConfiguration != configuration) {
 			NotificationChain msgs = null;
-			if(configuration != null)
-				msgs = ((InternalEObject) configuration).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.REPORT_SET__CONFIGURATION, null, msgs);
-			if(newConfiguration != null)
-				msgs = ((InternalEObject) newConfiguration).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.REPORT_SET__CONFIGURATION, null, msgs);
+			if (configuration != null)
+				msgs = ((InternalEObject) configuration).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.REPORT_SET__CONFIGURATION, null, msgs);
+			if (newConfiguration != null)
+				msgs = ((InternalEObject) newConfiguration).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.REPORT_SET__CONFIGURATION, null, msgs);
 			msgs = basicSetConfiguration(newConfiguration, msgs);
-			if(msgs != null)
+			if (msgs != null)
 				msgs.dispatch();
-		}
-		else if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, PomPackage.REPORT_SET__CONFIGURATION, newConfiguration, newConfiguration));
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.REPORT_SET__CONFIGURATION,
+					newConfiguration, newConfiguration));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -343,62 +319,57 @@ public class ReportSetImpl extends EObjectImpl implements ReportSet {
 		id = newId;
 		boolean oldIdESet = idESet;
 		idESet = true;
-		if(eNotificationRequired())
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.REPORT_SET__ID, oldId, id, !oldIdESet));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setInherited(String newInherited) {
 		String oldInherited = inherited;
 		inherited = newInherited;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, PomPackage.REPORT_SET__INHERITED, oldInherited, inherited));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.REPORT_SET__INHERITED, oldInherited,
+					inherited));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setReports(ReportSetReportsType newReports) {
-		if(newReports != reports) {
+		if (newReports != reports) {
 			NotificationChain msgs = null;
-			if(reports != null)
-				msgs = ((InternalEObject) reports).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.REPORT_SET__REPORTS, null, msgs);
-			if(newReports != null)
-				msgs = ((InternalEObject) newReports).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.REPORT_SET__REPORTS, null, msgs);
+			if (reports != null)
+				msgs = ((InternalEObject) reports).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.REPORT_SET__REPORTS, null, msgs);
+			if (newReports != null)
+				msgs = ((InternalEObject) newReports).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.REPORT_SET__REPORTS, null, msgs);
 			msgs = basicSetReports(newReports, msgs);
-			if(msgs != null)
+			if (msgs != null)
 				msgs.dispatch();
-		}
-		else if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(this, Notification.SET, PomPackage.REPORT_SET__REPORTS, newReports, newReports));
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.REPORT_SET__REPORTS, newReports,
+					newReports));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if(eIsProxy())
+		if (eIsProxy())
 			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (id: ");
-		if(idESet)
+		if (idESet)
 			result.append(id);
 		else
 			result.append("<unset>");
@@ -410,7 +381,6 @@ public class ReportSetImpl extends EObjectImpl implements ReportSet {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -419,15 +389,13 @@ public class ReportSetImpl extends EObjectImpl implements ReportSet {
 		boolean oldIdESet = idESet;
 		id = ID_EDEFAULT;
 		idESet = false;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, PomPackage.REPORT_SET__ID, oldId, ID_EDEFAULT, oldIdESet));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, PomPackage.REPORT_SET__ID, oldId, ID_EDEFAULT,
+					oldIdESet));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override

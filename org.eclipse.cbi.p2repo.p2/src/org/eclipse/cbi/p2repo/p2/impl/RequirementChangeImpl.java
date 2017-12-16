@@ -20,15 +20,14 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Requirement Change</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object
+ * '<em><b>Requirement Change</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.impl.RequirementChangeImpl#getApplyOn <em>Apply On</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.impl.RequirementChangeImpl#getNewValue <em>New Value</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.impl.RequirementChangeImpl#getApplyOn <em>Apply On</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.impl.RequirementChangeImpl#getNewValue <em>New Value</em>}</li>
  * </ul>
  *
  * @generated
@@ -36,9 +35,8 @@ import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
 public class RequirementChangeImpl extends MinimalEObjectImpl.Container implements RequirementChange {
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -46,9 +44,7 @@ public class RequirementChangeImpl extends MinimalEObjectImpl.Container implemen
 
 	/**
 	 * The cached value of the '{@link #getApplyOn() <em>Apply On</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getApplyOn()
 	 * @generated
 	 * @ordered
@@ -57,9 +53,7 @@ public class RequirementChangeImpl extends MinimalEObjectImpl.Container implemen
 
 	/**
 	 * The cached value of the '{@link #getNewValue() <em>New Value</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getNewValue()
 	 * @generated
 	 * @ordered
@@ -67,9 +61,7 @@ public class RequirementChangeImpl extends MinimalEObjectImpl.Container implemen
 	protected IRequiredCapability newValue;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected RequirementChangeImpl() {
@@ -77,8 +69,7 @@ public class RequirementChangeImpl extends MinimalEObjectImpl.Container implemen
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
@@ -88,9 +79,7 @@ public class RequirementChangeImpl extends MinimalEObjectImpl.Container implemen
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public IRequiredCapability basicGetApplyOn() {
@@ -98,9 +87,7 @@ public class RequirementChangeImpl extends MinimalEObjectImpl.Container implemen
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public IRequiredCapability basicGetNewValue() {
@@ -108,18 +95,16 @@ public class RequirementChangeImpl extends MinimalEObjectImpl.Container implemen
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public NotificationChain basicSetApplyOn(IRequiredCapability newApplyOn, NotificationChain msgs) {
 		IRequiredCapability oldApplyOn = applyOn;
 		applyOn = newApplyOn;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, P2Package.REQUIREMENT_CHANGE__APPLY_ON, oldApplyOn, newApplyOn);
-			if(msgs == null)
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					P2Package.REQUIREMENT_CHANGE__APPLY_ON, oldApplyOn, newApplyOn);
+			if (msgs == null)
 				msgs = notification;
 			else
 				msgs.add(notification);
@@ -128,18 +113,16 @@ public class RequirementChangeImpl extends MinimalEObjectImpl.Container implemen
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public NotificationChain basicSetNewValue(IRequiredCapability newNewValue, NotificationChain msgs) {
 		IRequiredCapability oldNewValue = newValue;
 		newValue = newNewValue;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, P2Package.REQUIREMENT_CHANGE__NEW_VALUE, oldNewValue, newNewValue);
-			if(msgs == null)
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					P2Package.REQUIREMENT_CHANGE__NEW_VALUE, oldNewValue, newNewValue);
+			if (msgs == null)
 				msgs = notification;
 			else
 				msgs.add(notification);
@@ -148,20 +131,18 @@ public class RequirementChangeImpl extends MinimalEObjectImpl.Container implemen
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2Package.REQUIREMENT_CHANGE__APPLY_ON:
-				if(resolve)
+				if (resolve)
 					return getApplyOn();
 				return basicGetApplyOn();
 			case P2Package.REQUIREMENT_CHANGE__NEW_VALUE:
-				if(resolve)
+				if (resolve)
 					return getNewValue();
 				return basicGetNewValue();
 		}
@@ -169,14 +150,12 @@ public class RequirementChangeImpl extends MinimalEObjectImpl.Container implemen
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2Package.REQUIREMENT_CHANGE__APPLY_ON:
 				return basicSetApplyOn(null, msgs);
 			case P2Package.REQUIREMENT_CHANGE__NEW_VALUE:
@@ -186,14 +165,12 @@ public class RequirementChangeImpl extends MinimalEObjectImpl.Container implemen
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2Package.REQUIREMENT_CHANGE__APPLY_ON:
 				return applyOn != null;
 			case P2Package.REQUIREMENT_CHANGE__NEW_VALUE:
@@ -203,14 +180,12 @@ public class RequirementChangeImpl extends MinimalEObjectImpl.Container implemen
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2Package.REQUIREMENT_CHANGE__APPLY_ON:
 				setApplyOn((IRequiredCapability) newValue);
 				return;
@@ -222,9 +197,7 @@ public class RequirementChangeImpl extends MinimalEObjectImpl.Container implemen
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -233,14 +206,12 @@ public class RequirementChangeImpl extends MinimalEObjectImpl.Container implemen
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2Package.REQUIREMENT_CHANGE__APPLY_ON:
 				setApplyOn((IRequiredCapability) null);
 				return;
@@ -252,86 +223,77 @@ public class RequirementChangeImpl extends MinimalEObjectImpl.Container implemen
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public IRequiredCapability getApplyOn() {
-		if(applyOn != null && ((EObject) applyOn).eIsProxy()) {
+		if (applyOn != null && ((EObject) applyOn).eIsProxy()) {
 			InternalEObject oldApplyOn = (InternalEObject) applyOn;
 			applyOn = (IRequiredCapability) eResolveProxy(oldApplyOn);
-			if(applyOn != oldApplyOn) {
+			if (applyOn != oldApplyOn) {
 				InternalEObject newApplyOn = (InternalEObject) applyOn;
-				NotificationChain msgs = oldApplyOn.eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - P2Package.REQUIREMENT_CHANGE__APPLY_ON, null, null);
-				if(newApplyOn.eInternalContainer() == null) {
-					msgs = newApplyOn.eInverseAdd(
-						this, EOPPOSITE_FEATURE_BASE - P2Package.REQUIREMENT_CHANGE__APPLY_ON, null, msgs);
+				NotificationChain msgs = oldApplyOn.eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - P2Package.REQUIREMENT_CHANGE__APPLY_ON, null, null);
+				if (newApplyOn.eInternalContainer() == null) {
+					msgs = newApplyOn.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - P2Package.REQUIREMENT_CHANGE__APPLY_ON,
+							null, msgs);
 				}
-				if(msgs != null)
+				if (msgs != null)
 					msgs.dispatch();
-				if(eNotificationRequired())
-					eNotify(
-						new ENotificationImpl(
-							this, Notification.RESOLVE, P2Package.REQUIREMENT_CHANGE__APPLY_ON, oldApplyOn, applyOn));
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, P2Package.REQUIREMENT_CHANGE__APPLY_ON,
+							oldApplyOn, applyOn));
 			}
 		}
 		return applyOn;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public IRequiredCapability getNewValue() {
-		if(newValue != null && ((EObject) newValue).eIsProxy()) {
+		if (newValue != null && ((EObject) newValue).eIsProxy()) {
 			InternalEObject oldNewValue = (InternalEObject) newValue;
 			newValue = (IRequiredCapability) eResolveProxy(oldNewValue);
-			if(newValue != oldNewValue) {
+			if (newValue != oldNewValue) {
 				InternalEObject newNewValue = (InternalEObject) newValue;
-				NotificationChain msgs = oldNewValue.eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - P2Package.REQUIREMENT_CHANGE__NEW_VALUE, null, null);
-				if(newNewValue.eInternalContainer() == null) {
-					msgs = newNewValue.eInverseAdd(
-						this, EOPPOSITE_FEATURE_BASE - P2Package.REQUIREMENT_CHANGE__NEW_VALUE, null, msgs);
+				NotificationChain msgs = oldNewValue.eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - P2Package.REQUIREMENT_CHANGE__NEW_VALUE, null, null);
+				if (newNewValue.eInternalContainer() == null) {
+					msgs = newNewValue.eInverseAdd(this,
+							EOPPOSITE_FEATURE_BASE - P2Package.REQUIREMENT_CHANGE__NEW_VALUE, null, msgs);
 				}
-				if(msgs != null)
+				if (msgs != null)
 					msgs.dispatch();
-				if(eNotificationRequired())
-					eNotify(
-						new ENotificationImpl(
-							this, Notification.RESOLVE, P2Package.REQUIREMENT_CHANGE__NEW_VALUE, oldNewValue,
-							newValue));
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, P2Package.REQUIREMENT_CHANGE__NEW_VALUE,
+							oldNewValue, newValue));
 			}
 		}
 		return newValue;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
 	@Override
 	public boolean matches(IRequiredCapability toMatch) {
 		IRequiredCapability ao = getApplyOn();
-		if(!toMatch.getNamespace().equals(ao.getNamespace()))
+		if (!toMatch.getNamespace().equals(ao.getNamespace()))
 			return false;
-		if(!toMatch.getName().equals(ao.getName()))
+		if (!toMatch.getName().equals(ao.getName()))
 			return false;
-		if(toMatch.getRange().equals(ao.getRange()))
+		if (toMatch.getRange().equals(ao.getRange()))
 			return true;
 
 		return toMatch.getRange().intersect(ao.getRange()) != null;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
@@ -341,53 +303,45 @@ public class RequirementChangeImpl extends MinimalEObjectImpl.Container implemen
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setApplyOn(IRequiredCapability newApplyOn) {
-		if(newApplyOn != applyOn) {
+		if (newApplyOn != applyOn) {
 			NotificationChain msgs = null;
-			if(applyOn != null)
-				msgs = ((InternalEObject) applyOn).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - P2Package.REQUIREMENT_CHANGE__APPLY_ON, null, msgs);
-			if(newApplyOn != null)
-				msgs = ((InternalEObject) newApplyOn).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - P2Package.REQUIREMENT_CHANGE__APPLY_ON, null, msgs);
+			if (applyOn != null)
+				msgs = ((InternalEObject) applyOn).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - P2Package.REQUIREMENT_CHANGE__APPLY_ON, null, msgs);
+			if (newApplyOn != null)
+				msgs = ((InternalEObject) newApplyOn).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - P2Package.REQUIREMENT_CHANGE__APPLY_ON, null, msgs);
 			msgs = basicSetApplyOn(newApplyOn, msgs);
-			if(msgs != null)
+			if (msgs != null)
 				msgs.dispatch();
-		}
-		else if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, P2Package.REQUIREMENT_CHANGE__APPLY_ON, newApplyOn, newApplyOn));
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.REQUIREMENT_CHANGE__APPLY_ON, newApplyOn,
+					newApplyOn));
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setNewValue(IRequiredCapability newNewValue) {
-		if(newNewValue != newValue) {
+		if (newNewValue != newValue) {
 			NotificationChain msgs = null;
-			if(newValue != null)
-				msgs = ((InternalEObject) newValue).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - P2Package.REQUIREMENT_CHANGE__NEW_VALUE, null, msgs);
-			if(newNewValue != null)
-				msgs = ((InternalEObject) newNewValue).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - P2Package.REQUIREMENT_CHANGE__NEW_VALUE, null, msgs);
+			if (newValue != null)
+				msgs = ((InternalEObject) newValue).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - P2Package.REQUIREMENT_CHANGE__NEW_VALUE, null, msgs);
+			if (newNewValue != null)
+				msgs = ((InternalEObject) newNewValue).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - P2Package.REQUIREMENT_CHANGE__NEW_VALUE, null, msgs);
 			msgs = basicSetNewValue(newNewValue, msgs);
-			if(msgs != null)
+			if (msgs != null)
 				msgs.dispatch();
-		}
-		else if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, P2Package.REQUIREMENT_CHANGE__NEW_VALUE, newNewValue, newNewValue));
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.REQUIREMENT_CHANGE__NEW_VALUE, newNewValue,
+					newNewValue));
 	}
 
 } // RequirementChangeImpl

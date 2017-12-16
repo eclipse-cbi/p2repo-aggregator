@@ -78,9 +78,9 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 
 /**
- * <!-- begin-user-doc --> The <b>Adapter Factory</b> for the model. It provides an adapter <code>createXXX</code> method for each class of the model.
- * <!-- end-user-doc -->
- *
+ * <!-- begin-user-doc --> The <b>Adapter Factory</b> for the model. It provides
+ * an adapter <code>createXXX</code> method for each class of the model. <!--
+ * end-user-doc -->
  * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage
  * @generated
  */
@@ -88,14 +88,13 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 	/**
 	 * The cached model package.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected static PomPackage modelPackage;
 
 	/**
-	 * The switch that delegates to the <code>createXXX</code> methods.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The switch that delegates to the <code>createXXX</code> methods. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated
 	 */
@@ -438,22 +437,22 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 
 	/**
 	 * Creates an instance of the adapter factory.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @generated
 	 */
 	public PomAdapterFactory() {
-		if(modelPackage == null) {
+		if (modelPackage == null) {
 			modelPackage = PomPackage.eINSTANCE;
 		}
 	}
 
 	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Activation <em>Activation</em>}'.
-	 * <!-- begin-user-doc
-	 * --> This default implementation returns null so that we can easily ignore cases; it's useful to ignore a case
-	 * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> This default
+	 * implementation returns null so that we can easily ignore cases; it's
+	 * useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.Activation
 	 * @generated
@@ -463,11 +462,10 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class ' {@link org.eclipse.cbi.p2repo.p2.maven.pom.ActivationFile
-	 * <em>Activation File</em>}'. <!--
-	 * begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful to
-	 * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 *
+	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.pom.ActivationFile <em>Activation File</em>}'.
+	 * <!-- begin-user-doc --> This default implementation returns
+	 * null so that we can easily ignore cases; it's useful to ignore a case
+	 * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.ActivationFile
 	 * @generated
@@ -477,11 +475,10 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class ' {@link org.eclipse.cbi.p2repo.p2.maven.pom.ActivationOS
-	 * <em>Activation OS</em>}'. <!--
-	 * begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful to
-	 * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 *
+	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.pom.ActivationOS <em>Activation OS</em>}'.
+	 * <!-- begin-user-doc --> This default implementation returns
+	 * null so that we can easily ignore cases; it's useful to ignore a case
+	 * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.ActivationOS
 	 * @generated
@@ -492,9 +489,10 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 
 	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.pom.ActivationProperty <em>Activation Property</em>}'.
-	 * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful
-	 * to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> This default
+	 * implementation returns null so that we can easily ignore cases; it's
+	 * useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.ActivationProperty
 	 * @generated
@@ -505,10 +503,9 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 
 	/**
 	 * Creates an adapter for the <code>target</code>.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param target
-	 *            the object to adapt.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param target the object to adapt.
 	 * @return the adapter for the <code>target</code>.
 	 * @generated
 	 */
@@ -518,9 +515,11 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Build <em>Build</em>}'.
-	 * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
-	 * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+	 * Creates a new adapter for an object of class
+	 * '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Build <em>Build</em>}'. <!--
+	 * begin-user-doc --> This default implementation returns null so that we
+	 * can easily ignore cases; it's useful to ignore a case when inheritance
+	 * will catch all the cases anyway. <!-- end-user-doc -->
 	 *
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.Build
@@ -532,10 +531,9 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 
 	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.pom.BuildBase <em>Build Base</em>}'.
-	 * <!-- begin-user-doc
-	 * --> This default implementation returns null so that we can easily ignore cases; it's useful to ignore a case
+	 * <!-- begin-user-doc --> This default implementation returns
+	 * null so that we can easily ignore cases; it's useful to ignore a case
 	 * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 *
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.BuildBase
 	 * @generated
@@ -545,10 +543,12 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class ' {@link org.eclipse.cbi.p2repo.p2.maven.pom.CiManagement
-	 * <em>Ci Management</em>}'. <!--
-	 * begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful to
-	 * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+	 * Creates a new adapter for an object of class '
+	 * {@link org.eclipse.cbi.p2repo.p2.maven.pom.CiManagement <em>Ci
+	 * Management</em>}'. <!-- begin-user-doc --> This default implementation
+	 * returns null so that we can easily ignore cases; it's useful to ignore a
+	 * case when inheritance will catch all the cases anyway. <!-- end-user-doc
+	 * -->
 	 *
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.CiManagement
@@ -559,11 +559,11 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class ' {@link org.eclipse.cbi.p2repo.p2.maven.pom.ConfigurationType
-	 * <em>Configuration Type</em>}'. <!--
-	 * begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful to
-	 * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 *
+	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.pom.ConfigurationType <em>Configuration Type</em>}'.
+	 * <!-- begin-user-doc --> This default
+	 * implementation returns null so that we can easily ignore cases; it's
+	 * useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.ConfigurationType
 	 * @generated
@@ -573,11 +573,11 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class ' {@link org.eclipse.cbi.p2repo.p2.maven.pom.Contributor
-	 * <em>Contributor</em>}'. <!--
-	 * begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful to
-	 * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 *
+	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Contributor <em>Contributor</em>}'.
+	 * <!-- begin-user-doc --> This default
+	 * implementation returns null so that we can easily ignore cases; it's
+	 * useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.Contributor
 	 * @generated
@@ -587,11 +587,11 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class ' {@link org.eclipse.cbi.p2repo.p2.maven.pom.ContributorsType
-	 * <em>Contributors Type</em>}'. <!--
-	 * begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful to
-	 * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 *
+	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.pom.ContributorsType <em>Contributors Type</em>}'.
+	 * <!-- begin-user-doc --> This default
+	 * implementation returns null so that we can easily ignore cases; it's
+	 * useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.ContributorsType
 	 * @generated
@@ -601,11 +601,11 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class ' {@link org.eclipse.cbi.p2repo.p2.maven.pom.DependenciesType
-	 * <em>Dependencies Type</em>}'. <!--
-	 * begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful to
-	 * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 *
+	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.pom.DependenciesType <em>Dependencies Type</em>}'.
+	 * <!-- begin-user-doc --> This default
+	 * implementation returns null so that we can easily ignore cases; it's
+	 * useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.DependenciesType
 	 * @generated
@@ -616,10 +616,10 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 
 	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Dependency <em>Dependency</em>}'.
-	 * <!-- begin-user-doc
-	 * --> This default implementation returns null so that we can easily ignore cases; it's useful to ignore a case
-	 * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> This default
+	 * implementation returns null so that we can easily ignore cases; it's
+	 * useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.Dependency
 	 * @generated
@@ -630,9 +630,10 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 
 	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.pom.DependencyManagement <em>Dependency Management</em>}'.
-	 * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful
-	 * to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> This default
+	 * implementation returns null so that we can easily ignore cases; it's
+	 * useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.DependencyManagement
 	 * @generated
@@ -643,9 +644,10 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 
 	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.pom.DeploymentRepository <em>Deployment Repository</em>}'.
-	 * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful
-	 * to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> This default
+	 * implementation returns null so that we can easily ignore cases; it's
+	 * useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.DeploymentRepository
 	 * @generated
@@ -655,10 +657,12 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Developer <em>Developer</em>}'.
-	 * <!-- begin-user-doc
-	 * --> This default implementation returns null so that we can easily ignore cases; it's useful to ignore a case
-	 * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+	 * Creates a new adapter for an object of class
+	 * '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Developer
+	 * <em>Developer</em>}'. <!-- begin-user-doc --> This default implementation
+	 * returns null so that we can easily ignore cases; it's useful to ignore a
+	 * case when inheritance will catch all the cases anyway. <!-- end-user-doc
+	 * -->
 	 *
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.Developer
@@ -669,11 +673,10 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class ' {@link org.eclipse.cbi.p2repo.p2.maven.pom.DevelopersType
-	 * <em>Developers Type</em>}'. <!--
-	 * begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful to
-	 * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 *
+	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.pom.DevelopersType <em>Developers Type</em>}'.
+	 * <!-- begin-user-doc --> This default implementation returns
+	 * null so that we can easily ignore cases; it's useful to ignore a case
+	 * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.DevelopersType
 	 * @generated
@@ -683,12 +686,11 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.pom.DistributionManagement <em>Distribution
-	 * Management</em>}'.
-	 * <!-- begin-user-doc --> This default implementation returns null so that we
-	 * can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
-	 * end-user-doc -->
-	 *
+	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.pom.DistributionManagement <em>Distribution Management</em>}'.
+	 * <!-- begin-user-doc --> This default
+	 * implementation returns null so that we can easily ignore cases; it's
+	 * useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.DistributionManagement
 	 * @generated
@@ -698,11 +700,10 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class ' {@link org.eclipse.cbi.p2repo.p2.maven.pom.DocumentRoot
-	 * <em>Document Root</em>}'. <!--
-	 * begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful to
-	 * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 *
+	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.pom.DocumentRoot <em>Document Root</em>}'.
+	 * <!-- begin-user-doc --> This default implementation returns
+	 * null so that we can easily ignore cases; it's useful to ignore a case
+	 * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.DocumentRoot
 	 * @generated
@@ -713,9 +714,8 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 
 	/**
 	 * Creates a new adapter for the default case.
-	 * <!-- begin-user-doc --> This default implementation returns null.
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> This
+	 * default implementation returns null. <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @generated
 	 */
@@ -724,11 +724,10 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class ' {@link org.eclipse.cbi.p2repo.p2.maven.pom.ExcludesType
-	 * <em>Excludes Type</em>}'. <!--
-	 * begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful to
-	 * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 *
+	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.pom.ExcludesType <em>Excludes Type</em>}'.
+	 * <!-- begin-user-doc --> This default implementation returns
+	 * null so that we can easily ignore cases; it's useful to ignore a case
+	 * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.ExcludesType
 	 * @generated
@@ -738,10 +737,12 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Exclusion <em>Exclusion</em>}'.
-	 * <!-- begin-user-doc
-	 * --> This default implementation returns null so that we can easily ignore cases; it's useful to ignore a case
-	 * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+	 * Creates a new adapter for an object of class
+	 * '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Exclusion
+	 * <em>Exclusion</em>}'. <!-- begin-user-doc --> This default implementation
+	 * returns null so that we can easily ignore cases; it's useful to ignore a
+	 * case when inheritance will catch all the cases anyway. <!-- end-user-doc
+	 * -->
 	 *
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.Exclusion
@@ -752,11 +753,10 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class ' {@link org.eclipse.cbi.p2repo.p2.maven.pom.ExclusionsType
-	 * <em>Exclusions Type</em>}'. <!--
-	 * begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful to
-	 * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 *
+	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.pom.ExclusionsType <em>Exclusions Type</em>}'.
+	 * <!-- begin-user-doc --> This default implementation returns
+	 * null so that we can easily ignore cases; it's useful to ignore a case
+	 * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.ExclusionsType
 	 * @generated
@@ -767,9 +767,10 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 
 	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.pom.ExecutionGoalsType <em>Execution Goals Type</em>}'.
-	 * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful
-	 * to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> This default
+	 * implementation returns null so that we can easily ignore cases; it's
+	 * useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.ExecutionGoalsType
 	 * @generated
@@ -779,11 +780,10 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class ' {@link org.eclipse.cbi.p2repo.p2.maven.pom.ExecutionsType
-	 * <em>Executions Type</em>}'. <!--
-	 * begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful to
-	 * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 *
+	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.pom.ExecutionsType <em>Executions Type</em>}'.
+	 * <!-- begin-user-doc --> This default implementation returns
+	 * null so that we can easily ignore cases; it's useful to ignore a case
+	 * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.ExecutionsType
 	 * @generated
@@ -793,10 +793,12 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Extension <em>Extension</em>}'.
-	 * <!-- begin-user-doc
-	 * --> This default implementation returns null so that we can easily ignore cases; it's useful to ignore a case
-	 * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+	 * Creates a new adapter for an object of class
+	 * '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Extension
+	 * <em>Extension</em>}'. <!-- begin-user-doc --> This default implementation
+	 * returns null so that we can easily ignore cases; it's useful to ignore a
+	 * case when inheritance will catch all the cases anyway. <!-- end-user-doc
+	 * -->
 	 *
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.Extension
@@ -807,11 +809,10 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class ' {@link org.eclipse.cbi.p2repo.p2.maven.pom.ExtensionsType
-	 * <em>Extensions Type</em>}'. <!--
-	 * begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful to
-	 * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 *
+	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.pom.ExtensionsType <em>Extensions Type</em>}'.
+	 * <!-- begin-user-doc --> This default implementation returns
+	 * null so that we can easily ignore cases; it's useful to ignore a case
+	 * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.ExtensionsType
 	 * @generated
@@ -821,11 +822,10 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class ' {@link org.eclipse.cbi.p2repo.p2.maven.pom.FiltersType
-	 * <em>Filters Type</em>}'. <!--
-	 * begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful to
-	 * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 *
+	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.pom.FiltersType <em>Filters Type</em>}'.
+	 * <!-- begin-user-doc --> This default implementation returns
+	 * null so that we can easily ignore cases; it's useful to ignore a case
+	 * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.FiltersType
 	 * @generated
@@ -836,10 +836,9 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 
 	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.pom.GoalsType <em>Goals Type</em>}'.
-	 * <!-- begin-user-doc
-	 * --> This default implementation returns null so that we can easily ignore cases; it's useful to ignore a case
+	 * <!-- begin-user-doc --> This default implementation returns
+	 * null so that we can easily ignore cases; it's useful to ignore a case
 	 * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 *
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.GoalsType
 	 * @generated
@@ -849,11 +848,10 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class ' {@link org.eclipse.cbi.p2repo.p2.maven.pom.IncludesType
-	 * <em>Includes Type</em>}'. <!--
-	 * begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful to
-	 * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 *
+	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.pom.IncludesType <em>Includes Type</em>}'.
+	 * <!-- begin-user-doc --> This default implementation returns
+	 * null so that we can easily ignore cases; it's useful to ignore a case
+	 * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.IncludesType
 	 * @generated
@@ -863,10 +861,12 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class ' {@link org.eclipse.cbi.p2repo.p2.maven.pom.IssueManagement
-	 * <em>Issue Management</em>}'. <!--
-	 * begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful to
-	 * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+	 * Creates a new adapter for an object of class '
+	 * {@link org.eclipse.cbi.p2repo.p2.maven.pom.IssueManagement <em>Issue
+	 * Management</em>}'. <!-- begin-user-doc --> This default implementation
+	 * returns null so that we can easily ignore cases; it's useful to ignore a
+	 * case when inheritance will catch all the cases anyway. <!-- end-user-doc
+	 * -->
 	 *
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.IssueManagement
@@ -878,9 +878,9 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 
 	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.pom.License <em>License</em>}'.
-	 * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
-	 * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> This default implementation returns null so that
+	 * we can easily ignore cases; it's useful to ignore a case when inheritance
+	 * will catch all the cases anyway. <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.License
 	 * @generated
@@ -890,11 +890,10 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class ' {@link org.eclipse.cbi.p2repo.p2.maven.pom.LicensesType
-	 * <em>Licenses Type</em>}'. <!--
-	 * begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful to
-	 * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 *
+	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.pom.LicensesType <em>Licenses Type</em>}'.
+	 * <!-- begin-user-doc --> This default implementation returns
+	 * null so that we can easily ignore cases; it's useful to ignore a case
+	 * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.LicensesType
 	 * @generated
@@ -904,11 +903,10 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class ' {@link org.eclipse.cbi.p2repo.p2.maven.pom.MailingList
-	 * <em>Mailing List</em>}'. <!--
-	 * begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful to
-	 * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 *
+	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.pom.MailingList <em>Mailing List</em>}'.
+	 * <!-- begin-user-doc --> This default implementation returns
+	 * null so that we can easily ignore cases; it's useful to ignore a case
+	 * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.MailingList
 	 * @generated
@@ -918,10 +916,12 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class ' {@link org.eclipse.cbi.p2repo.p2.maven.pom.MailingListsType
-	 * <em>Mailing Lists Type</em>}'. <!--
-	 * begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful to
-	 * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+	 * Creates a new adapter for an object of class '
+	 * {@link org.eclipse.cbi.p2repo.p2.maven.pom.MailingListsType <em>Mailing
+	 * Lists Type</em>}'. <!-- begin-user-doc --> This default implementation
+	 * returns null so that we can easily ignore cases; it's useful to ignore a
+	 * case when inheritance will catch all the cases anyway. <!-- end-user-doc
+	 * -->
 	 *
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.MailingListsType
@@ -932,9 +932,11 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model <em>Model</em>}'.
-	 * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
-	 * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+	 * Creates a new adapter for an object of class
+	 * '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model <em>Model</em>}'. <!--
+	 * begin-user-doc --> This default implementation returns null so that we
+	 * can easily ignore cases; it's useful to ignore a case when inheritance
+	 * will catch all the cases anyway. <!-- end-user-doc -->
 	 *
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.Model
@@ -945,11 +947,10 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class ' {@link org.eclipse.cbi.p2repo.p2.maven.pom.ModulesType
-	 * <em>Modules Type</em>}'. <!--
-	 * begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful to
-	 * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 *
+	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.pom.ModulesType <em>Modules Type</em>}'.
+	 * <!-- begin-user-doc --> This default implementation returns
+	 * null so that we can easily ignore cases; it's useful to ignore a case
+	 * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.ModulesType
 	 * @generated
@@ -960,10 +961,9 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 
 	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Notifier <em>Notifier</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases; it's useful to ignore a case when
-	 * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> This default implementation returns null so that
+	 * we can easily ignore cases; it's useful to ignore a case when inheritance
+	 * will catch all the cases anyway. <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.Notifier
 	 * @generated
@@ -973,11 +973,10 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class ' {@link org.eclipse.cbi.p2repo.p2.maven.pom.NotifiersType
-	 * <em>Notifiers Type</em>}'. <!--
-	 * begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful to
-	 * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 *
+	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.pom.NotifiersType <em>Notifiers Type</em>}'.
+	 * <!-- begin-user-doc --> This default implementation returns
+	 * null so that we can easily ignore cases; it's useful to ignore a case
+	 * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.NotifiersType
 	 * @generated
@@ -987,11 +986,11 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class ' {@link org.eclipse.cbi.p2repo.p2.maven.pom.Organization
-	 * <em>Organization</em>}'. <!--
-	 * begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful to
-	 * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 *
+	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Organization <em>Organization</em>}'.
+	 * <!-- begin-user-doc --> This default
+	 * implementation returns null so that we can easily ignore cases; it's
+	 * useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.Organization
 	 * @generated
@@ -1001,10 +1000,12 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class ' {@link org.eclipse.cbi.p2repo.p2.maven.pom.OtherArchivesType
-	 * <em>Other Archives Type</em>}'. <!--
-	 * begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful to
-	 * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+	 * Creates a new adapter for an object of class '
+	 * {@link org.eclipse.cbi.p2repo.p2.maven.pom.OtherArchivesType <em>Other
+	 * Archives Type</em>}'. <!-- begin-user-doc --> This default implementation
+	 * returns null so that we can easily ignore cases; it's useful to ignore a
+	 * case when inheritance will catch all the cases anyway. <!-- end-user-doc
+	 * -->
 	 *
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.OtherArchivesType
@@ -1016,9 +1017,9 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 
 	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Parent <em>Parent</em>}'.
-	 * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
-	 * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> This default implementation returns null so that
+	 * we can easily ignore cases; it's useful to ignore a case when inheritance
+	 * will catch all the cases anyway. <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.Parent
 	 * @generated
@@ -1029,9 +1030,9 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 
 	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Plugin <em>Plugin</em>}'.
-	 * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
-	 * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> This default implementation returns null so that
+	 * we can easily ignore cases; it's useful to ignore a case when inheritance
+	 * will catch all the cases anyway. <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.Plugin
 	 * @generated
@@ -1041,10 +1042,12 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class ' {@link org.eclipse.cbi.p2repo.p2.maven.pom.PluginExecution
-	 * <em>Plugin Execution</em>}'. <!--
-	 * begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful to
-	 * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+	 * Creates a new adapter for an object of class '
+	 * {@link org.eclipse.cbi.p2repo.p2.maven.pom.PluginExecution <em>Plugin
+	 * Execution</em>}'. <!-- begin-user-doc --> This default implementation
+	 * returns null so that we can easily ignore cases; it's useful to ignore a
+	 * case when inheritance will catch all the cases anyway. <!-- end-user-doc
+	 * -->
 	 *
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PluginExecution
@@ -1055,10 +1058,12 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class ' {@link org.eclipse.cbi.p2repo.p2.maven.pom.PluginManagement
-	 * <em>Plugin Management</em>}'. <!--
-	 * begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful to
-	 * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+	 * Creates a new adapter for an object of class '
+	 * {@link org.eclipse.cbi.p2repo.p2.maven.pom.PluginManagement <em>Plugin
+	 * Management</em>}'. <!-- begin-user-doc --> This default implementation
+	 * returns null so that we can easily ignore cases; it's useful to ignore a
+	 * case when inheritance will catch all the cases anyway. <!-- end-user-doc
+	 * -->
 	 *
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PluginManagement
@@ -1069,12 +1074,11 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.pom.PluginRepositoriesType <em>Plugin Repositories
-	 * Type</em>}'.
-	 * <!-- begin-user-doc --> This default implementation returns null so that we
-	 * can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
-	 * end-user-doc -->
-	 *
+	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.pom.PluginRepositoriesType <em>Plugin Repositories Type</em>}'.
+	 * <!-- begin-user-doc --> This default
+	 * implementation returns null so that we can easily ignore cases; it's
+	 * useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PluginRepositoriesType
 	 * @generated
@@ -1084,11 +1088,10 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class ' {@link org.eclipse.cbi.p2repo.p2.maven.pom.PluginsType
-	 * <em>Plugins Type</em>}'. <!--
-	 * begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful to
-	 * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 *
+	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.pom.PluginsType <em>Plugins Type</em>}'.
+	 * <!-- begin-user-doc --> This default implementation returns
+	 * null so that we can easily ignore cases; it's useful to ignore a case
+	 * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PluginsType
 	 * @generated
@@ -1098,11 +1101,11 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class ' {@link org.eclipse.cbi.p2repo.p2.maven.pom.Prerequisites
-	 * <em>Prerequisites</em>}'. <!--
-	 * begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful to
-	 * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 *
+	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Prerequisites <em>Prerequisites</em>}'.
+	 * <!-- begin-user-doc --> This default
+	 * implementation returns null so that we can easily ignore cases; it's
+	 * useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.Prerequisites
 	 * @generated
@@ -1113,9 +1116,9 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 
 	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Profile <em>Profile</em>}'.
-	 * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
-	 * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> This default implementation returns null so that
+	 * we can easily ignore cases; it's useful to ignore a case when inheritance
+	 * will catch all the cases anyway. <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.Profile
 	 * @generated
@@ -1125,11 +1128,10 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class ' {@link org.eclipse.cbi.p2repo.p2.maven.pom.ProfilesType
-	 * <em>Profiles Type</em>}'. <!--
-	 * begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful to
-	 * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 *
+	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.pom.ProfilesType <em>Profiles Type</em>}'.
+	 * <!-- begin-user-doc --> This default implementation returns
+	 * null so that we can easily ignore cases; it's useful to ignore a case
+	 * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.ProfilesType
 	 * @generated
@@ -1139,11 +1141,10 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class ' {@link org.eclipse.cbi.p2repo.p2.maven.pom.PropertiesType
-	 * <em>Properties Type</em>}'. <!--
-	 * begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful to
-	 * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 *
+	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.pom.PropertiesType <em>Properties Type</em>}'.
+	 * <!-- begin-user-doc --> This default implementation returns
+	 * null so that we can easily ignore cases; it's useful to ignore a case
+	 * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PropertiesType
 	 * @generated
@@ -1154,10 +1155,10 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 
 	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Relocation <em>Relocation</em>}'.
-	 * <!-- begin-user-doc
-	 * --> This default implementation returns null so that we can easily ignore cases; it's useful to ignore a case
-	 * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> This default
+	 * implementation returns null so that we can easily ignore cases; it's
+	 * useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.Relocation
 	 * @generated
@@ -1167,10 +1168,12 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Reporting <em>Reporting</em>}'.
-	 * <!-- begin-user-doc
-	 * --> This default implementation returns null so that we can easily ignore cases; it's useful to ignore a case
-	 * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+	 * Creates a new adapter for an object of class
+	 * '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Reporting
+	 * <em>Reporting</em>}'. <!-- begin-user-doc --> This default implementation
+	 * returns null so that we can easily ignore cases; it's useful to ignore a
+	 * case when inheritance will catch all the cases anyway. <!-- end-user-doc
+	 * -->
 	 *
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.Reporting
@@ -1181,11 +1184,11 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class ' {@link org.eclipse.cbi.p2repo.p2.maven.pom.ReportingPluginsType
-	 * <em>Reporting Plugins Type</em>} '. <!--
-	 * begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's
-	 * useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 *
+	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.pom.ReportingPluginsType <em>Reporting Plugins Type</em>}'.
+	 * <!-- begin-user-doc --> This default
+	 * implementation returns null so that we can easily ignore cases; it's
+	 * useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.ReportingPluginsType
 	 * @generated
@@ -1195,10 +1198,12 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class ' {@link org.eclipse.cbi.p2repo.p2.maven.pom.ReportPlugin
-	 * <em>Report Plugin</em>}'. <!--
-	 * begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful to
-	 * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+	 * Creates a new adapter for an object of class '
+	 * {@link org.eclipse.cbi.p2repo.p2.maven.pom.ReportPlugin <em>Report
+	 * Plugin</em>}'. <!-- begin-user-doc --> This default implementation
+	 * returns null so that we can easily ignore cases; it's useful to ignore a
+	 * case when inheritance will catch all the cases anyway. <!-- end-user-doc
+	 * -->
 	 *
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.ReportPlugin
@@ -1210,10 +1215,9 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 
 	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.pom.ReportSet <em>Report Set</em>}'.
-	 * <!-- begin-user-doc
-	 * --> This default implementation returns null so that we can easily ignore cases; it's useful to ignore a case
+	 * <!-- begin-user-doc --> This default implementation returns
+	 * null so that we can easily ignore cases; it's useful to ignore a case
 	 * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 *
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.ReportSet
 	 * @generated
@@ -1223,11 +1227,11 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class ' {@link org.eclipse.cbi.p2repo.p2.maven.pom.ReportSetReportsType
-	 * <em>Report Set Reports Type</em>} '. <!--
-	 * begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's
-	 * useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 *
+	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.pom.ReportSetReportsType <em>Report Set Reports Type</em>}'.
+	 * <!-- begin-user-doc --> This default
+	 * implementation returns null so that we can easily ignore cases; it's
+	 * useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.ReportSetReportsType
 	 * @generated
@@ -1237,10 +1241,12 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class ' {@link org.eclipse.cbi.p2repo.p2.maven.pom.ReportSetsType
-	 * <em>Report Sets Type</em>}'. <!--
-	 * begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful to
-	 * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+	 * Creates a new adapter for an object of class
+	 * '{@link org.eclipse.cbi.p2repo.p2.maven.pom.ReportSetsType <em>Report
+	 * Sets Type</em>}'. <!-- begin-user-doc --> This default implementation
+	 * returns null so that we can easily ignore cases; it's useful to ignore a
+	 * case when inheritance will catch all the cases anyway. <!-- end-user-doc
+	 * -->
 	 *
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.ReportSetsType
@@ -1251,11 +1257,10 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class ' {@link org.eclipse.cbi.p2repo.p2.maven.pom.ReportsType
-	 * <em>Reports Type</em>}'. <!--
-	 * begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful to
-	 * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 *
+	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.pom.ReportsType <em>Reports Type</em>}'.
+	 * <!-- begin-user-doc --> This default implementation returns
+	 * null so that we can easily ignore cases; it's useful to ignore a case
+	 * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.ReportsType
 	 * @generated
@@ -1265,11 +1270,11 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class ' {@link org.eclipse.cbi.p2repo.p2.maven.pom.RepositoriesType
-	 * <em>Repositories Type</em>}'. <!--
-	 * begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful to
-	 * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 *
+	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.pom.RepositoriesType <em>Repositories Type</em>}'.
+	 * <!-- begin-user-doc --> This default
+	 * implementation returns null so that we can easily ignore cases; it's
+	 * useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.RepositoriesType
 	 * @generated
@@ -1280,10 +1285,10 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 
 	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Repository <em>Repository</em>}'.
-	 * <!-- begin-user-doc
-	 * --> This default implementation returns null so that we can easily ignore cases; it's useful to ignore a case
-	 * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> This default
+	 * implementation returns null so that we can easily ignore cases; it's
+	 * useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.Repository
 	 * @generated
@@ -1293,11 +1298,11 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class ' {@link org.eclipse.cbi.p2repo.p2.maven.pom.RepositoryPolicy
-	 * <em>Repository Policy</em>}'. <!--
-	 * begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful to
-	 * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 *
+	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.pom.RepositoryPolicy <em>Repository Policy</em>}'.
+	 * <!-- begin-user-doc --> This default
+	 * implementation returns null so that we can easily ignore cases; it's
+	 * useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.RepositoryPolicy
 	 * @generated
@@ -1308,10 +1313,9 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 
 	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Resource <em>Resource</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases; it's useful to ignore a case when
-	 * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> This default implementation returns null so that
+	 * we can easily ignore cases; it's useful to ignore a case when inheritance
+	 * will catch all the cases anyway. <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.Resource
 	 * @generated
@@ -1321,11 +1325,10 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class ' {@link org.eclipse.cbi.p2repo.p2.maven.pom.ResourcesType
-	 * <em>Resources Type</em>}'. <!--
-	 * begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful to
-	 * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 *
+	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.pom.ResourcesType <em>Resources Type</em>}'.
+	 * <!-- begin-user-doc --> This default implementation returns
+	 * null so that we can easily ignore cases; it's useful to ignore a case
+	 * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.ResourcesType
 	 * @generated
@@ -1336,10 +1339,9 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 
 	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.pom.RolesType <em>Roles Type</em>}'.
-	 * <!-- begin-user-doc
-	 * --> This default implementation returns null so that we can easily ignore cases; it's useful to ignore a case
+	 * <!-- begin-user-doc --> This default implementation returns
+	 * null so that we can easily ignore cases; it's useful to ignore a case
 	 * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 *
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.RolesType
 	 * @generated
@@ -1349,9 +1351,11 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Scm <em>Scm</em>}'.
-	 * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
-	 * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+	 * Creates a new adapter for an object of class
+	 * '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Scm <em>Scm</em>}'. <!--
+	 * begin-user-doc --> This default implementation returns null so that we
+	 * can easily ignore cases; it's useful to ignore a case when inheritance
+	 * will catch all the cases anyway. <!-- end-user-doc -->
 	 *
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.Scm
@@ -1362,9 +1366,11 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Site <em>Site</em>}'.
-	 * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
-	 * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+	 * Creates a new adapter for an object of class
+	 * '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Site <em>Site</em>}'. <!--
+	 * begin-user-doc --> This default implementation returns null so that we
+	 * can easily ignore cases; it's useful to ignore a case when inheritance
+	 * will catch all the cases anyway. <!-- end-user-doc -->
 	 *
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.Site
@@ -1375,11 +1381,11 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class ' {@link org.eclipse.cbi.p2repo.p2.maven.pom.TestResourcesType
-	 * <em>Test Resources Type</em>}'. <!--
-	 * begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful to
-	 * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 *
+	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.pom.TestResourcesType <em>Test Resources Type</em>}'.
+	 * <!-- begin-user-doc --> This default
+	 * implementation returns null so that we can easily ignore cases; it's
+	 * useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.TestResourcesType
 	 * @generated
@@ -1390,19 +1396,18 @@ public class PomAdapterFactory extends AdapterFactoryImpl {
 
 	/**
 	 * Returns whether this factory is applicable for the type of the object.
-	 * <!-- begin-user-doc --> This
-	 * implementation returns <code>true</code> if the object is either the model's package or is an instance object of
-	 * the model. <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> This implementation returns <code>true</code> if
+	 * the object is either the model's package or is an instance object of the
+	 * model. <!-- end-user-doc -->
 	 * @return whether this factory is applicable for the type of the object.
 	 * @generated
 	 */
 	@Override
 	public boolean isFactoryForType(Object object) {
-		if(object == modelPackage) {
+		if (object == modelPackage) {
 			return true;
 		}
-		if(object instanceof EObject) {
+		if (object instanceof EObject) {
 			return ((EObject) object).eClass().getEPackage() == modelPackage;
 		}
 		return false;

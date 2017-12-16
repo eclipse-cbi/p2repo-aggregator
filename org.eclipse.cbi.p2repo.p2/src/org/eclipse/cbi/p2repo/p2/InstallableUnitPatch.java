@@ -12,9 +12,8 @@ import org.eclipse.equinox.p2.metadata.IInstallableUnitPatch;
 import org.eclipse.equinox.p2.metadata.IRequirement;
 
 /**
- * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Installable Unit Patch</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object
+ * '<em><b>Installable Unit Patch</b></em>'. <!-- end-user-doc -->
  *
  *
  * @see org.eclipse.cbi.p2repo.p2.P2Package#getInstallableUnitPatch()
@@ -23,9 +22,7 @@ import org.eclipse.equinox.p2.metadata.IRequirement;
  */
 public interface InstallableUnitPatch extends InstallableUnit, IInstallableUnitPatch {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @model kind="operation" dataType="org.eclipse.cbi.p2repo.p2.IRequirementArrayArray"
 	 * @generated
 	 */

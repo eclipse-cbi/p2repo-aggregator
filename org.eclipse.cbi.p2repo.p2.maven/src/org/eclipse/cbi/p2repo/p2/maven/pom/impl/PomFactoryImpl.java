@@ -81,14 +81,13 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
- *
+ * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!--
+ * end-user-doc -->
  * @generated
  */
 public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @deprecated
 	 * @generated
 	 */
@@ -99,18 +98,17 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * Creates the default factory implementation.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @generated
 	 */
 	public static PomFactory init() {
 		try {
 			PomFactory thePomFactory = (PomFactory) EPackage.Registry.INSTANCE.getEFactory(PomPackage.eNS_URI);
-			if(thePomFactory != null) {
+			if (thePomFactory != null) {
 				return thePomFactory;
 			}
-		}
-		catch(Exception exception) {
+		} catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new PomFactoryImpl();
@@ -118,8 +116,8 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * Creates an instance of the factory.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @generated
 	 */
 	public PomFactoryImpl() {
@@ -128,12 +126,11 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public EObject create(EClass eClass) {
-		switch(eClass.getClassifierID()) {
+		switch (eClass.getClassifierID()) {
 			case PomPackage.ACTIVATION:
 				return createActivation();
 			case PomPackage.ACTIVATION_FILE:
@@ -273,7 +270,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -284,7 +280,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -295,7 +290,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -306,7 +300,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -317,7 +310,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -328,7 +320,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -339,7 +330,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -350,7 +340,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -361,7 +350,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -372,7 +360,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -383,7 +370,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -394,7 +380,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -405,7 +390,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -416,7 +400,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -427,7 +410,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -438,7 +420,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -449,7 +430,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -460,7 +440,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -471,7 +450,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -482,7 +460,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -493,7 +470,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -504,7 +480,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -515,7 +490,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -526,7 +500,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -537,7 +510,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -548,7 +520,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -559,7 +530,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -570,7 +540,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -581,7 +550,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -592,7 +560,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -603,7 +570,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -614,7 +580,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -625,7 +590,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -636,7 +600,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -647,7 +610,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -658,7 +620,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -669,7 +630,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -680,7 +640,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -691,7 +650,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -702,7 +660,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -713,7 +670,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -724,7 +680,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -735,7 +690,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -746,7 +700,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -757,7 +710,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -768,7 +720,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -779,7 +730,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -790,7 +740,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -801,7 +750,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -812,7 +760,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -823,7 +770,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -834,7 +780,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -845,7 +790,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -856,7 +800,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -867,7 +810,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -878,7 +820,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -889,7 +830,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -900,7 +840,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -911,7 +850,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -922,7 +860,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -933,7 +870,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -944,7 +880,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -955,7 +890,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -966,7 +900,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -977,7 +910,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -988,7 +920,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -999,7 +930,6 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override

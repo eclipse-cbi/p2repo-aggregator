@@ -20,22 +20,21 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Repositories Type</b></em>'. <!-- end-user-doc
- * -->
+ * <!-- begin-user-doc --> An implementation of the model object
+ * '<em><b>Repositories Type</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.RepositoriesTypeImpl#getRepository <em>Repository </em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.RepositoriesTypeImpl#getRepository <em>Repository</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public class RepositoriesTypeImpl extends EObjectImpl implements RepositoriesType {
 	/**
-	 * The cached value of the '{@link #getRepository() <em>Repository</em>}' containment reference list. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * The cached value of the '{@link #getRepository() <em>Repository</em>}' containment reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getRepository()
 	 * @generated
 	 * @ordered
@@ -44,7 +43,6 @@ public class RepositoriesTypeImpl extends EObjectImpl implements RepositoriesTyp
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected RepositoriesTypeImpl() {
@@ -53,12 +51,11 @@ public class RepositoriesTypeImpl extends EObjectImpl implements RepositoriesTyp
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.REPOSITORIES_TYPE__REPOSITORY:
 				return getRepository();
 		}
@@ -67,12 +64,11 @@ public class RepositoriesTypeImpl extends EObjectImpl implements RepositoriesTyp
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.REPOSITORIES_TYPE__REPOSITORY:
 				return ((InternalEList<?>) getRepository()).basicRemove(otherEnd, msgs);
 		}
@@ -81,12 +77,11 @@ public class RepositoriesTypeImpl extends EObjectImpl implements RepositoriesTyp
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.REPOSITORIES_TYPE__REPOSITORY:
 				return repository != null && !repository.isEmpty();
 		}
@@ -95,13 +90,12 @@ public class RepositoriesTypeImpl extends EObjectImpl implements RepositoriesTyp
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.REPOSITORIES_TYPE__REPOSITORY:
 				getRepository().clear();
 				getRepository().addAll((Collection<? extends Repository>) newValue);
@@ -112,12 +106,11 @@ public class RepositoriesTypeImpl extends EObjectImpl implements RepositoriesTyp
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.REPOSITORIES_TYPE__REPOSITORY:
 				getRepository().clear();
 				return;
@@ -127,21 +120,19 @@ public class RepositoriesTypeImpl extends EObjectImpl implements RepositoriesTyp
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public EList<Repository> getRepository() {
-		if(repository == null) {
-			repository = new EObjectContainmentEList<Repository>(
-				Repository.class, this, PomPackage.REPOSITORIES_TYPE__REPOSITORY);
+		if (repository == null) {
+			repository = new EObjectContainmentEList<>(Repository.class, this,
+					PomPackage.REPOSITORIES_TYPE__REPOSITORY);
 		}
 		return repository;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override

@@ -28,18 +28,17 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.cbi.p2repo.p2.RequirementChange} object.
- * <!-- begin-user-doc -->
- * <!-- end-user-doc -->
+ * This is the item provider adapter for a
+ * {@link org.eclipse.cbi.p2repo.p2.RequirementChange} object. <!--
+ * begin-user-doc --> <!-- end-user-doc -->
  *
  * @generated
  */
 public class RequirementChangeItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
 		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
-	 * This constructs an instance from a factory and a notifier.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This constructs an instance from a factory and a notifier. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated
 	 */
@@ -48,10 +47,9 @@ public class RequirementChangeItemProvider extends ItemProviderAdapter implement
 	}
 
 	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
+	 * describing the children that can be created under this object. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated
 	 */
@@ -59,19 +57,15 @@ public class RequirementChangeItemProvider extends ItemProviderAdapter implement
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(
-			createChildParameter(
-				P2Package.Literals.IREQUIREMENT_CHANGE__APPLY_ON, P2Factory.eINSTANCE.createRequiredCapability()));
+		newChildDescriptors.add(createChildParameter(P2Package.Literals.IREQUIREMENT_CHANGE__APPLY_ON,
+				P2Factory.eINSTANCE.createRequiredCapability()));
 
-		newChildDescriptors.add(
-			createChildParameter(
-				P2Package.Literals.IREQUIREMENT_CHANGE__NEW_VALUE, P2Factory.eINSTANCE.createRequiredCapability()));
+		newChildDescriptors.add(createChildParameter(P2Package.Literals.IREQUIREMENT_CHANGE__NEW_VALUE,
+				P2Factory.eINSTANCE.createRequiredCapability()));
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -86,14 +80,12 @@ public class RequirementChangeItemProvider extends ItemProviderAdapter implement
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if(childrenFeatures == null) {
+		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(P2Package.Literals.IREQUIREMENT_CHANGE__APPLY_ON);
 			childrenFeatures.add(P2Package.Literals.IREQUIREMENT_CHANGE__NEW_VALUE);
@@ -102,9 +94,9 @@ public class RequirementChangeItemProvider extends ItemProviderAdapter implement
 	}
 
 	/**
-	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This returns the label text for
+	 * {@link org.eclipse.emf.edit.command.CreateChildCommand}. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated
 	 */
@@ -113,22 +105,20 @@ public class RequirementChangeItemProvider extends ItemProviderAdapter implement
 		Object childFeature = feature;
 		Object childObject = child;
 
-		boolean qualify = childFeature == P2Package.Literals.IREQUIREMENT_CHANGE__APPLY_ON ||
-				childFeature == P2Package.Literals.IREQUIREMENT_CHANGE__NEW_VALUE;
+		boolean qualify = childFeature == P2Package.Literals.IREQUIREMENT_CHANGE__APPLY_ON
+				|| childFeature == P2Package.Literals.IREQUIREMENT_CHANGE__NEW_VALUE;
 
-		if(qualify) {
-			return getString(
-				"_UI_CreateChild_text2",
-				new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		if (qualify) {
+			return getString("_UI_CreateChild_text2",
+					new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
 		}
 		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 	/**
 	 * This returns RequirementChange.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -137,15 +127,14 @@ public class RequirementChangeItemProvider extends ItemProviderAdapter implement
 	}
 
 	/**
-	 * This returns the property descriptors for the adapted class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This returns the property descriptors for the adapted class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 		}
@@ -153,9 +142,8 @@ public class RequirementChangeItemProvider extends ItemProviderAdapter implement
 	}
 
 	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Return the resource locator for this item provider's resources. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated
 	 */
@@ -166,9 +154,8 @@ public class RequirementChangeItemProvider extends ItemProviderAdapter implement
 
 	/**
 	 * This returns the label text for the adapted class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -179,16 +166,15 @@ public class RequirementChangeItemProvider extends ItemProviderAdapter implement
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch(notification.getFeatureID(RequirementChange.class)) {
+		switch (notification.getFeatureID(RequirementChange.class)) {
 			case P2Package.REQUIREMENT_CHANGE__APPLY_ON:
 			case P2Package.REQUIREMENT_CHANGE__NEW_VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));

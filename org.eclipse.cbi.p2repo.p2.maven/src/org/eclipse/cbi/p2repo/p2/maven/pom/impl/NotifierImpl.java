@@ -17,27 +17,27 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Notifier</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object
+ * '<em><b>Notifier</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.NotifierImpl#getType <em>Type</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.NotifierImpl#isSendOnError <em>Send On Error</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.NotifierImpl#isSendOnFailure <em>Send On Failure</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.NotifierImpl#isSendOnSuccess <em>Send On Success</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.NotifierImpl#isSendOnWarning <em>Send On Warning</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.NotifierImpl#getAddress <em>Address</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.NotifierImpl#getConfiguration <em>Configuration</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.NotifierImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.NotifierImpl#isSendOnError <em>Send On Error</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.NotifierImpl#isSendOnFailure <em>Send On Failure</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.NotifierImpl#isSendOnSuccess <em>Send On Success</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.NotifierImpl#isSendOnWarning <em>Send On Warning</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.NotifierImpl#getAddress <em>Address</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.NotifierImpl#getConfiguration <em>Configuration</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class NotifierImpl extends EObjectImpl implements Notifier {
 	/**
-	 * The default value of the '{@link #getType() <em>Type</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 *
+	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getType()
 	 * @generated
 	 * @ordered
@@ -45,9 +45,8 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 	protected static final String TYPE_EDEFAULT = "mail";
 
 	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 *
+	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getType()
 	 * @generated
 	 * @ordered
@@ -56,8 +55,8 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * This is true if the Type attribute has been set.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -65,9 +64,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * The default value of the '{@link #isSendOnError() <em>Send On Error</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isSendOnError()
 	 * @generated
 	 * @ordered
@@ -76,9 +73,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * The cached value of the '{@link #isSendOnError() <em>Send On Error</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isSendOnError()
 	 * @generated
 	 * @ordered
@@ -86,8 +81,8 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 	protected boolean sendOnError = SEND_ON_ERROR_EDEFAULT;
 
 	/**
-	 * This is true if the Send On Error attribute has been set.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This is true if the Send On Error attribute has been set. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated
 	 * @ordered
@@ -96,9 +91,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * The default value of the '{@link #isSendOnFailure() <em>Send On Failure</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isSendOnFailure()
 	 * @generated
 	 * @ordered
@@ -107,9 +100,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * The cached value of the '{@link #isSendOnFailure() <em>Send On Failure</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isSendOnFailure()
 	 * @generated
 	 * @ordered
@@ -117,8 +108,8 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 	protected boolean sendOnFailure = SEND_ON_FAILURE_EDEFAULT;
 
 	/**
-	 * This is true if the Send On Failure attribute has been set.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This is true if the Send On Failure attribute has been set. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated
 	 * @ordered
@@ -127,9 +118,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * The default value of the '{@link #isSendOnSuccess() <em>Send On Success</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isSendOnSuccess()
 	 * @generated
 	 * @ordered
@@ -138,9 +127,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * The cached value of the '{@link #isSendOnSuccess() <em>Send On Success</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isSendOnSuccess()
 	 * @generated
 	 * @ordered
@@ -148,8 +135,8 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 	protected boolean sendOnSuccess = SEND_ON_SUCCESS_EDEFAULT;
 
 	/**
-	 * This is true if the Send On Success attribute has been set.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This is true if the Send On Success attribute has been set. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated
 	 * @ordered
@@ -158,9 +145,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * The default value of the '{@link #isSendOnWarning() <em>Send On Warning</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isSendOnWarning()
 	 * @generated
 	 * @ordered
@@ -169,9 +154,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * The cached value of the '{@link #isSendOnWarning() <em>Send On Warning</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isSendOnWarning()
 	 * @generated
 	 * @ordered
@@ -179,8 +162,8 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 	protected boolean sendOnWarning = SEND_ON_WARNING_EDEFAULT;
 
 	/**
-	 * This is true if the Send On Warning attribute has been set.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This is true if the Send On Warning attribute has been set. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated
 	 * @ordered
@@ -189,9 +172,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * The default value of the '{@link #getAddress() <em>Address</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getAddress()
 	 * @generated
 	 * @ordered
@@ -200,9 +181,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * The cached value of the '{@link #getAddress() <em>Address</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getAddress()
 	 * @generated
 	 * @ordered
@@ -210,9 +189,9 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 	protected String address = ADDRESS_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getConfiguration() <em>Configuration</em>}' containment reference. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * The cached value of the '{@link #getConfiguration() <em>Configuration</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getConfiguration()
 	 * @generated
 	 * @ordered
@@ -221,7 +200,6 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected NotifierImpl() {
@@ -230,16 +208,15 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetConfiguration(ConfigurationType newConfiguration, NotificationChain msgs) {
 		ConfigurationType oldConfiguration = configuration;
 		configuration = newConfiguration;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, PomPackage.NOTIFIER__CONFIGURATION, oldConfiguration, newConfiguration);
-			if(msgs == null)
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					PomPackage.NOTIFIER__CONFIGURATION, oldConfiguration, newConfiguration);
+			if (msgs == null)
 				msgs = notification;
 			else
 				msgs.add(notification);
@@ -249,12 +226,11 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.NOTIFIER__TYPE:
 				return getType();
 			case PomPackage.NOTIFIER__SEND_ON_ERROR:
@@ -275,12 +251,11 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.NOTIFIER__CONFIGURATION:
 				return basicSetConfiguration(null, msgs);
 		}
@@ -289,12 +264,11 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.NOTIFIER__TYPE:
 				return isSetType();
 			case PomPackage.NOTIFIER__SEND_ON_ERROR:
@@ -306,9 +280,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 			case PomPackage.NOTIFIER__SEND_ON_WARNING:
 				return isSetSendOnWarning();
 			case PomPackage.NOTIFIER__ADDRESS:
-				return ADDRESS_EDEFAULT == null
-						? address != null
-						: !ADDRESS_EDEFAULT.equals(address);
+				return ADDRESS_EDEFAULT == null ? address != null : !ADDRESS_EDEFAULT.equals(address);
 			case PomPackage.NOTIFIER__CONFIGURATION:
 				return configuration != null;
 		}
@@ -317,12 +289,11 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.NOTIFIER__TYPE:
 				setType((String) newValue);
 				return;
@@ -350,12 +321,11 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.NOTIFIER__TYPE:
 				unsetType();
 				return;
@@ -383,7 +353,6 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -393,7 +362,6 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -403,7 +371,6 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -413,7 +380,6 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -423,7 +389,6 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -433,7 +398,6 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -443,7 +407,6 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -453,7 +416,6 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -463,7 +425,6 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -473,7 +434,6 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -483,7 +443,6 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -493,7 +452,6 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -503,45 +461,40 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setAddress(String newAddress) {
 		String oldAddress = address;
 		address = newAddress;
-		if(eNotificationRequired())
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.NOTIFIER__ADDRESS, oldAddress, address));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setConfiguration(ConfigurationType newConfiguration) {
-		if(newConfiguration != configuration) {
+		if (newConfiguration != configuration) {
 			NotificationChain msgs = null;
-			if(configuration != null)
-				msgs = ((InternalEObject) configuration).eInverseRemove(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.NOTIFIER__CONFIGURATION, null, msgs);
-			if(newConfiguration != null)
-				msgs = ((InternalEObject) newConfiguration).eInverseAdd(
-					this, EOPPOSITE_FEATURE_BASE - PomPackage.NOTIFIER__CONFIGURATION, null, msgs);
+			if (configuration != null)
+				msgs = ((InternalEObject) configuration).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.NOTIFIER__CONFIGURATION, null, msgs);
+			if (newConfiguration != null)
+				msgs = ((InternalEObject) newConfiguration).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.NOTIFIER__CONFIGURATION, null, msgs);
 			msgs = basicSetConfiguration(newConfiguration, msgs);
-			if(msgs != null)
+			if (msgs != null)
 				msgs.dispatch();
-		}
-		else if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, PomPackage.NOTIFIER__CONFIGURATION, newConfiguration, newConfiguration));
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.NOTIFIER__CONFIGURATION, newConfiguration,
+					newConfiguration));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -550,16 +503,13 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 		sendOnError = newSendOnError;
 		boolean oldSendOnErrorESet = sendOnErrorESet;
 		sendOnErrorESet = true;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, PomPackage.NOTIFIER__SEND_ON_ERROR, oldSendOnError, sendOnError,
-					!oldSendOnErrorESet));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.NOTIFIER__SEND_ON_ERROR, oldSendOnError,
+					sendOnError, !oldSendOnErrorESet));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -568,16 +518,13 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 		sendOnFailure = newSendOnFailure;
 		boolean oldSendOnFailureESet = sendOnFailureESet;
 		sendOnFailureESet = true;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, PomPackage.NOTIFIER__SEND_ON_FAILURE, oldSendOnFailure, sendOnFailure,
-					!oldSendOnFailureESet));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.NOTIFIER__SEND_ON_FAILURE,
+					oldSendOnFailure, sendOnFailure, !oldSendOnFailureESet));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -586,16 +533,13 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 		sendOnSuccess = newSendOnSuccess;
 		boolean oldSendOnSuccessESet = sendOnSuccessESet;
 		sendOnSuccessESet = true;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, PomPackage.NOTIFIER__SEND_ON_SUCCESS, oldSendOnSuccess, sendOnSuccess,
-					!oldSendOnSuccessESet));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.NOTIFIER__SEND_ON_SUCCESS,
+					oldSendOnSuccess, sendOnSuccess, !oldSendOnSuccessESet));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -604,16 +548,13 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 		sendOnWarning = newSendOnWarning;
 		boolean oldSendOnWarningESet = sendOnWarningESet;
 		sendOnWarningESet = true;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, PomPackage.NOTIFIER__SEND_ON_WARNING, oldSendOnWarning, sendOnWarning,
-					!oldSendOnWarningESet));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.NOTIFIER__SEND_ON_WARNING,
+					oldSendOnWarning, sendOnWarning, !oldSendOnWarningESet));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -622,44 +563,43 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 		type = newType;
 		boolean oldTypeESet = typeESet;
 		typeESet = true;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(this, Notification.SET, PomPackage.NOTIFIER__TYPE, oldType, type, !oldTypeESet));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.NOTIFIER__TYPE, oldType, type,
+					!oldTypeESet));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if(eIsProxy())
+		if (eIsProxy())
 			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (type: ");
-		if(typeESet)
+		if (typeESet)
 			result.append(type);
 		else
 			result.append("<unset>");
 		result.append(", sendOnError: ");
-		if(sendOnErrorESet)
+		if (sendOnErrorESet)
 			result.append(sendOnError);
 		else
 			result.append("<unset>");
 		result.append(", sendOnFailure: ");
-		if(sendOnFailureESet)
+		if (sendOnFailureESet)
 			result.append(sendOnFailure);
 		else
 			result.append("<unset>");
 		result.append(", sendOnSuccess: ");
-		if(sendOnSuccessESet)
+		if (sendOnSuccessESet)
 			result.append(sendOnSuccess);
 		else
 			result.append("<unset>");
 		result.append(", sendOnWarning: ");
-		if(sendOnWarningESet)
+		if (sendOnWarningESet)
 			result.append(sendOnWarning);
 		else
 			result.append("<unset>");
@@ -671,7 +611,6 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -680,16 +619,13 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 		boolean oldSendOnErrorESet = sendOnErrorESet;
 		sendOnError = SEND_ON_ERROR_EDEFAULT;
 		sendOnErrorESet = false;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, PomPackage.NOTIFIER__SEND_ON_ERROR, oldSendOnError,
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, PomPackage.NOTIFIER__SEND_ON_ERROR, oldSendOnError,
 					SEND_ON_ERROR_EDEFAULT, oldSendOnErrorESet));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -698,16 +634,13 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 		boolean oldSendOnFailureESet = sendOnFailureESet;
 		sendOnFailure = SEND_ON_FAILURE_EDEFAULT;
 		sendOnFailureESet = false;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, PomPackage.NOTIFIER__SEND_ON_FAILURE, oldSendOnFailure,
-					SEND_ON_FAILURE_EDEFAULT, oldSendOnFailureESet));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, PomPackage.NOTIFIER__SEND_ON_FAILURE,
+					oldSendOnFailure, SEND_ON_FAILURE_EDEFAULT, oldSendOnFailureESet));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -716,16 +649,13 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 		boolean oldSendOnSuccessESet = sendOnSuccessESet;
 		sendOnSuccess = SEND_ON_SUCCESS_EDEFAULT;
 		sendOnSuccessESet = false;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, PomPackage.NOTIFIER__SEND_ON_SUCCESS, oldSendOnSuccess,
-					SEND_ON_SUCCESS_EDEFAULT, oldSendOnSuccessESet));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, PomPackage.NOTIFIER__SEND_ON_SUCCESS,
+					oldSendOnSuccess, SEND_ON_SUCCESS_EDEFAULT, oldSendOnSuccessESet));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -734,16 +664,13 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 		boolean oldSendOnWarningESet = sendOnWarningESet;
 		sendOnWarning = SEND_ON_WARNING_EDEFAULT;
 		sendOnWarningESet = false;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, PomPackage.NOTIFIER__SEND_ON_WARNING, oldSendOnWarning,
-					SEND_ON_WARNING_EDEFAULT, oldSendOnWarningESet));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, PomPackage.NOTIFIER__SEND_ON_WARNING,
+					oldSendOnWarning, SEND_ON_WARNING_EDEFAULT, oldSendOnWarningESet));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -752,15 +679,13 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 		boolean oldTypeESet = typeESet;
 		type = TYPE_EDEFAULT;
 		typeESet = false;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, PomPackage.NOTIFIER__TYPE, oldType, TYPE_EDEFAULT, oldTypeESet));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, PomPackage.NOTIFIER__TYPE, oldType, TYPE_EDEFAULT,
+					oldTypeESet));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override

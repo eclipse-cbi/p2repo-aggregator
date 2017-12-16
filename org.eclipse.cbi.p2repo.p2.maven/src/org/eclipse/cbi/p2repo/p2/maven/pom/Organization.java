@@ -9,7 +9,8 @@ package org.eclipse.cbi.p2repo.p2.maven.pom;
 import org.eclipse.emf.ecore.EObject;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Organization</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object
+ * '<em><b>Organization</b></em>'. <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
  * 3.0.0+
@@ -20,8 +21,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Organization#getName <em>Name</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Organization#getUrl <em>Url</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Organization#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Organization#getUrl <em>Url</em>}</li>
  * </ul>
  *
  * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getOrganization()
@@ -30,27 +31,31 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Organization extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc --> <!--
-	 * begin-model-doc --> 3.0.0+ The full name of the organization. <!-- end-model-doc -->
+	 * Returns the value of the '<em><b>Name</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc --> 3.0.0+
+	 * The full name of the organization. <!-- end-model-doc -->
 	 *
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getOrganization_Name()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
-	 *        extendedMetaData="kind='element' name='name' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='name'
+	 *        namespace='##targetNamespace'"
 	 * @generated
 	 */
 	String getName();
 
 	/**
-	 * Returns the value of the '<em><b>Url</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc --> <!--
-	 * begin-model-doc --> 3.0.0+ The URL to the organization's home page. <!-- end-model-doc -->
+	 * Returns the value of the '<em><b>Url</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc --> 3.0.0+
+	 * The URL to the organization's home page. <!-- end-model-doc -->
 	 *
 	 * @return the value of the '<em>Url</em>' attribute.
 	 * @see #setUrl(String)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getOrganization_Url()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
-	 *        extendedMetaData="kind='element' name='url' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='url'
+	 *        namespace='##targetNamespace'"
 	 * @generated
 	 */
 	String getUrl();
@@ -58,9 +63,7 @@ public interface Organization extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Organization#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Name</em>' attribute.
+	 * @param value the new value of the '<em>Name</em>' attribute.
 	 * @see #getName()
 	 * @generated
 	 */
@@ -69,9 +72,7 @@ public interface Organization extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Organization#getUrl <em>Url</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Url</em>' attribute.
+	 * @param value the new value of the '<em>Url</em>' attribute.
 	 * @see #getUrl()
 	 * @generated
 	 */

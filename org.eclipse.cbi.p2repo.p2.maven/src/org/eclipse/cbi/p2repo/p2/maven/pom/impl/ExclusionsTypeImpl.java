@@ -20,22 +20,21 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Exclusions Type</b></em>'. <!-- end-user-doc
- * -->
+ * <!-- begin-user-doc --> An implementation of the model object
+ * '<em><b>Exclusions Type</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ExclusionsTypeImpl#getExclusion <em>Exclusion </em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ExclusionsTypeImpl#getExclusion <em>Exclusion</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public class ExclusionsTypeImpl extends EObjectImpl implements ExclusionsType {
 	/**
-	 * The cached value of the '{@link #getExclusion() <em>Exclusion</em>}' containment reference list. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * The cached value of the '{@link #getExclusion() <em>Exclusion</em>}' containment reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getExclusion()
 	 * @generated
 	 * @ordered
@@ -44,7 +43,6 @@ public class ExclusionsTypeImpl extends EObjectImpl implements ExclusionsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected ExclusionsTypeImpl() {
@@ -53,12 +51,11 @@ public class ExclusionsTypeImpl extends EObjectImpl implements ExclusionsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.EXCLUSIONS_TYPE__EXCLUSION:
 				return getExclusion();
 		}
@@ -67,12 +64,11 @@ public class ExclusionsTypeImpl extends EObjectImpl implements ExclusionsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.EXCLUSIONS_TYPE__EXCLUSION:
 				return ((InternalEList<?>) getExclusion()).basicRemove(otherEnd, msgs);
 		}
@@ -81,12 +77,11 @@ public class ExclusionsTypeImpl extends EObjectImpl implements ExclusionsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.EXCLUSIONS_TYPE__EXCLUSION:
 				return exclusion != null && !exclusion.isEmpty();
 		}
@@ -95,13 +90,12 @@ public class ExclusionsTypeImpl extends EObjectImpl implements ExclusionsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.EXCLUSIONS_TYPE__EXCLUSION:
 				getExclusion().clear();
 				getExclusion().addAll((Collection<? extends Exclusion>) newValue);
@@ -112,12 +106,11 @@ public class ExclusionsTypeImpl extends EObjectImpl implements ExclusionsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.EXCLUSIONS_TYPE__EXCLUSION:
 				getExclusion().clear();
 				return;
@@ -127,21 +120,19 @@ public class ExclusionsTypeImpl extends EObjectImpl implements ExclusionsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public EList<Exclusion> getExclusion() {
-		if(exclusion == null) {
-			exclusion = new EObjectContainmentEList<Exclusion>(
-				Exclusion.class, this, PomPackage.EXCLUSIONS_TYPE__EXCLUSION);
+		if (exclusion == null) {
+			exclusion = new EObjectContainmentEList<>(Exclusion.class, this,
+					PomPackage.EXCLUSIONS_TYPE__EXCLUSION);
 		}
 		return exclusion;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override

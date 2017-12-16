@@ -15,19 +15,18 @@ import org.eclipse.equinox.p2.repository.artifact.IArtifactDescriptor;
 import org.eclipse.equinox.p2.repository.artifact.IArtifactRepository;
 
 /**
- * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Artifact Repository</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object '<em><b>Artifact
+ * Repository</b></em>'. <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.ArtifactRepository#getArtifactMap <em>Artifact Map</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.ArtifactRepository#getArtifactMap <em>Artifact Map</em>}</li>
  * </ul>
  *
  * @see org.eclipse.cbi.p2repo.p2.P2Package#getArtifactRepository()
- * @model superTypes="org.eclipse.cbi.p2repo.p2.Repository<org.eclipse.cbi.p2repo.p2.IArtifactKey> org.eclipse.cbi.p2repo.p2.IArtifactRepository"
+ * @model superTypes="org.eclipse.cbi.p2repo.p2.Repository&lt;org.eclipse.cbi.p2repo.p2.IArtifactKey&gt; org.eclipse.cbi.p2repo.p2.IArtifactRepository"
  * @generated
  */
 public interface ArtifactRepository extends Repository<IArtifactKey>, IArtifactRepository {
@@ -37,14 +36,13 @@ public interface ArtifactRepository extends Repository<IArtifactKey>, IArtifactR
 	 * and the value is of type list of {@link org.eclipse.equinox.p2.repository.artifact.IArtifactDescriptor},
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Artifact Map</em>' reference list isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Artifact Map</em>' reference list isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Artifact Map</em>' map.
 	 * @see org.eclipse.cbi.p2repo.p2.P2Package#getArtifactRepository_ArtifactMap()
-	 * @model mapType="org.eclipse.cbi.p2repo.p2.ArtifactsByKey<org.eclipse.cbi.p2repo.p2.IArtifactKey,
-	 *        org.eclipse.cbi.p2repo.p2.IArtifactDescriptor>"
+	 * @model mapType="org.eclipse.cbi.p2repo.p2.ArtifactsByKey&lt;org.eclipse.cbi.p2repo.p2.IArtifactKey, org.eclipse.cbi.p2repo.p2.IArtifactDescriptor&gt;"
 	 * @generated
 	 */
 	EMap<IArtifactKey, EList<IArtifactDescriptor>> getArtifactMap();

@@ -10,13 +10,14 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Versions</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object
+ * '<em><b>Versions</b></em>'. <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
  * 1.0.0
  *
- * Container for all the versions in the repository for
- * this artifact.
+ * 				Container for all the versions in the repository for
+ * 				this artifact.
  *
  * <!-- end-model-doc -->
  *
@@ -24,7 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.Versions#getVersion <em>Version</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.Versions#getVersion <em>Version</em>}</li>
  * </ul>
  *
  * @see org.eclipse.cbi.p2repo.p2.maven.metadata.MetadataPackage#getVersions()
@@ -33,7 +34,8 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Versions extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Version</b></em>' attribute list. The list contents are of type {@link java.lang.String}. <!-- begin-user-doc
+	 * Returns the value of the '<em><b>Version</b></em>' attribute list. The
+	 * list contents are of type {@link java.lang.String}. <!-- begin-user-doc
 	 * --> <!-- end-user-doc --> <!-- begin-model-doc -->
 	 *
 	 * 1.0.0
@@ -46,7 +48,8 @@ public interface Versions extends EObject {
 	 * @return the value of the '<em>Version</em>' attribute list.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.metadata.MetadataPackage#getVersions_Version()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.String" required="true"
-	 *        extendedMetaData="kind='element' name='version' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='version'
+	 *        namespace='##targetNamespace'"
 	 * @generated
 	 */
 	EList<String> getVersion();

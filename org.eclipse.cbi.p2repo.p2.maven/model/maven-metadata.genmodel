@@ -4,10 +4,10 @@
     editorDirectory="/org.eclipse.cbi.p2repo.p2.maven.editor/src" modelPluginID="org.eclipse.cbi.p2repo.p2.maven"
     forceOverwrite="true" modelName="Maven-metadata" editPluginClass="org.eclipse.cbi.p2repo.p2.maven.metadata.provider.MavenmetadataEditPlugin"
     editorPluginClass="org.eclipse.cbi.p2repo.p2.maven.metadata.presentation.MavenmetadataEditorPlugin"
-    codeFormatting="true" commentFormatting="true" testsDirectory="" testSuiteClass=""
-    importerID="org.eclipse.xsd.ecore.importer" complianceLevel="8.0" copyrightFields="false"
-    editPluginID="org.eclipse.cbi.p2repo.p2.maven.edit" editorPluginID="org.eclipse.cbi.p2repo.p2.maven.editor"
-    importOrganizing="true" cleanup="true">
+    codeFormatting="true" testsDirectory="" testSuiteClass="" importerID="org.eclipse.xsd.ecore.importer"
+    complianceLevel="8.0" copyrightFields="false" editPluginID="org.eclipse.cbi.p2repo.p2.maven.edit"
+    editorPluginID="org.eclipse.cbi.p2repo.p2.maven.editor" importOrganizing="true"
+    cleanup="true">
   <foreignModel>file:/C:/Documents%20and%20Settings/Filip%20Hrbek/Dokumenty/Cloudsmith/Maven/maven-metadata-v1_0_0.xsd</foreignModel>
   <genPackages prefix="Metadata" basePackage="org.eclipse.cbi.p2repo.p2.maven" resource="XML"
       disposableProviderFactory="true" fileExtensions="xml" ecorePackage="maven-metadata.ecore#/">

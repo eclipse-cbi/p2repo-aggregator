@@ -9,13 +9,14 @@ package org.eclipse.cbi.p2repo.p2.maven.metadata;
 import org.eclipse.emf.ecore.EObject;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Versioning</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object
+ * '<em><b>Versioning</b></em>'. <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
  * 1.0.0
  *
- * Container for the current set of versions and the last
- * update element.
+ * 				Container for the current set of versions and the last
+ * 				update element.
  *
  * <!-- end-model-doc -->
  *
@@ -23,10 +24,10 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.Versioning#getRelease <em>Release</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.Versioning#getLatest <em>Latest</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.Versioning#getVersions <em>Versions</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.Versioning#getLastUpdated <em>Last Updated</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.Versioning#getRelease <em>Release</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.Versioning#getLatest <em>Latest</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.Versioning#getVersions <em>Versions</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.Versioning#getLastUpdated <em>Last Updated</em>}</li>
  * </ul>
  *
  * @see org.eclipse.cbi.p2repo.p2.maven.metadata.MetadataPackage#getVersioning()
@@ -35,15 +36,13 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Versioning extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Last Updated</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
+	 * Returns the value of the '<em><b>Last Updated</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
 	 *
 	 * 1.0.0
 	 *
 	 *
-	 * The timinig of the last update of the current
-	 * version
+	 * The timinig of the last update of the current version
 	 *
 	 * <!-- end-model-doc -->
 	 *
@@ -51,16 +50,15 @@ public interface Versioning extends EObject {
 	 * @see #setLastUpdated(String)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.metadata.MetadataPackage#getVersioning_LastUpdated()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
-	 *        extendedMetaData="kind='element' name='lastUpdated' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='lastUpdated'
+	 *        namespace='##targetNamespace'"
 	 * @generated
 	 */
 	String getLastUpdated();
 
 	/**
-	 * Returns the value of the '<em><b>Latest</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
+	 * Returns the value of the '<em><b>Latest</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
 	 *
 	 * 1.0.0
 	 *
@@ -73,14 +71,15 @@ public interface Versioning extends EObject {
 	 * @see #setLatest(String)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.metadata.MetadataPackage#getVersioning_Latest()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
-	 *        extendedMetaData="kind='element' name='latest' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='latest'
+	 *        namespace='##targetNamespace'"
 	 * @generated
 	 */
 	String getLatest();
 
 	/**
-	 * Returns the value of the '<em><b>Release</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc --> <!--
-	 * begin-model-doc -->
+	 * Returns the value of the '<em><b>Release</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
 	 *
 	 * 1.0.0
 	 *
@@ -93,19 +92,22 @@ public interface Versioning extends EObject {
 	 * @see #setRelease(String)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.metadata.MetadataPackage#getVersioning_Release()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
-	 *        extendedMetaData="kind='element' name='release' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='release'
+	 *        namespace='##targetNamespace'"
 	 * @generated
 	 */
 	String getRelease();
 
 	/**
-	 * Returns the value of the '<em><b>Versions</b></em>' containment reference. <!-- begin-user-doc --> <!--
-	 * end-user-doc --> <!-- begin-model-doc -->
+	 * Returns the value of the '<em><b>Versions</b></em>' containment
+	 * reference. <!-- begin-user-doc --> <!-- end-user-doc --> <!--
+	 * begin-model-doc -->
 	 *
 	 * 1.0.0
 	 *
 	 *
-	 * The minimum version of Maven required to build the project, or to use this plugin.
+	 * The minimum version of Maven required to build the project, or to use
+	 * this plugin.
 	 *
 	 * <!-- end-model-doc -->
 	 *
@@ -113,26 +115,27 @@ public interface Versioning extends EObject {
 	 * @see #setVersions(Versions)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.metadata.MetadataPackage#getVersioning_Versions()
 	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='versions' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='versions'
+	 *        namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Versions getVersions();
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.Versioning#getLastUpdated <em>Last Updated</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Last Updated</em>' attribute.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * @param value the new value of the '<em>Last Updated</em>' attribute.
 	 * @see #getLastUpdated()
 	 * @generated
 	 */
 	void setLastUpdated(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.Versioning#getLatest <em>Latest</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Sets the value of the
+	 * '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.Versioning#getLatest
+	 * <em>Latest</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
 	 *
 	 * @param value
 	 *            the new value of the '<em>Latest</em>' attribute.
@@ -142,8 +145,10 @@ public interface Versioning extends EObject {
 	void setLatest(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.Versioning#getRelease <em>Release</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the
+	 * '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.Versioning#getRelease
+	 * <em>Release</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
 	 *
 	 * @param value
 	 *            the new value of the '<em>Release</em>' attribute.
@@ -154,10 +159,9 @@ public interface Versioning extends EObject {
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.Versioning#getVersions <em>Versions</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Versions</em>' containment reference.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * @param value the new value of the '<em>Versions</em>' containment reference.
 	 * @see #getVersions()
 	 * @generated
 	 */

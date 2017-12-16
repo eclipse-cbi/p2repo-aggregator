@@ -20,13 +20,13 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Plugin Repositories Type</b></em>'. <!--
- * end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Plugin
+ * Repositories Type</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.PluginRepositoriesTypeImpl#getPluginRepository <em>Plugin Repository</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.PluginRepositoriesTypeImpl#getPluginRepository <em>Plugin Repository</em>}</li>
  * </ul>
  *
  * @generated
@@ -34,8 +34,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class PluginRepositoriesTypeImpl extends EObjectImpl implements PluginRepositoriesType {
 	/**
 	 * The cached value of the '{@link #getPluginRepository() <em>Plugin Repository</em>}' containment reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getPluginRepository()
 	 * @generated
 	 * @ordered
@@ -44,7 +44,6 @@ public class PluginRepositoriesTypeImpl extends EObjectImpl implements PluginRep
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected PluginRepositoriesTypeImpl() {
@@ -53,12 +52,11 @@ public class PluginRepositoriesTypeImpl extends EObjectImpl implements PluginRep
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.PLUGIN_REPOSITORIES_TYPE__PLUGIN_REPOSITORY:
 				return getPluginRepository();
 		}
@@ -67,12 +65,11 @@ public class PluginRepositoriesTypeImpl extends EObjectImpl implements PluginRep
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.PLUGIN_REPOSITORIES_TYPE__PLUGIN_REPOSITORY:
 				return ((InternalEList<?>) getPluginRepository()).basicRemove(otherEnd, msgs);
 		}
@@ -81,12 +78,11 @@ public class PluginRepositoriesTypeImpl extends EObjectImpl implements PluginRep
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.PLUGIN_REPOSITORIES_TYPE__PLUGIN_REPOSITORY:
 				return pluginRepository != null && !pluginRepository.isEmpty();
 		}
@@ -95,13 +91,12 @@ public class PluginRepositoriesTypeImpl extends EObjectImpl implements PluginRep
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.PLUGIN_REPOSITORIES_TYPE__PLUGIN_REPOSITORY:
 				getPluginRepository().clear();
 				getPluginRepository().addAll((Collection<? extends Repository>) newValue);
@@ -112,12 +107,11 @@ public class PluginRepositoriesTypeImpl extends EObjectImpl implements PluginRep
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.PLUGIN_REPOSITORIES_TYPE__PLUGIN_REPOSITORY:
 				getPluginRepository().clear();
 				return;
@@ -127,21 +121,19 @@ public class PluginRepositoriesTypeImpl extends EObjectImpl implements PluginRep
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public EList<Repository> getPluginRepository() {
-		if(pluginRepository == null) {
-			pluginRepository = new EObjectContainmentEList<Repository>(
-				Repository.class, this, PomPackage.PLUGIN_REPOSITORIES_TYPE__PLUGIN_REPOSITORY);
+		if (pluginRepository == null) {
+			pluginRepository = new EObjectContainmentEList<>(Repository.class, this,
+					PomPackage.PLUGIN_REPOSITORIES_TYPE__PLUGIN_REPOSITORY);
 		}
 		return pluginRepository;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override

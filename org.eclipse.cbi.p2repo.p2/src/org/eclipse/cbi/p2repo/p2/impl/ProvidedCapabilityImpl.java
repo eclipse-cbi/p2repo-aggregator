@@ -17,16 +17,15 @@ import org.eclipse.equinox.p2.metadata.IProvidedCapability;
 import org.eclipse.equinox.p2.metadata.Version;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Provided Capability</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object
+ * '<em><b>Provided Capability</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.impl.ProvidedCapabilityImpl#getName <em>Name</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.impl.ProvidedCapabilityImpl#getNamespace <em>Namespace</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.impl.ProvidedCapabilityImpl#getVersion <em>Version</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.impl.ProvidedCapabilityImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.impl.ProvidedCapabilityImpl#getNamespace <em>Namespace</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.impl.ProvidedCapabilityImpl#getVersion <em>Version</em>}</li>
  * </ul>
  *
  * @generated
@@ -34,9 +33,8 @@ import org.eclipse.equinox.p2.metadata.Version;
 public class ProvidedCapabilityImpl extends MinimalEObjectImpl.Container implements ProvidedCapability {
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -44,9 +42,7 @@ public class ProvidedCapabilityImpl extends MinimalEObjectImpl.Container impleme
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -55,9 +51,7 @@ public class ProvidedCapabilityImpl extends MinimalEObjectImpl.Container impleme
 
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -66,9 +60,7 @@ public class ProvidedCapabilityImpl extends MinimalEObjectImpl.Container impleme
 
 	/**
 	 * The default value of the '{@link #getNamespace() <em>Namespace</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getNamespace()
 	 * @generated
 	 * @ordered
@@ -77,9 +69,7 @@ public class ProvidedCapabilityImpl extends MinimalEObjectImpl.Container impleme
 
 	/**
 	 * The cached value of the '{@link #getNamespace() <em>Namespace</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getNamespace()
 	 * @generated
 	 * @ordered
@@ -88,9 +78,7 @@ public class ProvidedCapabilityImpl extends MinimalEObjectImpl.Container impleme
 
 	/**
 	 * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getVersion()
 	 * @generated
 	 * @ordered
@@ -99,9 +87,7 @@ public class ProvidedCapabilityImpl extends MinimalEObjectImpl.Container impleme
 
 	/**
 	 * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getVersion()
 	 * @generated
 	 * @ordered
@@ -109,9 +95,7 @@ public class ProvidedCapabilityImpl extends MinimalEObjectImpl.Container impleme
 	protected Version version = VERSION_EDEFAULT;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected ProvidedCapabilityImpl() {
@@ -119,14 +103,12 @@ public class ProvidedCapabilityImpl extends MinimalEObjectImpl.Container impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2Package.PROVIDED_CAPABILITY__NAME:
 				return getName();
 			case P2Package.PROVIDED_CAPABILITY__NAMESPACE:
@@ -138,53 +120,43 @@ public class ProvidedCapabilityImpl extends MinimalEObjectImpl.Container impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2Package.PROVIDED_CAPABILITY__NAME:
-				return NAME_EDEFAULT == null
-						? name != null
-						: !NAME_EDEFAULT.equals(name);
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case P2Package.PROVIDED_CAPABILITY__NAMESPACE:
-				return NAMESPACE_EDEFAULT == null
-						? namespace != null
-						: !NAMESPACE_EDEFAULT.equals(namespace);
+				return NAMESPACE_EDEFAULT == null ? namespace != null : !NAMESPACE_EDEFAULT.equals(namespace);
 			case P2Package.PROVIDED_CAPABILITY__VERSION:
-				return VERSION_EDEFAULT == null
-						? version != null
-						: !VERSION_EDEFAULT.equals(version);
+				return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
 		}
 		return super.eIsSet(featureID);
 	}
 
 	@Override
 	public boolean equals(Object other) {
-		if(other == null)
+		if (other == null)
 			return false;
-		if(!(other instanceof IProvidedCapability))
+		if (!(other instanceof IProvidedCapability))
 			return false;
 		IProvidedCapability otherCapability = (IProvidedCapability) other;
-		if(!(namespace.equals(otherCapability.getNamespace())))
+		if (!(namespace.equals(otherCapability.getNamespace())))
 			return false;
-		if(!(name.equals(otherCapability.getName())))
+		if (!(name.equals(otherCapability.getName())))
 			return false;
 		return version.equals(otherCapability.getVersion());
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2Package.PROVIDED_CAPABILITY__NAME:
 				setName((String) newValue);
 				return;
@@ -199,9 +171,7 @@ public class ProvidedCapabilityImpl extends MinimalEObjectImpl.Container impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -210,14 +180,12 @@ public class ProvidedCapabilityImpl extends MinimalEObjectImpl.Container impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2Package.PROVIDED_CAPABILITY__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -232,9 +200,7 @@ public class ProvidedCapabilityImpl extends MinimalEObjectImpl.Container impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -243,9 +209,7 @@ public class ProvidedCapabilityImpl extends MinimalEObjectImpl.Container impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -254,9 +218,7 @@ public class ProvidedCapabilityImpl extends MinimalEObjectImpl.Container impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -266,63 +228,52 @@ public class ProvidedCapabilityImpl extends MinimalEObjectImpl.Container impleme
 
 	@Override
 	public int hashCode() {
-		return namespace.hashCode() * name.hashCode() * (version == null
-				? 1
-				: version.hashCode());
+		return namespace.hashCode() * name.hashCode() * (version == null ? 1 : version.hashCode());
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
-		if(eNotificationRequired())
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.PROVIDED_CAPABILITY__NAME, oldName, name));
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setNamespace(String newNamespace) {
 		String oldNamespace = namespace;
 		namespace = newNamespace;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, P2Package.PROVIDED_CAPABILITY__NAMESPACE, oldNamespace, namespace));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.PROVIDED_CAPABILITY__NAMESPACE,
+					oldNamespace, namespace));
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setVersion(Version newVersion) {
 		Version oldVersion = version;
 		version = newVersion;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, P2Package.PROVIDED_CAPABILITY__VERSION, oldVersion, version));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.PROVIDED_CAPABILITY__VERSION, oldVersion,
+					version));
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
 	@Override
 	public String toString() {
-		if(eIsProxy())
+		if (eIsProxy())
 			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());

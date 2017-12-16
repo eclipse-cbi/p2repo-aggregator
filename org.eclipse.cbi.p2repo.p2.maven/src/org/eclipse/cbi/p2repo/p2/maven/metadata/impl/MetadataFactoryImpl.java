@@ -19,14 +19,13 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
- *
+ * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!--
+ * end-user-doc -->
  * @generated
  */
 public class MetadataFactoryImpl extends EFactoryImpl implements MetadataFactory {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @deprecated
 	 * @generated
 	 */
@@ -37,19 +36,18 @@ public class MetadataFactoryImpl extends EFactoryImpl implements MetadataFactory
 
 	/**
 	 * Creates the default factory implementation.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @generated
 	 */
 	public static MetadataFactory init() {
 		try {
-			MetadataFactory theMetadataFactory = (MetadataFactory) EPackage.Registry.INSTANCE.getEFactory(
-				MetadataPackage.eNS_URI);
-			if(theMetadataFactory != null) {
+			MetadataFactory theMetadataFactory = (MetadataFactory) EPackage.Registry.INSTANCE
+					.getEFactory(MetadataPackage.eNS_URI);
+			if (theMetadataFactory != null) {
 				return theMetadataFactory;
 			}
-		}
-		catch(Exception exception) {
+		} catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new MetadataFactoryImpl();
@@ -57,8 +55,8 @@ public class MetadataFactoryImpl extends EFactoryImpl implements MetadataFactory
 
 	/**
 	 * Creates an instance of the factory.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @generated
 	 */
 	public MetadataFactoryImpl() {
@@ -67,12 +65,11 @@ public class MetadataFactoryImpl extends EFactoryImpl implements MetadataFactory
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public EObject create(EClass eClass) {
-		switch(eClass.getClassifierID()) {
+		switch (eClass.getClassifierID()) {
 			case MetadataPackage.DOCUMENT_ROOT:
 				return createDocumentRoot();
 			case MetadataPackage.META_DATA:
@@ -88,7 +85,6 @@ public class MetadataFactoryImpl extends EFactoryImpl implements MetadataFactory
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -99,7 +95,6 @@ public class MetadataFactoryImpl extends EFactoryImpl implements MetadataFactory
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -110,7 +105,6 @@ public class MetadataFactoryImpl extends EFactoryImpl implements MetadataFactory
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -121,7 +115,6 @@ public class MetadataFactoryImpl extends EFactoryImpl implements MetadataFactory
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -132,7 +125,6 @@ public class MetadataFactoryImpl extends EFactoryImpl implements MetadataFactory
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override

@@ -20,21 +20,21 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Resources Type</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object
+ * '<em><b>Resources Type</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ResourcesTypeImpl#getResource <em>Resource</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ResourcesTypeImpl#getResource <em>Resource</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ResourcesTypeImpl extends EObjectImpl implements ResourcesType {
 	/**
-	 * The cached value of the '{@link #getResource() <em>Resource</em>}' containment reference list. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * The cached value of the '{@link #getResource() <em>Resource</em>}' containment reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getResource()
 	 * @generated
 	 * @ordered
@@ -43,7 +43,6 @@ public class ResourcesTypeImpl extends EObjectImpl implements ResourcesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected ResourcesTypeImpl() {
@@ -52,12 +51,11 @@ public class ResourcesTypeImpl extends EObjectImpl implements ResourcesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.RESOURCES_TYPE__RESOURCE:
 				return getResource();
 		}
@@ -66,12 +64,11 @@ public class ResourcesTypeImpl extends EObjectImpl implements ResourcesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.RESOURCES_TYPE__RESOURCE:
 				return ((InternalEList<?>) getResource()).basicRemove(otherEnd, msgs);
 		}
@@ -80,12 +77,11 @@ public class ResourcesTypeImpl extends EObjectImpl implements ResourcesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.RESOURCES_TYPE__RESOURCE:
 				return resource != null && !resource.isEmpty();
 		}
@@ -94,13 +90,12 @@ public class ResourcesTypeImpl extends EObjectImpl implements ResourcesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.RESOURCES_TYPE__RESOURCE:
 				getResource().clear();
 				getResource().addAll((Collection<? extends Resource>) newValue);
@@ -111,12 +106,11 @@ public class ResourcesTypeImpl extends EObjectImpl implements ResourcesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.RESOURCES_TYPE__RESOURCE:
 				getResource().clear();
 				return;
@@ -126,20 +120,18 @@ public class ResourcesTypeImpl extends EObjectImpl implements ResourcesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public EList<Resource> getResource() {
-		if(resource == null) {
-			resource = new EObjectContainmentEList<Resource>(Resource.class, this, PomPackage.RESOURCES_TYPE__RESOURCE);
+		if (resource == null) {
+			resource = new EObjectContainmentEList<>(Resource.class, this, PomPackage.RESOURCES_TYPE__RESOURCE);
 		}
 		return resource;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override

@@ -4,10 +4,10 @@
     editorDirectory="/org.eclipse.cbi.p2repo.p2.maven.editor/src" modelPluginID="org.eclipse.cbi.p2repo.p2.maven"
     forceOverwrite="true" modelName="Maven-4.0" editPluginClass="org.eclipse.cbi.p2repo.p2.maven.pom.provider.Maven40EditPlugin"
     editorPluginClass="org.eclipse.cbi.p2repo.p2.maven.pom.presentation.Maven40EditorPlugin"
-    codeFormatting="true" commentFormatting="true" testsDirectory="" testSuiteClass=""
-    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
-    editPluginID="org.eclipse.cbi.p2repo.p2.maven.edit" editorPluginID="org.eclipse.cbi.p2repo.p2.maven.editor"
-    importOrganizing="true" cleanup="true">
+    codeFormatting="true" testsDirectory="" testSuiteClass="" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="8.0" copyrightFields="false" editPluginID="org.eclipse.cbi.p2repo.p2.maven.edit"
+    editorPluginID="org.eclipse.cbi.p2repo.p2.maven.editor" importOrganizing="true"
+    cleanup="true">
   <foreignModel>pom.ecore</foreignModel>
   <genPackages prefix="Pom" basePackage="org.eclipse.cbi.p2repo.p2.maven" resource="XML"
       disposableProviderFactory="true" fileExtensions="pom" ecorePackage="pom.ecore#/">

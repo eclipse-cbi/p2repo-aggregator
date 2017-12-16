@@ -16,13 +16,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EDataTypeEList;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Execution Goals Type</b></em>'. <!--
- * end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object
+ * '<em><b>Execution Goals Type</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ExecutionGoalsTypeImpl#getGoal <em>Goal</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ExecutionGoalsTypeImpl#getGoal <em>Goal</em>}</li>
  * </ul>
  *
  * @generated
@@ -30,9 +30,7 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
 public class ExecutionGoalsTypeImpl extends EObjectImpl implements ExecutionGoalsType {
 	/**
 	 * The cached value of the '{@link #getGoal() <em>Goal</em>}' attribute list.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getGoal()
 	 * @generated
 	 * @ordered
@@ -41,7 +39,6 @@ public class ExecutionGoalsTypeImpl extends EObjectImpl implements ExecutionGoal
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected ExecutionGoalsTypeImpl() {
@@ -50,12 +47,11 @@ public class ExecutionGoalsTypeImpl extends EObjectImpl implements ExecutionGoal
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.EXECUTION_GOALS_TYPE__GOAL:
 				return getGoal();
 		}
@@ -64,12 +60,11 @@ public class ExecutionGoalsTypeImpl extends EObjectImpl implements ExecutionGoal
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.EXECUTION_GOALS_TYPE__GOAL:
 				return goal != null && !goal.isEmpty();
 		}
@@ -78,13 +73,12 @@ public class ExecutionGoalsTypeImpl extends EObjectImpl implements ExecutionGoal
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.EXECUTION_GOALS_TYPE__GOAL:
 				getGoal().clear();
 				getGoal().addAll((Collection<? extends String>) newValue);
@@ -95,12 +89,11 @@ public class ExecutionGoalsTypeImpl extends EObjectImpl implements ExecutionGoal
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.EXECUTION_GOALS_TYPE__GOAL:
 				getGoal().clear();
 				return;
@@ -110,25 +103,23 @@ public class ExecutionGoalsTypeImpl extends EObjectImpl implements ExecutionGoal
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public EList<String> getGoal() {
-		if(goal == null) {
-			goal = new EDataTypeEList<String>(String.class, this, PomPackage.EXECUTION_GOALS_TYPE__GOAL);
+		if (goal == null) {
+			goal = new EDataTypeEList<>(String.class, this, PomPackage.EXECUTION_GOALS_TYPE__GOAL);
 		}
 		return goal;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if(eIsProxy())
+		if (eIsProxy())
 			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
@@ -140,7 +131,6 @@ public class ExecutionGoalsTypeImpl extends EObjectImpl implements ExecutionGoal
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override

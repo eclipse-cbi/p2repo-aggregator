@@ -42,15 +42,14 @@ import org.eclipse.equinox.p2.repository.metadata.IMetadataRepository;
 import org.eclipse.equinox.p2.repository.metadata.IMetadataRepositoryManager;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Metadata Repository</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object
+ * '<em><b>Metadata Repository</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.impl.MetadataRepositoryImpl#getInstallableUnits <em>Installable Units</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.impl.MetadataRepositoryImpl#getReferences <em>References</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.impl.MetadataRepositoryImpl#getInstallableUnits <em>Installable Units</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.impl.MetadataRepositoryImpl#getReferences <em>References</em>}</li>
  * </ul>
  *
  * @generated
@@ -60,11 +59,10 @@ public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> imp
 
 	static {
 		try {
-			LocalMetadataRepository_createRepositoriesSnapshot = LocalMetadataRepository.class.getDeclaredMethod(
-				"createRepositoriesSnapshot");
+			LocalMetadataRepository_createRepositoriesSnapshot = LocalMetadataRepository.class
+					.getDeclaredMethod("createRepositoriesSnapshot");
 			LocalMetadataRepository_createRepositoriesSnapshot.setAccessible(true);
-		}
-		catch(Exception e) {
+		} catch (Exception e) {
 			throw new ExceptionInInitializerError(e);
 		}
 	}
@@ -73,9 +71,8 @@ public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> imp
 
 	/**
 	 * The cached value of the '{@link #getInstallableUnits() <em>Installable Units</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #getInstallableUnits()
 	 * @generated
 	 * @ordered
@@ -84,9 +81,7 @@ public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> imp
 
 	/**
 	 * The cached value of the '{@link #getReferences() <em>References</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getReferences()
 	 * @generated
 	 * @ordered
@@ -94,9 +89,7 @@ public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> imp
 	protected EList<IRepositoryReference> references;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected MetadataRepositoryImpl() {
@@ -104,15 +97,14 @@ public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
 	@Override
 	public void addInstallableUnits(Collection<IInstallableUnit> installableUnits) {
 		EList<IInstallableUnit> iuList = getInstallableUnits();
-		for(IInstallableUnit iu : installableUnits)
+		for (IInstallableUnit iu : installableUnits)
 			iuList.add(P2Bridge.importToModel(iu));
 	}
 
@@ -131,42 +123,37 @@ public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
 	@Override
 	public void addReferences(Collection<? extends IRepositoryReference> references) {
-		for(IRepositoryReference reference : references)
+		for (IRepositoryReference reference : references)
 			addReference(reference.getLocation(), reference.getNickname(), reference.getType(), reference.getOptions());
 	}
 
 	public void addRepositoryReferences(IMetadataRepositoryManager mdrMgr, IMetadataRepository mdr)
 			throws CoreException, OperationCanceledException {
-		if(mdr instanceof LocalMetadataRepository) {
+		if (mdr instanceof LocalMetadataRepository) {
 			try {
 				@SuppressWarnings("unchecked")
-				List<org.eclipse.equinox.p2.repository.spi.RepositoryReference> refs = (List<org.eclipse.equinox.p2.repository.spi.RepositoryReference>) LocalMetadataRepository_createRepositoriesSnapshot.invoke(
-					mdr);
-				for(org.eclipse.equinox.p2.repository.spi.RepositoryReference ref : refs)
+				List<org.eclipse.equinox.p2.repository.spi.RepositoryReference> refs = (List<org.eclipse.equinox.p2.repository.spi.RepositoryReference>) LocalMetadataRepository_createRepositoriesSnapshot
+						.invoke(mdr);
+				for (org.eclipse.equinox.p2.repository.spi.RepositoryReference ref : refs)
 					addReference(ref.getLocation(), ref.getNickname(), ref.getType(), ref.getOptions());
-			}
-			catch(Exception e) {
+			} catch (Exception e) {
 				throw ExceptionUtils.wrap(e);
 			}
-		}
-		else if(mdr instanceof CompositeMetadataRepository) {
+		} else if (mdr instanceof CompositeMetadataRepository) {
 			List<URI> children = ((CompositeMetadataRepository) mdr).getChildren();
-			for(URI child : children)
+			for (URI child : children)
 				addRepositoryReferences(mdrMgr, mdrMgr.loadRepository(child, null));
 		}
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -177,14 +164,12 @@ public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2Package.METADATA_REPOSITORY__INSTALLABLE_UNITS:
 				return getInstallableUnits();
 			case P2Package.METADATA_REPOSITORY__REFERENCES:
@@ -194,14 +179,12 @@ public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2Package.METADATA_REPOSITORY__INSTALLABLE_UNITS:
 				return ((InternalEList<?>) getInstallableUnits()).basicRemove(otherEnd, msgs);
 			case P2Package.METADATA_REPOSITORY__REFERENCES:
@@ -211,14 +194,12 @@ public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2Package.METADATA_REPOSITORY__INSTALLABLE_UNITS:
 				return installableUnits != null && !installableUnits.isEmpty();
 			case P2Package.METADATA_REPOSITORY__REFERENCES:
@@ -229,23 +210,21 @@ public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> imp
 
 	@Override
 	public boolean equals(Object obj) {
-		if(this == obj)
+		if (this == obj)
 			return true;
-		if(!(obj instanceof MetadataRepositoryImpl))
+		if (!(obj instanceof MetadataRepositoryImpl))
 			return false;
 		return getSafeLocation().equals(((MetadataRepositoryImpl) obj).getSafeLocation());
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2Package.METADATA_REPOSITORY__INSTALLABLE_UNITS:
 				getInstallableUnits().clear();
 				getInstallableUnits().addAll((Collection<? extends IInstallableUnit>) newValue);
@@ -259,9 +238,7 @@ public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -270,14 +247,12 @@ public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2Package.METADATA_REPOSITORY__INSTALLABLE_UNITS:
 				getInstallableUnits().clear();
 				return;
@@ -289,8 +264,7 @@ public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
@@ -300,16 +274,14 @@ public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public EList<IInstallableUnit> getInstallableUnits() {
-		if(installableUnits == null) {
-			installableUnits = new EObjectContainmentEList.Resolving<IInstallableUnit>(
-				IInstallableUnit.class, this, P2Package.METADATA_REPOSITORY__INSTALLABLE_UNITS);
+		if (installableUnits == null) {
+			installableUnits = new EObjectContainmentEList.Resolving<>(IInstallableUnit.class, this,
+					P2Package.METADATA_REPOSITORY__INSTALLABLE_UNITS);
 		}
 		return installableUnits;
 	}
@@ -317,11 +289,8 @@ public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> imp
 	public URI getLocationFromProxy() {
 		Matcher m = proxyFragmentPattern.matcher(eProxyURI().toString());
 		try {
-			return m.matches()
-					? new URI(m.group(1))
-					: null;
-		}
-		catch(URISyntaxException e) {
+			return m.matches() ? new URI(m.group(1)) : null;
+		} catch (URISyntaxException e) {
 			return null;
 		}
 	}
@@ -332,29 +301,24 @@ public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public EList<IRepositoryReference> getReferences() {
-		if(references == null) {
-			references = new EObjectContainmentEList.Resolving<IRepositoryReference>(
-				IRepositoryReference.class, this, P2Package.METADATA_REPOSITORY__REFERENCES);
+		if (references == null) {
+			references = new EObjectContainmentEList.Resolving<>(IRepositoryReference.class, this,
+					P2Package.METADATA_REPOSITORY__REFERENCES);
 		}
 		return references;
 	}
 
 	public URI getSafeLocation() {
-		return location != null
-				? location
-				: getLocationFromProxy();
+		return location != null ? location : getLocationFromProxy();
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
@@ -364,8 +328,7 @@ public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
@@ -375,14 +338,13 @@ public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
 	@Override
 	public boolean removeInstallableUnits(Collection<IInstallableUnit> installableUnits) {
-		if(installableUnits == null)
+		if (installableUnits == null)
 			return false;
 
 		List<IInstallableUnit> units = getInstallableUnits();

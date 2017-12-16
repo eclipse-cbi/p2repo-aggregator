@@ -29,18 +29,17 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.cbi.p2repo.p2.ArtifactDescriptor} object.
- * <!-- begin-user-doc -->
- * <!-- end-user-doc -->
+ * This is the item provider adapter for a
+ * {@link org.eclipse.cbi.p2repo.p2.ArtifactDescriptor} object. <!--
+ * begin-user-doc --> <!-- end-user-doc -->
  *
  * @generated
  */
 public class ArtifactDescriptorItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
 		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
-	 * This constructs an instance from a factory and a notifier.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This constructs an instance from a factory and a notifier. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated
 	 */
@@ -49,28 +48,24 @@ public class ArtifactDescriptorItemProvider extends ItemProviderAdapter implemen
 	}
 
 	/**
-	 * This adds a property descriptor for the Artifact Key feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This adds a property descriptor for the Artifact Key feature. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated
 	 */
 	protected void addArtifactKeyPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(
-			createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_IArtifactDescriptor_artifactKey_feature"),
-				getString(
-					"_UI_PropertyDescriptor_description", "_UI_IArtifactDescriptor_artifactKey_feature",
-					"_UI_IArtifactDescriptor_type"),
-				P2Package.Literals.IARTIFACT_DESCRIPTOR__ARTIFACT_KEY, true, false, true, null, null, null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_IArtifactDescriptor_artifactKey_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_IArtifactDescriptor_artifactKey_feature",
+								"_UI_IArtifactDescriptor_type"),
+						P2Package.Literals.IARTIFACT_DESCRIPTOR__ARTIFACT_KEY, true, false, true, null, null, null));
 	}
 
 	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
+	 * describing the children that can be created under this object. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated
 	 */
@@ -78,21 +73,15 @@ public class ArtifactDescriptorItemProvider extends ItemProviderAdapter implemen
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(
-			createChildParameter(
-				P2Package.Literals.ARTIFACT_DESCRIPTOR__PROPERTY_MAP,
+		newChildDescriptors.add(createChildParameter(P2Package.Literals.ARTIFACT_DESCRIPTOR__PROPERTY_MAP,
 				P2Factory.eINSTANCE.create(P2Package.Literals.PROPERTY)));
 
-		newChildDescriptors.add(
-			createChildParameter(
-				P2Package.Literals.ARTIFACT_DESCRIPTOR__PROCESSING_STEP_LIST,
+		newChildDescriptors.add(createChildParameter(P2Package.Literals.ARTIFACT_DESCRIPTOR__PROCESSING_STEP_LIST,
 				P2Factory.eINSTANCE.createProcessingStepDescriptor()));
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -107,14 +96,12 @@ public class ArtifactDescriptorItemProvider extends ItemProviderAdapter implemen
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if(childrenFeatures == null) {
+		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(P2Package.Literals.ARTIFACT_DESCRIPTOR__PROPERTY_MAP);
 			childrenFeatures.add(P2Package.Literals.ARTIFACT_DESCRIPTOR__PROCESSING_STEP_LIST);
@@ -124,9 +111,8 @@ public class ArtifactDescriptorItemProvider extends ItemProviderAdapter implemen
 
 	/**
 	 * This returns ArtifactDescriptor.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -135,15 +121,14 @@ public class ArtifactDescriptorItemProvider extends ItemProviderAdapter implemen
 	}
 
 	/**
-	 * This returns the property descriptors for the adapted class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This returns the property descriptors for the adapted class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addArtifactKeyPropertyDescriptor(object);
@@ -152,9 +137,8 @@ public class ArtifactDescriptorItemProvider extends ItemProviderAdapter implemen
 	}
 
 	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Return the resource locator for this item provider's resources. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated
 	 */
@@ -165,9 +149,8 @@ public class ArtifactDescriptorItemProvider extends ItemProviderAdapter implemen
 
 	/**
 	 * This returns the label text for the adapted class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -178,16 +161,15 @@ public class ArtifactDescriptorItemProvider extends ItemProviderAdapter implemen
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch(notification.getFeatureID(ArtifactDescriptor.class)) {
+		switch (notification.getFeatureID(ArtifactDescriptor.class)) {
 			case P2Package.ARTIFACT_DESCRIPTOR__PROPERTY_MAP:
 			case P2Package.ARTIFACT_DESCRIPTOR__PROCESSING_STEP_LIST:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));

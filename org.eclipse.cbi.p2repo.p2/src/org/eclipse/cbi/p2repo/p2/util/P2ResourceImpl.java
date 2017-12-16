@@ -31,10 +31,8 @@ import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
 import org.eclipse.equinox.p2.core.IProvisioningAgent;
 
 /**
- * <!-- begin-user-doc -->
- * The <b>Resource </b> associated with the package.
+ * <!-- begin-user-doc --> The <b>Resource </b> associated with the package.
  * <!-- end-user-doc -->
- *
  * @see org.eclipse.cbi.p2repo.p2.util.P2ResourceFactoryImpl
  * @generated
  */
@@ -54,16 +52,15 @@ public class P2ResourceImpl extends XMLResourceImpl {
 
 				@Override
 				public void run() {
-					while(!done) {
-						if(monitor.isCanceled()) {
+					while (!done) {
+						if (monitor.isCanceled()) {
 							cancelLoadingJob();
 							break;
 						}
 
 						try {
 							Thread.sleep(100);
-						}
-						catch(InterruptedException e) {
+						} catch (InterruptedException e) {
 							// ignore
 						}
 					}
@@ -77,7 +74,7 @@ public class P2ResourceImpl extends XMLResourceImpl {
 			MonitorWatchDog watchDog = new MonitorWatchDog();
 
 			try {
-				if(replaceJob != null) {
+				if (replaceJob != null) {
 					replaceJob.cancel();
 					replaceJob.join();
 				}
@@ -88,29 +85,25 @@ public class P2ResourceImpl extends XMLResourceImpl {
 
 				try {
 					load(null);
-				}
-				catch(IOException e) {
-					status = new Status(
-						IStatus.ERROR, "org.eclipse.cbi.p2repo.p2",
-						"Unable to load repository " + getURI().opaquePart(), e);
+				} catch (IOException e) {
+					status = new Status(IStatus.ERROR, "org.eclipse.cbi.p2repo.p2",
+							"Unable to load repository " + getURI().opaquePart(), e);
 				}
 
-				if(monitor.isCanceled()) {
+				if (monitor.isCanceled()) {
 					// cancelled by user
 					status = org.eclipse.core.runtime.Status.CANCEL_STATUS;
 				}
 
 				return status;
-			}
-			catch(InterruptedException e) {
+			} catch (InterruptedException e) {
 				throw new RuntimeException("Repository load was interrupted");
-			}
-			finally {
+			} finally {
 				monitor.done();
 				watchDog.setDone();
 
-				synchronized(P2ResourceImpl.this) {
-					if(asynchronousLoader == this)
+				synchronized (P2ResourceImpl.this) {
+					if (asynchronousLoader == this)
 						asynchronousLoader = null;
 				}
 			}
@@ -135,15 +128,15 @@ public class P2ResourceImpl extends XMLResourceImpl {
 			String msg = format("Loading repository %s", location);
 
 			try {
-				MetadataRepositoryImpl repository = (MetadataRepositoryImpl) P2Factory.eINSTANCE.createMetadataRepository();
+				MetadataRepositoryImpl repository = (MetadataRepositoryImpl) P2Factory.eINSTANCE
+						.createMetadataRepository();
 				loader.open(location, agent, repository);
 				LogUtils.debug(msg);
 				long start = TimeUtils.getNow();
 				loader.load(monitor);
 				getContents().add(repository);
 				LogUtils.debug("Repository %s loaded (Took %s)", location, TimeUtils.getFormattedDuration(start));
-			}
-			catch(final Exception e) {
+			} catch (final Exception e) {
 				LogUtils.error(e, "Unable to load repository %s", location);
 				errors.add(new Resource.Diagnostic() {
 
@@ -167,17 +160,15 @@ public class P2ResourceImpl extends XMLResourceImpl {
 						return e.getMessage();
 					}
 				});
-			}
-			finally {
-				synchronized(lock) {
+			} finally {
+				synchronized (lock) {
 					setLoaded(true);
 					isLoading = false;
 				}
 
 				try {
 					loader.close();
-				}
-				catch(CoreException e) {
+				} catch (CoreException e) {
 					LogUtils.error(e, "Unable to close repository loader for %s", location);
 				}
 			}
@@ -196,9 +187,8 @@ public class P2ResourceImpl extends XMLResourceImpl {
 	private Job loaderJob;
 
 	/**
-	 * Creates an instance of the resource.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Creates an instance of the resource. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 *
 	 * @param uri
 	 *            the URI of the new resource.
@@ -218,7 +208,7 @@ public class P2ResourceImpl extends XMLResourceImpl {
 	}
 
 	public synchronized void cancelLoadingJob() {
-		if(loaderJob != null)
+		if (loaderJob != null)
 			loaderJob.cancel();
 	}
 
@@ -230,17 +220,17 @@ public class P2ResourceImpl extends XMLResourceImpl {
 
 	@Override
 	public void load(Map<?, ?> options) throws IOException {
-		synchronized(lock) {
-			if(isLoaded)
+		synchronized (lock) {
+			if (isLoaded)
 				return;
 
-			if(!isLoading) {
+			if (!isLoading) {
 				isLoading = true;
 
-				if(errors == null)
-					errors = new BasicEList<Diagnostic>();
-				if(warnings == null)
-					warnings = new BasicEList<Diagnostic>();
+				if (errors == null)
+					errors = new BasicEList<>();
+				if (warnings == null)
+					warnings = new BasicEList<>();
 
 				errors.clear();
 				warnings.clear();
@@ -249,15 +239,14 @@ public class P2ResourceImpl extends XMLResourceImpl {
 					ResourceSet resourceSet = getResourceSet();
 					IProvisioningAgent agent = null;
 
-					if(resourceSet instanceof ResourceSetWithAgent)
+					if (resourceSet instanceof ResourceSetWithAgent)
 						agent = ((ResourceSetWithAgent) resourceSet).getProvisioningAgent();
 
-					loaderJob = new LoaderJob(
-						agent, "Loading repository " + getURI().opaquePart(), getLocationFromURI(getURI()));
+					loaderJob = new LoaderJob(agent, "Loading repository " + getURI().opaquePart(),
+							getLocationFromURI(getURI()));
 					loaderJob.setUser(false);
 					loaderJob.schedule();
-				}
-				catch(URISyntaxException e) {
+				} catch (URISyntaxException e) {
 					isLoading = false;
 					isLoaded = false;
 					IOException ex = new IOException();
@@ -269,8 +258,7 @@ public class P2ResourceImpl extends XMLResourceImpl {
 
 		try {
 			loaderJob.join();
-		}
-		catch(InterruptedException e) {
+		} catch (InterruptedException e) {
 			// ignore
 		}
 	}
@@ -282,12 +270,12 @@ public class P2ResourceImpl extends XMLResourceImpl {
 	}
 
 	synchronized public void startAsynchronousLoad() {
-		if(isLoaded() && !isLoading())
+		if (isLoaded() && !isLoading())
 			return;
 
 		AsynchronousLoader lastLoader = asynchronousLoader;
 
-		if(lastLoader == null) {
+		if (lastLoader == null) {
 			asynchronousLoader = new AsynchronousLoader("Loading " + getURI().opaquePart(), lastLoader);
 			asynchronousLoader.setUser(false);
 			asynchronousLoader.schedule();

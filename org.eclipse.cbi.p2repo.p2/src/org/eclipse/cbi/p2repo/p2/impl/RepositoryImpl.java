@@ -30,22 +30,21 @@ import org.eclipse.equinox.p2.query.IQuery;
 import org.eclipse.equinox.p2.query.IQueryResult;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Repository</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object
+ * '<em><b>Repository</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.impl.RepositoryImpl#getLocation <em>Location</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.impl.RepositoryImpl#getName <em>Name</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.impl.RepositoryImpl#getType <em>Type</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.impl.RepositoryImpl#getVersion <em>Version</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.impl.RepositoryImpl#getDescription <em>Description</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.impl.RepositoryImpl#getProvider <em>Provider</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.impl.RepositoryImpl#isModifiable <em>Modifiable</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.impl.RepositoryImpl#getProvisioningAgent <em>Provisioning Agent</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.impl.RepositoryImpl#getPropertyMap <em>Property Map</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.impl.RepositoryImpl#getLocation <em>Location</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.impl.RepositoryImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.impl.RepositoryImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.impl.RepositoryImpl#getVersion <em>Version</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.impl.RepositoryImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.impl.RepositoryImpl#getProvider <em>Provider</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.impl.RepositoryImpl#isModifiable <em>Modifiable</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.impl.RepositoryImpl#getProvisioningAgent <em>Provisioning Agent</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.impl.RepositoryImpl#getPropertyMap <em>Property Map</em>}</li>
  * </ul>
  *
  * @generated
@@ -53,9 +52,8 @@ import org.eclipse.equinox.p2.query.IQueryResult;
 public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container implements Repository<T> {
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -63,9 +61,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 
 	/**
 	 * The default value of the '{@link #getLocation() <em>Location</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getLocation()
 	 * @generated
 	 * @ordered
@@ -74,9 +70,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 
 	/**
 	 * The cached value of the '{@link #getLocation() <em>Location</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getLocation()
 	 * @generated
 	 * @ordered
@@ -85,9 +79,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -96,9 +88,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -107,9 +97,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 
 	/**
 	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getType()
 	 * @generated
 	 * @ordered
@@ -118,9 +106,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getType()
 	 * @generated
 	 * @ordered
@@ -129,9 +115,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 
 	/**
 	 * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getVersion()
 	 * @generated
 	 * @ordered
@@ -140,9 +124,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 
 	/**
 	 * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getVersion()
 	 * @generated
 	 * @ordered
@@ -151,9 +133,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 
 	/**
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getDescription()
 	 * @generated
 	 * @ordered
@@ -162,9 +142,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 
 	/**
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getDescription()
 	 * @generated
 	 * @ordered
@@ -173,9 +151,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 
 	/**
 	 * The default value of the '{@link #getProvider() <em>Provider</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getProvider()
 	 * @generated
 	 * @ordered
@@ -184,9 +160,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 
 	/**
 	 * The cached value of the '{@link #getProvider() <em>Provider</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getProvider()
 	 * @generated
 	 * @ordered
@@ -195,9 +169,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 
 	/**
 	 * The default value of the '{@link #isModifiable() <em>Modifiable</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isModifiable()
 	 * @generated
 	 * @ordered
@@ -206,9 +178,8 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 
 	/**
 	 * The flag representing the value of the '{@link #isModifiable() <em>Modifiable</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #isModifiable()
 	 * @generated
 	 * @ordered
@@ -217,9 +188,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 
 	/**
 	 * The default value of the '{@link #getProvisioningAgent() <em>Provisioning Agent</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getProvisioningAgent()
 	 * @generated
 	 * @ordered
@@ -228,9 +197,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 
 	/**
 	 * The cached value of the '{@link #getProvisioningAgent() <em>Provisioning Agent</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getProvisioningAgent()
 	 * @generated
 	 * @ordered
@@ -239,9 +206,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 
 	/**
 	 * The cached value of the '{@link #getPropertyMap() <em>Property Map</em>}' map.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getPropertyMap()
 	 * @generated
 	 * @ordered
@@ -249,9 +214,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	protected EMap<String, String> propertyMap;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected RepositoryImpl() {
@@ -259,14 +222,12 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2Package.REPOSITORY__LOCATION:
 				return getLocation();
 			case P2Package.REPOSITORY__NAME:
@@ -284,7 +245,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 			case P2Package.REPOSITORY__PROVISIONING_AGENT:
 				return getProvisioningAgent();
 			case P2Package.REPOSITORY__PROPERTY_MAP:
-				if(coreType)
+				if (coreType)
 					return getPropertyMap();
 				else
 					return getPropertyMap().map();
@@ -293,14 +254,12 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2Package.REPOSITORY__PROPERTY_MAP:
 				return ((InternalEList<?>) getPropertyMap()).basicRemove(otherEnd, msgs);
 		}
@@ -308,43 +267,28 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2Package.REPOSITORY__LOCATION:
-				return LOCATION_EDEFAULT == null
-						? location != null
-						: !LOCATION_EDEFAULT.equals(location);
+				return LOCATION_EDEFAULT == null ? location != null : !LOCATION_EDEFAULT.equals(location);
 			case P2Package.REPOSITORY__NAME:
-				return NAME_EDEFAULT == null
-						? name != null
-						: !NAME_EDEFAULT.equals(name);
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case P2Package.REPOSITORY__TYPE:
-				return TYPE_EDEFAULT == null
-						? type != null
-						: !TYPE_EDEFAULT.equals(type);
+				return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
 			case P2Package.REPOSITORY__VERSION:
-				return VERSION_EDEFAULT == null
-						? version != null
-						: !VERSION_EDEFAULT.equals(version);
+				return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
 			case P2Package.REPOSITORY__DESCRIPTION:
-				return DESCRIPTION_EDEFAULT == null
-						? description != null
-						: !DESCRIPTION_EDEFAULT.equals(description);
+				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 			case P2Package.REPOSITORY__PROVIDER:
-				return PROVIDER_EDEFAULT == null
-						? provider != null
-						: !PROVIDER_EDEFAULT.equals(provider);
+				return PROVIDER_EDEFAULT == null ? provider != null : !PROVIDER_EDEFAULT.equals(provider);
 			case P2Package.REPOSITORY__MODIFIABLE:
 				return ((eFlags & MODIFIABLE_EFLAG) != 0) != MODIFIABLE_EDEFAULT;
 			case P2Package.REPOSITORY__PROVISIONING_AGENT:
-				return PROVISIONING_AGENT_EDEFAULT == null
-						? provisioningAgent != null
+				return PROVISIONING_AGENT_EDEFAULT == null ? provisioningAgent != null
 						: !PROVISIONING_AGENT_EDEFAULT.equals(provisioningAgent);
 			case P2Package.REPOSITORY__PROPERTY_MAP:
 				return propertyMap != null && !propertyMap.isEmpty();
@@ -353,14 +297,12 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2Package.REPOSITORY__LOCATION:
 				setLocation((URI) newValue);
 				return;
@@ -393,9 +335,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -404,14 +344,12 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2Package.REPOSITORY__LOCATION:
 				setLocation(LOCATION_EDEFAULT);
 				return;
@@ -444,8 +382,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
@@ -456,9 +393,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -467,9 +402,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -478,9 +411,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -489,8 +420,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
@@ -500,8 +430,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
@@ -511,24 +440,20 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public EMap<String, String> getPropertyMap() {
-		if(propertyMap == null) {
-			propertyMap = new EcoreEMap<String, String>(
-				P2Package.Literals.PROPERTY, PropertyImpl.class, this, P2Package.REPOSITORY__PROPERTY_MAP);
+		if (propertyMap == null) {
+			propertyMap = new EcoreEMap<>(P2Package.Literals.PROPERTY, PropertyImpl.class, this,
+					P2Package.REPOSITORY__PROPERTY_MAP);
 		}
 		return propertyMap;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -537,9 +462,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -548,9 +471,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -559,9 +480,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -570,9 +489,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -581,8 +498,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
@@ -590,68 +506,57 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	public abstract IQueryResult<T> query(IQuery<T> query, IProgressMonitor progress);
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setDescription(String newDescription) {
 		String oldDescription = description;
 		description = newDescription;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, P2Package.REPOSITORY__DESCRIPTION, oldDescription, description));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.REPOSITORY__DESCRIPTION, oldDescription,
+					description));
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setLocation(URI newLocation) {
 		URI oldLocation = location;
 		location = newLocation;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(this, Notification.SET, P2Package.REPOSITORY__LOCATION, oldLocation, location));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.REPOSITORY__LOCATION, oldLocation,
+					location));
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setModifiable(boolean newModifiable) {
 		boolean oldModifiable = (eFlags & MODIFIABLE_EFLAG) != 0;
-		if(newModifiable)
+		if (newModifiable)
 			eFlags |= MODIFIABLE_EFLAG;
 		else
 			eFlags &= ~MODIFIABLE_EFLAG;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, P2Package.REPOSITORY__MODIFIABLE, oldModifiable, newModifiable));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.REPOSITORY__MODIFIABLE, oldModifiable,
+					newModifiable));
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
-		if(eNotificationRequired())
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.REPOSITORY__NAME, oldName, name));
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
@@ -661,9 +566,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -674,70 +577,58 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setProvider(String newProvider) {
 		String oldProvider = provider;
 		provider = newProvider;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(this, Notification.SET, P2Package.REPOSITORY__PROVIDER, oldProvider, provider));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.REPOSITORY__PROVIDER, oldProvider,
+					provider));
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setProvisioningAgent(IProvisioningAgent newProvisioningAgent) {
 		IProvisioningAgent oldProvisioningAgent = provisioningAgent;
 		provisioningAgent = newProvisioningAgent;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, P2Package.REPOSITORY__PROVISIONING_AGENT, oldProvisioningAgent,
-					provisioningAgent));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.REPOSITORY__PROVISIONING_AGENT,
+					oldProvisioningAgent, provisioningAgent));
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setType(String newType) {
 		String oldType = type;
 		type = newType;
-		if(eNotificationRequired())
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.REPOSITORY__TYPE, oldType, type));
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setVersion(String newVersion) {
 		String oldVersion = version;
 		version = newVersion;
-		if(eNotificationRequired())
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.REPOSITORY__VERSION, oldVersion, version));
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if(eIsProxy())
+		if (eIsProxy())
 			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());

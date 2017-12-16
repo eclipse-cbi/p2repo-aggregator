@@ -10,13 +10,14 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Licenses Type</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object '<em><b>Licenses
+ * Type</b></em>'. <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.LicensesType#getLicense <em>License</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.LicensesType#getLicense <em>License</em>}</li>
  * </ul>
  *
  * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getLicensesType()
@@ -27,12 +28,13 @@ public interface LicensesType extends EObject {
 	/**
 	 * Returns the value of the '<em><b>License</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.cbi.p2repo.p2.maven.pom.License}.
-	 * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc
+	 * -->
 	 * <p>
-	 * If the meaning of the '<em>License</em>' containment reference list isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>License</em>' containment reference list isn't
+	 * clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>License</em>' containment reference list.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getLicensesType_License()
 	 * @model containment="true"

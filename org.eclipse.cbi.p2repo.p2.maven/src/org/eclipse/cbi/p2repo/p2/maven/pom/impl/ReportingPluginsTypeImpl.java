@@ -20,13 +20,13 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Reporting Plugins Type</b></em>'. <!--
- * end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object
+ * '<em><b>Reporting Plugins Type</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ReportingPluginsTypeImpl#getPlugin <em>Plugin</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ReportingPluginsTypeImpl#getPlugin <em>Plugin</em>}</li>
  * </ul>
  *
  * @generated
@@ -34,9 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class ReportingPluginsTypeImpl extends EObjectImpl implements ReportingPluginsType {
 	/**
 	 * The cached value of the '{@link #getPlugin() <em>Plugin</em>}' containment reference list.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getPlugin()
 	 * @generated
 	 * @ordered
@@ -45,7 +43,6 @@ public class ReportingPluginsTypeImpl extends EObjectImpl implements ReportingPl
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected ReportingPluginsTypeImpl() {
@@ -54,12 +51,11 @@ public class ReportingPluginsTypeImpl extends EObjectImpl implements ReportingPl
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.REPORTING_PLUGINS_TYPE__PLUGIN:
 				return getPlugin();
 		}
@@ -68,12 +64,11 @@ public class ReportingPluginsTypeImpl extends EObjectImpl implements ReportingPl
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.REPORTING_PLUGINS_TYPE__PLUGIN:
 				return ((InternalEList<?>) getPlugin()).basicRemove(otherEnd, msgs);
 		}
@@ -82,12 +77,11 @@ public class ReportingPluginsTypeImpl extends EObjectImpl implements ReportingPl
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.REPORTING_PLUGINS_TYPE__PLUGIN:
 				return plugin != null && !plugin.isEmpty();
 		}
@@ -96,13 +90,12 @@ public class ReportingPluginsTypeImpl extends EObjectImpl implements ReportingPl
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.REPORTING_PLUGINS_TYPE__PLUGIN:
 				getPlugin().clear();
 				getPlugin().addAll((Collection<? extends ReportPlugin>) newValue);
@@ -113,12 +106,11 @@ public class ReportingPluginsTypeImpl extends EObjectImpl implements ReportingPl
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.REPORTING_PLUGINS_TYPE__PLUGIN:
 				getPlugin().clear();
 				return;
@@ -128,21 +120,19 @@ public class ReportingPluginsTypeImpl extends EObjectImpl implements ReportingPl
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public EList<ReportPlugin> getPlugin() {
-		if(plugin == null) {
-			plugin = new EObjectContainmentEList<ReportPlugin>(
-				ReportPlugin.class, this, PomPackage.REPORTING_PLUGINS_TYPE__PLUGIN);
+		if (plugin == null) {
+			plugin = new EObjectContainmentEList<>(ReportPlugin.class, this,
+					PomPackage.REPORTING_PLUGINS_TYPE__PLUGIN);
 		}
 		return plugin;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override

@@ -9,9 +9,8 @@ package org.eclipse.cbi.p2repo.p2;
 import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
 
 /**
- * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Required Capability</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object '<em><b>Required
+ * Capability</b></em>'. <!-- end-user-doc -->
  *
  *
  * @see org.eclipse.cbi.p2repo.p2.P2Package#getRequiredCapability()

@@ -14,12 +14,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Prerequisites</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object
+ * '<em><b>Prerequisites</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.PrerequisitesImpl#getMaven <em>Maven</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.PrerequisitesImpl#getMaven <em>Maven</em>}</li>
  * </ul>
  *
  * @generated
@@ -27,9 +28,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 public class PrerequisitesImpl extends EObjectImpl implements Prerequisites {
 	/**
 	 * The default value of the '{@link #getMaven() <em>Maven</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 *
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getMaven()
 	 * @generated
 	 * @ordered
@@ -37,9 +36,8 @@ public class PrerequisitesImpl extends EObjectImpl implements Prerequisites {
 	protected static final String MAVEN_EDEFAULT = "2.0";
 
 	/**
-	 * The cached value of the '{@link #getMaven() <em>Maven</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 *
+	 * The cached value of the '{@link #getMaven() <em>Maven</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getMaven()
 	 * @generated
 	 * @ordered
@@ -48,8 +46,8 @@ public class PrerequisitesImpl extends EObjectImpl implements Prerequisites {
 
 	/**
 	 * This is true if the Maven attribute has been set.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -57,7 +55,6 @@ public class PrerequisitesImpl extends EObjectImpl implements Prerequisites {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected PrerequisitesImpl() {
@@ -66,12 +63,11 @@ public class PrerequisitesImpl extends EObjectImpl implements Prerequisites {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.PREREQUISITES__MAVEN:
 				return getMaven();
 		}
@@ -80,12 +76,11 @@ public class PrerequisitesImpl extends EObjectImpl implements Prerequisites {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.PREREQUISITES__MAVEN:
 				return isSetMaven();
 		}
@@ -94,12 +89,11 @@ public class PrerequisitesImpl extends EObjectImpl implements Prerequisites {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.PREREQUISITES__MAVEN:
 				setMaven((String) newValue);
 				return;
@@ -109,12 +103,11 @@ public class PrerequisitesImpl extends EObjectImpl implements Prerequisites {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.PREREQUISITES__MAVEN:
 				unsetMaven();
 				return;
@@ -124,7 +117,6 @@ public class PrerequisitesImpl extends EObjectImpl implements Prerequisites {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -134,7 +126,6 @@ public class PrerequisitesImpl extends EObjectImpl implements Prerequisites {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -144,7 +135,6 @@ public class PrerequisitesImpl extends EObjectImpl implements Prerequisites {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -153,25 +143,23 @@ public class PrerequisitesImpl extends EObjectImpl implements Prerequisites {
 		maven = newMaven;
 		boolean oldMavenESet = mavenESet;
 		mavenESet = true;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, PomPackage.PREREQUISITES__MAVEN, oldMaven, maven, !oldMavenESet));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.PREREQUISITES__MAVEN, oldMaven, maven,
+					!oldMavenESet));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if(eIsProxy())
+		if (eIsProxy())
 			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (maven: ");
-		if(mavenESet)
+		if (mavenESet)
 			result.append(maven);
 		else
 			result.append("<unset>");
@@ -181,7 +169,6 @@ public class PrerequisitesImpl extends EObjectImpl implements Prerequisites {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -190,15 +177,13 @@ public class PrerequisitesImpl extends EObjectImpl implements Prerequisites {
 		boolean oldMavenESet = mavenESet;
 		maven = MAVEN_EDEFAULT;
 		mavenESet = false;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, PomPackage.PREREQUISITES__MAVEN, oldMaven, MAVEN_EDEFAULT, oldMavenESet));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, PomPackage.PREREQUISITES__MAVEN, oldMaven,
+					MAVEN_EDEFAULT, oldMavenESet));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
