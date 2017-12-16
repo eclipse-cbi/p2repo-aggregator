@@ -42,7 +42,7 @@ public class P2viewXMLProcessor extends XMLProcessor {
 	 */
 	@Override
 	protected Map<String, Resource.Factory> getRegistrations() {
-		if(registrations == null) {
+		if (registrations == null) {
 			super.getRegistrations();
 			registrations.put(XML_EXTENSION, new P2viewResourceFactoryImpl());
 			registrations.put(STAR_EXTENSION, new P2viewResourceFactoryImpl());

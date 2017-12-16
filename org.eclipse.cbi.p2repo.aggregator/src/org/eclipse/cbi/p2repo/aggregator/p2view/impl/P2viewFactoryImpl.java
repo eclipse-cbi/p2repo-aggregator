@@ -81,13 +81,12 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 	 */
 	public static P2viewFactory init() {
 		try {
-			P2viewFactory theP2viewFactory = (P2viewFactory) EPackage.Registry.INSTANCE.getEFactory(
-				P2viewPackage.eNS_URI);
-			if(theP2viewFactory != null) {
+			P2viewFactory theP2viewFactory = (P2viewFactory) EPackage.Registry.INSTANCE
+					.getEFactory(P2viewPackage.eNS_URI);
+			if (theP2viewFactory != null) {
 				return theP2viewFactory;
 			}
-		}
-		catch(Exception exception) {
+		} catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new P2viewFactoryImpl();
@@ -108,7 +107,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 	 */
 	@Override
 	public EObject create(EClass eClass) {
-		switch(eClass.getClassifierID()) {
+		switch (eClass.getClassifierID()) {
 			case P2viewPackage.BUNDLE:
 				return (EObject) createBundle();
 			case P2viewPackage.BUNDLES:
@@ -310,27 +309,26 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 	public IUDetails createIUDetails(IInstallableUnit iu) {
 		IUDetails iuDetails = createIUDetails();
 
-		List<RequirementWrapper> reqwList = new ArrayList<RequirementWrapper>();
-		for(IRequirement req : iu.getRequirements()) {
+		List<RequirementWrapper> reqwList = new ArrayList<>();
+		for (IRequirement req : iu.getRequirements()) {
 			RequirementWrapper reqw = createRequirementWrapper(req);
 
-			if(req instanceof IRequiredCapability) {
+			if (req instanceof IRequiredCapability) {
 				IRequiredCapability rc = (IRequiredCapability) req;
 				CapabilityNamespace cn = CapabilityNamespace.byId(rc.getNamespace());
 				StringBuilder labelBuilder = new StringBuilder();
-				if(cn == CapabilityNamespace.UNKNOWN)
+				if (cn == CapabilityNamespace.UNKNOWN)
 					labelBuilder.append(rc.getNamespace() + ":" + " " + rc.getName());
 				else
 					labelBuilder.append(cn.getLabel() + " " + rc.getName());
 				labelBuilder.append(" / ");
 				labelBuilder.append(P2Utils.versionRangeToString(rc.getRange()));
 				reqw.setLabel(labelBuilder.toString());
-			}
-			else {
+			} else {
 				// TODO Get more from the requirement to make the label user friendlier
 				CapabilityNamespace cn = CapabilityNamespace.byFilter(req.getFilter());
 
-				if(cn == null || cn == CapabilityNamespace.UNKNOWN)
+				if (cn == null || cn == CapabilityNamespace.UNKNOWN)
 					reqw.setLabel(req.toString());
 				else
 					reqw.setLabel(cn.getLabel() + " " + req.toString());
@@ -339,20 +337,20 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 			reqwList.add(reqw);
 		}
 
-		if(reqwList.size() > 0) {
+		if (reqwList.size() > 0) {
 			iuDetails.setRequirementsContainer(createRequirements());
 			Collections.sort(reqwList, LabelProvider.COMPARATOR);
 			iuDetails.getRequirementsContainer().getRequirements().addAll(reqwList);
 		}
 
-		List<ProvidedCapabilityWrapper> pcwList = new ArrayList<ProvidedCapabilityWrapper>();
-		for(IProvidedCapability pc : iu.getProvidedCapabilities()) {
+		List<ProvidedCapabilityWrapper> pcwList = new ArrayList<>();
+		for (IProvidedCapability pc : iu.getProvidedCapabilities()) {
 			ProvidedCapabilityWrapper pcw = createProvidedCapabilityWrapper(pc);
 
 			CapabilityNamespace cn = CapabilityNamespace.byId(pc.getNamespace());
 
 			StringBuilder labelBuilder = new StringBuilder();
-			if(cn == CapabilityNamespace.UNKNOWN)
+			if (cn == CapabilityNamespace.UNKNOWN)
 				labelBuilder.append(pc.getNamespace() + ":" + " " + pc.getName());
 			else
 				labelBuilder.append(cn.getLabel() + " " + pc.getName());
@@ -364,30 +362,30 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 			pcwList.add(pcw);
 		}
 
-		if(pcwList.size() > 0) {
+		if (pcwList.size() > 0) {
 			iuDetails.setProvidedCapabilitiesContainer(createProvidedCapabilities());
 			Collections.sort(pcwList, LabelProvider.COMPARATOR);
 			iuDetails.getProvidedCapabilitiesContainer().getProvidedCapabilities().addAll(pcwList);
 		}
 
-		List<Property> propList = new ArrayList<Property>();
-		for(Map.Entry<String, String> property : iu.getProperties().entrySet())
+		List<Property> propList = new ArrayList<>();
+		for (Map.Entry<String, String> property : iu.getProperties().entrySet())
 			propList.add(AggregatorFactory.eINSTANCE.createProperty(property.getKey(), property.getValue()));
-		if(propList.size() > 0) {
+		if (propList.size() > 0) {
 			iuDetails.setPropertiesContainer(createProperties());
 			Collections.sort(propList);
 			iuDetails.getPropertiesContainer().getPropertyList().addAll(propList);
 		}
 
-		if(iu.getTouchpointType() != null) {
-			if(iuDetails.getTouchpointsContainer() == null)
+		if (iu.getTouchpointType() != null) {
+			if (iuDetails.getTouchpointsContainer() == null)
 				iuDetails.setTouchpointsContainer(createTouchpoints());
 
 			iuDetails.getTouchpointsContainer().setTouchpointType(iu.getTouchpointType());
 		}
 
-		for(ITouchpointData tpData : iu.getTouchpointData()) {
-			if(iuDetails.getTouchpointsContainer() == null)
+		for (ITouchpointData tpData : iu.getTouchpointData()) {
+			if (iuDetails.getTouchpointsContainer() == null)
 				iuDetails.setTouchpointsContainer(createTouchpoints());
 
 			iuDetails.getTouchpointsContainer().getTouchpointDataList().add(tpData);
@@ -396,8 +394,8 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 		iuDetails.setUpdateDescriptor(iu.getUpdateDescriptor());
 		iuDetails.setCopyright(iu.getCopyright());
 
-		for(ILicense license : iu.getLicenses()) {
-			if(iuDetails.getLicensesContainer() == null)
+		for (ILicense license : iu.getLicenses()) {
+			if (iuDetails.getLicensesContainer() == null)
 				iuDetails.setLicensesContainer(createLicenses());
 
 			iuDetails.getLicensesContainer().getLicenses().add(license);
@@ -436,7 +434,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 	public MetadataRepositoryStructuredView createMetadataRepositoryStructuredView(
 			MetadataRepository metadataRepository) {
 		MetadataRepositoryStructuredViewImpl metadataRepositoryStructuredView = new MetadataRepositoryStructuredViewImpl(
-			metadataRepository);
+				metadataRepository);
 		return metadataRepositoryStructuredView;
 	}
 

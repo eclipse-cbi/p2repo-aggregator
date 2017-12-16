@@ -49,13 +49,11 @@ public class MappedUnitItemProvider extends InstallableUnitRequestItemProvider
 	 * @generated
 	 */
 	protected void addEnabledPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(
-			createItemPropertyDescriptor(
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
 				getString("_UI_EnabledStatusProvider_enabled_feature"),
-				getString(
-					"_UI_PropertyDescriptor_description", "_UI_EnabledStatusProvider_enabled_feature",
-					"_UI_EnabledStatusProvider_type"),
+				getString("_UI_PropertyDescriptor_description", "_UI_EnabledStatusProvider_enabled_feature",
+						"_UI_EnabledStatusProvider_type"),
 				AggregatorPackage.Literals.ENABLED_STATUS_PROVIDER__ENABLED, true, false, false,
 				ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}
@@ -67,14 +65,13 @@ public class MappedUnitItemProvider extends InstallableUnitRequestItemProvider
 	 * @generated
 	 */
 	protected void addValidConfigurationsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(
-			createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_MappedUnit_validConfigurations_feature"),
-				getString(
-					"_UI_PropertyDescriptor_description", "_UI_MappedUnit_validConfigurations_feature",
-					"_UI_MappedUnit_type"),
-				AggregatorPackage.Literals.MAPPED_UNIT__VALID_CONFIGURATIONS, true, false, true, null, null, null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_MappedUnit_validConfigurations_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_MappedUnit_validConfigurations_feature",
+								"_UI_MappedUnit_type"),
+						AggregatorPackage.Literals.MAPPED_UNIT__VALID_CONFIGURATIONS, true, false, true, null, null,
+						null));
 	}
 
 	/**
@@ -96,9 +93,8 @@ public class MappedUnitItemProvider extends InstallableUnitRequestItemProvider
 			ResourceLocator resourceLocator, String displayName, String description, EStructuralFeature feature,
 			boolean isSettable, boolean multiLine, boolean sortChoices, Object staticImage, String category,
 			String[] filterFlags) {
-		return new ContributionItemProvider.DynamicItemPropertyDescriptor(
-			adapterFactory, resourceLocator, displayName, description, feature, isSettable, multiLine, sortChoices,
-			staticImage, category, filterFlags);
+		return new ContributionItemProvider.DynamicItemPropertyDescriptor(adapterFactory, resourceLocator, displayName,
+				description, feature, isSettable, multiLine, sortChoices, staticImage, category, filterFlags);
 	}
 
 	/**
@@ -108,7 +104,7 @@ public class MappedUnitItemProvider extends InstallableUnitRequestItemProvider
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addEnabledPropertyDescriptor(object);
@@ -128,7 +124,7 @@ public class MappedUnitItemProvider extends InstallableUnitRequestItemProvider
 		MappedUnit self = (MappedUnit) object;
 		String name = self.getName();
 		StringBuilder bld = new StringBuilder(getString("_UI_MappedUnit_type")).append(" : ");
-		if(name != null)
+		if (name != null)
 			bld.append(name);
 		return bld.toString();
 	}
@@ -143,7 +139,7 @@ public class MappedUnitItemProvider extends InstallableUnitRequestItemProvider
 		boolean updateContent = false;
 		boolean updateLabel = true;
 
-		switch(notification.getFeatureID(MappedUnit.class)) {
+		switch (notification.getFeatureID(MappedUnit.class)) {
 			case AggregatorPackage.MAPPED_UNIT__ENABLED:
 				updateContent = true;
 				updateLabel = false;
@@ -151,24 +147,24 @@ public class MappedUnitItemProvider extends InstallableUnitRequestItemProvider
 			case AggregatorPackage.MAPPED_UNIT__NAME:
 			case AggregatorPackage.MAPPED_UNIT__VERSION_RANGE:
 				fireNotifyChanged(
-					new ViewerNotification(notification, notification.getNotifier(), updateContent, updateLabel));
+						new ViewerNotification(notification, notification.getNotifier(), updateContent, updateLabel));
 
-				Set<Object> affectedNodes = new HashSet<Object>();
+				Set<Object> affectedNodes = new HashSet<>();
 
 				// Go through all direct ancestors first
 				EObject container = ((EObject) notification.getNotifier()).eContainer();
 				affectedNodes.add(((EObject) notification.getNotifier()).eResource());
-				while(container != null) {
+				while (container != null) {
 					affectedNodes.add(container);
 					container = container.eContainer();
 				}
 
 				// And now, find all categories which may contain the feature just being enabled/disabled
-				if(notification.getNotifier() instanceof Feature)
-					for(CustomCategory category : ((Feature) notification.getNotifier()).getCategories())
+				if (notification.getNotifier() instanceof Feature)
+					for (CustomCategory category : ((Feature) notification.getNotifier()).getCategories())
 						affectedNodes.add(category);
 
-				for(Object affectedNode : affectedNodes)
+				for (Object affectedNode : affectedNodes)
 					fireNotifyChanged(new ViewerNotification(notification, affectedNode, false, true));
 
 				return;
@@ -185,7 +181,7 @@ public class MappedUnitItemProvider extends InstallableUnitRequestItemProvider
 	public void notifyChangedGen(Notification notification) {
 		updateChildren(notification);
 
-		switch(notification.getFeatureID(MappedUnit.class)) {
+		switch (notification.getFeatureID(MappedUnit.class)) {
 			case AggregatorPackage.MAPPED_UNIT__ENABLED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

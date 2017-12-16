@@ -57,13 +57,11 @@ public class AvailableVersionItemProvider extends AggregatorItemProviderAdapter
 	 * @generated
 	 */
 	protected void addAvailableFromPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(
-			createItemPropertyDescriptor(
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
 				getString("_UI_AvailableVersion_availableFrom_feature"),
-				getString(
-					"_UI_PropertyDescriptor_description", "_UI_AvailableVersion_availableFrom_feature",
-					"_UI_AvailableVersion_type"),
+				getString("_UI_PropertyDescriptor_description", "_UI_AvailableVersion_availableFrom_feature",
+						"_UI_AvailableVersion_type"),
 				AggregatorPackage.Literals.AVAILABLE_VERSION__AVAILABLE_FROM, true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
@@ -75,15 +73,13 @@ public class AvailableVersionItemProvider extends AggregatorItemProviderAdapter
 	 * @generated
 	 */
 	protected void addFilterPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(
-			createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_AvailableVersion_filter_feature"),
-				getString(
-					"_UI_PropertyDescriptor_description", "_UI_AvailableVersion_filter_feature",
-					"_UI_AvailableVersion_type"),
-				AggregatorPackage.Literals.AVAILABLE_VERSION__FILTER, false, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_AvailableVersion_filter_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_AvailableVersion_filter_feature",
+								"_UI_AvailableVersion_type"),
+						AggregatorPackage.Literals.AVAILABLE_VERSION__FILTER, false, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -93,13 +89,11 @@ public class AvailableVersionItemProvider extends AggregatorItemProviderAdapter
 	 * @generated
 	 */
 	protected void addVersionMatchPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(
-			createItemPropertyDescriptor(
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
 				getString("_UI_AvailableVersion_versionMatch_feature"),
-				getString(
-					"_UI_PropertyDescriptor_description", "_UI_AvailableVersion_versionMatch_feature",
-					"_UI_AvailableVersion_type"),
+				getString("_UI_PropertyDescriptor_description", "_UI_AvailableVersion_versionMatch_feature",
+						"_UI_AvailableVersion_type"),
 				AggregatorPackage.Literals.AVAILABLE_VERSION__VERSION_MATCH, false, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
@@ -111,15 +105,13 @@ public class AvailableVersionItemProvider extends AggregatorItemProviderAdapter
 	 * @generated
 	 */
 	protected void addVersionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(
-			createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_AvailableVersion_version_feature"),
-				getString(
-					"_UI_PropertyDescriptor_description", "_UI_AvailableVersion_version_feature",
-					"_UI_AvailableVersion_type"),
-				AggregatorPackage.Literals.AVAILABLE_VERSION__VERSION, false, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_AvailableVersion_version_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_AvailableVersion_version_feature",
+								"_UI_AvailableVersion_type"),
+						AggregatorPackage.Literals.AVAILABLE_VERSION__VERSION, false, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -139,7 +131,7 @@ public class AvailableVersionItemProvider extends AggregatorItemProviderAdapter
 	 */
 	@Override
 	public Object getForeground(Object object) {
-		if(((AvailableVersion) object).getAvailableFrom() == AvailableFrom.AGGREGATION)
+		if (((AvailableVersion) object).getAvailableFrom() == AvailableFrom.AGGREGATION)
 			return IItemColorProvider.GRAYED_OUT_COLOR;
 		return null;
 	}
@@ -154,10 +146,10 @@ public class AvailableVersionItemProvider extends AggregatorItemProviderAdapter
 	@Override
 	public Object getImage(Object object) {
 		Version version = ((AvailableVersion) object).getVersion();
-		if(version == null)
+		if (version == null)
 			return overlayImage(object, getResourceLocator().getImage("full/obj16/NoVersionAvailable"));
 
-		switch(((AvailableVersion) object).getVersionMatch()) {
+		switch (((AvailableVersion) object).getVersionMatch()) {
 			case BELOW:
 				return overlayImage(object, getResourceLocator().getImage("full/obj16/VersionBelowRange"));
 			case MATCHES:
@@ -177,7 +169,7 @@ public class AvailableVersionItemProvider extends AggregatorItemProviderAdapter
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addVersionMatchPropertyDescriptor(object);
@@ -211,14 +203,14 @@ public class AvailableVersionItemProvider extends AggregatorItemProviderAdapter
 
 		AvailableVersion av = (AvailableVersion) object;
 		Version version = av.getVersion();
-		if(version == null)
+		if (version == null)
 			return "no version is available";
 
 		StringBuffer sb = new StringBuffer();
 		version.toString(sb);
-		if(av.getAvailableFrom() != AvailableFrom.REPOSITORY) {
+		if (av.getAvailableFrom() != AvailableFrom.REPOSITORY) {
 			sb.append(" (from another ");
-			switch(av.getAvailableFrom()) {
+			switch (av.getAvailableFrom()) {
 				case CONTRIBUTION:
 					sb.append("Repository in this Contribution");
 					break;
@@ -246,10 +238,10 @@ public class AvailableVersionItemProvider extends AggregatorItemProviderAdapter
 	@Override
 	public String getTooltipText(Object object) {
 		Version version = ((AvailableVersion) object).getVersion();
-		if(version == null)
+		if (version == null)
 			return null;
 
-		switch(((AvailableVersion) object).getVersionMatch()) {
+		switch (((AvailableVersion) object).getVersionMatch()) {
 			case BELOW:
 				return "This version is too low to match the version range";
 			case MATCHES:
@@ -272,7 +264,7 @@ public class AvailableVersionItemProvider extends AggregatorItemProviderAdapter
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch(notification.getFeatureID(AvailableVersion.class)) {
+		switch (notification.getFeatureID(AvailableVersion.class)) {
 			case AggregatorPackage.AVAILABLE_VERSION__VERSION_MATCH:
 			case AggregatorPackage.AVAILABLE_VERSION__VERSION:
 			case AggregatorPackage.AVAILABLE_VERSION__FILTER:

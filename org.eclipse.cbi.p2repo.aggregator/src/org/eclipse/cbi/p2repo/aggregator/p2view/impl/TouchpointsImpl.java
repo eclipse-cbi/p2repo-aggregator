@@ -87,9 +87,9 @@ public class TouchpointsImpl extends MinimalEObjectImpl.Container implements Tou
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.TOUCHPOINTS__TOUCHPOINT_TYPE:
-				if(resolve)
+				if (resolve)
 					return getTouchpointType();
 				return basicGetTouchpointType();
 			case P2viewPackage.TOUCHPOINTS__TOUCHPOINT_DATA_LIST:
@@ -104,7 +104,7 @@ public class TouchpointsImpl extends MinimalEObjectImpl.Container implements Tou
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.TOUCHPOINTS__TOUCHPOINT_TYPE:
 				return touchpointType != null;
 			case P2viewPackage.TOUCHPOINTS__TOUCHPOINT_DATA_LIST:
@@ -120,7 +120,7 @@ public class TouchpointsImpl extends MinimalEObjectImpl.Container implements Tou
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.TOUCHPOINTS__TOUCHPOINT_TYPE:
 				setTouchpointType((ITouchpointType) newValue);
 				return;
@@ -147,7 +147,7 @@ public class TouchpointsImpl extends MinimalEObjectImpl.Container implements Tou
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.TOUCHPOINTS__TOUCHPOINT_TYPE:
 				setTouchpointType((ITouchpointType) null);
 				return;
@@ -164,9 +164,9 @@ public class TouchpointsImpl extends MinimalEObjectImpl.Container implements Tou
 	 */
 	@Override
 	public EList<ITouchpointData> getTouchpointDataList() {
-		if(touchpointDataList == null) {
-			touchpointDataList = new EObjectResolvingEList<ITouchpointData>(
-				ITouchpointData.class, this, P2viewPackage.TOUCHPOINTS__TOUCHPOINT_DATA_LIST);
+		if (touchpointDataList == null) {
+			touchpointDataList = new EObjectResolvingEList<>(ITouchpointData.class, this,
+					P2viewPackage.TOUCHPOINTS__TOUCHPOINT_DATA_LIST);
 		}
 		return touchpointDataList;
 	}
@@ -177,15 +177,13 @@ public class TouchpointsImpl extends MinimalEObjectImpl.Container implements Tou
 	 */
 	@Override
 	public ITouchpointType getTouchpointType() {
-		if(touchpointType != null && ((EObject) touchpointType).eIsProxy()) {
+		if (touchpointType != null && ((EObject) touchpointType).eIsProxy()) {
 			InternalEObject oldTouchpointType = (InternalEObject) touchpointType;
 			touchpointType = (ITouchpointType) eResolveProxy(oldTouchpointType);
-			if(touchpointType != oldTouchpointType) {
-				if(eNotificationRequired())
-					eNotify(
-						new ENotificationImpl(
-							this, Notification.RESOLVE, P2viewPackage.TOUCHPOINTS__TOUCHPOINT_TYPE, oldTouchpointType,
-							touchpointType));
+			if (touchpointType != oldTouchpointType) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+							P2viewPackage.TOUCHPOINTS__TOUCHPOINT_TYPE, oldTouchpointType, touchpointType));
 			}
 		}
 		return touchpointType;
@@ -193,7 +191,7 @@ public class TouchpointsImpl extends MinimalEObjectImpl.Container implements Tou
 
 	@Override
 	public void setTouchpointType(ITouchpointType newTouchpointType) {
-		if(newTouchpointType == ITouchpointType.NONE)
+		if (newTouchpointType == ITouchpointType.NONE)
 			setTouchpointTypeGen(null);
 		else
 			setTouchpointTypeGen(newTouchpointType);
@@ -206,11 +204,9 @@ public class TouchpointsImpl extends MinimalEObjectImpl.Container implements Tou
 	public void setTouchpointTypeGen(ITouchpointType newTouchpointType) {
 		ITouchpointType oldTouchpointType = touchpointType;
 		touchpointType = newTouchpointType;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, P2viewPackage.TOUCHPOINTS__TOUCHPOINT_TYPE, oldTouchpointType,
-					touchpointType));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.TOUCHPOINTS__TOUCHPOINT_TYPE,
+					oldTouchpointType, touchpointType));
 	}
 
 } // TouchpointsImpl

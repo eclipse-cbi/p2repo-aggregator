@@ -11,7 +11,6 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
-import org.eclipse.cbi.p2repo.p2.InstallableUnit;
 import org.eclipse.cbi.p2repo.aggregator.AggregatorFactory;
 import org.eclipse.cbi.p2repo.aggregator.AggregatorPackage;
 import org.eclipse.cbi.p2repo.aggregator.CustomCategory;
@@ -21,8 +20,9 @@ import org.eclipse.cbi.p2repo.aggregator.p2view.IUPresentation;
 import org.eclipse.cbi.p2repo.aggregator.util.AddIUsToMappedRepositoryCommand;
 import org.eclipse.cbi.p2repo.aggregator.util.GeneralUtils;
 import org.eclipse.cbi.p2repo.aggregator.util.ItemSorter;
-import org.eclipse.cbi.p2repo.aggregator.util.ItemUtils;
 import org.eclipse.cbi.p2repo.aggregator.util.ItemSorter.ItemGroup;
+import org.eclipse.cbi.p2repo.aggregator.util.ItemUtils;
+import org.eclipse.cbi.p2repo.p2.InstallableUnit;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.command.UnexecutableCommand;
@@ -64,13 +64,11 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 	 * @generated
 	 */
 	protected void addCategoryPrefixPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(
-			createItemPropertyDescriptor(
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
 				getString("_UI_MappedRepository_categoryPrefix_feature"),
-				getString(
-					"_UI_PropertyDescriptor_description", "_UI_MappedRepository_categoryPrefix_feature",
-					"_UI_MappedRepository_type"),
+				getString("_UI_PropertyDescriptor_description", "_UI_MappedRepository_categoryPrefix_feature",
+						"_UI_MappedRepository_type"),
 				AggregatorPackage.Literals.MAPPED_REPOSITORY__CATEGORY_PREFIX, true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
@@ -81,13 +79,11 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 	 * @generated
 	 */
 	protected void addDescriptionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(
-			createItemPropertyDescriptor(
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
 				getString("_UI_DescriptionProvider_description_feature"),
-				getString(
-					"_UI_PropertyDescriptor_description", "_UI_DescriptionProvider_description_feature",
-					"_UI_DescriptionProvider_type"),
+				getString("_UI_PropertyDescriptor_description", "_UI_DescriptionProvider_description_feature",
+						"_UI_DescriptionProvider_type"),
 				AggregatorPackage.Literals.DESCRIPTION_PROVIDER__DESCRIPTION, true, true, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
@@ -98,13 +94,11 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 	 * @generated
 	 */
 	protected void addMirrorArtifactsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(
-			createItemPropertyDescriptor(
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
 				getString("_UI_MappedRepository_mirrorArtifacts_feature"),
-				getString(
-					"_UI_PropertyDescriptor_description", "_UI_MappedRepository_mirrorArtifacts_feature",
-					"_UI_MappedRepository_type"),
+				getString("_UI_PropertyDescriptor_description", "_UI_MappedRepository_mirrorArtifacts_feature",
+						"_UI_MappedRepository_type"),
 				AggregatorPackage.Literals.MAPPED_REPOSITORY__MIRROR_ARTIFACTS, true, false, false,
 				ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}
@@ -119,31 +113,22 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(
-			createChildParameter(
-				AggregatorPackage.Literals.MAPPED_REPOSITORY__PRODUCTS, AggregatorFactory.eINSTANCE.createProduct()));
+		newChildDescriptors.add(createChildParameter(AggregatorPackage.Literals.MAPPED_REPOSITORY__PRODUCTS,
+				AggregatorFactory.eINSTANCE.createProduct()));
 
-		newChildDescriptors.add(
-			createChildParameter(
-				AggregatorPackage.Literals.MAPPED_REPOSITORY__BUNDLES, AggregatorFactory.eINSTANCE.createBundle()));
+		newChildDescriptors.add(createChildParameter(AggregatorPackage.Literals.MAPPED_REPOSITORY__BUNDLES,
+				AggregatorFactory.eINSTANCE.createBundle()));
 
-		newChildDescriptors.add(
-			createChildParameter(
-				AggregatorPackage.Literals.MAPPED_REPOSITORY__FEATURES, AggregatorFactory.eINSTANCE.createFeature()));
+		newChildDescriptors.add(createChildParameter(AggregatorPackage.Literals.MAPPED_REPOSITORY__FEATURES,
+				AggregatorFactory.eINSTANCE.createFeature()));
 
-		newChildDescriptors.add(
-			createChildParameter(
-				AggregatorPackage.Literals.MAPPED_REPOSITORY__CATEGORIES,
+		newChildDescriptors.add(createChildParameter(AggregatorPackage.Literals.MAPPED_REPOSITORY__CATEGORIES,
 				AggregatorFactory.eINSTANCE.createCategory()));
 
-		newChildDescriptors.add(
-			createChildParameter(
-				AggregatorPackage.Literals.MAPPED_REPOSITORY__MAP_RULES,
+		newChildDescriptors.add(createChildParameter(AggregatorPackage.Literals.MAPPED_REPOSITORY__MAP_RULES,
 				AggregatorFactory.eINSTANCE.createExclusionRule()));
 
-		newChildDescriptors.add(
-			createChildParameter(
-				AggregatorPackage.Literals.MAPPED_REPOSITORY__MAP_RULES,
+		newChildDescriptors.add(createChildParameter(AggregatorPackage.Literals.MAPPED_REPOSITORY__MAP_RULES,
 				AggregatorFactory.eINSTANCE.createValidConfigurationsRule()));
 	}
 
@@ -151,15 +136,14 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 	private Command createAddIUsToMappedRepositoryCommand(Object owner, Collection<?> collection, int operation) {
 		ItemSorter itemSorter = new ItemSorter(collection);
 
-		if(((MappedRepository) owner).isEnabled() && itemSorter.getTotalItemCount() > 0 &&
-				(itemSorter.getTotalItemCount() == itemSorter.getGroupItems(ItemGroup.IU).size() &&
-						ItemUtils.haveSameLocation(
-							(MappedRepository) owner, (List<InstallableUnit>) itemSorter.getGroupItems(ItemGroup.IU)) ||
-						itemSorter.getTotalItemCount() == itemSorter.getGroupItems(ItemGroup.IU_STRUCTURED).size() &&
-								ItemUtils.haveSameLocation(
-									(MappedRepository) owner, ItemUtils.getIUs(
+		if (((MappedRepository) owner).isEnabled() && itemSorter.getTotalItemCount() > 0
+				&& (itemSorter.getTotalItemCount() == itemSorter.getGroupItems(ItemGroup.IU).size()
+						&& ItemUtils.haveSameLocation((MappedRepository) owner,
+								(List<InstallableUnit>) itemSorter.getGroupItems(ItemGroup.IU))
+						|| itemSorter.getTotalItemCount() == itemSorter.getGroupItems(ItemGroup.IU_STRUCTURED).size()
+								&& ItemUtils.haveSameLocation((MappedRepository) owner, ItemUtils.getIUs(
 										(List<IUPresentation>) itemSorter.getGroupItems(ItemGroup.IU_STRUCTURED))))) {
-			List<IInstallableUnit> ius = new ArrayList<IInstallableUnit>();
+			List<IInstallableUnit> ius = new ArrayList<>();
 
 			ius.addAll((List<InstallableUnit>) itemSorter.getGroupItems(ItemGroup.IU));
 			ius.addAll(ItemUtils.getIUs((List<IUPresentation>) itemSorter.getGroupItems(ItemGroup.IU_STRUCTURED)));
@@ -172,19 +156,18 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 
 	private Command createCompoundRemoveCommand(EditingDomain domain, MappedRepository mappedRepository,
 			EStructuralFeature feature, Collection<?> collection) {
-		List<Command> commands = new ArrayList<Command>();
+		List<Command> commands = new ArrayList<>();
 		commands.add(new RemoveCommand(domain, (EObject) mappedRepository, feature, collection));
 
-		if(feature.getFeatureID() == AggregatorPackage.MAPPED_REPOSITORY__FEATURES) {
-			for(Object object : collection) {
+		if (feature.getFeatureID() == AggregatorPackage.MAPPED_REPOSITORY__FEATURES) {
+			for (Object object : collection) {
 				Feature removedFeature = (Feature) object;
-				for(CustomCategory category : removedFeature.getCategories()) {
-					IEditingDomainItemProvider editingDomainItemProvider = (IEditingDomainItemProvider) adapterFactory.adapt(
-						category, IEditingDomainItemProvider.class);
+				for (CustomCategory category : removedFeature.getCategories()) {
+					IEditingDomainItemProvider editingDomainItemProvider = (IEditingDomainItemProvider) adapterFactory
+							.adapt(category, IEditingDomainItemProvider.class);
 
-					Command cmd = editingDomainItemProvider.createCommand(
-						category, domain, RemoveCommand.class,
-						new CommandParameter(category, null, Collections.singleton(removedFeature)));
+					Command cmd = editingDomainItemProvider.createCommand(category, domain, RemoveCommand.class,
+							new CommandParameter(category, null, Collections.singleton(removedFeature)));
 					commands.add(cmd);
 				}
 			}
@@ -199,13 +182,13 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 	@Override
 	protected Command createDragAndDropCommand(EditingDomain domain, Object owner, float location, int operations,
 			int operation, Collection<?> collection) {
-		if((operation & (AggregatorEditPlugin.ADD_IU | AggregatorEditPlugin.ADD_EXCLUSION_RULE |
-				AggregatorEditPlugin.ADD_VALID_CONFIGURATIONS_RULE)) == 0)
+		if ((operation & (AggregatorEditPlugin.ADD_IU | AggregatorEditPlugin.ADD_EXCLUSION_RULE
+				| AggregatorEditPlugin.ADD_VALID_CONFIGURATIONS_RULE)) == 0)
 			operation = AggregatorEditPlugin.ADD_IU;
 
 		Command command = createAddIUsToMappedRepositoryCommand(owner, collection, operation);
 
-		if(command != null && command.canExecute())
+		if (command != null && command.canExecute())
 			return command;
 
 		return UnexecutableCommand.INSTANCE;
@@ -219,9 +202,8 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 			ResourceLocator resourceLocator, String displayName, String description, EStructuralFeature feature,
 			boolean isSettable, boolean multiLine, boolean sortChoices, Object staticImage, String category,
 			String[] filterFlags) {
-		return new ContributionItemProvider.DynamicItemPropertyDescriptor(
-			adapterFactory, resourceLocator, displayName, description, feature, isSettable, multiLine, sortChoices,
-			staticImage, category, filterFlags);
+		return new ContributionItemProvider.DynamicItemPropertyDescriptor(adapterFactory, resourceLocator, displayName,
+				description, feature, isSettable, multiLine, sortChoices, staticImage, category, filterFlags);
 	}
 
 	/**
@@ -231,9 +213,9 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 	@Deprecated
 	protected Command createRemoveCommand(EditingDomain domain, EObject owner, EReference feature,
 			Collection<?> collection) {
-		if(((MappedRepository) owner).isBranchEnabled() &&
-				((MappedRepository) owner).getMetadataRepository(false) != null &&
-				!((EObject) ((MappedRepository) owner).getMetadataRepository(false)).eIsProxy())
+		if (((MappedRepository) owner).isBranchEnabled()
+				&& ((MappedRepository) owner).getMetadataRepository(false) != null
+				&& !((EObject) ((MappedRepository) owner).getMetadataRepository(false)).eIsProxy())
 			return createCompoundRemoveCommand(domain, (MappedRepository) owner, feature, collection);
 
 		return UnexecutableCommand.INSTANCE;
@@ -245,13 +227,13 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 	@Override
 	protected Command createRemoveCommand(EditingDomain domain, EObject owner, EStructuralFeature feature,
 			Collection<?> collection) {
-		if(feature instanceof EReference) {
+		if (feature instanceof EReference) {
 			return createRemoveCommand(domain, owner, (EReference) feature, collection);
 		}
 
-		if(((MappedRepository) owner).isBranchEnabled() &&
-				((MappedRepository) owner).getMetadataRepository(false) != null &&
-				!((EObject) ((MappedRepository) owner).getMetadataRepository(false)).eIsProxy())
+		if (((MappedRepository) owner).isBranchEnabled()
+				&& ((MappedRepository) owner).getMetadataRepository(false) != null
+				&& !((EObject) ((MappedRepository) owner).getMetadataRepository(false)).eIsProxy())
 			return createCompoundRemoveCommand(domain, (MappedRepository) owner, feature, collection);
 
 		return UnexecutableCommand.INSTANCE;
@@ -262,10 +244,10 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 	 */
 	@Override
 	protected Command factorAddCommand(EditingDomain domain, CommandParameter commandParameter) {
-		Command command = createAddIUsToMappedRepositoryCommand(
-			commandParameter.getOwner(), commandParameter.getCollection(), AggregatorEditPlugin.ADD_IU);
+		Command command = createAddIUsToMappedRepositoryCommand(commandParameter.getOwner(),
+				commandParameter.getCollection(), AggregatorEditPlugin.ADD_IU);
 
-		if(command != null)
+		if (command != null)
 			return command;
 
 		return super.factorAddCommand(domain, commandParameter);
@@ -293,7 +275,7 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 	 */
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if(childrenFeatures == null) {
+		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(AggregatorPackage.Literals.MAPPED_REPOSITORY__PRODUCTS);
 			childrenFeatures.add(AggregatorPackage.Literals.MAPPED_REPOSITORY__BUNDLES);
@@ -319,9 +301,9 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 	 */
 	@Override
 	public Collection<?> getNewChildDescriptors(Object object, EditingDomain editingDomain, Object sibling) {
-		if(!(((MappedRepository) object).isBranchEnabled()) ||
-				((MappedRepository) object).getMetadataRepository(false) == null ||
-				((EObject) ((MappedRepository) object).getMetadataRepository(false)).eIsProxy())
+		if (!(((MappedRepository) object).isBranchEnabled())
+				|| ((MappedRepository) object).getMetadataRepository(false) == null
+				|| ((EObject) ((MappedRepository) object).getMetadataRepository(false)).eIsProxy())
 			return Collections.emptySet();
 
 		return super.getNewChildDescriptors(object, editingDomain, sibling);
@@ -334,7 +316,7 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addDescriptionPropertyDescriptor(object);
@@ -370,7 +352,7 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch(notification.getFeatureID(MappedRepository.class)) {
+		switch (notification.getFeatureID(MappedRepository.class)) {
 			case AggregatorPackage.MAPPED_REPOSITORY__DESCRIPTION:
 			case AggregatorPackage.MAPPED_REPOSITORY__MIRROR_ARTIFACTS:
 			case AggregatorPackage.MAPPED_REPOSITORY__CATEGORY_PREFIX:

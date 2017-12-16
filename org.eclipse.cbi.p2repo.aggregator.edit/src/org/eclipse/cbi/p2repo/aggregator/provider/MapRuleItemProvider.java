@@ -55,13 +55,11 @@ public class MapRuleItemProvider extends InstallableUnitRequestItemProvider {
 	 * @generated
 	 */
 	protected void addEnabledPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(
-			createItemPropertyDescriptor(
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
 				getString("_UI_EnabledStatusProvider_enabled_feature"),
-				getString(
-					"_UI_PropertyDescriptor_description", "_UI_EnabledStatusProvider_enabled_feature",
-					"_UI_EnabledStatusProvider_type"),
+				getString("_UI_PropertyDescriptor_description", "_UI_EnabledStatusProvider_enabled_feature",
+						"_UI_EnabledStatusProvider_type"),
 				AggregatorPackage.Literals.ENABLED_STATUS_PROVIDER__ENABLED, true, false, false,
 				ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}
@@ -79,7 +77,7 @@ public class MapRuleItemProvider extends InstallableUnitRequestItemProvider {
 
 	@Override
 	protected List<? extends InstallableUnitRequest> getContainerChildren(MappedRepository container) {
-		List<InstallableUnitRequest> featureRefs = new ArrayList<InstallableUnitRequest>();
+		List<InstallableUnitRequest> featureRefs = new ArrayList<>();
 		featureRefs.addAll(container.getMapRules());
 		featureRefs.addAll(container.getFeatures());
 
@@ -88,7 +86,7 @@ public class MapRuleItemProvider extends InstallableUnitRequestItemProvider {
 
 	@Override
 	protected IQuery<IInstallableUnit> getInstallableUnitQuery() {
-		List<IQuery<IInstallableUnit>> queries = new ArrayList<IQuery<IInstallableUnit>>();
+		List<IQuery<IInstallableUnit>> queries = new ArrayList<>();
 		queries.add(SpecialQueries.createProductQuery());
 		queries.add(SpecialQueries.createFeatureQuery());
 		queries.add(SpecialQueries.createBundleQuery());
@@ -102,7 +100,7 @@ public class MapRuleItemProvider extends InstallableUnitRequestItemProvider {
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addEnabledPropertyDescriptor(object);
@@ -121,7 +119,7 @@ public class MapRuleItemProvider extends InstallableUnitRequestItemProvider {
 		MapRule self = (MapRule) object;
 		String name = self.getName();
 		StringBuilder bld = new StringBuilder(getString("_UI_MapRule_type")).append(" : ");
-		if(name != null)
+		if (name != null)
 			bld.append(name);
 		return bld.toString();
 	}
@@ -134,25 +132,25 @@ public class MapRuleItemProvider extends InstallableUnitRequestItemProvider {
 	public void notifyChanged(Notification notification) {
 		notifyChangedGen(notification);
 
-		if(notification.getEventType() != Notification.SET)
+		if (notification.getEventType() != Notification.SET)
 			return;
 		MapRule notifier = ((MapRule) notification.getNotifier());
-		switch(notification.getFeatureID(ExclusionRule.class)) {
+		switch (notification.getFeatureID(ExclusionRule.class)) {
 			case AggregatorPackage.EXCLUSION_RULE__NAME:
 			case AggregatorPackage.EXCLUSION_RULE__VERSION_RANGE:
 				fireNotifyChanged(new ViewerNotification(notification, notifier, true, false));
 
-				Set<Object> affectedNodes = new HashSet<Object>();
+				Set<Object> affectedNodes = new HashSet<>();
 				affectedNodes.add(notifier);
 
 				// Go through all direct ancestors first
 				EObject container = ((EObject) notifier).eContainer();
 				affectedNodes.add(((EObject) notifier).eResource());
-				while(container != null) {
+				while (container != null) {
 					affectedNodes.add(container);
 					container = container.eContainer();
 				}
-				for(Object affectedNode : affectedNodes)
+				for (Object affectedNode : affectedNodes)
 					fireNotifyChanged(new ViewerNotification(notification, affectedNode, false, true));
 				return;
 		}
@@ -168,7 +166,7 @@ public class MapRuleItemProvider extends InstallableUnitRequestItemProvider {
 	public void notifyChangedGen(Notification notification) {
 		updateChildren(notification);
 
-		switch(notification.getFeatureID(MapRule.class)) {
+		switch (notification.getFeatureID(MapRule.class)) {
 			case AggregatorPackage.MAP_RULE__ENABLED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

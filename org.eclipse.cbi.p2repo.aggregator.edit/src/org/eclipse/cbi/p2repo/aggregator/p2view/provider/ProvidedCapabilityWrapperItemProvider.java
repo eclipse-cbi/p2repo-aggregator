@@ -12,7 +12,6 @@ package org.eclipse.cbi.p2repo.aggregator.p2view.provider;
 import java.util.Collection;
 import java.util.List;
 
-import org.eclipse.cbi.p2repo.p2.P2Package;
 import org.eclipse.cbi.p2repo.aggregator.AggregatorPackage;
 import org.eclipse.cbi.p2repo.aggregator.LabelProvider;
 import org.eclipse.cbi.p2repo.aggregator.p2view.P2viewPackage;
@@ -20,6 +19,7 @@ import org.eclipse.cbi.p2repo.aggregator.p2view.ProvidedCapabilityWrapper;
 import org.eclipse.cbi.p2repo.aggregator.provider.AggregatorEditPlugin;
 import org.eclipse.cbi.p2repo.aggregator.provider.AggregatorItemProviderAdapter;
 import org.eclipse.cbi.p2repo.aggregator.util.CapabilityNamespaceImageProvider;
+import org.eclipse.cbi.p2repo.p2.P2Package;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
@@ -58,14 +58,13 @@ public class ProvidedCapabilityWrapperItemProvider extends AggregatorItemProvide
 	 * @generated
 	 */
 	protected void addLabelPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(
-			createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_LabelProvider_label_feature"),
-				getString(
-					"_UI_PropertyDescriptor_description", "_UI_LabelProvider_label_feature", "_UI_LabelProvider_type"),
-				AggregatorPackage.Literals.LABEL_PROVIDER__LABEL, false, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_LabelProvider_label_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_LabelProvider_label_feature",
+								"_UI_LabelProvider_type"),
+						AggregatorPackage.Literals.LABEL_PROVIDER__LABEL, false, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -74,15 +73,13 @@ public class ProvidedCapabilityWrapperItemProvider extends AggregatorItemProvide
 	 * @generated
 	 */
 	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(
-			createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_IProvidedCapability_name_feature"),
-				getString(
-					"_UI_PropertyDescriptor_description", "_UI_IProvidedCapability_name_feature",
-					"_UI_IProvidedCapability_type"),
-				P2Package.Literals.IPROVIDED_CAPABILITY__NAME, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_IProvidedCapability_name_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_IProvidedCapability_name_feature",
+								"_UI_IProvidedCapability_type"),
+						P2Package.Literals.IPROVIDED_CAPABILITY__NAME, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -91,15 +88,13 @@ public class ProvidedCapabilityWrapperItemProvider extends AggregatorItemProvide
 	 * @generated
 	 */
 	protected void addNamespacePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(
-			createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_IProvidedCapability_namespace_feature"),
-				getString(
-					"_UI_PropertyDescriptor_description", "_UI_IProvidedCapability_namespace_feature",
-					"_UI_IProvidedCapability_type"),
-				P2Package.Literals.IPROVIDED_CAPABILITY__NAMESPACE, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_IProvidedCapability_namespace_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_IProvidedCapability_namespace_feature",
+								"_UI_IProvidedCapability_type"),
+						P2Package.Literals.IPROVIDED_CAPABILITY__NAMESPACE, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -108,15 +103,13 @@ public class ProvidedCapabilityWrapperItemProvider extends AggregatorItemProvide
 	 * @generated
 	 */
 	protected void addVersionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(
-			createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_IProvidedCapability_version_feature"),
-				getString(
-					"_UI_PropertyDescriptor_description", "_UI_IProvidedCapability_version_feature",
-					"_UI_IProvidedCapability_type"),
-				P2Package.Literals.IPROVIDED_CAPABILITY__VERSION, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_IProvidedCapability_version_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_IProvidedCapability_version_feature",
+								"_UI_IProvidedCapability_type"),
+						P2Package.Literals.IPROVIDED_CAPABILITY__VERSION, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -140,7 +133,7 @@ public class ProvidedCapabilityWrapperItemProvider extends AggregatorItemProvide
 		ProvidedCapabilityWrapper pcw = (ProvidedCapabilityWrapper) object;
 
 		Object image = CapabilityNamespaceImageProvider.getImage(pcw.getNamespace());
-		if(image == null)
+		if (image == null)
 			image = getResourceLocator().getImage("full/obj16/ProvidedCapability");
 
 		return overlayImage(object, image);
@@ -153,7 +146,7 @@ public class ProvidedCapabilityWrapperItemProvider extends AggregatorItemProvide
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
@@ -195,7 +188,7 @@ public class ProvidedCapabilityWrapperItemProvider extends AggregatorItemProvide
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch(notification.getFeatureID(ProvidedCapabilityWrapper.class)) {
+		switch (notification.getFeatureID(ProvidedCapabilityWrapper.class)) {
 			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__NAME:
 			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__NAMESPACE:
 			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__VERSION:

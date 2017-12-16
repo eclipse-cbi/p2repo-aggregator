@@ -68,13 +68,12 @@ public class P2viewActionBarContributor extends EditingDomainActionBarContributo
 	 * @generated
 	 */
 	protected IAction showPropertiesViewAction = new Action(
-		AggregatorEditorPlugin.INSTANCE.getString("_UI_ShowPropertiesView_menu_item")) {
+			AggregatorEditorPlugin.INSTANCE.getString("_UI_ShowPropertiesView_menu_item")) {
 		@Override
 		public void run() {
 			try {
 				getPage().showView("org.eclipse.ui.views.PropertySheet");
-			}
-			catch(PartInitException exception) {
+			} catch (PartInitException exception) {
 				AggregatorEditorPlugin.INSTANCE.log(exception);
 			}
 		}
@@ -87,7 +86,7 @@ public class P2viewActionBarContributor extends EditingDomainActionBarContributo
 	 * @generated
 	 */
 	protected IAction refreshViewerAction = new Action(
-		AggregatorEditorPlugin.INSTANCE.getString("_UI_RefreshViewer_menu_item")) {
+			AggregatorEditorPlugin.INSTANCE.getString("_UI_RefreshViewer_menu_item")) {
 		@Override
 		public boolean isEnabled() {
 			return activeEditorPart instanceof IViewerProvider;
@@ -95,9 +94,9 @@ public class P2viewActionBarContributor extends EditingDomainActionBarContributo
 
 		@Override
 		public void run() {
-			if(activeEditorPart instanceof IViewerProvider) {
+			if (activeEditorPart instanceof IViewerProvider) {
 				Viewer viewer = ((IViewerProvider) activeEditorPart).getViewer();
-				if(viewer != null) {
+				if (viewer != null) {
 					viewer.refresh();
 				}
 			}
@@ -175,8 +174,8 @@ public class P2viewActionBarContributor extends EditingDomainActionBarContributo
 		super.contributeToMenu(menuManager);
 
 		IMenuManager submenuManager = new MenuManager(
-			AggregatorEditorPlugin.INSTANCE.getString("_UI_P2viewEditor_menu"),
-			"org.eclipse.cbi.p2repo.aggregator.p2viewMenuID");
+				AggregatorEditorPlugin.INSTANCE.getString("_UI_P2viewEditor_menu"),
+				"org.eclipse.cbi.p2repo.aggregator.p2viewMenuID");
 		menuManager.insertAfter("additions", submenuManager);
 		submenuManager.add(new Separator("settings"));
 		submenuManager.add(new Separator("actions"));
@@ -186,13 +185,13 @@ public class P2viewActionBarContributor extends EditingDomainActionBarContributo
 		// Prepare for CreateChild item addition or removal.
 		//
 		createChildMenuManager = new MenuManager(
-			AggregatorEditorPlugin.INSTANCE.getString("_UI_CreateChild_menu_item"));
+				AggregatorEditorPlugin.INSTANCE.getString("_UI_CreateChild_menu_item"));
 		submenuManager.insertBefore("additions", createChildMenuManager);
 
 		// Prepare for CreateSibling item addition or removal.
 		//
 		createSiblingMenuManager = new MenuManager(
-			AggregatorEditorPlugin.INSTANCE.getString("_UI_CreateSibling_menu_item"));
+				AggregatorEditorPlugin.INSTANCE.getString("_UI_CreateSibling_menu_item"));
 		submenuManager.insertBefore("additions", createSiblingMenuManager);
 
 		// Force an update because Eclipse hides empty menus now.
@@ -226,21 +225,21 @@ public class P2viewActionBarContributor extends EditingDomainActionBarContributo
 	 * @generated
 	 */
 	protected void depopulateManager(IContributionManager manager, Collection<? extends IAction> actions) {
-		if(actions != null) {
+		if (actions != null) {
 			IContributionItem[] items = manager.getItems();
-			for(int i = 0; i < items.length; i++) {
+			for (int i = 0; i < items.length; i++) {
 				// Look into SubContributionItems
 				//
 				IContributionItem contributionItem = items[i];
-				while(contributionItem instanceof SubContributionItem) {
+				while (contributionItem instanceof SubContributionItem) {
 					contributionItem = ((SubContributionItem) contributionItem).getInnerItem();
 				}
 
 				// Delete the ActionContributionItems with matching action.
 				//
-				if(contributionItem instanceof ActionContributionItem) {
+				if (contributionItem instanceof ActionContributionItem) {
 					IAction action = ((ActionContributionItem) contributionItem).getAction();
-					if(actions.contains(action)) {
+					if (actions.contains(action)) {
 						manager.remove(contributionItem);
 					}
 				}
@@ -256,9 +255,9 @@ public class P2viewActionBarContributor extends EditingDomainActionBarContributo
 	 * @generated
 	 */
 	protected Collection<IAction> generateCreateChildActions(Collection<?> descriptors, ISelection selection) {
-		Collection<IAction> actions = new ArrayList<IAction>();
-		if(descriptors != null) {
-			for(Object descriptor : descriptors) {
+		Collection<IAction> actions = new ArrayList<>();
+		if (descriptors != null) {
+			for (Object descriptor : descriptors) {
 				actions.add(new CreateChildAction(activeEditorPart, selection, descriptor));
 			}
 		}
@@ -273,9 +272,9 @@ public class P2viewActionBarContributor extends EditingDomainActionBarContributo
 	 * @generated
 	 */
 	protected Collection<IAction> generateCreateSiblingActions(Collection<?> descriptors, ISelection selection) {
-		Collection<IAction> actions = new ArrayList<IAction>();
-		if(descriptors != null) {
-			for(Object descriptor : descriptors) {
+		Collection<IAction> actions = new ArrayList<>();
+		if (descriptors != null) {
+			for (Object descriptor : descriptors) {
 				actions.add(new CreateSiblingAction(activeEditorPart, selection, descriptor));
 			}
 		}
@@ -311,12 +310,11 @@ public class P2viewActionBarContributor extends EditingDomainActionBarContributo
 	 */
 	protected void populateManager(IContributionManager manager, Collection<? extends IAction> actions,
 			String contributionID) {
-		if(actions != null) {
-			for(IAction action : actions) {
-				if(contributionID != null) {
+		if (actions != null) {
+			for (IAction action : actions) {
+				if (contributionID != null) {
 					manager.insertBefore(contributionID, action);
-				}
-				else {
+				} else {
 					manager.add(action);
 				}
 			}
@@ -345,10 +343,10 @@ public class P2viewActionBarContributor extends EditingDomainActionBarContributo
 	public void selectionChanged(SelectionChangedEvent event) {
 		// Remove any menu items for old selection.
 		//
-		if(createChildMenuManager != null) {
+		if (createChildMenuManager != null) {
 			depopulateManager(createChildMenuManager, createChildActions);
 		}
-		if(createSiblingMenuManager != null) {
+		if (createSiblingMenuManager != null) {
 			depopulateManager(createSiblingMenuManager, createSiblingActions);
 		}
 
@@ -358,7 +356,7 @@ public class P2viewActionBarContributor extends EditingDomainActionBarContributo
 		Collection<?> newSiblingDescriptors = null;
 
 		ISelection selection = event.getSelection();
-		if(selection instanceof IStructuredSelection && ((IStructuredSelection) selection).size() == 1) {
+		if (selection instanceof IStructuredSelection && ((IStructuredSelection) selection).size() == 1) {
 			Object object = ((IStructuredSelection) selection).getFirstElement();
 
 			EditingDomain domain = ((IEditingDomainProvider) activeEditorPart).getEditingDomain();
@@ -372,11 +370,11 @@ public class P2viewActionBarContributor extends EditingDomainActionBarContributo
 		createChildActions = generateCreateChildActions(newChildDescriptors, selection);
 		createSiblingActions = generateCreateSiblingActions(newSiblingDescriptors, selection);
 
-		if(createChildMenuManager != null) {
+		if (createChildMenuManager != null) {
 			populateManager(createChildMenuManager, createChildActions, null);
 			createChildMenuManager.update(true);
 		}
-		if(createSiblingMenuManager != null) {
+		if (createSiblingMenuManager != null) {
 			populateManager(createSiblingMenuManager, createSiblingActions, null);
 			createSiblingMenuManager.update(true);
 		}
@@ -395,19 +393,18 @@ public class P2viewActionBarContributor extends EditingDomainActionBarContributo
 
 		// Switch to the new selection provider.
 		//
-		if(selectionProvider != null) {
+		if (selectionProvider != null) {
 			selectionProvider.removeSelectionChangedListener(this);
 		}
-		if(part == null) {
+		if (part == null) {
 			selectionProvider = null;
-		}
-		else {
+		} else {
 			selectionProvider = part.getSite().getSelectionProvider();
 			selectionProvider.addSelectionChangedListener(this);
 
 			// Fake a selection changed event to update the menus.
 			//
-			if(selectionProvider.getSelection() != null) {
+			if (selectionProvider.getSelection() != null) {
 				selectionChanged(new SelectionChangedEvent(selectionProvider, selectionProvider.getSelection()));
 			}
 		}

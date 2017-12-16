@@ -57,19 +57,17 @@ public class RepositoryBrowserImpl extends MinimalEObjectImpl.Container implemen
 			Object nf = notification.getNotifier();
 
 			// We listen to when resources change
-			boolean loading = nf instanceof ResourceSet &&
-					notification.getFeatureID(ResourceSet.class) == ResourceSet.RESOURCE_SET__RESOURCES;
+			boolean loading = nf instanceof ResourceSet
+					&& notification.getFeatureID(ResourceSet.class) == ResourceSet.RESOURCE_SET__RESOURCES;
 
-			if(!loading)
+			if (!loading)
 				// We also listen to when a reference to a repository changes its reference.
 				loading = nf instanceof MetadataRepositoryReference && notification.getFeatureID(
-					MetadataRepositoryReference.class) == AggregatorPackage.METADATA_REPOSITORY_REFERENCE__METADATA_REPOSITORY;
+						MetadataRepositoryReference.class) == AggregatorPackage.METADATA_REPOSITORY_REFERENCE__METADATA_REPOSITORY;
 
-			if(loading) {
-				eNotify(
-					new ENotificationImpl(
-						RepositoryBrowserImpl.this, Notification.SET, P2viewPackage.REPOSITORY_BROWSER__LOADING, null,
-						null));
+			if (loading) {
+				eNotify(new ENotificationImpl(RepositoryBrowserImpl.this, Notification.SET,
+						P2viewPackage.REPOSITORY_BROWSER__LOADING, null, null));
 			}
 		}
 	}
@@ -120,8 +118,8 @@ public class RepositoryBrowserImpl extends MinimalEObjectImpl.Container implemen
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if(baseClass == ChildrenProvider.class) {
-			switch(derivedFeatureID) {
+		if (baseClass == ChildrenProvider.class) {
+			switch (derivedFeatureID) {
 				case P2viewPackage.REPOSITORY_BROWSER__CHILDREN:
 					return AggregatorPackage.CHILDREN_PROVIDER__CHILDREN;
 				default:
@@ -138,8 +136,8 @@ public class RepositoryBrowserImpl extends MinimalEObjectImpl.Container implemen
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if(baseClass == ChildrenProvider.class) {
-			switch(baseFeatureID) {
+		if (baseClass == ChildrenProvider.class) {
+			switch (baseFeatureID) {
 				case AggregatorPackage.CHILDREN_PROVIDER__CHILDREN:
 					return P2viewPackage.REPOSITORY_BROWSER__CHILDREN;
 				default:
@@ -156,7 +154,7 @@ public class RepositoryBrowserImpl extends MinimalEObjectImpl.Container implemen
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.REPOSITORY_BROWSER__STATUS:
 				return getStatus();
 			case P2viewPackage.REPOSITORY_BROWSER__CHILDREN:
@@ -176,7 +174,7 @@ public class RepositoryBrowserImpl extends MinimalEObjectImpl.Container implemen
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.REPOSITORY_BROWSER__STATUS:
 				return getStatus() != null;
 			case P2viewPackage.REPOSITORY_BROWSER__CHILDREN:
@@ -197,7 +195,7 @@ public class RepositoryBrowserImpl extends MinimalEObjectImpl.Container implemen
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.REPOSITORY_BROWSER__REPOSITORIES:
 				getRepositories().clear();
 				getRepositories().addAll((Collection<? extends MetadataRepositoryStructuredView>) newValue);
@@ -223,7 +221,7 @@ public class RepositoryBrowserImpl extends MinimalEObjectImpl.Container implemen
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.REPOSITORY_BROWSER__REPOSITORIES:
 				getRepositories().clear();
 				return;
@@ -251,14 +249,13 @@ public class RepositoryBrowserImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public EList<MetadataRepositoryStructuredView> getRepositories() {
 		List<Resource> resources = getResources();
-		EList<MetadataRepositoryStructuredView> result = new BasicEList<MetadataRepositoryStructuredView>(
-			resources.size() - 1);
-		for(Resource resource : resources) {
-			if(resource instanceof MetadataRepositoryResourceImpl) {
+		EList<MetadataRepositoryStructuredView> result = new BasicEList<>(resources.size() - 1);
+		for (Resource resource : resources) {
+			if (resource instanceof MetadataRepositoryResourceImpl) {
 				EList<EObject> contents = resource.getContents();
-				if(contents.size() == 1) {
+				if (contents.size() == 1) {
 					EObject view = contents.get(0);
-					if(view instanceof MetadataRepositoryStructuredView)
+					if (view instanceof MetadataRepositoryStructuredView)
 						result.add((MetadataRepositoryStructuredView) view);
 				}
 			}
@@ -269,14 +266,14 @@ public class RepositoryBrowserImpl extends MinimalEObjectImpl.Container implemen
 	private List<Resource> getResources() {
 		List<Resource> result = null;
 		Resource aggrResource = ((EObject) aggregation).eResource();
-		if(aggrResource != null) {
+		if (aggrResource != null) {
 			ResourceSet rs = aggrResource.getResourceSet();
-			if(rs != null)
+			if (rs != null)
 				// We need a clone here to avoid ConcurrentModificationException
 				// when iterating
-				result = new ArrayList<Resource>(rs.getResources());
+				result = new ArrayList<>(rs.getResources());
 		}
-		if(result == null)
+		if (result == null)
 			result = Collections.emptyList();
 		return result;
 	}
@@ -290,11 +287,11 @@ public class RepositoryBrowserImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public Status getStatus() {
 		Status result = null;
-		for(Resource resource : getResources()) {
-			if(!(resource instanceof MetadataRepositoryResourceImpl))
+		for (Resource resource : getResources()) {
+			if (!(resource instanceof MetadataRepositoryResourceImpl))
 				continue;
 			Status childStatus = ((MetadataRepositoryResourceImpl) resource).getStatus();
-			switch(childStatus.getCode()) {
+			switch (childStatus.getCode()) {
 				case BROKEN:
 					return childStatus;
 				case WAITING:
@@ -302,7 +299,7 @@ public class RepositoryBrowserImpl extends MinimalEObjectImpl.Container implemen
 					break;
 			}
 		}
-		if(result == null)
+		if (result == null)
 			result = AggregatorFactory.eINSTANCE.createStatus(StatusCode.OK);
 		return result;
 	}
@@ -316,9 +313,9 @@ public class RepositoryBrowserImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public boolean isLoading() {
 		boolean loading = false;
-		for(Resource resource : getResources()) {
-			if(resource instanceof MetadataRepositoryResourceImpl &&
-					((MetadataRepositoryResourceImpl) resource).isLoading()) {
+		for (Resource resource : getResources()) {
+			if (resource instanceof MetadataRepositoryResourceImpl
+					&& ((MetadataRepositoryResourceImpl) resource).isLoading()) {
 				loading = true;
 				break;
 			}

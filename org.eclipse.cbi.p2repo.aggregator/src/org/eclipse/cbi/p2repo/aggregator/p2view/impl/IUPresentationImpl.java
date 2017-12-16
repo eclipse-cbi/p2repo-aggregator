@@ -205,7 +205,7 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.IU_PRESENTATION__ID:
 				return getId();
 			case P2viewPackage.IU_PRESENTATION__VERSION:
@@ -232,33 +232,21 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.IU_PRESENTATION__ID:
-				return ID_EDEFAULT == null
-						? id != null
-						: !ID_EDEFAULT.equals(id);
+				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 			case P2viewPackage.IU_PRESENTATION__VERSION:
-				return VERSION_EDEFAULT == null
-						? version != null
-						: !VERSION_EDEFAULT.equals(version);
+				return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
 			case P2viewPackage.IU_PRESENTATION__NAME:
-				return NAME_EDEFAULT == null
-						? name != null
-						: !NAME_EDEFAULT.equals(name);
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case P2viewPackage.IU_PRESENTATION__LABEL:
-				return LABEL_EDEFAULT == null
-						? label != null
-						: !LABEL_EDEFAULT.equals(label);
+				return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
 			case P2viewPackage.IU_PRESENTATION__DESCRIPTION:
-				return DESCRIPTION_EDEFAULT == null
-						? description != null
-						: !DESCRIPTION_EDEFAULT.equals(description);
+				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 			case P2viewPackage.IU_PRESENTATION__TYPE:
 				return getType() != TYPE_EDEFAULT;
 			case P2viewPackage.IU_PRESENTATION__FILTER:
-				return FILTER_EDEFAULT == null
-						? filter != null
-						: !FILTER_EDEFAULT.equals(filter);
+				return FILTER_EDEFAULT == null ? filter != null : !FILTER_EDEFAULT.equals(filter);
 			case P2viewPackage.IU_PRESENTATION__INSTALLABLE_UNIT:
 				return installableUnit != null;
 		}
@@ -271,7 +259,7 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.IU_PRESENTATION__ID:
 				setId((String) newValue);
 				return;
@@ -312,7 +300,7 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.IU_PRESENTATION__ID:
 				setId(ID_EDEFAULT);
 				return;
@@ -418,10 +406,9 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 	public void setDescription(String newDescription) {
 		String oldDescription = description;
 		description = newDescription;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, P2viewPackage.IU_PRESENTATION__DESCRIPTION, oldDescription, description));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.IU_PRESENTATION__DESCRIPTION,
+					oldDescription, description));
 	}
 
 	/**
@@ -433,10 +420,9 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 	public void setFilter(String newFilter) {
 		String oldFilter = filter;
 		filter = newFilter;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, P2viewPackage.IU_PRESENTATION__FILTER, oldFilter, filter));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.IU_PRESENTATION__FILTER, oldFilter,
+					filter));
 	}
 
 	/**
@@ -447,7 +433,7 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 	public void setId(String newId) {
 		String oldId = id;
 		id = newId;
-		if(eNotificationRequired())
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.IU_PRESENTATION__ID, oldId, id));
 	}
 
@@ -460,11 +446,9 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 	public void setInstallableUnit(IInstallableUnit newInstallableUnit) {
 		IInstallableUnit oldInstallableUnit = installableUnit;
 		installableUnit = newInstallableUnit;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, P2viewPackage.IU_PRESENTATION__INSTALLABLE_UNIT, oldInstallableUnit,
-					installableUnit));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.IU_PRESENTATION__INSTALLABLE_UNIT,
+					oldInstallableUnit, installableUnit));
 	}
 
 	/**
@@ -475,9 +459,9 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 	public void setLabel(String newLabel) {
 		String oldLabel = label;
 		label = newLabel;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(this, Notification.SET, P2viewPackage.IU_PRESENTATION__LABEL, oldLabel, label));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.IU_PRESENTATION__LABEL, oldLabel,
+					label));
 	}
 
 	/**
@@ -488,7 +472,7 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
-		if(eNotificationRequired())
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.IU_PRESENTATION__NAME, oldName, name));
 	}
 
@@ -500,10 +484,9 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 	public void setVersion(Version newVersion) {
 		Version oldVersion = version;
 		version = newVersion;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, P2viewPackage.IU_PRESENTATION__VERSION, oldVersion, version));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.IU_PRESENTATION__VERSION, oldVersion,
+					version));
 	}
 
 	/**
@@ -512,7 +495,7 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 	 */
 	@Override
 	public String toString() {
-		if(eIsProxy())
+		if (eIsProxy())
 			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());

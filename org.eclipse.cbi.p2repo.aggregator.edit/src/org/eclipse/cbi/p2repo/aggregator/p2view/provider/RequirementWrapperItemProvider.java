@@ -12,7 +12,6 @@ package org.eclipse.cbi.p2repo.aggregator.p2view.provider;
 import java.util.Collection;
 import java.util.List;
 
-import org.eclipse.cbi.p2repo.p2.P2Package;
 import org.eclipse.cbi.p2repo.aggregator.AggregatorPackage;
 import org.eclipse.cbi.p2repo.aggregator.LabelProvider;
 import org.eclipse.cbi.p2repo.aggregator.p2view.P2viewPackage;
@@ -20,6 +19,7 @@ import org.eclipse.cbi.p2repo.aggregator.p2view.RequirementWrapper;
 import org.eclipse.cbi.p2repo.aggregator.provider.AggregatorEditPlugin;
 import org.eclipse.cbi.p2repo.aggregator.provider.AggregatorItemProviderAdapter;
 import org.eclipse.cbi.p2repo.aggregator.util.CapabilityNamespaceImageProvider;
+import org.eclipse.cbi.p2repo.p2.P2Package;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
@@ -62,15 +62,13 @@ public class RequirementWrapperItemProvider extends AggregatorItemProviderAdapte
 	 * @generated
 	 */
 	protected void addDescriptionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(
-			createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_IRequirement_description_feature"),
-				getString(
-					"_UI_PropertyDescriptor_description", "_UI_IRequirement_description_feature",
-					"_UI_IRequirement_type"),
-				P2Package.Literals.IREQUIREMENT__DESCRIPTION, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_IRequirement_description_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_IRequirement_description_feature",
+								"_UI_IRequirement_type"),
+						P2Package.Literals.IREQUIREMENT__DESCRIPTION, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -80,14 +78,13 @@ public class RequirementWrapperItemProvider extends AggregatorItemProviderAdapte
 	 * @generated
 	 */
 	protected void addFilterPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(
-			createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_IRequirement_filter_feature"),
-				getString(
-					"_UI_PropertyDescriptor_description", "_UI_IRequirement_filter_feature", "_UI_IRequirement_type"),
-				P2Package.Literals.IREQUIREMENT__FILTER, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				null, null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_IRequirement_filter_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_IRequirement_filter_feature",
+								"_UI_IRequirement_type"),
+						P2Package.Literals.IREQUIREMENT__FILTER, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -97,14 +94,13 @@ public class RequirementWrapperItemProvider extends AggregatorItemProviderAdapte
 	 * @generated
 	 */
 	protected void addGreedyPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(
-			createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_IRequirement_greedy_feature"),
-				getString(
-					"_UI_PropertyDescriptor_description", "_UI_IRequirement_greedy_feature", "_UI_IRequirement_type"),
-				P2Package.Literals.IREQUIREMENT__GREEDY, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				null, null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_IRequirement_greedy_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_IRequirement_greedy_feature",
+								"_UI_IRequirement_type"),
+						P2Package.Literals.IREQUIREMENT__GREEDY, true, false, false,
+						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -114,14 +110,13 @@ public class RequirementWrapperItemProvider extends AggregatorItemProviderAdapte
 	 * @generated
 	 */
 	protected void addLabelPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(
-			createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_LabelProvider_label_feature"),
-				getString(
-					"_UI_PropertyDescriptor_description", "_UI_LabelProvider_label_feature", "_UI_LabelProvider_type"),
-				AggregatorPackage.Literals.LABEL_PROVIDER__LABEL, false, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_LabelProvider_label_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_LabelProvider_label_feature",
+								"_UI_LabelProvider_type"),
+						AggregatorPackage.Literals.LABEL_PROVIDER__LABEL, false, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -131,14 +126,13 @@ public class RequirementWrapperItemProvider extends AggregatorItemProviderAdapte
 	 * @generated
 	 */
 	protected void addMatchesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(
-			createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_IRequirement_matches_feature"),
-				getString(
-					"_UI_PropertyDescriptor_description", "_UI_IRequirement_matches_feature", "_UI_IRequirement_type"),
-				P2Package.Literals.IREQUIREMENT__MATCHES, false, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_IRequirement_matches_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_IRequirement_matches_feature",
+								"_UI_IRequirement_type"),
+						P2Package.Literals.IREQUIREMENT__MATCHES, false, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -148,14 +142,13 @@ public class RequirementWrapperItemProvider extends AggregatorItemProviderAdapte
 	 * @generated
 	 */
 	protected void addMaxPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(
-			createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_IRequirement_max_feature"),
-				getString(
-					"_UI_PropertyDescriptor_description", "_UI_IRequirement_max_feature", "_UI_IRequirement_type"),
-				P2Package.Literals.IREQUIREMENT__MAX, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				null, null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_IRequirement_max_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_IRequirement_max_feature",
+								"_UI_IRequirement_type"),
+						P2Package.Literals.IREQUIREMENT__MAX, true, false, false,
+						ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -165,14 +158,13 @@ public class RequirementWrapperItemProvider extends AggregatorItemProviderAdapte
 	 * @generated
 	 */
 	protected void addMinPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(
-			createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_IRequirement_min_feature"),
-				getString(
-					"_UI_PropertyDescriptor_description", "_UI_IRequirement_min_feature", "_UI_IRequirement_type"),
-				P2Package.Literals.IREQUIREMENT__MIN, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				null, null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_IRequirement_min_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_IRequirement_min_feature",
+								"_UI_IRequirement_type"),
+						P2Package.Literals.IREQUIREMENT__MIN, true, false, false,
+						ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -200,9 +192,9 @@ public class RequirementWrapperItemProvider extends AggregatorItemProviderAdapte
 
 		Object image = null;
 
-		if(rcw.getGenuine() instanceof IRequiredCapability)
+		if (rcw.getGenuine() instanceof IRequiredCapability)
 			image = CapabilityNamespaceImageProvider.getImage(((IRequiredCapability) rcw.getGenuine()).getNamespace());
-		if(image == null)
+		if (image == null)
 			image = getResourceLocator().getImage("full/obj16/Requirement");
 
 		return overlayImage(object, image);
@@ -216,7 +208,7 @@ public class RequirementWrapperItemProvider extends AggregatorItemProviderAdapte
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addFilterPropertyDescriptor(object);
@@ -264,7 +256,7 @@ public class RequirementWrapperItemProvider extends AggregatorItemProviderAdapte
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch(notification.getFeatureID(RequirementWrapper.class)) {
+		switch (notification.getFeatureID(RequirementWrapper.class)) {
 			case P2viewPackage.REQUIREMENT_WRAPPER__FILTER:
 			case P2viewPackage.REQUIREMENT_WRAPPER__MAX:
 			case P2viewPackage.REQUIREMENT_WRAPPER__MIN:

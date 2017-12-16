@@ -34,9 +34,9 @@ import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.MappedUnitImpl#isBranchEnabled <em>Branch Enabled</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.MappedUnitImpl#isEnabled <em>Enabled</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.MappedUnitImpl#getValidConfigurations <em>Valid Configurations</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.MappedUnitImpl#isBranchEnabled <em>Branch Enabled</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.MappedUnitImpl#isEnabled <em>Enabled</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.MappedUnitImpl#getValidConfigurations <em>Valid Configurations</em>}</li>
  * </ul>
  *
  * @generated
@@ -46,7 +46,6 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 	 * The default value of the '{@link #isBranchEnabled() <em>Branch Enabled</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #isBranchEnabled()
 	 * @generated
 	 * @ordered
@@ -57,7 +56,6 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 	 * The default value of the '{@link #isEnabled() <em>Enabled</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @see #isEnabled()
 	 * @generated
 	 * @ordered
@@ -68,7 +66,6 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 	 * The flag representing the value of the '{@link #isEnabled() <em>Enabled</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #isEnabled()
 	 * @generated
 	 * @ordered
@@ -78,11 +75,11 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 	private static IMatchExpression<IInstallableUnit> createFilter(Collection<AvailableVersion> availableVersions,
 			List<Configuration> configs) {
 		StringBuilder configFilterBld = new StringBuilder();
-		if(!(configs == null || configs.isEmpty())) {
-			if(configs.size() > 1)
+		if (!(configs == null || configs.isEmpty())) {
+			if (configs.size() > 1)
 				configFilterBld.append("(|");
 
-			for(Configuration config : configs) {
+			for (Configuration config : configs) {
 				configFilterBld.append("(&(osgi.os=");
 				configFilterBld.append(config.getOperatingSystem().getLiteral());
 				configFilterBld.append(")(osgi.ws=");
@@ -91,45 +88,38 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 				configFilterBld.append(config.getArchitecture().getLiteral());
 				configFilterBld.append("))");
 			}
-			if(configs.size() > 1)
+			if (configs.size() > 1)
 				configFilterBld.append(')');
 		}
 
 		IMatchExpression<IInstallableUnit> inheritedFilter = null;
-		for(AvailableVersion version : availableVersions) {
-			if(inheritedFilter == null)
+		for (AvailableVersion version : availableVersions) {
+			if (inheritedFilter == null)
 				inheritedFilter = version.getFilter();
-			else if(!inheritedFilter.equals(version.getFilter())) {
+			else if (!inheritedFilter.equals(version.getFilter())) {
 				inheritedFilter = null;
 				break;
 			}
 		}
 
-		StringBuilder filterBld = new StringBuilder(
-			inheritedFilter != null
-					? inheritedFilter.toString()
-					: "");
-		Object[] parameters = new Object[(inheritedFilter != null
-				? inheritedFilter.getParameters().length
-				: 0) +
-				(configFilterBld.length() > 0
-						? 1
-						: 0)];
+		StringBuilder filterBld = new StringBuilder(inheritedFilter != null ? inheritedFilter.toString() : "");
+		Object[] parameters = new Object[(inheritedFilter != null ? inheritedFilter.getParameters().length : 0)
+				+ (configFilterBld.length() > 0 ? 1 : 0)];
 
 		int paramIdx = 0;
-		if(inheritedFilter != null) {
-			for(Object param : inheritedFilter.getParameters())
+		if (inheritedFilter != null) {
+			for (Object param : inheritedFilter.getParameters())
 				parameters[paramIdx++] = param;
 		}
 
-		if(configFilterBld.length() > 0) {
-			if(inheritedFilter != null)
+		if (configFilterBld.length() > 0) {
+			if (inheritedFilter != null)
 				filterBld.append(" && ");
 			filterBld.append("properties ~= $" + paramIdx);
 			parameters[paramIdx] = ExpressionUtil.parseLDAP(configFilterBld.toString());
 		}
 
-		if(filterBld.length() > 0)
+		if (filterBld.length() > 0)
 			return ExpressionUtil.getFactory().matchExpression(ExpressionUtil.parse(filterBld.toString()), parameters);
 
 		return null;
@@ -147,7 +137,6 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected MappedUnitImpl() {
@@ -157,13 +146,12 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if(baseClass == EnabledStatusProvider.class) {
-			switch(derivedFeatureID) {
+		if (baseClass == EnabledStatusProvider.class) {
+			switch (derivedFeatureID) {
 				case AggregatorPackage.MAPPED_UNIT__BRANCH_ENABLED:
 					return AggregatorPackage.ENABLED_STATUS_PROVIDER__BRANCH_ENABLED;
 				case AggregatorPackage.MAPPED_UNIT__ENABLED:
@@ -172,8 +160,8 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 					return -1;
 			}
 		}
-		if(baseClass == IdentificationProvider.class) {
-			switch(derivedFeatureID) {
+		if (baseClass == IdentificationProvider.class) {
+			switch (derivedFeatureID) {
 				default:
 					return -1;
 			}
@@ -183,13 +171,12 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if(baseClass == EnabledStatusProvider.class) {
-			switch(baseFeatureID) {
+		if (baseClass == EnabledStatusProvider.class) {
+			switch (baseFeatureID) {
 				case AggregatorPackage.ENABLED_STATUS_PROVIDER__BRANCH_ENABLED:
 					return AggregatorPackage.MAPPED_UNIT__BRANCH_ENABLED;
 				case AggregatorPackage.ENABLED_STATUS_PROVIDER__ENABLED:
@@ -198,8 +185,8 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 					return -1;
 			}
 		}
-		if(baseClass == IdentificationProvider.class) {
-			switch(baseFeatureID) {
+		if (baseClass == IdentificationProvider.class) {
+			switch (baseFeatureID) {
 				default:
 					return -1;
 			}
@@ -209,12 +196,11 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case AggregatorPackage.MAPPED_UNIT__BRANCH_ENABLED:
 				return isBranchEnabled();
 			case AggregatorPackage.MAPPED_UNIT__ENABLED:
@@ -227,12 +213,11 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case AggregatorPackage.MAPPED_UNIT__BRANCH_ENABLED:
 				return isSetBranchEnabled();
 			case AggregatorPackage.MAPPED_UNIT__ENABLED:
@@ -245,13 +230,12 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case AggregatorPackage.MAPPED_UNIT__ENABLED:
 				setEnabled((Boolean) newValue);
 				return;
@@ -265,7 +249,6 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -275,12 +258,11 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case AggregatorPackage.MAPPED_UNIT__ENABLED:
 				setEnabled(ENABLED_EDEFAULT);
 				return;
@@ -313,7 +295,7 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 		StringBuilder bld = new StringBuilder();
 		bld.append(getName());
 		VersionRange range = getVersionRange();
-		if(range != null && !VersionRange.emptyRange.equals(range)) {
+		if (range != null && !VersionRange.emptyRange.equals(range)) {
 			bld.append(' ');
 			bld.append(range);
 		}
@@ -329,20 +311,19 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 	@Override
 	public IRequirement getRequirement() {
 		// TODO Cache calculated value
-		return MetadataFactory.createRequirement(
-			IInstallableUnit.NAMESPACE_IU_ID, getName(), getVersionRange(), getFilter(), false, false);
+		return MetadataFactory.createRequirement(IInstallableUnit.NAMESPACE_IU_ID, getName(), getVersionRange(),
+				getFilter(), false, false);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public EList<Configuration> getValidConfigurations() {
-		if(validConfigurations == null) {
-			validConfigurations = new EObjectResolvingEList<Configuration>(
-				Configuration.class, this, AggregatorPackage.MAPPED_UNIT__VALID_CONFIGURATIONS);
+		if (validConfigurations == null) {
+			validConfigurations = new EObjectResolvingEList<>(Configuration.class, this,
+					AggregatorPackage.MAPPED_UNIT__VALID_CONFIGURATIONS);
 		}
 		return validConfigurations;
 	}
@@ -360,7 +341,6 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -370,9 +350,7 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 
 	@Override
 	public boolean isMappedRepositoryBroken() {
-		return isBranchEnabled()
-				? super.isMappedRepositoryBroken()
-				: false;
+		return isBranchEnabled() ? super.isMappedRepositoryBroken() : false;
 	}
 
 	/**
@@ -388,30 +366,27 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setEnabled(boolean newEnabled) {
 		boolean oldEnabled = (eFlags & ENABLED_EFLAG) != 0;
-		if(newEnabled)
+		if (newEnabled)
 			eFlags |= ENABLED_EFLAG;
 		else
 			eFlags &= ~ENABLED_EFLAG;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, AggregatorPackage.MAPPED_UNIT__ENABLED, oldEnabled, newEnabled));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.MAPPED_UNIT__ENABLED, oldEnabled,
+					newEnabled));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if(eIsProxy())
+		if (eIsProxy())
 			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());

@@ -64,7 +64,7 @@ public class FeaturesImpl extends MinimalEObjectImpl.Container implements Featur
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.FEATURES__CHILDREN:
 				return getChildren();
 			case P2viewPackage.FEATURES__FEATURES:
@@ -79,7 +79,7 @@ public class FeaturesImpl extends MinimalEObjectImpl.Container implements Featur
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.FEATURES__CHILDREN:
 				return !getChildren().isEmpty();
 			case P2viewPackage.FEATURES__FEATURES:
@@ -95,7 +95,7 @@ public class FeaturesImpl extends MinimalEObjectImpl.Container implements Featur
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.FEATURES__FEATURES:
 				getFeatures().clear();
 				getFeatures().addAll((Collection<? extends Feature>) newValue);
@@ -119,7 +119,7 @@ public class FeaturesImpl extends MinimalEObjectImpl.Container implements Featur
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.FEATURES__FEATURES:
 				getFeatures().clear();
 				return;
@@ -143,8 +143,8 @@ public class FeaturesImpl extends MinimalEObjectImpl.Container implements Featur
 	 */
 	@Override
 	public EList<Feature> getFeatures() {
-		if(features == null) {
-			features = new EObjectResolvingEList<Feature>(Feature.class, this, P2viewPackage.FEATURES__FEATURES);
+		if (features == null) {
+			features = new EObjectResolvingEList<>(Feature.class, this, P2viewPackage.FEATURES__FEATURES);
 		}
 		return features;
 	}

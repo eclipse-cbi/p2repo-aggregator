@@ -51,10 +51,10 @@ public final class AggregatorPlugin extends EMFPlugin {
 		@Override
 		public void start(BundleContext context) throws Exception {
 			super.start(context);
-			supportedNatures = new ArrayList<String>();
+			supportedNatures = new ArrayList<>();
 
-			for(IConfigurationElement extension : Platform.getExtensionRegistry().getConfigurationElementsFor(
-				IRepositoryLoader.EXTENSION_POINT_ID))
+			for (IConfigurationElement extension : Platform.getExtensionRegistry()
+					.getConfigurationElementsFor(IRepositoryLoader.EXTENSION_POINT_ID))
 				supportedNatures.add(extension.getAttribute(IRepositoryLoader.EXTENSION_POINT_ATTRIBUTE_NATURE));
 
 			Collections.sort(supportedNatures);

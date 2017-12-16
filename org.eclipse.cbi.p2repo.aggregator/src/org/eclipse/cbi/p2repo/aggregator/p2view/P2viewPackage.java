@@ -9,8 +9,8 @@
  */
 package org.eclipse.cbi.p2repo.aggregator.p2view;
 
-import org.eclipse.cbi.p2repo.p2.P2Package;
 import org.eclipse.cbi.p2repo.aggregator.AggregatorPackage;
+import org.eclipse.cbi.p2repo.p2.P2Package;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -65,7 +65,8 @@ public interface P2viewPackage extends EPackage {
 		 *
 		 * @generated
 		 */
-		EReference METADATA_REPOSITORY_STRUCTURED_VIEW__INSTALLABLE_UNIT_LIST = eINSTANCE.getMetadataRepositoryStructuredView_InstallableUnitList();
+		EReference METADATA_REPOSITORY_STRUCTURED_VIEW__INSTALLABLE_UNIT_LIST = eINSTANCE
+				.getMetadataRepositoryStructuredView_InstallableUnitList();
 
 		/**
 		 * The meta object literal for the '<em><b>Properties</b></em>' containment reference feature. <!--
@@ -73,7 +74,8 @@ public interface P2viewPackage extends EPackage {
 		 *
 		 * @generated
 		 */
-		EReference METADATA_REPOSITORY_STRUCTURED_VIEW__PROPERTIES = eINSTANCE.getMetadataRepositoryStructuredView_Properties();
+		EReference METADATA_REPOSITORY_STRUCTURED_VIEW__PROPERTIES = eINSTANCE
+				.getMetadataRepositoryStructuredView_Properties();
 
 		/**
 		 * The meta object literal for the '<em><b>Metadata Repository</b></em>' containment reference feature. <!--
@@ -81,7 +83,8 @@ public interface P2viewPackage extends EPackage {
 		 *
 		 * @generated
 		 */
-		EReference METADATA_REPOSITORY_STRUCTURED_VIEW__METADATA_REPOSITORY = eINSTANCE.getMetadataRepositoryStructuredView_MetadataRepository();
+		EReference METADATA_REPOSITORY_STRUCTURED_VIEW__METADATA_REPOSITORY = eINSTANCE
+				.getMetadataRepositoryStructuredView_MetadataRepository();
 
 		/**
 		 * The meta object literal for the '<em><b>Loaded</b></em>' attribute feature.
@@ -97,7 +100,8 @@ public interface P2viewPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference METADATA_REPOSITORY_STRUCTURED_VIEW__REPOSITORY_REFERENCES = eINSTANCE.getMetadataRepositoryStructuredView_RepositoryReferences();
+		EReference METADATA_REPOSITORY_STRUCTURED_VIEW__REPOSITORY_REFERENCES = eINSTANCE
+				.getMetadataRepositoryStructuredView_RepositoryReferences();
 
 		/**
 		 * The meta object literal for the '<em><b>Location</b></em>' attribute feature.
@@ -105,7 +109,8 @@ public interface P2viewPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute METADATA_REPOSITORY_STRUCTURED_VIEW__LOCATION = eINSTANCE.getMetadataRepositoryStructuredView_Location();
+		EAttribute METADATA_REPOSITORY_STRUCTURED_VIEW__LOCATION = eINSTANCE
+				.getMetadataRepositoryStructuredView_Location();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.cbi.p2repo.aggregator.p2view.impl.InstallableUnitsImpl <em>Installable Units</em>}' class.
@@ -362,7 +367,8 @@ public interface P2viewPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute IU_PRESENTATION_WITH_DETAILS__DETAILS_RESOLVED = eINSTANCE.getIUPresentationWithDetails_DetailsResolved();
+		EAttribute IU_PRESENTATION_WITH_DETAILS__DETAILS_RESOLVED = eINSTANCE
+				.getIUPresentationWithDetails_DetailsResolved();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.cbi.p2repo.aggregator.p2view.impl.CategoryImpl <em>Category</em>}' class.
@@ -564,7 +570,8 @@ public interface P2viewPackage extends EPackage {
 		 *
 		 * @generated
 		 */
-		EReference PROVIDED_CAPABILITIES__PROVIDED_CAPABILITIES = eINSTANCE.getProvidedCapabilities_ProvidedCapabilities();
+		EReference PROVIDED_CAPABILITIES__PROVIDED_CAPABILITIES = eINSTANCE
+				.getProvidedCapabilities_ProvidedCapabilities();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.cbi.p2repo.aggregator.p2view.impl.TouchpointsImpl <em>Touchpoints</em>}' class.
@@ -751,7 +758,8 @@ public interface P2viewPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference REPOSITORY_REFERENCES__REPOSITORY_REFERENCES = eINSTANCE.getRepositoryReferences_RepositoryReferences();
+		EReference REPOSITORY_REFERENCES__REPOSITORY_REFERENCES = eINSTANCE
+				.getRepositoryReferences_RepositoryReferences();
 
 	}
 
@@ -2139,8 +2147,8 @@ public interface P2viewPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int METADATA_REPOSITORY_STRUCTURED_VIEW__INSTALLABLE_UNIT_LIST = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT +
-			1;
+	int METADATA_REPOSITORY_STRUCTURED_VIEW__INSTALLABLE_UNIT_LIST = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT
+			+ 1;
 
 	/**
 	 * The feature id for the '<em><b>Properties</b></em>' containment reference.
@@ -2158,8 +2166,8 @@ public interface P2viewPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int METADATA_REPOSITORY_STRUCTURED_VIEW__METADATA_REPOSITORY = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT +
-			3;
+	int METADATA_REPOSITORY_STRUCTURED_VIEW__METADATA_REPOSITORY = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT
+			+ 3;
 
 	/**
 	 * The feature id for the '<em><b>Loaded</b></em>' attribute.
@@ -2176,8 +2184,8 @@ public interface P2viewPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int METADATA_REPOSITORY_STRUCTURED_VIEW__REPOSITORY_REFERENCES = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT +
-			5;
+	int METADATA_REPOSITORY_STRUCTURED_VIEW__REPOSITORY_REFERENCES = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT
+			+ 5;
 
 	/**
 	 * The feature id for the '<em><b>Location</b></em>' attribute.

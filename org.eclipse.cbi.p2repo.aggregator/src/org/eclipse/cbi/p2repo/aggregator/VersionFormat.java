@@ -123,9 +123,9 @@ public enum VersionFormat implements Enumerator {
 	 * @generated
 	 */
 	public static VersionFormat get(String literal) {
-		for(int i = 0; i < VALUES_ARRAY.length; ++i) {
+		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
 			VersionFormat result = VALUES_ARRAY[i];
-			if(result.toString().equals(literal)) {
+			if (result.toString().equals(literal)) {
 				return result;
 			}
 		}
@@ -141,9 +141,9 @@ public enum VersionFormat implements Enumerator {
 	 * @generated
 	 */
 	public static VersionFormat getByName(String name) {
-		for(int i = 0; i < VALUES_ARRAY.length; ++i) {
+		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
 			VersionFormat result = VALUES_ARRAY[i];
-			if(result.getName().equals(name)) {
+			if (result.getName().equals(name)) {
 				return result;
 			}
 		}
@@ -159,7 +159,7 @@ public enum VersionFormat implements Enumerator {
 	 * @generated
 	 */
 	public static VersionFormat get(int value) {
-		switch(value) {
+		switch (value) {
 			case NORMAL_VALUE:
 				return NORMAL;
 			case STRICT_MAVEN_VALUE:

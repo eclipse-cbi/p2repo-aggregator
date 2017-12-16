@@ -64,7 +64,7 @@ public class MiscellaneousImpl extends MinimalEObjectImpl.Container implements M
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.MISCELLANEOUS__CHILDREN:
 				return getChildren();
 			case P2viewPackage.MISCELLANEOUS__OTHERS:
@@ -79,7 +79,7 @@ public class MiscellaneousImpl extends MinimalEObjectImpl.Container implements M
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.MISCELLANEOUS__CHILDREN:
 				return !getChildren().isEmpty();
 			case P2viewPackage.MISCELLANEOUS__OTHERS:
@@ -95,7 +95,7 @@ public class MiscellaneousImpl extends MinimalEObjectImpl.Container implements M
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.MISCELLANEOUS__OTHERS:
 				getOthers().clear();
 				getOthers().addAll((Collection<? extends OtherIU>) newValue);
@@ -119,7 +119,7 @@ public class MiscellaneousImpl extends MinimalEObjectImpl.Container implements M
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.MISCELLANEOUS__OTHERS:
 				getOthers().clear();
 				return;
@@ -143,8 +143,8 @@ public class MiscellaneousImpl extends MinimalEObjectImpl.Container implements M
 	 */
 	@Override
 	public EList<OtherIU> getOthers() {
-		if(others == null) {
-			others = new EObjectResolvingEList<OtherIU>(OtherIU.class, this, P2viewPackage.MISCELLANEOUS__OTHERS);
+		if (others == null) {
+			others = new EObjectResolvingEList<>(OtherIU.class, this, P2viewPackage.MISCELLANEOUS__OTHERS);
 		}
 		return others;
 	}

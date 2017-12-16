@@ -84,7 +84,7 @@ public class InfosProviderImpl extends MinimalEObjectImpl.Container implements I
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case AggregatorPackage.INFOS_PROVIDER__ERRORS:
 				return getErrors();
 			case AggregatorPackage.INFOS_PROVIDER__WARNINGS:
@@ -101,7 +101,7 @@ public class InfosProviderImpl extends MinimalEObjectImpl.Container implements I
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case AggregatorPackage.INFOS_PROVIDER__ERRORS:
 				return errors != null && !errors.isEmpty();
 			case AggregatorPackage.INFOS_PROVIDER__WARNINGS:
@@ -119,7 +119,7 @@ public class InfosProviderImpl extends MinimalEObjectImpl.Container implements I
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case AggregatorPackage.INFOS_PROVIDER__ERRORS:
 				getErrors().clear();
 				getErrors().addAll((Collection<? extends String>) newValue);
@@ -151,7 +151,7 @@ public class InfosProviderImpl extends MinimalEObjectImpl.Container implements I
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case AggregatorPackage.INFOS_PROVIDER__ERRORS:
 				getErrors().clear();
 				return;
@@ -171,8 +171,8 @@ public class InfosProviderImpl extends MinimalEObjectImpl.Container implements I
 	 */
 	@Override
 	public EList<String> getErrors() {
-		if(errors == null) {
-			errors = new EDataTypeUniqueEList<String>(String.class, this, AggregatorPackage.INFOS_PROVIDER__ERRORS);
+		if (errors == null) {
+			errors = new EDataTypeUniqueEList<>(String.class, this, AggregatorPackage.INFOS_PROVIDER__ERRORS);
 		}
 		return errors;
 	}
@@ -184,8 +184,8 @@ public class InfosProviderImpl extends MinimalEObjectImpl.Container implements I
 	 */
 	@Override
 	public EList<String> getInfos() {
-		if(infos == null) {
-			infos = new EDataTypeUniqueEList<String>(String.class, this, AggregatorPackage.INFOS_PROVIDER__INFOS);
+		if (infos == null) {
+			infos = new EDataTypeUniqueEList<>(String.class, this, AggregatorPackage.INFOS_PROVIDER__INFOS);
 		}
 		return infos;
 	}
@@ -196,8 +196,8 @@ public class InfosProviderImpl extends MinimalEObjectImpl.Container implements I
 	 */
 	@Override
 	public EList<String> getWarnings() {
-		if(warnings == null) {
-			warnings = new EDataTypeUniqueEList<String>(String.class, this, AggregatorPackage.INFOS_PROVIDER__WARNINGS);
+		if (warnings == null) {
+			warnings = new EDataTypeUniqueEList<>(String.class, this, AggregatorPackage.INFOS_PROVIDER__WARNINGS);
 		}
 		return warnings;
 	}
@@ -208,7 +208,7 @@ public class InfosProviderImpl extends MinimalEObjectImpl.Container implements I
 	 */
 	@Override
 	public String toString() {
-		if(eIsProxy())
+		if (eIsProxy())
 			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());

@@ -64,7 +64,7 @@ public class ProductsImpl extends MinimalEObjectImpl.Container implements Produc
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.PRODUCTS__CHILDREN:
 				return getChildren();
 			case P2viewPackage.PRODUCTS__PRODUCTS:
@@ -79,7 +79,7 @@ public class ProductsImpl extends MinimalEObjectImpl.Container implements Produc
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.PRODUCTS__CHILDREN:
 				return !getChildren().isEmpty();
 			case P2viewPackage.PRODUCTS__PRODUCTS:
@@ -95,7 +95,7 @@ public class ProductsImpl extends MinimalEObjectImpl.Container implements Produc
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.PRODUCTS__PRODUCTS:
 				getProducts().clear();
 				getProducts().addAll((Collection<? extends Product>) newValue);
@@ -119,7 +119,7 @@ public class ProductsImpl extends MinimalEObjectImpl.Container implements Produc
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.PRODUCTS__PRODUCTS:
 				getProducts().clear();
 				return;
@@ -143,8 +143,8 @@ public class ProductsImpl extends MinimalEObjectImpl.Container implements Produc
 	 */
 	@Override
 	public EList<Product> getProducts() {
-		if(products == null) {
-			products = new EObjectResolvingEList<Product>(Product.class, this, P2viewPackage.PRODUCTS__PRODUCTS);
+		if (products == null) {
+			products = new EObjectResolvingEList<>(Product.class, this, P2viewPackage.PRODUCTS__PRODUCTS);
 		}
 		return products;
 	}

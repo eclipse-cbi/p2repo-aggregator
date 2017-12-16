@@ -608,7 +608,8 @@ public interface AggregatorPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS_HEADER = eINSTANCE.getInstallableUnitRequest_AvailableVersionsHeader();
+		EReference INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS_HEADER = eINSTANCE
+				.getInstallableUnitRequest_AvailableVersionsHeader();
 
 		/**
 		 * The meta object literal for the '<em><b>Available Versions</b></em>' containment reference list feature.
@@ -616,7 +617,8 @@ public interface AggregatorPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS = eINSTANCE.getInstallableUnitRequest_AvailableVersions();
+		EReference INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS = eINSTANCE
+				.getInstallableUnitRequest_AvailableVersions();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.ExclusionRuleImpl <em>Exclusion Rule</em>}' class.
@@ -642,7 +644,8 @@ public interface AggregatorPackage extends EPackage {
 		 *
 		 * @generated
 		 */
-		EReference VALID_CONFIGURATIONS_RULE__VALID_CONFIGURATIONS = eINSTANCE.getValidConfigurationsRule_ValidConfigurations();
+		EReference VALID_CONFIGURATIONS_RULE__VALID_CONFIGURATIONS = eINSTANCE
+				.getValidConfigurationsRule_ValidConfigurations();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.MetadataRepositoryReferenceImpl <em>Metadata Repository Reference</em>}' class.
@@ -659,7 +662,8 @@ public interface AggregatorPackage extends EPackage {
 		 * --> <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference METADATA_REPOSITORY_REFERENCE__METADATA_REPOSITORY = eINSTANCE.getMetadataRepositoryReference_MetadataRepository();
+		EReference METADATA_REPOSITORY_REFERENCE__METADATA_REPOSITORY = eINSTANCE
+				.getMetadataRepositoryReference_MetadataRepository();
 
 		/**
 		 * The meta object literal for the '<em><b>Location</b></em>' attribute feature.
@@ -743,7 +747,8 @@ public interface AggregatorPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference AVAILABLE_VERSIONS_HEADER__AVAILABLE_VERSIONS = eINSTANCE.getAvailableVersionsHeader_AvailableVersions();
+		EReference AVAILABLE_VERSIONS_HEADER__AVAILABLE_VERSIONS = eINSTANCE
+				.getAvailableVersionsHeader_AvailableVersions();
 
 		/**
 		 * The meta object literal for the '<em><b>Installable Unit Request</b></em>' container reference feature.
@@ -751,7 +756,8 @@ public interface AggregatorPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference AVAILABLE_VERSIONS_HEADER__INSTALLABLE_UNIT_REQUEST = eINSTANCE.getAvailableVersionsHeader_InstallableUnitRequest();
+		EReference AVAILABLE_VERSIONS_HEADER__INSTALLABLE_UNIT_REQUEST = eINSTANCE
+				.getAvailableVersionsHeader_InstallableUnitRequest();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.AvailableVersionImpl <em>Available Version</em>}' class.

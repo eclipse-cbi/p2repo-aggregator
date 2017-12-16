@@ -147,7 +147,7 @@ public class MavenItemImpl extends MinimalEObjectImpl.Container implements Maven
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case AggregatorPackage.MAVEN_ITEM__GROUP_ID:
 				return getGroupId();
 			case AggregatorPackage.MAVEN_ITEM__ARTIFACT_ID:
@@ -157,7 +157,7 @@ public class MavenItemImpl extends MinimalEObjectImpl.Container implements Maven
 			case AggregatorPackage.MAVEN_ITEM__CLASSIFIER:
 				return getClassifier();
 			case AggregatorPackage.MAVEN_ITEM__MAVEN_MAPPING:
-				if(resolve)
+				if (resolve)
 					return getMavenMapping();
 				return basicGetMavenMapping();
 		}
@@ -170,23 +170,16 @@ public class MavenItemImpl extends MinimalEObjectImpl.Container implements Maven
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case AggregatorPackage.MAVEN_ITEM__GROUP_ID:
-				return GROUP_ID_EDEFAULT == null
-						? groupId != null
-						: !GROUP_ID_EDEFAULT.equals(groupId);
+				return GROUP_ID_EDEFAULT == null ? groupId != null : !GROUP_ID_EDEFAULT.equals(groupId);
 			case AggregatorPackage.MAVEN_ITEM__ARTIFACT_ID:
-				return ARTIFACT_ID_EDEFAULT == null
-						? artifactId != null
-						: !ARTIFACT_ID_EDEFAULT.equals(artifactId);
+				return ARTIFACT_ID_EDEFAULT == null ? artifactId != null : !ARTIFACT_ID_EDEFAULT.equals(artifactId);
 			case AggregatorPackage.MAVEN_ITEM__MAPPED_VERSION:
-				return MAPPED_VERSION_EDEFAULT == null
-						? mappedVersion != null
+				return MAPPED_VERSION_EDEFAULT == null ? mappedVersion != null
 						: !MAPPED_VERSION_EDEFAULT.equals(mappedVersion);
 			case AggregatorPackage.MAVEN_ITEM__CLASSIFIER:
-				return CLASSIFIER_EDEFAULT == null
-						? classifier != null
-						: !CLASSIFIER_EDEFAULT.equals(classifier);
+				return CLASSIFIER_EDEFAULT == null ? classifier != null : !CLASSIFIER_EDEFAULT.equals(classifier);
 			case AggregatorPackage.MAVEN_ITEM__MAVEN_MAPPING:
 				return mavenMapping != null;
 		}
@@ -199,7 +192,7 @@ public class MavenItemImpl extends MinimalEObjectImpl.Container implements Maven
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case AggregatorPackage.MAVEN_ITEM__GROUP_ID:
 				setGroupId((String) newValue);
 				return;
@@ -234,7 +227,7 @@ public class MavenItemImpl extends MinimalEObjectImpl.Container implements Maven
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case AggregatorPackage.MAVEN_ITEM__GROUP_ID:
 				setGroupId(GROUP_ID_EDEFAULT);
 				return;
@@ -300,10 +293,9 @@ public class MavenItemImpl extends MinimalEObjectImpl.Container implements Maven
 	public void setArtifactId(String newArtifactId) {
 		String oldArtifactId = artifactId;
 		artifactId = newArtifactId;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, AggregatorPackage.MAVEN_ITEM__ARTIFACT_ID, oldArtifactId, artifactId));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.MAVEN_ITEM__ARTIFACT_ID,
+					oldArtifactId, artifactId));
 	}
 
 	/**
@@ -325,11 +317,9 @@ public class MavenItemImpl extends MinimalEObjectImpl.Container implements Maven
 	public void setMappedVersion(String newMappedVersion) {
 		String oldMappedVersion = mappedVersion;
 		mappedVersion = newMappedVersion;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, AggregatorPackage.MAVEN_ITEM__MAPPED_VERSION, oldMappedVersion,
-					mappedVersion));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.MAVEN_ITEM__MAPPED_VERSION,
+					oldMappedVersion, mappedVersion));
 	}
 
 	/**
@@ -341,10 +331,9 @@ public class MavenItemImpl extends MinimalEObjectImpl.Container implements Maven
 	public void setClassifier(String newClassifier) {
 		String oldClassifier = classifier;
 		classifier = newClassifier;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, AggregatorPackage.MAVEN_ITEM__CLASSIFIER, oldClassifier, classifier));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.MAVEN_ITEM__CLASSIFIER,
+					oldClassifier, classifier));
 	}
 
 	/**
@@ -354,15 +343,13 @@ public class MavenItemImpl extends MinimalEObjectImpl.Container implements Maven
 	 */
 	@Override
 	public MavenMapping getMavenMapping() {
-		if(mavenMapping != null && ((EObject) mavenMapping).eIsProxy()) {
+		if (mavenMapping != null && ((EObject) mavenMapping).eIsProxy()) {
 			InternalEObject oldMavenMapping = (InternalEObject) mavenMapping;
 			mavenMapping = (MavenMapping) eResolveProxy(oldMavenMapping);
-			if(mavenMapping != oldMavenMapping) {
-				if(eNotificationRequired())
-					eNotify(
-						new ENotificationImpl(
-							this, Notification.RESOLVE, AggregatorPackage.MAVEN_ITEM__MAVEN_MAPPING, oldMavenMapping,
-							mavenMapping));
+			if (mavenMapping != oldMavenMapping) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+							AggregatorPackage.MAVEN_ITEM__MAVEN_MAPPING, oldMavenMapping, mavenMapping));
 			}
 		}
 		return mavenMapping;
@@ -386,11 +373,9 @@ public class MavenItemImpl extends MinimalEObjectImpl.Container implements Maven
 	public void setMavenMapping(MavenMapping newMavenMapping) {
 		MavenMapping oldMavenMapping = mavenMapping;
 		mavenMapping = newMavenMapping;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, AggregatorPackage.MAVEN_ITEM__MAVEN_MAPPING, oldMavenMapping,
-					mavenMapping));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.MAVEN_ITEM__MAVEN_MAPPING,
+					oldMavenMapping, mavenMapping));
 	}
 
 	/**
@@ -401,10 +386,9 @@ public class MavenItemImpl extends MinimalEObjectImpl.Container implements Maven
 	public void setGroupId(String newGroupId) {
 		String oldGroupId = groupId;
 		groupId = newGroupId;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, AggregatorPackage.MAVEN_ITEM__GROUP_ID, oldGroupId, groupId));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.MAVEN_ITEM__GROUP_ID, oldGroupId,
+					groupId));
 	}
 
 	/**
@@ -413,7 +397,7 @@ public class MavenItemImpl extends MinimalEObjectImpl.Container implements Maven
 	 */
 	@Override
 	public String toString() {
-		if(eIsProxy())
+		if (eIsProxy())
 			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());

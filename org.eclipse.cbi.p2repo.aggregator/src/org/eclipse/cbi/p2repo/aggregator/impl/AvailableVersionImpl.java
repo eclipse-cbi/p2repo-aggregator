@@ -73,7 +73,8 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int VERSION_MATCH_EFLAG_DEFAULT = VERSION_MATCH_EDEFAULT.ordinal() << VERSION_MATCH_EFLAG_OFFSET;
+	protected static final int VERSION_MATCH_EFLAG_DEFAULT = VERSION_MATCH_EDEFAULT
+			.ordinal() << VERSION_MATCH_EFLAG_OFFSET;
 
 	/**
 	 * The array of enumeration values for '{@link VersionMatch Version Match}'
@@ -150,7 +151,8 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int AVAILABLE_FROM_EFLAG_DEFAULT = AVAILABLE_FROM_EDEFAULT.ordinal() << AVAILABLE_FROM_EFLAG_OFFSET;
+	protected static final int AVAILABLE_FROM_EFLAG_DEFAULT = AVAILABLE_FROM_EDEFAULT
+			.ordinal() << AVAILABLE_FROM_EFLAG_OFFSET;
 
 	/**
 	 * The array of enumeration values for '{@link AvailableFrom Available From}'
@@ -188,11 +190,11 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	 */
 	@Override
 	public int compareTo(AvailableVersion o) {
-		if(version == o.getVersion())
+		if (version == o.getVersion())
 			return 0;
-		if(version == null)
+		if (version == null)
 			return 1;
-		if(o.getVersion() == null)
+		if (o.getVersion() == null)
 			return -1;
 		return o.getVersion().compareTo(version);
 	}
@@ -204,7 +206,7 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case AggregatorPackage.AVAILABLE_VERSION__VERSION_MATCH:
 				return getVersionMatch();
 			case AggregatorPackage.AVAILABLE_VERSION__VERSION:
@@ -224,13 +226,11 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case AggregatorPackage.AVAILABLE_VERSION__VERSION_MATCH:
 				return (eFlags & VERSION_MATCH_EFLAG) != VERSION_MATCH_EFLAG_DEFAULT;
 			case AggregatorPackage.AVAILABLE_VERSION__VERSION:
-				return VERSION_EDEFAULT == null
-						? version != null
-						: !VERSION_EDEFAULT.equals(version);
+				return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
 			case AggregatorPackage.AVAILABLE_VERSION__FILTER:
 				return filter != null;
 			case AggregatorPackage.AVAILABLE_VERSION__AVAILABLE_FROM:
@@ -247,7 +247,7 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case AggregatorPackage.AVAILABLE_VERSION__VERSION_MATCH:
 				setVersionMatch((VersionMatch) newValue);
 				return;
@@ -281,7 +281,7 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case AggregatorPackage.AVAILABLE_VERSION__VERSION_MATCH:
 				setVersionMatch(VERSION_MATCH_EDEFAULT);
 				return;
@@ -345,16 +345,14 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	 */
 	@Override
 	public void setAvailableFrom(AvailableFrom newAvailableFrom) {
-		AvailableFrom oldAvailableFrom = AVAILABLE_FROM_EFLAG_VALUES[(eFlags &
-				AVAILABLE_FROM_EFLAG) >>> AVAILABLE_FROM_EFLAG_OFFSET];
-		if(newAvailableFrom == null)
+		AvailableFrom oldAvailableFrom = AVAILABLE_FROM_EFLAG_VALUES[(eFlags
+				& AVAILABLE_FROM_EFLAG) >>> AVAILABLE_FROM_EFLAG_OFFSET];
+		if (newAvailableFrom == null)
 			newAvailableFrom = AVAILABLE_FROM_EDEFAULT;
 		eFlags = eFlags & ~AVAILABLE_FROM_EFLAG | newAvailableFrom.ordinal() << AVAILABLE_FROM_EFLAG_OFFSET;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, AggregatorPackage.AVAILABLE_VERSION__AVAILABLE_FROM, oldAvailableFrom,
-					newAvailableFrom));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.AVAILABLE_VERSION__AVAILABLE_FROM,
+					oldAvailableFrom, newAvailableFrom));
 	}
 
 	/**
@@ -366,10 +364,9 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	public void setFilter(IMatchExpression<IInstallableUnit> newFilter) {
 		IMatchExpression<IInstallableUnit> oldFilter = filter;
 		filter = newFilter;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, AggregatorPackage.AVAILABLE_VERSION__FILTER, oldFilter, filter));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.AVAILABLE_VERSION__FILTER,
+					oldFilter, filter));
 	}
 
 	/**
@@ -381,10 +378,9 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	public void setVersion(Version newVersion) {
 		Version oldVersion = version;
 		version = newVersion;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, AggregatorPackage.AVAILABLE_VERSION__VERSION, oldVersion, version));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.AVAILABLE_VERSION__VERSION,
+					oldVersion, version));
 	}
 
 	/**
@@ -394,16 +390,14 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	 */
 	@Override
 	public void setVersionMatch(VersionMatch newVersionMatch) {
-		VersionMatch oldVersionMatch = VERSION_MATCH_EFLAG_VALUES[(eFlags &
-				VERSION_MATCH_EFLAG) >>> VERSION_MATCH_EFLAG_OFFSET];
-		if(newVersionMatch == null)
+		VersionMatch oldVersionMatch = VERSION_MATCH_EFLAG_VALUES[(eFlags
+				& VERSION_MATCH_EFLAG) >>> VERSION_MATCH_EFLAG_OFFSET];
+		if (newVersionMatch == null)
 			newVersionMatch = VERSION_MATCH_EDEFAULT;
 		eFlags = eFlags & ~VERSION_MATCH_EFLAG | newVersionMatch.ordinal() << VERSION_MATCH_EFLAG_OFFSET;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, AggregatorPackage.AVAILABLE_VERSION__VERSION_MATCH, oldVersionMatch,
-					newVersionMatch));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.AVAILABLE_VERSION__VERSION_MATCH,
+					oldVersionMatch, newVersionMatch));
 	}
 
 	/**
@@ -413,7 +407,7 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	 */
 	@Override
 	public String toString() {
-		if(eIsProxy())
+		if (eIsProxy())
 			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());

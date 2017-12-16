@@ -41,7 +41,6 @@ public class MavenItemItemProvider extends AggregatorItemProviderAdapter
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public MavenItemItemProvider(AdapterFactory adapterFactory) {
@@ -51,94 +50,84 @@ public class MavenItemItemProvider extends AggregatorItemProviderAdapter
 	/**
 	 * This adds a property descriptor for the Artifact Id feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected void addArtifactIdPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(
-			createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_MavenItem_artifactId_feature"),
-				getString(
-					"_UI_PropertyDescriptor_description", "_UI_MavenItem_artifactId_feature", "_UI_MavenItem_type"),
-				AggregatorPackage.Literals.MAVEN_ITEM__ARTIFACT_ID, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_MavenItem_artifactId_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_MavenItem_artifactId_feature",
+								"_UI_MavenItem_type"),
+						AggregatorPackage.Literals.MAVEN_ITEM__ARTIFACT_ID, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Classifier feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected void addClassifierPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(
-			createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_MavenItem_classifier_feature"),
-				getString(
-					"_UI_PropertyDescriptor_description", "_UI_MavenItem_classifier_feature", "_UI_MavenItem_type"),
-				AggregatorPackage.Literals.MAVEN_ITEM__CLASSIFIER, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_MavenItem_classifier_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_MavenItem_classifier_feature",
+								"_UI_MavenItem_type"),
+						AggregatorPackage.Literals.MAVEN_ITEM__CLASSIFIER, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Group Id feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected void addGroupIdPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(
-			createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_MavenItem_groupId_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_MavenItem_groupId_feature", "_UI_MavenItem_type"),
-				AggregatorPackage.Literals.MAVEN_ITEM__GROUP_ID, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_MavenItem_groupId_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_MavenItem_groupId_feature",
+								"_UI_MavenItem_type"),
+						AggregatorPackage.Literals.MAVEN_ITEM__GROUP_ID, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Mapped Version feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected void addMappedVersionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(
-			createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_MavenItem_mappedVersion_feature"),
-				getString(
-					"_UI_PropertyDescriptor_description", "_UI_MavenItem_mappedVersion_feature", "_UI_MavenItem_type"),
-				AggregatorPackage.Literals.MAVEN_ITEM__MAPPED_VERSION, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_MavenItem_mappedVersion_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_MavenItem_mappedVersion_feature",
+								"_UI_MavenItem_type"),
+						AggregatorPackage.Literals.MAVEN_ITEM__MAPPED_VERSION, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Maven Mapping feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected void addMavenMappingPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(
-			createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_MavenItem_mavenMapping_feature"),
-				getString(
-					"_UI_PropertyDescriptor_description", "_UI_MavenItem_mavenMapping_feature", "_UI_MavenItem_type"),
-				AggregatorPackage.Literals.MAVEN_ITEM__MAVEN_MAPPING, true, false, true, null, null, null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_MavenItem_mavenMapping_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_MavenItem_mavenMapping_feature",
+								"_UI_MavenItem_type"),
+						AggregatorPackage.Literals.MAVEN_ITEM__MAVEN_MAPPING, true, false, true, null, null, null));
 	}
 
 	/**
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -149,7 +138,6 @@ public class MavenItemItemProvider extends AggregatorItemProviderAdapter
 	/**
 	 * This returns MavenItem.gif.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -160,12 +148,11 @@ public class MavenItemItemProvider extends AggregatorItemProviderAdapter
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addGroupIdPropertyDescriptor(object);
@@ -180,7 +167,6 @@ public class MavenItemItemProvider extends AggregatorItemProviderAdapter
 	/**
 	 * Return the resource locator for this item provider's resources.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -199,10 +185,10 @@ public class MavenItemItemProvider extends AggregatorItemProviderAdapter
 		MavenItem self = (MavenItem) object;
 		StringBuilder bld = new StringBuilder(getString("_UI_MavenItem_type")).append(" : ");
 		String groupId = self.getGroupId();
-		if(groupId != null)
+		if (groupId != null)
 			bld.append(groupId);
 		String artifactId = self.getArtifactId();
-		if(artifactId != null) {
+		if (artifactId != null) {
 			bld.append('/');
 			bld.append(artifactId);
 		}
@@ -220,7 +206,7 @@ public class MavenItemItemProvider extends AggregatorItemProviderAdapter
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch(notification.getFeatureID(MavenItem.class)) {
+		switch (notification.getFeatureID(MavenItem.class)) {
 			case AggregatorPackage.MAVEN_ITEM__GROUP_ID:
 			case AggregatorPackage.MAVEN_ITEM__ARTIFACT_ID:
 			case AggregatorPackage.MAVEN_ITEM__MAPPED_VERSION:

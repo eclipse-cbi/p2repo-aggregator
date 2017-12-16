@@ -55,7 +55,7 @@ public class ValidConfigurationsRuleImpl extends MapRuleImpl implements ValidCon
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case AggregatorPackage.VALID_CONFIGURATIONS_RULE__VALID_CONFIGURATIONS:
 				return getValidConfigurations();
 		}
@@ -68,7 +68,7 @@ public class ValidConfigurationsRuleImpl extends MapRuleImpl implements ValidCon
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case AggregatorPackage.VALID_CONFIGURATIONS_RULE__VALID_CONFIGURATIONS:
 				return validConfigurations != null && !validConfigurations.isEmpty();
 		}
@@ -82,7 +82,7 @@ public class ValidConfigurationsRuleImpl extends MapRuleImpl implements ValidCon
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case AggregatorPackage.VALID_CONFIGURATIONS_RULE__VALID_CONFIGURATIONS:
 				getValidConfigurations().clear();
 				getValidConfigurations().addAll((Collection<? extends Configuration>) newValue);
@@ -106,7 +106,7 @@ public class ValidConfigurationsRuleImpl extends MapRuleImpl implements ValidCon
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case AggregatorPackage.VALID_CONFIGURATIONS_RULE__VALID_CONFIGURATIONS:
 				getValidConfigurations().clear();
 				return;
@@ -120,9 +120,9 @@ public class ValidConfigurationsRuleImpl extends MapRuleImpl implements ValidCon
 	 */
 	@Override
 	public EList<Configuration> getValidConfigurations() {
-		if(validConfigurations == null) {
-			validConfigurations = new EObjectResolvingEList<Configuration>(
-				Configuration.class, this, AggregatorPackage.VALID_CONFIGURATIONS_RULE__VALID_CONFIGURATIONS);
+		if (validConfigurations == null) {
+			validConfigurations = new EObjectResolvingEList<>(Configuration.class, this,
+					AggregatorPackage.VALID_CONFIGURATIONS_RULE__VALID_CONFIGURATIONS);
 		}
 		return validConfigurations;
 	}

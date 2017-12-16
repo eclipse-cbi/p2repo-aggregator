@@ -66,7 +66,7 @@ public class PropertiesImpl extends MinimalEObjectImpl.Container implements Prop
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.PROPERTIES__PROPERTY_LIST:
 				return getPropertyList();
 		}
@@ -80,7 +80,7 @@ public class PropertiesImpl extends MinimalEObjectImpl.Container implements Prop
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.PROPERTIES__PROPERTY_LIST:
 				return ((InternalEList<?>) getPropertyList()).basicRemove(otherEnd, msgs);
 		}
@@ -93,7 +93,7 @@ public class PropertiesImpl extends MinimalEObjectImpl.Container implements Prop
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.PROPERTIES__PROPERTY_LIST:
 				return propertyList != null && !propertyList.isEmpty();
 		}
@@ -107,7 +107,7 @@ public class PropertiesImpl extends MinimalEObjectImpl.Container implements Prop
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.PROPERTIES__PROPERTY_LIST:
 				getPropertyList().clear();
 				getPropertyList().addAll((Collection<? extends Property>) newValue);
@@ -131,7 +131,7 @@ public class PropertiesImpl extends MinimalEObjectImpl.Container implements Prop
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.PROPERTIES__PROPERTY_LIST:
 				getPropertyList().clear();
 				return;
@@ -145,9 +145,9 @@ public class PropertiesImpl extends MinimalEObjectImpl.Container implements Prop
 	 */
 	@Override
 	public EList<Property> getPropertyList() {
-		if(propertyList == null) {
-			propertyList = new EObjectContainmentEList.Resolving<Property>(
-				Property.class, this, P2viewPackage.PROPERTIES__PROPERTY_LIST);
+		if (propertyList == null) {
+			propertyList = new EObjectContainmentEList.Resolving<>(Property.class, this,
+					P2viewPackage.PROPERTIES__PROPERTY_LIST);
 		}
 		return propertyList;
 	}

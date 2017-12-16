@@ -181,7 +181,7 @@ public enum WindowSystem implements Enumerator {
 	 * @generated
 	 */
 	public static WindowSystem get(int value) {
-		switch(value) {
+		switch (value) {
 			case WIN32_VALUE:
 				return WIN32;
 			case GTK_VALUE:
@@ -207,9 +207,9 @@ public enum WindowSystem implements Enumerator {
 	 * @generated
 	 */
 	public static WindowSystem get(String literal) {
-		for(int i = 0; i < VALUES_ARRAY.length; ++i) {
+		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
 			WindowSystem result = VALUES_ARRAY[i];
-			if(result.toString().equals(literal)) {
+			if (result.toString().equals(literal)) {
 				return result;
 			}
 		}
@@ -225,9 +225,9 @@ public enum WindowSystem implements Enumerator {
 	 * @generated
 	 */
 	public static WindowSystem getByName(String name) {
-		for(int i = 0; i < VALUES_ARRAY.length; ++i) {
+		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
 			WindowSystem result = VALUES_ARRAY[i];
-			if(result.getName().equals(name)) {
+			if (result.getName().equals(name)) {
 				return result;
 			}
 		}

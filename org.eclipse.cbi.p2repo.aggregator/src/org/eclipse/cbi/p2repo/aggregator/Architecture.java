@@ -278,8 +278,8 @@ public enum Architecture implements Enumerator {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final Architecture[] VALUES_ARRAY = new Architecture[] {
-			X86, PPC, X86_64, IA64, IA64_32, SPARC, PPC64, S390, S390X, SPARCV9, PPC64LE, };
+	private static final Architecture[] VALUES_ARRAY = new Architecture[] { X86, PPC, X86_64, IA64, IA64_32, SPARC,
+			PPC64, S390, S390X, SPARCV9, PPC64LE, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Architecture</b></em>' enumerators.
@@ -298,7 +298,7 @@ public enum Architecture implements Enumerator {
 	 * @generated
 	 */
 	public static Architecture get(int value) {
-		switch(value) {
+		switch (value) {
 			case X86_VALUE:
 				return X86;
 			case PPC_VALUE:
@@ -334,9 +334,9 @@ public enum Architecture implements Enumerator {
 	 * @generated
 	 */
 	public static Architecture get(String literal) {
-		for(int i = 0; i < VALUES_ARRAY.length; ++i) {
+		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
 			Architecture result = VALUES_ARRAY[i];
-			if(result.toString().equals(literal)) {
+			if (result.toString().equals(literal)) {
 				return result;
 			}
 		}
@@ -352,9 +352,9 @@ public enum Architecture implements Enumerator {
 	 * @generated
 	 */
 	public static Architecture getByName(String name) {
-		for(int i = 0; i < VALUES_ARRAY.length; ++i) {
+		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
 			Architecture result = VALUES_ARRAY[i];
-			if(result.getName().equals(name)) {
+			if (result.getName().equals(name)) {
 				return result;
 			}
 		}

@@ -68,7 +68,7 @@ public class CategoryItemProvider extends IUPresentationItemProvider {
 	 */
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if(childrenFeatures == null) {
+		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(P2viewPackage.Literals.CATEGORY__CATEGORY_CONTAINER);
 			childrenFeatures.add(P2viewPackage.Literals.CATEGORY__FEATURE_CONTAINER);
@@ -97,7 +97,7 @@ public class CategoryItemProvider extends IUPresentationItemProvider {
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 		}
@@ -112,9 +112,7 @@ public class CategoryItemProvider extends IUPresentationItemProvider {
 	@Override
 	public String getText(Object object) {
 		String label = ((Category) object).getLabel();
-		return label == null || label.length() == 0
-				? "Unknown Category"
-				: label;
+		return label == null || label.length() == 0 ? "Unknown Category" : label;
 	}
 
 	/**

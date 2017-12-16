@@ -60,15 +60,13 @@ public class RepositoryBrowserItemProvider extends AggregatorItemProviderAdapter
 	 * @generated
 	 */
 	protected void addLoadingPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(
-			createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_RepositoryBrowser_loading_feature"),
-				getString(
-					"_UI_PropertyDescriptor_description", "_UI_RepositoryBrowser_loading_feature",
-					"_UI_RepositoryBrowser_type"),
-				P2viewPackage.Literals.REPOSITORY_BROWSER__LOADING, false, false, false,
-				ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_RepositoryBrowser_loading_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_RepositoryBrowser_loading_feature",
+								"_UI_RepositoryBrowser_type"),
+						P2viewPackage.Literals.REPOSITORY_BROWSER__LOADING, false, false, false,
+						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -78,14 +76,12 @@ public class RepositoryBrowserItemProvider extends AggregatorItemProviderAdapter
 	 * @generated
 	 */
 	protected void addRepositoriesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(
-			createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_RepositoryBrowser_repositories_feature"),
-				getString(
-					"_UI_PropertyDescriptor_description", "_UI_RepositoryBrowser_repositories_feature",
-					"_UI_RepositoryBrowser_type"),
-				P2viewPackage.Literals.REPOSITORY_BROWSER__REPOSITORIES, false, false, true, null, null, null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_RepositoryBrowser_repositories_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_RepositoryBrowser_repositories_feature",
+								"_UI_RepositoryBrowser_type"),
+						P2viewPackage.Literals.REPOSITORY_BROWSER__REPOSITORIES, false, false, true, null, null, null));
 	}
 
 	/**
@@ -123,7 +119,7 @@ public class RepositoryBrowserItemProvider extends AggregatorItemProviderAdapter
 	 */
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if(childrenFeatures == null) {
+		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(P2viewPackage.Literals.REPOSITORY_BROWSER__REPOSITORIES);
 		}
@@ -146,7 +142,7 @@ public class RepositoryBrowserItemProvider extends AggregatorItemProviderAdapter
 		RepositoryBrowserImpl mdrs = (RepositoryBrowserImpl) object;
 		Status status = mdrs.getStatus();
 		Object overlayImage;
-		switch(status.getCode()) {
+		switch (status.getCode()) {
 			case BROKEN:
 				overlayImage = locator.getImage("full/ovr16/Error");
 				break;
@@ -156,7 +152,7 @@ public class RepositoryBrowserItemProvider extends AggregatorItemProviderAdapter
 			default:
 				overlayImage = null;
 		}
-		if(overlayImage != null) {
+		if (overlayImage != null) {
 			Object[] images = new Object[2];
 			int[] positions = new int[2];
 
@@ -179,7 +175,7 @@ public class RepositoryBrowserItemProvider extends AggregatorItemProviderAdapter
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addRepositoriesPropertyDescriptor(object);
@@ -210,7 +206,7 @@ public class RepositoryBrowserItemProvider extends AggregatorItemProviderAdapter
 	public String getText(Object object) {
 		RepositoryBrowser mdrs = (RepositoryBrowser) object;
 		StringBuilder bld = new StringBuilder(getString("_UI_RepositoryBrowser_type"));
-		if(mdrs.isLoading())
+		if (mdrs.isLoading())
 			bld.append(" : loading...");
 		return bld.toString();
 	}
@@ -227,14 +223,14 @@ public class RepositoryBrowserItemProvider extends AggregatorItemProviderAdapter
 	public void notifyChanged(Notification notification) {
 		notifyChangedGen(notification);
 		Object notifier = notification.getNotifier();
-		if(!(notifier instanceof RepositoryBrowser))
+		if (!(notifier instanceof RepositoryBrowser))
 			return;
 
 		RepositoryBrowser mdrs = (RepositoryBrowser) notifier;
-		if(notification.getFeatureID(RepositoryBrowser.class) != P2viewPackage.REPOSITORY_BROWSER__LOADING)
+		if (notification.getFeatureID(RepositoryBrowser.class) != P2viewPackage.REPOSITORY_BROWSER__LOADING)
 			return;
 
-		for(MetadataRepositoryStructuredView mdr : mdrs.getRepositories())
+		for (MetadataRepositoryStructuredView mdr : mdrs.getRepositories())
 			fireNotifyChanged(new ViewerNotification(notification, mdr, false, true));
 	}
 
@@ -248,7 +244,7 @@ public class RepositoryBrowserItemProvider extends AggregatorItemProviderAdapter
 	public void notifyChangedGen(Notification notification) {
 		updateChildren(notification);
 
-		switch(notification.getFeatureID(RepositoryBrowser.class)) {
+		switch (notification.getFeatureID(RepositoryBrowser.class)) {
 			case P2viewPackage.REPOSITORY_BROWSER__STATUS:
 			case P2viewPackage.REPOSITORY_BROWSER__LOADING:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

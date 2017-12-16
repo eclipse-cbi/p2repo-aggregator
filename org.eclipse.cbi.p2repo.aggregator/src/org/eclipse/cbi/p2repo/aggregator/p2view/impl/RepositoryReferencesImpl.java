@@ -67,7 +67,7 @@ public class RepositoryReferencesImpl extends MinimalEObjectImpl.Container imple
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.REPOSITORY_REFERENCES__CHILDREN:
 				return getChildren();
 			case P2viewPackage.REPOSITORY_REFERENCES__REPOSITORY_REFERENCES:
@@ -83,7 +83,7 @@ public class RepositoryReferencesImpl extends MinimalEObjectImpl.Container imple
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.REPOSITORY_REFERENCES__CHILDREN:
 				return !getChildren().isEmpty();
 			case P2viewPackage.REPOSITORY_REFERENCES__REPOSITORY_REFERENCES:
@@ -100,7 +100,7 @@ public class RepositoryReferencesImpl extends MinimalEObjectImpl.Container imple
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.REPOSITORY_REFERENCES__REPOSITORY_REFERENCES:
 				getRepositoryReferences().clear();
 				getRepositoryReferences().addAll((Collection<? extends IRepositoryReference>) newValue);
@@ -126,7 +126,7 @@ public class RepositoryReferencesImpl extends MinimalEObjectImpl.Container imple
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.REPOSITORY_REFERENCES__REPOSITORY_REFERENCES:
 				getRepositoryReferences().clear();
 				return;
@@ -152,9 +152,9 @@ public class RepositoryReferencesImpl extends MinimalEObjectImpl.Container imple
 	 */
 	@Override
 	public EList<IRepositoryReference> getRepositoryReferences() {
-		if(repositoryReferences == null) {
-			repositoryReferences = new EObjectResolvingEList<IRepositoryReference>(
-				IRepositoryReference.class, this, P2viewPackage.REPOSITORY_REFERENCES__REPOSITORY_REFERENCES);
+		if (repositoryReferences == null) {
+			repositoryReferences = new EObjectResolvingEList<>(IRepositoryReference.class, this,
+					P2viewPackage.REPOSITORY_REFERENCES__REPOSITORY_REFERENCES);
 		}
 		return repositoryReferences;
 	}

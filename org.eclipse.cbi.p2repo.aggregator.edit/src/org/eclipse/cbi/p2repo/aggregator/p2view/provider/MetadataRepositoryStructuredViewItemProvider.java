@@ -64,14 +64,12 @@ public class MetadataRepositoryStructuredViewItemProvider extends AggregatorItem
 	 * @generated
 	 */
 	protected void addInstallableUnitListPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(
-			createItemPropertyDescriptor(
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
 				getString("_UI_MetadataRepositoryStructuredView_installableUnitList_feature"),
-				getString(
-					"_UI_PropertyDescriptor_description",
-					"_UI_MetadataRepositoryStructuredView_installableUnitList_feature",
-					"_UI_MetadataRepositoryStructuredView_type"),
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_MetadataRepositoryStructuredView_installableUnitList_feature",
+						"_UI_MetadataRepositoryStructuredView_type"),
 				P2viewPackage.Literals.METADATA_REPOSITORY_STRUCTURED_VIEW__INSTALLABLE_UNIT_LIST, false, false, true,
 				null, null, null));
 	}
@@ -82,13 +80,11 @@ public class MetadataRepositoryStructuredViewItemProvider extends AggregatorItem
 	 * @generated
 	 */
 	protected void addLoadedPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(
-			createItemPropertyDescriptor(
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
 				getString("_UI_MetadataRepositoryStructuredView_loaded_feature"),
-				getString(
-					"_UI_PropertyDescriptor_description", "_UI_MetadataRepositoryStructuredView_loaded_feature",
-					"_UI_MetadataRepositoryStructuredView_type"),
+				getString("_UI_PropertyDescriptor_description", "_UI_MetadataRepositoryStructuredView_loaded_feature",
+						"_UI_MetadataRepositoryStructuredView_type"),
 				P2viewPackage.Literals.METADATA_REPOSITORY_STRUCTURED_VIEW__LOADED, false, false, false,
 				ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}
@@ -100,13 +96,11 @@ public class MetadataRepositoryStructuredViewItemProvider extends AggregatorItem
 	 * @generated
 	 */
 	protected void addLocationPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(
-			createItemPropertyDescriptor(
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
 				getString("_UI_MetadataRepositoryStructuredView_location_feature"),
-				getString(
-					"_UI_PropertyDescriptor_description", "_UI_MetadataRepositoryStructuredView_location_feature",
-					"_UI_MetadataRepositoryStructuredView_type"),
+				getString("_UI_PropertyDescriptor_description", "_UI_MetadataRepositoryStructuredView_location_feature",
+						"_UI_MetadataRepositoryStructuredView_type"),
 				P2viewPackage.Literals.METADATA_REPOSITORY_STRUCTURED_VIEW__LOCATION, false, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
@@ -117,13 +111,11 @@ public class MetadataRepositoryStructuredViewItemProvider extends AggregatorItem
 	 * @generated
 	 */
 	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(
-			createItemPropertyDescriptor(
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
 				getString("_UI_MetadataRepositoryStructuredView_name_feature"),
-				getString(
-					"_UI_PropertyDescriptor_description", "_UI_MetadataRepositoryStructuredView_name_feature",
-					"_UI_MetadataRepositoryStructuredView_type"),
+				getString("_UI_PropertyDescriptor_description", "_UI_MetadataRepositoryStructuredView_name_feature",
+						"_UI_MetadataRepositoryStructuredView_type"),
 				P2viewPackage.Literals.METADATA_REPOSITORY_STRUCTURED_VIEW__NAME, false, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
@@ -134,15 +126,14 @@ public class MetadataRepositoryStructuredViewItemProvider extends AggregatorItem
 	 * @generated
 	 */
 	protected void addPropertiesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(
-			createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_MetadataRepositoryStructuredView_properties_feature"),
-				getString(
-					"_UI_PropertyDescriptor_description", "_UI_MetadataRepositoryStructuredView_properties_feature",
-					"_UI_MetadataRepositoryStructuredView_type"),
-				P2viewPackage.Literals.METADATA_REPOSITORY_STRUCTURED_VIEW__PROPERTIES, false, false, true, null, null,
-				null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_MetadataRepositoryStructuredView_properties_feature"),
+						getString("_UI_PropertyDescriptor_description",
+								"_UI_MetadataRepositoryStructuredView_properties_feature",
+								"_UI_MetadataRepositoryStructuredView_type"),
+						P2viewPackage.Literals.METADATA_REPOSITORY_STRUCTURED_VIEW__PROPERTIES, false, false, true,
+						null, null, null));
 	}
 
 	/**
@@ -152,14 +143,12 @@ public class MetadataRepositoryStructuredViewItemProvider extends AggregatorItem
 	 * @generated
 	 */
 	protected void addRepositoryReferencesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(
-			createItemPropertyDescriptor(
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
 				getString("_UI_MetadataRepositoryStructuredView_repositoryReferences_feature"),
-				getString(
-					"_UI_PropertyDescriptor_description",
-					"_UI_MetadataRepositoryStructuredView_repositoryReferences_feature",
-					"_UI_MetadataRepositoryStructuredView_type"),
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_MetadataRepositoryStructuredView_repositoryReferences_feature",
+						"_UI_MetadataRepositoryStructuredView_type"),
 				P2viewPackage.Literals.METADATA_REPOSITORY_STRUCTURED_VIEW__REPOSITORY_REFERENCES, false, false, true,
 				null, null, null));
 	}
@@ -197,7 +186,7 @@ public class MetadataRepositoryStructuredViewItemProvider extends AggregatorItem
 	 */
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if(childrenFeatures == null) {
+		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(P2viewPackage.Literals.METADATA_REPOSITORY_STRUCTURED_VIEW__INSTALLABLE_UNIT_LIST);
 			childrenFeatures.add(P2viewPackage.Literals.METADATA_REPOSITORY_STRUCTURED_VIEW__PROPERTIES);
@@ -209,9 +198,7 @@ public class MetadataRepositoryStructuredViewItemProvider extends AggregatorItem
 	@Override
 	public Object getFont(Object object) {
 		MetadataRepositoryResourceImpl mdr = (MetadataRepositoryResourceImpl) ((EObject) object).eResource();
-		return mdr != null && mdr.getStatus().getCode() == StatusCode.WAITING
-				? IItemFontProvider.ITALIC_FONT
-				: null;
+		return mdr != null && mdr.getStatus().getCode() == StatusCode.WAITING ? IItemFontProvider.ITALIC_FONT : null;
 	}
 
 	/**
@@ -227,16 +214,15 @@ public class MetadataRepositoryStructuredViewItemProvider extends AggregatorItem
 
 		MetadataRepositoryResourceImpl mdr = (MetadataRepositoryResourceImpl) ((EObject) object).eResource();
 		Object overlayImage = null;
-		if(mdr != null) {
-			if(mdr.getLastException() != null)
+		if (mdr != null) {
+			if (mdr.getLastException() != null)
 				overlayImage = locator.getImage("full/ovr16/Error");
-			else if(mdr.getStatus().getCode() == StatusCode.WAITING)
+			else if (mdr.getStatus().getCode() == StatusCode.WAITING)
 				overlayImage = locator.getImage("full/ovr16/Loading");
-		}
-		else
+		} else
 			overlayImage = locator.getImage("full/ovr16/Error");
 
-		if(overlayImage != null) {
+		if (overlayImage != null) {
 			Object[] images = new Object[2];
 			int[] positions = new int[2];
 
@@ -258,7 +244,7 @@ public class MetadataRepositoryStructuredViewItemProvider extends AggregatorItem
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
@@ -292,45 +278,44 @@ public class MetadataRepositoryStructuredViewItemProvider extends AggregatorItem
 		String label = self.getName();
 		StringBuilder bld = new StringBuilder();
 		MetadataRepositoryResourceImpl mdr = (MetadataRepositoryResourceImpl) ((EObject) object).eResource();
-		if(mdr != null) {
-			if(mdr.getLastException() != null) {
+		if (mdr != null) {
+			if (mdr.getLastException() != null) {
 				bld.append(mdr.getLastException().getMessage());
 				return bld.toString();
 			}
 			URI uri = mdr.getURI();
-			if(uri != null) {
+			if (uri != null) {
 				int startPos = 0;
 				String uriStr = uri.toString();
-				if(uriStr.startsWith("cbiaggr:"))
+				if (uriStr.startsWith("cbiaggr:"))
 					startPos = 8;
-				if(uriStr.startsWith("p2:", startPos))
+				if (uriStr.startsWith("p2:", startPos))
 					startPos += 3;
 				bld.append(uriStr, startPos, uriStr.length());
 				bld.append(' ');
 			}
 		}
 		int blen = bld.length();
-		if(label != null) {
+		if (label != null) {
 			bld.append('(');
 			bld.append(label);
 		}
 		String statusText = null;
-		if(!self.isLoaded()) {
-			if(mdr != null) {
-				if(mdr.isLoading())
+		if (!self.isLoaded()) {
+			if (mdr != null) {
+				if (mdr.isLoading())
 					statusText = "loading...";
-			}
-			else
+			} else
 				statusText = "missing";
 		}
-		if(statusText != null) {
-			if(bld.length() == blen)
+		if (statusText != null) {
+			if (bld.length() == blen)
 				bld.append('(');
 			else
 				bld.append(' ');
 			bld.append(statusText);
 		}
-		if(bld.length() > blen)
+		if (bld.length() > blen)
 			bld.append(')');
 		return bld.toString();
 	}
@@ -359,12 +344,12 @@ public class MetadataRepositoryStructuredViewItemProvider extends AggregatorItem
 	public void notifyChanged(Notification notification) {
 		notifyChangedGen(notification);
 
-		if(notification.getFeatureID(
-			MetadataRepositoryStructuredView.class) == P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__LOADED) {
+		if (notification.getFeatureID(
+				MetadataRepositoryStructuredView.class) == P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__LOADED) {
 			MetadataRepositoryStructuredView mdrView = (MetadataRepositoryStructuredView) notification.getNotifier();
 			Aggregation aggregation = ResourceUtils.getAggregation(((EObject) mdrView).eResource().getResourceSet());
 
-			if(aggregation != null)
+			if (aggregation != null)
 				fireNotifyChanged(new ViewerNotification(notification, aggregation, true, true));
 		}
 	}
@@ -379,7 +364,7 @@ public class MetadataRepositoryStructuredViewItemProvider extends AggregatorItem
 	public void notifyChangedGen(Notification notification) {
 		updateChildren(notification);
 
-		switch(notification.getFeatureID(MetadataRepositoryStructuredView.class)) {
+		switch (notification.getFeatureID(MetadataRepositoryStructuredView.class)) {
 			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__NAME:
 			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__METADATA_REPOSITORY:
 			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__LOADED:

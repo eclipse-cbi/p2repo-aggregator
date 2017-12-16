@@ -33,7 +33,6 @@ public class CategoryItemProvider extends MappedUnitItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public CategoryItemProvider(AdapterFactory adapterFactory) {
@@ -43,25 +42,22 @@ public class CategoryItemProvider extends MappedUnitItemProvider {
 	/**
 	 * This adds a property descriptor for the Label Override feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected void addLabelOverridePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(
-			createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_Category_labelOverride_feature"),
-				getString(
-					"_UI_PropertyDescriptor_description", "_UI_Category_labelOverride_feature", "_UI_Category_type"),
-				AggregatorPackage.Literals.CATEGORY__LABEL_OVERRIDE, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Category_labelOverride_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Category_labelOverride_feature",
+								"_UI_Category_type"),
+						AggregatorPackage.Literals.CATEGORY__LABEL_OVERRIDE, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -81,12 +77,8 @@ public class CategoryItemProvider extends MappedUnitItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(
-			object,
-			getResourceLocator().getImage(
-				"full/obj16/Category" + (!((Category) object).isBranchDisabledOrMappedRepositoryBroken()
-						? ""
-						: "Disabled")));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Category"
+				+ (!((Category) object).isBranchDisabledOrMappedRepositoryBroken() ? "" : "Disabled")));
 	}
 
 	@Override
@@ -97,12 +89,11 @@ public class CategoryItemProvider extends MappedUnitItemProvider {
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addLabelOverridePropertyDescriptor(object);
@@ -122,15 +113,14 @@ public class CategoryItemProvider extends MappedUnitItemProvider {
 		StringBuilder bld = new StringBuilder();
 		bld.append(getString("_UI_Category_type"));
 		bld.append(" : ");
-		if(iu != null) {
+		if (iu != null) {
 			String label = iu.getProperty(IInstallableUnit.PROP_NAME);
-			if(label == null)
+			if (label == null)
 				label = iu.getId();
 			bld.append(label);
-			if(!category.isEnabled())
+			if (!category.isEnabled())
 				bld.append(" - disabled");
-		}
-		else
+		} else
 			bld.append("not mapped");
 		return bld.toString();
 	}
@@ -146,7 +136,7 @@ public class CategoryItemProvider extends MappedUnitItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch(notification.getFeatureID(Category.class)) {
+		switch (notification.getFeatureID(Category.class)) {
 			case AggregatorPackage.CATEGORY__LABEL_OVERRIDE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

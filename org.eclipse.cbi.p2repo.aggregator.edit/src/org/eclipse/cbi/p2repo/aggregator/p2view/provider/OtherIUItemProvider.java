@@ -61,7 +61,7 @@ public class OtherIUItemProvider extends IUPresentationWithDetailsItemProvider {
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 		}
@@ -76,9 +76,7 @@ public class OtherIUItemProvider extends IUPresentationWithDetailsItemProvider {
 	@Override
 	public String getText(Object object) {
 		String label = ((OtherIU) object).getLabel();
-		return label == null || label.length() == 0
-				? "Unkown IU"
-				: label;
+		return label == null || label.length() == 0 ? "Unkown IU" : label;
 	}
 
 	/**

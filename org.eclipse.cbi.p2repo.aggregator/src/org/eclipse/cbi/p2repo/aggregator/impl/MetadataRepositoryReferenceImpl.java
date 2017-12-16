@@ -12,8 +12,6 @@ package org.eclipse.cbi.p2repo.aggregator.impl;
 import java.io.File;
 import java.util.Collection;
 
-import org.eclipse.cbi.p2repo.p2.MetadataRepository;
-import org.eclipse.cbi.p2repo.p2.P2Factory;
 import org.eclipse.cbi.p2repo.aggregator.Aggregation;
 import org.eclipse.cbi.p2repo.aggregator.AggregatorFactory;
 import org.eclipse.cbi.p2repo.aggregator.AggregatorPackage;
@@ -28,6 +26,8 @@ import org.eclipse.cbi.p2repo.aggregator.p2.util.MetadataRepositoryResourceImpl;
 import org.eclipse.cbi.p2repo.aggregator.util.AggregatorResource;
 import org.eclipse.cbi.p2repo.aggregator.util.GeneralUtils;
 import org.eclipse.cbi.p2repo.cli.HeadlessActivator;
+import org.eclipse.cbi.p2repo.p2.MetadataRepository;
+import org.eclipse.cbi.p2repo.p2.P2Factory;
 import org.eclipse.cbi.p2repo.util.StringUtils;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEList;
@@ -218,16 +218,16 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if(baseClass == StatusProvider.class) {
-			switch(derivedFeatureID) {
+		if (baseClass == StatusProvider.class) {
+			switch (derivedFeatureID) {
 				case AggregatorPackage.METADATA_REPOSITORY_REFERENCE__STATUS:
 					return AggregatorPackage.STATUS_PROVIDER__STATUS;
 				default:
 					return -1;
 			}
 		}
-		if(baseClass == InfosProvider.class) {
-			switch(derivedFeatureID) {
+		if (baseClass == InfosProvider.class) {
+			switch (derivedFeatureID) {
 				case AggregatorPackage.METADATA_REPOSITORY_REFERENCE__ERRORS:
 					return AggregatorPackage.INFOS_PROVIDER__ERRORS;
 				case AggregatorPackage.METADATA_REPOSITORY_REFERENCE__WARNINGS:
@@ -247,16 +247,16 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if(baseClass == StatusProvider.class) {
-			switch(baseFeatureID) {
+		if (baseClass == StatusProvider.class) {
+			switch (baseFeatureID) {
 				case AggregatorPackage.STATUS_PROVIDER__STATUS:
 					return AggregatorPackage.METADATA_REPOSITORY_REFERENCE__STATUS;
 				default:
 					return -1;
 			}
 		}
-		if(baseClass == InfosProvider.class) {
-			switch(baseFeatureID) {
+		if (baseClass == InfosProvider.class) {
+			switch (baseFeatureID) {
 				case AggregatorPackage.INFOS_PROVIDER__ERRORS:
 					return AggregatorPackage.METADATA_REPOSITORY_REFERENCE__ERRORS;
 				case AggregatorPackage.INFOS_PROVIDER__WARNINGS:
@@ -276,7 +276,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case AggregatorPackage.METADATA_REPOSITORY_REFERENCE__BRANCH_ENABLED:
 				return isBranchEnabled();
 			case AggregatorPackage.METADATA_REPOSITORY_REFERENCE__ENABLED:
@@ -290,7 +290,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 			case AggregatorPackage.METADATA_REPOSITORY_REFERENCE__INFOS:
 				return getInfos();
 			case AggregatorPackage.METADATA_REPOSITORY_REFERENCE__METADATA_REPOSITORY:
-				if(resolve)
+				if (resolve)
 					return getMetadataRepository();
 				return basicGetMetadataRepository();
 			case AggregatorPackage.METADATA_REPOSITORY_REFERENCE__LOCATION:
@@ -307,7 +307,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case AggregatorPackage.METADATA_REPOSITORY_REFERENCE__BRANCH_ENABLED:
 				return isSetBranchEnabled();
 			case AggregatorPackage.METADATA_REPOSITORY_REFERENCE__ENABLED:
@@ -323,13 +323,9 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 			case AggregatorPackage.METADATA_REPOSITORY_REFERENCE__METADATA_REPOSITORY:
 				return metadataRepository != null;
 			case AggregatorPackage.METADATA_REPOSITORY_REFERENCE__LOCATION:
-				return LOCATION_EDEFAULT == null
-						? location != null
-						: !LOCATION_EDEFAULT.equals(location);
+				return LOCATION_EDEFAULT == null ? location != null : !LOCATION_EDEFAULT.equals(location);
 			case AggregatorPackage.METADATA_REPOSITORY_REFERENCE__NATURE:
-				return NATURE_EDEFAULT == null
-						? nature != null
-						: !NATURE_EDEFAULT.equals(nature);
+				return NATURE_EDEFAULT == null ? nature != null : !NATURE_EDEFAULT.equals(nature);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -341,7 +337,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case AggregatorPackage.METADATA_REPOSITORY_REFERENCE__ENABLED:
 				setEnabled((Boolean) newValue);
 				return;
@@ -385,7 +381,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case AggregatorPackage.METADATA_REPOSITORY_REFERENCE__ENABLED:
 				setEnabled(ENABLED_EDEFAULT);
 				return;
@@ -432,21 +428,21 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	 */
 	@Override
 	public EList<String> getErrors() {
-		errors = new BasicEList<String>();
+		errors = new BasicEList<>();
 
 		String nature = getNature();
 		String location = getResolvedLocation();
-		if(nature == null || location == null) {
+		if (nature == null || location == null) {
 			// Node is incomplete and doesn't appoint a repository just yet.
 			errors.add(getString("_UI_ErrorMessage_RepositoryIsNotSet"));
 			return errors;
 		}
 
-		if(eResource() != null) {
-			MetadataRepositoryResourceImpl res = (MetadataRepositoryResourceImpl) MetadataRepositoryResourceImpl.getResourceForNatureAndLocation(
-				nature, location, getAggregation(), false);
+		if (eResource() != null) {
+			MetadataRepositoryResourceImpl res = (MetadataRepositoryResourceImpl) MetadataRepositoryResourceImpl
+					.getResourceForNatureAndLocation(nature, location, getAggregation(), false);
 
-			if(res == null) {
+			if (res == null) {
 				errors.add(getString("_UI_ErrorMessage_RepositoryIsNotAvailable"));
 				return errors;
 			}
@@ -461,9 +457,9 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	 */
 	@Override
 	public EList<String> getInfos() {
-		if(infos == null) {
-			infos = new EDataTypeUniqueEList<String>(
-				String.class, this, AggregatorPackage.METADATA_REPOSITORY_REFERENCE__INFOS);
+		if (infos == null) {
+			infos = new EDataTypeUniqueEList<>(String.class, this,
+					AggregatorPackage.METADATA_REPOSITORY_REFERENCE__INFOS);
 		}
 		return infos;
 	}
@@ -494,13 +490,13 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	 */
 	@Override
 	public MetadataRepository getMetadataRepository(boolean forceResolve) {
-		if(!isBranchEnabled())
+		if (!isBranchEnabled())
 			return null;
 
-		if(forceResolve) {
-			if(metadataRepository == null)
-				metadataRepository = P2Factory.eINSTANCE.createMetadataRepositoryProxy(
-					getNature(), getResolvedLocation());
+		if (forceResolve) {
+			if (metadataRepository == null)
+				metadataRepository = P2Factory.eINSTANCE.createMetadataRepositoryProxy(getNature(),
+						getResolvedLocation());
 
 			return getMetadataRepositoryGen();
 		}
@@ -513,14 +509,12 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	 * @generated
 	 */
 	public MetadataRepository getMetadataRepositoryGen() {
-		if(metadataRepository != null && ((EObject) metadataRepository).eIsProxy()) {
+		if (metadataRepository != null && ((EObject) metadataRepository).eIsProxy()) {
 			InternalEObject oldMetadataRepository = (InternalEObject) metadataRepository;
 			metadataRepository = (MetadataRepository) eResolveProxy(oldMetadataRepository);
-			if(metadataRepository != oldMetadataRepository) {
-				if(eNotificationRequired())
-					eNotify(
-						new ENotificationImpl(
-							this, Notification.RESOLVE,
+			if (metadataRepository != oldMetadataRepository) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
 							AggregatorPackage.METADATA_REPOSITORY_REFERENCE__METADATA_REPOSITORY, oldMetadataRepository,
 							metadataRepository));
 			}
@@ -545,7 +539,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	@Override
 	public String getResolvedLocation() {
 		String location = StringUtils.trimmedOrNull(getLocation());
-		if(location == null)
+		if (location == null)
 			return null;
 
 		URI uri;
@@ -553,23 +547,22 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 
 		// if the location happens to specify an absolute pathname (or a pathname starting at the root of the current drive on Windows), then
 		// use it as such
-		if(locationFile.isAbsolute() || location.startsWith(File.separator) || location.startsWith("/")) {
+		if (locationFile.isAbsolute() || location.startsWith(File.separator) || location.startsWith("/")) {
 			uri = URI.createURI(locationFile.toURI().toString());
-		}
-		else {
+		} else {
 			uri = URI.createURI(location, true);
-			if(uri.isRelative()) { // try to resolve the location URI if not absolute
+			if (uri.isRelative()) { // try to resolve the location URI if not absolute
 				URI base = ((EObject) getAggregation()).eResource().getURI();
-				if(base != null)
+				if (base != null)
 					uri = uri.resolve(base);
 			}
 		}
 
 		// strip any trailing empty segments if there is at least one non-empty segment preceding them
 		String[] uriSegments = uri.segments();
-		for(int i = uriSegments.length; i > 0;) {
+		for (int i = uriSegments.length; i > 0;) {
 			String segment = uriSegments[--i];
-			if(segment.length() != 0) {
+			if (segment.length() != 0) {
 				uri = uri.trimSegments(uriSegments.length - i - 1);
 				break;
 			}
@@ -585,29 +578,28 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	 */
 	@Override
 	synchronized public Status getStatus() {
-		if(isBranchEnabled()) {
+		if (isBranchEnabled()) {
 			// status is ok only if MDR is not null and is resolvable
-			if(getMetadataRepository(false) != null && !((EObject) getMetadataRepository(false)).eIsProxy())
+			if (getMetadataRepository(false) != null && !((EObject) getMetadataRepository(false)).eIsProxy())
 				return AggregatorFactory.eINSTANCE.createStatus(StatusCode.OK);
 
 			String nature = getNature();
 			String location = getResolvedLocation();
-			if(nature == null || location == null)
+			if (nature == null || location == null)
 				// Node is incomplete and doesn't appoint a repository just yet.
-				return AggregatorFactory.eINSTANCE.createStatus(
-					StatusCode.BROKEN, getString("_UI_ErrorMessage_RepositoryIsNotSet"));
+				return AggregatorFactory.eINSTANCE.createStatus(StatusCode.BROKEN,
+						getString("_UI_ErrorMessage_RepositoryIsNotSet"));
 
 			MetadataRepositoryResourceImpl res;
 			try {
-				res = (MetadataRepositoryResourceImpl) MetadataRepositoryResourceImpl.getResourceForNatureAndLocation(
-					nature, location, getAggregation(), false);
-			}
-			catch(Exception e) {
+				res = (MetadataRepositoryResourceImpl) MetadataRepositoryResourceImpl
+						.getResourceForNatureAndLocation(nature, location, getAggregation(), false);
+			} catch (Exception e) {
 				// cannot get Aggregator top node
 				res = null;
 			}
 
-			if(res != null)
+			if (res != null)
 				return res.getStatus();
 		}
 
@@ -620,9 +612,9 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	 */
 	@Override
 	public EList<String> getWarnings() {
-		if(warnings == null) {
-			warnings = new EDataTypeUniqueEList<String>(
-				String.class, this, AggregatorPackage.METADATA_REPOSITORY_REFERENCE__WARNINGS);
+		if (warnings == null) {
+			warnings = new EDataTypeUniqueEList<>(String.class, this,
+					AggregatorPackage.METADATA_REPOSITORY_REFERENCE__WARNINGS);
 		}
 		return warnings;
 	}
@@ -665,15 +657,13 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	@Override
 	public void onRepositoryLoad() {
 
-		if(this instanceof MappedRepository) {
-			if(eNotificationRequired())
-				eNotify(
-					new ENotificationImpl(
-						this, Notification.SET, AggregatorPackage.INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS, null,
-						null));
+		if (this instanceof MappedRepository) {
+			if (eNotificationRequired())
+				eNotify(new ENotificationImpl(this, Notification.SET,
+						AggregatorPackage.INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS, null, null));
 		}
 
-		if(!HeadlessActivator.getInstance().isHeadless())
+		if (!HeadlessActivator.getInstance().isHeadless())
 			getAggregatorResource().analyzeResource();
 	}
 
@@ -684,15 +674,13 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	@Override
 	public void setEnabled(boolean newEnabled) {
 		boolean oldEnabled = (eFlags & ENABLED_EFLAG) != 0;
-		if(newEnabled)
+		if (newEnabled)
 			eFlags |= ENABLED_EFLAG;
 		else
 			eFlags &= ~ENABLED_EFLAG;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, AggregatorPackage.METADATA_REPOSITORY_REFERENCE__ENABLED, oldEnabled,
-					newEnabled));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					AggregatorPackage.METADATA_REPOSITORY_REFERENCE__ENABLED, oldEnabled, newEnabled));
 	}
 
 	/**
@@ -703,16 +691,14 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	public void setLocation(String newLocation) {
 		String oldLocation = location;
 		location = newLocation;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, AggregatorPackage.METADATA_REPOSITORY_REFERENCE__LOCATION, oldLocation,
-					location));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					AggregatorPackage.METADATA_REPOSITORY_REFERENCE__LOCATION, oldLocation, location));
 	}
 
 	@Override
 	synchronized public void setMetadataRepository(MetadataRepository newMetadataRepository) {
-		if(newMetadataRepository != metadataRepository)
+		if (newMetadataRepository != metadataRepository)
 			setMetadataRepositoryGen(newMetadataRepository);
 	}
 
@@ -723,11 +709,10 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	public void setMetadataRepositoryGen(MetadataRepository newMetadataRepository) {
 		MetadataRepository oldMetadataRepository = metadataRepository;
 		metadataRepository = newMetadataRepository;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, AggregatorPackage.METADATA_REPOSITORY_REFERENCE__METADATA_REPOSITORY,
-					oldMetadataRepository, metadataRepository));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					AggregatorPackage.METADATA_REPOSITORY_REFERENCE__METADATA_REPOSITORY, oldMetadataRepository,
+					metadataRepository));
 	}
 
 	/**
@@ -738,11 +723,9 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	public void setNature(String newNature) {
 		String oldNature = nature;
 		nature = newNature;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, AggregatorPackage.METADATA_REPOSITORY_REFERENCE__NATURE, oldNature,
-					nature));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					AggregatorPackage.METADATA_REPOSITORY_REFERENCE__NATURE, oldNature, nature));
 	}
 
 	/**
@@ -752,7 +735,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	 */
 	@Override
 	synchronized public void startRepositoryLoad(final boolean forceReload) {
-		if(StringUtils.trimmedOrNull(getLocation()) == null) {
+		if (StringUtils.trimmedOrNull(getLocation()) == null) {
 			setMetadataRepository(null);
 			onRepositoryLoad();
 			return;
@@ -761,9 +744,9 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 		String nature = getNature();
 		String resolvedLocation = getResolvedLocation();
 		Aggregation aggregation = getAggregation();
-		Resource res = MetadataRepositoryResourceImpl.getResourceForNatureAndLocation(
-			nature, resolvedLocation, aggregation);
-		if(res != null)
+		Resource res = MetadataRepositoryResourceImpl.getResourceForNatureAndLocation(nature, resolvedLocation,
+				aggregation);
+		if (res != null)
 			((MetadataRepositoryResourceImpl) res).startAsynchronousLoad(forceReload);
 		else {
 			onRepositoryLoad();
@@ -777,7 +760,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	 */
 	@Override
 	public String toString() {
-		if(eIsProxy())
+		if (eIsProxy())
 			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());

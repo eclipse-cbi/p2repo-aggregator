@@ -62,7 +62,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory
 	 *
 	 * @generated
 	 */
-	protected Collection<Object> supportedTypes = new ArrayList<Object>();
+	protected Collection<Object> supportedTypes = new ArrayList<>();
 
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.cbi.p2repo.aggregator.p2view.MetadataRepositoryStructuredView} instances.
@@ -273,9 +273,9 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory
 	 */
 	@Override
 	public Object adapt(Object object, Object type) {
-		if(isFactoryForType(type)) {
+		if (isFactoryForType(type)) {
 			Object adapter = super.adapt(object, type);
-			if(!(type instanceof Class<?>) || (((Class<?>) type).isInstance(adapter))) {
+			if (!(type instanceof Class<?>) || (((Class<?>) type).isInstance(adapter))) {
 				return adapter;
 			}
 		}
@@ -301,7 +301,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory
 	 */
 	@Override
 	public Adapter createBundleAdapter() {
-		if(bundleItemProvider == null) {
+		if (bundleItemProvider == null) {
 			bundleItemProvider = new BundleItemProvider(this);
 		}
 
@@ -316,7 +316,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory
 	 */
 	@Override
 	public Adapter createBundlesAdapter() {
-		if(bundlesItemProvider == null) {
+		if (bundlesItemProvider == null) {
 			bundlesItemProvider = new BundlesItemProvider(this);
 		}
 
@@ -331,7 +331,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory
 	 */
 	@Override
 	public Adapter createCategoriesAdapter() {
-		if(categoriesItemProvider == null) {
+		if (categoriesItemProvider == null) {
 			categoriesItemProvider = new CategoriesItemProvider(this);
 		}
 
@@ -346,7 +346,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory
 	 */
 	@Override
 	public Adapter createCategoryAdapter() {
-		if(categoryItemProvider == null) {
+		if (categoryItemProvider == null) {
 			categoryItemProvider = new CategoryItemProvider(this);
 		}
 
@@ -361,7 +361,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory
 	 */
 	@Override
 	public Adapter createFeatureAdapter() {
-		if(featureItemProvider == null) {
+		if (featureItemProvider == null) {
 			featureItemProvider = new FeatureItemProvider(this);
 		}
 
@@ -376,7 +376,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory
 	 */
 	@Override
 	public Adapter createFeaturesAdapter() {
-		if(featuresItemProvider == null) {
+		if (featuresItemProvider == null) {
 			featuresItemProvider = new FeaturesItemProvider(this);
 		}
 
@@ -391,7 +391,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory
 	 */
 	@Override
 	public Adapter createFragmentAdapter() {
-		if(fragmentItemProvider == null) {
+		if (fragmentItemProvider == null) {
 			fragmentItemProvider = new FragmentItemProvider(this);
 		}
 
@@ -406,7 +406,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory
 	 */
 	@Override
 	public Adapter createFragmentsAdapter() {
-		if(fragmentsItemProvider == null) {
+		if (fragmentsItemProvider == null) {
 			fragmentsItemProvider = new FragmentsItemProvider(this);
 		}
 
@@ -421,7 +421,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory
 	 */
 	@Override
 	public Adapter createInstallableUnitsAdapter() {
-		if(installableUnitsItemProvider == null) {
+		if (installableUnitsItemProvider == null) {
 			installableUnitsItemProvider = new InstallableUnitsItemProvider(this);
 		}
 
@@ -436,7 +436,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory
 	 */
 	@Override
 	public Adapter createIUDetailsAdapter() {
-		if(iuDetailsItemProvider == null) {
+		if (iuDetailsItemProvider == null) {
 			iuDetailsItemProvider = new IUDetailsItemProvider(this);
 		}
 
@@ -451,7 +451,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory
 	 */
 	@Override
 	public Adapter createLicensesAdapter() {
-		if(licensesItemProvider == null) {
+		if (licensesItemProvider == null) {
 			licensesItemProvider = new LicensesItemProvider(this);
 		}
 
@@ -465,7 +465,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory
 	 */
 	@Override
 	public Adapter createMetadataRepositoryStructuredViewAdapter() {
-		if(metadataRepositoryStructuredViewItemProvider == null) {
+		if (metadataRepositoryStructuredViewItemProvider == null) {
 			metadataRepositoryStructuredViewItemProvider = new MetadataRepositoryStructuredViewItemProvider(this);
 		}
 
@@ -480,7 +480,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory
 	 */
 	@Override
 	public Adapter createMiscellaneousAdapter() {
-		if(miscellaneousItemProvider == null) {
+		if (miscellaneousItemProvider == null) {
 			miscellaneousItemProvider = new MiscellaneousItemProvider(this);
 		}
 
@@ -495,7 +495,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory
 	 */
 	@Override
 	public Adapter createOtherIUAdapter() {
-		if(otherIUItemProvider == null) {
+		if (otherIUItemProvider == null) {
 			otherIUItemProvider = new OtherIUItemProvider(this);
 		}
 
@@ -510,7 +510,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory
 	 */
 	@Override
 	public Adapter createProductAdapter() {
-		if(productItemProvider == null) {
+		if (productItemProvider == null) {
 			productItemProvider = new ProductItemProvider(this);
 		}
 
@@ -525,7 +525,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory
 	 */
 	@Override
 	public Adapter createProductsAdapter() {
-		if(productsItemProvider == null) {
+		if (productsItemProvider == null) {
 			productsItemProvider = new ProductsItemProvider(this);
 		}
 
@@ -540,7 +540,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory
 	 */
 	@Override
 	public Adapter createPropertiesAdapter() {
-		if(propertiesItemProvider == null) {
+		if (propertiesItemProvider == null) {
 			propertiesItemProvider = new PropertiesItemProvider(this);
 		}
 
@@ -555,7 +555,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory
 	 */
 	@Override
 	public Adapter createProvidedCapabilitiesAdapter() {
-		if(providedCapabilitiesItemProvider == null) {
+		if (providedCapabilitiesItemProvider == null) {
 			providedCapabilitiesItemProvider = new ProvidedCapabilitiesItemProvider(this);
 		}
 
@@ -570,7 +570,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory
 	 */
 	@Override
 	public Adapter createProvidedCapabilityWrapperAdapter() {
-		if(providedCapabilityWrapperItemProvider == null) {
+		if (providedCapabilityWrapperItemProvider == null) {
 			providedCapabilityWrapperItemProvider = new ProvidedCapabilityWrapperItemProvider(this);
 		}
 
@@ -585,7 +585,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory
 	 */
 	@Override
 	public Adapter createRepositoryBrowserAdapter() {
-		if(repositoryBrowserItemProvider == null) {
+		if (repositoryBrowserItemProvider == null) {
 			repositoryBrowserItemProvider = new RepositoryBrowserItemProvider(this);
 		}
 
@@ -600,7 +600,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory
 	 */
 	@Override
 	public Adapter createRepositoryReferencesAdapter() {
-		if(repositoryReferencesItemProvider == null) {
+		if (repositoryReferencesItemProvider == null) {
 			repositoryReferencesItemProvider = new RepositoryReferencesItemProvider(this);
 		}
 
@@ -615,7 +615,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory
 	 */
 	@Override
 	public Adapter createRequirementsAdapter() {
-		if(requirementsItemProvider == null) {
+		if (requirementsItemProvider == null) {
 			requirementsItemProvider = new RequirementsItemProvider(this);
 		}
 
@@ -630,7 +630,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory
 	 */
 	@Override
 	public Adapter createRequirementWrapperAdapter() {
-		if(requirementWrapperItemProvider == null) {
+		if (requirementWrapperItemProvider == null) {
 			requirementWrapperItemProvider = new RequirementWrapperItemProvider(this);
 		}
 
@@ -645,7 +645,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory
 	 */
 	@Override
 	public Adapter createTouchpointsAdapter() {
-		if(touchpointsItemProvider == null) {
+		if (touchpointsItemProvider == null) {
 			touchpointsItemProvider = new TouchpointsItemProvider(this);
 		}
 
@@ -659,53 +659,53 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory
 	 */
 	@Override
 	public void dispose() {
-		if(bundleItemProvider != null)
+		if (bundleItemProvider != null)
 			bundleItemProvider.dispose();
-		if(bundlesItemProvider != null)
+		if (bundlesItemProvider != null)
 			bundlesItemProvider.dispose();
-		if(categoryItemProvider != null)
+		if (categoryItemProvider != null)
 			categoryItemProvider.dispose();
-		if(categoriesItemProvider != null)
+		if (categoriesItemProvider != null)
 			categoriesItemProvider.dispose();
-		if(featureItemProvider != null)
+		if (featureItemProvider != null)
 			featureItemProvider.dispose();
-		if(featuresItemProvider != null)
+		if (featuresItemProvider != null)
 			featuresItemProvider.dispose();
-		if(fragmentItemProvider != null)
+		if (fragmentItemProvider != null)
 			fragmentItemProvider.dispose();
-		if(fragmentsItemProvider != null)
+		if (fragmentsItemProvider != null)
 			fragmentsItemProvider.dispose();
-		if(installableUnitsItemProvider != null)
+		if (installableUnitsItemProvider != null)
 			installableUnitsItemProvider.dispose();
-		if(iuDetailsItemProvider != null)
+		if (iuDetailsItemProvider != null)
 			iuDetailsItemProvider.dispose();
-		if(licensesItemProvider != null)
+		if (licensesItemProvider != null)
 			licensesItemProvider.dispose();
-		if(repositoryBrowserItemProvider != null)
+		if (repositoryBrowserItemProvider != null)
 			repositoryBrowserItemProvider.dispose();
-		if(metadataRepositoryStructuredViewItemProvider != null)
+		if (metadataRepositoryStructuredViewItemProvider != null)
 			metadataRepositoryStructuredViewItemProvider.dispose();
-		if(miscellaneousItemProvider != null)
+		if (miscellaneousItemProvider != null)
 			miscellaneousItemProvider.dispose();
-		if(otherIUItemProvider != null)
+		if (otherIUItemProvider != null)
 			otherIUItemProvider.dispose();
-		if(productItemProvider != null)
+		if (productItemProvider != null)
 			productItemProvider.dispose();
-		if(productsItemProvider != null)
+		if (productsItemProvider != null)
 			productsItemProvider.dispose();
-		if(propertiesItemProvider != null)
+		if (propertiesItemProvider != null)
 			propertiesItemProvider.dispose();
-		if(providedCapabilitiesItemProvider != null)
+		if (providedCapabilitiesItemProvider != null)
 			providedCapabilitiesItemProvider.dispose();
-		if(providedCapabilityWrapperItemProvider != null)
+		if (providedCapabilityWrapperItemProvider != null)
 			providedCapabilityWrapperItemProvider.dispose();
-		if(repositoryReferencesItemProvider != null)
+		if (repositoryReferencesItemProvider != null)
 			repositoryReferencesItemProvider.dispose();
-		if(requirementsItemProvider != null)
+		if (requirementsItemProvider != null)
 			requirementsItemProvider.dispose();
-		if(requirementWrapperItemProvider != null)
+		if (requirementWrapperItemProvider != null)
 			requirementWrapperItemProvider.dispose();
-		if(touchpointsItemProvider != null)
+		if (touchpointsItemProvider != null)
 			touchpointsItemProvider.dispose();
 	}
 
@@ -719,7 +719,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory
 	public void fireNotifyChanged(Notification notification) {
 		changeNotifier.fireNotifyChanged(notification);
 
-		if(parentAdapterFactory != null) {
+		if (parentAdapterFactory != null) {
 			parentAdapterFactory.fireNotifyChanged(notification);
 		}
 	}
@@ -731,9 +731,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory
 	 */
 	@Override
 	public ComposeableAdapterFactory getRootAdapterFactory() {
-		return parentAdapterFactory == null
-				? this
-				: parentAdapterFactory.getRootAdapterFactory();
+		return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
 	}
 
 	/**

@@ -124,8 +124,8 @@ public enum AvailableFrom implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final AvailableFrom[] VALUES_ARRAY = new AvailableFrom[] {
-			REPOSITORY, CONTRIBUTION, VALIDATION_SET, AGGREGATION, };
+	private static final AvailableFrom[] VALUES_ARRAY = new AvailableFrom[] { REPOSITORY, CONTRIBUTION, VALIDATION_SET,
+			AGGREGATION, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Available From</b></em>' enumerators.
@@ -144,7 +144,7 @@ public enum AvailableFrom implements Enumerator {
 	 * @generated
 	 */
 	public static AvailableFrom get(int value) {
-		switch(value) {
+		switch (value) {
 			case REPOSITORY_VALUE:
 				return REPOSITORY;
 			case CONTRIBUTION_VALUE:
@@ -166,9 +166,9 @@ public enum AvailableFrom implements Enumerator {
 	 * @generated
 	 */
 	public static AvailableFrom get(String literal) {
-		for(int i = 0; i < VALUES_ARRAY.length; ++i) {
+		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
 			AvailableFrom result = VALUES_ARRAY[i];
-			if(result.toString().equals(literal)) {
+			if (result.toString().equals(literal)) {
 				return result;
 			}
 		}
@@ -184,9 +184,9 @@ public enum AvailableFrom implements Enumerator {
 	 * @generated
 	 */
 	public static AvailableFrom getByName(String name) {
-		for(int i = 0; i < VALUES_ARRAY.length; ++i) {
+		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
 			AvailableFrom result = VALUES_ARRAY[i];
-			if(result.getName().equals(name)) {
+			if (result.getName().equals(name)) {
 				return result;
 			}
 		}

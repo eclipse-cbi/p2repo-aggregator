@@ -91,73 +91,74 @@ public class AggregatorResourceImpl extends XMIResourceImpl implements Aggregato
 	}
 
 	private void analyze(EObject object) {
-		if(object instanceof EnabledStatusProvider && !((EnabledStatusProvider) object).isEnabled())
+		if (object instanceof EnabledStatusProvider && !((EnabledStatusProvider) object).isEnabled())
 			return;
 
-		if(object instanceof InfosProvider) {
+		if (object instanceof InfosProvider) {
 			InfosProvider iProvider = (InfosProvider) object;
 
-			for(String error : iProvider.getErrors())
+			for (String error : iProvider.getErrors())
 				getErrors().add(new ResourceDiagnosticImpl(error, EcoreUtil.getURI(object).toString()));
 
-			for(String warning : iProvider.getWarnings())
+			for (String warning : iProvider.getWarnings())
 				getWarnings().add(new ResourceDiagnosticImpl(warning, EcoreUtil.getURI(object).toString()));
 
-			for(String info : iProvider.getInfos())
+			for (String info : iProvider.getInfos())
 				getInfos().add(new ResourceDiagnosticImpl(info, EcoreUtil.getURI(object).toString()));
 		}
 
-		if(object.eContents() == null)
+		if (object.eContents() == null)
 			return;
 
-		for(EObject childObject : object.eContents())
+		for (EObject childObject : object.eContents())
 			analyze(childObject);
 	}
 
 	/*
 	 * Analysis aggregator errors, warnings & infos
 	 */
+	@Override
 	public void analyzeResource() {
 		Runnable runnable = new Runnable() {
 
+			@Override
 			public void run() {
-				synchronized(AggregatorResourceImpl.this) {
-					while(analysisRequest)
+				synchronized (AggregatorResourceImpl.this) {
+					while (analysisRequest)
 						try {
 							analysisRequest = false;
 							analysisIsRunning = true;
 
 							eNotify(new NotifyAnalyzeResourceStarted());
 
-							if(errors != null) {
+							if (errors != null) {
 								Iterator<Diagnostic> iterator = errors.iterator();
 
-								while(iterator.hasNext())
-									if(iterator.next().getClass() == ResourceDiagnosticImpl.class)
+								while (iterator.hasNext())
+									if (iterator.next().getClass() == ResourceDiagnosticImpl.class)
 										iterator.remove();
 							}
 
-							if(warnings != null) {
+							if (warnings != null) {
 								Iterator<Diagnostic> iterator = warnings.iterator();
 
-								while(iterator.hasNext())
-									if(iterator.next().getClass() == ResourceDiagnosticImpl.class)
+								while (iterator.hasNext())
+									if (iterator.next().getClass() == ResourceDiagnosticImpl.class)
 										iterator.remove();
 							}
 
-							if(infos != null) {
+							if (infos != null) {
 								Iterator<Diagnostic> iterator = infos.iterator();
 
-								while(iterator.hasNext())
-									if(iterator.next().getClass() == ResourceDiagnosticImpl.class)
+								while (iterator.hasNext())
+									if (iterator.next().getClass() == ResourceDiagnosticImpl.class)
 										iterator.remove();
 							}
 
 							Aggregation aggregation = (Aggregation) getContents().get(0);
 
 							analyze((EObject) aggregation);
-						}
-						finally {
+						} finally {
 							eNotify(new NotifyAnalyzeResourceFinished());
 
 							analysisIsRunning = false;
@@ -167,12 +168,12 @@ public class AggregatorResourceImpl extends XMIResourceImpl implements Aggregato
 
 		};
 
-		if(analysisRequest)
+		if (analysisRequest)
 			return;
 
 		analysisRequest = true;
 
-		if(analysisIsRunning)
+		if (analysisIsRunning)
 			return;
 
 		new Thread(runnable).start();
@@ -183,12 +184,14 @@ public class AggregatorResourceImpl extends XMIResourceImpl implements Aggregato
 	 *
 	 * @return the {@code Aggregator} instance contained in this {@code Resource}.
 	 */
+	@Override
 	public Aggregation getAggregation() {
 		return (Aggregation) getContents().get(0);
 	}
 
+	@Override
 	public EList<Diagnostic> getInfos() {
-		if(infos == null) {
+		if (infos == null) {
 			infos = new NotifyingListImpl<Diagnostic>() {
 
 				private static final long serialVersionUID = 1L;
@@ -214,21 +217,21 @@ public class AggregatorResourceImpl extends XMIResourceImpl implements Aggregato
 	}
 
 	public void updateVerificationMarkers(List<VerificationDiagnostic> verificationDiagnostics) {
-		synchronized(this) {
-			if(errors != null) {
+		synchronized (this) {
+			if (errors != null) {
 				Iterator<Diagnostic> iterator = errors.iterator();
 
-				while(iterator.hasNext())
-					if(iterator.next() instanceof VerificationDiagnostic)
+				while (iterator.hasNext())
+					if (iterator.next() instanceof VerificationDiagnostic)
 						iterator.remove();
 			}
 
 			URI baseURI = getURI();
 			EList<Diagnostic> errors = getErrors();
-			for(VerificationDiagnostic verificationDiagnostic : verificationDiagnostics) {
+			for (VerificationDiagnostic verificationDiagnostic : verificationDiagnostics) {
 				verificationDiagnostic.resolveLocation(baseURI);
 				EObject eObject = getResourceSet().getEObject(verificationDiagnostic.getLocationURI(), true);
-				if(eObject instanceof ContributionImpl) {
+				if (eObject instanceof ContributionImpl) {
 					((ContributionImpl) eObject).setStatus(AggregatorFactory.eINSTANCE.createStatus(StatusCode.BROKEN));
 				}
 				errors.add(verificationDiagnostic);

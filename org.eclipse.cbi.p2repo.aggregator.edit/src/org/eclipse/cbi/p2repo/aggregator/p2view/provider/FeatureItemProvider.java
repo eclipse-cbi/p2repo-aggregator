@@ -68,7 +68,7 @@ public class FeatureItemProvider extends IUPresentationWithDetailsItemProvider {
 	 */
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if(childrenFeatures == null) {
+		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(P2viewPackage.Literals.FEATURE__FEATURE_CONTAINER);
 			childrenFeatures.add(P2viewPackage.Literals.FEATURE__BUNDLE_CONTAINER);
@@ -94,7 +94,7 @@ public class FeatureItemProvider extends IUPresentationWithDetailsItemProvider {
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 		}
@@ -109,9 +109,7 @@ public class FeatureItemProvider extends IUPresentationWithDetailsItemProvider {
 	@Override
 	public String getText(Object object) {
 		String label = ((Feature) object).getLabel();
-		return label == null || label.length() == 0
-				? "Unknown Feature"
-				: label;
+		return label == null || label.length() == 0 ? "Unknown Feature" : label;
 	}
 
 	/**

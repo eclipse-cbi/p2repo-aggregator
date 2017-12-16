@@ -6,7 +6,6 @@
  */
 package org.eclipse.cbi.p2repo.aggregator.impl;
 
-import org.eclipse.cbi.p2repo.aggregator.*;
 import org.eclipse.cbi.p2repo.aggregator.Aggregation;
 import org.eclipse.cbi.p2repo.aggregator.AggregationType;
 import org.eclipse.cbi.p2repo.aggregator.AggregatorFactory;
@@ -40,6 +39,7 @@ import org.eclipse.cbi.p2repo.aggregator.Status;
 import org.eclipse.cbi.p2repo.aggregator.StatusCode;
 import org.eclipse.cbi.p2repo.aggregator.ValidConfigurationsRule;
 import org.eclipse.cbi.p2repo.aggregator.ValidationSet;
+import org.eclipse.cbi.p2repo.aggregator.VersionFormat;
 import org.eclipse.cbi.p2repo.aggregator.VersionMatch;
 import org.eclipse.cbi.p2repo.aggregator.WindowSystem;
 import org.eclipse.cbi.p2repo.aggregator.util.InstallableUnitUtils;
@@ -76,13 +76,12 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	 */
 	public static AggregatorFactory init() {
 		try {
-			AggregatorFactory theAggregatorFactory = (AggregatorFactory) EPackage.Registry.INSTANCE.getEFactory(
-				AggregatorPackage.eNS_URI);
-			if(theAggregatorFactory != null) {
+			AggregatorFactory theAggregatorFactory = (AggregatorFactory) EPackage.Registry.INSTANCE
+					.getEFactory(AggregatorPackage.eNS_URI);
+			if (theAggregatorFactory != null) {
 				return theAggregatorFactory;
 			}
-		}
-		catch(Exception exception) {
+		} catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new AggregatorFactoryImpl();
@@ -103,9 +102,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	 * @generated
 	 */
 	public String convertAggregationTypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null
-				? null
-				: instanceValue.toString();
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**
@@ -113,9 +110,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	 * @generated
 	 */
 	public String convertArchitectureToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null
-				? null
-				: instanceValue.toString();
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**
@@ -124,9 +119,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	 * @generated
 	 */
 	public String convertAvailableFromToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null
-				? null
-				: instanceValue.toString();
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**
@@ -134,9 +127,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	 * @generated
 	 */
 	public String convertInstallableUnitTypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null
-				? null
-				: instanceValue.toString();
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**
@@ -144,9 +135,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	 * @generated
 	 */
 	public String convertOperatingSystemToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null
-				? null
-				: instanceValue.toString();
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**
@@ -154,9 +143,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	 * @generated
 	 */
 	public String convertPackedStrategyToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null
-				? null
-				: instanceValue.toString();
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**
@@ -164,9 +151,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	 * @generated
 	 */
 	public String convertStatusCodeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null
-				? null
-				: instanceValue.toString();
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**
@@ -175,7 +160,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	 */
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
-		switch(eDataType.getClassifierID()) {
+		switch (eDataType.getClassifierID()) {
 			case AggregatorPackage.AGGREGATION_TYPE:
 				return convertAggregationTypeToString(eDataType, instanceValue);
 			case AggregatorPackage.ARCHITECTURE:
@@ -198,7 +183,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 				return convertVersionFormatToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException(
-					"The datatype '" + eDataType.getName() + "' is not a valid classifier");
+						"The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -208,9 +193,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	 * @generated
 	 */
 	public String convertVersionMatchToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null
-				? null
-				: instanceValue.toString();
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**
@@ -218,9 +201,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	 * @generated
 	 */
 	public String convertWindowSystemToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null
-				? null
-				: instanceValue.toString();
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**
@@ -230,9 +211,9 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	 */
 	public VersionFormat createVersionFormatFromString(EDataType eDataType, String initialValue) {
 		VersionFormat result = VersionFormat.get(initialValue);
-		if(result == null)
+		if (result == null)
 			throw new IllegalArgumentException(
-				"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
 
@@ -242,9 +223,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	 * @generated
 	 */
 	public String convertVersionFormatToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null
-				? null
-				: instanceValue.toString();
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**
@@ -253,7 +232,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	 */
 	@Override
 	public EObject create(EClass eClass) {
-		switch(eClass.getClassifierID()) {
+		switch (eClass.getClassifierID()) {
 			case AggregatorPackage.AGGREGATION:
 				return (EObject) createAggregation();
 			case AggregatorPackage.AVAILABLE_VERSIONS_HEADER:
@@ -321,9 +300,9 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	 */
 	public AggregationType createAggregationTypeFromString(EDataType eDataType, String initialValue) {
 		AggregationType result = AggregationType.get(initialValue);
-		if(result == null)
+		if (result == null)
 			throw new IllegalArgumentException(
-				"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
 
@@ -333,9 +312,9 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	 */
 	public Architecture createArchitectureFromString(EDataType eDataType, String initialValue) {
 		Architecture result = Architecture.get(initialValue);
-		if(result == null)
+		if (result == null)
 			throw new IllegalArgumentException(
-				"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
 
@@ -346,9 +325,9 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	 */
 	public AvailableFrom createAvailableFromFromString(EDataType eDataType, String initialValue) {
 		AvailableFrom result = AvailableFrom.get(initialValue);
-		if(result == null)
+		if (result == null)
 			throw new IllegalArgumentException(
-				"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
 
@@ -470,7 +449,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	 */
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
-		switch(eDataType.getClassifierID()) {
+		switch (eDataType.getClassifierID()) {
 			case AggregatorPackage.AGGREGATION_TYPE:
 				return createAggregationTypeFromString(eDataType, initialValue);
 			case AggregatorPackage.ARCHITECTURE:
@@ -493,7 +472,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 				return createVersionFormatFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException(
-					"The datatype '" + eDataType.getName() + "' is not a valid classifier");
+						"The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -513,9 +492,9 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	 */
 	public InstallableUnitType createInstallableUnitTypeFromString(EDataType eDataType, String initialValue) {
 		InstallableUnitType result = InstallableUnitType.get(initialValue);
-		if(result == null)
+		if (result == null)
 			throw new IllegalArgumentException(
-				"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
 
@@ -552,7 +531,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	public MappedUnit createMappedUnit(IInstallableUnit iu) {
 		MappedUnit mu = null;
 
-		switch(InstallableUnitUtils.getType(iu)) {
+		switch (InstallableUnitUtils.getType(iu)) {
 			case FEATURE:
 				mu = createFeature();
 				break;
@@ -585,9 +564,9 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	public MapRule createMapRule(IInstallableUnit iu, Class<? extends MapRule> ruleClass) {
 		MapRule mr = null;
 
-		if(ruleClass.isAssignableFrom(ExclusionRule.class))
+		if (ruleClass.isAssignableFrom(ExclusionRule.class))
 			mr = createExclusionRule();
-		else if(ruleClass.isAssignableFrom(ValidConfigurationsRule.class))
+		else if (ruleClass.isAssignableFrom(ValidConfigurationsRule.class))
 			mr = createValidConfigurationsRule();
 		else
 			throw new IllegalArgumentException("Unknown rule class " + ruleClass);
@@ -634,9 +613,9 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	 */
 	public OperatingSystem createOperatingSystemFromString(EDataType eDataType, String initialValue) {
 		OperatingSystem result = OperatingSystem.get(initialValue);
-		if(result == null)
+		if (result == null)
 			throw new IllegalArgumentException(
-				"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
 
@@ -646,9 +625,9 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	 */
 	public PackedStrategy createPackedStrategyFromString(EDataType eDataType, String initialValue) {
 		PackedStrategy result = PackedStrategy.get(initialValue);
-		if(result == null)
+		if (result == null)
 			throw new IllegalArgumentException(
-				"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
 
@@ -709,9 +688,9 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	 */
 	public StatusCode createStatusCodeFromString(EDataType eDataType, String initialValue) {
 		StatusCode result = StatusCode.get(initialValue);
-		if(result == null)
+		if (result == null)
 			throw new IllegalArgumentException(
-				"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
 
@@ -743,9 +722,9 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	 */
 	public VersionMatch createVersionMatchFromString(EDataType eDataType, String initialValue) {
 		VersionMatch result = VersionMatch.get(initialValue);
-		if(result == null)
+		if (result == null)
 			throw new IllegalArgumentException(
-				"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
 
@@ -755,9 +734,9 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	 */
 	public WindowSystem createWindowSystemFromString(EDataType eDataType, String initialValue) {
 		WindowSystem result = WindowSystem.get(initialValue);
-		if(result == null)
+		if (result == null)
 			throw new IllegalArgumentException(
-				"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
 

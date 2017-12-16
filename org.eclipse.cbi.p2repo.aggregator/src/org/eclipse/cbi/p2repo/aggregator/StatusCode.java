@@ -116,7 +116,7 @@ public enum StatusCode implements Enumerator {
 	 * @generated
 	 */
 	public static StatusCode get(int value) {
-		switch(value) {
+		switch (value) {
 			case OK_VALUE:
 				return OK;
 			case BROKEN_VALUE:
@@ -136,9 +136,9 @@ public enum StatusCode implements Enumerator {
 	 * @generated
 	 */
 	public static StatusCode get(String literal) {
-		for(int i = 0; i < VALUES_ARRAY.length; ++i) {
+		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
 			StatusCode result = VALUES_ARRAY[i];
-			if(result.toString().equals(literal)) {
+			if (result.toString().equals(literal)) {
 				return result;
 			}
 		}
@@ -154,9 +154,9 @@ public enum StatusCode implements Enumerator {
 	 * @generated
 	 */
 	public static StatusCode getByName(String name) {
-		for(int i = 0; i < VALUES_ARRAY.length; ++i) {
+		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
 			StatusCode result = VALUES_ARRAY[i];
-			if(result.getName().equals(name)) {
+			if (result.getName().equals(name)) {
 				return result;
 			}
 		}

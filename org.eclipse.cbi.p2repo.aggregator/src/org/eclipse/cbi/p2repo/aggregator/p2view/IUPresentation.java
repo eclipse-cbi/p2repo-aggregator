@@ -40,20 +40,11 @@ public interface IUPresentation {
 	// Compares IU presentation by label
 	static class IUPresentationComparator implements Comparator<IUPresentation> {
 
+		@Override
 		public int compare(IUPresentation iup1, IUPresentation iup2) {
-			String label1 = iup1 != null
-					? iup1.getLabel()
-					: null;
-			String label2 = iup2 != null
-					? iup2.getLabel()
-					: null;
-			return label1 != null
-					? (label2 == null
-							? 1
-							: label1.compareTo(label2))
-					: (label2 != null
-							? -1
-							: 0);
+			String label1 = iup1 != null ? iup1.getLabel() : null;
+			String label2 = iup2 != null ? iup2.getLabel() : null;
+			return label1 != null ? (label2 == null ? 1 : label1.compareTo(label2)) : (label2 != null ? -1 : 0);
 		}
 	}
 

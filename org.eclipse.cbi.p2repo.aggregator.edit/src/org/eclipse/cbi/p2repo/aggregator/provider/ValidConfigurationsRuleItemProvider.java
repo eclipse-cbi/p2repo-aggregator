@@ -43,13 +43,11 @@ public class ValidConfigurationsRuleItemProvider extends MapRuleItemProvider {
 	 * @generated
 	 */
 	protected void addValidConfigurationsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(
-			createItemPropertyDescriptor(
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
 				getString("_UI_ValidConfigurationsRule_validConfigurations_feature"),
-				getString(
-					"_UI_PropertyDescriptor_description", "_UI_ValidConfigurationsRule_validConfigurations_feature",
-					"_UI_ValidConfigurationsRule_type"),
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_ValidConfigurationsRule_validConfigurations_feature", "_UI_ValidConfigurationsRule_type"),
 				AggregatorPackage.Literals.VALID_CONFIGURATIONS_RULE__VALID_CONFIGURATIONS, true, false, true, null,
 				null, null));
 	}
@@ -72,13 +70,8 @@ public class ValidConfigurationsRuleItemProvider extends MapRuleItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(
-			object,
-			getResourceLocator().getImage(
-				"full/obj16/ValidConfigurationsRule" +
-						(!((ValidConfigurationsRule) object).isBranchDisabledOrMappedRepositoryBroken()
-								? ""
-								: "Disabled")));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ValidConfigurationsRule"
+				+ (!((ValidConfigurationsRule) object).isBranchDisabledOrMappedRepositoryBroken() ? "" : "Disabled")));
 	}
 
 	/**
@@ -88,7 +81,7 @@ public class ValidConfigurationsRuleItemProvider extends MapRuleItemProvider {
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addValidConfigurationsPropertyDescriptor(object);
@@ -104,14 +97,14 @@ public class ValidConfigurationsRuleItemProvider extends MapRuleItemProvider {
 	@Override
 	public String getText(Object object) {
 		StringBuilder bld = new StringBuilder();
-		if(appendIUText(object, "_UI_ValidConfigurationsRule_type", bld)) {
+		if (appendIUText(object, "_UI_ValidConfigurationsRule_type", bld)) {
 			ValidConfigurationsRule vcRule = (ValidConfigurationsRule) object;
 			List<Configuration> configs = vcRule.getValidConfigurations();
 			int top = configs.size();
-			if(top > 0) {
+			if (top > 0) {
 				bld.append(' ');
 				bld.append(configs.get(0).getName());
-				for(int idx = 1; idx < top; ++idx) {
+				for (int idx = 1; idx < top; ++idx) {
 					bld.append('|');
 					bld.append(configs.get(idx).getName());
 				}
@@ -131,7 +124,7 @@ public class ValidConfigurationsRuleItemProvider extends MapRuleItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch(notification.getFeatureID(ValidConfigurationsRule.class)) {
+		switch (notification.getFeatureID(ValidConfigurationsRule.class)) {
 			case AggregatorPackage.VALID_CONFIGURATIONS_RULE__VALID_CONFIGURATIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

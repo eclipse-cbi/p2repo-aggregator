@@ -79,7 +79,7 @@ public class FragmentsItemProvider extends AggregatorItemProviderAdapter
 	 */
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if(childrenFeatures == null) {
+		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(P2viewPackage.Literals.FRAGMENTS__FRAGMENTS);
 		}
@@ -103,7 +103,7 @@ public class FragmentsItemProvider extends AggregatorItemProviderAdapter
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 		}

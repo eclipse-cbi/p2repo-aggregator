@@ -54,13 +54,11 @@ public class DescriptionProviderItemProvider extends AggregatorItemProviderAdapt
 	 * @generated
 	 */
 	protected void addDescriptionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(
-			createItemPropertyDescriptor(
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
 				getString("_UI_DescriptionProvider_description_feature"),
-				getString(
-					"_UI_PropertyDescriptor_description", "_UI_DescriptionProvider_description_feature",
-					"_UI_DescriptionProvider_type"),
+				getString("_UI_PropertyDescriptor_description", "_UI_DescriptionProvider_description_feature",
+						"_UI_DescriptionProvider_type"),
 				AggregatorPackage.Literals.DESCRIPTION_PROVIDER__DESCRIPTION, true, true, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
@@ -93,7 +91,7 @@ public class DescriptionProviderItemProvider extends AggregatorItemProviderAdapt
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addDescriptionPropertyDescriptor(object);
@@ -122,7 +120,7 @@ public class DescriptionProviderItemProvider extends AggregatorItemProviderAdapt
 		CustomCategory self = (CustomCategory) object;
 		String label = crop(self.getDescription());
 		StringBuilder bld = new StringBuilder(getString("_UI_DescriptionProvider_type")).append(" : ");
-		if(label != null)
+		if (label != null)
 			bld.append(label);
 		return bld.toString();
 	}
@@ -138,7 +136,7 @@ public class DescriptionProviderItemProvider extends AggregatorItemProviderAdapt
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch(notification.getFeatureID(DescriptionProvider.class)) {
+		switch (notification.getFeatureID(DescriptionProvider.class)) {
 			case AggregatorPackage.DESCRIPTION_PROVIDER__DESCRIPTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

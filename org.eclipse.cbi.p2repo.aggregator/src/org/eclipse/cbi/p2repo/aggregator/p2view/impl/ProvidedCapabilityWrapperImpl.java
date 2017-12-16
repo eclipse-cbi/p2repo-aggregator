@@ -160,8 +160,8 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if(baseClass == LabelProvider.class) {
-			switch(derivedFeatureID) {
+		if (baseClass == LabelProvider.class) {
+			switch (derivedFeatureID) {
 				case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__LABEL:
 					return AggregatorPackage.LABEL_PROVIDER__LABEL;
 				default:
@@ -177,8 +177,8 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if(baseClass == LabelProvider.class) {
-			switch(baseFeatureID) {
+		if (baseClass == LabelProvider.class) {
+			switch (baseFeatureID) {
 				case AggregatorPackage.LABEL_PROVIDER__LABEL:
 					return P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__LABEL;
 				default:
@@ -194,7 +194,7 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__NAME:
 				return getName();
 			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__NAMESPACE:
@@ -216,11 +216,9 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__LABEL:
-				return LABEL_EDEFAULT == null
-						? label != null
-						: !LABEL_EDEFAULT.equals(label);
+				return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
 			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__GENUINE:
 				return genuine != null;
 			default:
@@ -234,7 +232,7 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__NAME:
 				setName((String) newValue);
 				return;
@@ -266,7 +264,7 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -339,10 +337,9 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	public void setLabel(String newLabel) {
 		String oldLabel = label;
 		label = newLabel;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__LABEL, oldLabel, label));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__LABEL,
+					oldLabel, label));
 	}
 
 	/**
@@ -379,7 +376,7 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 */
 	@Override
 	public String toString() {
-		if(eIsProxy())
+		if (eIsProxy())
 			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());

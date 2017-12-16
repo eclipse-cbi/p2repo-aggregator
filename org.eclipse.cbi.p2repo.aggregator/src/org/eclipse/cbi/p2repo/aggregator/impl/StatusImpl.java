@@ -35,7 +35,7 @@ public class StatusImpl extends MinimalEObjectImpl.Container implements Status {
 	private static final Status waitingStatus = new StatusImpl(StatusCode.WAITING);
 
 	public static Status createStatus(StatusCode statusCode) {
-		switch(statusCode) {
+		switch (statusCode) {
 			case BROKEN:
 				return brokenStatus;
 			case WAITING:
@@ -158,7 +158,7 @@ public class StatusImpl extends MinimalEObjectImpl.Container implements Status {
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case AggregatorPackage.STATUS__CODE:
 				return getCode();
 			case AggregatorPackage.STATUS__MESSAGE:
@@ -173,13 +173,11 @@ public class StatusImpl extends MinimalEObjectImpl.Container implements Status {
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case AggregatorPackage.STATUS__CODE:
 				return (eFlags & CODE_EFLAG) != CODE_EFLAG_DEFAULT;
 			case AggregatorPackage.STATUS__MESSAGE:
-				return MESSAGE_EDEFAULT == null
-						? message != null
-						: !MESSAGE_EDEFAULT.equals(message);
+				return MESSAGE_EDEFAULT == null ? message != null : !MESSAGE_EDEFAULT.equals(message);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -218,7 +216,7 @@ public class StatusImpl extends MinimalEObjectImpl.Container implements Status {
 	 */
 	@Override
 	public String toString() {
-		if(eIsProxy())
+		if (eIsProxy())
 			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());

@@ -231,35 +231,34 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	}
 
 	private void addContributions(EList<Contribution> receiver) {
-		for(Contribution contrib : getContributions()) {
-			if(contrib.isEnabled())
+		for (Contribution contrib : getContributions()) {
+			if (contrib.isEnabled())
 				receiver.add(contrib);
 		}
-		if(extends_ != null)
-			for(ValidationSet ex : extends_)
-				if(ex.isEnabled())
+		if (extends_ != null)
+			for (ValidationSet ex : extends_)
+				if (ex.isEnabled())
 					((ValidationSetImpl) ex).addContributions(receiver);
 	}
 
 	private void addValidationRepositories(EList<MetadataRepositoryReference> receiver) {
-		for(MetadataRepositoryReference repo : getValidationRepositories()) {
-			if(repo.isEnabled())
+		for (MetadataRepositoryReference repo : getValidationRepositories()) {
+			if (repo.isEnabled())
 				receiver.add(repo);
 		}
-		if(extends_ != null)
-			for(ValidationSet ex : extends_)
-				if(ex.isEnabled())
+		if (extends_ != null)
+			for (ValidationSet ex : extends_)
+				if (ex.isEnabled())
 					((ValidationSetImpl) ex).addValidationRepositories(receiver);
 	}
 
 	void clearStatus() {
 		Status oldStatus = getStatus();
-		for(Contribution contribution : getContributions())
+		for (Contribution contribution : getContributions())
 			((ContributionImpl) contribution).setStatus(null);
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, AggregatorPackage.VALIDATION_SET__STATUS, oldStatus, null));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.VALIDATION_SET__STATUS, oldStatus,
+					null));
 	}
 
 	/**
@@ -269,24 +268,24 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if(baseClass == DescriptionProvider.class) {
-			switch(derivedFeatureID) {
+		if (baseClass == DescriptionProvider.class) {
+			switch (derivedFeatureID) {
 				case AggregatorPackage.VALIDATION_SET__DESCRIPTION:
 					return AggregatorPackage.DESCRIPTION_PROVIDER__DESCRIPTION;
 				default:
 					return -1;
 			}
 		}
-		if(baseClass == StatusProvider.class) {
-			switch(derivedFeatureID) {
+		if (baseClass == StatusProvider.class) {
+			switch (derivedFeatureID) {
 				case AggregatorPackage.VALIDATION_SET__STATUS:
 					return AggregatorPackage.STATUS_PROVIDER__STATUS;
 				default:
 					return -1;
 			}
 		}
-		if(baseClass == InfosProvider.class) {
-			switch(derivedFeatureID) {
+		if (baseClass == InfosProvider.class) {
+			switch (derivedFeatureID) {
 				case AggregatorPackage.VALIDATION_SET__ERRORS:
 					return AggregatorPackage.INFOS_PROVIDER__ERRORS;
 				case AggregatorPackage.VALIDATION_SET__WARNINGS:
@@ -297,8 +296,8 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 					return -1;
 			}
 		}
-		if(baseClass == IdentificationProvider.class) {
-			switch(derivedFeatureID) {
+		if (baseClass == IdentificationProvider.class) {
+			switch (derivedFeatureID) {
 				default:
 					return -1;
 			}
@@ -313,24 +312,24 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if(baseClass == DescriptionProvider.class) {
-			switch(baseFeatureID) {
+		if (baseClass == DescriptionProvider.class) {
+			switch (baseFeatureID) {
 				case AggregatorPackage.DESCRIPTION_PROVIDER__DESCRIPTION:
 					return AggregatorPackage.VALIDATION_SET__DESCRIPTION;
 				default:
 					return -1;
 			}
 		}
-		if(baseClass == StatusProvider.class) {
-			switch(baseFeatureID) {
+		if (baseClass == StatusProvider.class) {
+			switch (baseFeatureID) {
 				case AggregatorPackage.STATUS_PROVIDER__STATUS:
 					return AggregatorPackage.VALIDATION_SET__STATUS;
 				default:
 					return -1;
 			}
 		}
-		if(baseClass == InfosProvider.class) {
-			switch(baseFeatureID) {
+		if (baseClass == InfosProvider.class) {
+			switch (baseFeatureID) {
 				case AggregatorPackage.INFOS_PROVIDER__ERRORS:
 					return AggregatorPackage.VALIDATION_SET__ERRORS;
 				case AggregatorPackage.INFOS_PROVIDER__WARNINGS:
@@ -341,8 +340,8 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 					return -1;
 			}
 		}
-		if(baseClass == IdentificationProvider.class) {
-			switch(baseFeatureID) {
+		if (baseClass == IdentificationProvider.class) {
+			switch (baseFeatureID) {
 				default:
 					return -1;
 			}
@@ -357,7 +356,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case AggregatorPackage.VALIDATION_SET__BRANCH_ENABLED:
 				return isBranchEnabled();
 			case AggregatorPackage.VALIDATION_SET__ENABLED:
@@ -395,7 +394,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
+		switch (featureID) {
 			case AggregatorPackage.VALIDATION_SET__CONTRIBUTIONS:
 				return ((InternalEList<?>) getContributions()).basicRemove(otherEnd, msgs);
 			case AggregatorPackage.VALIDATION_SET__VALIDATION_REPOSITORIES:
@@ -411,15 +410,13 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case AggregatorPackage.VALIDATION_SET__BRANCH_ENABLED:
 				return isSetBranchEnabled();
 			case AggregatorPackage.VALIDATION_SET__ENABLED:
 				return ((eFlags & ENABLED_EFLAG) != 0) != ENABLED_EDEFAULT;
 			case AggregatorPackage.VALIDATION_SET__DESCRIPTION:
-				return DESCRIPTION_EDEFAULT == null
-						? description != null
-						: !DESCRIPTION_EDEFAULT.equals(description);
+				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 			case AggregatorPackage.VALIDATION_SET__STATUS:
 				return getStatus() != null;
 			case AggregatorPackage.VALIDATION_SET__ERRORS:
@@ -433,9 +430,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 			case AggregatorPackage.VALIDATION_SET__EXTENSION:
 				return isSetExtension();
 			case AggregatorPackage.VALIDATION_SET__LABEL:
-				return LABEL_EDEFAULT == null
-						? label != null
-						: !LABEL_EDEFAULT.equals(label);
+				return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
 			case AggregatorPackage.VALIDATION_SET__CONTRIBUTIONS:
 				return contributions != null && !contributions.isEmpty();
 			case AggregatorPackage.VALIDATION_SET__VALIDATION_REPOSITORIES:
@@ -454,7 +449,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case AggregatorPackage.VALIDATION_SET__ENABLED:
 				setEnabled((Boolean) newValue);
 				return;
@@ -509,7 +504,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case AggregatorPackage.VALIDATION_SET__ENABLED:
 				setEnabled(ENABLED_EDEFAULT);
 				return;
@@ -552,9 +547,9 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	 */
 	@Override
 	public EList<Contribution> getAllContributions() {
-		if(extends_ == null || extends_.isEmpty())
+		if (extends_ == null || extends_.isEmpty())
 			return getDeclaredContributions();
-		EList<Contribution> all = new UniqueEList.FastCompare<Contribution>();
+		EList<Contribution> all = new UniqueEList.FastCompare<>();
 		addContributions(all);
 		return all;
 	}
@@ -566,9 +561,9 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	 */
 	@Override
 	public EList<MetadataRepositoryReference> getAllValidationRepositories() {
-		if(extends_ == null || extends_.isEmpty())
+		if (extends_ == null || extends_.isEmpty())
 			return getDeclaredValidationRepositories();
-		EList<MetadataRepositoryReference> all = new UniqueEList.FastCompare<MetadataRepositoryReference>();
+		EList<MetadataRepositoryReference> all = new UniqueEList.FastCompare<>();
 		addValidationRepositories(all);
 		return all;
 	}
@@ -580,9 +575,9 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	 */
 	@Override
 	public EList<Contribution> getContributions() {
-		if(contributions == null) {
-			contributions = new EObjectContainmentEList.Resolving<Contribution>(
-				Contribution.class, this, AggregatorPackage.VALIDATION_SET__CONTRIBUTIONS);
+		if (contributions == null) {
+			contributions = new EObjectContainmentEList.Resolving<>(Contribution.class, this,
+					AggregatorPackage.VALIDATION_SET__CONTRIBUTIONS);
 		}
 		return contributions;
 	}
@@ -626,8 +621,8 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	 */
 	@Override
 	public EList<String> getErrors() {
-		if(errors == null) {
-			errors = new EDataTypeUniqueEList<String>(String.class, this, AggregatorPackage.VALIDATION_SET__ERRORS);
+		if (errors == null) {
+			errors = new EDataTypeUniqueEList<>(String.class, this, AggregatorPackage.VALIDATION_SET__ERRORS);
 		}
 		return errors;
 	}
@@ -639,9 +634,9 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	 */
 	@Override
 	public EList<ValidationSet> getExtends() {
-		if(extends_ == null) {
-			extends_ = new EObjectResolvingEList<ValidationSet>(
-				ValidationSet.class, this, AggregatorPackage.VALIDATION_SET__EXTENDS);
+		if (extends_ == null) {
+			extends_ = new EObjectResolvingEList<>(ValidationSet.class, this,
+					AggregatorPackage.VALIDATION_SET__EXTENDS);
 		}
 		return extends_;
 	}
@@ -664,8 +659,8 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	 */
 	@Override
 	public EList<String> getInfos() {
-		if(infos == null) {
-			infos = new EDataTypeUniqueEList<String>(String.class, this, AggregatorPackage.VALIDATION_SET__INFOS);
+		if (infos == null) {
+			infos = new EDataTypeUniqueEList<>(String.class, this, AggregatorPackage.VALIDATION_SET__INFOS);
 		}
 		return infos;
 	}
@@ -689,20 +684,20 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	@Override
 	public Status getStatus() {
 		StatusCode statusCode;
-		if(extends_ != null) {
-			for(ValidationSet ex : extends_) {
-				if(!ex.isEnabled())
+		if (extends_ != null) {
+			for (ValidationSet ex : extends_) {
+				if (!ex.isEnabled())
 					continue;
-				if((statusCode = ex.getStatus().getCode()) != StatusCode.OK && statusCode != StatusCode.WAITING)
+				if ((statusCode = ex.getStatus().getCode()) != StatusCode.OK && statusCode != StatusCode.WAITING)
 					return AggregatorFactory.eINSTANCE.createStatus(StatusCode.BROKEN);
 			}
 		}
-		for(Contribution contribution : getDeclaredContributions()) {
-			if((statusCode = contribution.getStatus().getCode()) != StatusCode.OK && statusCode != StatusCode.WAITING)
+		for (Contribution contribution : getDeclaredContributions()) {
+			if ((statusCode = contribution.getStatus().getCode()) != StatusCode.OK && statusCode != StatusCode.WAITING)
 				return AggregatorFactory.eINSTANCE.createStatus(StatusCode.BROKEN);
 		}
-		for(MetadataRepositoryReference repo : getDeclaredValidationRepositories()) {
-			if((statusCode = repo.getStatus().getCode()) != StatusCode.OK && statusCode != StatusCode.WAITING)
+		for (MetadataRepositoryReference repo : getDeclaredValidationRepositories()) {
+			if ((statusCode = repo.getStatus().getCode()) != StatusCode.OK && statusCode != StatusCode.WAITING)
 				return AggregatorFactory.eINSTANCE.createStatus(StatusCode.BROKEN);
 		}
 		return AggregatorFactory.eINSTANCE.createStatus(StatusCode.OK);
@@ -715,9 +710,9 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	 */
 	@Override
 	public EList<MetadataRepositoryReference> getValidationRepositories() {
-		if(validationRepositories == null) {
-			validationRepositories = new EObjectContainmentEList.Resolving<MetadataRepositoryReference>(
-				MetadataRepositoryReference.class, this, AggregatorPackage.VALIDATION_SET__VALIDATION_REPOSITORIES);
+		if (validationRepositories == null) {
+			validationRepositories = new EObjectContainmentEList.Resolving<>(
+					MetadataRepositoryReference.class, this, AggregatorPackage.VALIDATION_SET__VALIDATION_REPOSITORIES);
 		}
 		return validationRepositories;
 	}
@@ -729,8 +724,8 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	 */
 	@Override
 	public EList<String> getWarnings() {
-		if(warnings == null) {
-			warnings = new EDataTypeUniqueEList<String>(String.class, this, AggregatorPackage.VALIDATION_SET__WARNINGS);
+		if (warnings == null) {
+			warnings = new EDataTypeUniqueEList<>(String.class, this, AggregatorPackage.VALIDATION_SET__WARNINGS);
 		}
 		return warnings;
 	}
@@ -746,9 +741,9 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	 */
 	@Override
 	public boolean isAbstract() {
-		if(isEnabled()) {
-			for(ValidationSet vs : getAggregation().getValidationSets(true))
-				if(vs != this && vs.isExtensionOf(this))
+		if (isEnabled()) {
+			for (ValidationSet vs : getAggregation().getValidationSets(true))
+				if (vs != this && vs.isExtensionOf(this))
 					return true;
 		}
 		return false;
@@ -794,14 +789,14 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	 */
 	@Override
 	public boolean isExtensionOf(ValidationSet validationSet) {
-		if(validationSet == null)
+		if (validationSet == null)
 			return false;
-		if(validationSet == this)
+		if (validationSet == this)
 			return true;
-		if(extends_ == null)
+		if (extends_ == null)
 			return false;
-		for(ValidationSet vs : extends_) {
-			if(vs.isExtensionOf(validationSet))
+		for (ValidationSet vs : extends_) {
+			if (vs.isExtensionOf(validationSet))
 				return true;
 		}
 		return false;
@@ -850,11 +845,9 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	public void setDescription(String newDescription) {
 		String oldDescription = description;
 		description = newDescription;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, AggregatorPackage.VALIDATION_SET__DESCRIPTION, oldDescription,
-					description));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.VALIDATION_SET__DESCRIPTION,
+					oldDescription, description));
 	}
 
 	/**
@@ -865,14 +858,13 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	@Override
 	public void setEnabled(boolean newEnabled) {
 		boolean oldEnabled = (eFlags & ENABLED_EFLAG) != 0;
-		if(newEnabled)
+		if (newEnabled)
 			eFlags |= ENABLED_EFLAG;
 		else
 			eFlags &= ~ENABLED_EFLAG;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, AggregatorPackage.VALIDATION_SET__ENABLED, oldEnabled, newEnabled));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.VALIDATION_SET__ENABLED, oldEnabled,
+					newEnabled));
 	}
 
 	/**
@@ -884,10 +876,9 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	public void setLabel(String newLabel) {
 		String oldLabel = label;
 		label = newLabel;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, AggregatorPackage.VALIDATION_SET__LABEL, oldLabel, label));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.VALIDATION_SET__LABEL, oldLabel,
+					label));
 	}
 
 	/**
@@ -897,7 +888,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	 */
 	@Override
 	public String toString() {
-		if(eIsProxy())
+		if (eIsProxy())
 			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());

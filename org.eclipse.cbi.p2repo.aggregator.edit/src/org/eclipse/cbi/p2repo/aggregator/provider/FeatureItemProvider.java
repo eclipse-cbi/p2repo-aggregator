@@ -32,7 +32,6 @@ public class FeatureItemProvider extends MappedUnitItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public FeatureItemProvider(AdapterFactory adapterFactory) {
@@ -42,23 +41,21 @@ public class FeatureItemProvider extends MappedUnitItemProvider {
 	/**
 	 * This adds a property descriptor for the Categories feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected void addCategoriesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(
-			createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_Feature_categories_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_Feature_categories_feature", "_UI_Feature_type"),
-				AggregatorPackage.Literals.FEATURE__CATEGORIES, true, false, true, null, null, null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Feature_categories_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Feature_categories_feature",
+								"_UI_Feature_type"),
+						AggregatorPackage.Literals.FEATURE__CATEGORIES, true, false, true, null, null, null));
 	}
 
 	/**
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -68,7 +65,7 @@ public class FeatureItemProvider extends MappedUnitItemProvider {
 
 	@Override
 	protected List<? extends InstallableUnitRequest> getContainerChildren(MappedRepository container) {
-		List<InstallableUnitRequest> featureRefs = new ArrayList<InstallableUnitRequest>();
+		List<InstallableUnitRequest> featureRefs = new ArrayList<>();
 		featureRefs.addAll(container.getFeatures());
 		featureRefs.addAll(container.getMapRules());
 
@@ -82,12 +79,8 @@ public class FeatureItemProvider extends MappedUnitItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(
-			object,
-			getResourceLocator().getImage(
-				"full/obj16/Feature" + (!((Feature) object).isBranchDisabledOrMappedRepositoryBroken()
-						? ""
-						: "Disabled")));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Feature"
+				+ (!((Feature) object).isBranchDisabledOrMappedRepositoryBroken() ? "" : "Disabled")));
 	}
 
 	@Override
@@ -98,12 +91,11 @@ public class FeatureItemProvider extends MappedUnitItemProvider {
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addCategoriesPropertyDescriptor(object);

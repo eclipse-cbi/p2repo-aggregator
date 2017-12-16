@@ -122,7 +122,7 @@ public enum VersionMatch implements Enumerator {
 	 * @generated
 	 */
 	public static VersionMatch get(int value) {
-		switch(value) {
+		switch (value) {
 			case BELOW_VALUE:
 				return BELOW;
 			case MATCHES_VALUE:
@@ -142,9 +142,9 @@ public enum VersionMatch implements Enumerator {
 	 * @generated
 	 */
 	public static VersionMatch get(String literal) {
-		for(int i = 0; i < VALUES_ARRAY.length; ++i) {
+		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
 			VersionMatch result = VALUES_ARRAY[i];
-			if(result.toString().equals(literal)) {
+			if (result.toString().equals(literal)) {
 				return result;
 			}
 		}
@@ -160,9 +160,9 @@ public enum VersionMatch implements Enumerator {
 	 * @generated
 	 */
 	public static VersionMatch getByName(String name) {
-		for(int i = 0; i < VALUES_ARRAY.length; ++i) {
+		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
 			VersionMatch result = VALUES_ARRAY[i];
-			if(result.getName().equals(name)) {
+			if (result.getName().equals(name)) {
 				return result;
 			}
 		}

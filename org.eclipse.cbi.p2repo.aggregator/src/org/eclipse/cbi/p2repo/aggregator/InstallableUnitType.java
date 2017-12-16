@@ -167,8 +167,8 @@ public enum InstallableUnitType implements Enumerator {
 	 * end-user-doc -->
 	 * @generated
 	 */
-	private static final InstallableUnitType[] VALUES_ARRAY = new InstallableUnitType[] {
-			BUNDLE, FEATURE, PRODUCT, CATEGORY, FRAGMENT, OTHER, };
+	private static final InstallableUnitType[] VALUES_ARRAY = new InstallableUnitType[] { BUNDLE, FEATURE, PRODUCT,
+			CATEGORY, FRAGMENT, OTHER, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Installable Unit Type</b></em>' enumerators.
@@ -187,7 +187,7 @@ public enum InstallableUnitType implements Enumerator {
 	 * @generated
 	 */
 	public static InstallableUnitType get(int value) {
-		switch(value) {
+		switch (value) {
 			case BUNDLE_VALUE:
 				return BUNDLE;
 			case FEATURE_VALUE:
@@ -213,9 +213,9 @@ public enum InstallableUnitType implements Enumerator {
 	 * @generated
 	 */
 	public static InstallableUnitType get(String literal) {
-		for(int i = 0; i < VALUES_ARRAY.length; ++i) {
+		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
 			InstallableUnitType result = VALUES_ARRAY[i];
-			if(result.toString().equals(literal)) {
+			if (result.toString().equals(literal)) {
 				return result;
 			}
 		}
@@ -231,9 +231,9 @@ public enum InstallableUnitType implements Enumerator {
 	 * @generated
 	 */
 	public static InstallableUnitType getByName(String name) {
-		for(int i = 0; i < VALUES_ARRAY.length; ++i) {
+		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
 			InstallableUnitType result = VALUES_ARRAY[i];
-			if(result.getName().equals(name)) {
+			if (result.getName().equals(name)) {
 				return result;
 			}
 		}

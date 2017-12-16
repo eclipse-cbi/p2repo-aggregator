@@ -211,24 +211,24 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if(baseClass == DescriptionProvider.class) {
-			switch(derivedFeatureID) {
+		if (baseClass == DescriptionProvider.class) {
+			switch (derivedFeatureID) {
 				case AggregatorPackage.CONTRIBUTION__DESCRIPTION:
 					return AggregatorPackage.DESCRIPTION_PROVIDER__DESCRIPTION;
 				default:
 					return -1;
 			}
 		}
-		if(baseClass == StatusProvider.class) {
-			switch(derivedFeatureID) {
+		if (baseClass == StatusProvider.class) {
+			switch (derivedFeatureID) {
 				case AggregatorPackage.CONTRIBUTION__STATUS:
 					return AggregatorPackage.STATUS_PROVIDER__STATUS;
 				default:
 					return -1;
 			}
 		}
-		if(baseClass == InfosProvider.class) {
-			switch(derivedFeatureID) {
+		if (baseClass == InfosProvider.class) {
+			switch (derivedFeatureID) {
 				case AggregatorPackage.CONTRIBUTION__ERRORS:
 					return AggregatorPackage.INFOS_PROVIDER__ERRORS;
 				case AggregatorPackage.CONTRIBUTION__WARNINGS:
@@ -239,8 +239,8 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 					return -1;
 			}
 		}
-		if(baseClass == IdentificationProvider.class) {
-			switch(derivedFeatureID) {
+		if (baseClass == IdentificationProvider.class) {
+			switch (derivedFeatureID) {
 				default:
 					return -1;
 			}
@@ -254,24 +254,24 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if(baseClass == DescriptionProvider.class) {
-			switch(baseFeatureID) {
+		if (baseClass == DescriptionProvider.class) {
+			switch (baseFeatureID) {
 				case AggregatorPackage.DESCRIPTION_PROVIDER__DESCRIPTION:
 					return AggregatorPackage.CONTRIBUTION__DESCRIPTION;
 				default:
 					return -1;
 			}
 		}
-		if(baseClass == StatusProvider.class) {
-			switch(baseFeatureID) {
+		if (baseClass == StatusProvider.class) {
+			switch (baseFeatureID) {
 				case AggregatorPackage.STATUS_PROVIDER__STATUS:
 					return AggregatorPackage.CONTRIBUTION__STATUS;
 				default:
 					return -1;
 			}
 		}
-		if(baseClass == InfosProvider.class) {
-			switch(baseFeatureID) {
+		if (baseClass == InfosProvider.class) {
+			switch (baseFeatureID) {
 				case AggregatorPackage.INFOS_PROVIDER__ERRORS:
 					return AggregatorPackage.CONTRIBUTION__ERRORS;
 				case AggregatorPackage.INFOS_PROVIDER__WARNINGS:
@@ -282,8 +282,8 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 					return -1;
 			}
 		}
-		if(baseClass == IdentificationProvider.class) {
-			switch(baseFeatureID) {
+		if (baseClass == IdentificationProvider.class) {
+			switch (baseFeatureID) {
 				default:
 					return -1;
 			}
@@ -297,7 +297,7 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case AggregatorPackage.CONTRIBUTION__BRANCH_ENABLED:
 				return isBranchEnabled();
 			case AggregatorPackage.CONTRIBUTION__ENABLED:
@@ -330,7 +330,7 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
+		switch (featureID) {
 			case AggregatorPackage.CONTRIBUTION__REPOSITORIES:
 				return ((InternalEList<?>) getRepositories()).basicRemove(otherEnd, msgs);
 			case AggregatorPackage.CONTRIBUTION__MAVEN_MAPPINGS:
@@ -345,15 +345,13 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case AggregatorPackage.CONTRIBUTION__BRANCH_ENABLED:
 				return isSetBranchEnabled();
 			case AggregatorPackage.CONTRIBUTION__ENABLED:
 				return ((eFlags & ENABLED_EFLAG) != 0) != ENABLED_EDEFAULT;
 			case AggregatorPackage.CONTRIBUTION__DESCRIPTION:
-				return DESCRIPTION_EDEFAULT == null
-						? description != null
-						: !DESCRIPTION_EDEFAULT.equals(description);
+				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 			case AggregatorPackage.CONTRIBUTION__STATUS:
 				return getStatus() != null;
 			case AggregatorPackage.CONTRIBUTION__ERRORS:
@@ -363,9 +361,7 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 			case AggregatorPackage.CONTRIBUTION__INFOS:
 				return infos != null && !infos.isEmpty();
 			case AggregatorPackage.CONTRIBUTION__LABEL:
-				return LABEL_EDEFAULT == null
-						? label != null
-						: !LABEL_EDEFAULT.equals(label);
+				return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
 			case AggregatorPackage.CONTRIBUTION__REPOSITORIES:
 				return repositories != null && !repositories.isEmpty();
 			case AggregatorPackage.CONTRIBUTION__CONTACTS:
@@ -383,7 +379,7 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case AggregatorPackage.CONTRIBUTION__ENABLED:
 				setEnabled((Boolean) newValue);
 				return;
@@ -436,7 +432,7 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case AggregatorPackage.CONTRIBUTION__ENABLED:
 				setEnabled(ENABLED_EDEFAULT);
 				return;
@@ -477,7 +473,7 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 	public EList<MavenMapping> getAllMavenMappings() {
 		EList<MavenMapping> myMappings = getMavenMappings();
 		EList<MavenMapping> parentMappings = GeneralUtils.getAggregation(this).getMavenMappings();
-		EList<MavenMapping> allMappings = new BasicEList<MavenMapping>(myMappings.size() + parentMappings.size());
+		EList<MavenMapping> allMappings = new BasicEList<>(myMappings.size() + parentMappings.size());
 		allMappings.addAll(myMappings);
 		allMappings.addAll(parentMappings);
 
@@ -490,9 +486,9 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 	 */
 	@Override
 	public EList<Contact> getContacts() {
-		if(contacts == null) {
-			contacts = new EObjectResolvingEList<Contact>(
-				Contact.class, this, AggregatorPackage.CONTRIBUTION__CONTACTS);
+		if (contacts == null) {
+			contacts = new EObjectResolvingEList<>(Contact.class, this,
+					AggregatorPackage.CONTRIBUTION__CONTACTS);
 		}
 		return contacts;
 	}
@@ -512,8 +508,8 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 	 */
 	@Override
 	public EList<String> getErrors() {
-		if(errors == null) {
-			errors = new EDataTypeUniqueEList<String>(String.class, this, AggregatorPackage.CONTRIBUTION__ERRORS);
+		if (errors == null) {
+			errors = new EDataTypeUniqueEList<>(String.class, this, AggregatorPackage.CONTRIBUTION__ERRORS);
 		}
 		return errors;
 	}
@@ -535,8 +531,8 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 	 */
 	@Override
 	public EList<String> getInfos() {
-		if(infos == null) {
-			infos = new EDataTypeUniqueEList<String>(String.class, this, AggregatorPackage.CONTRIBUTION__INFOS);
+		if (infos == null) {
+			infos = new EDataTypeUniqueEList<>(String.class, this, AggregatorPackage.CONTRIBUTION__INFOS);
 		}
 		return infos;
 	}
@@ -556,9 +552,9 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 	 */
 	@Override
 	public EList<MavenMapping> getMavenMappings() {
-		if(mavenMappings == null) {
-			mavenMappings = new EObjectContainmentEList.Resolving<MavenMapping>(
-				MavenMapping.class, this, AggregatorPackage.CONTRIBUTION__MAVEN_MAPPINGS);
+		if (mavenMappings == null) {
+			mavenMappings = new EObjectContainmentEList.Resolving<>(MavenMapping.class, this,
+					AggregatorPackage.CONTRIBUTION__MAVEN_MAPPINGS);
 		}
 		return mavenMappings;
 	}
@@ -569,9 +565,9 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 	 */
 	@Override
 	public EList<MappedRepository> getRepositories() {
-		if(repositories == null) {
-			repositories = new EObjectContainmentEList.Resolving<MappedRepository>(
-				MappedRepository.class, this, AggregatorPackage.CONTRIBUTION__REPOSITORIES);
+		if (repositories == null) {
+			repositories = new EObjectContainmentEList.Resolving<>(MappedRepository.class, this,
+					AggregatorPackage.CONTRIBUTION__REPOSITORIES);
 		}
 		return repositories;
 	}
@@ -584,24 +580,24 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 	@Override
 	public EList<MappedRepository> getRepositories(boolean enabledOnly) {
 		EList<MappedRepository> repos = getRepositories();
-		if(enabledOnly)
+		if (enabledOnly)
 			repos = GeneralUtils.getEnabled(repos);
 		return repos;
 	}
 
 	@Override
 	synchronized public Status getStatus() {
-		if(status != null && status.getCode() != StatusCode.OK)
+		if (status != null && status.getCode() != StatusCode.OK)
 			return status;
 
 		StatusCode statusCode;
-		for(MappedRepository repo : getRepositories()) {
-			if(repo.isEnabled() && (statusCode = repo.getStatus().getCode()) != StatusCode.OK &&
-					statusCode != StatusCode.WAITING)
+		for (MappedRepository repo : getRepositories()) {
+			if (repo.isEnabled() && (statusCode = repo.getStatus().getCode()) != StatusCode.OK
+					&& statusCode != StatusCode.WAITING)
 				return AggregatorFactory.eINSTANCE.createStatus(StatusCode.BROKEN);
 		}
-		for(MavenMapping mapping : getMavenMappings()) {
-			if((statusCode = mapping.getStatus().getCode()) != StatusCode.OK && statusCode != StatusCode.WAITING)
+		for (MavenMapping mapping : getMavenMappings()) {
+			if ((statusCode = mapping.getStatus().getCode()) != StatusCode.OK && statusCode != StatusCode.WAITING)
 				return AggregatorFactory.eINSTANCE.createStatus(StatusCode.BROKEN);
 		}
 		return AggregatorFactory.eINSTANCE.createStatus(StatusCode.OK);
@@ -613,8 +609,8 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 	 */
 	@Override
 	public EList<String> getWarnings() {
-		if(warnings == null) {
-			warnings = new EDataTypeUniqueEList<String>(String.class, this, AggregatorPackage.CONTRIBUTION__WARNINGS);
+		if (warnings == null) {
+			warnings = new EDataTypeUniqueEList<>(String.class, this, AggregatorPackage.CONTRIBUTION__WARNINGS);
 		}
 		return warnings;
 	}
@@ -658,10 +654,9 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 	public void setDescription(String newDescription) {
 		String oldDescription = description;
 		description = newDescription;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, AggregatorPackage.CONTRIBUTION__DESCRIPTION, oldDescription, description));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.CONTRIBUTION__DESCRIPTION,
+					oldDescription, description));
 	}
 
 	/**
@@ -671,14 +666,13 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 	@Override
 	public void setEnabled(boolean newEnabled) {
 		boolean oldEnabled = (eFlags & ENABLED_EFLAG) != 0;
-		if(newEnabled)
+		if (newEnabled)
 			eFlags |= ENABLED_EFLAG;
 		else
 			eFlags &= ~ENABLED_EFLAG;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, AggregatorPackage.CONTRIBUTION__ENABLED, oldEnabled, newEnabled));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.CONTRIBUTION__ENABLED, oldEnabled,
+					newEnabled));
 	}
 
 	/**
@@ -689,18 +683,17 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 	public void setLabel(String newLabel) {
 		String oldLabel = label;
 		label = newLabel;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(this, Notification.SET, AggregatorPackage.CONTRIBUTION__LABEL, oldLabel, label));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.CONTRIBUTION__LABEL, oldLabel,
+					label));
 	}
 
 	public void setStatus(Status newStatus) {
 		Status oldStatus = status;
 		status = newStatus;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, AggregatorPackage.CONTRIBUTION__STATUS, oldStatus, newStatus));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.CONTRIBUTION__STATUS, oldStatus,
+					newStatus));
 	}
 
 	/**
@@ -709,7 +702,7 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 	 */
 	@Override
 	public String toString() {
-		if(eIsProxy())
+		if (eIsProxy())
 			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());

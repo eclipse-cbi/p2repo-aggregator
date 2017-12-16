@@ -143,8 +143,8 @@ public enum PackedStrategy implements Enumerator {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final PackedStrategy[] VALUES_ARRAY = new PackedStrategy[] {
-			COPY, VERIFY, UNPACK_AS_SIBLING, UNPACK, SKIP, };
+	private static final PackedStrategy[] VALUES_ARRAY = new PackedStrategy[] { COPY, VERIFY, UNPACK_AS_SIBLING, UNPACK,
+			SKIP, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Packed Strategy</b></em>' enumerators.
@@ -163,7 +163,7 @@ public enum PackedStrategy implements Enumerator {
 	 * @generated
 	 */
 	public static PackedStrategy get(int value) {
-		switch(value) {
+		switch (value) {
 			case COPY_VALUE:
 				return COPY;
 			case VERIFY_VALUE:
@@ -187,9 +187,9 @@ public enum PackedStrategy implements Enumerator {
 	 * @generated
 	 */
 	public static PackedStrategy get(String literal) {
-		for(int i = 0; i < VALUES_ARRAY.length; ++i) {
+		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
 			PackedStrategy result = VALUES_ARRAY[i];
-			if(result.toString().equals(literal)) {
+			if (result.toString().equals(literal)) {
 				return result;
 			}
 		}
@@ -205,9 +205,9 @@ public enum PackedStrategy implements Enumerator {
 	 * @generated
 	 */
 	public static PackedStrategy getByName(String name) {
-		for(int i = 0; i < VALUES_ARRAY.length; ++i) {
+		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
 			PackedStrategy result = VALUES_ARRAY[i];
-			if(result.getName().equals(name)) {
+			if (result.getName().equals(name)) {
 				return result;
 			}
 		}

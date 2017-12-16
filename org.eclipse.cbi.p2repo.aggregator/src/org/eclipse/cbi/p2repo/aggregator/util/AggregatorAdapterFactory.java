@@ -229,7 +229,7 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public AggregatorAdapterFactory() {
-		if(modelPackage == null) {
+		if (modelPackage == null) {
 			modelPackage = AggregatorPackage.eINSTANCE;
 		}
 	}
@@ -681,10 +681,10 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	 */
 	@Override
 	public boolean isFactoryForType(Object object) {
-		if(object == modelPackage) {
+		if (object == modelPackage) {
 			return true;
 		}
-		if(object instanceof EObject) {
+		if (object instanceof EObject) {
 			return ((EObject) object).eClass().getEPackage() == modelPackage;
 		}
 		return false;

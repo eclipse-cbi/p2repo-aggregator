@@ -123,20 +123,17 @@ import org.eclipse.ui.views.properties.PropertySheetPage;
 /**
  * This is an example of a P2view model editor.
  * <!-- begin-user-doc --> <!-- end-user-doc -->
- *
  * @generated
  */
 public class P2viewEditor extends MultiPageEditorPart
 		implements IEditingDomainProvider, ISelectionProvider, IMenuListener, IViewerProvider, IGotoMarker {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public class ReverseAdapterFactoryContentProvider extends AdapterFactoryContentProvider {
 		/**
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 *
 		 * @generated
 		 */
 		public ReverseAdapterFactoryContentProvider(AdapterFactory adapterFactory) {
@@ -145,33 +142,26 @@ public class P2viewEditor extends MultiPageEditorPart
 
 		/**
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 *
 		 * @generated
 		 */
 		@Override
 		public Object[] getChildren(Object object) {
 			Object parent = super.getParent(object);
-			return (parent == null
-					? Collections.EMPTY_SET
-					: Collections.singleton(parent)).toArray();
+			return (parent == null ? Collections.EMPTY_SET : Collections.singleton(parent)).toArray();
 		}
 
 		/**
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 *
 		 * @generated
 		 */
 		@Override
 		public Object[] getElements(Object object) {
 			Object parent = super.getParent(object);
-			return (parent == null
-					? Collections.EMPTY_SET
-					: Collections.singleton(parent)).toArray();
+			return (parent == null ? Collections.EMPTY_SET : Collections.singleton(parent)).toArray();
 		}
 
 		/**
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 *
 		 * @generated
 		 */
 		@Override
@@ -181,7 +171,6 @@ public class P2viewEditor extends MultiPageEditorPart
 
 		/**
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 *
 		 * @generated
 		 */
 		@Override
@@ -194,7 +183,6 @@ public class P2viewEditor extends MultiPageEditorPart
 	/**
 	 * This looks up a string in the plugin's plugin.properties file.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	private static String getString(String key) {
@@ -204,7 +192,6 @@ public class P2viewEditor extends MultiPageEditorPart
 	/**
 	 * This looks up a string in plugin.properties, making a substitution.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	private static String getString(String key, Object s1) {
@@ -215,7 +202,6 @@ public class P2viewEditor extends MultiPageEditorPart
 	 * This keeps track of the editing domain that is used to track all changes to the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected AdapterFactoryEditingDomain editingDomain;
@@ -231,7 +217,6 @@ public class P2viewEditor extends MultiPageEditorPart
 	/**
 	 * This is the content outline page.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected IContentOutlinePage contentOutlinePage;
@@ -239,7 +224,6 @@ public class P2viewEditor extends MultiPageEditorPart
 	/**
 	 * This is a kludge...
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected IStatusLineManager contentOutlineStatusLineManager;
@@ -247,7 +231,6 @@ public class P2viewEditor extends MultiPageEditorPart
 	/**
 	 * This is the content outline page's viewer.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected TreeViewer contentOutlineViewer;
@@ -256,10 +239,9 @@ public class P2viewEditor extends MultiPageEditorPart
 	 * This is the property sheet page.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
-	protected List<PropertySheetPage> propertySheetPages = new ArrayList<PropertySheetPage>();
+	protected List<PropertySheetPage> propertySheetPages = new ArrayList<>();
 
 	protected PropertySheetPage propertySheetPage;
 
@@ -267,7 +249,6 @@ public class P2viewEditor extends MultiPageEditorPart
 	 * This is the viewer that shadows the selection in the content outline.
 	 * The parent relation must be correctly defined for this to work.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected TreeViewer selectionViewer;
@@ -275,7 +256,6 @@ public class P2viewEditor extends MultiPageEditorPart
 	/**
 	 * This keeps track of the active content viewer, which may be either one of the viewers in the pages or the content outline viewer.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected Viewer currentViewer;
@@ -283,7 +263,6 @@ public class P2viewEditor extends MultiPageEditorPart
 	/**
 	 * This listens to which ever viewer is active.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected ISelectionChangedListener selectionChangedListener;
@@ -291,15 +270,13 @@ public class P2viewEditor extends MultiPageEditorPart
 	/**
 	 * This keeps track of all the {@link org.eclipse.jface.viewers.ISelectionChangedListener}s that are listening to this editor.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
-	protected Collection<ISelectionChangedListener> selectionChangedListeners = new ArrayList<ISelectionChangedListener>();
+	protected Collection<ISelectionChangedListener> selectionChangedListeners = new ArrayList<>();
 
 	/**
 	 * This keeps track of the selection of the editor as a whole.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected ISelection editorSelection = StructuredSelection.EMPTY;
@@ -308,7 +285,6 @@ public class P2viewEditor extends MultiPageEditorPart
 	 * The MarkerHelper is responsible for creating workspace resource markers presented
 	 * in Eclipse's Problems View.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected MarkerHelper markerHelper = new EditUIMarkerHelper();
@@ -316,26 +292,23 @@ public class P2viewEditor extends MultiPageEditorPart
 	/**
 	 * This listens for when the outline becomes active
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected IPartListener partListener = new IPartListener() {
 		@Override
 		public void partActivated(IWorkbenchPart p) {
-			if(p instanceof ContentOutline) {
-				if(((ContentOutline) p).getCurrentPage() == contentOutlinePage) {
+			if (p instanceof ContentOutline) {
+				if (((ContentOutline) p).getCurrentPage() == contentOutlinePage) {
 					getActionBarContributor().setActiveEditor(P2viewEditor.this);
 
 					setCurrentViewer(contentOutlineViewer);
 				}
-			}
-			else if(p instanceof PropertySheet) {
-				if(propertySheetPages.contains(((PropertySheet) p).getCurrentPage())) {
+			} else if (p instanceof PropertySheet) {
+				if (propertySheetPages.contains(((PropertySheet) p).getCurrentPage())) {
 					getActionBarContributor().setActiveEditor(P2viewEditor.this);
 					handleActivate();
 				}
-			}
-			else if(p == P2viewEditor.this) {
+			} else if (p == P2viewEditor.this) {
 				handleActivate();
 			}
 		}
@@ -364,39 +337,34 @@ public class P2viewEditor extends MultiPageEditorPart
 	/**
 	 * Resources that have been removed since last activation.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
-	protected Collection<Resource> removedResources = new ArrayList<Resource>();
+	protected Collection<Resource> removedResources = new ArrayList<>();
 
 	/**
 	 * Resources that have been changed since last activation.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
-	protected Collection<Resource> changedResources = new ArrayList<Resource>();
+	protected Collection<Resource> changedResources = new ArrayList<>();
 
 	/**
 	 * Resources that have been saved.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
-	protected Collection<Resource> savedResources = new ArrayList<Resource>();
+	protected Collection<Resource> savedResources = new ArrayList<>();
 
 	/**
 	 * Map to store the diagnostic associated with a resource.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
-	protected Map<Resource, Diagnostic> resourceToDiagnosticMap = new LinkedHashMap<Resource, Diagnostic>();
+	protected Map<Resource, Diagnostic> resourceToDiagnosticMap = new LinkedHashMap<>();
 
 	/**
 	 * Controls whether the problem indication should be updated.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected boolean updateProblemIndication = true;
@@ -405,40 +373,44 @@ public class P2viewEditor extends MultiPageEditorPart
 	 * Adapter used to update the problem indication when resources are demanded loaded.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected EContentAdapter problemIndicationAdapter = new EContentAdapter() {
+		protected boolean dispatching;
+
 		@Override
 		public void notifyChanged(Notification notification) {
-			if(notification.getNotifier() instanceof Resource) {
-				switch(notification.getFeatureID(Resource.class)) {
+			if (notification.getNotifier() instanceof Resource) {
+				switch (notification.getFeatureID(Resource.class)) {
 					case Resource.RESOURCE__IS_LOADED:
 					case Resource.RESOURCE__ERRORS:
 					case Resource.RESOURCE__WARNINGS: {
 						Resource resource = (Resource) notification.getNotifier();
 						Diagnostic diagnostic = analyzeResourceProblems(resource, null);
-						if(diagnostic.getSeverity() != Diagnostic.OK) {
+						if (diagnostic.getSeverity() != Diagnostic.OK) {
 							resourceToDiagnosticMap.put(resource, diagnostic);
-						}
-						else {
+						} else {
 							resourceToDiagnosticMap.remove(resource);
 						}
-
-						if(updateProblemIndication) {
-							getSite().getShell().getDisplay().asyncExec(new Runnable() {
-								@Override
-								public void run() {
-									updateProblemIndication();
-								}
-							});
-						}
+						dispatchUpdateProblemIndication();
 						break;
 					}
 				}
-			}
-			else {
+			} else {
 				super.notifyChanged(notification);
+			}
+		}
+
+		protected void dispatchUpdateProblemIndication() {
+			if (updateProblemIndication && !dispatching) {
+				dispatching = true;
+				getSite().getShell().getDisplay().asyncExec(new Runnable() {
+					@Override
+					public void run() {
+						dispatching = false;
+						updateProblemIndication();
+					}
+				});
 			}
 		}
 
@@ -451,21 +423,13 @@ public class P2viewEditor extends MultiPageEditorPart
 		protected void unsetTarget(Resource target) {
 			basicUnsetTarget(target);
 			resourceToDiagnosticMap.remove(target);
-			if(updateProblemIndication) {
-				getSite().getShell().getDisplay().asyncExec(new Runnable() {
-					@Override
-					public void run() {
-						updateProblemIndication();
-					}
-				});
-			}
+			dispatchUpdateProblemIndication();
 		}
 	};
 
 	/**
 	 * This listens for workspace changes.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected IResourceChangeListener resourceChangeListener = new IResourceChangeListener() {
@@ -475,31 +439,20 @@ public class P2viewEditor extends MultiPageEditorPart
 			try {
 				class ResourceDeltaVisitor implements IResourceDeltaVisitor {
 					protected ResourceSet resourceSet = editingDomain.getResourceSet();
-
-					protected Collection<Resource> changedResources = new ArrayList<Resource>();
-
-					protected Collection<Resource> removedResources = new ArrayList<Resource>();
-
-					public Collection<Resource> getChangedResources() {
-						return changedResources;
-					}
-
-					public Collection<Resource> getRemovedResources() {
-						return removedResources;
-					}
+					protected Collection<Resource> changedResources = new ArrayList<>();
+					protected Collection<Resource> removedResources = new ArrayList<>();
 
 					@Override
 					public boolean visit(IResourceDelta delta) {
-						if(delta.getResource().getType() == IResource.FILE) {
-							if(delta.getKind() == IResourceDelta.REMOVED || delta.getKind() == IResourceDelta.CHANGED &&
-									delta.getFlags() != IResourceDelta.MARKERS) {
+						if (delta.getResource().getType() == IResource.FILE) {
+							if (delta.getKind() == IResourceDelta.REMOVED || delta.getKind() == IResourceDelta.CHANGED
+									&& delta.getFlags() != IResourceDelta.MARKERS) {
 								Resource resource = resourceSet.getResource(
-									URI.createPlatformResourceURI(delta.getFullPath().toString(), true), false);
-								if(resource != null) {
-									if(delta.getKind() == IResourceDelta.REMOVED) {
+										URI.createPlatformResourceURI(delta.getFullPath().toString(), true), false);
+								if (resource != null) {
+									if (delta.getKind() == IResourceDelta.REMOVED) {
 										removedResources.add(resource);
-									}
-									else if(!savedResources.remove(resource)) {
+									} else if (!savedResources.remove(resource)) {
 										changedResources.add(resource);
 									}
 								}
@@ -509,36 +462,43 @@ public class P2viewEditor extends MultiPageEditorPart
 
 						return true;
 					}
+
+					public Collection<Resource> getChangedResources() {
+						return changedResources;
+					}
+
+					public Collection<Resource> getRemovedResources() {
+						return removedResources;
+					}
 				}
 
 				final ResourceDeltaVisitor visitor = new ResourceDeltaVisitor();
 				delta.accept(visitor);
 
-				if(!visitor.getRemovedResources().isEmpty()) {
+				if (!visitor.getRemovedResources().isEmpty()) {
 					getSite().getShell().getDisplay().asyncExec(new Runnable() {
 						@Override
 						public void run() {
 							removedResources.addAll(visitor.getRemovedResources());
-							if(!isDirty()) {
+							if (!isDirty()) {
 								getSite().getPage().closeEditor(P2viewEditor.this, false);
 							}
 						}
 					});
 				}
 
-				if(!visitor.getChangedResources().isEmpty()) {
+				if (!visitor.getChangedResources().isEmpty()) {
 					getSite().getShell().getDisplay().asyncExec(new Runnable() {
 						@Override
 						public void run() {
 							changedResources.addAll(visitor.getChangedResources());
-							if(getSite().getPage().getActiveEditor() == P2viewEditor.this) {
+							if (getSite().getPage().getActiveEditor() == P2viewEditor.this) {
 								handleActivate();
 							}
 						}
 					});
 				}
-			}
-			catch(CoreException exception) {
+			} catch (CoreException exception) {
 				AggregatorEditorPlugin.INSTANCE.log(exception);
 			}
 		}
@@ -547,7 +507,6 @@ public class P2viewEditor extends MultiPageEditorPart
 	/**
 	 * This creates a model editor.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public P2viewEditor() {
@@ -570,30 +529,21 @@ public class P2viewEditor extends MultiPageEditorPart
 	 * Returns a diagnostic describing the errors and warnings listed in the resource
 	 * and the specified exception (if any).
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public Diagnostic analyzeResourceProblems(Resource resource, Exception exception) {
 		boolean hasErrors = !resource.getErrors().isEmpty();
-		if(hasErrors || !resource.getWarnings().isEmpty()) {
-			BasicDiagnostic basicDiagnostic = new BasicDiagnostic(
-				hasErrors
-						? Diagnostic.ERROR
-						: Diagnostic.WARNING,
-				"org.eclipse.cbi.p2repo.aggregator.editor", 0,
-				getString("_UI_CreateModelError_message", resource.getURI()), new Object[] {
-						exception == null
-								? (Object) resource
-								: exception });
+		if (hasErrors || !resource.getWarnings().isEmpty()) {
+			BasicDiagnostic basicDiagnostic = new BasicDiagnostic(hasErrors ? Diagnostic.ERROR : Diagnostic.WARNING,
+					"org.eclipse.cbi.p2repo.aggregator.editor", 0,
+					getString("_UI_CreateModelError_message", resource.getURI()),
+					new Object[] { exception == null ? (Object) resource : exception });
 			basicDiagnostic.merge(EcoreUtil.computeDiagnostic(resource, true));
 			return basicDiagnostic;
-		}
-		else if(exception != null) {
-			return new BasicDiagnostic(
-				Diagnostic.ERROR, "org.eclipse.cbi.p2repo.aggregator.editor", 0,
-				getString("_UI_CreateModelError_message", resource.getURI()), new Object[] { exception });
-		}
-		else {
+		} else if (exception != null) {
+			return new BasicDiagnostic(Diagnostic.ERROR, "org.eclipse.cbi.p2repo.aggregator.editor", 0,
+					getString("_UI_CreateModelError_message", resource.getURI()), new Object[] { exception });
+		} else {
 			return Diagnostic.OK_INSTANCE;
 		}
 	}
@@ -614,8 +564,8 @@ public class P2viewEditor extends MultiPageEditorPart
 		getSite().registerContextMenu(contextMenu, new UnwrappingSelectionProvider(viewer));
 
 		int dndOperations = DND.DROP_COPY | DND.DROP_MOVE | DND.DROP_LINK;
-		Transfer[] transfers = new Transfer[] {
-				LocalTransfer.getInstance(), LocalSelectionTransfer.getTransfer(), FileTransfer.getInstance() };
+		Transfer[] transfers = new Transfer[] { LocalTransfer.getInstance(), LocalSelectionTransfer.getTransfer(),
+				FileTransfer.getInstance() };
 		viewer.addDragSupport(dndOperations, transfers, new ViewerDragAdapter(viewer));
 		viewer.addDropSupport(dndOperations, transfers, new EditingDomainViewerDropAdapter(editingDomain, viewer));
 	}
@@ -623,7 +573,6 @@ public class P2viewEditor extends MultiPageEditorPart
 	/**
 	 * This is the method called to load a resource into the editing domain's resource set based on the editor's input.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public void createModel() {
@@ -634,14 +583,13 @@ public class P2viewEditor extends MultiPageEditorPart
 			// Load the resource through the editing domain.
 			//
 			resource = editingDomain.getResourceSet().getResource(resourceURI, true);
-		}
-		catch(Exception e) {
+		} catch (Exception e) {
 			exception = e;
 			resource = editingDomain.getResourceSet().getResource(resourceURI, false);
 		}
 
 		Diagnostic diagnostic = analyzeResourceProblems(resource, exception);
-		if(diagnostic.getSeverity() != Diagnostic.OK) {
+		if (diagnostic.getSeverity() != Diagnostic.OK) {
 			resourceToDiagnosticMap.put(resource, analyzeResourceProblems(resource, exception));
 		}
 		editingDomain.getResourceSet().eAdapters().add(problemIndicationAdapter);
@@ -661,19 +609,20 @@ public class P2viewEditor extends MultiPageEditorPart
 
 		// Only creates the other pages if there is something that can be edited
 		//
-		if(!getEditingDomain().getResourceSet().getResources().isEmpty()) {
+		if (!getEditingDomain().getResourceSet().getResources().isEmpty()) {
 			// Create a page for the selection tree view.
 			//
 			Tree tree = new Tree(getContainer(), SWT.MULTI);
 			selectionViewer = new TreeViewer(tree);
 			setCurrentViewer(selectionViewer);
 
+			selectionViewer.setUseHashlookup(true);
 			selectionViewer.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
 			selectionViewer.setLabelProvider(
-				new AdapterFactoryLabelProvider.FontAndColorProvider(adapterFactory, selectionViewer));
+					new AdapterFactoryLabelProvider.FontAndColorProvider(adapterFactory, selectionViewer));
 			selectionViewer.setInput(editingDomain.getResourceSet());
-			selectionViewer.setSelection(
-				new StructuredSelection(editingDomain.getResourceSet().getResources().get(0)), true);
+			selectionViewer.setSelection(new StructuredSelection(editingDomain.getResourceSet().getResources().get(0)),
+					true);
 
 			new AdapterFactoryTreeEditor(selectionViewer.getTree(), adapterFactory);
 
@@ -697,7 +646,7 @@ public class P2viewEditor extends MultiPageEditorPart
 
 			@Override
 			public void controlResized(ControlEvent event) {
-				if(!guard) {
+				if (!guard) {
 					guard = true;
 					hideTabs();
 					guard = false;
@@ -715,7 +664,6 @@ public class P2viewEditor extends MultiPageEditorPart
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -728,15 +676,15 @@ public class P2viewEditor extends MultiPageEditorPart
 
 		adapterFactory.dispose();
 
-		if(getActionBarContributor().getActiveEditor() == this) {
+		if (getActionBarContributor().getActiveEditor() == this) {
 			getActionBarContributor().setActiveEditor(null);
 		}
 
-		for(PropertySheetPage propertySheetPage : propertySheetPages) {
+		for (PropertySheetPage propertySheetPage : propertySheetPages) {
 			propertySheetPage.dispose();
 		}
 
-		if(contentOutlinePage != null) {
+		if (contentOutlinePage != null) {
 			contentOutlinePage.dispose();
 		}
 
@@ -747,14 +695,13 @@ public class P2viewEditor extends MultiPageEditorPart
 	 * This is for implementing {@link IEditorPart} and simply saves the model file.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void doSave(IProgressMonitor progressMonitor) {
 		// Save only resources that have actually changed.
 		//
-		final Map<Object, Object> saveOptions = new HashMap<Object, Object>();
+		final Map<Object, Object> saveOptions = new HashMap<>();
 		saveOptions.put(Resource.OPTION_SAVE_ONLY_IF_CHANGED, Resource.OPTION_SAVE_ONLY_IF_CHANGED_MEMORY_BUFFER);
 		saveOptions.put(Resource.OPTION_LINE_DELIMITER, Resource.OPTION_LINE_DELIMITER_UNSPECIFIED);
 
@@ -768,17 +715,18 @@ public class P2viewEditor extends MultiPageEditorPart
 				// Save the resources to the file system.
 				//
 				boolean first = true;
-				for(Resource resource : editingDomain.getResourceSet().getResources()) {
-					if((first || !resource.getContents().isEmpty() || isPersisted(resource)) &&
-							!editingDomain.isReadOnly(resource)) {
+				List<Resource> resources = editingDomain.getResourceSet().getResources();
+				for (int i = 0; i < resources.size(); ++i) {
+					Resource resource = resources.get(i);
+					if ((first || !resource.getContents().isEmpty() || isPersisted(resource))
+							&& !editingDomain.isReadOnly(resource)) {
 						try {
 							long timeStamp = resource.getTimeStamp();
 							resource.save(saveOptions);
-							if(resource.getTimeStamp() != timeStamp) {
+							if (resource.getTimeStamp() != timeStamp) {
 								savedResources.add(resource);
 							}
-						}
-						catch(Exception exception) {
+						} catch (Exception exception) {
 							resourceToDiagnosticMap.put(resource, analyzeResourceProblems(resource, exception));
 						}
 						first = false;
@@ -797,8 +745,7 @@ public class P2viewEditor extends MultiPageEditorPart
 			//
 			((BasicCommandStack) editingDomain.getCommandStack()).saveIsDone();
 			firePropertyChange(IEditorPart.PROP_DIRTY);
-		}
-		catch(Exception exception) {
+		} catch (Exception exception) {
 			// Something went wrong that shouldn't.
 			//
 			AggregatorEditorPlugin.INSTANCE.log(exception);
@@ -810,7 +757,6 @@ public class P2viewEditor extends MultiPageEditorPart
 	/**
 	 * This also changes the editor's input.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -818,9 +764,9 @@ public class P2viewEditor extends MultiPageEditorPart
 		SaveAsDialog saveAsDialog = new SaveAsDialog(getSite().getShell());
 		saveAsDialog.open();
 		IPath path = saveAsDialog.getResult();
-		if(path != null) {
+		if (path != null) {
 			IFile file = ResourcesPlugin.getWorkspace().getRoot().getFile(path);
-			if(file != null) {
+			if (file != null) {
 				doSaveAs(URI.createPlatformResourceURI(file.getFullPath().toString(), true), new FileEditorInput(file));
 			}
 		}
@@ -828,7 +774,6 @@ public class P2viewEditor extends MultiPageEditorPart
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected void doSaveAs(URI uri, IEditorInput editorInput) {
@@ -844,7 +789,6 @@ public class P2viewEditor extends MultiPageEditorPart
 	/**
 	 * This is here for the listener to be able to call it.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -854,7 +798,6 @@ public class P2viewEditor extends MultiPageEditorPart
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public EditingDomainActionBarContributor getActionBarContributor() {
@@ -863,7 +806,6 @@ public class P2viewEditor extends MultiPageEditorPart
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public IActionBars getActionBars() {
@@ -873,31 +815,24 @@ public class P2viewEditor extends MultiPageEditorPart
 	/**
 	 * This is how the framework determines which interfaces we implement.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@SuppressWarnings("rawtypes")
 	@Override
 	public Object getAdapter(Class key) {
-		if(key.equals(IContentOutlinePage.class)) {
-			return showOutlineView()
-					? getContentOutlinePage()
-					: null;
-		}
-		else if(key.equals(IPropertySheetPage.class)) {
+		if (key.equals(IContentOutlinePage.class)) {
+			return showOutlineView() ? getContentOutlinePage() : null;
+		} else if (key.equals(IPropertySheetPage.class)) {
 			return getPropertySheetPage();
-		}
-		else if(key.equals(IGotoMarker.class)) {
+		} else if (key.equals(IGotoMarker.class)) {
 			return this;
-		}
-		else {
+		} else {
 			return super.getAdapter(key);
 		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public AdapterFactory getAdapterFactory() {
@@ -907,11 +842,10 @@ public class P2viewEditor extends MultiPageEditorPart
 	/**
 	 * This accesses a cached version of the content outliner.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public IContentOutlinePage getContentOutlinePage() {
-		if(contentOutlinePage == null) {
+		if (contentOutlinePage == null) {
 			// The content outline is just a tree.
 			//
 			class MyContentOutlinePage extends ContentOutlinePage {
@@ -923,20 +857,21 @@ public class P2viewEditor extends MultiPageEditorPart
 
 					// Set up the tree viewer.
 					//
+					contentOutlineViewer.setUseHashlookup(true);
 					contentOutlineViewer.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
 					contentOutlineViewer.setLabelProvider(
-						new AdapterFactoryLabelProvider.FontAndColorProvider(adapterFactory, contentOutlineViewer));
+							new AdapterFactoryLabelProvider.FontAndColorProvider(adapterFactory, contentOutlineViewer));
 					contentOutlineViewer.setInput(editingDomain.getResourceSet());
 
 					// Make sure our popups work.
 					//
 					createContextMenuFor(contentOutlineViewer);
 
-					if(!editingDomain.getResourceSet().getResources().isEmpty()) {
+					if (!editingDomain.getResourceSet().getResources().isEmpty()) {
 						// Select the root object in the view.
 						//
 						contentOutlineViewer.setSelection(
-							new StructuredSelection(editingDomain.getResourceSet().getResources().get(0)), true);
+								new StructuredSelection(editingDomain.getResourceSet().getResources().get(0)), true);
 					}
 				}
 
@@ -976,7 +911,6 @@ public class P2viewEditor extends MultiPageEditorPart
 	 * This is important for implementing the static methods of {@link AdapterFactoryEditingDomain}
 	 * and for supporting {@link org.eclipse.emf.edit.ui.action.CommandAction}.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -987,21 +921,20 @@ public class P2viewEditor extends MultiPageEditorPart
 	/**
 	 * This accesses a cached version of the property sheet.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public IPropertySheetPage getPropertySheetPage() {
 		PropertySheetPage propertySheetPage = new ExtendedPropertySheetPage(editingDomain) {
 			@Override
-			public void setActionBars(IActionBars actionBars) {
-				super.setActionBars(actionBars);
-				getActionBarContributor().shareGlobalActions(this, actionBars);
-			}
-
-			@Override
 			public void setSelectionToViewer(List<?> selection) {
 				P2viewEditor.this.setSelectionToViewer(selection);
 				P2viewEditor.this.setFocus();
+			}
+
+			@Override
+			public void setActionBars(IActionBars actionBars) {
+				super.setActionBars(actionBars);
+				getActionBarContributor().shareGlobalActions(this, actionBars);
 			}
 		};
 		propertySheetPage.setPropertySourceProvider(new AdapterFactoryContentProvider(adapterFactory));
@@ -1013,7 +946,6 @@ public class P2viewEditor extends MultiPageEditorPart
 	/**
 	 * This implements {@link org.eclipse.jface.viewers.ISelectionProvider} to return this editor's overall selection.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -1025,7 +957,6 @@ public class P2viewEditor extends MultiPageEditorPart
 	 * This returns the viewer as required by the {@link IViewerProvider} interface.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -1035,13 +966,12 @@ public class P2viewEditor extends MultiPageEditorPart
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void gotoMarker(IMarker marker) {
 		List<?> targetObjects = markerHelper.getTargetObjects(editingDomain, marker);
-		if(!targetObjects.isEmpty()) {
+		if (!targetObjects.isEmpty()) {
 			setSelectionToViewer(targetObjects);
 		}
 	}
@@ -1049,13 +979,12 @@ public class P2viewEditor extends MultiPageEditorPart
 	/**
 	 * Handles activation of the editor or it's associated views.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected void handleActivate() {
 		// Recompute the read only state.
 		//
-		if(editingDomain.getResourceToReadOnlyMap() != null) {
+		if (editingDomain.getResourceToReadOnlyMap() != null) {
 			editingDomain.getResourceToReadOnlyMap().clear();
 
 			// Refresh any actions that may become enabled or disabled.
@@ -1063,17 +992,15 @@ public class P2viewEditor extends MultiPageEditorPart
 			setSelection(getSelection());
 		}
 
-		if(!removedResources.isEmpty()) {
-			if(handleDirtyConflict()) {
+		if (!removedResources.isEmpty()) {
+			if (handleDirtyConflict()) {
 				getSite().getPage().closeEditor(P2viewEditor.this, false);
-			}
-			else {
+			} else {
 				removedResources.clear();
 				changedResources.clear();
 				savedResources.clear();
 			}
-		}
-		else if(!changedResources.isEmpty()) {
+		} else if (!changedResources.isEmpty()) {
 			changedResources.removeAll(savedResources);
 			handleChangedResources();
 			changedResources.clear();
@@ -1084,32 +1011,30 @@ public class P2viewEditor extends MultiPageEditorPart
 	/**
 	 * Handles what to do with changed resources on activation.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected void handleChangedResources() {
-		if(!changedResources.isEmpty() && (!isDirty() || handleDirtyConflict())) {
-			if(isDirty()) {
+		if (!changedResources.isEmpty() && (!isDirty() || handleDirtyConflict())) {
+			if (isDirty()) {
 				changedResources.addAll(editingDomain.getResourceSet().getResources());
 			}
 			editingDomain.getCommandStack().flush();
 
 			updateProblemIndication = false;
-			for(Resource resource : changedResources) {
-				if(resource.isLoaded()) {
+			for (Resource resource : changedResources) {
+				if (resource.isLoaded()) {
 					resource.unload();
 					try {
 						resource.load(Collections.EMPTY_MAP);
-					}
-					catch(IOException exception) {
-						if(!resourceToDiagnosticMap.containsKey(resource)) {
+					} catch (IOException exception) {
+						if (!resourceToDiagnosticMap.containsKey(resource)) {
 							resourceToDiagnosticMap.put(resource, analyzeResourceProblems(resource, exception));
 						}
 					}
 				}
 			}
 
-			if(AdapterFactoryEditingDomain.isStale(editorSelection)) {
+			if (AdapterFactoryEditingDomain.isStale(editorSelection)) {
 				setSelection(StructuredSelection.EMPTY);
 			}
 
@@ -1122,20 +1047,19 @@ public class P2viewEditor extends MultiPageEditorPart
 	 * This deals with how we want selection in the outliner to affect the other views.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public void handleContentOutlineSelection(ISelection selection) {
-		if(selectionViewer != null && !selection.isEmpty() && selection instanceof IStructuredSelection) {
+		if (selectionViewer != null && !selection.isEmpty() && selection instanceof IStructuredSelection) {
 			Iterator<?> selectedElements = ((IStructuredSelection) selection).iterator();
-			if(selectedElements.hasNext()) {
+			if (selectedElements.hasNext()) {
 				// Get the first selected element.
 				//
 				Object selectedElement = selectedElements.next();
 
-				ArrayList<Object> selectionList = new ArrayList<Object>();
+				ArrayList<Object> selectionList = new ArrayList<>();
 				selectionList.add(selectedElement);
-				while(selectedElements.hasNext()) {
+				while (selectedElements.hasNext()) {
 					selectionList.add(selectedElements.next());
 				}
 
@@ -1153,8 +1077,8 @@ public class P2viewEditor extends MultiPageEditorPart
 	 * @generated
 	 */
 	protected boolean handleDirtyConflict() {
-		return MessageDialog.openQuestion(
-			getSite().getShell(), getString("_UI_FileConflict_label"), getString("_WARN_FileConflict"));
+		return MessageDialog.openQuestion(getSite().getShell(), getString("_UI_FileConflict_label"),
+				getString("_WARN_FileConflict"));
 	}
 
 	/**
@@ -1164,9 +1088,9 @@ public class P2viewEditor extends MultiPageEditorPart
 	 * @generated
 	 */
 	protected void hideTabs() {
-		if(getPageCount() <= 1) {
+		if (getPageCount() <= 1) {
 			setPageText(0, "");
-			if(getContainer() instanceof CTabFolder) {
+			if (getContainer() instanceof CTabFolder) {
 				((CTabFolder) getContainer()).setTabHeight(1);
 				Point point = getContainer().getSize();
 				getContainer().setSize(point.x, point.y + 6);
@@ -1177,7 +1101,6 @@ public class P2viewEditor extends MultiPageEditorPart
 	/**
 	 * This is called during startup.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -1187,8 +1110,8 @@ public class P2viewEditor extends MultiPageEditorPart
 		setPartName(editorInput.getName());
 		site.setSelectionProvider(this);
 		site.getPage().addPartListener(partListener);
-		ResourcesPlugin.getWorkspace().addResourceChangeListener(
-			resourceChangeListener, IResourceChangeEvent.POST_CHANGE);
+		ResourcesPlugin.getWorkspace().addResourceChangeListener(resourceChangeListener,
+				IResourceChangeEvent.POST_CHANGE);
 	}
 
 	/**
@@ -1225,10 +1148,10 @@ public class P2viewEditor extends MultiPageEditorPart
 						// Try to select the affected objects.
 						//
 						Command mostRecentCommand = ((CommandStack) event.getSource()).getMostRecentCommand();
-						if(mostRecentCommand != null) {
+						if (mostRecentCommand != null) {
 							setSelectionToViewer(mostRecentCommand.getAffectedObjects());
 						}
-						if(propertySheetPage != null && !propertySheetPage.getControl().isDisposed()) {
+						if (propertySheetPage != null && !propertySheetPage.getControl().isDisposed()) {
 							propertySheetPage.refresh();
 						}
 					}
@@ -1245,7 +1168,6 @@ public class P2viewEditor extends MultiPageEditorPart
 	 * This is for implementing {@link IEditorPart} and simply tests the command stack.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -1258,19 +1180,17 @@ public class P2viewEditor extends MultiPageEditorPart
 	 * The implementation uses the URI converter from the editor's resource set to try to open an input stream.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected boolean isPersisted(Resource resource) {
 		boolean result = false;
 		try {
 			InputStream stream = editingDomain.getResourceSet().getURIConverter().createInputStream(resource.getURI());
-			if(stream != null) {
+			if (stream != null) {
 				result = true;
 				stream.close();
 			}
-		}
-		catch(IOException e) {
+		} catch (IOException e) {
 			// Ignore
 		}
 		return result;
@@ -1279,7 +1199,6 @@ public class P2viewEditor extends MultiPageEditorPart
 	/**
 	 * This always returns true because it is not currently supported.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -1290,7 +1209,6 @@ public class P2viewEditor extends MultiPageEditorPart
 	/**
 	 * This implements {@link org.eclipse.jface.action.IMenuListener} to help fill the context menus with contributions from the Edit menu.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -1301,14 +1219,13 @@ public class P2viewEditor extends MultiPageEditorPart
 	/**
 	 * This is used to track the active viewer.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	protected void pageChange(int pageIndex) {
 		super.pageChange(pageIndex);
 
-		if(contentOutlinePage != null) {
+		if (contentOutlinePage != null) {
 			handleContentOutlineSelection(contentOutlinePage.getSelection());
 		}
 	}
@@ -1328,14 +1245,13 @@ public class P2viewEditor extends MultiPageEditorPart
 	 * This makes sure that one content viewer, either for the current page or the outline view, if it has focus,
 	 * is the current one.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public void setCurrentViewer(Viewer viewer) {
 		// If it is changing...
 		//
-		if(currentViewer != viewer) {
-			if(selectionChangedListener == null) {
+		if (currentViewer != viewer) {
+			if (selectionChangedListener == null) {
 				// Create the listener on demand.
 				//
 				selectionChangedListener = new ISelectionChangedListener() {
@@ -1350,13 +1266,13 @@ public class P2viewEditor extends MultiPageEditorPart
 
 			// Stop listening to the old one.
 			//
-			if(currentViewer != null) {
+			if (currentViewer != null) {
 				currentViewer.removeSelectionChangedListener(selectionChangedListener);
 			}
 
 			// Start listening to the new one.
 			//
-			if(viewer != null) {
+			if (viewer != null) {
 				viewer.addSelectionChangedListener(selectionChangedListener);
 			}
 
@@ -1366,16 +1282,12 @@ public class P2viewEditor extends MultiPageEditorPart
 
 			// Set the editors selection based on the current viewer's selection.
 			//
-			setSelection(
-				currentViewer == null
-						? StructuredSelection.EMPTY
-						: currentViewer.getSelection());
+			setSelection(currentViewer == null ? StructuredSelection.EMPTY : currentViewer.getSelection());
 		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -1387,14 +1299,13 @@ public class P2viewEditor extends MultiPageEditorPart
 	 * This implements {@link org.eclipse.jface.viewers.ISelectionProvider} to set this editor's overall selection.
 	 * Calling this result will notify the listeners.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setSelection(ISelection selection) {
 		editorSelection = selection;
 
-		for(ISelectionChangedListener listener : selectionChangedListeners) {
+		for (ISelectionChangedListener listener : selectionChangedListeners) {
 			listener.selectionChanged(new SelectionChangedEvent(this, selection));
 		}
 		setStatusLineManager(selection);
@@ -1403,20 +1314,19 @@ public class P2viewEditor extends MultiPageEditorPart
 	/**
 	 * This sets the selection into whichever viewer is active.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public void setSelectionToViewer(Collection<?> collection) {
 		final Collection<?> theSelection = collection;
 		// Make sure it's okay.
 		//
-		if(theSelection != null && !theSelection.isEmpty()) {
+		if (theSelection != null && !theSelection.isEmpty()) {
 			Runnable runnable = new Runnable() {
 				@Override
 				public void run() {
 					// Try to select the items in the current content viewer of the editor.
 					//
-					if(currentViewer != null) {
+					if (currentViewer != null) {
 						currentViewer.setSelection(new StructuredSelection(theSelection.toArray()), true);
 					}
 				}
@@ -1427,7 +1337,6 @@ public class P2viewEditor extends MultiPageEditorPart
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public void setStatusLineManager(ISelection selection) {
@@ -1435,28 +1344,27 @@ public class P2viewEditor extends MultiPageEditorPart
 				? contentOutlineStatusLineManager
 				: getActionBars().getStatusLineManager();
 
-		if(statusLineManager != null) {
-			if(selection instanceof IStructuredSelection) {
+		if (statusLineManager != null) {
+			if (selection instanceof IStructuredSelection) {
 				Collection<?> collection = ((IStructuredSelection) selection).toList();
-				switch(collection.size()) {
+				switch (collection.size()) {
 					case 0: {
 						statusLineManager.setMessage(getString("_UI_NoObjectSelected"));
 						break;
 					}
 					case 1: {
-						String text = new AdapterFactoryItemDelegator(adapterFactory).getText(
-							collection.iterator().next());
+						String text = new AdapterFactoryItemDelegator(adapterFactory)
+								.getText(collection.iterator().next());
 						statusLineManager.setMessage(getString("_UI_SingleObjectSelected", text));
 						break;
 					}
 					default: {
-						statusLineManager.setMessage(
-							getString("_UI_MultiObjectSelected", Integer.toString(collection.size())));
+						statusLineManager
+								.setMessage(getString("_UI_MultiObjectSelected", Integer.toString(collection.size())));
 						break;
 					}
 				}
-			}
-			else {
+			} else {
 				statusLineManager.setMessage("");
 			}
 		}
@@ -1465,7 +1373,6 @@ public class P2viewEditor extends MultiPageEditorPart
 	/**
 	 * Returns whether the outline view should be presented to the user.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected boolean showOutlineView() {
@@ -1479,9 +1386,9 @@ public class P2viewEditor extends MultiPageEditorPart
 	 * @generated
 	 */
 	protected void showTabs() {
-		if(getPageCount() > 1) {
+		if (getPageCount() > 1) {
 			setPageText(0, getString("_UI_SelectionPage_label"));
-			if(getContainer() instanceof CTabFolder) {
+			if (getContainer() instanceof CTabFolder) {
 				((CTabFolder) getContainer()).setTabHeight(SWT.DEFAULT);
 				Point point = getContainer().getSize();
 				getContainer().setSize(point.x, point.y - 6);
@@ -1493,28 +1400,25 @@ public class P2viewEditor extends MultiPageEditorPart
 	 * Updates the problems indication with the information described in the specified diagnostic.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected void updateProblemIndication() {
-		if(updateProblemIndication) {
-			BasicDiagnostic diagnostic = new BasicDiagnostic(
-				Diagnostic.OK, "org.eclipse.cbi.p2repo.aggregator.editor", 0, null,
-				new Object[] { editingDomain.getResourceSet() });
-			for(Diagnostic childDiagnostic : resourceToDiagnosticMap.values()) {
-				if(childDiagnostic.getSeverity() != Diagnostic.OK) {
+		if (updateProblemIndication) {
+			BasicDiagnostic diagnostic = new BasicDiagnostic(Diagnostic.OK, "org.eclipse.cbi.p2repo.aggregator.editor",
+					0, null, new Object[] { editingDomain.getResourceSet() });
+			for (Diagnostic childDiagnostic : resourceToDiagnosticMap.values()) {
+				if (childDiagnostic.getSeverity() != Diagnostic.OK) {
 					diagnostic.add(childDiagnostic);
 				}
 			}
 
 			int lastEditorPage = getPageCount() - 1;
-			if(lastEditorPage >= 0 && getEditor(lastEditorPage) instanceof ProblemEditorPart) {
+			if (lastEditorPage >= 0 && getEditor(lastEditorPage) instanceof ProblemEditorPart) {
 				((ProblemEditorPart) getEditor(lastEditorPage)).setDiagnostic(diagnostic);
-				if(diagnostic.getSeverity() != Diagnostic.OK) {
+				if (diagnostic.getSeverity() != Diagnostic.OK) {
 					setActivePage(lastEditorPage);
 				}
-			}
-			else if(diagnostic.getSeverity() != Diagnostic.OK) {
+			} else if (diagnostic.getSeverity() != Diagnostic.OK) {
 				ProblemEditorPart problemEditorPart = new ProblemEditorPart();
 				problemEditorPart.setDiagnostic(diagnostic);
 				problemEditorPart.setMarkerHelper(markerHelper);
@@ -1523,21 +1427,16 @@ public class P2viewEditor extends MultiPageEditorPart
 					setPageText(lastEditorPage, problemEditorPart.getPartName());
 					setActivePage(lastEditorPage);
 					showTabs();
-				}
-				catch(PartInitException exception) {
+				} catch (PartInitException exception) {
 					AggregatorEditorPlugin.INSTANCE.log(exception);
 				}
 			}
 
-			if(markerHelper.hasMarkers(editingDomain.getResourceSet())) {
-				markerHelper.deleteMarkers(editingDomain.getResourceSet());
-				if(diagnostic.getSeverity() != Diagnostic.OK) {
-					try {
-						markerHelper.createMarkers(diagnostic);
-					}
-					catch(CoreException exception) {
-						AggregatorEditorPlugin.INSTANCE.log(exception);
-					}
+			if (markerHelper.hasMarkers(editingDomain.getResourceSet())) {
+				try {
+					markerHelper.updateMarkers(diagnostic);
+				} catch (CoreException exception) {
+					AggregatorEditorPlugin.INSTANCE.log(exception);
 				}
 			}
 		}
