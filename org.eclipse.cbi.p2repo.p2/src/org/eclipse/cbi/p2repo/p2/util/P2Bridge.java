@@ -409,6 +409,9 @@ public class P2Bridge {
 		catch(OperationCanceledException e) {
 			LogUtils.info("Operation canceled."); //$NON-NLS-1$
 		}
+		catch (RuntimeException e) {
+			LogUtils.error(e, "Failed to import %s to model", mdr.getLocation());
+		}
 	}
 
 	public static IProcessingStepDescriptor importToModel(IProcessingStepDescriptor step) {
@@ -429,6 +432,7 @@ public class P2Bridge {
 		mrq.setName(pc.getName());
 		mrq.setNamespace(pc.getNamespace());
 		mrq.setVersion(pc.getVersion());
+		mrq.setAttributes(pc.getAttributes());
 		return mrq;
 	}
 
@@ -458,9 +462,10 @@ public class P2Bridge {
 			mrc.setRange(rc.getRange());
 
 			mreq = mrc;
-		}
-		else
+		} else {
 			mreq = (RequirementImpl) P2Factory.eINSTANCE.createRequirement();
+			mreq.setMatches(req.getMatches());
+		}
 
 		mreq.setFilter(req.getFilter());
 		mreq.setGreedy(req.isGreedy());

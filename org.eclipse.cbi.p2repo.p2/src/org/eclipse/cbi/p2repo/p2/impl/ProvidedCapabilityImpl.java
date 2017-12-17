@@ -7,6 +7,9 @@
  */
 package org.eclipse.cbi.p2repo.p2.impl;
 
+import java.util.Collections;
+import java.util.Map;
+
 import org.eclipse.cbi.p2repo.p2.P2Package;
 import org.eclipse.cbi.p2repo.p2.ProvidedCapability;
 import org.eclipse.emf.common.notify.Notification;
@@ -93,6 +96,11 @@ public class ProvidedCapabilityImpl extends MinimalEObjectImpl.Container impleme
 	 * @ordered
 	 */
 	protected Version version = VERSION_EDEFAULT;
+
+	/**
+	 * NOT generated
+	 */
+	private Map<String, Object> attributes = Collections.emptyMap();
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -283,6 +291,23 @@ public class ProvidedCapabilityImpl extends MinimalEObjectImpl.Container impleme
 		result.append('/');
 		version.toString(result);
 		return result.toString();
+	}
+
+	/**
+	 * NOT generated
+	 */
+	@Override
+	public Map<String, Object> getAttributes() {
+		return this.attributes;
+	}
+
+	/**
+	 * NOT generated
+	 * 
+	 * @param attributes
+	 */
+	public void setAttributes(Map<String, Object> attributes) {
+		this.attributes = attributes;
 	}
 
 } // ProvidedCapabilityImpl

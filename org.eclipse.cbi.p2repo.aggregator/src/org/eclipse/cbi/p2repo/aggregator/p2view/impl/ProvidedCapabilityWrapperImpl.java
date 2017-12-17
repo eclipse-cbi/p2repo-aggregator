@@ -9,6 +9,9 @@
  */
 package org.eclipse.cbi.p2repo.aggregator.p2view.impl;
 
+import java.util.Collections;
+import java.util.Map;
+
 import org.eclipse.cbi.p2repo.aggregator.AggregatorPackage;
 import org.eclipse.cbi.p2repo.aggregator.LabelProvider;
 import org.eclipse.cbi.p2repo.aggregator.p2view.P2viewPackage;
@@ -390,6 +393,16 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 		result.append(label);
 		result.append(')');
 		return result.toString();
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.equinox.p2.metadata.IProvidedCapability#getAttributes()
+	 */
+	@Override
+	public Map<String, Object> getAttributes() {
+		return Collections.emptyMap();
 	}
 
 } // ProvidedCapabilityWrapperImpl
