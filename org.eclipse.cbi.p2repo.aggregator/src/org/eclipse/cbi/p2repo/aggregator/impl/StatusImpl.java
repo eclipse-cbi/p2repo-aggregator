@@ -219,7 +219,7 @@ public class StatusImpl extends MinimalEObjectImpl.Container implements Status {
 		if (eIsProxy())
 			return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (code: ");
 		result.append(CODE_EFLAG_VALUES[(eFlags & CODE_EFLAG) >>> CODE_EFLAG_OFFSET]);
 		result.append(", message: ");

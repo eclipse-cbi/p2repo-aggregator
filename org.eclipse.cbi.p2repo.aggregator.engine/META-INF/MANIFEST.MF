@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-Localization: plugin
 Bundle-SymbolicName: org.eclipse.cbi.p2repo.aggregator.engine;singleton:=true
-Bundle-Version: 1.0.100.qualifier
+Bundle-Version: 1.0.200.qualifier
 Bundle-Activator: org.eclipse.cbi.p2repo.aggregator.engine.Engine
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
@@ -34,3 +34,4 @@ Require-Bundle: org.apache.ant,
  org.eclipse.osgi.services,
  org.eclipse.equinox.p2.updatesite;bundle-version="1.0.400"
 Bundle-Vendor: %providerName
+Automatic-Module-Name: org.eclipse.cbi.p2repo.aggregator.engine

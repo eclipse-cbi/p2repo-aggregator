@@ -6,12 +6,12 @@
   <packaging>eclipse-repository</packaging>
   <groupId>org.eclipse.cbi</groupId>
   <artifactId>org.eclipse.cbi.p2repo.cli.product</artifactId>
-  <version>1.0.100-SNAPSHOT</version>
+  <version>1.0.200-SNAPSHOT</version>
 
   <parent>
     <groupId>org.eclipse.cbi</groupId>
     <artifactId>org.eclipse.cbi.p2repo.releng.parent</artifactId>
-    <version>1.0.100-SNAPSHOT</version>
+    <version>1.0.200-SNAPSHOT</version>
     <relativePath>../org.eclipse.cbi.p2repo.releng.parent</relativePath>
   </parent>
 

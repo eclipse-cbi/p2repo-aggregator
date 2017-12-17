@@ -825,7 +825,7 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 		if (eIsProxy())
 			return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (detailsResolved: ");
 		result.append((eFlags & DETAILS_RESOLVED_EFLAG) != 0);
 		result.append(')');

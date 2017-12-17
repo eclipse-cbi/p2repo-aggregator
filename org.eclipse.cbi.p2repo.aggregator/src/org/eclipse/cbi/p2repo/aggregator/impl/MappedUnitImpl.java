@@ -389,7 +389,7 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 		if (eIsProxy())
 			return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (enabled: ");
 		result.append((eFlags & ENABLED_EFLAG) != 0);
 		result.append(')');

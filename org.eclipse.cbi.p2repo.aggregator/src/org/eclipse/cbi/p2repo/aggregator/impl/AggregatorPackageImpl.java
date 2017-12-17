@@ -83,9 +83,10 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 			return (AggregatorPackage) EPackage.Registry.INSTANCE.getEPackage(AggregatorPackage.eNS_URI);
 
 		// Obtain or create and register package
-		AggregatorPackageImpl theAggregatorPackage = (AggregatorPackageImpl) (EPackage.Registry.INSTANCE
-				.get(eNS_URI) instanceof AggregatorPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI)
-						: new AggregatorPackageImpl());
+		Object registeredAggregatorPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		AggregatorPackageImpl theAggregatorPackage = registeredAggregatorPackage instanceof AggregatorPackageImpl
+				? (AggregatorPackageImpl) registeredAggregatorPackage
+				: new AggregatorPackageImpl();
 
 		isInited = true;
 
@@ -94,10 +95,10 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		XMLTypePackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
-		P2viewPackageImpl theP2viewPackage = (P2viewPackageImpl) (EPackage.Registry.INSTANCE
-				.getEPackage(P2viewPackage.eNS_URI) instanceof P2viewPackageImpl
-						? EPackage.Registry.INSTANCE.getEPackage(P2viewPackage.eNS_URI)
-						: P2viewPackage.eINSTANCE);
+		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(P2viewPackage.eNS_URI);
+		P2viewPackageImpl theP2viewPackage = (P2viewPackageImpl) (registeredPackage instanceof P2viewPackageImpl
+				? registeredPackage
+				: P2viewPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theAggregatorPackage.createPackageContents();

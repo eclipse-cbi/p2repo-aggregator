@@ -410,7 +410,7 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 		if (eIsProxy())
 			return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (versionMatch: ");
 		result.append(VERSION_MATCH_EFLAG_VALUES[(eFlags & VERSION_MATCH_EFLAG) >>> VERSION_MATCH_EFLAG_OFFSET]);
 		result.append(", version: ");

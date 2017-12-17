@@ -143,6 +143,7 @@ import org.eclipse.swt.events.ControlEvent;
 import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.events.MouseMoveListener;
 import org.eclipse.swt.graphics.Point;
+import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Menu;
@@ -1146,7 +1147,9 @@ public class AggregatorEditor extends MultiPageEditorPart
 			getSite().getShell().getDisplay().asyncExec(new Runnable() {
 				@Override
 				public void run() {
-					setActivePage(0);
+					if (!getContainer().isDisposed()) {
+						setActivePage(0);
+					}
 				}
 			});
 		}
@@ -1392,15 +1395,14 @@ public class AggregatorEditor extends MultiPageEditorPart
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("rawtypes")
 	@Override
-	public Object getAdapter(Class key) {
+	public <T> T getAdapter(Class<T> key) {
 		if (key.equals(IContentOutlinePage.class)) {
-			return showOutlineView() ? getContentOutlinePage() : null;
+			return showOutlineView() ? key.cast(getContentOutlinePage()) : null;
 		} else if (key.equals(IPropertySheetPage.class)) {
-			return getPropertySheetPage();
+			return key.cast(getPropertySheetPage());
 		} else if (key.equals(IGotoMarker.class)) {
-			return this;
+			return key.cast(this);
 		} else {
 			return super.getAdapter(key);
 		}
@@ -1778,9 +1780,9 @@ public class AggregatorEditor extends MultiPageEditorPart
 		if (getPageCount() <= 1) {
 			setPageText(0, "");
 			if (getContainer() instanceof CTabFolder) {
-				((CTabFolder) getContainer()).setTabHeight(1);
 				Point point = getContainer().getSize();
-				getContainer().setSize(point.x, point.y + 6);
+				Rectangle clientArea = getContainer().getClientArea();
+				getContainer().setSize(point.x, 2 * point.y - clientArea.height - clientArea.y);
 			}
 		}
 	}
@@ -2215,9 +2217,9 @@ public class AggregatorEditor extends MultiPageEditorPart
 		if (getPageCount() > 1) {
 			setPageText(0, getString("_UI_SelectionPage_label"));
 			if (getContainer() instanceof CTabFolder) {
-				((CTabFolder) getContainer()).setTabHeight(SWT.DEFAULT);
 				Point point = getContainer().getSize();
-				getContainer().setSize(point.x, point.y - 6);
+				Rectangle clientArea = getContainer().getClientArea();
+				getContainer().setSize(point.x, clientArea.height + clientArea.y);
 			}
 		}
 	}

@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-Localization: plugin
 Bundle-SymbolicName: org.eclipse.cbi.p2repo.p2.maven.indexer;singleton:=true
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 1.0.200.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Require-Bundle: org.eclipse.cbi.p2repo.p2.maven,
  org.eclipse.core.runtime,
@@ -17,3 +17,4 @@ Require-Bundle: org.eclipse.cbi.p2repo.p2.maven,
 Bundle-Vendor: %providerName
 Bundle-ActivationPolicy: lazy
 Bundle-Activator: org.eclipse.cbi.p2repo.p2.maven.indexer.Activator
+Automatic-Module-Name: org.eclipse.cbi.p2repo.p2.maven.indexer

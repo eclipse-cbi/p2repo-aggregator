@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-Localization: plugin
 Bundle-SymbolicName: org.eclipse.cbi.p2repo.p2.tests;singleton:=true
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 1.0.200.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
@@ -18,3 +18,4 @@ Require-Bundle: org.eclipse.cbi.p2repo.p2;visibility:=reexport,
  org.eclipse.equinox.p2.core,
  org.eclipse.cbi.p2repo.util
 Bundle-ActivationPolicy: lazy
+Automatic-Module-Name: org.eclipse.cbi.p2repo.p2.tests

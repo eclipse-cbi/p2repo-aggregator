@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde version="3.8"?>
-<target name="org.eclipse.cbi.p2repo.aggregator.prereqs">
+<target name="org.eclipse.cbi.p2repo.aggregator.prereqs" sequenceNumber="7">
   <locations>
 
     <!-- might need "current platform" to *run* in workbench
@@ -103,17 +103,17 @@
       type="InstallableUnit">
       <unit
         id="org.eclipse.emf.common.feature.group"
-        version="2.13.0.v20170609-0707" />
+        version="2.14.0.v20171203-1459" />
       <unit
         id="org.eclipse.emf.common.source.feature.group"
-        version="2.13.0.v20170609-0707" />
+        version="2.14.0.v20171203-1459" />
       <unit
         id="org.eclipse.emf.ecore.feature.group"
-        version="2.13.0.v20170609-0707" />
+        version="2.14.0.v20171203-1459" />
       <unit
         id="org.eclipse.emf.ecore.source.feature.group"
-        version="2.13.0.v20170609-0707" />
-      <repository location="http://download.eclipse.org/modeling/emf/emf/updates/2.13/base/R201706090707/" />
+        version="2.14.0.v20171203-1459" />
+      <repository location="http://download.eclipse.org/modeling/emf/emf/updates/2.14milestones/base/" />
     </location>
 
     <location
@@ -124,23 +124,23 @@
       type="InstallableUnit">
       <unit
         id="org.eclipse.emf.common.ui"
-        version="2.12.0.v20170609-0928" />
+        version="2.13.0.v20171212-0927" />
       <unit
         id="org.eclipse.emf.common.ui.source"
-        version="2.12.0.v20170609-0928" />
+        version="2.13.0.v20171212-0927" />
       <unit
         id="org.eclipse.emf.edit"
-        version="2.12.0.v20170609-0928" />
+        version="2.13.0.v20171212-0927" />
       <unit
         id="org.eclipse.emf.edit.source"
-        version="2.12.0.v20170609-0928" />
+        version="2.13.0.v20171212-0927" />
       <unit
         id="org.eclipse.emf.edit.ui"
-        version="2.13.0.v20170609-0928" />
+        version="2.14.0.v20171212-0927" />
       <unit
         id="org.eclipse.emf.edit.ui.source"
-        version="2.13.0.v20170609-0928" />
-      <repository location="http://download.eclipse.org/modeling/emf/emf/updates/2.13/core/R201706090928/" />
+        version="2.14.0.v20171212-0927" />
+      <repository location="http://download.eclipse.org/modeling/emf/emf/updates/2.14milestones/core/" />
     </location>
 
     <location
@@ -217,23 +217,23 @@
       type="InstallableUnit">
       <unit
         id="org.eclipse.core.runtime"
-        version="3.13.0.v20170207-1030" />
+        version="3.14.0.v20171130-1004" />
       <unit
         id="org.eclipse.equinox.concurrent"
         version="1.1.0.v20130327-1442" />
       <unit
         id="org.eclipse.equinox.core.feature.feature.group"
-        version="1.4.1.v20170928-1321" />
+        version="1.5.0.v20171215-2014" />
       <unit
         id="org.eclipse.equinox.executable.feature.group"
-        version="3.7.1.v20170928-1359" />
+        version="3.8.0.v20171214-1415" />
       <unit
         id="org.eclipse.equinox.p2.core.feature.feature.group"
-        version="1.4.1.v20170928-1405" />
+        version="1.5.0.v20171215-0644" />
       <unit
         id="org.eclipse.platform.feature.group"
-        version="4.7.1.v20171009-0410" />
-      <repository location="http://download.eclipse.org/eclipse/updates/4.7/R-4.7.1a-201710090410/" />
+        version="4.8.0.v20171216-1500" />
+      <repository location="http://download.eclipse.org/eclipse/updates/4.8-I-builds/" />
     </location>
   </locations>
 </target>
