@@ -65,12 +65,23 @@
       <unit
         id="org.junit.source"
         version="4.12.0.v201504281640" />
+      <!--
       <unit
         id="org.kohsuke.args4j"
         version="2.0.21.v201301150030" />
+     check if 2.23 is in orbit! file CQ if so.  -->
+      <unit
+        id="org.kohsuke.args4j"
+        version="2.33.0.v20160323-2218" />
+      <!--
       <unit
         id="org.kohsuke.args4j.source"
         version="2.0.21.v201301150030" />
+      -->
+      <unit
+        id="org.kohsuke.args4j.source"
+        version="2.33.0.v20160323-2218" />
+
       <unit
         id="org.sat4j.core"
         version="2.3.5.v201308161310" />
@@ -226,14 +237,14 @@
         version="1.4.1.v20170928-1321" />
       <unit
         id="org.eclipse.equinox.executable.feature.group"
-        version="3.7.1.v20170928-1359" />
+        version="3.7.2.v20171108-1834" />
       <unit
         id="org.eclipse.equinox.p2.core.feature.feature.group"
         version="1.4.1.v20170928-1405" />
       <unit
         id="org.eclipse.platform.feature.group"
-        version="4.7.1.v20171009-0410" />
-      <repository location="http://download.eclipse.org/eclipse/updates/4.7/R-4.7.1a-201710090410/" />
+        version="4.7.2.v20171130-0510" />
+      <repository location="http://download.eclipse.org/eclipse/updates/4.7/R-4.7.2-201711300510/" />
     </location>
   </locations>
 </target>
