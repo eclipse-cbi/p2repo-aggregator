@@ -8,7 +8,7 @@
     <groupId>org.eclipse.cbi</groupId>
     <artifactId>org.eclipse.cbi.p2repo.releng.parent</artifactId>
     <relativePath>../org.eclipse.cbi.p2repo.releng.parent</relativePath>
-    <version>1.0.100-SNAPSHOT</version>
+    <version>1.0.101-SNAPSHOT</version>
   </parent>
     <build>
     <plugins>

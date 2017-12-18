@@ -5,7 +5,7 @@
     <groupId>org.eclipse.cbi</groupId>
     <artifactId>org.eclipse.cbi.p2repo.releng.parent</artifactId>
     <relativePath>../org.eclipse.cbi.p2repo.releng.parent</relativePath>
-    <version>1.0.100-SNAPSHOT</version>
+    <version>1.0.101-SNAPSHOT</version>
   </parent>
   <artifactId>org.eclipse.cbi.p2repo.p2.maven.indexer.feature</artifactId>
   <version>1.0.100-SNAPSHOT</version>

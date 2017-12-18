@@ -395,7 +395,7 @@
             <artifact>
               <groupId>org.eclipse.cbi</groupId>
               <artifactId>org.eclipse.cbi.p2repo.aggregator.prereqs</artifactId>
-              <version>1.0.100-SNAPSHOT</version>
+              <version>1.0.101-SNAPSHOT</version>
               <!-- Uses artifactId+.target by default -->
             </artifact>
           </target>
