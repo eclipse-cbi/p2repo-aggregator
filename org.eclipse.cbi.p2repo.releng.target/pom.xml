@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>org.eclipse.cbi</groupId>
 		<artifactId>org.eclipse.cbi.p2repo.releng.parent</artifactId>
-		<version>1.0.100-SNAPSHOT</version>
+		<version>1.0.101-SNAPSHOT</version>
 		<relativePath>../org.eclipse.cbi.p2repo.releng.parent</relativePath>
 	</parent>
 
@@ -14,5 +14,5 @@
 	<artifactId>org.eclipse.cbi.p2repo.aggregator.prereqs</artifactId>
     <name>org.eclipse.cbi.p2repo.aggregator.prereqs</name>
 	<groupId>org.eclipse.cbi</groupId>
-	<version>1.0.100-SNAPSHOT</version>
+	<version>1.0.101-SNAPSHOT</version>
 </project>

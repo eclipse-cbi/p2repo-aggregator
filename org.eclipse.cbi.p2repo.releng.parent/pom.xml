@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.eclipse.cbi</groupId>
   <artifactId>org.eclipse.cbi.p2repo.releng.parent</artifactId>
-  <version>1.0.100-SNAPSHOT</version>
+  <version>1.0.101-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <properties>
