@@ -182,8 +182,9 @@ then
 
 
   # 'origin1' is the name Hudson has assigned. 
+  # Jenkins uses 'origin'
 
-  git push --verbose origin1 master:refs/heads/master
+  git push --verbose origin master:refs/heads/master
   RC=$?
   if [[ $RC != 0 ]]
   then
