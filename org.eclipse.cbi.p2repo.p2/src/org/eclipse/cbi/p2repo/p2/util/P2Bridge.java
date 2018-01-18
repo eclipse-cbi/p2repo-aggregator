@@ -432,7 +432,7 @@ public class P2Bridge {
 		mrq.setName(pc.getName());
 		mrq.setNamespace(pc.getNamespace());
 		mrq.setVersion(pc.getVersion());
-		mrq.setAttributes(pc.getAttributes());
+		mrq.setProperties(pc.getProperties());
 		return mrq;
 	}
 

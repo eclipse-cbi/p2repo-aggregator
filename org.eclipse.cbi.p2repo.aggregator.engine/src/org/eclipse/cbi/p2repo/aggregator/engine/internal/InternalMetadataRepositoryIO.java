@@ -299,8 +299,8 @@ public class InternalMetadataRepositoryIO extends MetadataRepositoryIO {
 
 			@Override
 			public void startElement(String name, Attributes attributes) {
-				if(name.equals(CAPABILITY_FILTER_ELEMENT)) {
-					filterHandler = new TextHandler(this, CAPABILITY_FILTER_ELEMENT, attributes);
+				if (name.equals(REQUIREMENT_FILTER_ELEMENT)) {
+					filterHandler = new TextHandler(this, REQUIREMENT_FILTER_ELEMENT, attributes);
 				}
 				else if(name.equals(REQUIREMENT_VERSIONS_ELEMENT)) {
 					versionsHandler = new InternalRequirementVersionsHandler(this);
@@ -500,7 +500,7 @@ public class InternalMetadataRepositoryIO extends MetadataRepositoryIO {
 				}
 				end(REQUIREMENT_VERSIONS_ELEMENT);
 				if(requirement.getFilter() != null)
-					writeTrimmedCdata(CAPABILITY_FILTER_ELEMENT, requirement.getFilter().toString());
+					writeTrimmedCdata(REQUIREMENT_FILTER_ELEMENT, requirement.getFilter().toString());
 				end(REQUIREMENT_ELEMENT);
 			}
 			else {

@@ -398,10 +398,10 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see org.eclipse.equinox.p2.metadata.IProvidedCapability#getAttributes()
+	 * @see org.eclipse.equinox.p2.metadata.IProvidedCapability#getProperties()
 	 */
 	@Override
-	public Map<String, Object> getAttributes() {
+	public Map<String, Object> getProperties() {
 		return Collections.emptyMap();
 	}
 

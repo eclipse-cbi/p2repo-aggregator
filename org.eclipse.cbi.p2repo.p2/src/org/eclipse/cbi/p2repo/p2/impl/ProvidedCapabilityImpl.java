@@ -99,8 +99,10 @@ public class ProvidedCapabilityImpl extends MinimalEObjectImpl.Container impleme
 
 	/**
 	 * NOT generated
+	 * 
+	 * @generated NOT
 	 */
-	private Map<String, Object> attributes = Collections.emptyMap();
+	private Map<String, Object> properties = Collections.emptyMap();
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -294,20 +296,20 @@ public class ProvidedCapabilityImpl extends MinimalEObjectImpl.Container impleme
 	}
 
 	/**
-	 * NOT generated
+	 * @generated NOT
 	 */
 	@Override
-	public Map<String, Object> getAttributes() {
-		return this.attributes;
+	public Map<String, Object> getProperties() {
+		return this.properties;
 	}
 
 	/**
-	 * NOT generated
-	 * 
-	 * @param attributes
+	 * @param properties
+	 *            the properties to set
+	 * @generated NOT
 	 */
-	public void setAttributes(Map<String, Object> attributes) {
-		this.attributes = attributes;
+	public void setProperties(Map<String, Object> properties) {
+		this.properties = properties;
 	}
 
 } // ProvidedCapabilityImpl
