@@ -13,8 +13,7 @@
       includeMode="slicer"
       includeSource="false"
       type="InstallableUnit">
-      <unit
-        id="org.eclipse.license.feature.group"
+      <unit id="org.eclipse.license.feature.group"
         version="1.0.1.v20140414-1359" />
       <repository location="http://download.eclipse.org/cbi/updates/license/1.0.1.v20140414-1359/" />
     </location>
@@ -27,11 +26,9 @@
       type="InstallableUnit">
       <unit id = "com.ibm.icu"
         version="58.2.0.v20170418-1837" />
-      <unit
-        id="com.ibm.icu.source"
+      <unit id="com.ibm.icu.source"
         version="58.2.0.v20170418-1837" />
-      <unit
-        id="org.apache.ant"
+      <unit id="org.apache.ant"
         version="1.10.1.v20170504-0840" />
       <unit
         id="org.apache.ant.source"
@@ -222,16 +219,16 @@
         version="1.1.100.v20171221-2204" />
       <unit
         id="org.eclipse.equinox.core.feature.feature.group"
-        version="1.5.0.v20180110-2102" />
+        version="1.5.0.v20180119-2027" />
       <unit
         id="org.eclipse.equinox.executable.feature.group"
-        version="3.8.0.v20180103-1157" />
+        version="3.8.0.v20180122-1205" />
       <unit
         id="org.eclipse.equinox.p2.core.feature.feature.group"
         version="1.5.0.v20180116-1856" />
       <unit
         id="org.eclipse.platform.feature.group"
-        version="4.8.0.v20180117-2000" />
+        version="4.8.0.v20180122-1205" />
       <repository location="http://download.eclipse.org/eclipse/updates/4.8-I-builds/" />
     </location>
   </locations>
