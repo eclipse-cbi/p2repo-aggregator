@@ -2,7 +2,7 @@
 
 # After we build, we will check the repository we just 
 # produced, to make sure it is basically compliant. 
-# This script is called direclty from "runBuild.sh".
+# This script is called directly from "runBuild.sh".
 
 build_home=${WORKSPACE:-/home/davidw/gitCBI}
 export tmp_dir=${build_home}/aggr/tmp
@@ -45,7 +45,17 @@ wget --no-verbose -O org.eclipse.cbi.p2repo.analyzers.product-linux.gtk.x86_64.t
 tar -xf org.eclipse.cbi.p2repo.analyzers.product-linux.gtk.x86_64.tar.gz
 popd
 
-unzip ${build_home}/org.eclipse.cbi.p2repo.aggregator/org.eclipse.cbi.p2repo.site.eclipse/target/org.eclipse.cbi.p2repo.site.eclipse-1.0.0-SNAPSHOT.zip -d ${build_home}/testarea/repoToTest
+# Since the version of our "site product" can change, it is best to "find" the latest built version based on filename pattern except for 
+# the version, which would match anything (".*"). We expect there to always be only one version in the target directory, so this is safe.
+createdRepo=$(find ${build_home}/org.eclipse.cbi.p2repo.aggregator/org.eclipse.cbi.p2repo.site.eclipse/target/ -name "org.eclipse.cbi.p2repo.site.eclipse-*.zip")
+if [[ -n "$createdRepo" ]]
+then 
+printf "[INFO] %s\n" "Found the built repo in $createdRepo"
+else
+printf "[ERROR] %s\n" "Did not find the target repository to test?!"
+exit 1
+fi
+unzip "${createdRepo}" -d ${build_home}/testarea/repoToTest
 
 source $sourceProperties
 # Note: 'referenceRepo' can be provided in "sourceProperties", if 
