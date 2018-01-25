@@ -219,17 +219,17 @@
         version="1.1.100.v20171221-2204" />
       <unit
         id="org.eclipse.equinox.core.feature.feature.group"
-        version="1.5.0.v20180119-2027" />
+        version="1.5.0.v20180123-1456" />
       <unit
         id="org.eclipse.equinox.executable.feature.group"
-        version="3.8.0.v20180122-1205" />
+        version="3.8.0.v20180124-1426" />
       <unit
         id="org.eclipse.equinox.p2.core.feature.feature.group"
-        version="1.5.0.v20180116-1856" />
+        version="1.5.0.v20180122-2220" />
       <unit
         id="org.eclipse.platform.feature.group"
-        version="4.8.0.v20180122-1205" />
-      <repository location="http://download.eclipse.org/eclipse/updates/4.8-I-builds/" />
+        version="4.8.0.v20180124-2000" />
+      <repository location="http://download.eclipse.org/eclipse/updates/4.8-I-builds/I20180124-2000" />
     </location>
   </locations>
 </target>
