@@ -181,9 +181,10 @@ then
   git status
 
 
-  # 'origin1' is the name Hudson has assigned. 
+  # 'origin1' was the name Hudson has assigned. 
+  # 'origin' is the name Jenkins uses.
 
-  git push --verbose origin1 master:refs/heads/master
+  git push --verbose origin master:refs/heads/master
   RC=$?
   if [[ $RC != 0 ]]
   then
