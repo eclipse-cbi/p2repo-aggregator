@@ -46,7 +46,7 @@
       the update site locations. It reflects, basically, the version of the platform that it
       was built against and the one it should be installed into (ideally).
     -->
-    <updateRelease>4.7</updateRelease>
+    <updateRelease>4.8</updateRelease>
     <!--
       Similarly, referenceRepo is not used in the build, per se, but by the
       repoReport tests. Normally the "latest build" is computed. But, if there is ever a 
