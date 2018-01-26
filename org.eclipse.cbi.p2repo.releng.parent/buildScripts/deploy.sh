@@ -30,7 +30,7 @@ deployRepos ${ideUpdate} ${build_home}/org.eclipse.cbi.p2repo.aggregator/org.ecl
 deployRepos ${headlessUpdate} ${build_home}/org.eclipse.cbi.p2repo.aggregator/org.eclipse.cbi.p2repo.cli.product/target/repository
 
 # save away "data" from the build, as well as the deployable headless products
-cp ${build_home}/aggr/buildOutput.txt ${headlessUpdate}
+cp ${build_home}/buildOutput.txt ${headlessUpdate}
 cp ${sourceProperties} ${headlessUpdate}
 cp ${propertiesfile} ${headlessUpdate}
 cp ${phpProperties} ${headlessUpdate}
