@@ -14,7 +14,7 @@
     <buildTimestamp>${maven.build.timestamp}</buildTimestamp>
     <buildType>I</buildType>
     <buildId>${buildType}${buildTimestamp}</buildId>
-    <comparator.repo>http://download.eclipse.org/cbi/updates/aggregator/ide/4.7/</comparator.repo>
+    <comparator.repo>http://download.eclipse.org/cbi/updates/aggregator/ide/4.8/</comparator.repo>
     <!-- For using Tycho 23.1 (currently "staged", removed staged repo below, once released) -->
     <tycho-version>1.1.0-SNAPSHOT</tycho-version>
     <tycho-extras.version>1.1.0-SNAPSHOT</tycho-extras.version>
@@ -52,7 +52,7 @@
       repoReport tests. Normally the "latest build" is computed. But, if there is ever a 
       reason to override what is computed, then this would be the place to do it. 
     
-    <referenceRepo>/home/data/httpd/download.eclipse.org/cbi/updates/aggregator/ide/4.7/I20170727-1607</referenceRepo>
+    <referenceRepo>/home/data/httpd/download.eclipse.org/cbi/updates/aggregator/ide/4.8/I20180126-0127</referenceRepo>
     -->
   </properties>
 
