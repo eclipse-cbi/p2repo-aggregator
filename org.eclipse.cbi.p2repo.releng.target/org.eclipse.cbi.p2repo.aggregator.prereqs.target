@@ -229,7 +229,7 @@
       <unit
         id="org.eclipse.platform.feature.group"
         version="4.8.0.v20180124-2000" />
-      <repository location="http://download.eclipse.org/eclipse/updates/4.8-I-builds/I20180124-2000" />
+      <repository location="http://download.eclipse.org/eclipse/updates/4.8milestones/S-4.8M5-201801242000" />
     </location>
   </locations>
 </target>
