@@ -11,7 +11,7 @@ Export-Package: org.eclipse.cbi.p2repo.p2.tests
 Require-Bundle: org.eclipse.cbi.p2repo.p2;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.junit;visibility:=reexport,
- org.eclipse.equinox.p2.metadata;bundle-version="(2.4.0,2.5.0]",
+ org.eclipse.equinox.p2.metadata;bundle-version="[2.4.0,2.5.0)",
  org.eclipse.equinox.p2.metadata.repository,
  org.eclipse.equinox.p2.repository,
  org.eclipse.core.runtime,
