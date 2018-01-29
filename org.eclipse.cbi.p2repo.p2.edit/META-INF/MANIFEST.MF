@@ -13,6 +13,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.cbi.p2repo.p2;visibility:=reexport,
  org.eclipse.cbi.p2repo.util,
  org.eclipse.emf.edit;visibility:=reexport,
- org.eclipse.equinox.p2.metadata;bundle-version="(2.3.0,2.4.0]",
+ org.eclipse.equinox.p2.metadata;bundle-version="[2.3.0,2.4.0)",
  org.eclipse.equinox.p2.repository
 Bundle-ActivationPolicy: lazy
