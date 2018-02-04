@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde version="3.8"?>
-<target name="org.eclipse.cbi.p2repo.aggregator.prereqs" sequenceNumber="7">
+<target
+  name="org.eclipse.cbi.p2repo.aggregator.prereqs"
+  sequenceNumber="7">
   <locations>
 
     <!-- might need "current platform" to *run* in workbench
@@ -13,29 +15,32 @@
       includeMode="slicer"
       includeSource="false"
       type="InstallableUnit">
-      <unit id="org.eclipse.license.feature.group"
+      <unit
+        id="org.eclipse.license.feature.group"
         version="1.0.1.v20140414-1359" />
       <repository location="http://download.eclipse.org/cbi/updates/license/1.0.1.v20140414-1359/" />
     </location>
-
     <location
       includeAllPlatforms="false"
       includeConfigurePhase="false"
       includeMode="slicer"
       includeSource="false"
       type="InstallableUnit">
-      <unit id = "com.ibm.icu"
+      <unit
+        id="com.ibm.icu"
         version="58.2.0.v20170418-1837" />
-      <unit id="com.ibm.icu.source"
+      <unit
+        id="com.ibm.icu.source"
         version="58.2.0.v20170418-1837" />
-      <unit id="org.apache.ant"
+      <unit
+        id="org.apache.ant"
         version="1.10.1.v20170504-0840" />
       <unit
         id="org.apache.ant.source"
         version="1.10.1.v20170504-0840" />
-        
 
-      <!-- required indirectly. They are required by ECF. --> 
+
+      <!-- required indirectly. They are required by ECF. -->
       <unit
         id="org.apache.httpcomponents.httpclient"
         version="4.5.2.v20170210-0925" />
@@ -48,7 +53,6 @@
       <unit
         id="org.apache.httpcomponents.httpcore.source"
         version="4.4.6.v20170210-0925" />
-
       <unit
         id="org.hamcrest.core"
         version="1.3.0.v201303031735" />
@@ -74,14 +78,13 @@
         id="org.sat4j.pb"
         version="2.3.5.v201404071733" />
 
-      <!-- required by m2e bundles --> 
+      <!-- required by m2e bundles -->
       <unit
         id="org.slf4j.api"
         version="1.7.2.v20121108-1250" />
       <unit
         id="org.slf4j.api.source"
         version="1.7.2.v20121108-1250" />
-
       <unit
         id="org.tukaani.xz"
         version="1.5.0.v20170111-1717" />
@@ -90,7 +93,6 @@
         version="1.5.0.v20170111-1717" />
       <repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20170919201930/repository/" />
     </location>
-
     <location
       includeAllPlatforms="false"
       includeConfigurePhase="false"
@@ -111,7 +113,6 @@
         version="2.14.0.v20171203-1459" />
       <repository location="http://download.eclipse.org/modeling/emf/emf/updates/2.14milestones/base/" />
     </location>
-
     <location
       includeAllPlatforms="false"
       includeConfigurePhase="false"
@@ -138,7 +139,6 @@
         version="2.14.0.v20171212-0927" />
       <repository location="http://download.eclipse.org/modeling/emf/emf/updates/2.14milestones/core/" />
     </location>
-
     <location
       includeAllPlatforms="false"
       includeConfigurePhase="false"
@@ -183,7 +183,6 @@
         version="1.1.0.v20170110-1317" />
       <repository location="http://download.eclipse.org/rt/ecf/3.13.8/site.p2/" />
     </location>
-
     <location
       includeAllPlatforms="false"
       includeConfigurePhase="false"
@@ -204,7 +203,6 @@
         version="1.8.2.20171007-0216" />
       <repository location="http://download.eclipse.org/technology/m2e/releases/1.8/1.8.2.20171007-0217/" />
     </location>
-
     <location
       includeAllPlatforms="false"
       includeConfigurePhase="false"
@@ -213,23 +211,23 @@
       type="InstallableUnit">
       <unit
         id="org.eclipse.core.runtime"
-        version="3.14.0.v20171130-1004" />
+        version="3.14.0.v20180123-1109" />
       <unit
         id="org.eclipse.equinox.concurrent"
         version="1.1.100.v20171221-2204" />
       <unit
         id="org.eclipse.equinox.core.feature.feature.group"
-        version="1.5.0.v20180123-1456" />
+        version="1.5.0.v20180131-1413" />
       <unit
         id="org.eclipse.equinox.executable.feature.group"
-        version="3.8.0.v20180124-1426" />
+        version="3.8.0.v20180201-0654" />
       <unit
         id="org.eclipse.equinox.p2.core.feature.feature.group"
-        version="1.5.0.v20180122-2220" />
+        version="1.5.0.v20180201-1334" />
       <unit
         id="org.eclipse.platform.feature.group"
-        version="4.8.0.v20180124-2000" />
-      <repository location="http://download.eclipse.org/eclipse/updates/4.8milestones/S-4.8M5-201801242000" />
+        version="4.8.0.v20180202-2000" />
+      <repository location="http://download.eclipse.org/eclipse/updates/4.8-I-builds/I20180202-2000/" />
     </location>
   </locations>
 </target>
