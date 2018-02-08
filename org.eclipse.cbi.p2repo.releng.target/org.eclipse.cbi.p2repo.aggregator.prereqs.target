@@ -226,7 +226,7 @@
         version="1.5.0.v20180201-1334" />
       <unit
         id="org.eclipse.platform.feature.group"
-        version="4.8.0.v20180202-2000" />
+        version="4.8.0.v20180206-0315" />
       <repository location="http://download.eclipse.org/eclipse/updates/4.8-I-builds/I20180206-0315/" />
     </location>
   </locations>
