@@ -172,13 +172,8 @@ public class VersionRangeEditorDialog extends Dialog {
 
 	@Override
 	protected void buttonPressed(int buttonId) {
-		switch(buttonId) {
-			case IDialogConstants.CANCEL_ID:
-				close();
-				break;
-			default:
-				if(performAction(buttonId))
-					close();
+		if (performAction(buttonId)) {
+			close();
 		}
 	}
 
@@ -509,12 +504,12 @@ public class VersionRangeEditorDialog extends Dialog {
 	}
 
 	protected boolean performAction(int actionID) {
-		result = null;
+		result = versionRange;
 
 		switch(actionID) {
-			case CANCEL:
+			case IDialogConstants.CANCEL_ID:
 				return true;
-			case OK:
+			case IDialogConstants.OK_ID:
 				try {
 					result = createVersionRange();
 				}
