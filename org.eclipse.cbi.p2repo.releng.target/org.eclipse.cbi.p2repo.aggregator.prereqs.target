@@ -55,10 +55,10 @@
         version="4.4.6.v20170210-0925" />
       <unit
         id="org.hamcrest.core"
-        version="1.3.0.v201303031735" />
+        version="1.3.0.v20180227-1814" />
       <unit
         id="org.hamcrest.core.source"
-        version="1.3.0.v201303031735" />
+        version="1.3.0.v20180227-1814" />
       <unit
         id="org.junit"
         version="4.12.0.v201504281640" />
@@ -67,10 +67,10 @@
         version="4.12.0.v201504281640" />
       <unit
         id="org.kohsuke.args4j"
-        version="2.0.21.v201301150030" />
+        version="2.33.0.v20160323-2218" />
       <unit
         id="org.kohsuke.args4j.source"
-        version="2.0.21.v201301150030" />
+        version="2.33.0.v20160323-2218" />
       <unit
         id="org.sat4j.core"
         version="2.3.5.v201308161310" />
@@ -81,17 +81,17 @@
       <!-- required by m2e bundles -->
       <unit
         id="org.slf4j.api"
-        version="1.7.2.v20121108-1250" />
+        version="1.7.10.v20170428-1633" />
       <unit
         id="org.slf4j.api.source"
-        version="1.7.2.v20121108-1250" />
+        version="1.7.10.v20170428-1633" />
       <unit
         id="org.tukaani.xz"
-        version="1.5.0.v20170111-1717" />
+        version="1.8.0.v20180207-1613" />
       <unit
         id="org.tukaani.xz.source"
-        version="1.5.0.v20170111-1717" />
-      <repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20170919201930/repository/" />
+        version="1.8.0.v20180207-1613" />
+      <repository location="http://download.eclipse.org/tools/orbit/downloads/drops/S20180302171354/repository/" />
     </location>
     <location
       includeAllPlatforms="false"
@@ -191,17 +191,17 @@
       type="InstallableUnit">
       <unit
         id="org.eclipse.m2e.archetype.common"
-        version="1.8.2.20171007-0216" />
+        version="1.9.0.20180313-2236" />
       <unit
         id="org.eclipse.m2e.maven.indexer"
-        version="1.8.2.20171007-0216" />
+        version="1.9.0.20180313-2236" />
       <unit
         id="org.eclipse.m2e.maven.runtime"
-        version="1.8.2.20171007-0216" />
+        version="1.9.0.20180313-2236" />
       <unit
         id="org.eclipse.m2e.maven.runtime.slf4j.simple"
-        version="1.8.2.20171007-0216" />
-      <repository location="http://download.eclipse.org/technology/m2e/releases/1.8/1.8.2.20171007-0217/" />
+        version="1.9.0.20180313-2236" />
+      <repository location="http://download.eclipse.org/technology/m2e/milestones/1.9/1.9.0.20180313-2237/" />
     </location>
     <location
       includeAllPlatforms="false"
@@ -211,23 +211,23 @@
       type="InstallableUnit">
       <unit
         id="org.eclipse.core.runtime"
-        version="3.14.0.v20180123-1109" />
+        version="3.14.0.v20180220-2036" />
       <unit
         id="org.eclipse.equinox.concurrent"
         version="1.1.100.v20171221-2204" />
       <unit
         id="org.eclipse.equinox.core.feature.feature.group"
-        version="1.5.0.v20180131-1413" />
+        version="1.5.0.v20180228-1547" />
       <unit
         id="org.eclipse.equinox.executable.feature.group"
-        version="3.8.0.v20180201-0654" />
+        version="3.8.0.v20180207-1446" />
       <unit
         id="org.eclipse.equinox.p2.core.feature.feature.group"
-        version="1.5.0.v20180201-1334" />
+        version="1.5.0.v20180305-1409" />
       <unit
         id="org.eclipse.platform.feature.group"
-        version="4.8.0.v20180206-0315" />
-      <repository location="http://download.eclipse.org/eclipse/updates/4.8-I-builds/I20180206-0315/" />
+        version="4.8.0.v20180308-0630" />
+      <repository location="http://download.eclipse.org/eclipse/updates/4.8milestones/S-4.8M6-201803080630/" />
     </location>
   </locations>
 </target>
