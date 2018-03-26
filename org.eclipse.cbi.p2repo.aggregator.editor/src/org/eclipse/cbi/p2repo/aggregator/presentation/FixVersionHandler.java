@@ -15,7 +15,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import org.eclipse.cbi.p2repo.aggregator.Feature;
 import org.eclipse.cbi.p2repo.aggregator.InstallableUnitRequest;
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
@@ -69,7 +68,7 @@ public class FixVersionHandler extends AbstractHandler {
 
 		Map<InstallableUnitRequest, VersionRange> versionsToSet = new HashMap<InstallableUnitRequest, VersionRange>();
 		if(items.size() == 1 && items.get(0) instanceof InstallableUnitRequest) {
-			InstallableUnitRequest feature = (Feature) items.get(0);
+			InstallableUnitRequest feature = (InstallableUnitRequest) items.get(0);
 			VersionRangeEditorDialog dialog = new VersionRangeEditorDialog(
 				HandlerUtil.getActiveShell(event), null, feature.getVersionRange(), feature);
 			dialog.setBlockOnOpen(true);
