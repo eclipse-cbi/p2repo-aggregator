@@ -9,8 +9,8 @@
 package org.eclipse.cbi.p2repo.aggregator.presentation;
 
 import org.eclipse.cbi.p2repo.aggregator.AvailableVersion;
-import org.eclipse.cbi.p2repo.aggregator.P2RepoMessages;
 import org.eclipse.cbi.p2repo.aggregator.Feature;
+import org.eclipse.cbi.p2repo.aggregator.P2RepoMessages;
 import org.eclipse.equinox.internal.p2.metadata.VersionFormat;
 import org.eclipse.equinox.p2.metadata.IVersionFormat;
 import org.eclipse.equinox.p2.metadata.Version;
@@ -149,7 +149,10 @@ public class VersionRangeEditorDialog extends Dialog {
 		if(eObject instanceof Feature) {
 			this.feature = (Feature) eObject;
 		}
-		IVersionFormat versionFormat = versionRange.getMinimum().getFormat();
+		IVersionFormat versionFormat = null;
+		if (versionRange != null) {
+			versionFormat = versionRange.getMinimum().getFormat();
+		}
 
 		currentVersionTypeIdx = 0;
 		currentFormat = VERSION_FORMAT_OSGI;
@@ -296,37 +299,36 @@ public class VersionRangeEditorDialog extends Dialog {
 
 		new Label(topComposite, SWT.NONE).setText(getString("_UI_VersionRangeEditor_minimumVersionLabel"));
 		minVersionText = new Text(topComposite, SWT.BORDER);
-		minVersionText.setText(versionRange.getMinimum().getOriginal() != null
-				? versionRange.getMinimum().getOriginal()
-				: versionRange.getMinimum().toString());
+		if (versionRange != null) {
+			minVersionText
+					.setText(versionRange.getMinimum().getOriginal() != null ? versionRange.getMinimum().getOriginal()
+							: versionRange.getMinimum().toString());
+		}
 		GridData gridData = new GridData(GridData.FILL_HORIZONTAL);
 		gridData.widthHint = VERSION_TEXT_WIDTH_HINT;
 		minVersionText.setLayoutData(gridData);
 		minVersionInclusiveCombo = new Combo(topComposite, SWT.READ_ONLY);
 		minVersionInclusiveCombo.setItems(inclusiveExclusive);
-		minVersionInclusiveCombo.select(versionRange.getIncludeMinimum()
-				? 0
-				: 1);
-
+		if (versionRange != null) {
+			minVersionInclusiveCombo.select(versionRange.getIncludeMinimum() ? 0 : 1);
+		}
 		Label label = new Label(topComposite, SWT.NONE);
 		label.setText(getString("_UI_VersionRangeEditor_maximumVersionLabel"));
 		labelWidth = label.computeSize(SWT.DEFAULT, SWT.DEFAULT, true).x;
 
 		maxVersionText = new Text(topComposite, SWT.BORDER);
 
-		Version maxVersion = versionRange.getMaximum();
-		maxVersionText.setText((Version.MAX_VERSION.equals(maxVersion) || OSGi_versionMax.equals(maxVersion))
-				? ""
-				: maxVersion.getOriginal() != null
-						? maxVersion.getOriginal()
-						: maxVersion.toString());
+		if (versionRange != null) {
+			Version maxVersion = versionRange.getMaximum();
+			maxVersionText.setText((Version.MAX_VERSION.equals(maxVersion) || OSGi_versionMax.equals(maxVersion)) ? ""
+					: maxVersion.getOriginal() != null ? maxVersion.getOriginal() : maxVersion.toString());
+		}
 		maxVersionText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 		maxVersionInclusiveCombo = new Combo(topComposite, SWT.READ_ONLY);
 		maxVersionInclusiveCombo.setItems(inclusiveExclusive);
-		maxVersionInclusiveCombo.select(versionRange.getIncludeMaximum()
-				? 0
-				: 1);
-
+		if (versionRange != null) {
+			maxVersionInclusiveCombo.select(versionRange.getIncludeMaximum() ? 0 : 1);
+		}
 		ModifyListener modifyListener = new ModifyListener() {
 			@Override
 			public void modifyText(ModifyEvent e) {
@@ -353,12 +355,16 @@ public class VersionRangeEditorDialog extends Dialog {
 				StringBuilder versionString = new StringBuilder();
 				String separator = ", "; //$NON-NLS-1$
 				for(AvailableVersion version : feature.getAvailableVersions()) {
-					versionString.append("<A>"); //$NON-NLS-1$
-					versionString.append(version.getVersion().toString());
-					versionString.append("</A>"); //$NON-NLS-1$
-					versionString.append(separator);
+					if (version.getVersion() != null) {
+						versionString.append("<A>"); //$NON-NLS-1$
+						versionString.append(version.getVersion().toString());
+						versionString.append("</A>"); //$NON-NLS-1$
+						versionString.append(separator);
+					}
 				}
-				versionString.delete(versionString.length() - 2, versionString.length());
+				if (versionString.length() > 2) {
+					versionString.delete(versionString.length() - 2, versionString.length());
+				}
 				versions.setText(versionString.toString());
 				versions.addSelectionListener(new SelectionAdapter() {
 					@Override
