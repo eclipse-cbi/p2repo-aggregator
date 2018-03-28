@@ -12,13 +12,19 @@
 # once ran, the runBuild.sh file creates a "cleanable" directory under gitCBIREPOdir also. This cleanable directory
 # in turn contains tmp and localMvnRepo which, as the name inplies, can be removed for a "clean" run. 
 
-gitCBIREPOdir=~/gitCBIPhoton
+gitCBIREPOdir=~/gitCBI
 
 export WORKSPACE="${gitCBIREPOdir}"
 
 export build_home=${WORKSPACE:-"${gitCBIREPOdir}"}
 
-execDir="${build_home}/org.eclipse.cbi.p2repo.aggregator/org.eclipse.cbi.p2repo.releng.parent/buildScripts/"
+execDir="${build_home}/org.eclipse.cbi.p2repo.aggregator/org.eclipse.cbi.p2repo.releng.parent/buildScripts"
+
+if [[ ! -d "${execDir}" ]]
+then
+  printf "[ERROR] %s\n\t%s\n" "The required directory did not exist. Did you correctly specify 'gitCBIREPOdir'?" "gitCBIREPOdir: ${gitCBIREPOdir}"
+  exit 1
+fi
 
 execCMD="${execDir}/runBuild.sh"
 
