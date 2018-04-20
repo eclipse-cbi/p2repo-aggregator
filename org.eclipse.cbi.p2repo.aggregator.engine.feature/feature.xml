@@ -2,7 +2,7 @@
 <feature
       id="org.eclipse.cbi.p2repo.aggregator.engine.feature"
       label="%featureName"
-      version="1.0.101.qualifier"
+      version="1.0.102.qualifier"
       provider-name="%providerName"
       license-feature="org.eclipse.license"
       license-feature-version="1.0.1.v20140414-1359">

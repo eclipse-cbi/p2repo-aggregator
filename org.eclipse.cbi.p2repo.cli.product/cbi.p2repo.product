@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="cbiAggr" uid="org.eclipse.cbi.p2repo.cli.product" id="org.eclipse.cbi.p2repo.cli.headless.product" application="org.eclipse.cbi.p2repo.cli.headless" version="1.0.100.qualifier" useFeatures="true" includeLaunchers="true">
+<product name="cbiAggr" uid="org.eclipse.cbi.p2repo.cli.product" id="org.eclipse.cbi.p2repo.cli.headless.product" application="org.eclipse.cbi.p2repo.cli.headless" version="1.0.102.qualifier" useFeatures="true" includeLaunchers="true">
 
    <configIni use="default">
    </configIni>

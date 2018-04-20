@@ -6,7 +6,7 @@
   <packaging>eclipse-repository</packaging>
   <groupId>org.eclipse.cbi</groupId>
   <artifactId>org.eclipse.cbi.p2repo.cli.product</artifactId>
-  <version>1.0.101-SNAPSHOT</version>
+  <version>1.0.102-SNAPSHOT</version>
 
   <parent>
     <groupId>org.eclipse.cbi</groupId>

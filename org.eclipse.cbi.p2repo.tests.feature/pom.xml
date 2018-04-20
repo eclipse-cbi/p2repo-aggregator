@@ -9,7 +9,7 @@
   </parent>
   <groupId>org.eclipse.cbi</groupId>
   <artifactId>org.eclipse.cbi.p2repo.tests.feature</artifactId>
-  <version>1.0.100-SNAPSHOT</version>
+  <version>1.0.102-SNAPSHOT</version>
 
   <packaging>eclipse-feature</packaging>
     <build>
