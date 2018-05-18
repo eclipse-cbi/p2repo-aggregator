@@ -211,23 +211,23 @@
       type="InstallableUnit">
       <unit
         id="org.eclipse.core.runtime"
-        version="3.14.0.v20180220-2036" />
+        version="3.14.0.v20180417-0825" />
       <unit
         id="org.eclipse.equinox.concurrent"
         version="1.1.100.v20171221-2204" />
       <unit
         id="org.eclipse.equinox.core.feature.feature.group"
-        version="1.5.0.v20180228-1547" />
+        version="1.5.0.v20180502-1828" />
       <unit
         id="org.eclipse.equinox.executable.feature.group"
-        version="3.8.0.v20180207-1446" />
+        version="3.8.0.v20180504-1554" />
       <unit
         id="org.eclipse.equinox.p2.core.feature.feature.group"
-        version="1.5.0.v20180305-1409" />
+        version="1.5.0.v20180502-1819" />
       <unit
         id="org.eclipse.platform.feature.group"
-        version="4.8.0.v20180308-0630" />
-      <repository location="http://download.eclipse.org/eclipse/updates/4.8milestones/S-4.8M6-201803080630/" />
+        version="4.8.0.v20180509-2000" />
+      <repository location="http://download.eclipse.org/eclipse/updates/4.8milestones/S-4.8M7-201805092000/" />
     </location>
   </locations>
 </target>
