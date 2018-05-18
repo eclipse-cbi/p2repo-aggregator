@@ -108,7 +108,7 @@ public class MirrorGenerator extends BuilderPhase {
 				for(Map.Entry<String, String> entry : optimizedDescriptor.getProperties().entrySet()) {
 					String propKey = entry.getKey();
 					if(propKey.equals(IArtifactDescriptor.DOWNLOAD_MD5) ||
-							propKey.equals("download.checksum") ||
+							propKey.startsWith("download.checksum") ||
 							propKey.equals(IArtifactDescriptor.DOWNLOAD_SIZE) ||
 							propKey.equals(IArtifactDescriptor.ARTIFACT_SIZE) ||
 							propKey.equals(IArtifactDescriptor.FORMAT) || propKey.equals("artifact.uuid"))
