@@ -6,7 +6,7 @@
   <locations>
 
     <!-- might need "current platform" to *run* in workbench
-      <location path="${eclipse_home}" type="Profile"/>
+      <location path="${eclipse_home}" type="Profile" />
     -->
 
     <location
@@ -220,14 +220,14 @@
         version="1.5.0.v20180502-1828" />
       <unit
         id="org.eclipse.equinox.executable.feature.group"
-        version="3.8.0.v20180504-1554" />
+        version="3.8.0.v20180518-2029" />
       <unit
         id="org.eclipse.equinox.p2.core.feature.feature.group"
-        version="1.5.0.v20180502-1819" />
+        version="1.5.0.v20180515-1348" />
       <unit
         id="org.eclipse.platform.feature.group"
-        version="4.8.0.v20180509-2000" />
-      <repository location="http://download.eclipse.org/eclipse/updates/4.8milestones/S-4.8M7-201805092000/" />
+        version="4.8.0.v20180611-0656" />
+      <repository location="http://download.eclipse.org/eclipse/updates/4.8/R-4.8-201806110500" />
     </location>
   </locations>
 </target>
