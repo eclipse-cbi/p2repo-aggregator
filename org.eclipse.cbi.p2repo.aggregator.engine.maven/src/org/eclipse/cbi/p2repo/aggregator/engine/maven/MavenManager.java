@@ -101,6 +101,8 @@ public class MavenManager {
 				if(qualifier != null && qualifier.length() > 0 &&
 						(qualifier.charAt(0) == 'R' || qualifier.charAt(0) == 'M'))
 					continue;
+				if (versions[idx].toString().contains("-SNAPSHOT"))
+					continue;
 
 				return versions[idx];
 			}

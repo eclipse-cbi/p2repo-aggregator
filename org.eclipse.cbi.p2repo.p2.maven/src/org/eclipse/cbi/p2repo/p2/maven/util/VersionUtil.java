@@ -35,20 +35,39 @@ public class VersionUtil {
 
 		private final Version version;
 
+		private boolean isSnapshot;
+
 		/**
 		 * @param version
 		 * @param mappedVersion
+		 * @param isSnapshot
 		 */
-		public MappedVersion(Version version, String mappedVersion) {
+		public MappedVersion(Version version, String mappedVersion, boolean isSnapshot) {
 			this.mappedVersion = mappedVersion;
 			this.version = version;
+			this.isSnapshot = isSnapshot;
 		}
 
 		@Override
 		public int compareTo(Version o) {
-			if(o instanceof MappedVersion)
-				o = ((MappedVersion) o).version;
-			return version.compareTo(o);
+			boolean oSnap = false;
+			String oMapped = null;
+			if (o instanceof MappedVersion) {
+				MappedVersion mv = (MappedVersion) o;
+				o = mv.version;
+				oSnap = mv.isSnapshot;
+				oMapped = mv.mappedVersion;
+			}
+			int vComp = version.compareTo(o);
+			if (vComp != 0) {
+				return vComp;
+			}
+			if (isSnapshot == oSnap)
+				return oMapped != null ? mappedVersion.compareTo(oMapped) : 0;
+			else if (isSnapshot)
+				return -1;
+			else
+				return 1;
 		}
 
 		@Override
@@ -78,7 +97,7 @@ public class VersionUtil {
 
 		@Override
 		public boolean isOSGiCompatible() {
-			return version.isOSGiCompatible();
+			return !isSnapshot && version.isOSGiCompatible();
 		}
 
 		@Override
@@ -164,7 +183,16 @@ public class VersionUtil {
 	}
 
 	public static Version mappedVersion(String original) {
-		return new MappedVersion(Version.create(original), original);
+		String version;
+		boolean isSnapshot = false;
+		int idx = original.indexOf("-SNAPSHOT");
+		if (idx > -1) {
+			isSnapshot = true;
+			version = original.substring(0, idx);
+		} else {
+			version = original;
+		}
+		return new MappedVersion(Version.create(version), original, isSnapshot);
 	}
 
 	private static Pattern versionRangePattern = Pattern.compile("^(\\([)([^,]+),([^,]+)(\\)])$");
