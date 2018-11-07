@@ -28,37 +28,37 @@
       type="InstallableUnit">
       <unit
         id="com.ibm.icu"
-        version="58.2.0.v20170418-1837" />
+        version="62.1.0.v20180727-1652" />
       <unit
         id="com.ibm.icu.source"
-        version="58.2.0.v20170418-1837" />
+        version="62.1.0.v20180727-1652" />
       <unit
         id="org.apache.ant"
-        version="1.10.1.v20170504-0840" />
+        version="1.10.5.v20180808-0324" />
       <unit
         id="org.apache.ant.source"
-        version="1.10.1.v20170504-0840" />
+        version="1.10.5.v20180808-0324" />
 
 
       <!-- required indirectly. They are required by ECF. -->
       <unit
         id="org.apache.httpcomponents.httpclient"
-        version="4.5.2.v20170210-0925" />
+        version="4.5.5.v20180409-1525" />
       <unit
         id="org.apache.httpcomponents.httpclient.source"
-        version="4.5.2.v20170210-0925" />
+        version="4.5.5.v20180409-1525" />
       <unit
         id="org.apache.httpcomponents.httpcore"
-        version="4.4.6.v20170210-0925" />
+        version="4.4.9.v20180409-1525" />
       <unit
         id="org.apache.httpcomponents.httpcore.source"
-        version="4.4.6.v20170210-0925" />
+        version="4.4.9.v20180409-1525" />
       <unit
         id="org.hamcrest.core"
-        version="1.3.0.v20180227-1814" />
+        version="1.3.0.v20180420-1519" />
       <unit
         id="org.hamcrest.core.source"
-        version="1.3.0.v20180227-1814" />
+        version="1.3.0.v20180420-1519" />
       <unit
         id="org.junit"
         version="4.12.0.v201504281640" />
@@ -91,7 +91,7 @@
       <unit
         id="org.tukaani.xz.source"
         version="1.8.0.v20180207-1613" />
-      <repository location="http://download.eclipse.org/tools/orbit/downloads/drops/S20180302171354/repository/" />
+      <repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20180905201904/repository/" />
     </location>
     <location
       includeAllPlatforms="false"
@@ -211,23 +211,23 @@
       type="InstallableUnit">
       <unit
         id="org.eclipse.core.runtime"
-        version="3.14.0.v20180417-0825" />
+        version="3.15.0.v20180817-1401" />
       <unit
         id="org.eclipse.equinox.concurrent"
-        version="1.1.100.v20171221-2204" />
+        version="1.1.200.v20180827-1235" />
       <unit
         id="org.eclipse.equinox.core.feature.feature.group"
-        version="1.5.0.v20180502-1828" />
+        version="1.6.0.v20180903-1343" />
       <unit
         id="org.eclipse.equinox.executable.feature.group"
-        version="3.8.0.v20180518-2029" />
+        version="3.8.100.v20180827-1352" />
       <unit
         id="org.eclipse.equinox.p2.core.feature.feature.group"
-        version="1.5.0.v20180515-1348" />
+        version="1.5.100.v20180829-1443" />
       <unit
         id="org.eclipse.platform.feature.group"
-        version="4.8.0.v20180611-0656" />
-      <repository location="http://download.eclipse.org/eclipse/updates/4.8/R-4.8-201806110500" />
+        version="4.9.0.v20180906-1121" />
+      <repository location="http://download.eclipse.org/eclipse/updates/4.9/R-4.9-201809060745" />
     </location>
   </locations>
 </target>
