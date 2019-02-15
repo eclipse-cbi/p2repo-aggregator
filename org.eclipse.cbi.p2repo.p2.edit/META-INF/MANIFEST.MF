@@ -7,7 +7,7 @@ Bundle-ClassPath: .
 Bundle-Activator: org.eclipse.cbi.p2repo.p2.provider.P2EditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: org.eclipse.cbi.p2repo.p2.provider
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.cbi.p2repo.p2;visibility:=reexport,
