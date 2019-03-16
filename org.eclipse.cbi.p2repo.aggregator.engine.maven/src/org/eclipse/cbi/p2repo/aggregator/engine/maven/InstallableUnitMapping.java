@@ -472,7 +472,7 @@ public class InstallableUnitMapping implements IInstallableUnit {
 		if(this.mapped != null) {
 			String mappedVersion = this.mapped.getMappedVersion();
 			if(mappedVersion != null)
-				return VersionUtil.mappedVersion(mappedVersion);
+				return VersionUtil.mappedVersion(mappedVersion, this.versionFormat);
 		}
 		return installableUnit.getVersion();
 	}
@@ -516,7 +516,11 @@ public class InstallableUnitMapping implements IInstallableUnit {
 
 	public String getRelativePath() throws CoreException {
 		String artifactId = map().getArtifactId();
-		return map().getGroupId().replace('.', '/') + "/" + artifactId + "/" + getVersionString();
+		String versionPath = getVersionString();
+		if (this.versionFormat == VersionFormat.MAVEN_SNAPSHOT) {
+			versionPath = VersionUtil.versionAsSnapshot(versionPath); // 1.2.3-SNAPSHOT
+		}
+		return map().getGroupId().replace('.', '/') + "/" + artifactId + "/" + versionPath;
 	}
 
 	@Override
@@ -617,7 +621,13 @@ public class InstallableUnitMapping implements IInstallableUnit {
 		if(mapped != null)
 			return mapped;
 
-		return mapped = map(getId(), mappings);
+		mapped = map(getId(), mappings);
+		if (mapped != null && this.versionFormat != VersionFormat.MAVEN_SNAPSHOT) {
+			String mappedVersion = this.mapped.getMappedVersion();
+			if (mappedVersion != null && mappedVersion.contains(VersionUtil.DASH_SNAPSHOT))
+				versionFormat = VersionFormat.MAVEN_SNAPSHOT; // override global format
+		}
+		return mapped;
 	}
 
 	private MavenItem map(String id, List<MavenMapping> mappings) throws CoreException {

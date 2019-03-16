@@ -9,6 +9,9 @@ package org.eclipse.cbi.p2repo.p2.maven.metadata.util;
 import org.eclipse.cbi.p2repo.p2.maven.metadata.DocumentRoot;
 import org.eclipse.cbi.p2repo.p2.maven.metadata.MetaData;
 import org.eclipse.cbi.p2repo.p2.maven.metadata.MetadataPackage;
+import org.eclipse.cbi.p2repo.p2.maven.metadata.Snapshot;
+import org.eclipse.cbi.p2repo.p2.maven.metadata.SnapshotVersion;
+import org.eclipse.cbi.p2repo.p2.maven.metadata.SnapshotVersions;
 import org.eclipse.cbi.p2repo.p2.maven.metadata.Versioning;
 import org.eclipse.cbi.p2repo.p2.maven.metadata.Versions;
 import org.eclipse.emf.ecore.EObject;
@@ -105,6 +108,51 @@ public class MetadataSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Snapshot</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Snapshot</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSnapshot(Snapshot object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Snapshot Versions</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Snapshot Versions</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSnapshotVersions(SnapshotVersions object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Snapshot Version</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Snapshot Version</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSnapshotVersion(SnapshotVersion object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>EObject</em>'.
 	 * <!-- begin-user-doc --> This implementation returns
 	 * null; returning a non-null result will terminate the switch, but this is
@@ -153,6 +201,27 @@ public class MetadataSwitch<T> extends Switch<T> {
 			case MetadataPackage.VERSIONS: {
 				Versions versions = (Versions) theEObject;
 				T result = caseVersions(versions);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MetadataPackage.SNAPSHOT: {
+				Snapshot snapshot = (Snapshot) theEObject;
+				T result = caseSnapshot(snapshot);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MetadataPackage.SNAPSHOT_VERSIONS: {
+				SnapshotVersions snapshotVersions = (SnapshotVersions) theEObject;
+				T result = caseSnapshotVersions(snapshotVersions);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MetadataPackage.SNAPSHOT_VERSION: {
+				SnapshotVersion snapshotVersion = (SnapshotVersion) theEObject;
+				T result = caseSnapshotVersion(snapshotVersion);
 				if (result == null)
 					result = defaultCase(theEObject);
 				return result;

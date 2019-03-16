@@ -25,8 +25,13 @@ import org.eclipse.equinox.p2.metadata.VersionRange;
 public class VersionUtil {
 
 	/**
-	 * Wrapper class to provide dual views on a version: mostly OSGi-like,
-	 * but string representation uses the mapped variant (from #versionPattern & #versionTemplate).
+	 * Suffix for maven SNAPSHOT versions.
+	 */
+	public static final String DASH_SNAPSHOT = "-SNAPSHOT";
+
+	/**
+	 * Wrapper class to provide dual views on a version: mostly OSGi-like, but string representation uses the mapped variant (from
+	 * #versionPattern & #versionTemplate).
 	 */
 	private static class MappedVersion extends Version {
 		private static final long serialVersionUID = 1L;
@@ -35,39 +40,37 @@ public class VersionUtil {
 
 		private final Version version;
 
-		private boolean isSnapshot;
+		private final VersionFormat versionFormat;
 
 		/**
 		 * @param version
 		 * @param mappedVersion
-		 * @param isSnapshot
+		 * @param versionFormat
 		 */
-		public MappedVersion(Version version, String mappedVersion, boolean isSnapshot) {
+		public MappedVersion(Version version, String mappedVersion, VersionFormat versionFormat) {
 			this.mappedVersion = mappedVersion;
 			this.version = version;
-			this.isSnapshot = isSnapshot;
+			this.versionFormat = versionFormat;
 		}
 
 		@Override
 		public int compareTo(Version o) {
-			boolean oSnap = false;
+			VersionFormat oFormat = VersionFormat.NORMAL;
 			String oMapped = null;
 			if (o instanceof MappedVersion) {
 				MappedVersion mv = (MappedVersion) o;
 				o = mv.version;
-				oSnap = mv.isSnapshot;
+				oFormat = mv.versionFormat;
 				oMapped = mv.mappedVersion;
 			}
 			int vComp = version.compareTo(o);
 			if (vComp != 0) {
 				return vComp;
 			}
-			if (isSnapshot == oSnap)
+			if (this.versionFormat == oFormat)
 				return oMapped != null ? mappedVersion.compareTo(oMapped) : 0;
-			else if (isSnapshot)
-				return -1;
 			else
-				return 1;
+				return this.versionFormat.compareTo(oFormat);
 		}
 
 		@Override
@@ -97,7 +100,7 @@ public class VersionUtil {
 
 		@Override
 		public boolean isOSGiCompatible() {
-			return !isSnapshot && version.isOSGiCompatible();
+			return this.versionFormat != VersionFormat.MAVEN_SNAPSHOT && version.isOSGiCompatible();
 		}
 
 		@Override
@@ -182,17 +185,15 @@ public class VersionUtil {
 		return bld.toString();
 	}
 
-	public static Version mappedVersion(String original) {
+	public static Version mappedVersion(String original, VersionFormat versionFormat) {
 		String version;
-		boolean isSnapshot = false;
-		int idx = original.indexOf("-SNAPSHOT");
+		int idx = original.indexOf(DASH_SNAPSHOT);
 		if (idx > -1) {
-			isSnapshot = true;
 			version = original.substring(0, idx);
 		} else {
 			version = original;
 		}
-		return new MappedVersion(Version.create(version), original, isSnapshot);
+		return new MappedVersion(Version.create(version), original, versionFormat);
 	}
 
 	private static Pattern versionRangePattern = Pattern.compile("^(\\([)([^,]+),([^,]+)(\\)])$");
@@ -204,4 +205,19 @@ public class VersionUtil {
 	private static final Pattern mavenTrickPattern = Pattern.compile("^\\d+\\.\\d+\\.\\d+(?:\\.\\d+-[a-zA-Z][a-zA-Z0-9_]*)?$");
 
 	private static final Pattern osgiPattern = Pattern.compile("^(\\d+\\.\\d+\\.\\d+)\\.([a-zA-Z0-9_-]+)$");
+
+	public static String getVersionQualifier(String versionString) {
+		int dash = versionString.indexOf('-');
+		if (dash == -1)
+			return null;
+		return versionString.substring(dash + 1);
+	}
+
+	public static String versionAsSnapshot(String version) {
+		int dash = version.indexOf('-');
+		if (dash != -1) {
+			version = version.substring(0, dash) + DASH_SNAPSHOT;
+		}
+		return version;
+	}
 }

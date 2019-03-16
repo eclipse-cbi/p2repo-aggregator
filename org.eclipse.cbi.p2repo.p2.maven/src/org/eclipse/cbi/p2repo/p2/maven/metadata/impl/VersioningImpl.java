@@ -7,6 +7,8 @@
 package org.eclipse.cbi.p2repo.p2.maven.metadata.impl;
 
 import org.eclipse.cbi.p2repo.p2.maven.metadata.MetadataPackage;
+import org.eclipse.cbi.p2repo.p2.maven.metadata.Snapshot;
+import org.eclipse.cbi.p2repo.p2.maven.metadata.SnapshotVersions;
 import org.eclipse.cbi.p2repo.p2.maven.metadata.Versioning;
 import org.eclipse.cbi.p2repo.p2.maven.metadata.Versions;
 import org.eclipse.emf.common.notify.Notification;
@@ -27,6 +29,8 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.impl.VersioningImpl#getLatest <em>Latest</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.impl.VersioningImpl#getVersions <em>Versions</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.impl.VersioningImpl#getLastUpdated <em>Last Updated</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.impl.VersioningImpl#getSnapshot <em>Snapshot</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.impl.VersioningImpl#getSnapshotVersions <em>Snapshot Versions</em>}</li>
  * </ul>
  *
  * @generated
@@ -96,6 +100,26 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 	protected String lastUpdated = LAST_UPDATED_EDEFAULT;
 
 	/**
+	 * The cached value of the '{@link #getSnapshot() <em>Snapshot</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSnapshot()
+	 * @generated
+	 * @ordered
+	 */
+	protected Snapshot snapshot;
+
+	/**
+	 * The cached value of the '{@link #getSnapshotVersions() <em>Snapshot Versions</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSnapshotVersions()
+	 * @generated
+	 * @ordered
+	 */
+	protected SnapshotVersions snapshotVersions;
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -136,6 +160,10 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 				return getVersions();
 			case MetadataPackage.VERSIONING__LAST_UPDATED:
 				return getLastUpdated();
+			case MetadataPackage.VERSIONING__SNAPSHOT:
+				return getSnapshot();
+			case MetadataPackage.VERSIONING__SNAPSHOT_VERSIONS:
+				return getSnapshotVersions();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -149,6 +177,10 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 		switch (featureID) {
 			case MetadataPackage.VERSIONING__VERSIONS:
 				return basicSetVersions(null, msgs);
+			case MetadataPackage.VERSIONING__SNAPSHOT:
+				return basicSetSnapshot(null, msgs);
+			case MetadataPackage.VERSIONING__SNAPSHOT_VERSIONS:
+				return basicSetSnapshotVersions(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -168,6 +200,10 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 				return versions != null;
 			case MetadataPackage.VERSIONING__LAST_UPDATED:
 				return LAST_UPDATED_EDEFAULT == null ? lastUpdated != null : !LAST_UPDATED_EDEFAULT.equals(lastUpdated);
+			case MetadataPackage.VERSIONING__SNAPSHOT:
+				return snapshot != null;
+			case MetadataPackage.VERSIONING__SNAPSHOT_VERSIONS:
+				return snapshotVersions != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -191,6 +227,12 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 			case MetadataPackage.VERSIONING__LAST_UPDATED:
 				setLastUpdated((String) newValue);
 				return;
+			case MetadataPackage.VERSIONING__SNAPSHOT:
+				setSnapshot((Snapshot) newValue);
+				return;
+			case MetadataPackage.VERSIONING__SNAPSHOT_VERSIONS:
+				setSnapshotVersions((SnapshotVersions) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -213,6 +255,12 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 				return;
 			case MetadataPackage.VERSIONING__LAST_UPDATED:
 				setLastUpdated(LAST_UPDATED_EDEFAULT);
+				return;
+			case MetadataPackage.VERSIONING__SNAPSHOT:
+				setSnapshot((Snapshot) null);
+				return;
+			case MetadataPackage.VERSIONING__SNAPSHOT_VERSIONS:
+				setSnapshotVersions((SnapshotVersions) null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -265,6 +313,110 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, MetadataPackage.VERSIONING__LAST_UPDATED,
 					oldLastUpdated, lastUpdated));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Snapshot getSnapshot() {
+		return snapshot;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSnapshot(Snapshot newSnapshot, NotificationChain msgs) {
+		Snapshot oldSnapshot = snapshot;
+		snapshot = newSnapshot;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					MetadataPackage.VERSIONING__SNAPSHOT, oldSnapshot, newSnapshot);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setSnapshot(Snapshot newSnapshot) {
+		if (newSnapshot != snapshot) {
+			NotificationChain msgs = null;
+			if (snapshot != null)
+				msgs = ((InternalEObject) snapshot).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - MetadataPackage.VERSIONING__SNAPSHOT, null, msgs);
+			if (newSnapshot != null)
+				msgs = ((InternalEObject) newSnapshot).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - MetadataPackage.VERSIONING__SNAPSHOT, null, msgs);
+			msgs = basicSetSnapshot(newSnapshot, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetadataPackage.VERSIONING__SNAPSHOT, newSnapshot,
+					newSnapshot));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public SnapshotVersions getSnapshotVersions() {
+		return snapshotVersions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSnapshotVersions(SnapshotVersions newSnapshotVersions, NotificationChain msgs) {
+		SnapshotVersions oldSnapshotVersions = snapshotVersions;
+		snapshotVersions = newSnapshotVersions;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					MetadataPackage.VERSIONING__SNAPSHOT_VERSIONS, oldSnapshotVersions, newSnapshotVersions);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setSnapshotVersions(SnapshotVersions newSnapshotVersions) {
+		if (newSnapshotVersions != snapshotVersions) {
+			NotificationChain msgs = null;
+			if (snapshotVersions != null)
+				msgs = ((InternalEObject) snapshotVersions).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - MetadataPackage.VERSIONING__SNAPSHOT_VERSIONS, null, msgs);
+			if (newSnapshotVersions != null)
+				msgs = ((InternalEObject) newSnapshotVersions).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - MetadataPackage.VERSIONING__SNAPSHOT_VERSIONS, null, msgs);
+			msgs = basicSetSnapshotVersions(newSnapshotVersions, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetadataPackage.VERSIONING__SNAPSHOT_VERSIONS,
+					newSnapshotVersions, newSnapshotVersions));
 	}
 
 	/**
@@ -324,7 +476,7 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 		if (eIsProxy())
 			return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (release: ");
 		result.append(release);
 		result.append(", latest: ");

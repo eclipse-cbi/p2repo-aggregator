@@ -60,6 +60,33 @@ public interface MetadataFactory extends EFactory {
 	Versions createVersions();
 
 	/**
+	 * Returns a new object of class '<em>Snapshot</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Snapshot</em>'.
+	 * @generated
+	 */
+	Snapshot createSnapshot();
+
+	/**
+	 * Returns a new object of class '<em>Snapshot Versions</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Snapshot Versions</em>'.
+	 * @generated
+	 */
+	SnapshotVersions createSnapshotVersions();
+
+	/**
+	 * Returns a new object of class '<em>Snapshot Version</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Snapshot Version</em>'.
+	 * @generated
+	 */
+	SnapshotVersion createSnapshotVersion();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

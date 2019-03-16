@@ -2321,6 +2321,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		addEEnumLiteral(versionFormatEEnum, VersionFormat.NORMAL);
 		addEEnumLiteral(versionFormatEEnum, VersionFormat.STRICT_MAVEN);
 		addEEnumLiteral(versionFormatEEnum, VersionFormat.MAVEN_RELEASE);
+		addEEnumLiteral(versionFormatEEnum, VersionFormat.MAVEN_SNAPSHOT);
 
 		// Create resource
 		createResource(eNS_URI);

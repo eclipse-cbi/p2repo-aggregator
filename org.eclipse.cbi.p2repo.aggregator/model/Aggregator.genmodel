@@ -91,6 +91,7 @@
       <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//VersionFormat/Normal"/>
       <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//VersionFormat/StrictMaven"/>
       <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//VersionFormat/MavenRelease"/>
+      <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//VersionFormat/MavenSnapshot"/>
     </genEnums>
     <genClasses ecoreClass="Aggregator.ecore#//Aggregation">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Aggregator.ecore#//Aggregation/validationSets"/>

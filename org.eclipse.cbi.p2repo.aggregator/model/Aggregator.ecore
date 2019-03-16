@@ -358,6 +358,7 @@
     <eLiterals name="Normal"/>
     <eLiterals name="StrictMaven" value="1"/>
     <eLiterals name="MavenRelease" value="2"/>
+    <eLiterals name="MavenSnapshot" value="3" literal="MavenSnapshot"/>
   </eClassifiers>
   <eSubpackages name="p2view" nsURI="http://www.eclipse.org/cbi/p2repo/2010/aggregator/p2view/1.0.0"
       nsPrefix="p2view">

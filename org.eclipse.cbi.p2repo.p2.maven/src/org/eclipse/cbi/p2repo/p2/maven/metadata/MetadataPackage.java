@@ -159,6 +159,22 @@ public interface MetadataPackage extends EPackage {
 		EAttribute VERSIONING__LAST_UPDATED = eINSTANCE.getVersioning_LastUpdated();
 
 		/**
+		 * The meta object literal for the '<em><b>Snapshot</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VERSIONING__SNAPSHOT = eINSTANCE.getVersioning_Snapshot();
+
+		/**
+		 * The meta object literal for the '<em><b>Snapshot Versions</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VERSIONING__SNAPSHOT_VERSIONS = eINSTANCE.getVersioning_SnapshotVersions();
+
+		/**
 		 * The meta object literal for the
 		 * '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.impl.VersionsImpl
 		 * <em>Versions</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc
@@ -176,6 +192,84 @@ public interface MetadataPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute VERSIONS__VERSION = eINSTANCE.getVersions_Version();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.impl.SnapshotImpl <em>Snapshot</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.cbi.p2repo.p2.maven.metadata.impl.SnapshotImpl
+		 * @see org.eclipse.cbi.p2repo.p2.maven.metadata.impl.MetadataPackageImpl#getSnapshot()
+		 * @generated
+		 */
+		EClass SNAPSHOT = eINSTANCE.getSnapshot();
+
+		/**
+		 * The meta object literal for the '<em><b>Timestamp</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SNAPSHOT__TIMESTAMP = eINSTANCE.getSnapshot_Timestamp();
+
+		/**
+		 * The meta object literal for the '<em><b>Build Number</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SNAPSHOT__BUILD_NUMBER = eINSTANCE.getSnapshot_BuildNumber();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.impl.SnapshotVersionsImpl <em>Snapshot Versions</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.cbi.p2repo.p2.maven.metadata.impl.SnapshotVersionsImpl
+		 * @see org.eclipse.cbi.p2repo.p2.maven.metadata.impl.MetadataPackageImpl#getSnapshotVersions()
+		 * @generated
+		 */
+		EClass SNAPSHOT_VERSIONS = eINSTANCE.getSnapshotVersions();
+
+		/**
+		 * The meta object literal for the '<em><b>Snapshot Versions</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SNAPSHOT_VERSIONS__SNAPSHOT_VERSIONS = eINSTANCE.getSnapshotVersions_SnapshotVersions();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.impl.SnapshotVersionImpl <em>Snapshot Version</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.cbi.p2repo.p2.maven.metadata.impl.SnapshotVersionImpl
+		 * @see org.eclipse.cbi.p2repo.p2.maven.metadata.impl.MetadataPackageImpl#getSnapshotVersion()
+		 * @generated
+		 */
+		EClass SNAPSHOT_VERSION = eINSTANCE.getSnapshotVersion();
+
+		/**
+		 * The meta object literal for the '<em><b>Extension</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SNAPSHOT_VERSION__EXTENSION = eINSTANCE.getSnapshotVersion_Extension();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SNAPSHOT_VERSION__VALUE = eINSTANCE.getSnapshotVersion_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Updated</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SNAPSHOT_VERSION__UPDATED = eINSTANCE.getSnapshotVersion_Updated();
 
 	}
 
@@ -364,12 +458,30 @@ public interface MetadataPackage extends EPackage {
 	int VERSIONING__LAST_UPDATED = 3;
 
 	/**
+	 * The feature id for the '<em><b>Snapshot</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VERSIONING__SNAPSHOT = 4;
+
+	/**
+	 * The feature id for the '<em><b>Snapshot Versions</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VERSIONING__SNAPSHOT_VERSIONS = 5;
+
+	/**
 	 * The number of structural features of the '<em>Versioning</em>' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VERSIONING_FEATURE_COUNT = 4;
+	int VERSIONING_FEATURE_COUNT = 6;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.impl.VersionsImpl <em>Versions</em>}' class.
@@ -397,6 +509,117 @@ public interface MetadataPackage extends EPackage {
 	 * @ordered
 	 */
 	int VERSIONS_FEATURE_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.impl.SnapshotImpl <em>Snapshot</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.cbi.p2repo.p2.maven.metadata.impl.SnapshotImpl
+	 * @see org.eclipse.cbi.p2repo.p2.maven.metadata.impl.MetadataPackageImpl#getSnapshot()
+	 * @generated
+	 */
+	int SNAPSHOT = 4;
+
+	/**
+	 * The feature id for the '<em><b>Timestamp</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SNAPSHOT__TIMESTAMP = 0;
+
+	/**
+	 * The feature id for the '<em><b>Build Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SNAPSHOT__BUILD_NUMBER = 1;
+
+	/**
+	 * The number of structural features of the '<em>Snapshot</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SNAPSHOT_FEATURE_COUNT = 2;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.impl.SnapshotVersionsImpl <em>Snapshot Versions</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.cbi.p2repo.p2.maven.metadata.impl.SnapshotVersionsImpl
+	 * @see org.eclipse.cbi.p2repo.p2.maven.metadata.impl.MetadataPackageImpl#getSnapshotVersions()
+	 * @generated
+	 */
+	int SNAPSHOT_VERSIONS = 5;
+
+	/**
+	 * The feature id for the '<em><b>Snapshot Versions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SNAPSHOT_VERSIONS__SNAPSHOT_VERSIONS = 0;
+
+	/**
+	 * The number of structural features of the '<em>Snapshot Versions</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SNAPSHOT_VERSIONS_FEATURE_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.impl.SnapshotVersionImpl <em>Snapshot Version</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.cbi.p2repo.p2.maven.metadata.impl.SnapshotVersionImpl
+	 * @see org.eclipse.cbi.p2repo.p2.maven.metadata.impl.MetadataPackageImpl#getSnapshotVersion()
+	 * @generated
+	 */
+	int SNAPSHOT_VERSION = 6;
+
+	/**
+	 * The feature id for the '<em><b>Extension</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SNAPSHOT_VERSION__EXTENSION = 0;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SNAPSHOT_VERSION__VALUE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Updated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SNAPSHOT_VERSION__UPDATED = 2;
+
+	/**
+	 * The number of structural features of the '<em>Snapshot Version</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SNAPSHOT_VERSION_FEATURE_COUNT = 3;
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.DocumentRoot <em>Document Root</em>}'.
@@ -531,6 +754,28 @@ public interface MetadataPackage extends EPackage {
 	EAttribute getVersioning_LastUpdated();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.Versioning#getSnapshot <em>Snapshot</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Snapshot</em>'.
+	 * @see org.eclipse.cbi.p2repo.p2.maven.metadata.Versioning#getSnapshot()
+	 * @see #getVersioning()
+	 * @generated
+	 */
+	EReference getVersioning_Snapshot();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.Versioning#getSnapshotVersions <em>Snapshot Versions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Snapshot Versions</em>'.
+	 * @see org.eclipse.cbi.p2repo.p2.maven.metadata.Versioning#getSnapshotVersions()
+	 * @see #getVersioning()
+	 * @generated
+	 */
+	EReference getVersioning_SnapshotVersions();
+
+	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.Versioning#getLatest <em>Latest</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Latest</em>'.
@@ -578,5 +823,101 @@ public interface MetadataPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getVersions_Version();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.Snapshot <em>Snapshot</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Snapshot</em>'.
+	 * @see org.eclipse.cbi.p2repo.p2.maven.metadata.Snapshot
+	 * @generated
+	 */
+	EClass getSnapshot();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.Snapshot#getTimestamp <em>Timestamp</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Timestamp</em>'.
+	 * @see org.eclipse.cbi.p2repo.p2.maven.metadata.Snapshot#getTimestamp()
+	 * @see #getSnapshot()
+	 * @generated
+	 */
+	EAttribute getSnapshot_Timestamp();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.Snapshot#getBuildNumber <em>Build Number</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Build Number</em>'.
+	 * @see org.eclipse.cbi.p2repo.p2.maven.metadata.Snapshot#getBuildNumber()
+	 * @see #getSnapshot()
+	 * @generated
+	 */
+	EAttribute getSnapshot_BuildNumber();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.SnapshotVersions <em>Snapshot Versions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Snapshot Versions</em>'.
+	 * @see org.eclipse.cbi.p2repo.p2.maven.metadata.SnapshotVersions
+	 * @generated
+	 */
+	EClass getSnapshotVersions();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.SnapshotVersions#getSnapshotVersions <em>Snapshot Versions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Snapshot Versions</em>'.
+	 * @see org.eclipse.cbi.p2repo.p2.maven.metadata.SnapshotVersions#getSnapshotVersions()
+	 * @see #getSnapshotVersions()
+	 * @generated
+	 */
+	EReference getSnapshotVersions_SnapshotVersions();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.SnapshotVersion <em>Snapshot Version</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Snapshot Version</em>'.
+	 * @see org.eclipse.cbi.p2repo.p2.maven.metadata.SnapshotVersion
+	 * @generated
+	 */
+	EClass getSnapshotVersion();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.SnapshotVersion#getExtension <em>Extension</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Extension</em>'.
+	 * @see org.eclipse.cbi.p2repo.p2.maven.metadata.SnapshotVersion#getExtension()
+	 * @see #getSnapshotVersion()
+	 * @generated
+	 */
+	EAttribute getSnapshotVersion_Extension();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.SnapshotVersion#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see org.eclipse.cbi.p2repo.p2.maven.metadata.SnapshotVersion#getValue()
+	 * @see #getSnapshotVersion()
+	 * @generated
+	 */
+	EAttribute getSnapshotVersion_Value();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.SnapshotVersion#getUpdated <em>Updated</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Updated</em>'.
+	 * @see org.eclipse.cbi.p2repo.p2.maven.metadata.SnapshotVersion#getUpdated()
+	 * @see #getSnapshotVersion()
+	 * @generated
+	 */
+	EAttribute getSnapshotVersion_Updated();
 
 } // MetadataPackage

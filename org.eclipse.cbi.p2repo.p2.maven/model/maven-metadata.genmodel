@@ -4,11 +4,11 @@
     editorDirectory="/org.eclipse.cbi.p2repo.p2.maven.editor/src" modelPluginID="org.eclipse.cbi.p2repo.p2.maven"
     forceOverwrite="true" modelName="Maven-metadata" editPluginClass="org.eclipse.cbi.p2repo.p2.maven.metadata.provider.MavenmetadataEditPlugin"
     editorPluginClass="org.eclipse.cbi.p2repo.p2.maven.metadata.presentation.MavenmetadataEditorPlugin"
-    codeFormatting="true" testsDirectory="" testSuiteClass="" importerID="org.eclipse.xsd.ecore.importer"
+    codeFormatting="true" testsDirectory="" testSuiteClass="" importerID="org.eclipse.emf.importer.ecore"
     complianceLevel="8.0" copyrightFields="false" editPluginID="org.eclipse.cbi.p2repo.p2.maven.edit"
     editorPluginID="org.eclipse.cbi.p2repo.p2.maven.editor" importOrganizing="true"
     cleanup="true">
-  <foreignModel>file:/C:/Documents%20and%20Settings/Filip%20Hrbek/Dokumenty/Cloudsmith/Maven/maven-metadata-v1_0_0.xsd</foreignModel>
+  <foreignModel>maven-metadata.ecore</foreignModel>
   <genPackages prefix="Metadata" basePackage="org.eclipse.cbi.p2repo.p2.maven" resource="XML"
       disposableProviderFactory="true" fileExtensions="xml" ecorePackage="maven-metadata.ecore#/">
     <genClasses ecoreClass="maven-metadata.ecore#//DocumentRoot">
@@ -28,9 +28,23 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute maven-metadata.ecore#//Versioning/latest"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference maven-metadata.ecore#//Versioning/versions"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute maven-metadata.ecore#//Versioning/lastUpdated"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference maven-metadata.ecore#//Versioning/snapshot"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference maven-metadata.ecore#//Versioning/snapshotVersions"/>
     </genClasses>
     <genClasses ecoreClass="maven-metadata.ecore#//Versions">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute maven-metadata.ecore#//Versions/version"/>
+    </genClasses>
+    <genClasses ecoreClass="maven-metadata.ecore#//Snapshot">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute maven-metadata.ecore#//Snapshot/timestamp"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute maven-metadata.ecore#//Snapshot/buildNumber"/>
+    </genClasses>
+    <genClasses ecoreClass="maven-metadata.ecore#//SnapshotVersions">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference maven-metadata.ecore#//SnapshotVersions/snapshotVersions"/>
+    </genClasses>
+    <genClasses ecoreClass="maven-metadata.ecore#//SnapshotVersion">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute maven-metadata.ecore#//SnapshotVersion/extension"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute maven-metadata.ecore#//SnapshotVersion/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute maven-metadata.ecore#//SnapshotVersion/updated"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

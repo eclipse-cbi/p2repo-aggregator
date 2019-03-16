@@ -10,6 +10,9 @@ import org.eclipse.cbi.p2repo.p2.maven.metadata.DocumentRoot;
 import org.eclipse.cbi.p2repo.p2.maven.metadata.MetaData;
 import org.eclipse.cbi.p2repo.p2.maven.metadata.MetadataFactory;
 import org.eclipse.cbi.p2repo.p2.maven.metadata.MetadataPackage;
+import org.eclipse.cbi.p2repo.p2.maven.metadata.Snapshot;
+import org.eclipse.cbi.p2repo.p2.maven.metadata.SnapshotVersion;
+import org.eclipse.cbi.p2repo.p2.maven.metadata.SnapshotVersions;
 import org.eclipse.cbi.p2repo.p2.maven.metadata.Versioning;
 import org.eclipse.cbi.p2repo.p2.maven.metadata.Versions;
 import org.eclipse.emf.ecore.EAttribute;
@@ -50,6 +53,27 @@ public class MetadataPackageImpl extends EPackageImpl implements MetadataPackage
 	private EClass versionsEClass = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass snapshotEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass snapshotVersionsEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass snapshotVersionEClass = null;
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -75,9 +99,10 @@ public class MetadataPackageImpl extends EPackageImpl implements MetadataPackage
 			return (MetadataPackage) EPackage.Registry.INSTANCE.getEPackage(MetadataPackage.eNS_URI);
 
 		// Obtain or create and register package
-		MetadataPackageImpl theMetadataPackage = (MetadataPackageImpl) (EPackage.Registry.INSTANCE
-				.get(eNS_URI) instanceof MetadataPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI)
-						: new MetadataPackageImpl());
+		Object registeredMetadataPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		MetadataPackageImpl theMetadataPackage = registeredMetadataPackage instanceof MetadataPackageImpl
+				? (MetadataPackageImpl) registeredMetadataPackage
+				: new MetadataPackageImpl();
 
 		isInited = true;
 
@@ -159,9 +184,23 @@ public class MetadataPackageImpl extends EPackageImpl implements MetadataPackage
 		createEAttribute(versioningEClass, VERSIONING__LATEST);
 		createEReference(versioningEClass, VERSIONING__VERSIONS);
 		createEAttribute(versioningEClass, VERSIONING__LAST_UPDATED);
+		createEReference(versioningEClass, VERSIONING__SNAPSHOT);
+		createEReference(versioningEClass, VERSIONING__SNAPSHOT_VERSIONS);
 
 		versionsEClass = createEClass(VERSIONS);
 		createEAttribute(versionsEClass, VERSIONS__VERSION);
+
+		snapshotEClass = createEClass(SNAPSHOT);
+		createEAttribute(snapshotEClass, SNAPSHOT__TIMESTAMP);
+		createEAttribute(snapshotEClass, SNAPSHOT__BUILD_NUMBER);
+
+		snapshotVersionsEClass = createEClass(SNAPSHOT_VERSIONS);
+		createEReference(snapshotVersionsEClass, SNAPSHOT_VERSIONS__SNAPSHOT_VERSIONS);
+
+		snapshotVersionEClass = createEClass(SNAPSHOT_VERSION);
+		createEAttribute(snapshotVersionEClass, SNAPSHOT_VERSION__EXTENSION);
+		createEAttribute(snapshotVersionEClass, SNAPSHOT_VERSION__VALUE);
+		createEAttribute(snapshotVersionEClass, SNAPSHOT_VERSION__UPDATED);
 	}
 
 	/**
@@ -282,6 +321,26 @@ public class MetadataPackageImpl extends EPackageImpl implements MetadataPackage
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getVersioning_Snapshot() {
+		return (EReference) versioningEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getVersioning_SnapshotVersions() {
+		return (EReference) versioningEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -324,6 +383,96 @@ public class MetadataPackageImpl extends EPackageImpl implements MetadataPackage
 	@Override
 	public EAttribute getVersions_Version() {
 		return (EAttribute) versionsEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getSnapshot() {
+		return snapshotEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getSnapshot_Timestamp() {
+		return (EAttribute) snapshotEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getSnapshot_BuildNumber() {
+		return (EAttribute) snapshotEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getSnapshotVersions() {
+		return snapshotVersionsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getSnapshotVersions_SnapshotVersions() {
+		return (EReference) snapshotVersionsEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getSnapshotVersion() {
+		return snapshotVersionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getSnapshotVersion_Extension() {
+		return (EAttribute) snapshotVersionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getSnapshotVersion_Value() {
+		return (EAttribute) snapshotVersionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getSnapshotVersion_Updated() {
+		return (EAttribute) snapshotVersionEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -394,11 +543,43 @@ public class MetadataPackageImpl extends EPackageImpl implements MetadataPackage
 		initEAttribute(getVersioning_LastUpdated(), theXMLTypePackage.getString(), "lastUpdated", null, 0, 1,
 				Versioning.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
+		initEReference(getVersioning_Snapshot(), this.getSnapshot(), null, "snapshot", null, 0, 1, Versioning.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getVersioning_SnapshotVersions(), this.getSnapshotVersions(), null, "snapshotVersions", null, 0,
+				1, Versioning.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(versionsEClass, Versions.class, "Versions", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getVersions_Version(), theXMLTypePackage.getString(), "version", null, 1, -1, Versions.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(snapshotEClass, Snapshot.class, "Snapshot", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSnapshot_Timestamp(), theXMLTypePackage.getString(), "timestamp", null, 0, 1, Snapshot.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSnapshot_BuildNumber(), theXMLTypePackage.getString(), "buildNumber", null, 0, 1,
+				Snapshot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+
+		initEClass(snapshotVersionsEClass, SnapshotVersions.class, "SnapshotVersions", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSnapshotVersions_SnapshotVersions(), this.getSnapshotVersion(), null, "snapshotVersions",
+				null, 0, -1, SnapshotVersions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(snapshotVersionEClass, SnapshotVersion.class, "SnapshotVersion", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSnapshotVersion_Extension(), theXMLTypePackage.getString(), "extension", null, 0, 1,
+				SnapshotVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSnapshotVersion_Value(), theXMLTypePackage.getString(), "value", null, 0, 1,
+				SnapshotVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSnapshotVersion_Updated(), theXMLTypePackage.getString(), "updated", null, 0, 1,
+				SnapshotVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -446,6 +627,19 @@ public class MetadataPackageImpl extends EPackageImpl implements MetadataPackage
 		addAnnotation(versionsEClass, source, new String[] { "name", "Versions", "kind", "elementOnly" });
 		addAnnotation(getVersions_Version(), source,
 				new String[] { "kind", "element", "name", "version", "namespace", "##targetNamespace" });
+		addAnnotation(snapshotEClass, source, new String[] { "name", "SnapshotVersions", "kind", "elementOnly" });
+		addAnnotation(getSnapshot_Timestamp(), source,
+				new String[] { "kind", "element", "name", "timestamp", "namespace", "##targetNamespace" });
+		addAnnotation(getSnapshot_BuildNumber(), source,
+				new String[] { "kind", "element", "name", "buildNumber", "namespace", "##targetNamespace" });
+		addAnnotation(snapshotVersionsEClass, source,
+				new String[] { "name", "SnapshotVersions", "kind", "elementOnly" });
+		addAnnotation(getSnapshotVersion_Extension(), source,
+				new String[] { "kind", "element", "name", "extension", "namespace", "##targetNamespace" });
+		addAnnotation(getSnapshotVersion_Value(), source,
+				new String[] { "kind", "element", "name", "value", "namespace", "##targetNamespace" });
+		addAnnotation(getSnapshotVersion_Updated(), source,
+				new String[] { "kind", "element", "name", "updated", "namespace", "##targetNamespace" });
 	}
 
 } // MetadataPackageImpl

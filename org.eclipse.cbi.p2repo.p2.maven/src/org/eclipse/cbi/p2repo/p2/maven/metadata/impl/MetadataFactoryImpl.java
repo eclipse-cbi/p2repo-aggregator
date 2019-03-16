@@ -10,6 +10,9 @@ import org.eclipse.cbi.p2repo.p2.maven.metadata.DocumentRoot;
 import org.eclipse.cbi.p2repo.p2.maven.metadata.MetaData;
 import org.eclipse.cbi.p2repo.p2.maven.metadata.MetadataFactory;
 import org.eclipse.cbi.p2repo.p2.maven.metadata.MetadataPackage;
+import org.eclipse.cbi.p2repo.p2.maven.metadata.Snapshot;
+import org.eclipse.cbi.p2repo.p2.maven.metadata.SnapshotVersion;
+import org.eclipse.cbi.p2repo.p2.maven.metadata.SnapshotVersions;
 import org.eclipse.cbi.p2repo.p2.maven.metadata.Versioning;
 import org.eclipse.cbi.p2repo.p2.maven.metadata.Versions;
 import org.eclipse.emf.ecore.EClass;
@@ -78,6 +81,12 @@ public class MetadataFactoryImpl extends EFactoryImpl implements MetadataFactory
 				return createVersioning();
 			case MetadataPackage.VERSIONS:
 				return createVersions();
+			case MetadataPackage.SNAPSHOT:
+				return createSnapshot();
+			case MetadataPackage.SNAPSHOT_VERSIONS:
+				return createSnapshotVersions();
+			case MetadataPackage.SNAPSHOT_VERSION:
+				return createSnapshotVersion();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -121,6 +130,39 @@ public class MetadataFactoryImpl extends EFactoryImpl implements MetadataFactory
 	public Versions createVersions() {
 		VersionsImpl versions = new VersionsImpl();
 		return versions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Snapshot createSnapshot() {
+		SnapshotImpl snapshot = new SnapshotImpl();
+		return snapshot;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public SnapshotVersions createSnapshotVersions() {
+		SnapshotVersionsImpl snapshotVersions = new SnapshotVersionsImpl();
+		return snapshotVersions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public SnapshotVersion createSnapshotVersion() {
+		SnapshotVersionImpl snapshotVersion = new SnapshotVersionImpl();
+		return snapshotVersion;
 	}
 
 	/**

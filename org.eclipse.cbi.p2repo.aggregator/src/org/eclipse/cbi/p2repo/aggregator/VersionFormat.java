@@ -51,7 +51,16 @@ public enum VersionFormat implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MAVEN_RELEASE(2, "MavenRelease", "MavenRelease");
+	MAVEN_RELEASE(2, "MavenRelease", "MavenRelease"),
+	/**
+	* The '<em><b>Maven Snapshot</b></em>' literal object.
+	* <!-- begin-user-doc -->
+	* <!-- end-user-doc -->
+	* @see #MAVEN_SNAPSHOT_VALUE
+	* @generated
+	* @ordered
+	*/
+	MAVEN_SNAPSHOT(3, "MavenSnapshot", "MavenSnapshot");
 
 	/**
 	 * The '<em><b>Normal</b></em>' literal value.
@@ -99,12 +108,28 @@ public enum VersionFormat implements Enumerator {
 	public static final int MAVEN_RELEASE_VALUE = 2;
 
 	/**
+	 * The '<em><b>Maven Snapshot</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Maven Snapshot</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #MAVEN_SNAPSHOT
+	 * @model name="MavenSnapshot"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int MAVEN_SNAPSHOT_VALUE = 3;
+
+	/**
 	 * An array of all the '<em><b>Version Format</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final VersionFormat[] VALUES_ARRAY = new VersionFormat[] { NORMAL, STRICT_MAVEN, MAVEN_RELEASE, };
+	private static final VersionFormat[] VALUES_ARRAY = new VersionFormat[] { NORMAL, STRICT_MAVEN, MAVEN_RELEASE,
+			MAVEN_SNAPSHOT, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Version Format</b></em>' enumerators.
@@ -166,6 +191,8 @@ public enum VersionFormat implements Enumerator {
 				return STRICT_MAVEN;
 			case MAVEN_RELEASE_VALUE:
 				return MAVEN_RELEASE;
+			case MAVEN_SNAPSHOT_VALUE:
+				return MAVEN_SNAPSHOT;
 		}
 		return null;
 	}

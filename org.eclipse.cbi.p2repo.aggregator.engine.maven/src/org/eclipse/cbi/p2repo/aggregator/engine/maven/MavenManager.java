@@ -19,20 +19,24 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.eclipse.cbi.p2repo.p2.util.IUUtils;
 import org.eclipse.cbi.p2repo.aggregator.Aggregation;
 import org.eclipse.cbi.p2repo.aggregator.Contribution;
 import org.eclipse.cbi.p2repo.aggregator.VersionFormat;
 import org.eclipse.cbi.p2repo.p2.maven.MavenMetadata;
 import org.eclipse.cbi.p2repo.p2.maven.metadata.MetaData;
 import org.eclipse.cbi.p2repo.p2.maven.metadata.MetadataFactory;
+import org.eclipse.cbi.p2repo.p2.maven.metadata.Snapshot;
+import org.eclipse.cbi.p2repo.p2.maven.metadata.SnapshotVersion;
+import org.eclipse.cbi.p2repo.p2.maven.metadata.SnapshotVersions;
 import org.eclipse.cbi.p2repo.p2.maven.metadata.Versioning;
 import org.eclipse.cbi.p2repo.p2.maven.metadata.Versions;
 import org.eclipse.cbi.p2repo.p2.maven.util.DigestUtil;
 import org.eclipse.cbi.p2repo.p2.maven.util.VersionUtil;
+import org.eclipse.cbi.p2repo.p2.util.IUUtils;
 import org.eclipse.cbi.p2repo.util.ExceptionUtils;
 import org.eclipse.cbi.p2repo.util.LogUtils;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.URIConverter;
@@ -53,12 +57,15 @@ public class MavenManager {
 
 		private List<Version> versionList;
 
+		private VersionFormat versionFormat;
+
 		private boolean finalized;
 
-		MavenMetadataHelper(String groupId, String artifactId) {
+		MavenMetadataHelper(String groupId, String artifactId, VersionFormat versionFormat) {
 			this.groupId = groupId;
 			this.artifactId = artifactId;
-			versionList = new ArrayList<Version>();
+			this.versionList = new ArrayList<Version>();
+			this.versionFormat = versionFormat;
 		}
 
 		public void addVersion(Version version) {
@@ -101,13 +108,17 @@ public class MavenManager {
 				if(qualifier != null && qualifier.length() > 0 &&
 						(qualifier.charAt(0) == 'R' || qualifier.charAt(0) == 'M'))
 					continue;
-				if (versions[idx].toString().contains("-SNAPSHOT"))
+				if (versions[idx].toString().contains(VersionUtil.DASH_SNAPSHOT))
 					continue;
 
 				return versions[idx];
 			}
 
 			return null;
+		}
+
+		public VersionFormat getVersionFormat() {
+			return versionFormat;
 		}
 
 		public List<Version> getVersions() {
@@ -238,6 +249,13 @@ public class MavenManager {
 		return URI.createURI(root.toString() + "/" + md.getRelativePath() + "/maven-metadata.xml");
 	}
 
+	private static URI createSnapshotXmlURI(URI root, MavenMetadataHelper md, Version version)
+			throws CoreException {
+		String versionString = VersionUtil.getVersionString(version, VersionFormat.MAVEN_SNAPSHOT);
+		String versionDir = VersionUtil.versionAsSnapshot(versionString);
+		return URI.createURI(root.toString() + "/" + md.getRelativePath() + "/" + versionDir + "/maven-metadata.xml");
+	}
+
 	public static void saveMetadata(URI root, InstallableUnitMapping iu, Map<Contribution, List<String>> errors)
 			throws CoreException {
 		ResourceSet resourceSet = new ResourceSetImpl();
@@ -245,7 +263,7 @@ public class MavenManager {
 		Map<String, MavenMetadataHelper> metadataCollector = new HashMap<String, MavenMetadataHelper>();
 
 		savePOMs(root, iu, uriConverter, DigestUtil.MESSAGE_DIGESTERS, metadataCollector, errors);
-		saveXMLs(root, uriConverter, DigestUtil.MESSAGE_DIGESTERS, metadataCollector, iu.getVersionFormat());
+		saveXMLs(root, uriConverter, DigestUtil.MESSAGE_DIGESTERS, metadataCollector);
 	}
 
 	private static void savePOMs(URI root, InstallableUnitMapping iu, URIConverter uriConverter,
@@ -286,9 +304,10 @@ public class MavenManager {
 
 			String key = iu.map().getGroupId() + "/" + iu.map().getArtifactId();
 			MavenMetadataHelper md = metadataCollector.get(key);
-			if(md == null)
-				metadataCollector.put(
-					key, md = new MavenMetadataHelper(iu.map().getGroupId(), iu.map().getArtifactId()));
+			if (md == null) {
+				md = new MavenMetadataHelper(iu.map().getGroupId(), iu.map().getArtifactId(), iu.getVersionFormat());
+				metadataCollector.put(key, md);
+			}
 			md.addVersion(iu.getMappedVersion()); // will potentially be mapped to the global VersionFormat during saveXMLs
 		}
 
@@ -297,11 +316,13 @@ public class MavenManager {
 	}
 
 	private static void saveXMLs(URI root, URIConverter uriConverter, MessageDigest[] digests,
-			Map<String, MavenMetadataHelper> metadataCollector, VersionFormat versionFormat) throws CoreException {
+			Map<String, MavenMetadataHelper> metadataCollector) throws CoreException {
 		String timestamp = String.format("%1$tY%1$tm%1$td%1$tH%1$tM%1$tS", new Date());
 
 		for(MavenMetadataHelper mdh : metadataCollector.values()) {
 			mdh.finalizeMetadata();
+			VersionFormat versionFormat = mdh.getVersionFormat();
+
 			MavenMetadata mdConainter = new MavenMetadata();
 			MetaData md = mdConainter.getMetaData();
 			md.setGroupId(mdh.getGroupId());
@@ -322,6 +343,42 @@ public class MavenManager {
 			URI xmlUri = createXmlURI(root, mdh);
 			mdConainter.save(xmlUri);
 			createCheckSum(xmlUri, uriConverter, digests);
+			
+			if (versionFormat == VersionFormat.MAVEN_SNAPSHOT) {
+				for (Version version : mdh.getVersions()) {
+					mdConainter = new MavenMetadata();
+					md = mdConainter.getMetaData();
+					md.setGroupId(mdh.getGroupId());
+					md.setArtifactId(mdh.getArtifactId());
+					String versionString = VersionUtil.getVersionString(version, versionFormat);
+					md.setVersion(versionString);
+
+					versioning = MetadataFactory.eINSTANCE.createVersioning();
+					md.setVersioning(versioning);
+					versioning.setLastUpdated(timestamp);
+
+					Snapshot snapshot = MetadataFactory.eINSTANCE.createSnapshot();
+					versioning.setSnapshot(snapshot);
+					snapshot.setTimestamp(timestamp);
+					String versionQualifier = VersionUtil.getVersionQualifier(versionString);
+					if (versionQualifier != null)
+						snapshot.setBuildNumber(versionQualifier);
+
+					SnapshotVersions snapVersions = MetadataFactory.eINSTANCE.createSnapshotVersions();
+					versioning.setSnapshotVersions(snapVersions);
+					EList<SnapshotVersion> snapVersionList = snapVersions.getSnapshotVersions();
+					for (String extension : new String[] { "jar", "pom" }) {
+						SnapshotVersion snapshotVersion = MetadataFactory.eINSTANCE.createSnapshotVersion();
+						snapVersionList.add(snapshotVersion);
+						snapshotVersion.setExtension(extension);
+						snapshotVersion.setValue(VersionUtil.getVersionString(version, versionFormat));
+						snapshotVersion.setUpdated(timestamp);
+					}
+					xmlUri = createSnapshotXmlURI(root, mdh, version);
+					mdConainter.save(xmlUri);
+					createCheckSum(xmlUri, uriConverter, digests);
+				}
+			}
 		}
 	}
 
