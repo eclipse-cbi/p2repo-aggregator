@@ -39,7 +39,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute maven-metadata.ecore#//Snapshot/buildNumber"/>
     </genClasses>
     <genClasses ecoreClass="maven-metadata.ecore#//SnapshotVersions">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference maven-metadata.ecore#//SnapshotVersions/snapshotVersions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference maven-metadata.ecore#//SnapshotVersions/snapshotVersion"/>
     </genClasses>
     <genClasses ecoreClass="maven-metadata.ecore#//SnapshotVersion">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute maven-metadata.ecore#//SnapshotVersion/extension"/>

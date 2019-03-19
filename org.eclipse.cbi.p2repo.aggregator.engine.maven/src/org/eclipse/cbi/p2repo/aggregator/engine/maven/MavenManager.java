@@ -366,7 +366,7 @@ public class MavenManager {
 
 					SnapshotVersions snapVersions = MetadataFactory.eINSTANCE.createSnapshotVersions();
 					versioning.setSnapshotVersions(snapVersions);
-					EList<SnapshotVersion> snapVersionList = snapVersions.getSnapshotVersions();
+					EList<SnapshotVersion> snapVersionList = snapVersions.getSnapshotVersion();
 					for (String extension : new String[] { "jar", "pom" }) {
 						SnapshotVersion snapshotVersion = MetadataFactory.eINSTANCE.createSnapshotVersion();
 						snapVersionList.add(snapshotVersion);

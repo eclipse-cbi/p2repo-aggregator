@@ -195,7 +195,7 @@ public class MetadataPackageImpl extends EPackageImpl implements MetadataPackage
 		createEAttribute(snapshotEClass, SNAPSHOT__BUILD_NUMBER);
 
 		snapshotVersionsEClass = createEClass(SNAPSHOT_VERSIONS);
-		createEReference(snapshotVersionsEClass, SNAPSHOT_VERSIONS__SNAPSHOT_VERSIONS);
+		createEReference(snapshotVersionsEClass, SNAPSHOT_VERSIONS__SNAPSHOT_VERSION);
 
 		snapshotVersionEClass = createEClass(SNAPSHOT_VERSION);
 		createEAttribute(snapshotVersionEClass, SNAPSHOT_VERSION__EXTENSION);
@@ -431,7 +431,7 @@ public class MetadataPackageImpl extends EPackageImpl implements MetadataPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getSnapshotVersions_SnapshotVersions() {
+	public EReference getSnapshotVersions_SnapshotVersion() {
 		return (EReference) snapshotVersionsEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -565,8 +565,8 @@ public class MetadataPackageImpl extends EPackageImpl implements MetadataPackage
 
 		initEClass(snapshotVersionsEClass, SnapshotVersions.class, "SnapshotVersions", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSnapshotVersions_SnapshotVersions(), this.getSnapshotVersion(), null, "snapshotVersions",
-				null, 0, -1, SnapshotVersions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+		initEReference(getSnapshotVersions_SnapshotVersion(), this.getSnapshotVersion(), null, "snapshotVersion", null,
+				0, -1, SnapshotVersions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(snapshotVersionEClass, SnapshotVersion.class, "SnapshotVersion", !IS_ABSTRACT, !IS_INTERFACE,

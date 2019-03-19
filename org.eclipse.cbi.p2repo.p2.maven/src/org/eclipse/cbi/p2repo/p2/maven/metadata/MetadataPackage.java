@@ -230,12 +230,12 @@ public interface MetadataPackage extends EPackage {
 		EClass SNAPSHOT_VERSIONS = eINSTANCE.getSnapshotVersions();
 
 		/**
-		 * The meta object literal for the '<em><b>Snapshot Versions</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Snapshot Version</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SNAPSHOT_VERSIONS__SNAPSHOT_VERSIONS = eINSTANCE.getSnapshotVersions_SnapshotVersions();
+		EReference SNAPSHOT_VERSIONS__SNAPSHOT_VERSION = eINSTANCE.getSnapshotVersions_SnapshotVersion();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.impl.SnapshotVersionImpl <em>Snapshot Version</em>}' class.
@@ -558,13 +558,13 @@ public interface MetadataPackage extends EPackage {
 	int SNAPSHOT_VERSIONS = 5;
 
 	/**
-	 * The feature id for the '<em><b>Snapshot Versions</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Snapshot Version</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SNAPSHOT_VERSIONS__SNAPSHOT_VERSIONS = 0;
+	int SNAPSHOT_VERSIONS__SNAPSHOT_VERSION = 0;
 
 	/**
 	 * The number of structural features of the '<em>Snapshot Versions</em>' class.
@@ -867,15 +867,15 @@ public interface MetadataPackage extends EPackage {
 	EClass getSnapshotVersions();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.SnapshotVersions#getSnapshotVersions <em>Snapshot Versions</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.SnapshotVersions#getSnapshotVersion <em>Snapshot Version</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Snapshot Versions</em>'.
-	 * @see org.eclipse.cbi.p2repo.p2.maven.metadata.SnapshotVersions#getSnapshotVersions()
+	 * @return the meta object for the containment reference list '<em>Snapshot Version</em>'.
+	 * @see org.eclipse.cbi.p2repo.p2.maven.metadata.SnapshotVersions#getSnapshotVersion()
 	 * @see #getSnapshotVersions()
 	 * @generated
 	 */
-	EReference getSnapshotVersions_SnapshotVersions();
+	EReference getSnapshotVersions_SnapshotVersion();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.SnapshotVersion <em>Snapshot Version</em>}'.

@@ -188,7 +188,7 @@
       <details key="name" value="SnapshotVersions"/>
       <details key="kind" value="elementOnly"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="snapshotVersions" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="snapshotVersion" upperBound="-1"
         eType="#//SnapshotVersion" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SnapshotVersion">

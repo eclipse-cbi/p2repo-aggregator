@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.SnapshotVersions#getSnapshotVersions <em>Snapshot Versions</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.SnapshotVersions#getSnapshotVersion <em>Snapshot Version</em>}</li>
  * </ul>
  *
  * @see org.eclipse.cbi.p2repo.p2.maven.metadata.MetadataPackage#getSnapshotVersions()
@@ -23,19 +23,19 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface SnapshotVersions extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Snapshot Versions</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Snapshot Version</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.cbi.p2repo.p2.maven.metadata.SnapshotVersion}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Snapshot Versions</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Snapshot Version</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Snapshot Versions</em>' containment reference list.
-	 * @see org.eclipse.cbi.p2repo.p2.maven.metadata.MetadataPackage#getSnapshotVersions_SnapshotVersions()
+	 * @return the value of the '<em>Snapshot Version</em>' containment reference list.
+	 * @see org.eclipse.cbi.p2repo.p2.maven.metadata.MetadataPackage#getSnapshotVersions_SnapshotVersion()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<SnapshotVersion> getSnapshotVersions();
+	EList<SnapshotVersion> getSnapshotVersion();
 
 } // SnapshotVersions

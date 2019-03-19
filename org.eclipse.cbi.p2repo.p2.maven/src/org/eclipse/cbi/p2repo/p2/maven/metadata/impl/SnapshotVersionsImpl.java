@@ -23,21 +23,21 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.impl.SnapshotVersionsImpl#getSnapshotVersions <em>Snapshot Versions</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.impl.SnapshotVersionsImpl#getSnapshotVersion <em>Snapshot Version</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class SnapshotVersionsImpl extends EObjectImpl implements SnapshotVersions {
 	/**
-	 * The cached value of the '{@link #getSnapshotVersions() <em>Snapshot Versions</em>}' containment reference list.
+	 * The cached value of the '{@link #getSnapshotVersion() <em>Snapshot Version</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSnapshotVersions()
+	 * @see #getSnapshotVersion()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<SnapshotVersion> snapshotVersions;
+	protected EList<SnapshotVersion> snapshotVersion;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -64,12 +64,12 @@ public class SnapshotVersionsImpl extends EObjectImpl implements SnapshotVersion
 	 * @generated
 	 */
 	@Override
-	public EList<SnapshotVersion> getSnapshotVersions() {
-		if (snapshotVersions == null) {
-			snapshotVersions = new EObjectContainmentEList<>(SnapshotVersion.class, this,
-					MetadataPackage.SNAPSHOT_VERSIONS__SNAPSHOT_VERSIONS);
+	public EList<SnapshotVersion> getSnapshotVersion() {
+		if (snapshotVersion == null) {
+			snapshotVersion = new EObjectContainmentEList<>(SnapshotVersion.class, this,
+					MetadataPackage.SNAPSHOT_VERSIONS__SNAPSHOT_VERSION);
 		}
-		return snapshotVersions;
+		return snapshotVersion;
 	}
 
 	/**
@@ -80,8 +80,8 @@ public class SnapshotVersionsImpl extends EObjectImpl implements SnapshotVersion
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case MetadataPackage.SNAPSHOT_VERSIONS__SNAPSHOT_VERSIONS:
-				return ((InternalEList<?>) getSnapshotVersions()).basicRemove(otherEnd, msgs);
+			case MetadataPackage.SNAPSHOT_VERSIONS__SNAPSHOT_VERSION:
+				return ((InternalEList<?>) getSnapshotVersion()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -94,8 +94,8 @@ public class SnapshotVersionsImpl extends EObjectImpl implements SnapshotVersion
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MetadataPackage.SNAPSHOT_VERSIONS__SNAPSHOT_VERSIONS:
-				return getSnapshotVersions();
+			case MetadataPackage.SNAPSHOT_VERSIONS__SNAPSHOT_VERSION:
+				return getSnapshotVersion();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -109,9 +109,9 @@ public class SnapshotVersionsImpl extends EObjectImpl implements SnapshotVersion
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MetadataPackage.SNAPSHOT_VERSIONS__SNAPSHOT_VERSIONS:
-				getSnapshotVersions().clear();
-				getSnapshotVersions().addAll((Collection<? extends SnapshotVersion>) newValue);
+			case MetadataPackage.SNAPSHOT_VERSIONS__SNAPSHOT_VERSION:
+				getSnapshotVersion().clear();
+				getSnapshotVersion().addAll((Collection<? extends SnapshotVersion>) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -125,8 +125,8 @@ public class SnapshotVersionsImpl extends EObjectImpl implements SnapshotVersion
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MetadataPackage.SNAPSHOT_VERSIONS__SNAPSHOT_VERSIONS:
-				getSnapshotVersions().clear();
+			case MetadataPackage.SNAPSHOT_VERSIONS__SNAPSHOT_VERSION:
+				getSnapshotVersion().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -140,8 +140,8 @@ public class SnapshotVersionsImpl extends EObjectImpl implements SnapshotVersion
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MetadataPackage.SNAPSHOT_VERSIONS__SNAPSHOT_VERSIONS:
-				return snapshotVersions != null && !snapshotVersions.isEmpty();
+			case MetadataPackage.SNAPSHOT_VERSIONS__SNAPSHOT_VERSION:
+				return snapshotVersion != null && !snapshotVersion.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
