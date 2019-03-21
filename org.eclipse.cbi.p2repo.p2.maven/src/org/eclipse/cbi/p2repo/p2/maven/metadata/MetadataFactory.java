@@ -42,6 +42,24 @@ public interface MetadataFactory extends EFactory {
 	MetaData createMetaData();
 
 	/**
+	 * Returns a new object of class '<em>Plugin</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Plugin</em>'.
+	 * @generated
+	 */
+	Plugin createPlugin();
+
+	/**
+	 * Returns a new object of class '<em>Plugins Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Plugins Type</em>'.
+	 * @generated
+	 */
+	PluginsType createPluginsType();
+
+	/**
 	 * Returns a new object of class '<em>Versioning</em>'.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
@@ -51,13 +69,13 @@ public interface MetadataFactory extends EFactory {
 	Versioning createVersioning();
 
 	/**
-	 * Returns a new object of class '<em>Versions</em>'.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
-	 * @return a new object of class '<em>Versions</em>'.
+	 * Returns a new object of class '<em>Versions Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Versions Type</em>'.
 	 * @generated
 	 */
-	Versions createVersions();
+	VersionsType createVersionsType();
 
 	/**
 	 * Returns a new object of class '<em>Snapshot</em>'.
@@ -69,15 +87,6 @@ public interface MetadataFactory extends EFactory {
 	Snapshot createSnapshot();
 
 	/**
-	 * Returns a new object of class '<em>Snapshot Versions</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Snapshot Versions</em>'.
-	 * @generated
-	 */
-	SnapshotVersions createSnapshotVersions();
-
-	/**
 	 * Returns a new object of class '<em>Snapshot Version</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -85,6 +94,15 @@ public interface MetadataFactory extends EFactory {
 	 * @generated
 	 */
 	SnapshotVersion createSnapshotVersion();
+
+	/**
+	 * Returns a new object of class '<em>Snapshot Versions Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Snapshot Versions Type</em>'.
+	 * @generated
+	 */
+	SnapshotVersionsType createSnapshotVersionsType();
 
 	/**
 	 * Returns the package supported by this factory.

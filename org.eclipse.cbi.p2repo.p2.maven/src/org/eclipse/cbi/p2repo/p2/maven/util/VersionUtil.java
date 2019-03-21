@@ -155,7 +155,21 @@ public class VersionUtil {
 		return versionString;
 	}
 
-	public static String getVersionString(Version version, VersionFormat versionFormat) {
+	/**
+	 * Format the version to a string
+	 * 
+	 * @param version
+	 *            the version to format
+	 * @param versionFormat
+	 *            the version format to apply
+	 * @param fineGrained
+	 *            should we be looking into the details of a snapshot version?
+	 * @param mavenBuildNumber
+	 *            the maven build number to encode in the version qualifier. Only used when {@code fineGrained} is {@code true}.
+	 * @return the formatted version
+	 */
+	public static String getVersionString(Version version, VersionFormat versionFormat, boolean fineGrained,
+			int mavenBuildNumber) {
 		if(version instanceof MappedVersion)
 			return version.getOriginal(); // MappedVersion indicates that VersionFormat is overridden from MavenMapping
 
@@ -177,11 +191,27 @@ public class VersionUtil {
 		if (versionFormat == VersionFormat.MAVEN_RELEASE)
 			return m.group(1);
 
+		if (versionFormat == VersionFormat.MAVEN_SNAPSHOT && !fineGrained)
+			return m.group(1) + DASH_SNAPSHOT;
+
 		// Ensure that the qualifier is separated with a dash and then don't contain dashes
 		StringBuilder bld = new StringBuilder();
 		bld.append(m.group(1));
 		bld.append('-');
-		bld.append(m.group(2));
+		String qualifier = m.group(2);
+		if (versionFormat == VersionFormat.MAVEN_SNAPSHOT) {
+			Matcher matcher = extractSnapshotQualifierPattern.matcher(qualifier);
+			if (matcher.matches()) {
+				qualifier = matcher.group(2) + '.' + matcher.group(3);
+				if (qualifier.length() == 13) { // 8 digits date + '.' + 4 digits time (minimal)
+					qualifier += "00"; // pad time to 6 digits
+				}
+				qualifier += "-" + mavenBuildNumber;
+			} else {
+				// TODO: report as error?
+			}
+		}
+		bld.append(qualifier);
 		return bld.toString();
 	}
 
@@ -206,12 +236,8 @@ public class VersionUtil {
 
 	private static final Pattern osgiPattern = Pattern.compile("^(\\d+\\.\\d+\\.\\d+)\\.([a-zA-Z0-9_-]+)$");
 
-	public static String getVersionQualifier(String versionString) {
-		int dash = versionString.indexOf('-');
-		if (dash == -1)
-			return null;
-		return versionString.substring(dash + 1);
-	}
+	private static final Pattern extractSnapshotQualifierPattern = Pattern
+			.compile("(.*[^0-9])?(\\d\\d\\d\\d\\d\\d\\d\\d)-?(\\d\\d\\d\\d(\\d\\d)?).*");
 
 	public static String versionAsSnapshot(String version) {
 		int dash = version.indexOf('-');

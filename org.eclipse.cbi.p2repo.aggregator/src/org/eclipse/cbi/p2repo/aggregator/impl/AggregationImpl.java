@@ -65,6 +65,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#isMavenResult <em>Maven Result</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#isStrictMavenVersions <em>Strict Maven Versions</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#getVersionFormat <em>Version Format</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#getMavenBuildNumber <em>Maven Build Number</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#getMavenMappings <em>Maven Mappings</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#isAllowLegacySites <em>Allow Legacy Sites</em>}</li>
  * </ul>
@@ -403,6 +404,26 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	protected static final int VERSION_FORMAT_EFLAG = 0x3 << VERSION_FORMAT_EFLAG_OFFSET;
 
 	/**
+	 * The default value of the '{@link #getMavenBuildNumber() <em>Maven Build Number</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMavenBuildNumber()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int MAVEN_BUILD_NUMBER_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getMavenBuildNumber() <em>Maven Build Number</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMavenBuildNumber()
+	 * @generated
+	 * @ordered
+	 */
+	protected int mavenBuildNumber = MAVEN_BUILD_NUMBER_EDEFAULT;
+
+	/**
 	 * The cached value of the '{@link #getMavenMappings() <em>Maven Mappings</em>}' containment reference list. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 *
@@ -568,6 +589,8 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 				return isStrictMavenVersions();
 			case AggregatorPackage.AGGREGATION__VERSION_FORMAT:
 				return getVersionFormat();
+			case AggregatorPackage.AGGREGATION__MAVEN_BUILD_NUMBER:
+				return getMavenBuildNumber();
 			case AggregatorPackage.AGGREGATION__MAVEN_MAPPINGS:
 				return getMavenMappings();
 			case AggregatorPackage.AGGREGATION__ALLOW_LEGACY_SITES:
@@ -654,6 +677,8 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 				return ((eFlags & STRICT_MAVEN_VERSIONS_EFLAG) != 0) != STRICT_MAVEN_VERSIONS_EDEFAULT;
 			case AggregatorPackage.AGGREGATION__VERSION_FORMAT:
 				return (eFlags & VERSION_FORMAT_EFLAG) != VERSION_FORMAT_EFLAG_DEFAULT;
+			case AggregatorPackage.AGGREGATION__MAVEN_BUILD_NUMBER:
+				return mavenBuildNumber != MAVEN_BUILD_NUMBER_EDEFAULT;
 			case AggregatorPackage.AGGREGATION__MAVEN_MAPPINGS:
 				return mavenMappings != null && !mavenMappings.isEmpty();
 			case AggregatorPackage.AGGREGATION__ALLOW_LEGACY_SITES:
@@ -727,6 +752,9 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 				return;
 			case AggregatorPackage.AGGREGATION__VERSION_FORMAT:
 				setVersionFormat((VersionFormat) newValue);
+				return;
+			case AggregatorPackage.AGGREGATION__MAVEN_BUILD_NUMBER:
+				setMavenBuildNumber((Integer) newValue);
 				return;
 			case AggregatorPackage.AGGREGATION__MAVEN_MAPPINGS:
 				getMavenMappings().clear();
@@ -805,6 +833,9 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 				return;
 			case AggregatorPackage.AGGREGATION__VERSION_FORMAT:
 				setVersionFormat(VERSION_FORMAT_EDEFAULT);
+				return;
+			case AggregatorPackage.AGGREGATION__MAVEN_BUILD_NUMBER:
+				setMavenBuildNumber(MAVEN_BUILD_NUMBER_EDEFAULT);
 				return;
 			case AggregatorPackage.AGGREGATION__MAVEN_MAPPINGS:
 				getMavenMappings().clear();
@@ -1290,6 +1321,30 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int getMavenBuildNumber() {
+		return mavenBuildNumber;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setMavenBuildNumber(int newMavenBuildNumber) {
+		int oldMavenBuildNumber = mavenBuildNumber;
+		mavenBuildNumber = newMavenBuildNumber;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.AGGREGATION__MAVEN_BUILD_NUMBER,
+					oldMavenBuildNumber, mavenBuildNumber));
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -1321,6 +1376,8 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 		result.append((eFlags & STRICT_MAVEN_VERSIONS_EFLAG) != 0);
 		result.append(", versionFormat: ");
 		result.append(VERSION_FORMAT_EFLAG_VALUES[(eFlags & VERSION_FORMAT_EFLAG) >>> VERSION_FORMAT_EFLAG_OFFSET]);
+		result.append(", mavenBuildNumber: ");
+		result.append(mavenBuildNumber);
 		result.append(", allowLegacySites: ");
 		result.append((eFlags & ALLOW_LEGACY_SITES_EFLAG) != 0);
 		result.append(')');

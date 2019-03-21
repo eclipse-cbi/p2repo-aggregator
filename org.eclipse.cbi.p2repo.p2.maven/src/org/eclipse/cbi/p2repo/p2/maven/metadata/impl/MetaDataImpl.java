@@ -8,6 +8,7 @@ package org.eclipse.cbi.p2repo.p2.maven.metadata.impl;
 
 import org.eclipse.cbi.p2repo.p2.maven.metadata.MetaData;
 import org.eclipse.cbi.p2repo.p2.maven.metadata.MetadataPackage;
+import org.eclipse.cbi.p2repo.p2.maven.metadata.PluginsType;
 import org.eclipse.cbi.p2repo.p2.maven.metadata.Versioning;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -27,6 +28,8 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.impl.MetaDataImpl#getArtifactId <em>Artifact Id</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.impl.MetaDataImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.impl.MetaDataImpl#getVersioning <em>Versioning</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.impl.MetaDataImpl#getPlugins <em>Plugins</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.impl.MetaDataImpl#getModelVersion <em>Model Version</em>}</li>
  * </ul>
  *
  * @generated
@@ -96,6 +99,36 @@ public class MetaDataImpl extends EObjectImpl implements MetaData {
 	protected Versioning versioning;
 
 	/**
+	 * The cached value of the '{@link #getPlugins() <em>Plugins</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPlugins()
+	 * @generated
+	 * @ordered
+	 */
+	protected PluginsType plugins;
+
+	/**
+	 * The default value of the '{@link #getModelVersion() <em>Model Version</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getModelVersion()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String MODEL_VERSION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getModelVersion() <em>Model Version</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getModelVersion()
+	 * @generated
+	 * @ordered
+	 */
+	protected String modelVersion = MODEL_VERSION_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -136,6 +169,10 @@ public class MetaDataImpl extends EObjectImpl implements MetaData {
 				return getVersion();
 			case MetadataPackage.META_DATA__VERSIONING:
 				return getVersioning();
+			case MetadataPackage.META_DATA__PLUGINS:
+				return getPlugins();
+			case MetadataPackage.META_DATA__MODEL_VERSION:
+				return getModelVersion();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -149,6 +186,8 @@ public class MetaDataImpl extends EObjectImpl implements MetaData {
 		switch (featureID) {
 			case MetadataPackage.META_DATA__VERSIONING:
 				return basicSetVersioning(null, msgs);
+			case MetadataPackage.META_DATA__PLUGINS:
+				return basicSetPlugins(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -168,6 +207,11 @@ public class MetaDataImpl extends EObjectImpl implements MetaData {
 				return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
 			case MetadataPackage.META_DATA__VERSIONING:
 				return versioning != null;
+			case MetadataPackage.META_DATA__PLUGINS:
+				return plugins != null;
+			case MetadataPackage.META_DATA__MODEL_VERSION:
+				return MODEL_VERSION_EDEFAULT == null ? modelVersion != null
+						: !MODEL_VERSION_EDEFAULT.equals(modelVersion);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -191,6 +235,12 @@ public class MetaDataImpl extends EObjectImpl implements MetaData {
 			case MetadataPackage.META_DATA__VERSIONING:
 				setVersioning((Versioning) newValue);
 				return;
+			case MetadataPackage.META_DATA__PLUGINS:
+				setPlugins((PluginsType) newValue);
+				return;
+			case MetadataPackage.META_DATA__MODEL_VERSION:
+				setModelVersion((String) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -213,6 +263,12 @@ public class MetaDataImpl extends EObjectImpl implements MetaData {
 				return;
 			case MetadataPackage.META_DATA__VERSIONING:
 				setVersioning((Versioning) null);
+				return;
+			case MetadataPackage.META_DATA__PLUGINS:
+				setPlugins((PluginsType) null);
+				return;
+			case MetadataPackage.META_DATA__MODEL_VERSION:
+				setModelVersion(MODEL_VERSION_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -316,6 +372,82 @@ public class MetaDataImpl extends EObjectImpl implements MetaData {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public PluginsType getPlugins() {
+		return plugins;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPlugins(PluginsType newPlugins, NotificationChain msgs) {
+		PluginsType oldPlugins = plugins;
+		plugins = newPlugins;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					MetadataPackage.META_DATA__PLUGINS, oldPlugins, newPlugins);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setPlugins(PluginsType newPlugins) {
+		if (newPlugins != plugins) {
+			NotificationChain msgs = null;
+			if (plugins != null)
+				msgs = ((InternalEObject) plugins).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - MetadataPackage.META_DATA__PLUGINS, null, msgs);
+			if (newPlugins != null)
+				msgs = ((InternalEObject) newPlugins).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - MetadataPackage.META_DATA__PLUGINS, null, msgs);
+			msgs = basicSetPlugins(newPlugins, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetadataPackage.META_DATA__PLUGINS, newPlugins,
+					newPlugins));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getModelVersion() {
+		return modelVersion;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setModelVersion(String newModelVersion) {
+		String oldModelVersion = modelVersion;
+		modelVersion = newModelVersion;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetadataPackage.META_DATA__MODEL_VERSION,
+					oldModelVersion, modelVersion));
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -331,6 +463,8 @@ public class MetaDataImpl extends EObjectImpl implements MetaData {
 		result.append(artifactId);
 		result.append(", version: ");
 		result.append(version);
+		result.append(", modelVersion: ");
+		result.append(modelVersion);
 		result.append(')');
 		return result.toString();
 	}

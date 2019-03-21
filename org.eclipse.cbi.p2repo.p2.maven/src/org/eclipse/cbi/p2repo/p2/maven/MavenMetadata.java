@@ -33,11 +33,14 @@ import org.eclipse.emf.ecore.util.Diagnostician;
  *
  */
 public class MavenMetadata {
+	private static final String MODEL_VERSION = "1.1.0";
 	private DocumentRoot documentRoot;
 
 	public MavenMetadata() {
 		documentRoot = MetadataFactory.eINSTANCE.createDocumentRoot();
-		documentRoot.setMetadata(MetadataFactory.eINSTANCE.createMetaData());
+		MetaData metaData = MetadataFactory.eINSTANCE.createMetaData();
+		metaData.setModelVersion(MODEL_VERSION);
+		documentRoot.setMetadata(metaData);
 	}
 
 	public MavenMetadata(URI uri) throws CoreException {

@@ -4,11 +4,11 @@
     editorDirectory="/org.eclipse.cbi.p2repo.p2.maven.editor/src" modelPluginID="org.eclipse.cbi.p2repo.p2.maven"
     forceOverwrite="true" modelName="Maven-metadata" editPluginClass="org.eclipse.cbi.p2repo.p2.maven.metadata.provider.MavenmetadataEditPlugin"
     editorPluginClass="org.eclipse.cbi.p2repo.p2.maven.metadata.presentation.MavenmetadataEditorPlugin"
-    codeFormatting="true" testsDirectory="" testSuiteClass="" importerID="org.eclipse.emf.importer.ecore"
+    codeFormatting="true" testsDirectory="" testSuiteClass="" importerID="org.eclipse.xsd.ecore.importer"
     complianceLevel="8.0" copyrightFields="false" editPluginID="org.eclipse.cbi.p2repo.p2.maven.edit"
     editorPluginID="org.eclipse.cbi.p2repo.p2.maven.editor" importOrganizing="true"
     cleanup="true">
-  <foreignModel>maven-metadata.ecore</foreignModel>
+  <foreignModel>repository-metadata-1.1.0.xsd</foreignModel>
   <genPackages prefix="Metadata" basePackage="org.eclipse.cbi.p2repo.p2.maven" resource="XML"
       disposableProviderFactory="true" fileExtensions="xml" ecorePackage="maven-metadata.ecore#/">
     <genClasses ecoreClass="maven-metadata.ecore#//DocumentRoot">
@@ -22,29 +22,41 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute maven-metadata.ecore#//MetaData/artifactId"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute maven-metadata.ecore#//MetaData/version"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference maven-metadata.ecore#//MetaData/versioning"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference maven-metadata.ecore#//MetaData/plugins"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute maven-metadata.ecore#//MetaData/modelVersion"/>
     </genClasses>
-    <genClasses ecoreClass="maven-metadata.ecore#//Versioning">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute maven-metadata.ecore#//Versioning/release"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute maven-metadata.ecore#//Versioning/latest"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference maven-metadata.ecore#//Versioning/versions"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute maven-metadata.ecore#//Versioning/lastUpdated"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference maven-metadata.ecore#//Versioning/snapshot"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference maven-metadata.ecore#//Versioning/snapshotVersions"/>
+    <genClasses ecoreClass="maven-metadata.ecore#//Plugin">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute maven-metadata.ecore#//Plugin/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute maven-metadata.ecore#//Plugin/prefix"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute maven-metadata.ecore#//Plugin/artifactId"/>
     </genClasses>
-    <genClasses ecoreClass="maven-metadata.ecore#//Versions">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute maven-metadata.ecore#//Versions/version"/>
+    <genClasses ecoreClass="maven-metadata.ecore#//PluginsType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference maven-metadata.ecore#//PluginsType/plugin"/>
     </genClasses>
     <genClasses ecoreClass="maven-metadata.ecore#//Snapshot">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute maven-metadata.ecore#//Snapshot/timestamp"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute maven-metadata.ecore#//Snapshot/buildNumber"/>
-    </genClasses>
-    <genClasses ecoreClass="maven-metadata.ecore#//SnapshotVersions">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference maven-metadata.ecore#//SnapshotVersions/snapshotVersion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute maven-metadata.ecore#//Snapshot/localCopy"/>
     </genClasses>
     <genClasses ecoreClass="maven-metadata.ecore#//SnapshotVersion">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute maven-metadata.ecore#//SnapshotVersion/classifier"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute maven-metadata.ecore#//SnapshotVersion/extension"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute maven-metadata.ecore#//SnapshotVersion/value"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute maven-metadata.ecore#//SnapshotVersion/updated"/>
+    </genClasses>
+    <genClasses ecoreClass="maven-metadata.ecore#//SnapshotVersionsType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference maven-metadata.ecore#//SnapshotVersionsType/snapshotVersion"/>
+    </genClasses>
+    <genClasses ecoreClass="maven-metadata.ecore#//Versioning">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute maven-metadata.ecore#//Versioning/latest"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute maven-metadata.ecore#//Versioning/release"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference maven-metadata.ecore#//Versioning/snapshot"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference maven-metadata.ecore#//Versioning/versions"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute maven-metadata.ecore#//Versioning/lastUpdated"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference maven-metadata.ecore#//Versioning/snapshotVersions"/>
+    </genClasses>
+    <genClasses ecoreClass="maven-metadata.ecore#//VersionsType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute maven-metadata.ecore#//VersionsType/version"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

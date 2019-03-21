@@ -45,13 +45,14 @@ import org.eclipse.equinox.p2.metadata.Version;
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.MavenMappingImpl#getArtifactId <em>Artifact Id</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.MavenMappingImpl#getVersionPattern <em>Version Pattern</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.MavenMappingImpl#getVersionTemplate <em>Version Template</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.MavenMappingImpl#isSnapshot <em>Snapshot</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class MavenMappingImpl extends MinimalEObjectImpl.Container implements MavenMapping {
 
-	static final String MAVEN_SOURCES_CLASSIFIER = "sources";
+	public static final String MAVEN_SOURCES_CLASSIFIER = "sources";
 
 	private static final String P2_SOURCE_SUFFIX = ".source";
 
@@ -198,6 +199,26 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 	protected String versionTemplate = VERSION_TEMPLATE_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #isSnapshot() <em>Snapshot</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSnapshot()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean SNAPSHOT_EDEFAULT = false;
+
+	/**
+	 * The flag representing the value of the '{@link #isSnapshot() <em>Snapshot</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSnapshot()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int SNAPSHOT_EFLAG = 1 << 0;
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -292,6 +313,8 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 				return getVersionPattern();
 			case AggregatorPackage.MAVEN_MAPPING__VERSION_TEMPLATE:
 				return getVersionTemplate();
+			case AggregatorPackage.MAVEN_MAPPING__SNAPSHOT:
+				return isSnapshot();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -323,6 +346,8 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 			case AggregatorPackage.MAVEN_MAPPING__VERSION_TEMPLATE:
 				return VERSION_TEMPLATE_EDEFAULT == null ? versionTemplate != null
 						: !VERSION_TEMPLATE_EDEFAULT.equals(versionTemplate);
+			case AggregatorPackage.MAVEN_MAPPING__SNAPSHOT:
+				return ((eFlags & SNAPSHOT_EFLAG) != 0) != SNAPSHOT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -361,6 +386,9 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 				return;
 			case AggregatorPackage.MAVEN_MAPPING__VERSION_TEMPLATE:
 				setVersionTemplate((String) newValue);
+				return;
+			case AggregatorPackage.MAVEN_MAPPING__SNAPSHOT:
+				setSnapshot((Boolean) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -405,6 +433,9 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 				return;
 			case AggregatorPackage.MAVEN_MAPPING__VERSION_TEMPLATE:
 				setVersionTemplate(VERSION_TEMPLATE_EDEFAULT);
+				return;
+			case AggregatorPackage.MAVEN_MAPPING__SNAPSHOT:
+				setSnapshot(SNAPSHOT_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -649,6 +680,33 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isSnapshot() {
+		return (eFlags & SNAPSHOT_EFLAG) != 0;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setSnapshot(boolean newSnapshot) {
+		boolean oldSnapshot = (eFlags & SNAPSHOT_EFLAG) != 0;
+		if (newSnapshot)
+			eFlags |= SNAPSHOT_EFLAG;
+		else
+			eFlags &= ~SNAPSHOT_EFLAG;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.MAVEN_MAPPING__SNAPSHOT,
+					oldSnapshot, newSnapshot));
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -674,6 +732,8 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 		result.append(versionPattern);
 		result.append(", versionTemplate: ");
 		result.append(versionTemplate);
+		result.append(", snapshot: ");
+		result.append((eFlags & SNAPSHOT_EFLAG) != 0);
 		result.append(')');
 		return result.toString();
 	}

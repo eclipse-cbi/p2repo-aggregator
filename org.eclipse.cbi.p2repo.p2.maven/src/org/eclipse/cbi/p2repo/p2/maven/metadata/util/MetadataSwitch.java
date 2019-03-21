@@ -9,11 +9,13 @@ package org.eclipse.cbi.p2repo.p2.maven.metadata.util;
 import org.eclipse.cbi.p2repo.p2.maven.metadata.DocumentRoot;
 import org.eclipse.cbi.p2repo.p2.maven.metadata.MetaData;
 import org.eclipse.cbi.p2repo.p2.maven.metadata.MetadataPackage;
+import org.eclipse.cbi.p2repo.p2.maven.metadata.Plugin;
+import org.eclipse.cbi.p2repo.p2.maven.metadata.PluginsType;
 import org.eclipse.cbi.p2repo.p2.maven.metadata.Snapshot;
 import org.eclipse.cbi.p2repo.p2.maven.metadata.SnapshotVersion;
-import org.eclipse.cbi.p2repo.p2.maven.metadata.SnapshotVersions;
+import org.eclipse.cbi.p2repo.p2.maven.metadata.SnapshotVersionsType;
 import org.eclipse.cbi.p2repo.p2.maven.metadata.Versioning;
-import org.eclipse.cbi.p2repo.p2.maven.metadata.Versions;
+import org.eclipse.cbi.p2repo.p2.maven.metadata.VersionsType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
@@ -80,6 +82,36 @@ public class MetadataSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Plugin</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Plugin</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePlugin(Plugin object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Plugins Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Plugins Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePluginsType(PluginsType object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Versioning</em>'.
 	 * <!-- begin-user-doc --> This implementation
 	 * returns null; returning a non-null result will terminate the switch. <!--
@@ -94,16 +126,17 @@ public class MetadataSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Versions</em>'.
-	 * <!-- begin-user-doc --> This implementation returns
-	 * null; returning a non-null result will terminate the switch. <!--
-	 * end-user-doc -->
+	 * Returns the result of interpreting the object as an instance of '<em>Versions Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Versions</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Versions Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseVersions(Versions object) {
+	public T caseVersionsType(VersionsType object) {
 		return null;
 	}
 
@@ -123,21 +156,6 @@ public class MetadataSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Snapshot Versions</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Snapshot Versions</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSnapshotVersions(SnapshotVersions object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Snapshot Version</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -149,6 +167,21 @@ public class MetadataSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSnapshotVersion(SnapshotVersion object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Snapshot Versions Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Snapshot Versions Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSnapshotVersionsType(SnapshotVersionsType object) {
 		return null;
 	}
 
@@ -191,16 +224,16 @@ public class MetadataSwitch<T> extends Switch<T> {
 					result = defaultCase(theEObject);
 				return result;
 			}
-			case MetadataPackage.VERSIONING: {
-				Versioning versioning = (Versioning) theEObject;
-				T result = caseVersioning(versioning);
+			case MetadataPackage.PLUGIN: {
+				Plugin plugin = (Plugin) theEObject;
+				T result = casePlugin(plugin);
 				if (result == null)
 					result = defaultCase(theEObject);
 				return result;
 			}
-			case MetadataPackage.VERSIONS: {
-				Versions versions = (Versions) theEObject;
-				T result = caseVersions(versions);
+			case MetadataPackage.PLUGINS_TYPE: {
+				PluginsType pluginsType = (PluginsType) theEObject;
+				T result = casePluginsType(pluginsType);
 				if (result == null)
 					result = defaultCase(theEObject);
 				return result;
@@ -212,16 +245,30 @@ public class MetadataSwitch<T> extends Switch<T> {
 					result = defaultCase(theEObject);
 				return result;
 			}
-			case MetadataPackage.SNAPSHOT_VERSIONS: {
-				SnapshotVersions snapshotVersions = (SnapshotVersions) theEObject;
-				T result = caseSnapshotVersions(snapshotVersions);
+			case MetadataPackage.SNAPSHOT_VERSION: {
+				SnapshotVersion snapshotVersion = (SnapshotVersion) theEObject;
+				T result = caseSnapshotVersion(snapshotVersion);
 				if (result == null)
 					result = defaultCase(theEObject);
 				return result;
 			}
-			case MetadataPackage.SNAPSHOT_VERSION: {
-				SnapshotVersion snapshotVersion = (SnapshotVersion) theEObject;
-				T result = caseSnapshotVersion(snapshotVersion);
+			case MetadataPackage.SNAPSHOT_VERSIONS_TYPE: {
+				SnapshotVersionsType snapshotVersionsType = (SnapshotVersionsType) theEObject;
+				T result = caseSnapshotVersionsType(snapshotVersionsType);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MetadataPackage.VERSIONING: {
+				Versioning versioning = (Versioning) theEObject;
+				T result = caseVersioning(versioning);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MetadataPackage.VERSIONS_TYPE: {
+				VersionsType versionsType = (VersionsType) theEObject;
+				T result = caseVersionsType(versionsType);
 				if (result == null)
 					result = defaultCase(theEObject);
 				return result;

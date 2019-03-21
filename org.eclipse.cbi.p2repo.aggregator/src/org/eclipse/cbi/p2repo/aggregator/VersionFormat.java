@@ -53,13 +53,13 @@ public enum VersionFormat implements Enumerator {
 	 */
 	MAVEN_RELEASE(2, "MavenRelease", "MavenRelease"),
 	/**
-	* The '<em><b>Maven Snapshot</b></em>' literal object.
-	* <!-- begin-user-doc -->
+	 * The '<em><b>Maven Snapshot</b></em>' literal object.
+	 * <!-- begin-user-doc -->
 	* <!-- end-user-doc -->
-	* @see #MAVEN_SNAPSHOT_VALUE
-	* @generated
-	* @ordered
-	*/
+	 * @see #MAVEN_SNAPSHOT_VALUE
+	 * @generated
+	 * @ordered
+	 */
 	MAVEN_SNAPSHOT(3, "MavenSnapshot", "MavenSnapshot");
 
 	/**

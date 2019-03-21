@@ -37,6 +37,9 @@ public interface DocumentRoot extends EObject {
 	 * clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 1.0.0+
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Metadata</em>' containment reference.
 	 * @see #setMetadata(MetaData)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.metadata.MetadataPackage#getDocumentRoot_Metadata()

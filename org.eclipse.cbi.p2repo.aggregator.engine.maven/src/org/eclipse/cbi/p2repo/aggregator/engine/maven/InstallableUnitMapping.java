@@ -113,6 +113,10 @@ public class InstallableUnitMapping implements IInstallableUnit {
 
 	private VersionFormat versionFormat;
 
+	private int mavenBuildNumber;
+
+	private boolean hasSources;
+
 	public InstallableUnitMapping(Contribution contribution, IInstallableUnit iu) {
 		this(contribution, iu, Collections.<MavenMapping> emptyList());
 	}
@@ -159,6 +163,7 @@ public class InstallableUnitMapping implements IInstallableUnit {
 		}
 		Aggregation aggregation = (Aggregation) ((EObject) contribution).eContainer().eContainer();
 		versionFormat = aggregation.getVersionFormat();
+		mavenBuildNumber = aggregation.getMavenBuildNumber();
 	}
 
 	public InstallableUnitMapping(String name) {
@@ -195,7 +200,7 @@ public class InstallableUnitMapping implements IInstallableUnit {
 			Parent newParent = PomFactory.eINSTANCE.createParent();
 			newParent.setGroupId(parent.map().getGroupId());
 			newParent.setArtifactId(parent.map().getArtifactId());
-			newParent.setVersion(parent.getVersionString());
+			newParent.setVersion(parent.getVersionString(false, -1));
 			model.setParent(newParent);
 		}
 		model.setModelVersion(POM.MODEL_VERSION);
@@ -205,7 +210,7 @@ public class InstallableUnitMapping implements IInstallableUnit {
 			model.setPackaging("pom");
 
 		if(getVersion() != null && !getVersion().equals(Version.emptyVersion))
-			model.setVersion(getVersionString());
+			model.setVersion(getVersionString(false, -1));
 
 		Collection<IRequirement> requirements = getRequirements();
 		if(requirements.size() > 0) {
@@ -422,7 +427,7 @@ public class InstallableUnitMapping implements IInstallableUnit {
 		String fileId = mapped.getArtifactId();
 		StringBuilder fileName = new StringBuilder(fileId);
 		fileName.append('-');
-		fileName.append(getVersionString());
+		fileName.append(getVersionString(true, mavenBuildNumber));
 		if(isSourceArtifact())
 			fileName.append('-').append(mapped.getClassifier());
 
@@ -516,10 +521,7 @@ public class InstallableUnitMapping implements IInstallableUnit {
 
 	public String getRelativePath() throws CoreException {
 		String artifactId = map().getArtifactId();
-		String versionPath = getVersionString();
-		if (this.versionFormat == VersionFormat.MAVEN_SNAPSHOT) {
-			versionPath = VersionUtil.versionAsSnapshot(versionPath); // 1.2.3-SNAPSHOT
-		}
+		String versionPath = getVersionString(false, -1);
 		return map().getGroupId().replace('.', '/') + "/" + artifactId + "/" + versionPath;
 	}
 
@@ -573,10 +575,14 @@ public class InstallableUnitMapping implements IInstallableUnit {
 		return versionFormat;
 	}
 
-	public String getVersionString() {
-		if(this.mapped != null && this.mapped.getMappedVersion() != null)
-			return this.mapped.getMappedVersion();
-		return VersionUtil.getVersionString(getVersion(), versionFormat);
+	public String getVersionString(boolean fineGrained, int mavenBuildNumber) {
+		if (this.mapped != null && this.mapped.getMappedVersion() != null) {
+			String mappedVersion = this.mapped.getMappedVersion();
+			if (!fineGrained && versionFormat == VersionFormat.MAVEN_SNAPSHOT)
+				return VersionUtil.versionAsSnapshot(mappedVersion);
+			return mappedVersion;
+		}
+		return VersionUtil.getVersionString(getVersion(), versionFormat, fineGrained, mavenBuildNumber);
 	}
 
 	public String getVersionStringForDependency(MavenItem dependencyMapping, Version dependencyVersion) {
@@ -586,7 +592,7 @@ public class InstallableUnitMapping implements IInstallableUnit {
 			if(mappedVersion != null)
 				return mappedVersion;
 		}
-		return VersionUtil.getVersionString(dependencyVersion, versionFormat);
+		return VersionUtil.getVersionString(dependencyVersion, versionFormat, false, -1);
 	}
 
 	@Override
@@ -623,9 +629,13 @@ public class InstallableUnitMapping implements IInstallableUnit {
 
 		mapped = map(getId(), mappings);
 		if (mapped != null && this.versionFormat != VersionFormat.MAVEN_SNAPSHOT) {
-			String mappedVersion = this.mapped.getMappedVersion();
-			if (mappedVersion != null && mappedVersion.contains(VersionUtil.DASH_SNAPSHOT))
+			if (mapped.getMavenMapping().isSnapshot()) {
 				versionFormat = VersionFormat.MAVEN_SNAPSHOT; // override global format
+			} else { // fade out the following workaround?
+				String mappedVersion = this.mapped.getMappedVersion();
+				if (mappedVersion != null && mappedVersion.contains(VersionUtil.DASH_SNAPSHOT))
+					versionFormat = VersionFormat.MAVEN_SNAPSHOT; // override global format
+			}
 		}
 		return mapped;
 	}
@@ -691,5 +701,13 @@ public class InstallableUnitMapping implements IInstallableUnit {
 	@Override
 	public IInstallableUnit unresolved() {
 		return installableUnit.unresolved();
+	}
+
+	public void setHasSources(boolean flag) {
+		this.hasSources = flag;
+	}
+
+	public boolean hasSources() {
+		return hasSources;
 	}
 }

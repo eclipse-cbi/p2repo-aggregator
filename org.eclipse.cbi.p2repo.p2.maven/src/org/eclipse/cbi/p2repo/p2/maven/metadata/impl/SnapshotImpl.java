@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <ul>
  *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.impl.SnapshotImpl#getTimestamp <em>Timestamp</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.impl.SnapshotImpl#getBuildNumber <em>Build Number</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.impl.SnapshotImpl#isLocalCopy <em>Local Copy</em>}</li>
  * </ul>
  *
  * @generated
@@ -52,7 +53,7 @@ public class SnapshotImpl extends EObjectImpl implements Snapshot {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String BUILD_NUMBER_EDEFAULT = null;
+	protected static final int BUILD_NUMBER_EDEFAULT = 0;
 
 	/**
 	 * The cached value of the '{@link #getBuildNumber() <em>Build Number</em>}' attribute.
@@ -62,7 +63,45 @@ public class SnapshotImpl extends EObjectImpl implements Snapshot {
 	 * @generated
 	 * @ordered
 	 */
-	protected String buildNumber = BUILD_NUMBER_EDEFAULT;
+	protected int buildNumber = BUILD_NUMBER_EDEFAULT;
+
+	/**
+	 * This is true if the Build Number attribute has been set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean buildNumberESet;
+
+	/**
+	 * The default value of the '{@link #isLocalCopy() <em>Local Copy</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isLocalCopy()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean LOCAL_COPY_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isLocalCopy() <em>Local Copy</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isLocalCopy()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean localCopy = LOCAL_COPY_EDEFAULT;
+
+	/**
+	 * This is true if the Local Copy attribute has been set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean localCopyESet;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -113,7 +152,7 @@ public class SnapshotImpl extends EObjectImpl implements Snapshot {
 	 * @generated
 	 */
 	@Override
-	public String getBuildNumber() {
+	public int getBuildNumber() {
 		return buildNumber;
 	}
 
@@ -123,12 +162,92 @@ public class SnapshotImpl extends EObjectImpl implements Snapshot {
 	 * @generated
 	 */
 	@Override
-	public void setBuildNumber(String newBuildNumber) {
-		String oldBuildNumber = buildNumber;
+	public void setBuildNumber(int newBuildNumber) {
+		int oldBuildNumber = buildNumber;
 		buildNumber = newBuildNumber;
+		boolean oldBuildNumberESet = buildNumberESet;
+		buildNumberESet = true;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, MetadataPackage.SNAPSHOT__BUILD_NUMBER,
-					oldBuildNumber, buildNumber));
+					oldBuildNumber, buildNumber, !oldBuildNumberESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void unsetBuildNumber() {
+		int oldBuildNumber = buildNumber;
+		boolean oldBuildNumberESet = buildNumberESet;
+		buildNumber = BUILD_NUMBER_EDEFAULT;
+		buildNumberESet = false;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, MetadataPackage.SNAPSHOT__BUILD_NUMBER,
+					oldBuildNumber, BUILD_NUMBER_EDEFAULT, oldBuildNumberESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isSetBuildNumber() {
+		return buildNumberESet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isLocalCopy() {
+		return localCopy;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setLocalCopy(boolean newLocalCopy) {
+		boolean oldLocalCopy = localCopy;
+		localCopy = newLocalCopy;
+		boolean oldLocalCopyESet = localCopyESet;
+		localCopyESet = true;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetadataPackage.SNAPSHOT__LOCAL_COPY, oldLocalCopy,
+					localCopy, !oldLocalCopyESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void unsetLocalCopy() {
+		boolean oldLocalCopy = localCopy;
+		boolean oldLocalCopyESet = localCopyESet;
+		localCopy = LOCAL_COPY_EDEFAULT;
+		localCopyESet = false;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, MetadataPackage.SNAPSHOT__LOCAL_COPY, oldLocalCopy,
+					LOCAL_COPY_EDEFAULT, oldLocalCopyESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isSetLocalCopy() {
+		return localCopyESet;
 	}
 
 	/**
@@ -143,6 +262,8 @@ public class SnapshotImpl extends EObjectImpl implements Snapshot {
 				return getTimestamp();
 			case MetadataPackage.SNAPSHOT__BUILD_NUMBER:
 				return getBuildNumber();
+			case MetadataPackage.SNAPSHOT__LOCAL_COPY:
+				return isLocalCopy();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -159,7 +280,10 @@ public class SnapshotImpl extends EObjectImpl implements Snapshot {
 				setTimestamp((String) newValue);
 				return;
 			case MetadataPackage.SNAPSHOT__BUILD_NUMBER:
-				setBuildNumber((String) newValue);
+				setBuildNumber((Integer) newValue);
+				return;
+			case MetadataPackage.SNAPSHOT__LOCAL_COPY:
+				setLocalCopy((Boolean) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -177,7 +301,10 @@ public class SnapshotImpl extends EObjectImpl implements Snapshot {
 				setTimestamp(TIMESTAMP_EDEFAULT);
 				return;
 			case MetadataPackage.SNAPSHOT__BUILD_NUMBER:
-				setBuildNumber(BUILD_NUMBER_EDEFAULT);
+				unsetBuildNumber();
+				return;
+			case MetadataPackage.SNAPSHOT__LOCAL_COPY:
+				unsetLocalCopy();
 				return;
 		}
 		super.eUnset(featureID);
@@ -194,7 +321,9 @@ public class SnapshotImpl extends EObjectImpl implements Snapshot {
 			case MetadataPackage.SNAPSHOT__TIMESTAMP:
 				return TIMESTAMP_EDEFAULT == null ? timestamp != null : !TIMESTAMP_EDEFAULT.equals(timestamp);
 			case MetadataPackage.SNAPSHOT__BUILD_NUMBER:
-				return BUILD_NUMBER_EDEFAULT == null ? buildNumber != null : !BUILD_NUMBER_EDEFAULT.equals(buildNumber);
+				return isSetBuildNumber();
+			case MetadataPackage.SNAPSHOT__LOCAL_COPY:
+				return isSetLocalCopy();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -213,7 +342,15 @@ public class SnapshotImpl extends EObjectImpl implements Snapshot {
 		result.append(" (timestamp: ");
 		result.append(timestamp);
 		result.append(", buildNumber: ");
-		result.append(buildNumber);
+		if (buildNumberESet)
+			result.append(buildNumber);
+		else
+			result.append("<unset>");
+		result.append(", localCopy: ");
+		if (localCopyESet)
+			result.append(localCopy);
+		else
+			result.append("<unset>");
 		result.append(')');
 		return result.toString();
 	}

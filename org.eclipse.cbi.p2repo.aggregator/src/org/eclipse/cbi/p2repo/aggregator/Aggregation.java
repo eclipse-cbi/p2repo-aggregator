@@ -379,6 +379,33 @@ public interface Aggregation extends DescriptionProvider, StatusProvider, InfosP
 	void setVersionFormat(VersionFormat value);
 
 	/**
+	 * Returns the value of the '<em><b>Maven Build Number</b></em>' attribute.
+	 * The default value is <code>"0"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Maven Build Number</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Maven Build Number</em>' attribute.
+	 * @see #setMavenBuildNumber(int)
+	 * @see org.eclipse.cbi.p2repo.aggregator.AggregatorPackage#getAggregation_MavenBuildNumber()
+	 * @model default="0" dataType="org.eclipse.emf.ecore.xml.type.Int"
+	 * @generated
+	 */
+	int getMavenBuildNumber();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#getMavenBuildNumber <em>Maven Build Number</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Maven Build Number</em>' attribute.
+	 * @see #getMavenBuildNumber()
+	 * @generated
+	 */
+	void setMavenBuildNumber(int value);
+
+	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#getPackedStrategy <em>Packed Strategy</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Packed Strategy</em>' attribute.

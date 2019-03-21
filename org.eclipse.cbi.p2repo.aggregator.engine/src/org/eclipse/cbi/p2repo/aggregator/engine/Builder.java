@@ -433,7 +433,7 @@ public class Builder extends ModelAbstractCommand {
 	private String trustedContributions;
 
 	@Option(name = "--validationContributions", usage = "(Deprecated) A comma separated list of contributions with repositories that will be used for aggregation validation only rather than mirrored or referenced into the final repository.", metaVar = "<contributions>")
-	private String validationContributions;;
+	private String validationContributions;
 
 	@Option(name = "--mavenResult", usage = "(Deprecated) Tells the aggregator to generate a hybrid repository that is compatible with p2 and maven2.")
 	private Boolean mavenResult;
@@ -441,18 +441,22 @@ public class Builder extends ModelAbstractCommand {
 	@Option(name = "--mirrorReferences", usage = "(Deprecated) Mirror all meta-data repository references from the contributed repositories.")
 	private boolean mirrorReferences = false;
 
-	// End of deprecated options
-
 	@Option(name = "--referenceIncludePattern", usage = "(Deprecated) Include only those references that matches the given regular expression pattern.", metaVar = "<regexp>", handler = PatternOptionHandler.class)
 	private Pattern referenceIncludePattern;
 
-	// === END OF OPTIONS ===
 
 	@Option(name = "--referenceExcludePattern", usage = "(Deprecated) Exclude all references that matches the given regular expression pattern. An exclusion takes precedence over an inclusion in case both patterns match a reference.", metaVar = "<regexp>", handler = PatternOptionHandler.class)
 	private Pattern referenceExcludePattern;
 
+	// End of deprecated options
+
 	@Option(name = "--agentLocation", usage = "The location of the p2 provisioning agent", metaVar = "directory")
 	private File agentLocation;
+
+	@Option(name = "--mavenBuildNumber", usage = "The build number to be used in metadata of maven snapshots", metaVar = "<number>")
+	private int mavenBuildNumber = -1;
+
+	// === END OF OPTIONS ===
 
 	@Argument
 	private List<String> unparsed = new ArrayList<String>();
@@ -1195,6 +1199,9 @@ public class Builder extends ModelAbstractCommand {
 	private void loadModel() throws CoreException {
 		try {
 			aggregation = loadModelFromFile();
+			if (mavenBuildNumber != -1) {
+				aggregation.setMavenBuildNumber(mavenBuildNumber); // may override build number from the model
+			}
 
 			verifyContributions();
 
@@ -1340,7 +1347,7 @@ public class Builder extends ModelAbstractCommand {
 
 		MavenManager.saveMetadata(
 			org.eclipse.emf.common.util.URI.createFileURI(aggregateDestination.getAbsolutePath()), mavenHelper.getTop(),
-			errors);
+				errors, aggregation.getMavenBuildNumber());
 
 		if(errors.size() > 0) {
 			everythingOk = false;

@@ -10,11 +10,13 @@ import org.eclipse.cbi.p2repo.p2.maven.metadata.DocumentRoot;
 import org.eclipse.cbi.p2repo.p2.maven.metadata.MetaData;
 import org.eclipse.cbi.p2repo.p2.maven.metadata.MetadataFactory;
 import org.eclipse.cbi.p2repo.p2.maven.metadata.MetadataPackage;
+import org.eclipse.cbi.p2repo.p2.maven.metadata.Plugin;
+import org.eclipse.cbi.p2repo.p2.maven.metadata.PluginsType;
 import org.eclipse.cbi.p2repo.p2.maven.metadata.Snapshot;
 import org.eclipse.cbi.p2repo.p2.maven.metadata.SnapshotVersion;
-import org.eclipse.cbi.p2repo.p2.maven.metadata.SnapshotVersions;
+import org.eclipse.cbi.p2repo.p2.maven.metadata.SnapshotVersionsType;
 import org.eclipse.cbi.p2repo.p2.maven.metadata.Versioning;
-import org.eclipse.cbi.p2repo.p2.maven.metadata.Versions;
+import org.eclipse.cbi.p2repo.p2.maven.metadata.VersionsType;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -77,16 +79,20 @@ public class MetadataFactoryImpl extends EFactoryImpl implements MetadataFactory
 				return createDocumentRoot();
 			case MetadataPackage.META_DATA:
 				return createMetaData();
-			case MetadataPackage.VERSIONING:
-				return createVersioning();
-			case MetadataPackage.VERSIONS:
-				return createVersions();
+			case MetadataPackage.PLUGIN:
+				return createPlugin();
+			case MetadataPackage.PLUGINS_TYPE:
+				return createPluginsType();
 			case MetadataPackage.SNAPSHOT:
 				return createSnapshot();
-			case MetadataPackage.SNAPSHOT_VERSIONS:
-				return createSnapshotVersions();
 			case MetadataPackage.SNAPSHOT_VERSION:
 				return createSnapshotVersion();
+			case MetadataPackage.SNAPSHOT_VERSIONS_TYPE:
+				return createSnapshotVersionsType();
+			case MetadataPackage.VERSIONING:
+				return createVersioning();
+			case MetadataPackage.VERSIONS_TYPE:
+				return createVersionsType();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -113,6 +119,28 @@ public class MetadataFactoryImpl extends EFactoryImpl implements MetadataFactory
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Plugin createPlugin() {
+		PluginImpl plugin = new PluginImpl();
+		return plugin;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public PluginsType createPluginsType() {
+		PluginsTypeImpl pluginsType = new PluginsTypeImpl();
+		return pluginsType;
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -123,13 +151,14 @@ public class MetadataFactoryImpl extends EFactoryImpl implements MetadataFactory
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Versions createVersions() {
-		VersionsImpl versions = new VersionsImpl();
-		return versions;
+	public VersionsType createVersionsType() {
+		VersionsTypeImpl versionsType = new VersionsTypeImpl();
+		return versionsType;
 	}
 
 	/**
@@ -149,9 +178,9 @@ public class MetadataFactoryImpl extends EFactoryImpl implements MetadataFactory
 	 * @generated
 	 */
 	@Override
-	public SnapshotVersions createSnapshotVersions() {
-		SnapshotVersionsImpl snapshotVersions = new SnapshotVersionsImpl();
-		return snapshotVersions;
+	public SnapshotVersion createSnapshotVersion() {
+		SnapshotVersionImpl snapshotVersion = new SnapshotVersionImpl();
+		return snapshotVersion;
 	}
 
 	/**
@@ -160,9 +189,9 @@ public class MetadataFactoryImpl extends EFactoryImpl implements MetadataFactory
 	 * @generated
 	 */
 	@Override
-	public SnapshotVersion createSnapshotVersion() {
-		SnapshotVersionImpl snapshotVersion = new SnapshotVersionImpl();
-		return snapshotVersion;
+	public SnapshotVersionsType createSnapshotVersionsType() {
+		SnapshotVersionsTypeImpl snapshotVersionsType = new SnapshotVersionsTypeImpl();
+		return snapshotVersionsType;
 	}
 
 	/**

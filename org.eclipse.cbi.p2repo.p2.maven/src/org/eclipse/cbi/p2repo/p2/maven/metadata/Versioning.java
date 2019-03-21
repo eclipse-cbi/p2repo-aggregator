@@ -13,22 +13,19 @@ import org.eclipse.emf.ecore.EObject;
  * '<em><b>Versioning</b></em>'. <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * 1.0.0
- *
- * 				Container for the current set of versions and the last
- * 				update element.
- *
+ * 1.0.0+
+ * Versioning information for an artifact (un-versioned or snapshot)
  * <!-- end-model-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.Versioning#getRelease <em>Release</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.Versioning#getLatest <em>Latest</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.Versioning#getRelease <em>Release</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.Versioning#getSnapshot <em>Snapshot</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.Versioning#getVersions <em>Versions</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.Versioning#getLastUpdated <em>Last Updated</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.Versioning#getSnapshot <em>Snapshot</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.Versioning#getSnapshotVersions <em>Snapshot Versions</em>}</li>
  * </ul>
  *
@@ -121,7 +118,17 @@ public interface Versioning extends EObject {
 	 *        namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Versions getVersions();
+	VersionsType getVersions();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.Versioning#getVersions <em>Versions</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Versions</em>' containment reference.
+	 * @see #getVersions()
+	 * @generated
+	 */
+	void setVersions(VersionsType value);
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.Versioning#getLastUpdated <em>Last Updated</em>}' attribute.
@@ -141,10 +148,15 @@ public interface Versioning extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 1.0.0+
+	 * The current snapshot data in use for this version (artifact snapshots only)
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Snapshot</em>' containment reference.
 	 * @see #setSnapshot(Snapshot)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.metadata.MetadataPackage#getVersioning_Snapshot()
 	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='snapshot' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Snapshot getSnapshot();
@@ -167,13 +179,18 @@ public interface Versioning extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 1.1.0+
+	 * Information for each sub-artifact available in this artifact snapshot.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Snapshot Versions</em>' containment reference.
-	 * @see #setSnapshotVersions(SnapshotVersions)
+	 * @see #setSnapshotVersions(SnapshotVersionsType)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.metadata.MetadataPackage#getVersioning_SnapshotVersions()
 	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='snapshotVersions' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	SnapshotVersions getSnapshotVersions();
+	SnapshotVersionsType getSnapshotVersions();
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.Versioning#getSnapshotVersions <em>Snapshot Versions</em>}' containment reference.
@@ -183,7 +200,7 @@ public interface Versioning extends EObject {
 	 * @see #getSnapshotVersions()
 	 * @generated
 	 */
-	void setSnapshotVersions(SnapshotVersions value);
+	void setSnapshotVersions(SnapshotVersionsType value);
 
 	/**
 	 * Sets the value of the
@@ -210,15 +227,5 @@ public interface Versioning extends EObject {
 	 * @generated
 	 */
 	void setRelease(String value);
-
-	/**
-	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.Versioning#getVersions <em>Versions</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * @param value the new value of the '<em>Versions</em>' containment reference.
-	 * @see #getVersions()
-	 * @generated
-	 */
-	void setVersions(Versions value);
 
 } // Versioning

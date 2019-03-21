@@ -24,6 +24,7 @@ import org.eclipse.equinox.p2.metadata.Version;
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.MavenMapping#getArtifactId <em>Artifact Id</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.MavenMapping#getVersionPattern <em>Version Pattern</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.MavenMapping#getVersionTemplate <em>Version Template</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.MavenMapping#isSnapshot <em>Snapshot</em>}</li>
  * </ul>
  *
  * @see org.eclipse.cbi.p2repo.aggregator.AggregatorPackage#getMavenMapping()
@@ -138,6 +139,29 @@ public interface MavenMapping extends StatusProvider, InfosProvider {
 	 * @generated
 	 */
 	void setVersionTemplate(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Snapshot</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Snapshot</em>' attribute.
+	 * @see #setSnapshot(boolean)
+	 * @see org.eclipse.cbi.p2repo.aggregator.AggregatorPackage#getMavenMapping_Snapshot()
+	 * @model default="false" dataType="org.eclipse.emf.ecore.xml.type.Boolean" required="true"
+	 * @generated
+	 */
+	boolean isSnapshot();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.MavenMapping#isSnapshot <em>Snapshot</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Snapshot</em>' attribute.
+	 * @see #isSnapshot()
+	 * @generated
+	 */
+	void setSnapshot(boolean value);
 
 	/**
 	 * <!-- begin-user-doc -->

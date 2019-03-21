@@ -126,6 +126,22 @@ public class MavenMappingItemProvider extends AggregatorItemProviderAdapter
 	}
 
 	/**
+	 * This adds a property descriptor for the Snapshot feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSnapshotPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_MavenMapping_snapshot_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_MavenMapping_snapshot_feature",
+								"_UI_MavenMapping_type"),
+						AggregatorPackage.Literals.MAVEN_MAPPING__SNAPSHOT, true, false, false,
+						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+	}
+
+	/**
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -161,6 +177,7 @@ public class MavenMappingItemProvider extends AggregatorItemProviderAdapter
 			addArtifactIdPropertyDescriptor(object);
 			addVersionPatternPropertyDescriptor(object);
 			addVersionTemplatePropertyDescriptor(object);
+			addSnapshotPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -237,6 +254,7 @@ public class MavenMappingItemProvider extends AggregatorItemProviderAdapter
 			case AggregatorPackage.MAVEN_MAPPING__ARTIFACT_ID:
 			case AggregatorPackage.MAVEN_MAPPING__VERSION_PATTERN:
 			case AggregatorPackage.MAVEN_MAPPING__VERSION_TEMPLATE:
+			case AggregatorPackage.MAVEN_MAPPING__SNAPSHOT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

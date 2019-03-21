@@ -168,6 +168,22 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Maven Build Number feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMavenBuildNumberPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Aggregation_mavenBuildNumber_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Aggregation_mavenBuildNumber_feature",
+								"_UI_Aggregation_type"),
+						AggregatorPackage.Literals.AGGREGATION__MAVEN_BUILD_NUMBER, true, false, false,
+						ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Packed Strategy feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -308,6 +324,7 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider {
 			addMavenResultPropertyDescriptor(object);
 			addStrictMavenVersionsPropertyDescriptor(object);
 			addVersionFormatPropertyDescriptor(object);
+			addMavenBuildNumberPropertyDescriptor(object);
 			addAllowLegacySitesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -360,6 +377,7 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider {
 			case AggregatorPackage.AGGREGATION__MAVEN_RESULT:
 			case AggregatorPackage.AGGREGATION__STRICT_MAVEN_VERSIONS:
 			case AggregatorPackage.AGGREGATION__VERSION_FORMAT:
+			case AggregatorPackage.AGGREGATION__MAVEN_BUILD_NUMBER:
 			case AggregatorPackage.AGGREGATION__ALLOW_LEGACY_SITES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

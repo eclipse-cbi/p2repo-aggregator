@@ -429,6 +429,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		createEAttribute(aggregationEClass, AGGREGATION__MAVEN_RESULT);
 		createEAttribute(aggregationEClass, AGGREGATION__STRICT_MAVEN_VERSIONS);
 		createEAttribute(aggregationEClass, AGGREGATION__VERSION_FORMAT);
+		createEAttribute(aggregationEClass, AGGREGATION__MAVEN_BUILD_NUMBER);
 		createEReference(aggregationEClass, AGGREGATION__MAVEN_MAPPINGS);
 		createEAttribute(aggregationEClass, AGGREGATION__ALLOW_LEGACY_SITES);
 
@@ -527,6 +528,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		createEAttribute(mavenMappingEClass, MAVEN_MAPPING__ARTIFACT_ID);
 		createEAttribute(mavenMappingEClass, MAVEN_MAPPING__VERSION_PATTERN);
 		createEAttribute(mavenMappingEClass, MAVEN_MAPPING__VERSION_TEMPLATE);
+		createEAttribute(mavenMappingEClass, MAVEN_MAPPING__SNAPSHOT);
 
 		metadataRepositoryReferenceEClass = createEClass(METADATA_REPOSITORY_REFERENCE);
 		createEReference(metadataRepositoryReferenceEClass, METADATA_REPOSITORY_REFERENCE__METADATA_REPOSITORY);
@@ -587,7 +589,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	 */
 	@Override
 	public EAttribute getAggregation_AllowLegacySites() {
-		return (EAttribute) aggregationEClass.getEStructuralFeatures().get(15);
+		return (EAttribute) aggregationEClass.getEStructuralFeatures().get(16);
 	}
 
 	/**
@@ -667,7 +669,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	 */
 	@Override
 	public EReference getAggregation_MavenMappings() {
-		return (EReference) aggregationEClass.getEStructuralFeatures().get(14);
+		return (EReference) aggregationEClass.getEStructuralFeatures().get(15);
 	}
 
 	/**
@@ -698,6 +700,16 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	@Override
 	public EAttribute getAggregation_VersionFormat() {
 		return (EAttribute) aggregationEClass.getEStructuralFeatures().get(13);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getAggregation_MavenBuildNumber() {
+		return (EAttribute) aggregationEClass.getEStructuralFeatures().get(14);
 	}
 
 	/**
@@ -1457,6 +1469,16 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMavenMapping_Snapshot() {
+		return (EAttribute) mavenMappingEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -1861,6 +1883,9 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		initEAttribute(getAggregation_VersionFormat(), this.getVersionFormat(), "versionFormat", null, 0, 1,
 				Aggregation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAggregation_MavenBuildNumber(), theXMLTypePackage.getInt(), "mavenBuildNumber", "0", 0, 1,
+				Aggregation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 		initEReference(getAggregation_MavenMappings(), this.getMavenMapping(), null, "mavenMappings", null, 0, -1,
 				Aggregation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2145,6 +2170,9 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 				MavenMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMavenMapping_VersionTemplate(), ecorePackage.getEString(), "versionTemplate", null, 0, 1,
+				MavenMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMavenMapping_Snapshot(), theXMLTypePackage.getBoolean(), "snapshot", "false", 1, 1,
 				MavenMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
 

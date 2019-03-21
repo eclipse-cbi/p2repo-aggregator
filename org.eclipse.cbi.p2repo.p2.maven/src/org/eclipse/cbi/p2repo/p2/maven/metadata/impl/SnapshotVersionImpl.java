@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.impl.SnapshotVersionImpl#getClassifier <em>Classifier</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.impl.SnapshotVersionImpl#getExtension <em>Extension</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.impl.SnapshotVersionImpl#getValue <em>Value</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.impl.SnapshotVersionImpl#getUpdated <em>Updated</em>}</li>
@@ -25,6 +26,35 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * @generated
  */
 public class SnapshotVersionImpl extends EObjectImpl implements SnapshotVersion {
+	/**
+	 * The default value of the '{@link #getClassifier() <em>Classifier</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getClassifier()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CLASSIFIER_EDEFAULT = "";
+
+	/**
+	 * The cached value of the '{@link #getClassifier() <em>Classifier</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getClassifier()
+	 * @generated
+	 * @ordered
+	 */
+	protected String classifier = CLASSIFIER_EDEFAULT;
+
+	/**
+	 * This is true if the Classifier attribute has been set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean classifierESet;
+
 	/**
 	 * The default value of the '{@link #getExtension() <em>Extension</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -110,6 +140,58 @@ public class SnapshotVersionImpl extends EObjectImpl implements SnapshotVersion 
 	 * @generated
 	 */
 	@Override
+	public String getClassifier() {
+		return classifier;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setClassifier(String newClassifier) {
+		String oldClassifier = classifier;
+		classifier = newClassifier;
+		boolean oldClassifierESet = classifierESet;
+		classifierESet = true;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetadataPackage.SNAPSHOT_VERSION__CLASSIFIER,
+					oldClassifier, classifier, !oldClassifierESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void unsetClassifier() {
+		String oldClassifier = classifier;
+		boolean oldClassifierESet = classifierESet;
+		classifier = CLASSIFIER_EDEFAULT;
+		classifierESet = false;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, MetadataPackage.SNAPSHOT_VERSION__CLASSIFIER,
+					oldClassifier, CLASSIFIER_EDEFAULT, oldClassifierESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isSetClassifier() {
+		return classifierESet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public String getExtension() {
 		return extension;
 	}
@@ -184,6 +266,8 @@ public class SnapshotVersionImpl extends EObjectImpl implements SnapshotVersion 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case MetadataPackage.SNAPSHOT_VERSION__CLASSIFIER:
+				return getClassifier();
 			case MetadataPackage.SNAPSHOT_VERSION__EXTENSION:
 				return getExtension();
 			case MetadataPackage.SNAPSHOT_VERSION__VALUE:
@@ -202,6 +286,9 @@ public class SnapshotVersionImpl extends EObjectImpl implements SnapshotVersion 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case MetadataPackage.SNAPSHOT_VERSION__CLASSIFIER:
+				setClassifier((String) newValue);
+				return;
 			case MetadataPackage.SNAPSHOT_VERSION__EXTENSION:
 				setExtension((String) newValue);
 				return;
@@ -223,6 +310,9 @@ public class SnapshotVersionImpl extends EObjectImpl implements SnapshotVersion 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case MetadataPackage.SNAPSHOT_VERSION__CLASSIFIER:
+				unsetClassifier();
+				return;
 			case MetadataPackage.SNAPSHOT_VERSION__EXTENSION:
 				setExtension(EXTENSION_EDEFAULT);
 				return;
@@ -244,6 +334,8 @@ public class SnapshotVersionImpl extends EObjectImpl implements SnapshotVersion 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case MetadataPackage.SNAPSHOT_VERSION__CLASSIFIER:
+				return isSetClassifier();
 			case MetadataPackage.SNAPSHOT_VERSION__EXTENSION:
 				return EXTENSION_EDEFAULT == null ? extension != null : !EXTENSION_EDEFAULT.equals(extension);
 			case MetadataPackage.SNAPSHOT_VERSION__VALUE:
@@ -265,7 +357,12 @@ public class SnapshotVersionImpl extends EObjectImpl implements SnapshotVersion 
 			return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (extension: ");
+		result.append(" (classifier: ");
+		if (classifierESet)
+			result.append(classifier);
+		else
+			result.append("<unset>");
+		result.append(", extension: ");
 		result.append(extension);
 		result.append(", value: ");
 		result.append(value);

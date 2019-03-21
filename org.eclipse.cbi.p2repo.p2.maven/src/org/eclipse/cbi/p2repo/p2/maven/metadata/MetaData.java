@@ -13,12 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * Data</b></em>'. <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * 1.0.0
- *
- * 				The &lt;code&gt;&amp;lt;metadata&amp;gt;&lt;/code&gt;
- * 				element is the root of the descriptor. The following
- * 				table lists all of the possible child elements.
- *
+ * 1.0.0+
  * <!-- end-model-doc -->
  *
  * <p>
@@ -29,6 +24,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.MetaData#getArtifactId <em>Artifact Id</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.MetaData#getVersion <em>Version</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.MetaData#getVersioning <em>Versioning</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.MetaData#getPlugins <em>Plugins</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.MetaData#getModelVersion <em>Model Version</em>}</li>
  * </ul>
  *
  * @see org.eclipse.cbi.p2repo.p2.maven.metadata.MetadataPackage#getMetaData()
@@ -172,5 +169,59 @@ public interface MetaData extends EObject {
 	 * @generated
 	 */
 	void setVersioning(Versioning value);
+
+	/**
+	 * Returns the value of the '<em><b>Plugins</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 1.0.0+
+	 * The set of plugin mappings for the group represented by this directory
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Plugins</em>' containment reference.
+	 * @see #setPlugins(PluginsType)
+	 * @see org.eclipse.cbi.p2repo.p2.maven.metadata.MetadataPackage#getMetaData_Plugins()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='plugins' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	PluginsType getPlugins();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.MetaData#getPlugins <em>Plugins</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Plugins</em>' containment reference.
+	 * @see #getPlugins()
+	 * @generated
+	 */
+	void setPlugins(PluginsType value);
+
+	/**
+	 * Returns the value of the '<em><b>Model Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 1.1.0+
+	 * The version of the underlying metadata model.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Model Version</em>' attribute.
+	 * @see #setModelVersion(String)
+	 * @see org.eclipse.cbi.p2repo.p2.maven.metadata.MetadataPackage#getMetaData_ModelVersion()
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
+	 *        extendedMetaData="kind='attribute' name='modelVersion'"
+	 * @generated
+	 */
+	String getModelVersion();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.MetaData#getModelVersion <em>Model Version</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Model Version</em>' attribute.
+	 * @see #getModelVersion()
+	 * @generated
+	 */
+	void setModelVersion(String value);
 
 } // MetaData

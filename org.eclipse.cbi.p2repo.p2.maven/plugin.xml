@@ -22,7 +22,7 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated maven-metadata -->
       <package
-            uri="http://maven.apache.org/METADATA/1.0.0"
+            uri="http://maven.apache.org/METADATA/1.1.0"
             class="org.eclipse.cbi.p2repo.p2.maven.metadata.MetadataPackage"
             genModel="model/maven-metadata.genmodel"/>
    </extension>

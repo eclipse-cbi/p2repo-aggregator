@@ -9,11 +9,13 @@ package org.eclipse.cbi.p2repo.p2.maven.metadata.util;
 import org.eclipse.cbi.p2repo.p2.maven.metadata.DocumentRoot;
 import org.eclipse.cbi.p2repo.p2.maven.metadata.MetaData;
 import org.eclipse.cbi.p2repo.p2.maven.metadata.MetadataPackage;
+import org.eclipse.cbi.p2repo.p2.maven.metadata.Plugin;
+import org.eclipse.cbi.p2repo.p2.maven.metadata.PluginsType;
 import org.eclipse.cbi.p2repo.p2.maven.metadata.Snapshot;
 import org.eclipse.cbi.p2repo.p2.maven.metadata.SnapshotVersion;
-import org.eclipse.cbi.p2repo.p2.maven.metadata.SnapshotVersions;
+import org.eclipse.cbi.p2repo.p2.maven.metadata.SnapshotVersionsType;
 import org.eclipse.cbi.p2repo.p2.maven.metadata.Versioning;
-import org.eclipse.cbi.p2repo.p2.maven.metadata.Versions;
+import org.eclipse.cbi.p2repo.p2.maven.metadata.VersionsType;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
@@ -52,13 +54,13 @@ public class MetadataAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseVersioning(Versioning object) {
-			return createVersioningAdapter();
+		public Adapter casePlugin(Plugin object) {
+			return createPluginAdapter();
 		}
 
 		@Override
-		public Adapter caseVersions(Versions object) {
-			return createVersionsAdapter();
+		public Adapter casePluginsType(PluginsType object) {
+			return createPluginsTypeAdapter();
 		}
 
 		@Override
@@ -67,13 +69,23 @@ public class MetadataAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseSnapshotVersions(SnapshotVersions object) {
-			return createSnapshotVersionsAdapter();
+		public Adapter caseSnapshotVersion(SnapshotVersion object) {
+			return createSnapshotVersionAdapter();
 		}
 
 		@Override
-		public Adapter caseSnapshotVersion(SnapshotVersion object) {
-			return createSnapshotVersionAdapter();
+		public Adapter caseSnapshotVersionsType(SnapshotVersionsType object) {
+			return createSnapshotVersionsTypeAdapter();
+		}
+
+		@Override
+		public Adapter caseVersioning(Versioning object) {
+			return createVersioningAdapter();
+		}
+
+		@Override
+		public Adapter caseVersionsType(VersionsType object) {
+			return createVersionsTypeAdapter();
 		}
 
 		@Override
@@ -146,6 +158,34 @@ public class MetadataAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.Plugin <em>Plugin</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.cbi.p2repo.p2.maven.metadata.Plugin
+	 * @generated
+	 */
+	public Adapter createPluginAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.PluginsType <em>Plugins Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.cbi.p2repo.p2.maven.metadata.PluginsType
+	 * @generated
+	 */
+	public Adapter createPluginsTypeAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.Versioning <em>Versioning</em>}'.
 	 * <!-- begin-user-doc --> This default
 	 * implementation returns null so that we can easily ignore cases; it's
@@ -160,18 +200,16 @@ public class MetadataAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class
-	 * '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.Versions
-	 * <em>Versions</em>}'. <!-- begin-user-doc --> This default implementation
-	 * returns null so that we can easily ignore cases; it's useful to ignore a
-	 * case when inheritance will catch all the cases anyway. <!-- end-user-doc
-	 * -->
-	 *
+	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.VersionsType <em>Versions Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.cbi.p2repo.p2.maven.metadata.Versions
+	 * @see org.eclipse.cbi.p2repo.p2.maven.metadata.VersionsType
 	 * @generated
 	 */
-	public Adapter createVersionsAdapter() {
+	public Adapter createVersionsTypeAdapter() {
 		return null;
 	}
 
@@ -190,20 +228,6 @@ public class MetadataAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.SnapshotVersions <em>Snapshot Versions</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.cbi.p2repo.p2.maven.metadata.SnapshotVersions
-	 * @generated
-	 */
-	public Adapter createSnapshotVersionsAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.SnapshotVersion <em>Snapshot Version</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -214,6 +238,20 @@ public class MetadataAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSnapshotVersionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.SnapshotVersionsType <em>Snapshot Versions Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.cbi.p2repo.p2.maven.metadata.SnapshotVersionsType
+	 * @generated
+	 */
+	public Adapter createSnapshotVersionsTypeAdapter() {
 		return null;
 	}
 

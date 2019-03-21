@@ -162,6 +162,14 @@ public interface AggregatorPackage extends EPackage {
 		EAttribute AGGREGATION__VERSION_FORMAT = eINSTANCE.getAggregation_VersionFormat();
 
 		/**
+		 * The meta object literal for the '<em><b>Maven Build Number</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute AGGREGATION__MAVEN_BUILD_NUMBER = eINSTANCE.getAggregation_MavenBuildNumber();
+
+		/**
 		 * The meta object literal for the '<em><b>Maven Mappings</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -905,6 +913,14 @@ public interface AggregatorPackage extends EPackage {
 		EAttribute MAVEN_MAPPING__VERSION_TEMPLATE = eINSTANCE.getMavenMapping_VersionTemplate();
 
 		/**
+		 * The meta object literal for the '<em><b>Snapshot</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MAVEN_MAPPING__SNAPSHOT = eINSTANCE.getMavenMapping_Snapshot();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.MavenItemImpl <em>Maven Item</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * @see org.eclipse.cbi.p2repo.aggregator.impl.MavenItemImpl
@@ -1317,13 +1333,22 @@ public interface AggregatorPackage extends EPackage {
 	int AGGREGATION__VERSION_FORMAT = DESCRIPTION_PROVIDER_FEATURE_COUNT + 17;
 
 	/**
+	 * The feature id for the '<em><b>Maven Build Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AGGREGATION__MAVEN_BUILD_NUMBER = DESCRIPTION_PROVIDER_FEATURE_COUNT + 18;
+
+	/**
 	 * The feature id for the '<em><b>Maven Mappings</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATION__MAVEN_MAPPINGS = DESCRIPTION_PROVIDER_FEATURE_COUNT + 18;
+	int AGGREGATION__MAVEN_MAPPINGS = DESCRIPTION_PROVIDER_FEATURE_COUNT + 19;
 
 	/**
 	 * The feature id for the '<em><b>Allow Legacy Sites</b></em>' attribute.
@@ -1332,7 +1357,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATION__ALLOW_LEGACY_SITES = DESCRIPTION_PROVIDER_FEATURE_COUNT + 19;
+	int AGGREGATION__ALLOW_LEGACY_SITES = DESCRIPTION_PROVIDER_FEATURE_COUNT + 20;
 
 	/**
 	 * The number of structural features of the '<em>Aggregation</em>' class.
@@ -1341,7 +1366,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATION_FEATURE_COUNT = DESCRIPTION_PROVIDER_FEATURE_COUNT + 20;
+	int AGGREGATION_FEATURE_COUNT = DESCRIPTION_PROVIDER_FEATURE_COUNT + 21;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.EnabledStatusProvider <em>Enabled Status Provider</em>}' class.
@@ -3167,13 +3192,22 @@ public interface AggregatorPackage extends EPackage {
 	int MAVEN_MAPPING__VERSION_TEMPLATE = STATUS_PROVIDER_FEATURE_COUNT + 7;
 
 	/**
+	 * The feature id for the '<em><b>Snapshot</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAVEN_MAPPING__SNAPSHOT = STATUS_PROVIDER_FEATURE_COUNT + 8;
+
+	/**
 	 * The number of structural features of the '<em>Maven Mapping</em>' class.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MAVEN_MAPPING_FEATURE_COUNT = STATUS_PROVIDER_FEATURE_COUNT + 8;
+	int MAVEN_MAPPING_FEATURE_COUNT = STATUS_PROVIDER_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Status</b></em>' reference.
@@ -3807,6 +3841,17 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getAggregation_VersionFormat();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#getMavenBuildNumber <em>Maven Build Number</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Maven Build Number</em>'.
+	 * @see org.eclipse.cbi.p2repo.aggregator.Aggregation#getMavenBuildNumber()
+	 * @see #getAggregation()
+	 * @generated
+	 */
+	EAttribute getAggregation_MavenBuildNumber();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#getPackedStrategy <em>Packed Strategy</em>}'.
@@ -4654,6 +4699,17 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getMavenMapping_VersionTemplate();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.MavenMapping#isSnapshot <em>Snapshot</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Snapshot</em>'.
+	 * @see org.eclipse.cbi.p2repo.aggregator.MavenMapping#isSnapshot()
+	 * @see #getMavenMapping()
+	 * @generated
+	 */
+	EAttribute getMavenMapping_Snapshot();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.MavenMapping#getGroupId <em>Group Id</em>}'.

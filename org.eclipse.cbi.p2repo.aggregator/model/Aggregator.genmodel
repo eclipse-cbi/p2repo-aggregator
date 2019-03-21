@@ -108,6 +108,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//Aggregation/mavenResult"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//Aggregation/strictMavenVersions"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//Aggregation/versionFormat"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//Aggregation/mavenBuildNumber"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Aggregator.ecore#//Aggregation/mavenMappings"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//Aggregation/allowLegacySites"/>
       <genOperations ecoreOperation="Aggregator.ecore#//Aggregation/getAllMetadataRepositoryReferences">
@@ -245,6 +246,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//MavenMapping/artifactId"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//MavenMapping/versionPattern"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//MavenMapping/versionTemplate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//MavenMapping/snapshot"/>
       <genOperations ecoreOperation="Aggregator.ecore#//MavenMapping/map">
         <genParameters ecoreParameter="Aggregator.ecore#//MavenMapping/map/installableUnitID"/>
         <genParameters ecoreParameter="Aggregator.ecore#//MavenMapping/map/version"/>
