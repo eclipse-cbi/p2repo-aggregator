@@ -405,7 +405,7 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 			categoryTreePath[len] = category;
 
 			for(IRequirement requirement : category.getInstallableUnit().getRequirements()) {
-				for(IUPresentation iuPresentation : findMatchinIUs(requirement, iuMap)) {
+				for(IUPresentation iuPresentation : findMatchingIUs(requirement, iuMap)) {
 					if(visited.contains(iuPresentation))
 						// there's a recursion
 						continue;
@@ -448,7 +448,7 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 			}
 		}
 
-		private List<IUPresentation> findMatchinIUs(IRequirement rq, Map<String, Map<Version, IUPresentation>> iuMap) {
+		private List<IUPresentation> findMatchingIUs(IRequirement rq, Map<String, Map<Version, IUPresentation>> iuMap) {
 			List<IUPresentation> found = new ArrayList<IUPresentation>();
 			if(rq instanceof IRequiredCapability) {
 				Map<Version, IUPresentation> vps = iuMap.get(((IRequiredCapability) rq).getName());
