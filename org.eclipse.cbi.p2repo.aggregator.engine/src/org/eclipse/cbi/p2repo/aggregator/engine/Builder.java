@@ -222,11 +222,9 @@ public class Builder extends ModelAbstractCommand {
 
 	public static final Version ALL_CONTRIBUTED_CONTENT_VERSION = Version.createOSGi(1, 0, 0);
 
-	public static final String COMPOSITE_ARTIFACTS_TYPE = org.eclipse.equinox.internal.p2.artifact.repository.Activator.ID +
-			".compositeRepository"; //$NON-NLS-1$
+	public static final String COMPOSITE_ARTIFACTS_TYPE = "org.eclipse.equinox.p2.artifact.repository.compositeRepository"; //$NON-NLS-1$
 
-	public static final String COMPOSITE_METADATA_TYPE = org.eclipse.equinox.internal.p2.metadata.repository.Activator.ID +
-			".compositeRepository"; //$NON-NLS-1$
+	public static final String COMPOSITE_METADATA_TYPE = "org.eclipse.equinox.p2.metadata.repository.compositeRepository"; //$NON-NLS-1$
 
 	public static final String LINE_SEPARATOR = System.getProperty("line.separator"); //$NON-NLS-1$
 
@@ -246,11 +244,9 @@ public class Builder extends ModelAbstractCommand {
 
 	public static final String REPO_FOLDER_CUSTOM_CATEGORIES = "/custom_categories";
 
-	public static final String SIMPLE_ARTIFACTS_TYPE = org.eclipse.equinox.internal.p2.artifact.repository.Activator.ID +
-			".simpleRepository"; //$NON-NLS-1$
+	public static final String SIMPLE_ARTIFACTS_TYPE = "org.eclipse.equinox.p2.artifact.repository.simpleRepository"; //$NON-NLS-1$
 
-	public static final String SIMPLE_METADATA_TYPE = org.eclipse.equinox.internal.p2.metadata.repository.Activator.ID +
-			".simpleRepository"; //$NON-NLS-1$
+	public static final String SIMPLE_METADATA_TYPE = "org.eclipse.equinox.p2.metadata.repository.simpleRepository"; //$NON-NLS-1$
 
 	public static final String INTERNAL_METADATA_TYPE = "org.eclipse.cbi.p2repo.aggregator.engine.internalRepository"; //$NON-NLS-1$
 

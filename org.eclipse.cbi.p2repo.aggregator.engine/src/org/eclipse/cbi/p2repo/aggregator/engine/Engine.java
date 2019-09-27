@@ -9,6 +9,8 @@ import org.osgi.framework.BundleContext;
 public class Engine extends Plugin {
 	// The plug-in ID
 	public static final String PLUGIN_ID = "org.eclipse.cbi.p2repo.aggregator.engine";
+	// The plug-in ID of org.eclipse.equinox.p2.metadata.repository
+	public static final String PLUGIN_ID_METADATA_REPOSITORY = "org.eclipse.equinox.p2.metadata.repository"; //$NON-NLS-1$
 
 	// The shared instance
 	private static Engine plugin;

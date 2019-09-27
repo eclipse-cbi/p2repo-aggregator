@@ -19,13 +19,13 @@ import java.util.Map;
 import java.util.jar.JarEntry;
 import java.util.jar.JarInputStream;
 
+import org.eclipse.cbi.p2repo.aggregator.engine.Engine;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.core.runtime.URIUtil;
 import org.eclipse.equinox.internal.p2.core.helpers.Tracing;
-import org.eclipse.equinox.internal.p2.metadata.repository.Activator;
 import org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository;
 import org.eclipse.equinox.internal.p2.metadata.repository.Messages;
 import org.eclipse.equinox.internal.p2.metadata.repository.SimpleMetadataRepositoryFactory;
@@ -78,7 +78,8 @@ public class InternalMetadataRepositoryFactory extends SimpleMetadataRepositoryF
 				return localFile;
 			String msg = NLS.bind(Messages.io_failedRead, location);
 			throw new ProvisionException(new Status(
-				IStatus.ERROR, Activator.ID, ProvisionException.REPOSITORY_NOT_FOUND, msg, null));
+					IStatus.ERROR, Engine.PLUGIN_ID_METADATA_REPOSITORY, ProvisionException.REPOSITORY_NOT_FOUND, msg,
+					null));
 		}
 		// file is not local, create a cache of the repository metadata
 		CacheManager cache = (CacheManager) getAgent().getService(CacheManager.SERVICE_NAME);
@@ -90,7 +91,8 @@ public class InternalMetadataRepositoryFactory extends SimpleMetadataRepositoryF
 			// createCache should bail out with exception if something is wrong. This is an internal
 			// error.
 			throw new ProvisionException(new Status(
-				IStatus.ERROR, Activator.ID, ProvisionException.REPOSITORY_NOT_FOUND, Messages.repoMan_internalError,
+					IStatus.ERROR, Engine.PLUGIN_ID_METADATA_REPOSITORY, ProvisionException.REPOSITORY_NOT_FOUND,
+					Messages.repoMan_internalError,
 				null));
 		}
 		return localFile;
@@ -167,12 +169,14 @@ public class InternalMetadataRepositoryFactory extends SimpleMetadataRepositoryF
 		catch(FileNotFoundException e) {
 			String msg = NLS.bind(Messages.io_failedRead, location);
 			throw new ProvisionException(new Status(
-				IStatus.ERROR, Activator.ID, ProvisionException.REPOSITORY_NOT_FOUND, msg, e));
+					IStatus.ERROR, Engine.PLUGIN_ID_METADATA_REPOSITORY, ProvisionException.REPOSITORY_NOT_FOUND, msg,
+					e));
 		}
 		catch(IOException e) {
 			String msg = NLS.bind(Messages.io_failedRead, location);
 			throw new ProvisionException(new Status(
-				IStatus.ERROR, Activator.ID, ProvisionException.REPOSITORY_FAILED_READ, msg, e));
+					IStatus.ERROR, Engine.PLUGIN_ID_METADATA_REPOSITORY, ProvisionException.REPOSITORY_FAILED_READ, msg,
+					e));
 		}
 		finally {
 			if(monitor != null)

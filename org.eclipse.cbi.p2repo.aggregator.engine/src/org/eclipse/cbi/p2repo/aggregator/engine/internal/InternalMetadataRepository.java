@@ -18,13 +18,14 @@ import java.util.Map;
 import java.util.jar.JarEntry;
 import java.util.jar.JarOutputStream;
 
+import org.eclipse.cbi.p2repo.aggregator.engine.Engine;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.URIUtil;
 import org.eclipse.equinox.internal.p2.core.helpers.LogHelper;
 import org.eclipse.equinox.internal.p2.core.helpers.ServiceHelper;
-import org.eclipse.equinox.internal.p2.metadata.repository.Activator;
 import org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository;
 import org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager;
 import org.eclipse.equinox.p2.core.IProvisioningAgent;
@@ -152,7 +153,8 @@ public class InternalMetadataRepository extends LocalMetadataRepository {
 		catch(IOException e) {
 			LogHelper.log(
 				new Status(
-					IStatus.ERROR, Activator.ID, ProvisionException.REPOSITORY_FAILED_WRITE,
+							IStatus.ERROR, Engine.PLUGIN_ID_METADATA_REPOSITORY,
+							ProvisionException.REPOSITORY_FAILED_WRITE,
 					"Error saving metadata repository: " + getLocation(), e)); //$NON-NLS-1$
 		}
 	}
@@ -168,7 +170,8 @@ public class InternalMetadataRepository extends LocalMetadataRepository {
 		}
 		// force repository manager to reload this repository because it caches properties
 		MetadataRepositoryManager manager = (MetadataRepositoryManager) ServiceHelper.getService(
-			Activator.getContext(), IMetadataRepositoryManager.SERVICE_NAME);
+				Platform.getBundle(Engine.PLUGIN_ID_METADATA_REPOSITORY).getBundleContext(),
+				IMetadataRepositoryManager.SERVICE_NAME);
 		if(manager.removeRepository(getLocation()))
 			manager.addRepository(this);
 		return oldValue;

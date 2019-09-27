@@ -21,14 +21,15 @@ import java.util.Set;
 
 import javax.xml.parsers.ParserConfigurationException;
 
+import org.eclipse.cbi.p2repo.aggregator.engine.Engine;
 import org.eclipse.cbi.p2repo.util.LogUtils;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.OperationCanceledException;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.equinox.internal.p2.core.helpers.LogHelper;
 import org.eclipse.equinox.internal.p2.core.helpers.OrderedProperties;
-import org.eclipse.equinox.internal.p2.metadata.repository.Activator;
 import org.eclipse.equinox.internal.p2.metadata.repository.Messages;
 import org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryIO;
 import org.eclipse.equinox.internal.p2.metadata.repository.io.MetadataParser;
@@ -568,7 +569,9 @@ public class InternalMetadataRepositoryIO extends MetadataRepositoryIO {
 			try {
 				bufferedInput = new BufferedInputStream(input);
 
-				InternalParser repositoryParser = new InternalParser(Activator.getContext(), Activator.ID);
+				InternalParser repositoryParser = new InternalParser(
+						Platform.getBundle(Engine.PLUGIN_ID_METADATA_REPOSITORY).getBundleContext(),
+						Engine.PLUGIN_ID_METADATA_REPOSITORY);
 				repositoryParser.parse(input, monitor);
 				IStatus result = repositoryParser.getStatus();
 				switch(result.getSeverity()) {
@@ -593,7 +596,8 @@ public class InternalMetadataRepositoryIO extends MetadataRepositoryIO {
 		catch(IOException ioe) {
 			String msg = NLS.bind(Messages.io_failedRead, location);
 			throw new ProvisionException(
-				new Status(IStatus.ERROR, Activator.ID, ProvisionException.REPOSITORY_FAILED_READ, msg, ioe));
+					new Status(IStatus.ERROR, Engine.PLUGIN_ID_METADATA_REPOSITORY,
+							ProvisionException.REPOSITORY_FAILED_READ, msg, ioe));
 		}
 		// Only returns null if operation cancelled.
 		return null;
