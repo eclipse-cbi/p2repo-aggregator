@@ -157,8 +157,7 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 
 	private static final IQuery<IInstallableUnit> QUERY_ALL_IUS = QueryUtil.createIUAnyQuery();
 
-	public static final String SIMPLE_METADATA_TYPE = org.eclipse.equinox.internal.p2.metadata.repository.Activator.ID +
-			".simpleRepository"; //$NON-NLS-1$
+	private static final String SIMPLE_METADATA_TYPE = "org.eclipse.equinox.p2.metadata.repository.simpleRepository"; //$NON-NLS-1$
 
 	private static final String MAVEN_EMPTY_RANGE_STRING = "0.0.0";
 
