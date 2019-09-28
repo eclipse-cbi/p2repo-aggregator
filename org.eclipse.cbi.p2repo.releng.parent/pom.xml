@@ -16,9 +16,9 @@
     <buildId>${buildType}${buildTimestamp}</buildId>
     <comparator.repo>http://download.eclipse.org/cbi/updates/aggregator/ide/4.8/</comparator.repo>
     <!-- For using Tycho 23.1 (currently "staged", removed staged repo below, once released) -->
-    <tycho-version>1.1.0</tycho-version>
-    <tycho-extras.version>1.1.0</tycho-extras.version>
-    <cbi-plugins.version>1.1.3</cbi-plugins.version>
+    <tycho-version>1.4.0</tycho-version>
+    <tycho-extras.version>1.4.0</tycho-extras.version>
+    <cbi-plugins.version>1.1.7</cbi-plugins.version>
     <code.ignoredWarnings>-warn:-deprecation,raw,unchecked,discouraged</code.ignoredWarnings>
     <!--
       repo for released versions of CBI. Note, we intentionally use as specific a repo as possible.
@@ -419,42 +419,12 @@
             <environment>
               <os>linux</os>
               <ws>gtk</ws>
-              <arch>x86</arch>
-            </environment>
-            <environment>
-              <os>linux</os>
-              <ws>gtk</ws>
               <arch>x86_64</arch>
             </environment>
             <environment>
               <os>linux</os>
               <ws>gtk</ws>
-              <arch>ppc</arch>
-            </environment>
-            <environment>
-              <os>linux</os>
-              <ws>gtk</ws>
-              <arch>ppc64</arch>
-            </environment>
-            <environment>
-              <os>linux</os>
-              <ws>gtk</ws>
               <arch>ppc64le</arch>
-            </environment>
-            <environment>
-              <os>linux</os>
-              <ws>gtk</ws>
-              <arch>s390</arch>
-            </environment>
-            <environment>
-              <os>linux</os>
-              <ws>gtk</ws>
-              <arch>s390x</arch>
-            </environment>
-            <environment>
-              <os>win32</os>
-              <ws>win32</ws>
-              <arch>x86</arch>
             </environment>
             <environment>
               <os>win32</os>
@@ -465,31 +435,6 @@
               <os>macosx</os>
               <ws>cocoa</ws>
               <arch>x86_64</arch>
-            </environment>
-            <environment>
-              <os>solaris</os>
-              <ws>gtk</ws>
-              <arch>sparc</arch>
-            </environment>
-            <environment>
-              <os>solaris</os>
-              <ws>gtk</ws>
-              <arch>x86</arch>
-            </environment>
-            <environment>
-              <os>hpux</os>
-              <ws>gtk</ws>
-              <arch>ia64</arch>
-            </environment>
-            <environment>
-              <os>aix</os>
-              <ws>gtk</ws>
-              <arch>ppc</arch>
-            </environment>
-            <environment>
-              <os>aix</os>
-              <ws>gtk</ws>
-              <arch>ppc64</arch>
             </environment>
           </environments>
         </configuration>

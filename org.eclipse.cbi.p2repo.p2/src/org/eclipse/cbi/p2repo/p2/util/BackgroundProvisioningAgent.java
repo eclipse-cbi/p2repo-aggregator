@@ -67,4 +67,11 @@ public class BackgroundProvisioningAgent implements IProvisioningAgent {
 			activeTasks--;
 		conditionalStop();
 	}
+
+	// To be removed when bug#551562 is solved (make getService(Class) default method)
+	@SuppressWarnings("unchecked")
+	@Override
+	public <T> T getService(Class<T> key) {
+		return (T) getService(key.getName());
+	}
 }

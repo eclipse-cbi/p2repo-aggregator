@@ -28,31 +28,31 @@
       type="InstallableUnit">
       <unit
         id="com.ibm.icu"
-        version="62.1.0.v20180727-1652" />
+        version="64.2.0.v20190507-1337" />
       <unit
         id="com.ibm.icu.source"
-        version="62.1.0.v20180727-1652" />
+        version="64.2.0.v20190507-1337" />
       <unit
         id="org.apache.ant"
-        version="1.10.5.v20180808-0324" />
+        version="1.10.5.v20190526-1402" />
       <unit
         id="org.apache.ant.source"
-        version="1.10.5.v20180808-0324" />
+        version="1.10.5.v20190526-1402" />
 
 
       <!-- required indirectly. They are required by ECF. -->
       <unit
         id="org.apache.httpcomponents.httpclient"
-        version="4.5.5.v20180409-1525" />
+        version="4.5.6.v20190503-0009" />
       <unit
         id="org.apache.httpcomponents.httpclient.source"
-        version="4.5.5.v20180409-1525" />
+        version="4.5.6.v20190503-0009" />
       <unit
         id="org.apache.httpcomponents.httpcore"
-        version="4.4.9.v20180409-1525" />
+        version="4.4.10.v20190123-2214" />
       <unit
         id="org.apache.httpcomponents.httpcore.source"
-        version="4.4.9.v20180409-1525" />
+        version="4.4.10.v20190123-2214" />
       <unit
         id="org.hamcrest.core"
         version="1.3.0.v20180420-1519" />
@@ -91,7 +91,7 @@
       <unit
         id="org.tukaani.xz.source"
         version="1.8.0.v20180207-1613" />
-      <repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20180905201904/repository/" />
+      <repository location="https://download.eclipse.org/tools/orbit/downloads/drops/R20190827152740/repository" />
     </location>
     <location
       includeAllPlatforms="false"
@@ -101,43 +101,35 @@
       type="InstallableUnit">
       <unit
         id="org.eclipse.emf.common.feature.group"
-        version="2.14.0.v20171203-1459" />
+        version="0.0.0" />
       <unit
         id="org.eclipse.emf.common.source.feature.group"
-        version="2.14.0.v20171203-1459" />
-      <unit
-        id="org.eclipse.emf.ecore.feature.group"
-        version="2.14.0.v20171203-1459" />
-      <unit
-        id="org.eclipse.emf.ecore.source.feature.group"
-        version="2.14.0.v20171203-1459" />
-      <repository location="http://download.eclipse.org/modeling/emf/emf/updates/2.14milestones/base/" />
-    </location>
-    <location
-      includeAllPlatforms="false"
-      includeConfigurePhase="false"
-      includeMode="slicer"
-      includeSource="false"
-      type="InstallableUnit">
+        version="0.0.0" />
       <unit
         id="org.eclipse.emf.common.ui"
-        version="2.13.0.v20171212-0927" />
+        version="0.0.0" />
       <unit
         id="org.eclipse.emf.common.ui.source"
-        version="2.13.0.v20171212-0927" />
+        version="0.0.0" />
+      <unit
+        id="org.eclipse.emf.ecore.feature.group"
+        version="0.0.0" />
+      <unit
+        id="org.eclipse.emf.ecore.source.feature.group"
+        version="0.0.0" />
       <unit
         id="org.eclipse.emf.edit"
-        version="2.13.0.v20171212-0927" />
+        version="0.0.0" />
       <unit
         id="org.eclipse.emf.edit.source"
-        version="2.13.0.v20171212-0927" />
+        version="0.0.0" />
       <unit
         id="org.eclipse.emf.edit.ui"
-        version="2.14.0.v20171212-0927" />
+        version="0.0.0" />
       <unit
         id="org.eclipse.emf.edit.ui.source"
-        version="2.14.0.v20171212-0927" />
-      <repository location="http://download.eclipse.org/modeling/emf/emf/updates/2.14milestones/core/" />
+        version="0.0.0" />
+      <repository location="http://download.eclipse.org/modeling/emf/emf/builds/release/2.19" />
     </location>
     <location
       includeAllPlatforms="false"
@@ -147,41 +139,32 @@
       type="InstallableUnit">
       <unit
         id="org.eclipse.ecf.core.feature.feature.group"
-        version="1.4.0.v20170516-2248" />
+        version="1.5.3.v20190423-0625" />
       <unit
         id="org.eclipse.ecf.core.feature.source.feature.group"
-        version="1.4.0.v20170516-2248" />
+        version="1.5.3.v20190423-0625" />
       <unit
         id="org.eclipse.ecf.core.ssl.feature.feature.group"
-        version="1.1.0.v20170110-1317" />
+        version="1.1.200.v20190502-0212" />
       <unit
         id="org.eclipse.ecf.core.ssl.feature.source.feature.group"
-        version="1.1.0.v20170110-1317" />
+        version="1.1.200.v20190502-0212" />
       <unit
         id="org.eclipse.ecf.filetransfer.feature.feature.group"
-        version="3.13.8.v20170715-2257" />
+        version="3.14.5.v20190423-0614" />
       <unit
         id="org.eclipse.ecf.filetransfer.feature.source.feature.group"
-        version="3.13.8.v20170715-2257" />
+        version="3.14.5.v20190423-0614" />
       <unit
-        id="org.eclipse.ecf.filetransfer.httpclient4.feature.feature.group"
-        version="3.13.8.v20170715-2257" />
-      <unit
-        id="org.eclipse.ecf.filetransfer.httpclient4.feature.source.feature.group"
-        version="3.13.8.v20170715-2257" />
-      <unit
-        id="org.eclipse.ecf.filetransfer.httpclient4.ssl.feature.feature.group"
-        version="1.1.0.v20170110-1317" />
-      <unit
-        id="org.eclipse.ecf.filetransfer.httpclient4.ssl.feature.source.feature.group"
-        version="1.1.0.v20170110-1317" />
+        id="org.eclipse.ecf.filetransfer.httpclient45.feature.feature.group"
+        version="1.0.0.v20190530-1947" />
       <unit
         id="org.eclipse.ecf.filetransfer.ssl.feature.feature.group"
-        version="1.1.0.v20170110-1317" />
+        version="1.1.100.v20180301-0132" />
       <unit
         id="org.eclipse.ecf.filetransfer.ssl.feature.source.feature.group"
-        version="1.1.0.v20170110-1317" />
-      <repository location="http://download.eclipse.org/rt/ecf/3.13.8/site.p2/" />
+        version="1.1.100.v20180301-0132" />
+      <repository location="https://download.eclipse.org/rt/ecf/3.14.5/site.p2/" />
     </location>
     <location
       includeAllPlatforms="false"
@@ -191,17 +174,17 @@
       type="InstallableUnit">
       <unit
         id="org.eclipse.m2e.archetype.common"
-        version="1.9.0.20180313-2236" />
+        version="1.9.1.20180912-1600" />
       <unit
         id="org.eclipse.m2e.maven.indexer"
-        version="1.9.0.20180313-2236" />
+        version="1.9.1.20180912-1600" />
       <unit
         id="org.eclipse.m2e.maven.runtime"
-        version="1.9.0.20180313-2236" />
+        version="1.9.1.20180912-1600" />
       <unit
         id="org.eclipse.m2e.maven.runtime.slf4j.simple"
-        version="1.9.0.20180313-2236" />
-      <repository location="http://download.eclipse.org/technology/m2e/milestones/1.9/1.9.0.20180313-2237/" />
+        version="1.9.1.20180912-1600" />
+      <repository location="https://download.eclipse.org/technology/m2e/milestones/1.9/1.9.1.20180912-1601/" />
     </location>
     <location
       includeAllPlatforms="false"
@@ -211,23 +194,23 @@
       type="InstallableUnit">
       <unit
         id="org.eclipse.core.runtime"
-        version="3.15.0.v20180817-1401" />
+        version="3.16.0.v20190823-1314" />
       <unit
         id="org.eclipse.equinox.concurrent"
-        version="1.1.200.v20180827-1235" />
+        version="1.1.400.v20190621-0852" />
       <unit
         id="org.eclipse.equinox.core.feature.feature.group"
-        version="1.6.0.v20180903-1343" />
+        version="1.10.0.v20190830-1434" />
       <unit
         id="org.eclipse.equinox.executable.feature.group"
-        version="3.8.100.v20180827-1352" />
+        version="3.8.500.v20190907-0428" />
       <unit
         id="org.eclipse.equinox.p2.core.feature.feature.group"
-        version="1.5.100.v20180829-1443" />
+        version="1.6.300.v20190903-0934" />
       <unit
         id="org.eclipse.platform.feature.group"
-        version="4.9.0.v20180906-1121" />
-      <repository location="http://download.eclipse.org/eclipse/updates/4.9/R-4.9-201809060745" />
+        version="4.13.0.v20190916-1323" />
+      <repository location="https://download.eclipse.org/eclipse/updates/4.13/R-4.13-201909161045/" />
     </location>
   </locations>
 </target>
