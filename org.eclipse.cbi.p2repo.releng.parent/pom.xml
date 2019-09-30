@@ -16,7 +16,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.eclipse.cbi</groupId>
   <artifactId>org.eclipse.cbi.p2repo.releng.parent</artifactId>
-  <version>1.0.200-SNAPSHOT</version>
+  <version>1.0.300-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <modules>
@@ -447,7 +447,7 @@
             <artifact>
               <groupId>org.eclipse.cbi</groupId>
               <artifactId>org.eclipse.cbi.p2repo.aggregator.prereqs</artifactId>
-              <version>1.0.200-SNAPSHOT</version>
+              <version>1.0.300-SNAPSHOT</version>
               <!-- Uses artifactId+.target by default -->
             </artifact>
           </target>

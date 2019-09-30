@@ -5,10 +5,10 @@
     <groupId>org.eclipse.cbi</groupId>
     <artifactId>org.eclipse.cbi.p2repo.releng.parent</artifactId>
     <relativePath>../org.eclipse.cbi.p2repo.releng.parent</relativePath>
-    <version>1.0.200-SNAPSHOT</version>
+    <version>1.0.300-SNAPSHOT</version>
   </parent>
   <artifactId>org.eclipse.cbi.p2repo.cli.product.feature</artifactId>
-  <version>1.0.200-SNAPSHOT</version>
+  <version>1.0.300-SNAPSHOT</version>
   <packaging>eclipse-feature</packaging>
 
     <build>

@@ -2,7 +2,7 @@
 <feature
       id="org.eclipse.cbi.p2repo.p2.maven.indexer.feature"
       label="%featureName"
-      version="1.0.200.qualifier"
+      version="1.0.300.qualifier"
       provider-name="%providerName"
       license-feature="org.eclipse.license"
       license-feature-version="2.0.1.v20180423-1114">
