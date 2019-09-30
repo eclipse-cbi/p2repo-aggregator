@@ -1,3 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright (c) 2016 Eclipse Foundation.
+  All rights reserved. This program and the accompanying materials
+  are made available under the terms of the Eclipse Distribution License v1.0
+  which accompanies this distribution, and is available at
+  http://www.eclipse.org/org/documents/edl-v10.php
+
+  Contributors:
+  David Williams - improvements and maintenance
+-->
 <project
   xmlns="http://maven.apache.org/POM/4.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -7,6 +18,31 @@
   <artifactId>org.eclipse.cbi.p2repo.releng.parent</artifactId>
   <version>1.0.200-SNAPSHOT</version>
   <packaging>pom</packaging>
+
+  <modules>
+    <module>../org.eclipse.cbi.p2repo.aggregator</module>
+    <module>../org.eclipse.cbi.p2repo.aggregator.edit</module>
+    <module>../org.eclipse.cbi.p2repo.aggregator.editor</module>
+    <module>../org.eclipse.cbi.p2repo.aggregator.editor.feature</module>
+    <module>../org.eclipse.cbi.p2repo.aggregator.engine</module>
+    <module>../org.eclipse.cbi.p2repo.aggregator.engine.feature</module>
+    <module>../org.eclipse.cbi.p2repo.aggregator.engine.maven</module>
+    <module>../org.eclipse.cbi.p2repo.aggregator.legacy</module>
+    <module>../org.eclipse.cbi.p2repo.aggregator.legacy.ui</module>
+    <module>../org.eclipse.cbi.p2repo.cli</module>
+    <module>../org.eclipse.cbi.p2repo.cli.product</module>
+    <module>../org.eclipse.cbi.p2repo.cli.product.feature</module>
+    <module>../org.eclipse.cbi.p2repo.p2</module>
+    <module>../org.eclipse.cbi.p2repo.p2.edit</module>
+    <module>../org.eclipse.cbi.p2repo.p2.maven</module>
+    <module>../org.eclipse.cbi.p2repo.p2.maven.indexer</module>
+    <module>../org.eclipse.cbi.p2repo.p2.maven.indexer.feature</module>
+    <module>../org.eclipse.cbi.p2repo.p2.tests</module>
+    <module>../org.eclipse.cbi.p2repo.releng.target</module>
+    <module>../org.eclipse.cbi.p2repo.site.eclipse</module>
+    <module>../org.eclipse.cbi.p2repo.tests.feature</module>
+    <module>../org.eclipse.cbi.p2repo.util</module>
+  </modules>
 
   <properties>
     <skipTests>true</skipTests>
@@ -48,7 +84,7 @@
       the update site locations. It reflects, basically, the version of the platform that it
       was built against and the one it should be installed into (ideally).
     -->
-    <updateRelease>4.9</updateRelease>
+    <updateRelease>4.13</updateRelease>
     <!--
       Similarly, referenceRepo is not used in the build, per se, but by the
       repoReport tests. Normally the "latest build" is computed. But, if there is ever a 

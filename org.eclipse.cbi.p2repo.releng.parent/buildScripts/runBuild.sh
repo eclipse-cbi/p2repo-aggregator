@@ -5,7 +5,7 @@ cleanableDir=${build_home}/cleanable
 export tmp_dir=${cleanableDir}/tmp
 export local_mvn_repo=${cleanableDir}/localMvnRepo
 
-repo_dir=${build_home}/org.eclipse.cbi.p2repo.aggregator
+parent_dir=${build_home}/org.eclipse.cbi.p2repo.aggregator/org.eclipse.cbi.p2repo.releng.parent
 
 out_file=${build_home}/buildOutput.txt
 # remove any previous top level output files, if they exist
@@ -71,7 +71,7 @@ export JAVA_CMD=${JAVA_HOME}/jre/bin/java
 export MAVEN_PATH=${MAVEN_PATH:-/shared/common/apache-maven-latest/bin}
 export PATH=$JAVA_HOME/bin:$MAVEN_PATH:$ANT_HOME/bin:$PATH
 
-cd ${repo_dir}
+cd ${parent_dir}
 
 printf "\n\t[INFO] %s\n" "mvn clean verify ...:" | tee -a ${out_file}
 printf "\n\t[INFO] %s\n" "MAVEN_OPTS: ${MAVEN_OPTS}" | tee -a ${out_file}
