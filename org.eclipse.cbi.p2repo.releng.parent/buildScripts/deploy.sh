@@ -62,8 +62,7 @@ scp ${productroot}/org.eclipse.cbi.p2repo.cli.product-linux.gtk.x86_64.tar.gz ${
 scp ${productroot}/org.eclipse.cbi.p2repo.cli.product-macosx.cocoa.x86_64.tar.gz ${userAtHost}:${headlessUpdate}/${macProd}
 scp ${productroot}/org.eclipse.cbi.p2repo.cli.product-win32.win32.x86_64.zip ${userAtHost}:${headlessUpdate}/${windowsProd}
 
-#TODO
-#scp -r ${build_home}/reporeports ${userAtHost}:${headlessUpdate}/
+scp -r ${build_home}/reporeports ${userAtHost}:${headlessUpdate}/
 
 # create an easy to read file for location of these specific repositories
 # TODO: eventually should turn this into a proper "download page"
