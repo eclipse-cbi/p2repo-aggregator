@@ -1,63 +1,82 @@
 #!/usr/bin/env bash
+#*******************************************************************************
+# Copyright (c) 2019 Eclipse Foundation and others.
+# This program and the accompanying materials are made available
+# under the terms of the Eclipse Public License 2.0
+# which is available at http://www.eclipse.org/legal/epl-v20.html
+# SPDX-License-Identifier: EPL-2.0
+#*******************************************************************************
 
-# This job is ran after "runBuild.sh" is ran in the "cleanAndDeploy" Hudson job.
+# Deploy artifacts to download.eclipse.org.
+# This script needs to run on the CBI JIPP.
+
+# Bash strict-mode
+set -o errexit
+set -o nounset
+set -o pipefail
+
+IFS=$'\n\t'
 
 # The default for build home is simply where I do my local build. Feel free to change in your local copy. 
 build_home=${WORKSPACE:-/home/davidw/gitCBI}
-propertiesfile="${build_home}/org.eclipse.cbi.p2repo.aggregator/org.eclipse.cbi.p2repo.cli.product/target/mavenproperties.properties"
-sourceProperties="${build_home}/mavenproperties.shsource"
-phpProperties="${build_home}/mavenproperties.php"
+propertiesfile="${build_home}/org.eclipse.cbi.p2repo.cli.product/target/mavenproperties.properties"
+userAtHost="genie.cbi@projects-storage.eclipse.org"
 
-function deployRepos
-{
-  newRepo=$1
-  builtRepo=$2
-  mkdir -p ${newRepo}
-  cp -r ${builtRepo}/* ${newRepo}/
+function getProperty {
+   local key=$1
+   local value=`cat ${propertiesfile} | grep "${key}" | cut -d'=' -f2`
+   echo ${value}
+}
 
+buildId=$(getProperty "buildId")
+updateRelease=$(getProperty "updateRelease")
+
+function deployRepos {
+  local newRepo=$1
+  local builtRepo=$2
+  ssh ${userAtHost} mkdir -p ${newRepo}
+  scp -r ${builtRepo}/* ${userAtHost}:${newRepo}/
   #TODO: add mirror URL, etc.
 }
 
-source $sourceProperties
-
 DLRoot=/home/data/httpd
 DLPath=download.eclipse.org/cbi/updates/aggregator
+DLPath_escaped="download.eclipse.org\/cbi\/updates\/aggregator"
 baseDL=${DLRoot}/${DLPath}
 ideUpdate=${baseDL}/ide/${updateRelease}/${buildId}
 headlessUpdate=${baseDL}/headless/${updateRelease}/${buildId}
 
-deployRepos ${ideUpdate} ${build_home}/org.eclipse.cbi.p2repo.aggregator/org.eclipse.cbi.p2repo.site.eclipse/target/repository
-deployRepos ${headlessUpdate} ${build_home}/org.eclipse.cbi.p2repo.aggregator/org.eclipse.cbi.p2repo.cli.product/target/repository
+deployRepos ${ideUpdate} ${build_home}/org.eclipse.cbi.p2repo.site.eclipse/target/repository
+deployRepos ${headlessUpdate} ${build_home}/org.eclipse.cbi.p2repo.cli.product/target/repository
 
 # save away "data" from the build, as well as the deployable headless products
-cp ${build_home}/buildOutput.txt ${headlessUpdate}
-cp ${sourceProperties} ${headlessUpdate}
-cp ${propertiesfile} ${headlessUpdate}
-cp ${phpProperties} ${headlessUpdate}
+scp ${propertiesfile} ${userAtHost}:${headlessUpdate}
 
 windowsProd=headless_${buildId}_win32.win32.x86_64.zip
 linuxProd=headless_${buildId}_linux.gtk.x86_64.tar.gz
 macProd=headless_${buildId}_macosx.cocoa.x86_64.tar.gz
 
-productroot=${build_home}/org.eclipse.cbi.p2repo.aggregator/org.eclipse.cbi.p2repo.cli.product/target/products
-cp ${productroot}/org.eclipse.cbi.p2repo.cli.product-linux.gtk.x86_64.tar.gz ${headlessUpdate}/${linuxProd}
-cp ${productroot}/org.eclipse.cbi.p2repo.cli.product-macosx.cocoa.x86_64.tar.gz ${headlessUpdate}/${macProd}
-cp ${productroot}/org.eclipse.cbi.p2repo.cli.product-win32.win32.x86_64.zip ${headlessUpdate}/${windowsProd}
+# copy products
+productroot=${build_home}/org.eclipse.cbi.p2repo.cli.product/target/products
+scp ${productroot}/org.eclipse.cbi.p2repo.cli.product-linux.gtk.x86_64.tar.gz ${userAtHost}:${headlessUpdate}/${linuxProd}
+scp ${productroot}/org.eclipse.cbi.p2repo.cli.product-macosx.cocoa.x86_64.tar.gz ${userAtHost}:${headlessUpdate}/${macProd}
+scp ${productroot}/org.eclipse.cbi.p2repo.cli.product-win32.win32.x86_64.zip ${userAtHost}:${headlessUpdate}/${windowsProd}
 
-cp -r ${build_home}/reporeports ${headlessUpdate}/
-
+#TODO
+#scp -r ${build_home}/reporeports ${userAtHost}:${headlessUpdate}/
 
 # create an easy to read file for location of these specific repositories
-# TODOeventually should turn this into a proper "download page"
+# TODO: eventually should turn this into a proper "download page"
 DLfile=buildResults.html
 DLpage=${build_home}/${DLfile}
 # Notice how we "pick" the headless site to jump to, if someone clicks on the buildId they are looking at. 
 # We have the same file in two places, 'ide' and 'headless', so some users may be surprised by that?
 
-# be sure these variables are exported, for use by 'envsubst'.
-export DLPath updateRelease buildId
+template_file="org.eclipse.cbi.p2repo.releng.parent/buildScripts/template_index.html"
+# replace variables in template with actual values
+sed -e "s/\$DLPath/${DLPath_escaped}/g" -e "s/\$updateRelease/${updateRelease}/g" -e "s/\${buildId}/${buildId}/g" -e "s/\$buildId/${buildId}/g" ${template_file} > ${DLpage}
 
-envsubst < "${build_home}/org.eclipse.cbi.p2repo.aggregator/org.eclipse.cbi.p2repo.releng.parent/buildScripts/template_index.html" > "${DLpage}"
+#cat ${DLpage}
 
-cp ${DLpage} ${headlessUpdate}
-cp ${DLpage} ${ideUpdate}
+scp ${DLpage} ${userAtHost}:${headlessUpdate}
+scp ${DLpage} ${userAtHost}:${ideUpdate}
