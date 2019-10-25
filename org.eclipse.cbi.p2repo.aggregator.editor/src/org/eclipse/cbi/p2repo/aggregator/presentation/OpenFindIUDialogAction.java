@@ -11,6 +11,7 @@ package org.eclipse.cbi.p2repo.aggregator.presentation;
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
+import org.eclipse.ui.PlatformUI;
 
 /**
  * @author Karel Brezina
@@ -21,7 +22,7 @@ public class OpenFindIUDialogAction extends AbstractHandler {
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		FindIUDialog dialog = new FindIUDialog(
-			AggregatorEditorPlugin.getPlugin().getWorkbench().getActiveWorkbenchWindow());
+				PlatformUI.getWorkbench().getActiveWorkbenchWindow());
 		dialog.open();
 
 		return null;
