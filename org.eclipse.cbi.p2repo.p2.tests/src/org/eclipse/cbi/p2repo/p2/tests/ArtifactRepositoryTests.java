@@ -43,8 +43,9 @@ public class ArtifactRepositoryTests extends RepositoryTests<IArtifactKey> {
 	public void testContainer() throws Exception {
 		Set<IArtifactKey> keys = target.query(query, monitor).toUnmodifiableSet();
 		for(IArtifactKey key : keys) {
-			for(IArtifactDescriptor desc : target.getArtifactDescriptors(key))
+			for (IArtifactDescriptor desc : target.getArtifactDescriptors(key)) {
 				Assert.assertTrue("Parent is not correct", target == desc.getRepository());
+			}
 		}
 	}
 
@@ -57,10 +58,12 @@ public class ArtifactRepositoryTests extends RepositoryTests<IArtifactKey> {
 		for(IArtifactKey key : aKeys) {
 			IArtifactDescriptor[] aDescs = source.getArtifactDescriptors(key);
 			IArtifactDescriptor[] bDescs = target.getArtifactDescriptors(key);
-			if(aDescs.length != bDescs.length)
+			if(aDescs.length != bDescs.length) {
 				Assert.fail("ArtifactDescriptorCount for " + key + " differs");
-			for(IArtifactDescriptor desc : aDescs)
+			}
+			for(IArtifactDescriptor desc : aDescs) {
 				Assert.assertTrue("Missing artifact descriptor", target.contains(desc));
+			}
 		}
 	}
 }
