@@ -10,6 +10,8 @@
 # Write composite repo files. 
 # This script needs to run on the CBI JIPP.
 
+# This script is similar to /org.eclipse.cbi.p2repo.analyzers.parent/buildScripts/writeComposites_ssh.sh
+
 # Bash strict-mode
 set -o errexit
 set -o nounset
@@ -17,97 +19,83 @@ set -o pipefail
 
 IFS=$'\n\t'
 
-function writeArtifactsHeader {
+username="genie.cbi"
+host="projects-storage.eclipse.org"
+REPO_BASE_DIR="/home/data/httpd/download.eclipse.org/cbi/updates/aggregator"
+
+write_header() {
   local outfile=$1
-  local nChildren=$2
-
-  cat <<EOF > ${outfile}
-<?xml version='1.0' encoding='UTF-8'?>
-<?compositeArtifactRepository version='1.0.0'?>
-<repository name='Eclipse CBI p2 Repository Aggregator' type='org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepository' version='1.0.0'>
-  <properties size='3'>
-    <property name='p2.timestamp' value='1313779613118'/>
-    <property name='p2.compressed' value='true'/>
-    <property name='p2.atomic.composite.loading' value='true'/>
-  </properties>
-  <children size='${nChildren}'>
-EOF
-}
-
-function writeContentHeader {
-  local outfile=$1
-  local nChildren=$2
-
-  cat <<EOG > ${outfile}
+  local type=$2
+  cat > "${outfile}" <<EOL
 <?xml version='1.0' encoding='UTF-8'?>
 <?compositeMetadataRepository version='1.0.0'?>
-<repository name='Eclipse CBI p2 Repository Aggregator' type='org.eclipse.equinox.internal.p2.artifact.repository.CompositeMetadataRepository' version='1.0.0'>
+<repository name='Eclipse CBI p2 Repository Analyzers'  type='org.eclipse.equinox.internal.p2.metadata.repository.${type}' version='1.0.0'>
   <properties size='3'>
     <property name='p2.timestamp' value='1313779613118'/>
     <property name='p2.compressed' value='true'/>
     <property name='p2.atomic.composite.loading' value='true'/>
   </properties>
-  <children size='${nChildren}'>
-EOG
+EOL
 }
 
-function writeFooter {
+write_footer() {
   local outfile=$1
-  cat <<EOH >> "${outfile}"
+  cat >> "${outfile}" <<EOL
   </children>
 </repository>
-EOH
+EOL
 }
 
-function writeCompositeP2Index {
+write_composite_P2Index() {
   local outfile=$1
-  cat <<EOI > "${outfile}"
+  cat > "${outfile}" <<EOL
 version=1
 metadata.repository.factory.order=compositeContent.xml
 artifact.repository.factory.order=compositeArtifacts.xml
-EOI
+EOL
 }
 
-function writeChildren {
+write_composite_repo() {
   local outfile=$1
   local dirs=$2
-  local nChildren=$3
+  local type=$3
+  local nChildren=$4
+
+  write_header "${outfile}" "${type}"
 
   children=$(printf "${dirs}\n" | head -n ${nChildren})
 
+  nChildren=$(echo -e "${children}" | wc -l)
+  echo "  <children size='${nChildren}'>" >> "${outfile}"
   for child in ${children}
   do
-    printf "%s%s%s\n" "    <child location='" ${child} "' />"  >> ${outfile}
+    printf "%s%s%s\n" "    <child location='" ${child} "' />" >> "${outfile}"
+  done
+
+  write_footer "${outfile}"
+}
+
+create_composite_repo() {
+  #TODO: use parameter(s) instead of static values
+  for repoDir in "ide/4.13" "headless/4.13"
+  do
+    echo -e "[DEBUG] repoDir: ${repoDir}\n"
+    mkdir -p "${repoDir}"
+    
+    # xargs -d works on projects-storage.eclipse.org, but not on default jnlp agent!
+    dirs=$(ssh ${username}@${host} "ls -1rd ${REPO_BASE_DIR}/${repoDir}/I20* | xargs -d '\n' -n 1 basename")
+  
+    write_composite_repo "${repoDir}/compositeArtifacts.xml" "${dirs}" "CompositeArtifactRepository" "3"
+    write_composite_repo "${repoDir}/compositeContent.xml" "${dirs}" "CompositeMetadataRepository" "3"
+    write_composite_P2Index "${repoDir}/p2.index"
+  
+    echo "[DEBUG]:";
+    #ls -al "${repoDir}"
+    cat "${repoDir}/compositeArtifacts.xml"
+  
+    #scp dirs to projects-storage.eclipse.org
+    scp "${repoDir}"/* "${username}@${host}:${REPO_BASE_DIR}/${repoDir}/"
   done
 }
 
-downloadRepoRoot="/home/data/httpd/download.eclipse.org/cbi/updates/aggregator"
-for repoRoot in "ide/4.13" "headless/4.13"
-do
-  echo -e "[DEBUG] repoRoot: ${repoRoot}\n"
-  mkdir -p "${repoRoot}"
-  
-  # xargs -d works on projects-storage.eclipse.org, but not on default jnlp agent!
-  dirs=$(ssh genie.cbi@projects-storage.eclipse.org "ls -1rd ${downloadRepoRoot}/${repoRoot}/I20* | xargs -d '\n' -n 1 basename")
-  
-  artifactsCompositeFile="${repoRoot}/compositeArtifacts.xml"
-  contentCompositeFile="${repoRoot}/compositeContent.xml"
-  p2Index="${repoRoot}/p2.index"
-
-  writeArtifactsHeader "${artifactsCompositeFile}" "3"
-  writeChildren "${artifactsCompositeFile}" "${dirs}" "3"
-  writeFooter "${artifactsCompositeFile}"
-
-  writeContentHeader "${contentCompositeFile}" "3"
-  writeChildren "${contentCompositeFile}" "${dirs}" "3"
-  writeFooter "${contentCompositeFile}"
-
-  writeCompositeP2Index "${p2Index}"
-
-  echo "[DEBUG]:";
-  #ls -al ${repoRoot}
-  cat ${artifactsCompositeFile}
-  
-  #scp dirs to projects-storage.eclipse.org
-  scp ${repoRoot}/* genie.cbi@projects-storage.eclipse.org:${downloadRepoRoot}/${repoRoot}/
-done
+create_composite_repo
