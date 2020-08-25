@@ -117,7 +117,25 @@ public enum Architecture implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PPC64LE(10, "PPC64LE", "ppc64le");
+	PPC64LE(10, "PPC64LE", "ppc64le"),
+	/**
+	* The '<em><b>Aarch64</b></em>' literal object.
+	* <!-- begin-user-doc -->
+	* <!-- end-user-doc -->
+	* @see #AARCH64_VALUE
+	* @generated
+	* @ordered
+	*/
+	AARCH64(11, "aarch64", "aarch64"),
+	/**
+	* The '<em><b>Arm64</b></em>' literal object.
+	* <!-- begin-user-doc -->
+	* <!-- end-user-doc -->
+	* @see #ARM64_VALUE
+	* @generated
+	* @ordered
+	*/
+	ARM64(12, "arm64", "arm64");
 
 	/**
 	 * The '<em><b>X86</b></em>' literal value.
@@ -274,12 +292,34 @@ public enum Architecture implements Enumerator {
 	public static final int PPC64LE_VALUE = 10;
 
 	/**
+	 * The '<em><b>Aarch64</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #AARCH64
+	 * @model name="aarch64"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int AARCH64_VALUE = 11;
+
+	/**
+	 * The '<em><b>Arm64</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ARM64
+	 * @model name="arm64"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ARM64_VALUE = 12;
+
+	/**
 	 * An array of all the '<em><b>Architecture</b></em>' enumerators.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	private static final Architecture[] VALUES_ARRAY = new Architecture[] { X86, PPC, X86_64, IA64, IA64_32, SPARC,
-			PPC64, S390, S390X, SPARCV9, PPC64LE, };
+			PPC64, S390, S390X, SPARCV9, PPC64LE, AARCH64, ARM64, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Architecture</b></em>' enumerators.
@@ -321,6 +361,10 @@ public enum Architecture implements Enumerator {
 				return SPARCV9;
 			case PPC64LE_VALUE:
 				return PPC64LE;
+			case AARCH64_VALUE:
+				return AARCH64;
+			case ARM64_VALUE:
+				return ARM64;
 		}
 		return null;
 	}

@@ -310,6 +310,8 @@
     <eLiterals name="S390X" value="8" literal="s390x"/>
     <eLiterals name="Sparcv9" value="9" literal="sparcv9"/>
     <eLiterals name="PPC64LE" value="10" literal="ppc64le"/>
+    <eLiterals name="aarch64" value="11" literal="aarch64"/>
+    <eLiterals name="arm64" value="12" literal="arm64"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="AvailableFrom">
     <eLiterals name="REPOSITORY" literal="repository"/>
