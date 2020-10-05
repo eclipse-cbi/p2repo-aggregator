@@ -52,8 +52,7 @@
     <buildId>${buildType}${buildTimestamp}</buildId>
     <comparator.repo>http://download.eclipse.org/cbi/updates/aggregator/ide/4.8/</comparator.repo>
     <!-- For using Tycho 23.1 (currently "staged", removed staged repo below, once released) -->
-    <tycho-version>1.4.0</tycho-version>
-    <tycho-extras.version>1.4.0</tycho-extras.version>
+    <tycho-version>2.0.0</tycho-version>
     <cbi-plugins.version>1.1.7</cbi-plugins.version>
     <code.ignoredWarnings>-warn:-deprecation,raw,unchecked,discouraged</code.ignoredWarnings>
     <!--
@@ -134,12 +133,12 @@
                 <dependency>
                   <groupId>org.eclipse.tycho.extras</groupId>
                   <artifactId>tycho-buildtimestamp-jgit</artifactId>
-                  <version>${tycho-extras.version}</version>
+                  <version>${tycho-version}</version>
                 </dependency>
                 <dependency>
                   <groupId>org.eclipse.tycho.extras</groupId>
                   <artifactId>tycho-sourceref-jgit</artifactId>
-                  <version>${tycho-extras.version}</version>
+                  <version>${tycho-version}</version>
                 </dependency>
               </dependencies>
               <configuration>
@@ -188,7 +187,7 @@
             <plugin>
               <groupId>org.eclipse.tycho.extras</groupId>
               <artifactId>tycho-source-feature-plugin</artifactId>
-              <version>${tycho-extras.version}</version>
+              <version>${tycho-version}</version>
               <configuration>
                 <archive>
                   <addMavenDescriptor>false</addMavenDescriptor>
@@ -247,7 +246,7 @@
           <plugin>
             <groupId>org.eclipse.tycho.extras</groupId>
             <artifactId>tycho-pack200a-plugin</artifactId>
-            <version>${tycho-extras.version}</version>
+            <version>${tycho-version}</version>
             <executions>
               <execution>
                 <id>pack200-normalize</id>
@@ -278,7 +277,7 @@
           <plugin>
             <groupId>org.eclipse.tycho.extras</groupId>
             <artifactId>tycho-pack200b-plugin</artifactId>
-            <version>${tycho-extras.version}</version>
+            <version>${tycho-version}</version>
             <executions>
               <execution>
                 <id>pack200-pack</id>
@@ -324,7 +323,7 @@
           <plugin>
             <groupId>org.eclipse.tycho.extras</groupId>
             <artifactId>tycho-pack200a-plugin</artifactId>
-            <version>${tycho-extras.version}</version>
+            <version>${tycho-version}</version>
             <executions>
               <execution>
                 <id>pack200-normalize</id>
@@ -337,7 +336,7 @@
           <plugin>
             <groupId>org.eclipse.tycho.extras</groupId>
             <artifactId>tycho-pack200b-plugin</artifactId>
-            <version>${tycho-extras.version}</version>
+            <version>${tycho-version}</version>
             <executions>
               <execution>
                 <id>pack200-pack</id>
@@ -421,7 +420,7 @@
         <plugin>
           <groupId>org.eclipse.tycho.extras</groupId>
           <artifactId>tycho-source-feature-plugin</artifactId>
-          <version>${tycho-extras.version}</version>
+          <version>${tycho-version}</version>
           <configuration>
             <archive>
               <addMavenDescriptor>false</addMavenDescriptor>
