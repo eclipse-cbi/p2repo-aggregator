@@ -39,10 +39,9 @@ import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
 import org.apache.http.StatusLine;
 import org.apache.http.client.HttpClient;
+import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.params.BasicHttpParams;
-import org.apache.http.params.HttpParams;
+import org.apache.http.impl.client.HttpClients;
 import org.eclipse.cbi.p2repo.p2.InstallableUnit;
 import org.eclipse.cbi.p2repo.p2.P2Factory;
 import org.eclipse.cbi.p2repo.p2.impl.ArtifactKeyImpl;
@@ -636,7 +635,7 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 			String indexPropertiesFile = "/.index/nexus-maven-repository-index.properties";
 
 			if("http".equals(location.getScheme()) || "https".equals(location.getScheme())) {
-				httpClient = new DefaultHttpClient();
+				httpClient = HttpClients.createDefault();
 				HttpGet request = new HttpGet(location.toString() + indexPropertiesFile);
 				request.addHeader("user-agent", "");
 				HttpResponse response = httpClient.execute(request);
@@ -719,11 +718,10 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 		String scheme = uri.getScheme();
 		if("http".equals(scheme) || "https".equals(scheme)) {
 			HttpGet request = new HttpGet(uri.toString());
-			HttpClient httpClient = new DefaultHttpClient();
+			HttpClient httpClient = HttpClients.createDefault();
 			try {
-				HttpParams params = new BasicHttpParams();
-				params.setParameter("http.protocol.handle-redirects", false);
-				request.setParams(params);
+				RequestConfig config = RequestConfig.custom().setRedirectsEnabled(false).build();
+				request.setConfig(config);
 
 				HttpResponse response = httpClient.execute(request);
 				StatusLine statusLine = response.getStatusLine();

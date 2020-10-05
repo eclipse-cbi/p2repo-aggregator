@@ -16,7 +16,7 @@ import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.impl.client.HttpClientBuilder;
 import org.eclipse.cbi.p2repo.util.LogUtils;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.URIConverter;
@@ -84,7 +84,7 @@ public class XMLResourceImplWithCheck extends XMLResourceImpl {
 		private URIHandlerWithCheck(URIConverter owner) {
 			this.owner = owner;
 			owner.getURIHandlers().add(0, this);
-			httpClient = new DefaultHttpClient();
+			httpClient = HttpClientBuilder.create().build();
 		}
 
 		@Override
