@@ -629,7 +629,7 @@ public class ResolvedModel extends ResolvedModelBase implements IPropertyProvide
 			Class<L> featureClass) {
 		try {
 			ModelImpl model = original;
-			T result = wrapperClass.newInstance();
+			T result = wrapperClass.getDeclaredConstructor().newInstance();
 			List<L> list = new EObjectContainmentEList<L>(featureClass, (InternalEObject) result, featureID);
 			((EObjectImpl) result).eSet(wrapperID, list);
 			while(model != null) {
