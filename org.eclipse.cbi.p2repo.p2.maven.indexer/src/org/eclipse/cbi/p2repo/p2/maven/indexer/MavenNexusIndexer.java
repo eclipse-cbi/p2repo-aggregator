@@ -34,8 +34,6 @@ import org.apache.maven.index.updater.IndexUpdater;
 import org.apache.maven.index.updater.WagonHelper;
 import org.codehaus.plexus.PlexusContainer;
 import org.eclipse.cbi.p2repo.p2.maven.MavenActivator;
-import org.eclipse.cbi.p2repo.p2.maven.indexer.IMaven2Indexer;
-import org.eclipse.cbi.p2repo.p2.maven.indexer.IndexNotFoundException;
 import org.eclipse.cbi.p2repo.p2.maven.loader.VersionEntry;
 import org.eclipse.cbi.p2repo.p2.maven.util.VersionUtil;
 import org.eclipse.cbi.p2repo.util.ExceptionUtils;

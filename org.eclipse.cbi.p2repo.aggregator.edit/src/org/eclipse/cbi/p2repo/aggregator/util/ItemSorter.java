@@ -14,14 +14,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.eclipse.cbi.p2repo.p2.InstallableUnit;
-import org.eclipse.cbi.p2repo.p2.MetadataRepository;
 import org.eclipse.cbi.p2repo.aggregator.InstallableUnitType;
 import org.eclipse.cbi.p2repo.aggregator.p2view.Feature;
 import org.eclipse.cbi.p2repo.aggregator.p2view.IUPresentation;
 import org.eclipse.cbi.p2repo.aggregator.p2view.MetadataRepositoryStructuredView;
 import org.eclipse.cbi.p2repo.aggregator.p2view.Product;
-import org.eclipse.cbi.p2repo.aggregator.util.InstallableUnitUtils;
+import org.eclipse.cbi.p2repo.p2.InstallableUnit;
+import org.eclipse.cbi.p2repo.p2.MetadataRepository;
 import org.eclipse.emf.ecore.EObject;
 
 /**

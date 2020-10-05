@@ -12,7 +12,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.cbi.p2repo.aggregator.provider.AggregatorEditPlugin;
-import org.eclipse.cbi.p2repo.aggregator.util.CapabilityNamespace;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 /**
