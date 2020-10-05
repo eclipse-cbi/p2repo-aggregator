@@ -167,7 +167,7 @@ public class Builder extends ModelAbstractCommand {
 				setter.addValue(value);
 			}
 			catch(PatternSyntaxException ex) {
-				throw new CmdLineException(owner, "");
+				throw new CmdLineException(owner, "", ex);
 			}
 			return 1;
 		}
