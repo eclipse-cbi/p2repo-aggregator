@@ -3,12 +3,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org.eclipse.simrel</groupId>
-	<artifactId>2020-09</artifactId>
+	<artifactId>__aggregationFileName__</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>eclipse-repository</packaging>
 
 	<properties>
-		<tycho-version>2.0.0</tycho-version>
+		<tycho-version>2.2.0-SNAPSHOT</tycho-version>
 	</properties>
 
 	<build>
@@ -156,4 +156,10 @@ __environments__
 __tychoRepositories__
 	</repositories>
 
+	<pluginRepositories>
+		<pluginRepository>
+			<id>tycho-snapshots</id>
+			<url>https://repo.eclipse.org/content/repositories/tycho-snapshots/</url>
+		</pluginRepository>
+	</pluginRepositories>
 </project>

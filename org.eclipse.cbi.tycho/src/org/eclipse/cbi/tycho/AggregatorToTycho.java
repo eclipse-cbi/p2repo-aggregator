@@ -61,7 +61,6 @@ public class AggregatorToTycho {
 					for (CustomCategory category : agg.getCustomCategories()) {
 						if (category.getFeatures().contains(unit)) {
 							addUnit(unit, onlyCategorizedUnitsBuilder, agg.getCustomCategories(), contribution.isEnabled() && repo.isEnabled() && unit.isEnabled());
-							continue;
 						}
 					}
 				}
@@ -96,6 +95,7 @@ public class AggregatorToTycho {
 					newLine = newLine.replaceAll("__fileName__", agg.getLabel());
 					newLine = newLine.replaceAll("__description__", agg.getDescription());
 					newLine = newLine.replaceAll("__featureIncludes__", featureIncludesBuilder.toString());
+					newLine = newLine.replaceAll("__units__", unitsBuilder.toString());
 					newLine = newLine.replaceAll("__onlyCategorizedUnits__", onlyCategorizedUnitsBuilder.toString());
 					newLine = newLine.replaceAll("__environments__", targetEnvironments.toString());
 					pomXmlContent.append(newLine);
@@ -184,8 +184,8 @@ public class AggregatorToTycho {
 		}
 		tychoRepoBuilder.append("<repository>\n");
 		tychoRepoBuilder.append("	<id>");
-		tychoRepoBuilder.append(makeId(repo.getLocation()));
-		tychoRepoBuilder.append("	</id>");
+		tychoRepoBuilder.append(repo.getDescription() != null && !repo.getDescription().isBlank() ? repo.getDescription() : makeId(repo.getLocation()));
+		tychoRepoBuilder.append("</id>");
 		tychoRepoBuilder.append(System.lineSeparator());
 		tychoRepoBuilder.append("	<url>");
 		tychoRepoBuilder.append(repo.getLocation());
