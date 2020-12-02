@@ -1,0 +1,21 @@
+<project default="removeUncategorized-and-re-xz">
+
+	<target name="removeUncategorized-and-re-xz">
+		<echo>
+			Remove default "Uncategorized" category from ${repository}
+		</echo>
+		<p2.remove.iu>
+			<repository kind="metadata" location="${repository}" />
+			<iu query="property[@name='org.eclipse.equinox.p2.name' @value='Uncategorized']" />
+		</p2.remove.iu>
+		<echo>Regenerate .xz files (workaround https://bugs.eclipse.org/bugs/show_bug.cgi?id=504081)</echo>
+		<delete>
+			<fileset dir="${repository}" includes="*.xml.xz"/>
+		</delete>
+		<unjar src="${repository}/artifacts.jar" dest="${repository}"/>
+		<xz destfile="${repository}/artifacts.xml.xz" src="${repository}/artifacts.xml"/>
+		<unjar src="${repository}/content.jar" dest="${repository}"/>
+		<xz destfile="${repository}/content.xml.xz" src="${repository}/content.xml"/>
+	</target>
+
+</project>
