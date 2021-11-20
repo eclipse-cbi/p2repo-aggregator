@@ -1,10 +1,13 @@
-/*******************************************************************************
+/**
  * Copyright (c) 2006-2013, Cloudsmith Inc.
- * The code, documentation and other materials contained herein have been
- * licensed under the Eclipse Public License - v 1.0 by the copyright holder
- * listed above, as the Initial Contributor under such license. The text or
- * such license is available at www.eclipse.org.
- ******************************************************************************/
+ *
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
+ */
 package org.eclipse.cbi.p2repo.osgi.filter.impl;
 
 import java.lang.reflect.AccessibleObject;
@@ -372,7 +375,7 @@ class StringFilterImpl extends FilterImpl {
 	private boolean compareAsComparable(Comparable<Object> value1) {
 		try {
 			Constructor<?> constructor = value1.getClass().getConstructor(constructorType);
-			if (!constructor.isAccessible())
+			if (!constructor.canAccess(value1))
 				AccessController.doPrivileged(new SetAccessibleAction(constructor));
 			Object value2 = constructor.newInstance(new Object[] { stringValue.trim() });
 
@@ -396,7 +399,7 @@ class StringFilterImpl extends FilterImpl {
 	private boolean compareUnknown(Object value1) { // RFC 59
 		try {
 			Constructor<?> constructor = value1.getClass().getConstructor(constructorType);
-			if (!constructor.isAccessible())
+			if (!constructor.canAccess(value1))
 				AccessController.doPrivileged(new SetAccessibleAction(constructor));
 			Object value2 = constructor.newInstance(new Object[] { stringValue.trim() });
 			return value1.equals(value2);

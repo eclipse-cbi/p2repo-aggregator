@@ -1,8 +1,12 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright (c) 2021 Eclipse contributors and others.
  *
- * $Id$
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.p2;
 
@@ -10,8 +14,9 @@ import org.eclipse.emf.common.util.EMap;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object
- * '<em><b>Installable Unit</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Installable Unit</b></em>'.
+ * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
@@ -30,10 +35,6 @@ public interface InstallableUnit extends IInstallableUnit {
 	 * The key is of type {@link java.lang.String},
 	 * and the value is of type {@link java.lang.String},
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Property Map</em>' map isn't clear, there
-	 * really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Property Map</em>' map.
 	 * @see org.eclipse.cbi.p2repo.p2.P2Package#getInstallableUnit_PropertyMap()

@@ -1,8 +1,12 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright (c) 2021 Eclipse contributors and others.
  *
- * $Id$
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.p2.maven.pom.util;
 
@@ -14,8 +18,7 @@ import org.eclipse.cbi.p2repo.p2.maven.util.XMLResourceImplWithCheck;
 import org.eclipse.emf.common.util.URI;
 
 /**
- * <!-- begin-user-doc --> The <b>Resource </b> associated with the package.
- * <!-- end-user-doc -->
+ * 
  *
  * @see org.eclipse.cbi.p2repo.p2.maven.pom.util.PomResourceFactoryImpl
  * @generated NOT
@@ -28,8 +31,7 @@ public class PomResourceImpl extends XMLResourceImplWithCheck {
 	private Long timestamp;
 
 	/**
-	 * Creates an instance of the resource. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * Creates an instance of the resource. 
 	 *
 	 * @param uri
 	 *            the URI of the new resource.

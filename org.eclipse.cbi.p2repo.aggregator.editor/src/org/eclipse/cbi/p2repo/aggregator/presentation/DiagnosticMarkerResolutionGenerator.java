@@ -1,3 +1,13 @@
+/**
+ * Copyright (c) 2021 Eclipse contributors and others.
+ * 
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ * 
+ * SPDX-License-Identifier: EPL-2.0
+ */
 package org.eclipse.cbi.p2repo.aggregator.presentation;
 
 import java.io.File;
@@ -45,8 +55,8 @@ import org.eclipse.ui.IMarkerResolution;
 import org.eclipse.ui.IMarkerResolutionGenerator2;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchWindow;
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.ide.IDE;
-import org.eclipse.ui.internal.Workbench;
 import org.eclipse.ui.part.FileEditorInput;
 import org.xml.sax.SAXException;
 
@@ -169,7 +179,7 @@ public class DiagnosticMarkerResolutionGenerator implements IMarkerResolutionGen
 			IFile file = (IFile) marker.getResource();
 			AggregatorEditor editor = null;
 			IWorkbenchPage firstPage = null;
-			for(IWorkbenchWindow wbw : Workbench.getInstance().getWorkbenchWindows()) {
+			for (IWorkbenchWindow wbw : PlatformUI.getWorkbench().getWorkbenchWindows()) {
 				for(IWorkbenchPage wbp : wbw.getPages()) {
 					if(firstPage == null)
 						firstPage = wbp;

@@ -1,10 +1,12 @@
 /**
  * Copyright (c) 2006-2009, Cloudsmith Inc.
- * The code, documentation and other materials contained herein have been
- * licensed under the Eclipse Public License - v 1.0 by the copyright holder
- * listed above, as the Initial Contributor under such license. The text of
- * such license is available at www.eclipse.org.
  *
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.p2.impl;
 
@@ -22,8 +24,9 @@ import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Simple
- * Artifact Descriptor</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Simple Artifact Descriptor</b></em>'.
+ * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
@@ -36,8 +39,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class SimpleArtifactDescriptorImpl extends ArtifactDescriptorImpl implements SimpleArtifactDescriptor {
 	/**
 	 * The cached value of the '{@link #getRepositoryPropertyMap() <em>Repository Property Map</em>}' map.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getRepositoryPropertyMap()
 	 * @generated
 	 * @ordered
@@ -47,7 +50,8 @@ public class SimpleArtifactDescriptorImpl extends ArtifactDescriptorImpl impleme
 	public static final String ARTIFACT_REFERENCE = "artifact.reference"; //$NON-NLS-1$
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected SimpleArtifactDescriptorImpl() {
@@ -55,7 +59,8 @@ public class SimpleArtifactDescriptorImpl extends ArtifactDescriptorImpl impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -71,7 +76,8 @@ public class SimpleArtifactDescriptorImpl extends ArtifactDescriptorImpl impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -84,7 +90,8 @@ public class SimpleArtifactDescriptorImpl extends ArtifactDescriptorImpl impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -109,7 +116,8 @@ public class SimpleArtifactDescriptorImpl extends ArtifactDescriptorImpl impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -123,7 +131,8 @@ public class SimpleArtifactDescriptorImpl extends ArtifactDescriptorImpl impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -132,7 +141,8 @@ public class SimpleArtifactDescriptorImpl extends ArtifactDescriptorImpl impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -146,7 +156,7 @@ public class SimpleArtifactDescriptorImpl extends ArtifactDescriptorImpl impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -156,7 +166,7 @@ public class SimpleArtifactDescriptorImpl extends ArtifactDescriptorImpl impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -166,7 +176,8 @@ public class SimpleArtifactDescriptorImpl extends ArtifactDescriptorImpl impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override

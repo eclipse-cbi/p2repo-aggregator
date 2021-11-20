@@ -1,13 +1,19 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright (c) 2021 Eclipse contributors and others.
  *
- * $Id$
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.aggregator;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Configuration</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Configuration</b></em>'.
+ * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
@@ -27,9 +33,6 @@ public interface Configuration extends EnabledStatusProvider {
 	 * Returns the value of the '<em><b>Architecture</b></em>' attribute.
 	 * The literals are from the enumeration {@link org.eclipse.cbi.p2repo.aggregator.Architecture}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Architecture</em>' attribute isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Architecture</em>' attribute.
 	 * @see org.eclipse.cbi.p2repo.aggregator.Architecture
@@ -41,7 +44,8 @@ public interface Configuration extends EnabledStatusProvider {
 	Architecture getArchitecture();
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model kind="operation"
 	 * @generated
 	 */
@@ -51,9 +55,6 @@ public interface Configuration extends EnabledStatusProvider {
 	 * Returns the value of the '<em><b>Operating System</b></em>' attribute.
 	 * The literals are from the enumeration {@link org.eclipse.cbi.p2repo.aggregator.OperatingSystem}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Operating System</em>' attribute isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Operating System</em>' attribute.
 	 * @see org.eclipse.cbi.p2repo.aggregator.OperatingSystem
@@ -65,7 +66,8 @@ public interface Configuration extends EnabledStatusProvider {
 	OperatingSystem getOperatingSystem();
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model kind="operation"
 	 * @generated
 	 */
@@ -75,9 +77,6 @@ public interface Configuration extends EnabledStatusProvider {
 	 * Returns the value of the '<em><b>Window System</b></em>' attribute.
 	 * The literals are from the enumeration {@link org.eclipse.cbi.p2repo.aggregator.WindowSystem}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Window System</em>' attribute isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Window System</em>' attribute.
 	 * @see org.eclipse.cbi.p2repo.aggregator.WindowSystem
@@ -90,7 +89,8 @@ public interface Configuration extends EnabledStatusProvider {
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.Configuration#getArchitecture <em>Architecture</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Architecture</em>' attribute.
 	 * @see org.eclipse.cbi.p2repo.aggregator.Architecture
 	 * @see #getArchitecture()
@@ -100,7 +100,8 @@ public interface Configuration extends EnabledStatusProvider {
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.Configuration#getOperatingSystem <em>Operating System</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Operating System</em>' attribute.
 	 * @see org.eclipse.cbi.p2repo.aggregator.OperatingSystem
 	 * @see #getOperatingSystem()
@@ -110,7 +111,8 @@ public interface Configuration extends EnabledStatusProvider {
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.Configuration#getWindowSystem <em>Window System</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Window System</em>' attribute.
 	 * @see org.eclipse.cbi.p2repo.aggregator.WindowSystem
 	 * @see #getWindowSystem()

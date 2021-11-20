@@ -1,16 +1,21 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright (c) 2021 Eclipse contributors and others.
  *
- * $Id$
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.p2.maven.pom;
 
 import org.eclipse.emf.ecore.EObject;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object
- * '<em><b>Site</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Site</b></em>'.
+ * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
  * 4.0.0
@@ -34,65 +39,67 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Site extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Id</b></em>' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc --> 4.0.0
+	 * Returns the value of the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 4.0.0
 	 *
-	 * A unique identifier for a deployment locataion. This is used to match the
-	 * site to configuration in the &lt;code&gt;settings.xml&lt;/code&gt; file,
-	 * for example.
+	 *             A unique identifier for a deployment locataion. This is used to match the site to configuration in
+	 *             the &lt;code&gt;settings.xml&lt;/code&gt; file, for example.
 	 *
 	 * <!-- end-model-doc -->
-	 *
 	 * @return the value of the '<em>Id</em>' attribute.
 	 * @see #setId(String)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getSite_Id()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
-	 *        extendedMetaData="kind='element' name='id'
-	 *        namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='id' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	String getId();
 
 	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc --> 4.0.0
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 4.0.0
 	 *
-	 * Human readable name of the deployment location.
+	 *             Human readable name of the deployment location.
 	 *
 	 * <!-- end-model-doc -->
-	 *
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getSite_Name()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
-	 *        extendedMetaData="kind='element' name='name'
-	 *        namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='name' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	String getName();
 
 	/**
-	 * Returns the value of the '<em><b>Url</b></em>' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc --> 4.0.0
+	 * Returns the value of the '<em><b>Url</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 4.0.0
 	 *
-	 * The url of the location where website is deployed, in the form
-	 * &lt;code&gt;protocol://hostname/path&lt;/code&gt;.
+	 *              The url of the location where website is deployed, in the form &lt;code&gt;protocol://hostname/path&lt;/code&gt;.
 	 *
 	 * <!-- end-model-doc -->
-	 *
 	 * @return the value of the '<em>Url</em>' attribute.
 	 * @see #setUrl(String)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getSite_Url()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
-	 *        extendedMetaData="kind='element' name='url'
-	 *        namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='url' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	String getUrl();
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Site#getId <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Id</em>' attribute.
 	 * @see #getId()
 	 * @generated
@@ -101,7 +108,8 @@ public interface Site extends EObject {
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Site#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Name</em>' attribute.
 	 * @see #getName()
 	 * @generated
@@ -110,7 +118,8 @@ public interface Site extends EObject {
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Site#getUrl <em>Url</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Url</em>' attribute.
 	 * @see #getUrl()
 	 * @generated

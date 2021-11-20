@@ -1,11 +1,12 @@
 /**
  * Copyright (c) 2006-2009, Cloudsmith Inc.
- * The code, documentation and other materials contained herein have been
- * licensed under the Eclipse Public License - v 1.0 by the copyright holder
- * listed above, as the Initial Contributor under such license. The text of
- * such license is available at www.eclipse.org.
  *
- * $Id$
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.aggregator;
 
@@ -16,8 +17,9 @@ import java.util.List;
 import org.eclipse.emf.common.util.Enumerator;
 
 /**
- * <!-- begin-user-doc --> A representation of the literals of the enumeration '<em><b>Packed Strategy</b></em>', and
- * utility methods for working with them. <!-- end-user-doc -->
+ * <!-- begin-user-doc -->
+ * A representation of the literals of the enumeration '<em><b>Packed Strategy</b></em>', and utility methods for working with them.
+ * <!-- end-user-doc -->
  * @see org.eclipse.cbi.p2repo.aggregator.AggregatorPackage#getPackedStrategy()
  * @model
  * @generated
@@ -25,7 +27,8 @@ import org.eclipse.emf.common.util.Enumerator;
 public enum PackedStrategy implements Enumerator {
 	/**
 	 * The '<em><b>Copy</b></em>' literal object.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #COPY_VALUE
 	 * @generated
 	 * @ordered
@@ -34,7 +37,8 @@ public enum PackedStrategy implements Enumerator {
 
 	/**
 	 * The '<em><b>Verify</b></em>' literal object.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #VERIFY_VALUE
 	 * @generated
 	 * @ordered
@@ -43,7 +47,8 @@ public enum PackedStrategy implements Enumerator {
 
 	/**
 	 * The '<em><b>Unpack As Sibling</b></em>' literal object.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #UNPACK_AS_SIBLING_VALUE
 	 * @generated
 	 * @ordered
@@ -52,7 +57,8 @@ public enum PackedStrategy implements Enumerator {
 
 	/**
 	 * The '<em><b>Unpack</b></em>' literal object.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #UNPACK_VALUE
 	 * @generated
 	 * @ordered
@@ -61,7 +67,8 @@ public enum PackedStrategy implements Enumerator {
 
 	/**
 	 * The '<em><b>Skip</b></em>' literal object.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #SKIP_VALUE
 	 * @generated
 	 * @ordered
@@ -71,9 +78,6 @@ public enum PackedStrategy implements Enumerator {
 	/**
 	 * The '<em><b>Copy</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Copy</b></em>' literal object isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #COPY
 	 * @model name="Copy" literal="COPY"
@@ -85,9 +89,6 @@ public enum PackedStrategy implements Enumerator {
 	/**
 	 * The '<em><b>Verify</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Verify</b></em>' literal object isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #VERIFY
 	 * @model name="Verify" literal="VERIFY"
@@ -99,9 +100,6 @@ public enum PackedStrategy implements Enumerator {
 	/**
 	 * The '<em><b>Unpack As Sibling</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Unpack  As  Sibling</b></em>' literal object isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #UNPACK_AS_SIBLING
 	 * @model name="UnpackAsSibling" literal="UNPACK_AS_SIBLING"
@@ -113,9 +111,6 @@ public enum PackedStrategy implements Enumerator {
 	/**
 	 * The '<em><b>Unpack</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Unpack</b></em>' literal object isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #UNPACK
 	 * @model name="Unpack" literal="UNPACK"
@@ -127,9 +122,6 @@ public enum PackedStrategy implements Enumerator {
 	/**
 	 * The '<em><b>Skip</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Skip</b></em>' literal object isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #SKIP
 	 * @model name="Skip" literal="SKIP"
@@ -140,7 +132,8 @@ public enum PackedStrategy implements Enumerator {
 
 	/**
 	 * An array of all the '<em><b>Packed Strategy</b></em>' enumerators.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private static final PackedStrategy[] VALUES_ARRAY = new PackedStrategy[] { COPY, VERIFY, UNPACK_AS_SIBLING, UNPACK,
@@ -148,8 +141,8 @@ public enum PackedStrategy implements Enumerator {
 
 	/**
 	 * A public read-only list of all the '<em><b>Packed Strategy</b></em>' enumerators.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public static final List<PackedStrategy> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
@@ -198,8 +191,8 @@ public enum PackedStrategy implements Enumerator {
 
 	/**
 	 * Returns the '<em><b>Packed Strategy</b></em>' literal with the specified name.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param name the name.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
@@ -215,26 +208,30 @@ public enum PackedStrategy implements Enumerator {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private final int value;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private final String name;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private final String literal;
 
 	/**
 	 * Only this class can construct instances.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private PackedStrategy(int value, String name, String literal) {
@@ -244,7 +241,8 @@ public enum PackedStrategy implements Enumerator {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -253,7 +251,8 @@ public enum PackedStrategy implements Enumerator {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -262,7 +261,8 @@ public enum PackedStrategy implements Enumerator {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -272,8 +272,8 @@ public enum PackedStrategy implements Enumerator {
 
 	/**
 	 * Returns the literal value of the enumerator, which is its string representation.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override

@@ -1,4 +1,12 @@
 /**
+ * Copyright (c) 2021 Eclipse contributors and others.
+ *
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.p2.maven.metadata;
 
@@ -31,10 +39,6 @@ public interface Snapshot extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Timestamp</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Timestamp</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 1.0.0+
@@ -63,10 +67,6 @@ public interface Snapshot extends EObject {
 	 * Returns the value of the '<em><b>Build Number</b></em>' attribute.
 	 * The default value is <code>"0"</code>.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Build Number</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 1.0.0+

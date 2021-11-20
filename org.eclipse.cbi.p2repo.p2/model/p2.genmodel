@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2006-2016, Cloudsmith Inc. and others&#xD;&#xA;The code, documentation and other materials contained herein have been&#xD;&#xA;licensed under the Eclipse Public License - v 1.0 by the copyright holder&#xD;&#xA;listed above, as the Initial Contributor under such license. The text of&#xD;&#xA;such license is available at www.eclipse.org.&#xD;&#xA;"
-    modelDirectory="/org.eclipse.cbi.p2repo.p2/src" modelPluginID="org.eclipse.cbi.p2repo.p2"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2006-2016, Cloudsmith Inc. and others&#xA;&#xA;This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License 2.0&#xA;which accompanies this distribution, and is available at&#xA;https://www.eclipse.org/legal/epl-2.0/&#xA;&#xA;SPDX-License-Identifier: EPL-2.0&#xA;"
+    modelDirectory="/org.eclipse.cbi.p2repo.p2/src" editorDirectory="" modelPluginID="org.eclipse.cbi.p2repo.p2"
     forceOverwrite="true" modelName="P2" rootExtendsInterface="" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
-    codeFormatting="true" booleanFlagsField="eFlags" importerID="org.eclipse.emf.importer.ecore"
-    containmentProxies="true" complianceLevel="8.0" copyrightFields="false" packedEnums="true"
+    codeFormatting="true" testsDirectory="" booleanFlagsField="eFlags" importerID="org.eclipse.emf.importer.ecore"
+    containmentProxies="true" complianceLevel="11.0" copyrightFields="false" packedEnums="true"
     importOrganizing="true" cleanup="true">
   <foreignModel>p2.ecore</foreignModel>
   <genPackages prefix="P2" basePackage="org.eclipse.cbi.p2repo" resource="XML" disposableProviderFactory="true"
@@ -75,7 +75,8 @@
       </genOperations>
     </genClasses>
     <genClasses image="false" ecoreClass="p2.ecore#//IArtifactDescriptor">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference p2.ecore#//IArtifactDescriptor/artifactKey"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference p2.ecore#//IArtifactDescriptor/artifactKey"
+          suppressedSetVisibility="true"/>
       <genOperations ecoreOperation="p2.ecore#//IArtifactDescriptor/getProperties"/>
       <genOperations ecoreOperation="p2.ecore#//IArtifactDescriptor/getProperty">
         <genParameters ecoreParameter="p2.ecore#//IArtifactDescriptor/getProperty/key"/>
@@ -84,9 +85,12 @@
       <genOperations ecoreOperation="p2.ecore#//IArtifactDescriptor/getRepository"/>
     </genClasses>
     <genClasses image="false" ecoreClass="p2.ecore#//IArtifactKey">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IArtifactKey/classifier"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IArtifactKey/id"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IArtifactKey/version"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IArtifactKey/classifier"
+          suppressedSetVisibility="true"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IArtifactKey/id"
+          suppressedSetVisibility="true"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IArtifactKey/version"
+          suppressedSetVisibility="true"/>
       <genOperations ecoreOperation="p2.ecore#//IArtifactKey/toExternalForm"/>
     </genClasses>
     <genClasses image="false" ecoreClass="p2.ecore#//IArtifactRepository">
@@ -177,8 +181,10 @@
       </genOperations>
     </genClasses>
     <genClasses image="false" ecoreClass="p2.ecore#//ICopyright">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//ICopyright/location"/>
-      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute p2.ecore#//ICopyright/body"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//ICopyright/location"
+          suppressedSetVisibility="true"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute p2.ecore#//ICopyright/body"
+          suppressedSetVisibility="true"/>
     </genClasses>
     <genClasses image="false" ecoreClass="p2.ecore#//IFileArtifactRepository">
       <genOperations ecoreOperation="p2.ecore#//IFileArtifactRepository/getArtifactFile">
@@ -189,20 +195,28 @@
       </genOperations>
     </genClasses>
     <genClasses image="false" ecoreClass="p2.ecore#//IInstallableUnit">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference p2.ecore#//IInstallableUnit/artifacts"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference p2.ecore#//IInstallableUnit/copyright"/>
-      <genFeatures children="true" createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IInstallableUnit/filter"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference p2.ecore#//IInstallableUnit/artifacts"
+          suppressedSetVisibility="true"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference p2.ecore#//IInstallableUnit/copyright"
+          suppressedSetVisibility="true"/>
+      <genFeatures children="true" createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IInstallableUnit/filter"
+          suppressedSetVisibility="true"/>
       <genFeatures property="None" notify="false" children="true" createChild="true"
-          propertySortChoices="true" ecoreFeature="ecore:EReference p2.ecore#//IInstallableUnit/fragments"/>
+          propertySortChoices="true" ecoreFeature="ecore:EReference p2.ecore#//IInstallableUnit/fragments"
+          suppressedSetVisibility="true"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference p2.ecore#//IInstallableUnit/licenses"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference p2.ecore#//IInstallableUnit/metaRequirements"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference p2.ecore#//IInstallableUnit/providedCapabilities"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference p2.ecore#//IInstallableUnit/requirements"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference p2.ecore#//IInstallableUnit/touchpointData"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference p2.ecore#//IInstallableUnit/touchpointType"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference p2.ecore#//IInstallableUnit/updateDescriptor"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IInstallableUnit/resolved"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IInstallableUnit/singleton"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference p2.ecore#//IInstallableUnit/touchpointType"
+          suppressedSetVisibility="true"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference p2.ecore#//IInstallableUnit/updateDescriptor"
+          suppressedSetVisibility="true"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IInstallableUnit/resolved"
+          suppressedSetVisibility="true"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IInstallableUnit/singleton"
+          suppressedSetVisibility="true"/>
       <genOperations ecoreOperation="p2.ecore#//IInstallableUnit/unresolved"/>
       <genOperations ecoreOperation="p2.ecore#//IInstallableUnit/getCopyright">
         <genParameters ecoreParameter="p2.ecore#//IInstallableUnit/getCopyright/locale"/>
@@ -224,14 +238,20 @@
     </genClasses>
     <genClasses image="false" ecoreClass="p2.ecore#//IInstallableUnitFragment"/>
     <genClasses image="false" ecoreClass="p2.ecore#//IInstallableUnitPatch">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference p2.ecore#//IInstallableUnitPatch/requirementsChange"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference p2.ecore#//IInstallableUnitPatch/lifeCycle"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference p2.ecore#//IInstallableUnitPatch/appliesTo"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference p2.ecore#//IInstallableUnitPatch/requirementsChange"
+          suppressedSetVisibility="true"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference p2.ecore#//IInstallableUnitPatch/lifeCycle"
+          suppressedSetVisibility="true"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference p2.ecore#//IInstallableUnitPatch/appliesTo"
+          suppressedGetVisibility="true"/>
     </genClasses>
     <genClasses image="false" ecoreClass="p2.ecore#//ILicense">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//ILicense/location"/>
-      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute p2.ecore#//ILicense/body"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//ILicense/UUID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//ILicense/location"
+          suppressedSetVisibility="true"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute p2.ecore#//ILicense/body"
+          suppressedSetVisibility="true"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//ILicense/UUID"
+          suppressedSetVisibility="true"/>
     </genClasses>
     <genClasses ecoreClass="p2.ecore#//InstallableUnit">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference p2.ecore#//InstallableUnit/propertyMap"/>
@@ -266,14 +286,20 @@
       </genOperations>
     </genClasses>
     <genClasses image="false" ecoreClass="p2.ecore#//IProcessingStepDescriptor">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IProcessingStepDescriptor/processorId"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IProcessingStepDescriptor/data"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IProcessingStepDescriptor/required"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IProcessingStepDescriptor/processorId"
+          suppressedSetVisibility="true" suppressedIsSetVisibility="false"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IProcessingStepDescriptor/data"
+          suppressedSetVisibility="true"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IProcessingStepDescriptor/required"
+          suppressedSetVisibility="true"/>
     </genClasses>
     <genClasses image="false" ecoreClass="p2.ecore#//IProvidedCapability">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IProvidedCapability/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IProvidedCapability/namespace"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IProvidedCapability/version"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IProvidedCapability/name"
+          suppressedSetVisibility="true"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IProvidedCapability/namespace"
+          suppressedSetVisibility="true"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IProvidedCapability/version"
+          suppressedSetVisibility="true"/>
     </genClasses>
     <genClasses image="false" ecoreClass="p2.ecore#//IQueryable">
       <genTypeParameters ecoreTypeParameter="p2.ecore#//IQueryable/T"/>
@@ -284,14 +310,22 @@
     </genClasses>
     <genClasses image="false" ecoreClass="p2.ecore#//IRepository">
       <genTypeParameters ecoreTypeParameter="p2.ecore#//IRepository/T"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRepository/location"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRepository/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRepository/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRepository/version"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRepository/description"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRepository/provider"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRepository/modifiable"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRepository/provisioningAgent"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRepository/location"
+          suppressedSetVisibility="true"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRepository/name"
+          suppressedSetVisibility="true"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRepository/type"
+          suppressedSetVisibility="true"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRepository/version"
+          suppressedSetVisibility="true"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRepository/description"
+          suppressedSetVisibility="true"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRepository/provider"
+          suppressedSetVisibility="true"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRepository/modifiable"
+          suppressedSetVisibility="true"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRepository/provisioningAgent"
+          suppressedSetVisibility="true"/>
       <genOperations ecoreOperation="p2.ecore#//IRepository/getProperty">
         <genParameters ecoreParameter="p2.ecore#//IRepository/getProperty/key"/>
       </genOperations>
@@ -307,18 +341,28 @@
       </genOperations>
     </genClasses>
     <genClasses image="false" ecoreClass="p2.ecore#//IRepositoryReference">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRepositoryReference/location"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRepositoryReference/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRepositoryReference/options"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRepositoryReference/nickname"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRepositoryReference/location"
+          suppressedSetVisibility="true"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRepositoryReference/type"
+          suppressedSetVisibility="true"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRepositoryReference/options"
+          suppressedSetVisibility="true"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRepositoryReference/nickname"
+          suppressedSetVisibility="true"/>
     </genClasses>
     <genClasses image="false" ecoreClass="p2.ecore#//IRequirement">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRequirement/filter"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRequirement/max"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRequirement/min"/>
-      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRequirement/matches"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRequirement/greedy"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRequirement/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRequirement/filter"
+          suppressedSetVisibility="true"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRequirement/max"
+          suppressedSetVisibility="true"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRequirement/min"
+          suppressedSetVisibility="true"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRequirement/matches"
+          suppressedSetVisibility="true"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRequirement/greedy"
+          suppressedSetVisibility="true"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRequirement/description"
+          suppressedSetVisibility="true"/>
       <genOperations ecoreOperation="p2.ecore#//IRequirement/isMatch">
         <genParameters ecoreParameter="p2.ecore#//IRequirement/isMatch/installableUnit"/>
       </genOperations>
@@ -329,8 +373,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRequiredCapability/range"/>
     </genClasses>
     <genClasses image="false" ecoreClass="p2.ecore#//IRequirementChange">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference p2.ecore#//IRequirementChange/applyOn.1"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference p2.ecore#//IRequirementChange/newValue.1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference p2.ecore#//IRequirementChange/applyOn.1"
+          suppressedGetVisibility="true" suppressedSetVisibility="true"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference p2.ecore#//IRequirementChange/newValue.1"
+          suppressedGetVisibility="true" suppressedSetVisibility="true"/>
       <genOperations ecoreOperation="p2.ecore#//IRequirementChange/applyOn"/>
       <genOperations ecoreOperation="p2.ecore#//IRequirementChange/newValue"/>
       <genOperations ecoreOperation="p2.ecore#//IRequirementChange/matches">
@@ -344,21 +390,30 @@
       </genOperations>
     </genClasses>
     <genClasses image="false" ecoreClass="p2.ecore#//ITouchpointInstruction">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//ITouchpointInstruction/body"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//ITouchpointInstruction/importAttribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//ITouchpointInstruction/body"
+          suppressedSetVisibility="true"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//ITouchpointInstruction/importAttribute"
+          suppressedSetVisibility="true"/>
     </genClasses>
     <genClasses image="false" ecoreClass="p2.ecore#//ITouchpointType">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//ITouchpointType/id"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//ITouchpointType/version"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//ITouchpointType/id"
+          suppressedSetVisibility="true"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//ITouchpointType/version"
+          suppressedSetVisibility="true"/>
     </genClasses>
     <genClasses image="false" ecoreClass="p2.ecore#//IVersionedId">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IVersionedId/id"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IVersionedId/version"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IVersionedId/id"
+          suppressedSetVisibility="true"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IVersionedId/version"
+          suppressedSetVisibility="true"/>
     </genClasses>
     <genClasses image="false" ecoreClass="p2.ecore#//IUpdateDescriptor">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IUpdateDescriptor/description"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IUpdateDescriptor/severity"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IUpdateDescriptor/location"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IUpdateDescriptor/description"
+          suppressedSetVisibility="true"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IUpdateDescriptor/severity"
+          suppressedSetVisibility="true"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IUpdateDescriptor/location"
+          suppressedSetVisibility="true"/>
       <genOperations ecoreOperation="p2.ecore#//IUpdateDescriptor/isUpdateOf">
         <genParameters ecoreParameter="p2.ecore#//IUpdateDescriptor/isUpdateOf/installableUnit"/>
       </genOperations>

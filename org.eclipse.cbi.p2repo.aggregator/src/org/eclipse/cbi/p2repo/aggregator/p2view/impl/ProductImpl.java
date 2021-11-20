@@ -1,11 +1,12 @@
 /**
  * Copyright (c) 2006-2009, Cloudsmith Inc.
- * The code, documentation and other materials contained herein have been
- * licensed under the Eclipse Public License - v 1.0 by the copyright holder
- * listed above, as the Initial Contributor under such license. The text of
- * such license is available at www.eclipse.org.
  *
- * $Id$
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.aggregator.p2view.impl;
 
@@ -25,7 +26,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Product</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Product</b></em>'.
+ * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
@@ -39,9 +42,9 @@ import org.eclipse.equinox.p2.metadata.IInstallableUnit;
  */
 public class ProductImpl extends IUPresentationWithDetailsImpl implements Product {
 	/**
-	 * The cached value of the '{@link #getFeatureContainer() <em>Feature Container</em>}' reference. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * The cached value of the '{@link #getFeatureContainer() <em>Feature Container</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getFeatureContainer()
 	 * @generated
 	 * @ordered
@@ -50,8 +53,8 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 
 	/**
 	 * The cached value of the '{@link #getBundleContainer() <em>Bundle Container</em>}' containment reference.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getBundleContainer()
 	 * @generated
 	 * @ordered
@@ -59,9 +62,9 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 	protected Bundles bundleContainer;
 
 	/**
-	 * The cached value of the '{@link #getFragmentContainer() <em>Fragment Container</em>}' reference. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * The cached value of the '{@link #getFragmentContainer() <em>Fragment Container</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getFragmentContainer()
 	 * @generated
 	 * @ordered
@@ -69,7 +72,8 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 	protected Fragments fragmentContainer;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected ProductImpl() {
@@ -77,7 +81,7 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -86,7 +90,8 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public Bundles basicGetBundleContainer() {
@@ -94,7 +99,8 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public Features basicGetFeatureContainer() {
@@ -102,7 +108,8 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public Fragments basicGetFragmentContainer() {
@@ -167,7 +174,8 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -208,7 +216,8 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -225,7 +234,8 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -245,7 +255,8 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -254,7 +265,8 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -274,7 +286,8 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -301,7 +314,8 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -328,7 +342,8 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -355,7 +370,7 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -368,7 +383,7 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -381,7 +396,7 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -399,7 +414,8 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -421,7 +437,8 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -443,7 +460,8 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override

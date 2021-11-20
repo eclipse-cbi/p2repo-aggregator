@@ -1,11 +1,12 @@
 /**
  * Copyright (c) 2006-2009, Cloudsmith Inc.
- * The code, documentation and other materials contained herein have been
- * licensed under the Eclipse Public License - v 1.0 by the copyright holder
- * listed above, as the Initial Contributor under such license. The text of
- * such license is available at www.eclipse.org.
  *
- * $Id$
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.aggregator.p2view;
 
@@ -13,7 +14,9 @@ import org.eclipse.equinox.p2.metadata.ICopyright;
 import org.eclipse.equinox.p2.metadata.IUpdateDescriptor;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>IU Details</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>IU Details</b></em>'.
+ * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
@@ -36,9 +39,6 @@ public interface IUDetails {
 	/**
 	 * Returns the value of the '<em><b>Copyright</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Copyright</em>' reference isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Copyright</em>' containment reference.
 	 * @see #setCopyright(ICopyright)
@@ -51,9 +51,6 @@ public interface IUDetails {
 	/**
 	 * Returns the value of the '<em><b>Licenses Container</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Licenses Container</em>' reference isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Licenses Container</em>' containment reference.
 	 * @see #setLicensesContainer(Licenses)
@@ -66,9 +63,6 @@ public interface IUDetails {
 	/**
 	 * Returns the value of the '<em><b>Properties Container</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Properties Container</em>' reference isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Properties Container</em>' containment reference.
 	 * @see #setPropertiesContainer(Properties)
@@ -81,9 +75,6 @@ public interface IUDetails {
 	/**
 	 * Returns the value of the '<em><b>Provided Capabilities Container</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Provided Capabilities Container</em>' reference isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Provided Capabilities Container</em>' containment reference.
 	 * @see #setProvidedCapabilitiesContainer(ProvidedCapabilities)
@@ -96,9 +87,6 @@ public interface IUDetails {
 	/**
 	 * Returns the value of the '<em><b>Requirements Container</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Requirements Container</em>' reference isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Requirements Container</em>' containment reference.
 	 * @see #setRequirementsContainer(Requirements)
@@ -111,9 +99,6 @@ public interface IUDetails {
 	/**
 	 * Returns the value of the '<em><b>Touchpoints Container</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Touchpoints Container</em>' reference isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Touchpoints Container</em>' containment reference.
 	 * @see #setTouchpointsContainer(Touchpoints)
@@ -126,9 +111,6 @@ public interface IUDetails {
 	/**
 	 * Returns the value of the '<em><b>Update Descriptor</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Update Descriptor</em>' reference isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Update Descriptor</em>' containment reference.
 	 * @see #setUpdateDescriptor(IUpdateDescriptor)
@@ -140,7 +122,8 @@ public interface IUDetails {
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.p2view.IUDetails#getCopyright <em>Copyright</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Copyright</em>' containment reference.
 	 * @see #getCopyright()
 	 * @generated
@@ -159,7 +142,8 @@ public interface IUDetails {
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.p2view.IUDetails#getPropertiesContainer <em>Properties Container</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Properties Container</em>' containment reference.
 	 * @see #getPropertiesContainer()
 	 * @generated
@@ -168,7 +152,8 @@ public interface IUDetails {
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.p2view.IUDetails#getProvidedCapabilitiesContainer <em>Provided Capabilities Container</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Provided Capabilities Container</em>' containment reference.
 	 * @see #getProvidedCapabilitiesContainer()
 	 * @generated
@@ -187,7 +172,8 @@ public interface IUDetails {
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.p2view.IUDetails#getTouchpointsContainer <em>Touchpoints Container</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Touchpoints Container</em>' containment reference.
 	 * @see #getTouchpointsContainer()
 	 * @generated
@@ -196,7 +182,8 @@ public interface IUDetails {
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.p2view.IUDetails#getUpdateDescriptor <em>Update Descriptor</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Update Descriptor</em>' containment reference.
 	 * @see #getUpdateDescriptor()
 	 * @generated

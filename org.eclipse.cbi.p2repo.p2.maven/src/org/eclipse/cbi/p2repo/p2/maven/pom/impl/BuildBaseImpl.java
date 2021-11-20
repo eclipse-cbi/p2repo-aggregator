@@ -1,8 +1,12 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright (c) 2021 Eclipse contributors and others.
  *
- * $Id$
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.p2.maven.pom.impl;
 
@@ -18,11 +22,12 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Build
- * Base</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Build Base</b></em>'.
+ * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
@@ -39,10 +44,11 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class BuildBaseImpl extends EObjectImpl implements BuildBase {
+public class BuildBaseImpl extends MinimalEObjectImpl.Container implements BuildBase {
 	/**
 	 * The default value of the '{@link #getDefaultGoal() <em>Default Goal</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getDefaultGoal()
 	 * @generated
 	 * @ordered
@@ -51,7 +57,8 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase {
 
 	/**
 	 * The cached value of the '{@link #getDefaultGoal() <em>Default Goal</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getDefaultGoal()
 	 * @generated
 	 * @ordered
@@ -60,7 +67,8 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase {
 
 	/**
 	 * The cached value of the '{@link #getResources() <em>Resources</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getResources()
 	 * @generated
 	 * @ordered
@@ -69,8 +77,8 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase {
 
 	/**
 	 * The cached value of the '{@link #getTestResources() <em>Test Resources</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTestResources()
 	 * @generated
 	 * @ordered
@@ -79,7 +87,8 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase {
 
 	/**
 	 * The default value of the '{@link #getDirectory() <em>Directory</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getDirectory()
 	 * @generated
 	 * @ordered
@@ -88,7 +97,8 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase {
 
 	/**
 	 * The cached value of the '{@link #getDirectory() <em>Directory</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getDirectory()
 	 * @generated
 	 * @ordered
@@ -97,7 +107,8 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase {
 
 	/**
 	 * The default value of the '{@link #getFinalName() <em>Final Name</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getFinalName()
 	 * @generated
 	 * @ordered
@@ -106,7 +117,8 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase {
 
 	/**
 	 * The cached value of the '{@link #getFinalName() <em>Final Name</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getFinalName()
 	 * @generated
 	 * @ordered
@@ -115,7 +127,8 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase {
 
 	/**
 	 * The cached value of the '{@link #getFilters() <em>Filters</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getFilters()
 	 * @generated
 	 * @ordered
@@ -124,8 +137,8 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase {
 
 	/**
 	 * The cached value of the '{@link #getPluginManagement() <em>Plugin Management</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getPluginManagement()
 	 * @generated
 	 * @ordered
@@ -134,7 +147,8 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase {
 
 	/**
 	 * The cached value of the '{@link #getPlugins() <em>Plugins</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getPlugins()
 	 * @generated
 	 * @ordered
@@ -142,7 +156,8 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase {
 	protected PluginsType plugins;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected BuildBaseImpl() {
@@ -150,7 +165,8 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public NotificationChain basicSetFilters(FiltersType newFilters, NotificationChain msgs) {
@@ -168,7 +184,8 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public NotificationChain basicSetPluginManagement(PluginManagement newPluginManagement, NotificationChain msgs) {
@@ -186,7 +203,8 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public NotificationChain basicSetPlugins(PluginsType newPlugins, NotificationChain msgs) {
@@ -204,7 +222,8 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public NotificationChain basicSetResources(ResourcesType newResources, NotificationChain msgs) {
@@ -222,7 +241,8 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public NotificationChain basicSetTestResources(TestResourcesType newTestResources, NotificationChain msgs) {
@@ -240,7 +260,8 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -267,7 +288,8 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -288,7 +310,8 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -315,7 +338,8 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -350,7 +374,8 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -385,7 +410,8 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -394,7 +420,8 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -403,7 +430,8 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -412,7 +440,8 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -421,7 +450,8 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -430,7 +460,8 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -439,7 +470,8 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -448,7 +480,8 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -457,7 +490,8 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -470,7 +504,8 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -483,7 +518,8 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -505,7 +541,8 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -518,7 +555,8 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -540,7 +578,8 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -562,7 +601,8 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -584,7 +624,8 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -606,7 +647,8 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -614,7 +656,7 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase {
 		if (eIsProxy())
 			return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (defaultGoal: ");
 		result.append(defaultGoal);
 		result.append(", directory: ");
@@ -626,7 +668,8 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override

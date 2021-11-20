@@ -1,11 +1,12 @@
 /**
  * Copyright (c) 2006-2009, Cloudsmith Inc.
- * The code, documentation and other materials contained herein have been
- * licensed under the Eclipse Public License - v 1.0 by the copyright holder
- * listed above, as the Initial Contributor under such license. The text of
- * such license is available at www.eclipse.org.
  *
- * $Id$
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.aggregator.impl;
 
@@ -42,8 +43,9 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Metadata Repository Reference</b></em>'. <!--
- * end-user-doc -->
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Metadata Repository Reference</b></em>'.
+ * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
@@ -64,7 +66,7 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Container
 		implements MetadataRepositoryReference {
 	/**
-	 * This looks up a string in the plugin's plugin.properties file. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This looks up a string in the plugin's plugin.properties file.
 	 *
 	 * @generated NOT
 	 */
@@ -74,7 +76,8 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -92,8 +95,8 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 
 	/**
 	 * The default value of the '{@link #isEnabled() <em>Enabled</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isEnabled()
 	 * @generated
 	 * @ordered
@@ -112,8 +115,8 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 
 	/**
 	 * The cached value of the '{@link #getErrors() <em>Errors</em>}' attribute list.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getErrors()
 	 * @generated
 	 * @ordered
@@ -122,8 +125,8 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 
 	/**
 	 * The cached value of the '{@link #getWarnings() <em>Warnings</em>}' attribute list.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getWarnings()
 	 * @generated
 	 * @ordered
@@ -132,8 +135,8 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 
 	/**
 	 * The cached value of the '{@link #getInfos() <em>Infos</em>}' attribute list.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getInfos()
 	 * @generated
 	 * @ordered
@@ -141,9 +144,9 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	protected EList<String> infos;
 
 	/**
-	 * The cached value of the '{@link #getMetadataRepository() <em>Metadata Repository</em>}' reference. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * The cached value of the '{@link #getMetadataRepository() <em>Metadata Repository</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getMetadataRepository()
 	 * @generated
 	 * @ordered
@@ -152,8 +155,8 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 
 	/**
 	 * The default value of the '{@link #getLocation() <em>Location</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getLocation()
 	 * @generated
 	 * @ordered
@@ -162,8 +165,8 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 
 	/**
 	 * The cached value of the '{@link #getLocation() <em>Location</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getLocation()
 	 * @generated
 	 * @ordered
@@ -172,8 +175,8 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 
 	/**
 	 * The default value of the '{@link #getNature() <em>Nature</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getNature()
 	 * @generated
 	 * @ordered
@@ -182,8 +185,8 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 
 	/**
 	 * The cached value of the '{@link #getNature() <em>Nature</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getNature()
 	 * @generated
 	 * @ordered
@@ -191,7 +194,8 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	protected String nature = NATURE_EDEFAULT;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected MetadataRepositoryReferenceImpl() {
@@ -200,7 +204,8 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public MetadataRepository basicGetMetadataRepository() {
@@ -213,7 +218,8 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -242,7 +248,8 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -271,7 +278,8 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -302,7 +310,8 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -331,7 +340,8 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -367,7 +377,8 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -376,7 +387,8 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -408,7 +420,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -422,7 +434,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -452,7 +464,8 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -465,7 +478,8 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -505,7 +519,8 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public MetadataRepository getMetadataRepositoryGen() {
@@ -523,7 +538,8 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -532,7 +548,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -572,7 +588,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -607,7 +623,8 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -620,7 +637,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -630,7 +647,8 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -639,8 +657,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -650,7 +667,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -668,7 +685,8 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -684,7 +702,8 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -703,7 +722,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated NOT
 	 */
 	public void setMetadataRepositoryGen(MetadataRepository newMetadataRepository) {
@@ -716,7 +735,8 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -729,7 +749,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -755,7 +775,8 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override

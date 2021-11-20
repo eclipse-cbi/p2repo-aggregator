@@ -1,8 +1,12 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright (c) 2021 Eclipse contributors and others.
  *
- * $Id$
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.aggregator.impl;
 
@@ -36,28 +40,30 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Mapped Repository</b></em>'. <!-- end-user-doc
- * -->
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Mapped Repository</b></em>'.
+ * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.MappedRepositoryImpl#getProducts <em>Products</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.MappedRepositoryImpl#getBundles <em>Bundles</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.MappedRepositoryImpl#getFeatures <em>Features</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.MappedRepositoryImpl#isMapVerbatim <em>Map Verbatim</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.MappedRepositoryImpl#getMetadataRepository <em>Metadata Repository </em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.MappedRepositoryImpl#getCategories <em>Categories</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.MappedRepositoryImpl#getLocation <em>Location</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.MappedRepositoryImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.MappedRepositoryImpl#getProducts <em>Products</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.MappedRepositoryImpl#getBundles <em>Bundles</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.MappedRepositoryImpl#getFeatures <em>Features</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.MappedRepositoryImpl#getCategories <em>Categories</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.MappedRepositoryImpl#isMirrorArtifacts <em>Mirror Artifacts</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.MappedRepositoryImpl#getCategoryPrefix <em>Category Prefix</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.MappedRepositoryImpl#getMapRules <em>Map Rules</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implements MappedRepository {
 	/**
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getDescription()
 	 * @generated
 	 * @ordered
@@ -70,8 +76,8 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 
 	/**
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getDescription()
 	 * @generated
 	 * @ordered
@@ -79,9 +85,9 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	protected String description = DESCRIPTION_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getProducts() <em>Products</em>}' containment reference list. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * The cached value of the '{@link #getProducts() <em>Products</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getProducts()
 	 * @generated
 	 * @ordered
@@ -90,8 +96,8 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 
 	/**
 	 * The cached value of the '{@link #getBundles() <em>Bundles</em>}' containment reference list.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getBundles()
 	 * @generated
 	 * @ordered
@@ -99,9 +105,9 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	protected EList<Bundle> bundles;
 
 	/**
-	 * The cached value of the '{@link #getFeatures() <em>Features</em>}' containment reference list. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * The cached value of the '{@link #getFeatures() <em>Features</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getFeatures()
 	 * @generated
 	 * @ordered
@@ -109,9 +115,9 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	protected EList<Feature> features;
 
 	/**
-	 * The cached value of the '{@link #getCategories() <em>Categories</em>}' containment reference list. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * The cached value of the '{@link #getCategories() <em>Categories</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getCategories()
 	 * @generated
 	 * @ordered
@@ -120,8 +126,8 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 
 	/**
 	 * The default value of the '{@link #isMirrorArtifacts() <em>Mirror Artifacts</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isMirrorArtifacts()
 	 * @generated
 	 * @ordered
@@ -129,9 +135,9 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	protected static final boolean MIRROR_ARTIFACTS_EDEFAULT = true;
 
 	/**
-	 * The flag representing the value of the '{@link #isMirrorArtifacts() <em>Mirror Artifacts</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * The flag representing the value of the '{@link #isMirrorArtifacts() <em>Mirror Artifacts</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isMirrorArtifacts()
 	 * @generated
 	 * @ordered
@@ -140,8 +146,8 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 
 	/**
 	 * The default value of the '{@link #getCategoryPrefix() <em>Category Prefix</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getCategoryPrefix()
 	 * @generated
 	 * @ordered
@@ -150,8 +156,8 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 
 	/**
 	 * The cached value of the '{@link #getCategoryPrefix() <em>Category Prefix</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getCategoryPrefix()
 	 * @generated
 	 * @ordered
@@ -159,9 +165,9 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	protected String categoryPrefix = CATEGORY_PREFIX_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getMapRules() <em>Map Rules</em>}' containment reference list. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * The cached value of the '{@link #getMapRules() <em>Map Rules</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getMapRules()
 	 * @generated
 	 * @ordered
@@ -169,7 +175,8 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	protected EList<MapRule> mapRules;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected MappedRepositoryImpl() {
@@ -192,7 +199,8 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -215,7 +223,8 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -238,7 +247,8 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -265,7 +275,8 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -286,7 +297,8 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -314,7 +326,8 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -355,7 +368,8 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -364,7 +378,8 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -404,7 +419,8 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -417,7 +433,8 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -430,7 +447,8 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -439,7 +457,8 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -448,7 +467,7 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -475,7 +494,8 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -488,8 +508,7 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -499,7 +518,8 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -512,8 +532,7 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -526,7 +545,8 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -539,7 +559,7 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -564,7 +584,7 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -593,7 +613,7 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -603,7 +623,7 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -614,7 +634,8 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -637,7 +658,8 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -650,7 +672,8 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -663,7 +686,8 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -679,7 +703,8 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override

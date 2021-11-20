@@ -1,8 +1,12 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright (c) 2021 Eclipse contributors and others.
  *
- * $Id$
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.aggregator;
 
@@ -14,12 +18,14 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 /**
- * <!-- begin-user-doc --> The <b>Package</b> for the model. It contains accessors for the meta objects to represent
+ * <!-- begin-user-doc -->
+ * The <b>Package</b> for the model.
+ * It contains accessors for the meta objects to represent
  * <ul>
- * <li>each class,</li>
- * <li>each feature of each class,</li>
- * <li>each enum,</li>
- * <li>and each data type</li>
+ *   <li>each class,</li>
+ *   <li>each feature of each class,</li>
+ *   <li>each enum,</li>
+ *   <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
  * @see org.eclipse.cbi.p2repo.aggregator.AggregatorFactory
@@ -28,13 +34,7 @@ import org.eclipse.emf.ecore.EReference;
  */
 public interface AggregatorPackage extends EPackage {
 	/**
-	 * <!-- begin-user-doc --> Defines literals for the meta objects that represent
-	 * <ul>
-	 * <li>each class,</li>
-	 * <li>each feature of each class,</li>
-	 * <li>each enum,</li>
-	 * <li>and each data type</li>
-	 * </ul>
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -245,7 +245,8 @@ public interface AggregatorPackage extends EPackage {
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.MappedRepositoryImpl <em>Mapped Repository</em>}' class.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @see org.eclipse.cbi.p2repo.aggregator.impl.MappedRepositoryImpl
 		 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getMappedRepository()
 		 * @generated
@@ -253,25 +254,25 @@ public interface AggregatorPackage extends EPackage {
 		EClass MAPPED_REPOSITORY = eINSTANCE.getMappedRepository();
 
 		/**
-		 * The meta object literal for the '<em><b>Products</b></em>' containment reference list feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
-		 *
+		 * The meta object literal for the '<em><b>Products</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference MAPPED_REPOSITORY__PRODUCTS = eINSTANCE.getMappedRepository_Products();
 
 		/**
-		 * The meta object literal for the '<em><b>Bundles</b></em>' containment reference list feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
-		 *
+		 * The meta object literal for the '<em><b>Bundles</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference MAPPED_REPOSITORY__BUNDLES = eINSTANCE.getMappedRepository_Bundles();
 
 		/**
-		 * The meta object literal for the '<em><b>Features</b></em>' containment reference list feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
-		 *
+		 * The meta object literal for the '<em><b>Features</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference MAPPED_REPOSITORY__FEATURES = eINSTANCE.getMappedRepository_Features();
@@ -293,24 +294,25 @@ public interface AggregatorPackage extends EPackage {
 		EAttribute MAPPED_REPOSITORY__CATEGORY_PREFIX = eINSTANCE.getMappedRepository_CategoryPrefix();
 
 		/**
-		 * The meta object literal for the '<em><b>Map Rules</b></em>' containment reference list feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
-		 *
+		 * The meta object literal for the '<em><b>Map Rules</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference MAPPED_REPOSITORY__MAP_RULES = eINSTANCE.getMappedRepository_MapRules();
 
 		/**
-		 * The meta object literal for the '<em><b>Categories</b></em>' containment reference list feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
-		 *
+		 * The meta object literal for the '<em><b>Categories</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference MAPPED_REPOSITORY__CATEGORIES = eINSTANCE.getMappedRepository_Categories();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.ConfigurationImpl <em>Configuration</em>}' class.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @see org.eclipse.cbi.p2repo.aggregator.impl.ConfigurationImpl
 		 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getConfiguration()
 		 * @generated
@@ -343,7 +345,8 @@ public interface AggregatorPackage extends EPackage {
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.ContributionImpl <em>Contribution</em>}' class.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @see org.eclipse.cbi.p2repo.aggregator.impl.ContributionImpl
 		 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getContribution()
 		 * @generated
@@ -352,16 +355,16 @@ public interface AggregatorPackage extends EPackage {
 
 		/**
 		 * The meta object literal for the '<em><b>Label</b></em>' attribute feature.
-		 * <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute CONTRIBUTION__LABEL = eINSTANCE.getContribution_Label();
 
 		/**
-		 * The meta object literal for the '<em><b>Repositories</b></em>' containment reference list feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
-		 *
+		 * The meta object literal for the '<em><b>Repositories</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference CONTRIBUTION__REPOSITORIES = eINSTANCE.getContribution_Repositories();
@@ -375,16 +378,17 @@ public interface AggregatorPackage extends EPackage {
 		EReference CONTRIBUTION__CONTACTS = eINSTANCE.getContribution_Contacts();
 
 		/**
-		 * The meta object literal for the '<em><b>Maven Mappings</b></em>' containment reference list feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
-		 *
+		 * The meta object literal for the '<em><b>Maven Mappings</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference CONTRIBUTION__MAVEN_MAPPINGS = eINSTANCE.getContribution_MavenMappings();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.ContactImpl <em>Contact</em>}' class.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @see org.eclipse.cbi.p2repo.aggregator.impl.ContactImpl
 		 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getContact()
 		 * @generated
@@ -393,16 +397,16 @@ public interface AggregatorPackage extends EPackage {
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute CONTACT__NAME = eINSTANCE.getContact_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Email</b></em>' attribute feature.
-		 * <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute CONTACT__EMAIL = eINSTANCE.getContact_Email();
@@ -417,7 +421,8 @@ public interface AggregatorPackage extends EPackage {
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.FeatureImpl <em>Feature</em>}' class.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @see org.eclipse.cbi.p2repo.aggregator.impl.FeatureImpl
 		 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getFeature()
 		 * @generated
@@ -434,7 +439,8 @@ public interface AggregatorPackage extends EPackage {
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.BundleImpl <em>Bundle</em>}' class.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @see org.eclipse.cbi.p2repo.aggregator.impl.BundleImpl
 		 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getBundle()
 		 * @generated
@@ -443,7 +449,8 @@ public interface AggregatorPackage extends EPackage {
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.MappedUnitImpl <em>Mapped Unit</em>}' class.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @see org.eclipse.cbi.p2repo.aggregator.impl.MappedUnitImpl
 		 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getMappedUnit()
 		 * @generated
@@ -451,16 +458,17 @@ public interface AggregatorPackage extends EPackage {
 		EClass MAPPED_UNIT = eINSTANCE.getMappedUnit();
 
 		/**
-		 * The meta object literal for the '<em><b>Valid Configurations</b></em>' reference list feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
-		 *
+		 * The meta object literal for the '<em><b>Valid Configurations</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference MAPPED_UNIT__VALID_CONFIGURATIONS = eINSTANCE.getMappedUnit_ValidConfigurations();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.ProductImpl <em>Product</em>}' class.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @see org.eclipse.cbi.p2repo.aggregator.impl.ProductImpl
 		 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getProduct()
 		 * @generated
@@ -469,7 +477,8 @@ public interface AggregatorPackage extends EPackage {
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.PropertyImpl <em>Property</em>}' class.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @see org.eclipse.cbi.p2repo.aggregator.impl.PropertyImpl
 		 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getProperty()
 		 * @generated
@@ -478,23 +487,24 @@ public interface AggregatorPackage extends EPackage {
 
 		/**
 		 * The meta object literal for the '<em><b>Key</b></em>' attribute feature.
-		 * <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute PROPERTY__KEY = eINSTANCE.getProperty_Key();
 
 		/**
 		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
-		 * <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute PROPERTY__VALUE = eINSTANCE.getProperty_Value();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.CategoryImpl <em>Category</em>}' class.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @see org.eclipse.cbi.p2repo.aggregator.impl.CategoryImpl
 		 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getCategory()
 		 * @generated
@@ -511,7 +521,8 @@ public interface AggregatorPackage extends EPackage {
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.CustomCategoryImpl <em>Custom Category</em>}' class.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @see org.eclipse.cbi.p2repo.aggregator.impl.CustomCategoryImpl
 		 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getCustomCategory()
 		 * @generated
@@ -520,24 +531,24 @@ public interface AggregatorPackage extends EPackage {
 
 		/**
 		 * The meta object literal for the '<em><b>Identifier</b></em>' attribute feature.
-		 * <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute CUSTOM_CATEGORY__IDENTIFIER = eINSTANCE.getCustomCategory_Identifier();
 
 		/**
 		 * The meta object literal for the '<em><b>Label</b></em>' attribute feature.
-		 * <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute CUSTOM_CATEGORY__LABEL = eINSTANCE.getCustomCategory_Label();
 
 		/**
 		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
-		 * <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute CUSTOM_CATEGORY__DESCRIPTION = eINSTANCE.getCustomCategory_Description();
@@ -552,7 +563,8 @@ public interface AggregatorPackage extends EPackage {
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.cbi.p2repo.aggregator.EnabledStatusProvider <em>Enabled Status Provider</em>}' class.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @see org.eclipse.cbi.p2repo.aggregator.EnabledStatusProvider
 		 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getEnabledStatusProvider()
 		 * @generated
@@ -569,15 +581,16 @@ public interface AggregatorPackage extends EPackage {
 
 		/**
 		 * The meta object literal for the '<em><b>Enabled</b></em>' attribute feature.
-		 * <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute ENABLED_STATUS_PROVIDER__ENABLED = eINSTANCE.getEnabledStatusProvider_Enabled();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.MapRuleImpl <em>Map Rule</em>}' class.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @see org.eclipse.cbi.p2repo.aggregator.impl.MapRuleImpl
 		 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getMapRule()
 		 * @generated
@@ -630,7 +643,8 @@ public interface AggregatorPackage extends EPackage {
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.ExclusionRuleImpl <em>Exclusion Rule</em>}' class.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @see org.eclipse.cbi.p2repo.aggregator.impl.ExclusionRuleImpl
 		 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getExclusionRule()
 		 * @generated
@@ -639,7 +653,8 @@ public interface AggregatorPackage extends EPackage {
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.ValidConfigurationsRuleImpl <em>Valid Configurations Rule</em>}' class.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @see org.eclipse.cbi.p2repo.aggregator.impl.ValidConfigurationsRuleImpl
 		 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getValidConfigurationsRule()
 		 * @generated
@@ -647,9 +662,9 @@ public interface AggregatorPackage extends EPackage {
 		EClass VALID_CONFIGURATIONS_RULE = eINSTANCE.getValidConfigurationsRule();
 
 		/**
-		 * The meta object literal for the '<em><b>Valid Configurations</b></em>' reference list feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
-		 *
+		 * The meta object literal for the '<em><b>Valid Configurations</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference VALID_CONFIGURATIONS_RULE__VALID_CONFIGURATIONS = eINSTANCE
@@ -657,7 +672,8 @@ public interface AggregatorPackage extends EPackage {
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.MetadataRepositoryReferenceImpl <em>Metadata Repository Reference</em>}' class.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @see org.eclipse.cbi.p2repo.aggregator.impl.MetadataRepositoryReferenceImpl
 		 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getMetadataRepositoryReference()
 		 * @generated
@@ -666,8 +682,8 @@ public interface AggregatorPackage extends EPackage {
 
 		/**
 		 * The meta object literal for the '<em><b>Metadata Repository</b></em>' reference feature.
-		 * <!-- begin-user-doc
-		 * --> <!-- end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference METADATA_REPOSITORY_REFERENCE__METADATA_REPOSITORY = eINSTANCE
@@ -675,23 +691,24 @@ public interface AggregatorPackage extends EPackage {
 
 		/**
 		 * The meta object literal for the '<em><b>Location</b></em>' attribute feature.
-		 * <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute METADATA_REPOSITORY_REFERENCE__LOCATION = eINSTANCE.getMetadataRepositoryReference_Location();
 
 		/**
 		 * The meta object literal for the '<em><b>Nature</b></em>' attribute feature.
-		 * <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute METADATA_REPOSITORY_REFERENCE__NATURE = eINSTANCE.getMetadataRepositoryReference_Nature();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.cbi.p2repo.aggregator.StatusProvider <em>Status Provider</em>}' class.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @see org.eclipse.cbi.p2repo.aggregator.StatusProvider
 		 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getStatusProvider()
 		 * @generated
@@ -700,15 +717,16 @@ public interface AggregatorPackage extends EPackage {
 
 		/**
 		 * The meta object literal for the '<em><b>Status</b></em>' reference feature.
-		 * <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference STATUS_PROVIDER__STATUS = eINSTANCE.getStatusProvider_Status();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.InfosProviderImpl <em>Infos Provider</em>}' class.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @see org.eclipse.cbi.p2repo.aggregator.impl.InfosProviderImpl
 		 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getInfosProvider()
 		 * @generated
@@ -717,8 +735,8 @@ public interface AggregatorPackage extends EPackage {
 
 		/**
 		 * The meta object literal for the '<em><b>Errors</b></em>' attribute list feature.
-		 * <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute INFOS_PROVIDER__ERRORS = eINSTANCE.getInfosProvider_Errors();
@@ -733,8 +751,8 @@ public interface AggregatorPackage extends EPackage {
 
 		/**
 		 * The meta object literal for the '<em><b>Infos</b></em>' attribute list feature.
-		 * <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute INFOS_PROVIDER__INFOS = eINSTANCE.getInfosProvider_Infos();
@@ -821,7 +839,8 @@ public interface AggregatorPackage extends EPackage {
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.cbi.p2repo.aggregator.LabelProvider <em>Label Provider</em>}' class.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @see org.eclipse.cbi.p2repo.aggregator.LabelProvider
 		 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getLabelProvider()
 		 * @generated
@@ -830,15 +849,16 @@ public interface AggregatorPackage extends EPackage {
 
 		/**
 		 * The meta object literal for the '<em><b>Label</b></em>' attribute feature.
-		 * <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute LABEL_PROVIDER__LABEL = eINSTANCE.getLabelProvider_Label();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.DescriptionProviderImpl <em>Description Provider</em>}' class.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @see org.eclipse.cbi.p2repo.aggregator.impl.DescriptionProviderImpl
 		 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getDescriptionProvider()
 		 * @generated
@@ -847,8 +867,8 @@ public interface AggregatorPackage extends EPackage {
 
 		/**
 		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
-		 * <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute DESCRIPTION_PROVIDER__DESCRIPTION = eINSTANCE.getDescriptionProvider_Description();
@@ -865,7 +885,8 @@ public interface AggregatorPackage extends EPackage {
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.MavenMappingImpl <em>Maven Mapping</em>}' class.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @see org.eclipse.cbi.p2repo.aggregator.impl.MavenMappingImpl
 		 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getMavenMapping()
 		 * @generated
@@ -882,16 +903,16 @@ public interface AggregatorPackage extends EPackage {
 
 		/**
 		 * The meta object literal for the '<em><b>Group Id</b></em>' attribute feature.
-		 * <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute MAVEN_MAPPING__GROUP_ID = eINSTANCE.getMavenMapping_GroupId();
 
 		/**
 		 * The meta object literal for the '<em><b>Artifact Id</b></em>' attribute feature.
-		 * <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute MAVEN_MAPPING__ARTIFACT_ID = eINSTANCE.getMavenMapping_ArtifactId();
@@ -922,7 +943,8 @@ public interface AggregatorPackage extends EPackage {
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.MavenItemImpl <em>Maven Item</em>}' class.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @see org.eclipse.cbi.p2repo.aggregator.impl.MavenItemImpl
 		 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getMavenItem()
 		 * @generated
@@ -931,16 +953,16 @@ public interface AggregatorPackage extends EPackage {
 
 		/**
 		 * The meta object literal for the '<em><b>Group Id</b></em>' attribute feature.
-		 * <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute MAVEN_ITEM__GROUP_ID = eINSTANCE.getMavenItem_GroupId();
 
 		/**
 		 * The meta object literal for the '<em><b>Artifact Id</b></em>' attribute feature.
-		 * <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute MAVEN_ITEM__ARTIFACT_ID = eINSTANCE.getMavenItem_ArtifactId();
@@ -971,7 +993,8 @@ public interface AggregatorPackage extends EPackage {
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.cbi.p2repo.aggregator.ChildrenProvider <em>Children Provider</em>}' class.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @see org.eclipse.cbi.p2repo.aggregator.ChildrenProvider
 		 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getChildrenProvider()
 		 * @generated
@@ -988,7 +1011,8 @@ public interface AggregatorPackage extends EPackage {
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.StatusImpl <em>Status</em>}' class.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @see org.eclipse.cbi.p2repo.aggregator.impl.StatusImpl
 		 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getStatus()
 		 * @generated
@@ -997,23 +1021,24 @@ public interface AggregatorPackage extends EPackage {
 
 		/**
 		 * The meta object literal for the '<em><b>Code</b></em>' attribute feature.
-		 * <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute STATUS__CODE = eINSTANCE.getStatus_Code();
 
 		/**
 		 * The meta object literal for the '<em><b>Message</b></em>' attribute feature.
-		 * <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute STATUS__MESSAGE = eINSTANCE.getStatus_Message();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.cbi.p2repo.aggregator.OperatingSystem <em>Operating System</em>}' enum.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @see org.eclipse.cbi.p2repo.aggregator.OperatingSystem
 		 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getOperatingSystem()
 		 * @generated
@@ -1022,7 +1047,8 @@ public interface AggregatorPackage extends EPackage {
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.cbi.p2repo.aggregator.WindowSystem <em>Window System</em>}' enum.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @see org.eclipse.cbi.p2repo.aggregator.WindowSystem
 		 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getWindowSystem()
 		 * @generated
@@ -1041,7 +1067,8 @@ public interface AggregatorPackage extends EPackage {
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.cbi.p2repo.aggregator.Architecture <em>Architecture</em>}' enum.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @see org.eclipse.cbi.p2repo.aggregator.Architecture
 		 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getArchitecture()
 		 * @generated
@@ -1060,7 +1087,8 @@ public interface AggregatorPackage extends EPackage {
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.cbi.p2repo.aggregator.PackedStrategy <em>Packed Strategy</em>}' enum.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @see org.eclipse.cbi.p2repo.aggregator.PackedStrategy
 		 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getPackedStrategy()
 		 * @generated
@@ -1069,7 +1097,8 @@ public interface AggregatorPackage extends EPackage {
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.cbi.p2repo.aggregator.InstallableUnitType <em>Installable Unit Type</em>}' enum.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @see org.eclipse.cbi.p2repo.aggregator.InstallableUnitType
 		 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getInstallableUnitType()
 		 * @generated
@@ -1078,7 +1107,8 @@ public interface AggregatorPackage extends EPackage {
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.cbi.p2repo.aggregator.StatusCode <em>Status Code</em>}' enum.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @see org.eclipse.cbi.p2repo.aggregator.StatusCode
 		 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getStatusCode()
 		 * @generated
@@ -1099,35 +1129,40 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The package name.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	String eNAME = "aggregator";
 
 	/**
 	 * The package namespace URI.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	String eNS_URI = "http://www.eclipse.org/cbi/p2repo/2011/aggregator/1.1.0";
 
 	/**
 	 * The package namespace name.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	String eNS_PREFIX = "aggregator";
 
 	/**
 	 * The singleton instance of the package.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	AggregatorPackage eINSTANCE = org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl.init();
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.DescriptionProviderImpl <em>Description Provider</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.DescriptionProviderImpl
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getDescriptionProvider()
 	 * @generated
@@ -1136,7 +1171,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -1144,8 +1180,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The number of structural features of the '<em>Description Provider</em>' class.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -1370,7 +1406,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.EnabledStatusProvider <em>Enabled Status Provider</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see org.eclipse.cbi.p2repo.aggregator.EnabledStatusProvider
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getEnabledStatusProvider()
 	 * @generated
@@ -1389,7 +1426,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.MetadataRepositoryReferenceImpl <em>Metadata Repository Reference</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.MetadataRepositoryReferenceImpl
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getMetadataRepositoryReference()
 	 * @generated
@@ -1398,7 +1436,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.MappedRepositoryImpl <em>Mapped Repository</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.MappedRepositoryImpl
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getMappedRepository()
 	 * @generated
@@ -1407,7 +1446,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.ConfigurationImpl <em>Configuration</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.ConfigurationImpl
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getConfiguration()
 	 * @generated
@@ -1416,7 +1456,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.ContributionImpl <em>Contribution</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.ContributionImpl
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getContribution()
 	 * @generated
@@ -1425,7 +1466,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.ContactImpl <em>Contact</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.ContactImpl
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getContact()
 	 * @generated
@@ -1434,7 +1476,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.MappedUnitImpl <em>Mapped Unit</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.MappedUnitImpl
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getMappedUnit()
 	 * @generated
@@ -1443,7 +1486,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.StatusProvider <em>Status Provider</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see org.eclipse.cbi.p2repo.aggregator.StatusProvider
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getStatusProvider()
 	 * @generated
@@ -1462,7 +1506,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.FeatureImpl <em>Feature</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.FeatureImpl
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getFeature()
 	 * @generated
@@ -1471,7 +1516,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.BundleImpl <em>Bundle</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.BundleImpl
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getBundle()
 	 * @generated
@@ -1480,7 +1526,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.ProductImpl <em>Product</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.ProductImpl
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getProduct()
 	 * @generated
@@ -1489,7 +1536,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.PropertyImpl <em>Property</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.PropertyImpl
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getProperty()
 	 * @generated
@@ -1498,7 +1546,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.CategoryImpl <em>Category</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.CategoryImpl
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getCategory()
 	 * @generated
@@ -1507,7 +1556,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.CustomCategoryImpl <em>Custom Category</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.CustomCategoryImpl
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getCustomCategory()
 	 * @generated
@@ -1516,7 +1566,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.MapRuleImpl <em>Map Rule</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.MapRuleImpl
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getMapRule()
 	 * @generated
@@ -1525,7 +1576,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.ExclusionRuleImpl <em>Exclusion Rule</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.ExclusionRuleImpl
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getExclusionRule()
 	 * @generated
@@ -1534,7 +1586,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.ValidConfigurationsRuleImpl <em>Valid Configurations Rule</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.ValidConfigurationsRuleImpl
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getValidConfigurationsRule()
 	 * @generated
@@ -1543,7 +1596,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.LabelProvider <em>Label Provider</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see org.eclipse.cbi.p2repo.aggregator.LabelProvider
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getLabelProvider()
 	 * @generated
@@ -1562,7 +1616,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.MavenMappingImpl <em>Maven Mapping</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.MavenMappingImpl
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getMavenMapping()
 	 * @generated
@@ -1571,7 +1626,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.MavenItemImpl <em>Maven Item</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.MavenItemImpl
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getMavenItem()
 	 * @generated
@@ -1580,7 +1636,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.ChildrenProvider <em>Children Provider</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see org.eclipse.cbi.p2repo.aggregator.ChildrenProvider
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getChildrenProvider()
 	 * @generated
@@ -1589,7 +1646,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.StatusImpl <em>Status</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.StatusImpl
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getStatus()
 	 * @generated
@@ -1598,7 +1656,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.InfosProviderImpl <em>Infos Provider</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.InfosProviderImpl
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getInfosProvider()
 	 * @generated
@@ -1699,7 +1758,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Status</b></em>' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -1707,8 +1767,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The number of structural features of the '<em>Status Provider</em>' class.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -1806,7 +1866,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Status</b></em>' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -1814,7 +1875,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Errors</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -1822,7 +1884,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Warnings</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -1830,7 +1893,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Infos</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -1892,7 +1956,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -1900,17 +1965,17 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Valid Configurations</b></em>' reference list.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int MAPPED_UNIT__VALID_CONFIGURATIONS = INSTALLABLE_UNIT_REQUEST_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of structural features of the '<em>Mapped Unit</em>' class. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 *
+	 * The number of structural features of the '<em>Mapped Unit</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -1918,7 +1983,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Status</b></em>' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -1926,7 +1992,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Errors</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -1934,7 +2001,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Warnings</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -1942,7 +2010,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Infos</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2004,7 +2073,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2012,8 +2082,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Valid Configurations</b></em>' reference list.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2021,7 +2091,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The number of structural features of the '<em>Bundle</em>' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2029,7 +2100,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Status</b></em>' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2037,7 +2109,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Errors</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2045,7 +2118,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Warnings</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2053,7 +2127,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Infos</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2115,7 +2190,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2123,8 +2199,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Valid Configurations</b></em>' reference list.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2132,7 +2208,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Label Override</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2140,7 +2217,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The number of structural features of the '<em>Category</em>' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2148,7 +2226,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Children</b></em>' reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2156,8 +2235,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The number of structural features of the '<em>Children Provider</em>' class.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2174,7 +2253,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2182,8 +2262,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The number of structural features of the '<em>Enabled Status Provider</em>' class.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2200,16 +2280,17 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int CONFIGURATION__ENABLED = ENABLED_STATUS_PROVIDER__ENABLED;
 
 	/**
-	 * The feature id for the '<em><b>Operating System</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 *
+	 * The feature id for the '<em><b>Operating System</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2217,7 +2298,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Window System</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2225,7 +2307,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Architecture</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2233,8 +2316,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The number of structural features of the '<em>Configuration</em>' class.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2242,7 +2325,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2250,7 +2334,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Email</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2267,7 +2352,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The number of structural features of the '<em>Contact</em>' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2284,7 +2370,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2292,7 +2379,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2300,7 +2388,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Status</b></em>' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2308,7 +2397,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Errors</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2316,7 +2406,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Warnings</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2324,7 +2415,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Infos</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2332,7 +2424,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2340,8 +2433,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Repositories</b></em>' containment reference list.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2349,25 +2442,26 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Contacts</b></em>' reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int CONTRIBUTION__CONTACTS = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 7;
 
 	/**
-	 * The feature id for the '<em><b>Maven Mappings</b></em>' reference list. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 *
+	 * The feature id for the '<em><b>Maven Mappings</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int CONTRIBUTION__MAVEN_MAPPINGS = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 8;
 
 	/**
-	 * The number of structural features of the '<em>Contribution</em>' class. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 *
+	 * The number of structural features of the '<em>Contribution</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2375,7 +2469,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Status</b></em>' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2383,7 +2478,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Errors</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2391,7 +2487,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Warnings</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2399,7 +2496,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Infos</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2461,7 +2559,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2469,8 +2568,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Valid Configurations</b></em>' reference list.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2478,7 +2577,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Categories</b></em>' reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2486,7 +2586,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The number of structural features of the '<em>Feature</em>' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2494,7 +2595,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Status</b></em>' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2502,7 +2604,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Errors</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2510,7 +2613,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Warnings</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2518,7 +2622,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Infos</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2526,7 +2631,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Identifier</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2534,7 +2640,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2542,7 +2649,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2550,7 +2658,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Features</b></em>' reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2558,8 +2667,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The number of structural features of the '<em>Custom Category</em>' class.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2567,7 +2676,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Status</b></em>' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2575,7 +2685,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Errors</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2583,7 +2694,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Warnings</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2591,7 +2703,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Infos</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2599,7 +2712,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2661,7 +2775,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The number of structural features of the '<em>Map Rule</em>' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2669,7 +2784,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Status</b></em>' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2677,7 +2793,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Errors</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2685,7 +2802,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Warnings</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2693,7 +2811,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Infos</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2701,7 +2820,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2763,8 +2883,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The number of structural features of the '<em>Exclusion Rule</em>' class.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2781,7 +2901,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Errors</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2789,7 +2910,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Warnings</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2797,7 +2919,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Infos</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2805,8 +2928,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The number of structural features of the '<em>Infos Provider</em>' class.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2814,7 +2937,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2822,8 +2946,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The number of structural features of the '<em>Label Provider</em>' class.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2840,7 +2964,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2848,7 +2973,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Status</b></em>' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2856,7 +2982,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Errors</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2864,7 +2991,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Warnings</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2872,16 +3000,17 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Infos</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int METADATA_REPOSITORY_REFERENCE__INFOS = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Metadata Repository</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 *
+	 * The feature id for the '<em><b>Metadata Repository</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2889,7 +3018,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Location</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2897,7 +3027,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Nature</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2923,7 +3054,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2931,7 +3063,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Status</b></em>' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2939,7 +3072,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Errors</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2947,7 +3081,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Warnings</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2955,16 +3090,17 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Infos</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int MAPPED_REPOSITORY__INFOS = METADATA_REPOSITORY_REFERENCE__INFOS;
 
 	/**
-	 * The feature id for the '<em><b>Metadata Repository</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 *
+	 * The feature id for the '<em><b>Metadata Repository</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2972,7 +3108,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Location</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2980,7 +3117,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Nature</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2988,7 +3126,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -2996,8 +3135,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Products</b></em>' containment reference list.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -3005,8 +3144,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Bundles</b></em>' containment reference list.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -3014,8 +3153,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Features</b></em>' containment reference list.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -3023,17 +3162,17 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Categories</b></em>' containment reference list.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int MAPPED_REPOSITORY__CATEGORIES = METADATA_REPOSITORY_REFERENCE_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Mirror Artifacts</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 *
+	 * The feature id for the '<em><b>Mirror Artifacts</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -3041,7 +3180,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Category Prefix</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -3049,8 +3189,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Map Rules</b></em>' containment reference list.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -3058,8 +3198,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The number of structural features of the '<em>Mapped Repository</em>' class.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -3067,7 +3207,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Group Id</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -3075,7 +3216,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Artifact Id</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -3109,9 +3251,9 @@ public interface AggregatorPackage extends EPackage {
 	int MAVEN_ITEM__MAVEN_MAPPING = 4;
 
 	/**
-	 * The number of structural features of the '<em>Maven Item</em>' class. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 *
+	 * The number of structural features of the '<em>Maven Item</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -3119,7 +3261,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Status</b></em>' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -3127,7 +3270,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Errors</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -3135,7 +3279,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Warnings</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -3143,7 +3288,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Infos</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -3151,7 +3297,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Name Pattern</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -3159,7 +3306,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Group Id</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -3167,7 +3315,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Artifact Id</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -3202,8 +3351,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The number of structural features of the '<em>Maven Mapping</em>' class.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -3211,7 +3360,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Status</b></em>' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -3219,7 +3369,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Errors</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -3227,7 +3378,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Warnings</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -3235,7 +3387,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Infos</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -3297,7 +3450,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -3305,8 +3459,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Valid Configurations</b></em>' reference list.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -3314,7 +3468,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The number of structural features of the '<em>Product</em>' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -3322,7 +3477,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -3330,7 +3486,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -3338,7 +3495,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The number of structural features of the '<em>Property</em>' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -3346,7 +3504,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Code</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -3354,7 +3513,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Message</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -3362,7 +3522,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The number of structural features of the '<em>Status</em>' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -3496,7 +3657,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Status</b></em>' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -3504,7 +3666,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Errors</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -3512,7 +3675,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Warnings</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -3520,7 +3684,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Infos</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -3528,7 +3693,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -3590,8 +3756,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Valid Configurations</b></em>' reference list.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -3599,8 +3765,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The number of structural features of the '<em>Valid Configurations Rule</em>' class.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -3618,7 +3784,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.OperatingSystem <em>Operating System</em>}' enum.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see org.eclipse.cbi.p2repo.aggregator.OperatingSystem
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getOperatingSystem()
 	 * @generated
@@ -3627,7 +3794,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.WindowSystem <em>Window System</em>}' enum.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see org.eclipse.cbi.p2repo.aggregator.WindowSystem
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getWindowSystem()
 	 * @generated
@@ -3646,7 +3814,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.Architecture <em>Architecture</em>}' enum.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see org.eclipse.cbi.p2repo.aggregator.Architecture
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getArchitecture()
 	 * @generated
@@ -3665,7 +3834,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.PackedStrategy <em>Packed Strategy</em>}' enum.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see org.eclipse.cbi.p2repo.aggregator.PackedStrategy
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getPackedStrategy()
 	 * @generated
@@ -3674,7 +3844,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.InstallableUnitType <em>Installable Unit Type</em>}' enum.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see org.eclipse.cbi.p2repo.aggregator.InstallableUnitType
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getInstallableUnitType()
 	 * @generated
@@ -3683,7 +3854,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.StatusCode <em>Status Code</em>}' enum.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see org.eclipse.cbi.p2repo.aggregator.StatusCode
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getStatusCode()
 	 * @generated
@@ -3909,7 +4081,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * Returns the factory that creates the instances of the model.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the factory that creates the instances of the model.
 	 * @generated
 	 */
@@ -3917,7 +4090,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for enum '{@link org.eclipse.cbi.p2repo.aggregator.Architecture <em>Architecture</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for enum '<em>Architecture</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.Architecture
 	 * @generated
@@ -4021,9 +4195,9 @@ public interface AggregatorPackage extends EPackage {
 	EReference getAvailableVersionsHeader_InstallableUnitRequest();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.cbi.p2repo.aggregator.Bundle <em>Bundle</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * Returns the meta object for class '{@link org.eclipse.cbi.p2repo.aggregator.Bundle <em>Bundle</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Bundle</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.Bundle
 	 * @generated
@@ -4031,9 +4205,9 @@ public interface AggregatorPackage extends EPackage {
 	EClass getBundle();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.cbi.p2repo.aggregator.Category <em>Category</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * Returns the meta object for class '{@link org.eclipse.cbi.p2repo.aggregator.Category <em>Category</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Category</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.Category
 	 * @generated
@@ -4042,7 +4216,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.Category#getLabelOverride <em>Label Override</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Label Override</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.Category#getLabelOverride()
 	 * @see #getCategory()
@@ -4052,7 +4227,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.cbi.p2repo.aggregator.ChildrenProvider <em>Children Provider</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Children Provider</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.ChildrenProvider
 	 * @generated
@@ -4061,8 +4237,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the reference list '{@link org.eclipse.cbi.p2repo.aggregator.ChildrenProvider#getChildren <em>Children</em>}'.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference list '<em>Children</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.ChildrenProvider#getChildren()
 	 * @see #getChildrenProvider()
@@ -4072,7 +4248,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.cbi.p2repo.aggregator.Configuration <em>Configuration</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Configuration</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.Configuration
 	 * @generated
@@ -4080,10 +4257,9 @@ public interface AggregatorPackage extends EPackage {
 	EClass getConfiguration();
 
 	/**
-	 * Returns the meta object for the attribute ' {@link org.eclipse.cbi.p2repo.aggregator.Configuration#getArchitecture
-	 * <em>Architecture</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.Configuration#getArchitecture <em>Architecture</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Architecture</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.Configuration#getArchitecture()
 	 * @see #getConfiguration()
@@ -4092,10 +4268,9 @@ public interface AggregatorPackage extends EPackage {
 	EAttribute getConfiguration_Architecture();
 
 	/**
-	 * Returns the meta object for the attribute ' {@link org.eclipse.cbi.p2repo.aggregator.Configuration#getOperatingSystem
-	 * <em>Operating System</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.Configuration#getOperatingSystem <em>Operating System</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Operating System</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.Configuration#getOperatingSystem()
 	 * @see #getConfiguration()
@@ -4104,10 +4279,9 @@ public interface AggregatorPackage extends EPackage {
 	EAttribute getConfiguration_OperatingSystem();
 
 	/**
-	 * Returns the meta object for the attribute ' {@link org.eclipse.cbi.p2repo.aggregator.Configuration#getWindowSystem
-	 * <em>Window System</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.Configuration#getWindowSystem <em>Window System</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Window System</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.Configuration#getWindowSystem()
 	 * @see #getConfiguration()
@@ -4116,9 +4290,9 @@ public interface AggregatorPackage extends EPackage {
 	EAttribute getConfiguration_WindowSystem();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.cbi.p2repo.aggregator.Contact <em>Contact</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * Returns the meta object for class '{@link org.eclipse.cbi.p2repo.aggregator.Contact <em>Contact</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Contact</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.Contact
 	 * @generated
@@ -4138,7 +4312,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.Contact#getEmail <em>Email</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Email</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.Contact#getEmail()
 	 * @see #getContact()
@@ -4148,7 +4323,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.Contact#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Name</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.Contact#getName()
 	 * @see #getContact()
@@ -4158,7 +4334,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.cbi.p2repo.aggregator.Contribution <em>Contribution</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Contribution</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.Contribution
 	 * @generated
@@ -4178,7 +4355,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.Contribution#getLabel <em>Label</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Label</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.Contribution#getLabel()
 	 * @see #getContribution()
@@ -4187,11 +4365,10 @@ public interface AggregatorPackage extends EPackage {
 	EAttribute getContribution_Label();
 
 	/**
-	 * Returns the meta object for the reference list ' {@link org.eclipse.cbi.p2repo.aggregator.Contribution#getMavenMappings
-	 * <em>Maven Mappings</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @return the meta object for the reference list '<em>Maven Mappings</em>'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.cbi.p2repo.aggregator.Contribution#getMavenMappings <em>Maven Mappings</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Maven Mappings</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.Contribution#getMavenMappings()
 	 * @see #getContribution()
 	 * @generated
@@ -4199,10 +4376,9 @@ public interface AggregatorPackage extends EPackage {
 	EReference getContribution_MavenMappings();
 
 	/**
-	 * Returns the meta object for the containment reference list ' {@link org.eclipse.cbi.p2repo.aggregator.Contribution#getRepositories
-	 * <em>Repositories</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.cbi.p2repo.aggregator.Contribution#getRepositories <em>Repositories</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Repositories</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.Contribution#getRepositories()
 	 * @see #getContribution()
@@ -4212,7 +4388,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.cbi.p2repo.aggregator.CustomCategory <em>Custom Category</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Custom Category</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.CustomCategory
 	 * @generated
@@ -4220,10 +4397,9 @@ public interface AggregatorPackage extends EPackage {
 	EClass getCustomCategory();
 
 	/**
-	 * Returns the meta object for the attribute ' {@link org.eclipse.cbi.p2repo.aggregator.CustomCategory#getDescription
-	 * <em>Description</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.CustomCategory#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Description</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.CustomCategory#getDescription()
 	 * @see #getCustomCategory()
@@ -4244,8 +4420,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.CustomCategory#getIdentifier <em>Identifier</em>}'.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Identifier</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.CustomCategory#getIdentifier()
 	 * @see #getCustomCategory()
@@ -4255,7 +4431,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.CustomCategory#getLabel <em>Label</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Label</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.CustomCategory#getLabel()
 	 * @see #getCustomCategory()
@@ -4265,7 +4442,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.cbi.p2repo.aggregator.DescriptionProvider <em>Description Provider</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Description Provider</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.DescriptionProvider
 	 * @generated
@@ -4273,10 +4451,9 @@ public interface AggregatorPackage extends EPackage {
 	EClass getDescriptionProvider();
 
 	/**
-	 * Returns the meta object for the attribute ' {@link org.eclipse.cbi.p2repo.aggregator.DescriptionProvider#getDescription
-	 * <em>Description</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.DescriptionProvider#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Description</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.DescriptionProvider#getDescription()
 	 * @see #getDescriptionProvider()
@@ -4286,7 +4463,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.cbi.p2repo.aggregator.EnabledStatusProvider <em>Enabled Status Provider</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Enabled Status Provider</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.EnabledStatusProvider
 	 * @generated
@@ -4306,8 +4484,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.EnabledStatusProvider#isEnabled <em>Enabled</em>}'.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Enabled</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.EnabledStatusProvider#isEnabled()
 	 * @see #getEnabledStatusProvider()
@@ -4317,7 +4495,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.cbi.p2repo.aggregator.ExclusionRule <em>Exclusion Rule</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Exclusion Rule</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.ExclusionRule
 	 * @generated
@@ -4325,9 +4504,9 @@ public interface AggregatorPackage extends EPackage {
 	EClass getExclusionRule();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.cbi.p2repo.aggregator.Feature <em>Feature</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * Returns the meta object for class '{@link org.eclipse.cbi.p2repo.aggregator.Feature <em>Feature</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Feature</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.Feature
 	 * @generated
@@ -4336,7 +4515,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the reference list '{@link org.eclipse.cbi.p2repo.aggregator.Feature#getCategories <em>Categories</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference list '<em>Categories</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.Feature#getCategories()
 	 * @see #getFeature()
@@ -4356,7 +4536,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.cbi.p2repo.aggregator.InfosProvider <em>Infos Provider</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Infos Provider</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.InfosProvider
 	 * @generated
@@ -4365,8 +4546,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute list '{@link org.eclipse.cbi.p2repo.aggregator.InfosProvider#getErrors <em>Errors</em>}'.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute list '<em>Errors</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.InfosProvider#getErrors()
 	 * @see #getInfosProvider()
@@ -4376,7 +4557,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute list '{@link org.eclipse.cbi.p2repo.aggregator.InfosProvider#getInfos <em>Infos</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute list '<em>Infos</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.InfosProvider#getInfos()
 	 * @see #getInfosProvider()
@@ -4451,7 +4633,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for enum '{@link org.eclipse.cbi.p2repo.aggregator.InstallableUnitType <em>Installable Unit Type</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for enum '<em>Installable Unit Type</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.InstallableUnitType
 	 * @generated
@@ -4460,7 +4643,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.cbi.p2repo.aggregator.LabelProvider <em>Label Provider</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Label Provider</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.LabelProvider
 	 * @generated
@@ -4469,7 +4653,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.LabelProvider#getLabel <em>Label</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Label</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.LabelProvider#getLabel()
 	 * @see #getLabelProvider()
@@ -4479,7 +4664,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.cbi.p2repo.aggregator.MappedRepository <em>Mapped Repository</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Mapped Repository</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.MappedRepository
 	 * @generated
@@ -4498,10 +4684,9 @@ public interface AggregatorPackage extends EPackage {
 	EReference getMappedRepository_Bundles();
 
 	/**
-	 * Returns the meta object for the containment reference list ' {@link org.eclipse.cbi.p2repo.aggregator.MappedRepository#getCategories
-	 * <em>Categories</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.cbi.p2repo.aggregator.MappedRepository#getCategories <em>Categories</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Categories</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.MappedRepository#getCategories()
 	 * @see #getMappedRepository()
@@ -4510,10 +4695,9 @@ public interface AggregatorPackage extends EPackage {
 	EReference getMappedRepository_Categories();
 
 	/**
-	 * Returns the meta object for the attribute ' {@link org.eclipse.cbi.p2repo.aggregator.MappedRepository#getCategoryPrefix
-	 * <em>Category Prefix</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.MappedRepository#getCategoryPrefix <em>Category Prefix</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Category Prefix</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.MappedRepository#getCategoryPrefix()
 	 * @see #getMappedRepository()
@@ -4523,8 +4707,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link org.eclipse.cbi.p2repo.aggregator.MappedRepository#getFeatures <em>Features</em>}'.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Features</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.MappedRepository#getFeatures()
 	 * @see #getMappedRepository()
@@ -4534,8 +4718,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link org.eclipse.cbi.p2repo.aggregator.MappedRepository#getMapRules <em>Map Rules</em>}'.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Map Rules</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.MappedRepository#getMapRules()
 	 * @see #getMappedRepository()
@@ -4544,10 +4728,9 @@ public interface AggregatorPackage extends EPackage {
 	EReference getMappedRepository_MapRules();
 
 	/**
-	 * Returns the meta object for the attribute ' {@link org.eclipse.cbi.p2repo.aggregator.MappedRepository#isMirrorArtifacts
-	 * <em>Mirror Artifacts</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.MappedRepository#isMirrorArtifacts <em>Mirror Artifacts</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Mirror Artifacts</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.MappedRepository#isMirrorArtifacts()
 	 * @see #getMappedRepository()
@@ -4557,8 +4740,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link org.eclipse.cbi.p2repo.aggregator.MappedRepository#getProducts <em>Products</em>}'.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Products</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.MappedRepository#getProducts()
 	 * @see #getMappedRepository()
@@ -4568,7 +4751,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.cbi.p2repo.aggregator.MappedUnit <em>Mapped Unit</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Mapped Unit</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.MappedUnit
 	 * @generated
@@ -4576,10 +4760,9 @@ public interface AggregatorPackage extends EPackage {
 	EClass getMappedUnit();
 
 	/**
-	 * Returns the meta object for the reference list ' {@link org.eclipse.cbi.p2repo.aggregator.MappedUnit#getValidConfigurations
-	 * <em>Valid Configurations</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * Returns the meta object for the reference list '{@link org.eclipse.cbi.p2repo.aggregator.MappedUnit#getValidConfigurations <em>Valid Configurations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference list '<em>Valid Configurations</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.MappedUnit#getValidConfigurations()
 	 * @see #getMappedUnit()
@@ -4588,9 +4771,9 @@ public interface AggregatorPackage extends EPackage {
 	EReference getMappedUnit_ValidConfigurations();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.cbi.p2repo.aggregator.MapRule <em>Map Rule</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * Returns the meta object for class '{@link org.eclipse.cbi.p2repo.aggregator.MapRule <em>Map Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Map Rule</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.MapRule
 	 * @generated
@@ -4599,7 +4782,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.cbi.p2repo.aggregator.MavenItem <em>Maven Item</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Maven Item</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.MavenItem
 	 * @generated
@@ -4608,7 +4792,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.MavenItem#getArtifactId <em>Artifact Id</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Artifact Id</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.MavenItem#getArtifactId()
 	 * @see #getMavenItem()
@@ -4651,7 +4836,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.MavenItem#getGroupId <em>Group Id</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Group Id</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.MavenItem#getGroupId()
 	 * @see #getMavenItem()
@@ -4661,7 +4847,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.cbi.p2repo.aggregator.MavenMapping <em>Maven Mapping</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Maven Mapping</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.MavenMapping
 	 * @generated
@@ -4670,7 +4857,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.MavenMapping#getArtifactId <em>Artifact Id</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Artifact Id</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.MavenMapping#getArtifactId()
 	 * @see #getMavenMapping()
@@ -4713,7 +4901,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.MavenMapping#getGroupId <em>Group Id</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Group Id</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.MavenMapping#getGroupId()
 	 * @see #getMavenMapping()
@@ -4723,7 +4912,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.MavenMapping#getNamePattern <em>Name Pattern</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Name Pattern</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.MavenMapping#getNamePattern()
 	 * @see #getMavenMapping()
@@ -4733,7 +4923,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.cbi.p2repo.aggregator.MetadataRepositoryReference <em>Metadata Repository Reference</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Metadata Repository Reference</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.MetadataRepositoryReference
 	 * @generated
@@ -4741,9 +4932,9 @@ public interface AggregatorPackage extends EPackage {
 	EClass getMetadataRepositoryReference();
 
 	/**
-	 * Returns the meta object for the attribute ' {@link org.eclipse.cbi.p2repo.aggregator.MetadataRepositoryReference#getLocation <em>Location</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.MetadataRepositoryReference#getLocation <em>Location</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Location</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.MetadataRepositoryReference#getLocation()
 	 * @see #getMetadataRepositoryReference()
@@ -4753,7 +4944,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the reference '{@link org.eclipse.cbi.p2repo.aggregator.MetadataRepositoryReference#getMetadataRepository <em>Metadata Repository</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Metadata Repository</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.MetadataRepositoryReference#getMetadataRepository()
 	 * @see #getMetadataRepositoryReference()
@@ -4762,9 +4954,9 @@ public interface AggregatorPackage extends EPackage {
 	EReference getMetadataRepositoryReference_MetadataRepository();
 
 	/**
-	 * Returns the meta object for the attribute ' {@link org.eclipse.cbi.p2repo.aggregator.MetadataRepositoryReference#getNature <em>Nature</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.MetadataRepositoryReference#getNature <em>Nature</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Nature</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.MetadataRepositoryReference#getNature()
 	 * @see #getMetadataRepositoryReference()
@@ -4774,7 +4966,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for enum '{@link org.eclipse.cbi.p2repo.aggregator.OperatingSystem <em>Operating System</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for enum '<em>Operating System</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.OperatingSystem
 	 * @generated
@@ -4783,7 +4976,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for enum '{@link org.eclipse.cbi.p2repo.aggregator.PackedStrategy <em>Packed Strategy</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for enum '<em>Packed Strategy</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.PackedStrategy
 	 * @generated
@@ -4791,9 +4985,9 @@ public interface AggregatorPackage extends EPackage {
 	EEnum getPackedStrategy();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.cbi.p2repo.aggregator.Product <em>Product</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * Returns the meta object for class '{@link org.eclipse.cbi.p2repo.aggregator.Product <em>Product</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Product</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.Product
 	 * @generated
@@ -4801,9 +4995,9 @@ public interface AggregatorPackage extends EPackage {
 	EClass getProduct();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.cbi.p2repo.aggregator.Property <em>Property</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * Returns the meta object for class '{@link org.eclipse.cbi.p2repo.aggregator.Property <em>Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Property</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.Property
 	 * @generated
@@ -4812,7 +5006,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.Property#getKey <em>Key</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Key</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.Property#getKey()
 	 * @see #getProperty()
@@ -4822,7 +5017,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.Property#getValue <em>Value</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Value</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.Property#getValue()
 	 * @see #getProperty()
@@ -4831,9 +5027,9 @@ public interface AggregatorPackage extends EPackage {
 	EAttribute getProperty_Value();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.cbi.p2repo.aggregator.Status <em>Status</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * Returns the meta object for class '{@link org.eclipse.cbi.p2repo.aggregator.Status <em>Status</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Status</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.Status
 	 * @generated
@@ -4842,7 +5038,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.Status#getCode <em>Code</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Code</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.Status#getCode()
 	 * @see #getStatus()
@@ -4852,7 +5049,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.Status#getMessage <em>Message</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Message</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.Status#getMessage()
 	 * @see #getStatus()
@@ -4862,7 +5060,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for enum '{@link org.eclipse.cbi.p2repo.aggregator.StatusCode <em>Status Code</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for enum '<em>Status Code</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.StatusCode
 	 * @generated
@@ -4871,7 +5070,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.cbi.p2repo.aggregator.StatusProvider <em>Status Provider</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Status Provider</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.StatusProvider
 	 * @generated
@@ -4880,7 +5080,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the reference '{@link org.eclipse.cbi.p2repo.aggregator.StatusProvider#getStatus <em>Status</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Status</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.StatusProvider#getStatus()
 	 * @see #getStatusProvider()
@@ -4966,7 +5167,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.cbi.p2repo.aggregator.ValidConfigurationsRule <em>Valid Configurations Rule</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Valid Configurations Rule</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.ValidConfigurationsRule
 	 * @generated
@@ -4975,7 +5177,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the reference list '{@link org.eclipse.cbi.p2repo.aggregator.ValidConfigurationsRule#getValidConfigurations <em>Valid Configurations</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference list '<em>Valid Configurations</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.ValidConfigurationsRule#getValidConfigurations()
 	 * @see #getValidConfigurationsRule()
@@ -4995,7 +5198,8 @@ public interface AggregatorPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for enum '{@link org.eclipse.cbi.p2repo.aggregator.WindowSystem <em>Window System</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the meta object for enum '<em>Window System</em>'.
 	 * @see org.eclipse.cbi.p2repo.aggregator.WindowSystem
 	 * @generated

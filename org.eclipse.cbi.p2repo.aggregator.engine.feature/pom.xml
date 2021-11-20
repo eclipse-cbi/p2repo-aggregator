@@ -3,26 +3,26 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.eclipse.cbi</groupId>
   <artifactId>org.eclipse.cbi.p2repo.aggregator.engine.feature</artifactId>
-  <version>1.0.300-SNAPSHOT</version>
+  <version>1.0.400-SNAPSHOT</version>
   <parent>
     <groupId>org.eclipse.cbi</groupId>
     <artifactId>org.eclipse.cbi.p2repo.releng.parent</artifactId>
     <relativePath>../org.eclipse.cbi.p2repo.releng.parent</relativePath>
-    <version>1.0.300-SNAPSHOT</version>
+    <version>1.0.400-SNAPSHOT</version>
   </parent>
   <packaging>eclipse-feature</packaging>
-    <build>
+  <build>
     <plugins>
       <plugin>
-        <groupId>org.eclipse.tycho.extras</groupId>
-        <artifactId>tycho-source-feature-plugin</artifactId>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>tycho-source-plugin</artifactId>
         <version>${tycho-version}</version>
         <executions>
           <execution>
             <phase>package</phase>
-            <id>source-feature</id>
+            <id>feature-source</id>
             <goals>
-              <goal>source-feature</goal>
+              <goal>feature-source</goal>
             </goals>
           <!--
             <configuration>
@@ -40,7 +40,7 @@
         <version>${tycho-version}</version>
         <executions>
           <execution>
-            <id>attached-p2-metadata</id>
+            <id>attach-p2-metadata</id>
             <phase>package</phase>
             <goals>
               <goal>p2-metadata</goal>

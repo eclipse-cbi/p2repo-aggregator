@@ -1,11 +1,12 @@
 /**
  * Copyright (c) 2006-2009, Cloudsmith Inc.
- * The code, documentation and other materials contained herein have been
- * licensed under the Eclipse Public License - v 1.0 by the copyright holder
- * listed above, as the Initial Contributor under such license. The text of
- * such license is available at www.eclipse.org.
  *
- * $Id$
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.aggregator.p2view.impl;
 
@@ -28,8 +29,9 @@ import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.metadata.IUpdateDescriptor;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>IU Presentation With Details</b></em>'. <!--
- * end-user-doc -->
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>IU Presentation With Details</b></em>'.
+ * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
@@ -59,7 +61,8 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 
 	/**
 	 * The cached value of the '{@link #getProvidedCapabilitiesContainer() <em>Provided Capabilities Container</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getProvidedCapabilitiesContainer()
 	 * @generated
 	 * @ordered
@@ -67,9 +70,9 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	protected ProvidedCapabilities providedCapabilitiesContainer;
 
 	/**
-	 * The cached value of the '{@link #getPropertiesContainer() <em>Properties Container</em>}' reference. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * The cached value of the '{@link #getPropertiesContainer() <em>Properties Container</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getPropertiesContainer()
 	 * @generated
 	 * @ordered
@@ -77,9 +80,9 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	protected Properties propertiesContainer;
 
 	/**
-	 * The cached value of the '{@link #getTouchpointsContainer() <em>Touchpoints Container</em>}' reference. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * The cached value of the '{@link #getTouchpointsContainer() <em>Touchpoints Container</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTouchpointsContainer()
 	 * @generated
 	 * @ordered
@@ -87,9 +90,9 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	protected Touchpoints touchpointsContainer;
 
 	/**
-	 * The cached value of the '{@link #getUpdateDescriptor() <em>Update Descriptor</em>}' reference. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * The cached value of the '{@link #getUpdateDescriptor() <em>Update Descriptor</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getUpdateDescriptor()
 	 * @generated
 	 * @ordered
@@ -98,8 +101,8 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 
 	/**
 	 * The cached value of the '{@link #getCopyright() <em>Copyright</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getCopyright()
 	 * @generated
 	 * @ordered
@@ -118,8 +121,8 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 
 	/**
 	 * The default value of the '{@link #isDetailsResolved() <em>Details Resolved</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isDetailsResolved()
 	 * @generated
 	 * @ordered
@@ -127,9 +130,9 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	protected static final boolean DETAILS_RESOLVED_EDEFAULT = false;
 
 	/**
-	 * The flag representing the value of the '{@link #isDetailsResolved() <em>Details Resolved</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * The flag representing the value of the '{@link #isDetailsResolved() <em>Details Resolved</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isDetailsResolved()
 	 * @generated
 	 * @ordered
@@ -137,7 +140,8 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	protected static final int DETAILS_RESOLVED_EFLAG = 1 << 0;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected IUPresentationWithDetailsImpl() {
@@ -145,7 +149,7 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -295,7 +299,8 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -324,7 +329,8 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -353,7 +359,8 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -406,7 +413,8 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -433,7 +441,8 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -468,7 +477,8 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -477,7 +487,8 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -512,7 +523,7 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -535,7 +546,7 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -548,7 +559,7 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -561,8 +572,7 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -575,7 +585,7 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -588,7 +598,7 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -601,7 +611,8 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -624,7 +635,8 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -646,7 +658,8 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -689,7 +702,8 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -714,7 +728,8 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -767,7 +782,8 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -792,7 +808,8 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -817,7 +834,8 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override

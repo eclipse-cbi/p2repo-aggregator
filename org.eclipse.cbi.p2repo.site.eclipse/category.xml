@@ -24,14 +24,14 @@
    <bundle id="org.eclipse.cbi.tycho" version="0.0.0">
       <category name="org.eclipse.cbi.p2Repo.aggregator.misc"/>
    </bundle>
-   <category-def name="org.eclipse.cbi.p2Repo.aggregator" label="Eclipse CBI p2Repo Aggregator Editor">
+   <category-def name="org.eclipse.cbi.p2Repo.aggregator" label="Eclipse CBI Repository Aggregator Editor">
       <description>
-         The Eclipse CBI p2Repo Aggregator Editor, engine, and related features. (Previously known as the "b 3 Aggregator".)
+         The Eclipse Common Build Infrastructure Repository Aggregator Editor, engine, and related features.
       </description>
    </category-def>
-   <category-def name="org.eclipse.cbi.p2Repo.aggregator.misc" label="Extra features related to editor">
+   <category-def name="org.eclipse.cbi.p2Repo.aggregator.misc" label="Eclipse CBI Repository Aggregator Extras">
       <description>
-         These features are not needed by most users.
+         The Eclipse Common Build Infrastructure utility features that are generally not needed by end-users.
       </description>
    </category-def>
 </site>

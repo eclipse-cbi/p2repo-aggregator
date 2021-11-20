@@ -1,11 +1,12 @@
 /**
  * Copyright (c) 2006-2009, Cloudsmith Inc.
- * The code, documentation and other materials contained herein have been
- * licensed under the Eclipse Public License - v 1.0 by the copyright holder
- * listed above, as the Initial Contributor under such license. The text of
- * such license is available at www.eclipse.org.
  *
- * $Id$
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.aggregator.p2view.util;
 
@@ -46,24 +47,28 @@ import org.eclipse.equinox.p2.metadata.IProvidedCapability;
 import org.eclipse.equinox.p2.metadata.IRequirement;
 
 /**
- * <!-- begin-user-doc --> The <b>Switch</b> for the model's inheritance hierarchy. It supports the call {@link #doSwitch(EObject) doSwitch(object)}
+ * <!-- begin-user-doc -->
+ * The <b>Switch</b> for the model's inheritance hierarchy. It supports the call {@link #doSwitch(EObject) doSwitch(object)}
  * to invoke the <code>caseXXX</code> method for each class of the model,
  * starting with the actual class of the object and proceeding up the inheritance hierarchy until a non-null result is
- * returned, which is the result of the switch. <!-- end-user-doc -->
+ * returned, which is the result of the switch.
+ * <!-- end-user-doc -->
  * @see org.eclipse.cbi.p2repo.aggregator.p2view.P2viewPackage
  * @generated
  */
 public class P2viewSwitch<T1> extends Switch<T1> {
 	/**
 	 * The cached model package
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected static P2viewPackage modelPackage;
 
 	/**
 	 * Creates an instance of the switch.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public P2viewSwitch() {
@@ -74,8 +79,8 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Bundle</em>'.
-	 * <!-- begin-user-doc --> This
-	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Bundle</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
@@ -87,8 +92,8 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Bundles</em>'.
-	 * <!-- begin-user-doc --> This
-	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Bundles</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
@@ -101,7 +106,7 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Categories</em>'.
 	 * <!-- begin-user-doc -->
-	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Categories</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
@@ -113,8 +118,8 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Category</em>'.
-	 * <!-- begin-user-doc --> This
-	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Category</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
@@ -125,12 +130,10 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Children Provider</em>'. <!-- begin-user-doc
-	 * --> This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc
-	 * -->
-	 *
-	 * @param object
-	 *            the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>Children Provider</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Children Provider</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -141,8 +144,8 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Feature</em>'.
-	 * <!-- begin-user-doc --> This
-	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Feature</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
@@ -154,8 +157,8 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Features</em>'.
-	 * <!-- begin-user-doc --> This
-	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Features</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
@@ -167,8 +170,8 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Fragment</em>'.
-	 * <!-- begin-user-doc --> This
-	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Fragment</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
@@ -181,7 +184,7 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Fragments</em>'.
 	 * <!-- begin-user-doc -->
-	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Fragments</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
@@ -192,12 +195,10 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Installable Units</em>'. <!-- begin-user-doc
-	 * --> This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc
-	 * -->
-	 *
-	 * @param object
-	 *            the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>Installable Units</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Installable Units</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -207,12 +208,10 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>IProvided Capability</em>'. <!--
-	 * begin-user-doc --> This implementation returns null; returning a non-null result will terminate the switch. <!--
-	 * end-user-doc -->
-	 *
-	 * @param object
-	 *            the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>IProvided Capability</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>IProvided Capability</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -224,8 +223,6 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>IRequirement</em>'.
 	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>IRequirement</em>'.
@@ -239,7 +236,7 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>IU Details</em>'.
 	 * <!-- begin-user-doc -->
-	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>IU Details</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
@@ -250,12 +247,10 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>IU Presentation</em>'. <!-- begin-user-doc
-	 * --> This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc
-	 * -->
-	 *
-	 * @param object
-	 *            the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>IU Presentation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>IU Presentation</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -265,12 +260,10 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>IU Presentation With Details</em>'. <!--
-	 * begin-user-doc --> This implementation returns null; returning a non-null result will terminate the switch. <!--
-	 * end-user-doc -->
-	 *
-	 * @param object
-	 *            the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>IU Presentation With Details</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>IU Presentation With Details</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -280,12 +273,10 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Label Provider</em>'. <!-- begin-user-doc
-	 * --> This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc
-	 * -->
-	 *
-	 * @param object
-	 *            the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>Label Provider</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Label Provider</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -297,8 +288,6 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Licenses</em>'.
 	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Licenses</em>'.
@@ -311,7 +300,7 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Metadata Repository Structured View</em>'.
-	 * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will terminate the switch.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Metadata Repository Structured View</em>'.
@@ -325,7 +314,7 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Miscellaneous</em>'.
 	 * <!-- begin-user-doc -->
-	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Miscellaneous</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
@@ -337,8 +326,8 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Other IU</em>'.
-	 * <!-- begin-user-doc --> This
-	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Other IU</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
@@ -350,8 +339,8 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Product</em>'.
-	 * <!-- begin-user-doc --> This
-	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Product</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
@@ -363,8 +352,8 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Products</em>'.
-	 * <!-- begin-user-doc --> This
-	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Products</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
@@ -377,7 +366,7 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Properties</em>'.
 	 * <!-- begin-user-doc -->
-	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Properties</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
@@ -388,12 +377,10 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Provided Capabilities</em>'. <!--
-	 * begin-user-doc --> This implementation returns null; returning a non-null result will terminate the switch. <!--
-	 * end-user-doc -->
-	 *
-	 * @param object
-	 *            the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>Provided Capabilities</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Provided Capabilities</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -403,12 +390,10 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Provided Capability Wrapper</em>'. <!--
-	 * begin-user-doc --> This implementation returns null; returning a non-null result will terminate the switch. <!--
-	 * end-user-doc -->
-	 *
-	 * @param object
-	 *            the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>Provided Capability Wrapper</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Provided Capability Wrapper</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -420,8 +405,6 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Repository Browser</em>'.
 	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Repository Browser</em>'.
@@ -435,8 +418,6 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Repository References</em>'.
 	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Repository References</em>'.
@@ -450,8 +431,6 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Requirements</em>'.
 	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Requirements</em>'.
@@ -465,8 +444,6 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Requirement Wrapper</em>'.
 	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Requirement Wrapper</em>'.
@@ -480,8 +457,6 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Status Provider</em>'.
 	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Status Provider</em>'.
@@ -495,7 +470,7 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Touchpoints</em>'.
 	 * <!-- begin-user-doc -->
-	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Touchpoints</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
@@ -507,9 +482,8 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>EObject</em>'.
-	 * <!-- begin-user-doc --> This
-	 * implementation returns null; returning a non-null result will terminate the switch, but this is the last case
-	 * anyway. <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>EObject</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject)
@@ -522,7 +496,8 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 
 	/**
 	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the first non-null result returned by a <code>caseXXX</code> call.
 	 * @generated
 	 */

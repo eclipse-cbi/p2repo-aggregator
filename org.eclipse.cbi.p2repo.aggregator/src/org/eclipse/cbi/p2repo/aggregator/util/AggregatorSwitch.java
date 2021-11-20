@@ -1,8 +1,12 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright (c) 2021 Eclipse contributors and others.
  *
- * $Id$
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.aggregator.util;
 
@@ -42,24 +46,28 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 
 /**
- * <!-- begin-user-doc --> The <b>Switch</b> for the model's inheritance hierarchy. It supports the call {@link #doSwitch(EObject) doSwitch(object)}
+ * <!-- begin-user-doc -->
+ * The <b>Switch</b> for the model's inheritance hierarchy. It supports the call {@link #doSwitch(EObject) doSwitch(object)}
  * to invoke the <code>caseXXX</code> method for each class of the model,
  * starting with the actual class of the object and proceeding up the inheritance hierarchy until a non-null result is
- * returned, which is the result of the switch. <!-- end-user-doc -->
+ * returned, which is the result of the switch.
+ * <!-- end-user-doc -->
  * @see org.eclipse.cbi.p2repo.aggregator.AggregatorPackage
  * @generated
  */
 public class AggregatorSwitch<T1> extends Switch<T1> {
 	/**
 	 * The cached model package
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected static AggregatorPackage modelPackage;
 
 	/**
 	 * Creates an instance of the switch.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public AggregatorSwitch() {
@@ -71,8 +79,6 @@ public class AggregatorSwitch<T1> extends Switch<T1> {
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Aggregation</em>'.
 	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Aggregation</em>'.
@@ -86,8 +92,6 @@ public class AggregatorSwitch<T1> extends Switch<T1> {
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Available Version</em>'.
 	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Available Version</em>'.
@@ -101,8 +105,6 @@ public class AggregatorSwitch<T1> extends Switch<T1> {
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Available Versions Header</em>'.
 	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Available Versions Header</em>'.
@@ -115,8 +117,8 @@ public class AggregatorSwitch<T1> extends Switch<T1> {
 
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Bundle</em>'.
-	 * <!-- begin-user-doc --> This
-	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Bundle</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
@@ -128,8 +130,8 @@ public class AggregatorSwitch<T1> extends Switch<T1> {
 
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Category</em>'.
-	 * <!-- begin-user-doc --> This
-	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Category</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
@@ -140,12 +142,10 @@ public class AggregatorSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Children Provider</em>'. <!-- begin-user-doc
-	 * --> This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc
-	 * -->
-	 *
-	 * @param object
-	 *            the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>Children Provider</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Children Provider</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -157,7 +157,7 @@ public class AggregatorSwitch<T1> extends Switch<T1> {
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Comparable</em>'.
 	 * <!-- begin-user-doc -->
-	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Comparable</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
@@ -170,7 +170,7 @@ public class AggregatorSwitch<T1> extends Switch<T1> {
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Configuration</em>'.
 	 * <!-- begin-user-doc -->
-	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Configuration</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
@@ -182,8 +182,8 @@ public class AggregatorSwitch<T1> extends Switch<T1> {
 
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Contact</em>'.
-	 * <!-- begin-user-doc --> This
-	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Contact</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
@@ -196,7 +196,7 @@ public class AggregatorSwitch<T1> extends Switch<T1> {
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Contribution</em>'.
 	 * <!-- begin-user-doc -->
-	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Contribution</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
@@ -207,12 +207,10 @@ public class AggregatorSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Custom Category</em>'. <!-- begin-user-doc
-	 * --> This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc
-	 * -->
-	 *
-	 * @param object
-	 *            the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>Custom Category</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Custom Category</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -222,12 +220,10 @@ public class AggregatorSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Description Provider</em>'. <!--
-	 * begin-user-doc --> This implementation returns null; returning a non-null result will terminate the switch. <!--
-	 * end-user-doc -->
-	 *
-	 * @param object
-	 *            the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>Description Provider</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Description Provider</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -237,12 +233,10 @@ public class AggregatorSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Enabled Status Provider</em>'. <!--
-	 * begin-user-doc --> This implementation returns null; returning a non-null result will terminate the switch. <!--
-	 * end-user-doc -->
-	 *
-	 * @param object
-	 *            the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>Enabled Status Provider</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Enabled Status Provider</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -252,12 +246,10 @@ public class AggregatorSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Exclusion Rule</em>'. <!-- begin-user-doc
-	 * --> This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc
-	 * -->
-	 *
-	 * @param object
-	 *            the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>Exclusion Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Exclusion Rule</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -268,8 +260,8 @@ public class AggregatorSwitch<T1> extends Switch<T1> {
 
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Feature</em>'.
-	 * <!-- begin-user-doc --> This
-	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Feature</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
@@ -282,8 +274,6 @@ public class AggregatorSwitch<T1> extends Switch<T1> {
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Identification Provider</em>'.
 	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Identification Provider</em>'.
@@ -295,12 +285,10 @@ public class AggregatorSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Infos Provider</em>'. <!-- begin-user-doc
-	 * --> This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc
-	 * -->
-	 *
-	 * @param object
-	 *            the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>Infos Provider</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Infos Provider</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -312,8 +300,6 @@ public class AggregatorSwitch<T1> extends Switch<T1> {
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Installable Unit Request</em>'.
 	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Installable Unit Request</em>'.
@@ -325,12 +311,10 @@ public class AggregatorSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Label Provider</em>'. <!-- begin-user-doc
-	 * --> This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc
-	 * -->
-	 *
-	 * @param object
-	 *            the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>Label Provider</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Label Provider</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -340,12 +324,10 @@ public class AggregatorSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Mapped Repository</em>'. <!-- begin-user-doc
-	 * --> This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc
-	 * -->
-	 *
-	 * @param object
-	 *            the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>Mapped Repository</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Mapped Repository</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -357,7 +339,7 @@ public class AggregatorSwitch<T1> extends Switch<T1> {
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Mapped Unit</em>'.
 	 * <!-- begin-user-doc -->
-	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Mapped Unit</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
@@ -369,8 +351,8 @@ public class AggregatorSwitch<T1> extends Switch<T1> {
 
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Map Rule</em>'.
-	 * <!-- begin-user-doc --> This
-	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Map Rule</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
@@ -383,7 +365,7 @@ public class AggregatorSwitch<T1> extends Switch<T1> {
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Maven Item</em>'.
 	 * <!-- begin-user-doc -->
-	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Maven Item</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
@@ -396,7 +378,7 @@ public class AggregatorSwitch<T1> extends Switch<T1> {
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Maven Mapping</em>'.
 	 * <!-- begin-user-doc -->
-	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Maven Mapping</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
@@ -407,12 +389,10 @@ public class AggregatorSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Metadata Repository Reference</em>'. <!--
-	 * begin-user-doc --> This implementation returns null; returning a non-null result will terminate the switch. <!--
-	 * end-user-doc -->
-	 *
-	 * @param object
-	 *            the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>Metadata Repository Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Metadata Repository Reference</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -423,8 +403,8 @@ public class AggregatorSwitch<T1> extends Switch<T1> {
 
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Product</em>'.
-	 * <!-- begin-user-doc --> This
-	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Product</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
@@ -436,8 +416,8 @@ public class AggregatorSwitch<T1> extends Switch<T1> {
 
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Property</em>'.
-	 * <!-- begin-user-doc --> This
-	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Property</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
@@ -449,8 +429,8 @@ public class AggregatorSwitch<T1> extends Switch<T1> {
 
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Status</em>'.
-	 * <!-- begin-user-doc --> This
-	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Status</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
@@ -461,12 +441,10 @@ public class AggregatorSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Status Provider</em>'. <!-- begin-user-doc
-	 * --> This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc
-	 * -->
-	 *
-	 * @param object
-	 *            the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>Status Provider</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Status Provider</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -478,8 +456,6 @@ public class AggregatorSwitch<T1> extends Switch<T1> {
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Validation Set</em>'.
 	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Validation Set</em>'.
@@ -491,12 +467,10 @@ public class AggregatorSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Valid Configurations Rule</em>'. <!--
-	 * begin-user-doc --> This implementation returns null; returning a non-null result will terminate the switch. <!--
-	 * end-user-doc -->
-	 *
-	 * @param object
-	 *            the target of the switch.
+	 * Returns the result of interpreting the object as an instance of '<em>Valid Configurations Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Valid Configurations Rule</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -507,9 +481,8 @@ public class AggregatorSwitch<T1> extends Switch<T1> {
 
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>EObject</em>'.
-	 * <!-- begin-user-doc --> This
-	 * implementation returns null; returning a non-null result will terminate the switch, but this is the last case
-	 * anyway. <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>EObject</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject)
@@ -522,7 +495,8 @@ public class AggregatorSwitch<T1> extends Switch<T1> {
 
 	/**
 	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the first non-null result returned by a <code>caseXXX</code> call.
 	 * @generated
 	 */

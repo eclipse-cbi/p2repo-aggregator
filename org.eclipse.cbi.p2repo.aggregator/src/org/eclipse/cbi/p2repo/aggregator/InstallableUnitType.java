@@ -1,11 +1,12 @@
 /**
  * Copyright (c) 2006-2009, Cloudsmith Inc.
- * The code, documentation and other materials contained herein have been
- * licensed under the Eclipse Public License - v 1.0 by the copyright holder
- * listed above, as the Initial Contributor under such license. The text of
- * such license is available at www.eclipse.org.
  *
- * $Id$
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.aggregator;
 
@@ -16,8 +17,9 @@ import java.util.List;
 import org.eclipse.emf.common.util.Enumerator;
 
 /**
- * <!-- begin-user-doc --> A representation of the literals of the enumeration '<em><b>Installable Unit Type</b></em>',
- * and utility methods for working with them. <!-- end-user-doc -->
+ * <!-- begin-user-doc -->
+ * A representation of the literals of the enumeration '<em><b>Installable Unit Type</b></em>', and utility methods for working with them.
+ * <!-- end-user-doc -->
  * @see org.eclipse.cbi.p2repo.aggregator.AggregatorPackage#getInstallableUnitType()
  * @model
  * @generated
@@ -25,7 +27,8 @@ import org.eclipse.emf.common.util.Enumerator;
 public enum InstallableUnitType implements Enumerator {
 	/**
 	 * The '<em><b>BUNDLE</b></em>' literal object.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #BUNDLE_VALUE
 	 * @generated
 	 * @ordered
@@ -34,7 +37,8 @@ public enum InstallableUnitType implements Enumerator {
 
 	/**
 	 * The '<em><b>FEATURE</b></em>' literal object.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #FEATURE_VALUE
 	 * @generated
 	 * @ordered
@@ -43,7 +47,8 @@ public enum InstallableUnitType implements Enumerator {
 
 	/**
 	 * The '<em><b>PRODUCT</b></em>' literal object.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #PRODUCT_VALUE
 	 * @generated
 	 * @ordered
@@ -52,7 +57,8 @@ public enum InstallableUnitType implements Enumerator {
 
 	/**
 	 * The '<em><b>CATEGORY</b></em>' literal object.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #CATEGORY_VALUE
 	 * @generated
 	 * @ordered
@@ -61,7 +67,8 @@ public enum InstallableUnitType implements Enumerator {
 
 	/**
 	 * The '<em><b>FRAGMENT</b></em>' literal object.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #FRAGMENT_VALUE
 	 * @generated
 	 * @ordered
@@ -70,7 +77,8 @@ public enum InstallableUnitType implements Enumerator {
 
 	/**
 	 * The '<em><b>OTHER</b></em>' literal object.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #OTHER_VALUE
 	 * @generated
 	 * @ordered
@@ -80,9 +88,6 @@ public enum InstallableUnitType implements Enumerator {
 	/**
 	 * The '<em><b>BUNDLE</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>BUNDLE</b></em>' literal object isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #BUNDLE
 	 * @model literal="bundle"
@@ -94,9 +99,6 @@ public enum InstallableUnitType implements Enumerator {
 	/**
 	 * The '<em><b>FEATURE</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>FEATURE</b></em>' literal object isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #FEATURE
 	 * @model literal="feature"
@@ -108,9 +110,6 @@ public enum InstallableUnitType implements Enumerator {
 	/**
 	 * The '<em><b>PRODUCT</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>PRODUCT</b></em>' literal object isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #PRODUCT
 	 * @model literal="product"
@@ -122,9 +121,6 @@ public enum InstallableUnitType implements Enumerator {
 	/**
 	 * The '<em><b>CATEGORY</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>CATEGORY</b></em>' literal object isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #CATEGORY
 	 * @model literal="category"
@@ -136,9 +132,6 @@ public enum InstallableUnitType implements Enumerator {
 	/**
 	 * The '<em><b>FRAGMENT</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>FRAGMENT</b></em>' literal object isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #FRAGMENT
 	 * @model literal="fragment"
@@ -150,9 +143,6 @@ public enum InstallableUnitType implements Enumerator {
 	/**
 	 * The '<em><b>OTHER</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>OTHER</b></em>' literal object isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #OTHER
 	 * @model literal="other"
@@ -163,8 +153,8 @@ public enum InstallableUnitType implements Enumerator {
 
 	/**
 	 * An array of all the '<em><b>Installable Unit Type</b></em>' enumerators.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private static final InstallableUnitType[] VALUES_ARRAY = new InstallableUnitType[] { BUNDLE, FEATURE, PRODUCT,
@@ -180,8 +170,8 @@ public enum InstallableUnitType implements Enumerator {
 
 	/**
 	 * Returns the '<em><b>Installable Unit Type</b></em>' literal with the specified integer value.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the integer value.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
@@ -206,8 +196,8 @@ public enum InstallableUnitType implements Enumerator {
 
 	/**
 	 * Returns the '<em><b>Installable Unit Type</b></em>' literal with the specified literal value.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param literal the literal.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
@@ -224,8 +214,8 @@ public enum InstallableUnitType implements Enumerator {
 
 	/**
 	 * Returns the '<em><b>Installable Unit Type</b></em>' literal with the specified name.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param name the name.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
@@ -241,26 +231,30 @@ public enum InstallableUnitType implements Enumerator {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private final int value;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private final String name;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private final String literal;
 
 	/**
 	 * Only this class can construct instances.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private InstallableUnitType(int value, String name, String literal) {
@@ -270,7 +264,8 @@ public enum InstallableUnitType implements Enumerator {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -279,7 +274,8 @@ public enum InstallableUnitType implements Enumerator {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -288,7 +284,8 @@ public enum InstallableUnitType implements Enumerator {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -298,8 +295,8 @@ public enum InstallableUnitType implements Enumerator {
 
 	/**
 	 * Returns the literal value of the enumerator, which is its string representation.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override

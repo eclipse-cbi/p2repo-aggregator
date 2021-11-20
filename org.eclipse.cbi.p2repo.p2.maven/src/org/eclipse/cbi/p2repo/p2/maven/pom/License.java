@@ -1,16 +1,21 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright (c) 2021 Eclipse contributors and others.
  *
- * $Id$
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.p2.maven.pom;
 
 import org.eclipse.emf.ecore.EObject;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object
- * '<em><b>License</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>License</b></em>'.
+ * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
  * 3.0.0+
@@ -37,82 +42,88 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface License extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Comments</b></em>' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc --> 3.0.0+
+	 * Returns the value of the '<em><b>Comments</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 3.0.0+
 	 *
-	 * Addendum information pertaining to this license.
+	 *             Addendum information pertaining to this license.
 	 *
 	 * <!-- end-model-doc -->
-	 *
 	 * @return the value of the '<em>Comments</em>' attribute.
 	 * @see #setComments(String)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getLicense_Comments()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
-	 *        extendedMetaData="kind='element' name='comments'
-	 *        namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='comments' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	String getComments();
 
 	/**
-	 * Returns the value of the '<em><b>Distribution</b></em>' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc --> 3.0.0+
+	 * Returns the value of the '<em><b>Distribution</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 3.0.0+
 	 *
-	 * The primary method by which this project may be distributed. &lt;dl&gt;
-	 * &lt;dt&gt;repo&lt;/dt&gt; &lt;dd&gt;may be downloaded from the Maven
-	 * repository&lt;/dd&gt; &lt;dt&gt;manual&lt;/dt&gt; &lt;dd&gt;user must
-	 * manually download and install the dependency.&lt;/dd&gt; &lt;/dl&gt;
+	 *               The primary method by which this project may be distributed.
+	 *             &lt;dl&gt;
+	 *               &lt;dt&gt;repo&lt;/dt&gt;
+	 *               &lt;dd&gt;may be downloaded from the Maven repository&lt;/dd&gt;
+	 *               &lt;dt&gt;manual&lt;/dt&gt;
+	 *               &lt;dd&gt;user must manually download and install the dependency.&lt;/dd&gt;
+	 *             &lt;/dl&gt;
 	 *
 	 * <!-- end-model-doc -->
-	 *
 	 * @return the value of the '<em>Distribution</em>' attribute.
 	 * @see #setDistribution(String)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getLicense_Distribution()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
-	 *        extendedMetaData="kind='element' name='distribution'
-	 *        namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='distribution' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	String getDistribution();
 
 	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc --> 3.0.0+
-	 * The full legal name of the license. <!-- end-model-doc -->
-	 *
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 3.0.0+
+	 * The full legal name of the license.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getLicense_Name()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
-	 *        extendedMetaData="kind='element' name='name'
-	 *        namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='name' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	String getName();
 
 	/**
-	 * Returns the value of the '<em><b>Url</b></em>' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc --> 3.0.0+
-	 * The official url for the license text. <!-- end-model-doc -->
-	 *
+	 * Returns the value of the '<em><b>Url</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 3.0.0+
+	 * The official url for the license text.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Url</em>' attribute.
 	 * @see #setUrl(String)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getLicense_Url()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
-	 *        extendedMetaData="kind='element' name='url'
-	 *        namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='url' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	String getUrl();
 
 	/**
-	 * Sets the value of the
-	 * '{@link org.eclipse.cbi.p2repo.p2.maven.pom.License#getComments
-	 * <em>Comments</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Comments</em>' attribute.
+	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.License#getComments <em>Comments</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Comments</em>' attribute.
 	 * @see #getComments()
 	 * @generated
 	 */
@@ -120,8 +131,8 @@ public interface License extends EObject {
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.License#getDistribution <em>Distribution</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Distribution</em>' attribute.
 	 * @see #getDistribution()
 	 * @generated
@@ -130,7 +141,8 @@ public interface License extends EObject {
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.License#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Name</em>' attribute.
 	 * @see #getName()
 	 * @generated
@@ -139,7 +151,8 @@ public interface License extends EObject {
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.License#getUrl <em>Url</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Url</em>' attribute.
 	 * @see #getUrl()
 	 * @generated

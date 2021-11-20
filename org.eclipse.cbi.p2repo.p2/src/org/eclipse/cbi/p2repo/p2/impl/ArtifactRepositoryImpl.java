@@ -1,10 +1,12 @@
 /**
  * Copyright (c) 2006-2009, Cloudsmith Inc.
- * The code, documentation and other materials contained herein have been
- * licensed under the Eclipse Public License - v 1.0 by the copyright holder
- * listed above, as the Initial Contributor under such license. The text of
- * such license is available at www.eclipse.org.
  *
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.p2.impl;
 
@@ -39,8 +41,9 @@ import org.eclipse.equinox.p2.repository.artifact.IArtifactDescriptor;
 import org.eclipse.equinox.p2.repository.artifact.IArtifactRequest;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object
- * '<em><b>Artifact Repository</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Artifact Repository</b></em>'.
+ * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
@@ -53,7 +56,8 @@ import org.eclipse.equinox.p2.repository.artifact.IArtifactRequest;
 public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> implements ArtifactRepository {
 	/**
 	 * The cached value of the '{@link #getArtifactMap() <em>Artifact Map</em>}' map.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getArtifactMap()
 	 * @generated
 	 * @ordered
@@ -63,7 +67,8 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	private static final IArtifactDescriptor[] noDescriptors = new IArtifactDescriptor[0];
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected ArtifactRepositoryImpl() {
@@ -71,7 +76,7 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -91,7 +96,7 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -102,7 +107,7 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -113,7 +118,7 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -124,7 +129,7 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -145,7 +150,7 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -155,7 +160,7 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -169,7 +174,7 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -183,13 +188,13 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
 	@Override
 	public IQueryable<IArtifactDescriptor> descriptorQueryable() {
-		return new IQueryable<IArtifactDescriptor>() {
+		return new IQueryable<>() {
 			@Override
 			public IQueryResult<IArtifactDescriptor> query(IQuery<IArtifactDescriptor> query,
 					IProgressMonitor monitor) {
@@ -199,7 +204,8 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -215,7 +221,8 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -228,7 +235,8 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -241,7 +249,8 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -255,7 +264,8 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -264,7 +274,8 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -278,7 +289,7 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -299,7 +310,7 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -309,7 +320,7 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -320,7 +331,8 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -333,7 +345,7 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -343,7 +355,7 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -353,7 +365,7 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -363,7 +375,7 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -373,7 +385,7 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -383,7 +395,7 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -394,7 +406,7 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -419,7 +431,7 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -430,7 +442,7 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -440,7 +452,7 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -451,7 +463,7 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -462,7 +474,7 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -473,7 +485,7 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -484,7 +496,7 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */

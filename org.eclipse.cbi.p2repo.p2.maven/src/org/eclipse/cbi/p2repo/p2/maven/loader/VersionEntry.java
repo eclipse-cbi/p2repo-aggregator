@@ -1,10 +1,13 @@
-/*******************************************************************
+/**
  * Copyright (c) 2006-2007, Cloudsmith Inc.
- * The code, documentation and other materials contained herein
- * are the sole and exclusive property of Cloudsmith Inc. and may
- * not be disclosed, used, modified, copied or distributed without
- * prior written consent or license from Cloudsmith Inc.
- ******************************************************************/
+ *
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
+ */
 
 package org.eclipse.cbi.p2repo.p2.maven.loader;
 

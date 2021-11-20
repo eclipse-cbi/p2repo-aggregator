@@ -2,15 +2,23 @@
 <?eclipse version="3.0"?>
 
 <!--
- <copyright>
- </copyright>
-
- $Id$
+ Copyright (c) 2006-2016, Cloudsmith Inc. and others
+ 
+ This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License 2.0
+ which accompanies this distribution, and is available at
+ https://www.eclipse.org/legal/epl-2.0/
+ 
+ SPDX-License-Identifier: EPL-2.0
+ 
 -->
 
 <plugin>
+
    <extension-point id="loader" name="%extension-point.name" schema="schema/loader.exsd"/>
+
    <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated p2 -->
       <package
             uri="http://www.eclipse.org/cbi/p2repo/2010/p2/1.0.0"
             class="org.eclipse.cbi.p2repo.p2.P2Package"
@@ -30,6 +38,7 @@
       		nature="p2"
             class="org.eclipse.cbi.p2repo.p2.loader.impl.P2RepositoryLoader"/>
    </extension>
+
    <extension
          point="org.eclipse.emf.ecore.protocol_parser">
       <parser

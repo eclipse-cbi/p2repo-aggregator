@@ -1,11 +1,12 @@
 /**
  * Copyright (c) 2006-2009, Cloudsmith Inc.
- * The code, documentation and other materials contained herein have been
- * licensed under the Eclipse Public License - v 1.0 by the copyright holder
- * listed above, as the Initial Contributor under such license. The text of
- * such license is available at www.eclipse.org.
  *
- * $Id$
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.aggregator.p2view.presentation;
 
@@ -44,27 +45,31 @@ import org.eclipse.ui.PartInitException;
 
 /**
  * This is the action bar contributor for the P2view model editor.
- * <!-- begin-user-doc --> <!-- end-user-doc -->
+ * <!-- begin-user-doc -->
+ * <!-- end-user-doc -->
  * @generated
  */
-public class P2viewActionBarContributor extends EditingDomainActionBarContributor implements ISelectionChangedListener {
+public class P2viewActionBarContributor extends EditingDomainActionBarContributor implements ISelectionChangedListener { ///
 	/**
 	 * This keeps track of the active editor.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected IEditorPart activeEditorPart;
 
 	/**
 	 * This keeps track of the current selection provider.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected ISelectionProvider selectionProvider;
 
 	/**
 	 * This action opens the Properties view.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected IAction showPropertiesViewAction = new Action(
@@ -82,7 +87,8 @@ public class P2viewActionBarContributor extends EditingDomainActionBarContributo
 	/**
 	 * This action refreshes the viewer of the current editor if the editor
 	 * implements {@link org.eclipse.emf.common.ui.viewer.IViewerProvider}.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected IAction refreshViewerAction = new Action(
@@ -106,15 +112,16 @@ public class P2viewActionBarContributor extends EditingDomainActionBarContributo
 	/**
 	 * This will contain one {@link org.eclipse.emf.edit.ui.action.CreateChildAction} corresponding to each descriptor
 	 * generated for the current selection by the item provider.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected Collection<IAction> createChildActions;
 
 	/**
-	 * This is the menu manager into which menu contribution items should be added for CreateChild actions. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * This is the menu manager into which menu contribution items should be added for CreateChild actions.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected IMenuManager createChildMenuManager;
@@ -122,22 +129,24 @@ public class P2viewActionBarContributor extends EditingDomainActionBarContributo
 	/**
 	 * This will contain one {@link org.eclipse.emf.edit.ui.action.CreateSiblingAction} corresponding to each descriptor
 	 * generated for the current selection by the item provider.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected Collection<IAction> createSiblingActions;
 
 	/**
-	 * This is the menu manager into which menu contribution items should be added for CreateSibling actions. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * This is the menu manager into which menu contribution items should be added for CreateSibling actions.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected IMenuManager createSiblingMenuManager;
 
 	/**
 	 * This creates an instance of the contributor.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public P2viewActionBarContributor() {
@@ -149,7 +158,8 @@ public class P2viewActionBarContributor extends EditingDomainActionBarContributo
 
 	/**
 	 * This inserts global actions before the "additions-end" separator.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -166,7 +176,8 @@ public class P2viewActionBarContributor extends EditingDomainActionBarContributo
 	/**
 	 * This adds to the menu bar a menu and some separators for editor additions,
 	 * as well as the sub-menus for object creation items.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -208,20 +219,22 @@ public class P2viewActionBarContributor extends EditingDomainActionBarContributo
 
 	/**
 	 * This adds Separators for editor additions to the tool bar.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public void contributeToToolBar(IToolBarManager toolBarManager) {
+		super.contributeToToolBar(toolBarManager);
 		toolBarManager.add(new Separator("p2view-settings"));
 		toolBarManager.add(new Separator("p2view-additions"));
 	}
 
 	/**
 	 * This removes from the specified <code>manager</code> all {@link org.eclipse.jface.action.ActionContributionItem}s
-	 * based on the {@link org.eclipse.jface.action.IAction}s contained in the <code>actions</code> collection. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * based on the {@link org.eclipse.jface.action.IAction}s contained in the <code>actions</code> collection.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected void depopulateManager(IContributionManager manager, Collection<? extends IAction> actions) {
@@ -248,10 +261,10 @@ public class P2viewActionBarContributor extends EditingDomainActionBarContributo
 	}
 
 	/**
-	 * This generates a {@link org.eclipse.emf.edit.ui.action.CreateChildAction} for each object in <code>descriptors</code>, and returns the
-	 * collection of these actions. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 *
+	 * This generates a {@link org.eclipse.emf.edit.ui.action.CreateChildAction} for each object in <code>descriptors</code>,
+	 * and returns the collection of these actions.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected Collection<IAction> generateCreateChildActions(Collection<?> descriptors, ISelection selection) {
@@ -265,10 +278,10 @@ public class P2viewActionBarContributor extends EditingDomainActionBarContributo
 	}
 
 	/**
-	 * This generates a {@link org.eclipse.emf.edit.ui.action.CreateSiblingAction} for each object in <code>descriptors</code>, and returns the
-	 * collection of these actions. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 *
+	 * This generates a {@link org.eclipse.emf.edit.ui.action.CreateSiblingAction} for each object in <code>descriptors</code>,
+	 * and returns the collection of these actions.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected Collection<IAction> generateCreateSiblingActions(Collection<?> descriptors, ISelection selection) {
@@ -283,7 +296,8 @@ public class P2viewActionBarContributor extends EditingDomainActionBarContributo
 
 	/**
 	 * This populates the pop-up menu before it appears.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -305,7 +319,8 @@ public class P2viewActionBarContributor extends EditingDomainActionBarContributo
 	 * based on the {@link org.eclipse.jface.action.IAction}s contained in the <code>actions</code> collection,
 	 * by inserting them before the specified contribution item <code>contributionID</code>.
 	 * If <code>contributionID</code> is <code>null</code>, they are simply added.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected void populateManager(IContributionManager manager, Collection<? extends IAction> actions,
@@ -323,8 +338,8 @@ public class P2viewActionBarContributor extends EditingDomainActionBarContributo
 
 	/**
 	 * This ensures that a delete action will clean up all references to deleted objects.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -336,7 +351,8 @@ public class P2viewActionBarContributor extends EditingDomainActionBarContributo
 	 * This implements {@link org.eclipse.jface.viewers.ISelectionChangedListener},
 	 * handling {@link org.eclipse.jface.viewers.SelectionChangedEvent}s by querying for the children and siblings
 	 * that can be added to the selected object and updating the menus accordingly.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -381,9 +397,9 @@ public class P2viewActionBarContributor extends EditingDomainActionBarContributo
 	}
 
 	/**
-	 * When the active editor changes, this remembers the change and registers with it as a selection provider. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * When the active editor changes, this remembers the change and registers with it as a selection provider.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override

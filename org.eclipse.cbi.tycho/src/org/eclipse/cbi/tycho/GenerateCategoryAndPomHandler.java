@@ -1,4 +1,4 @@
-/*******************************************************************************
+/**
  * Copyright (c) 2016-2020, Red Hat Inc. and others.
  *
  * This program and the accompanying materials
@@ -7,7 +7,7 @@
  * https://www.eclipse.org/legal/epl-2.0/
  *
  * SPDX-License-Identifier: EPL-2.0
- *******************************************************************************/
+ */
 package org.eclipse.cbi.tycho;
 
 import java.io.ByteArrayInputStream;

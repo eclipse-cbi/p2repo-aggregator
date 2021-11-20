@@ -1,9 +1,12 @@
 /**
  * Copyright (c) 2006-2009, Cloudsmith Inc.
- * The code, documentation and other materials contained herein have been
- * licensed under the Eclipse Public License - v 1.0 by the copyright holder
- * listed above, as the Initial Contributor under such license. The text of
- * such license is available at www.eclipse.org.
+ *
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.aggregator;
 
@@ -15,8 +18,7 @@ import org.eclipse.emf.common.util.Enumerator;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the literals of the enumeration '<em><b>Aggregation Type</b></em>',
- * and utility methods for working with them.
+ * A representation of the literals of the enumeration '<em><b>Aggregation Type</b></em>', and utility methods for working with them.
  * <!-- end-user-doc -->
  * @see org.eclipse.cbi.p2repo.aggregator.AggregatorPackage#getAggregationType()
  * @model
@@ -86,9 +88,6 @@ public enum AggregationType implements Enumerator {
 	/**
 	 * The '<em><b>Stable</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Stable</b></em>' literal object isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #STABLE
 	 * @model name="Stable" literal="S"
@@ -100,9 +99,6 @@ public enum AggregationType implements Enumerator {
 	/**
 	 * The '<em><b>Integration</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Integration</b></em>' literal object isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #INTEGRATION
 	 * @model name="Integration" literal="I"
@@ -114,9 +110,6 @@ public enum AggregationType implements Enumerator {
 	/**
 	 * The '<em><b>Nightly</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Nightly</b></em>' literal object isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #NIGHTLY
 	 * @model name="Nightly" literal="N"
@@ -128,9 +121,6 @@ public enum AggregationType implements Enumerator {
 	/**
 	 * The '<em><b>Maintenance</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Maintenance</b></em>' literal object isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #MAINTENANCE
 	 * @model name="Maintenance" literal="M"
@@ -142,9 +132,6 @@ public enum AggregationType implements Enumerator {
 	/**
 	 * The '<em><b>Continuous</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Continuous</b></em>' literal object isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #CONTINUOUS
 	 * @model name="Continuous" literal="C"
@@ -156,9 +143,6 @@ public enum AggregationType implements Enumerator {
 	/**
 	 * The '<em><b>Release</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Release</b></em>' literal object isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #RELEASE
 	 * @model name="Release" literal="R"

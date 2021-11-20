@@ -1,9 +1,12 @@
 /**
  * Copyright (c) 2006-2009, Cloudsmith Inc.
- * The code, documentation and other materials contained herein have been
- * licensed under the Eclipse Public License - v 1.0 by the copyright holder
- * listed above, as the Initial Contributor under such license. The text of
- * such license is available at www.eclipse.org.
+ *
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.aggregator;
 
@@ -11,7 +14,7 @@ import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>ValidationSet</b></em>'.
+ * A representation of the model object '<em><b>Validation Set</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
@@ -52,9 +55,6 @@ public interface ValidationSet
 	 * Returns the value of the '<em><b>Contributions</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.cbi.p2repo.aggregator.Contribution}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Contributions</em>' containment reference list isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Contributions</em>' containment reference list.
 	 * @see org.eclipse.cbi.p2repo.aggregator.AggregatorPackage#getValidationSet_Contributions()
@@ -83,9 +83,6 @@ public interface ValidationSet
 	 * Returns the value of the '<em><b>Extends</b></em>' reference list.
 	 * The list contents are of type {@link org.eclipse.cbi.p2repo.aggregator.ValidationSet}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Extends</em>' reference list isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Extends</em>' reference list.
 	 * @see org.eclipse.cbi.p2repo.aggregator.AggregatorPackage#getValidationSet_Extends()
@@ -97,9 +94,6 @@ public interface ValidationSet
 	/**
 	 * Returns the value of the '<em><b>Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Label</em>' attribute isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Label</em>' attribute.
 	 * @see #setLabel(String)
@@ -113,10 +107,6 @@ public interface ValidationSet
 	 * Returns the value of the '<em><b>Validation Repositories</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.cbi.p2repo.aggregator.MetadataRepositoryReference}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Validation Repositories</em>' containment reference list isn't clear, there really should be more of a description
-	 * here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Validation Repositories</em>' containment reference list.
 	 * @see org.eclipse.cbi.p2repo.aggregator.AggregatorPackage#getValidationSet_ValidationRepositories()
@@ -129,9 +119,6 @@ public interface ValidationSet
 	 * Returns the value of the '<em><b>Abstract</b></em>' attribute.
 	 * The default value is <code>"false"</code>.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Abstract</em>' attribute isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Abstract</em>' attribute.
 	 * @see #isSetAbstract()
@@ -145,9 +132,6 @@ public interface ValidationSet
 	 * Returns the value of the '<em><b>Extension</b></em>' attribute.
 	 * The default value is <code>"false"</code>.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Extension</em>' attribute isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Extension</em>' attribute.
 	 * @see #isSetExtension()

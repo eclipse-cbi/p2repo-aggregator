@@ -1,8 +1,12 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright (c) 2021 Eclipse contributors and others.
  *
- * $Id$
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.aggregator;
 
@@ -13,8 +17,9 @@ import java.util.List;
 import org.eclipse.emf.common.util.Enumerator;
 
 /**
- * <!-- begin-user-doc --> A representation of the literals of the enumeration '<em><b>Operating System</b></em>', and
- * utility methods for working with them. <!-- end-user-doc -->
+ * <!-- begin-user-doc -->
+ * A representation of the literals of the enumeration '<em><b>Operating System</b></em>', and utility methods for working with them.
+ * <!-- end-user-doc -->
  * @see org.eclipse.cbi.p2repo.aggregator.AggregatorPackage#getOperatingSystem()
  * @model
  * @generated
@@ -22,7 +27,8 @@ import org.eclipse.emf.common.util.Enumerator;
 public enum OperatingSystem implements Enumerator {
 	/**
 	 * The '<em><b>Win32</b></em>' literal object.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #WIN32_VALUE
 	 * @generated
 	 * @ordered
@@ -31,7 +37,8 @@ public enum OperatingSystem implements Enumerator {
 
 	/**
 	 * The '<em><b>Linux</b></em>' literal object.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #LINUX_VALUE
 	 * @generated
 	 * @ordered
@@ -40,7 +47,8 @@ public enum OperatingSystem implements Enumerator {
 
 	/**
 	 * The '<em><b>Mac OSX</b></em>' literal object.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #MAC_OSX_VALUE
 	 * @generated
 	 * @ordered
@@ -49,7 +57,7 @@ public enum OperatingSystem implements Enumerator {
 	/**
 	 * The '<em><b>AIX</b></em>' literal object.
 	 * <!-- begin-user-doc -->
-	* <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #AIX_VALUE
 	 * @generated
 	 * @ordered
@@ -58,7 +66,7 @@ public enum OperatingSystem implements Enumerator {
 	/**
 	 * The '<em><b>HPUX</b></em>' literal object.
 	 * <!-- begin-user-doc -->
-	* <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #HPUX_VALUE
 	 * @generated
 	 * @ordered
@@ -67,7 +75,7 @@ public enum OperatingSystem implements Enumerator {
 	/**
 	 * The '<em><b>Solaris</b></em>' literal object.
 	 * <!-- begin-user-doc -->
-	* <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #SOLARIS_VALUE
 	 * @generated
 	 * @ordered
@@ -76,7 +84,7 @@ public enum OperatingSystem implements Enumerator {
 	/**
 	 * The '<em><b>QNX</b></em>' literal object.
 	 * <!-- begin-user-doc -->
-	* <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #QNX_VALUE
 	 * @generated
 	 * @ordered
@@ -86,9 +94,6 @@ public enum OperatingSystem implements Enumerator {
 	/**
 	 * The '<em><b>Win32</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Win32</b></em>' literal object isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #WIN32
 	 * @model name="Win32" literal="win32"
@@ -100,9 +105,6 @@ public enum OperatingSystem implements Enumerator {
 	/**
 	 * The '<em><b>Linux</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Linux</b></em>' literal object isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #LINUX
 	 * @model name="Linux" literal="linux"
@@ -114,9 +116,6 @@ public enum OperatingSystem implements Enumerator {
 	/**
 	 * The '<em><b>Mac OSX</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Mac OSX</b></em>' literal object isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #MAC_OSX
 	 * @model name="MacOSX" literal="macosx"
@@ -128,9 +127,6 @@ public enum OperatingSystem implements Enumerator {
 	/**
 	 * The '<em><b>AIX</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>AIX</b></em>' literal object isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #AIX
 	 * @model literal="aix"
@@ -142,9 +138,6 @@ public enum OperatingSystem implements Enumerator {
 	/**
 	 * The '<em><b>HPUX</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>HPUX</b></em>' literal object isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #HPUX
 	 * @model literal="hpux"
@@ -156,9 +149,6 @@ public enum OperatingSystem implements Enumerator {
 	/**
 	 * The '<em><b>Solaris</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Solaris</b></em>' literal object isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #SOLARIS
 	 * @model name="Solaris" literal="solaris"
@@ -170,9 +160,6 @@ public enum OperatingSystem implements Enumerator {
 	/**
 	 * The '<em><b>QNX</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>QNX</b></em>' literal object isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #QNX
 	 * @model literal="qnx"
@@ -183,7 +170,8 @@ public enum OperatingSystem implements Enumerator {
 
 	/**
 	 * An array of all the '<em><b>Operating System</b></em>' enumerators.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private static final OperatingSystem[] VALUES_ARRAY = new OperatingSystem[] { WIN32, LINUX, MAC_OSX, AIX, HPUX,
@@ -191,8 +179,8 @@ public enum OperatingSystem implements Enumerator {
 
 	/**
 	 * A public read-only list of all the '<em><b>Operating System</b></em>' enumerators.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public static final List<OperatingSystem> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
@@ -245,8 +233,8 @@ public enum OperatingSystem implements Enumerator {
 
 	/**
 	 * Returns the '<em><b>Operating System</b></em>' literal with the specified name.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param name the name.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
@@ -262,26 +250,30 @@ public enum OperatingSystem implements Enumerator {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private final int value;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private final String name;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private final String literal;
 
 	/**
 	 * Only this class can construct instances.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private OperatingSystem(int value, String name, String literal) {
@@ -291,7 +283,8 @@ public enum OperatingSystem implements Enumerator {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -300,7 +293,8 @@ public enum OperatingSystem implements Enumerator {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -309,7 +303,8 @@ public enum OperatingSystem implements Enumerator {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -319,8 +314,8 @@ public enum OperatingSystem implements Enumerator {
 
 	/**
 	 * Returns the literal value of the enumerator, which is its string representation.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override

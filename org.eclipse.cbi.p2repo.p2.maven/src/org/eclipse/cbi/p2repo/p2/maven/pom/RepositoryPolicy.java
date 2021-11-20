@@ -1,16 +1,21 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright (c) 2021 Eclipse contributors and others.
  *
- * $Id$
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.p2.maven.pom;
 
 import org.eclipse.emf.ecore.EObject;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object
- * '<em><b>Repository Policy</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Repository Policy</b></em>'.
+ * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
  * 4.0.0
@@ -33,69 +38,79 @@ import org.eclipse.emf.ecore.EObject;
 public interface RepositoryPolicy extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Checksum Policy</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
 	 * 4.0.0
 	 *
-	 * What to do when verification of an artifact checksum fails. Valid values
-	 * are &lt;code&gt;ignore&lt;/code&gt; , &lt;code&gt;fail&lt;/code&gt; or
-	 * &lt;code&gt;warn&lt;/code&gt; (the default).
+	 *             What to do when verification of an artifact checksum fails. Valid values are
+	 *             &lt;code&gt;ignore&lt;/code&gt;
+	 *             ,
+	 *             &lt;code&gt;fail&lt;/code&gt;
+	 *             or
+	 *             &lt;code&gt;warn&lt;/code&gt;
+	 *             (the default).
 	 *
 	 * <!-- end-model-doc -->
-	 *
 	 * @return the value of the '<em>Checksum Policy</em>' attribute.
 	 * @see #setChecksumPolicy(String)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getRepositoryPolicy_ChecksumPolicy()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
-	 *        extendedMetaData="kind='element' name='checksumPolicy'
-	 *        namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='checksumPolicy' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	String getChecksumPolicy();
 
 	/**
-	 * Returns the value of the '<em><b>Update Policy</b></em>' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc --> 4.0.0
+	 * Returns the value of the '<em><b>Update Policy</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 4.0.0
 	 *
-	 * The frequency for downloading updates - can be
-	 * &lt;code&gt;always,&lt;/code&gt; &lt;code&gt;daily&lt;/code&gt;
-	 * (default), &lt;code&gt;interval:XXX&lt;/code&gt; (in minutes) or
-	 * &lt;code&gt;never&lt;/code&gt; (only if it doesn't exist locally).
+	 *             The frequency for downloading updates - can be
+	 *             &lt;code&gt;always,&lt;/code&gt;
+	 *             &lt;code&gt;daily&lt;/code&gt;
+	 *             (default),
+	 *             &lt;code&gt;interval:XXX&lt;/code&gt;
+	 *             (in minutes) or
+	 *             &lt;code&gt;never&lt;/code&gt;
+	 *             (only if it doesn't exist locally).
 	 *
 	 * <!-- end-model-doc -->
-	 *
 	 * @return the value of the '<em>Update Policy</em>' attribute.
 	 * @see #setUpdatePolicy(String)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getRepositoryPolicy_UpdatePolicy()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
-	 *        extendedMetaData="kind='element' name='updatePolicy'
-	 *        namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='updatePolicy' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	String getUpdatePolicy();
 
 	/**
-	 * Returns the value of the '<em><b>Enabled</b></em>' attribute. The default
-	 * value is <code>"true"</code>. <!-- begin-user-doc --> <!-- end-user-doc
-	 * --> <!-- begin-model-doc --> 4.0.0 Whether to use this repository for
-	 * downloading this type of artifact. <!-- end-model-doc -->
-	 *
+	 * Returns the value of the '<em><b>Enabled</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 4.0.0
+	 * Whether to use this repository for downloading this type of artifact.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Enabled</em>' attribute.
 	 * @see #isSetEnabled()
 	 * @see #unsetEnabled()
 	 * @see #setEnabled(boolean)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getRepositoryPolicy_Enabled()
-	 * @model default="true" unsettable="true"
-	 *        dataType="org.eclipse.emf.ecore.xml.type.Boolean"
-	 *        extendedMetaData="kind='element' name='enabled'
-	 *        namespace='##targetNamespace'"
+	 * @model default="true" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Boolean"
+	 *        extendedMetaData="kind='element' name='enabled' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	boolean isEnabled();
 
 	/**
 	 * Returns whether the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.RepositoryPolicy#isEnabled <em>Enabled</em>}' attribute is set.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return whether the value of the '<em>Enabled</em>' attribute is set.
 	 * @see #unsetEnabled()
 	 * @see #isEnabled()
@@ -106,8 +121,8 @@ public interface RepositoryPolicy extends EObject {
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.RepositoryPolicy#getChecksumPolicy <em>Checksum Policy</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Checksum Policy</em>' attribute.
 	 * @see #getChecksumPolicy()
 	 * @generated
@@ -115,13 +130,10 @@ public interface RepositoryPolicy extends EObject {
 	void setChecksumPolicy(String value);
 
 	/**
-	 * Sets the value of the
-	 * '{@link org.eclipse.cbi.p2repo.p2.maven.pom.RepositoryPolicy#isEnabled
-	 * <em>Enabled</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Enabled</em>' attribute.
+	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.RepositoryPolicy#isEnabled <em>Enabled</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Enabled</em>' attribute.
 	 * @see #isSetEnabled()
 	 * @see #unsetEnabled()
 	 * @see #isEnabled()
@@ -131,8 +143,8 @@ public interface RepositoryPolicy extends EObject {
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.RepositoryPolicy#getUpdatePolicy <em>Update Policy</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Update Policy</em>' attribute.
 	 * @see #getUpdatePolicy()
 	 * @generated
@@ -140,11 +152,9 @@ public interface RepositoryPolicy extends EObject {
 	void setUpdatePolicy(String value);
 
 	/**
-	 * Unsets the value of the
-	 * '{@link org.eclipse.cbi.p2repo.p2.maven.pom.RepositoryPolicy#isEnabled
-	 * <em>Enabled</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 *
+	 * Unsets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.RepositoryPolicy#isEnabled <em>Enabled</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isSetEnabled()
 	 * @see #isEnabled()
 	 * @see #setEnabled(boolean)

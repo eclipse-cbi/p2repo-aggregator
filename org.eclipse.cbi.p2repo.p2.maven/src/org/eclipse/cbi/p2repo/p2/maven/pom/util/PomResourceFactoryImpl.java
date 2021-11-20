@@ -1,8 +1,12 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright (c) 2021 Eclipse contributors and others.
  *
- * $Id$
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.p2.maven.pom.util;
 
@@ -19,8 +23,9 @@ import org.eclipse.emf.ecore.util.ExtendedMetaData;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 
 /**
- * <!-- begin-user-doc --> The <b>Resource Factory</b> associated with the
- * package. <!-- end-user-doc -->
+ * <!-- begin-user-doc -->
+ * The <b>Resource Factory</b> associated with the package.
+ * <!-- end-user-doc -->
  * @see org.eclipse.cbi.p2repo.p2.maven.pom.util.PomResourceImpl
  * @generated
  */
@@ -28,8 +33,7 @@ public class PomResourceFactoryImpl extends ResourceFactoryImpl {
 	protected ExtendedMetaData extendedMetaData;
 
 	/**
-	 * Creates an instance of the resource factory. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * Creates an instance of the resource factory.
 	 *
 	 * @generated NOT
 	 */
@@ -55,8 +59,7 @@ public class PomResourceFactoryImpl extends ResourceFactoryImpl {
 	}
 
 	/**
-	 * Creates an instance of the resource. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * Creates an instance of the resource.
 	 *
 	 * @generated NOT
 	 */

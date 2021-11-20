@@ -1,6 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Tools to migrate an aggregation build to Tycho
+Bundle-Name: %Bundle-Name
+Bundle-Localization: plugin
 Bundle-SymbolicName: org.eclipse.cbi.tycho;singleton:=true
 Bundle-Version: 0.1.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-11
@@ -10,5 +11,5 @@ Require-Bundle: org.eclipse.cbi.p2repo.aggregator,
  org.eclipse.core.runtime,
  org.eclipse.ui.ide,
  org.eclipse.cbi.p2repo.aggregator.legacy
-Bundle-Vendor: Eclipse CBI
+Bundle-Vendor: %Bundle-Vendor
 Automatic-Module-Name: org.eclipse.cbi.tycho

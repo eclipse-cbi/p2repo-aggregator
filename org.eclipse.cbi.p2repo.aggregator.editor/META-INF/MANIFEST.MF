@@ -2,11 +2,11 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.eclipse.cbi.p2repo.aggregator.editor;singleton:=true
-Bundle-Version: 1.0.300.qualifier
+Bundle-Version: 1.0.400.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: org.eclipse.cbi.p2repo.aggregator.presentation.AggregatorEditorPlugin$Implementation
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-11
 Export-Package: org.eclipse.cbi.p2repo.aggregator.p2view.presentation,
  org.eclipse.cbi.p2repo.aggregator.presentation,
  org.eclipse.cbi.p2repo.aggregator.transformer.ui

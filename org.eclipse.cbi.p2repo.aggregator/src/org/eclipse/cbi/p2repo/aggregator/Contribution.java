@@ -1,26 +1,31 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright (c) 2021 Eclipse contributors and others.
  *
- * $Id$
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.aggregator;
 
 import org.eclipse.emf.common.util.EList;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Contribution</b></em>'.
- *
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Contribution</b></em>'.
+ * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
- * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.aggregator.Contribution#getLabel <em>Label</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.aggregator.Contribution#getRepositories <em>Repositories</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.aggregator.Contribution#getContacts <em>Contacts</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.aggregator.Contribution#getMavenMappings <em>Maven Mappings</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.Contribution#getLabel <em>Label</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.Contribution#getRepositories <em>Repositories</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.Contribution#getContacts <em>Contacts</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.Contribution#getMavenMappings <em>Maven Mappings</em>}</li>
+ * </ul>
  *
  * @see org.eclipse.cbi.p2repo.aggregator.AggregatorPackage#getContribution()
  * @model
@@ -29,7 +34,8 @@ import org.eclipse.emf.common.util.EList;
 public interface Contribution
 		extends EnabledStatusProvider, DescriptionProvider, StatusProvider, InfosProvider, IdentificationProvider {
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model kind="operation"
 	 * @generated
 	 */
@@ -39,9 +45,6 @@ public interface Contribution
 	 * Returns the value of the '<em><b>Contacts</b></em>' reference list.
 	 * The list contents are of type {@link org.eclipse.cbi.p2repo.aggregator.Contact}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Contacts</em>' reference list isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Contacts</em>' reference list.
 	 * @see org.eclipse.cbi.p2repo.aggregator.AggregatorPackage#getContribution_Contacts()
@@ -53,9 +56,6 @@ public interface Contribution
 	/**
 	 * Returns the value of the '<em><b>Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Label</em>' attribute isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Label</em>' attribute.
 	 * @see #setLabel(String)
@@ -69,9 +69,6 @@ public interface Contribution
 	 * Returns the value of the '<em><b>Maven Mappings</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.cbi.p2repo.aggregator.MavenMapping}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Maven Mappings</em>' reference list isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Maven Mappings</em>' containment reference list.
 	 * @see org.eclipse.cbi.p2repo.aggregator.AggregatorPackage#getContribution_MavenMappings()
@@ -84,9 +81,6 @@ public interface Contribution
 	 * Returns the value of the '<em><b>Repositories</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.cbi.p2repo.aggregator.MappedRepository}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Repositories</em>' containment reference list isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Repositories</em>' containment reference list.
 	 * @see org.eclipse.cbi.p2repo.aggregator.AggregatorPackage#getContribution_Repositories()
@@ -96,7 +90,8 @@ public interface Contribution
 	EList<MappedRepository> getRepositories();
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
 	 */
@@ -104,7 +99,8 @@ public interface Contribution
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.Contribution#getLabel <em>Label</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Label</em>' attribute.
 	 * @see #getLabel()
 	 * @generated

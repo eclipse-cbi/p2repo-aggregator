@@ -4,13 +4,13 @@
 
   <artifactId>org.eclipse.cbi.p2repo.site.eclipse</artifactId>
     <groupId>org.eclipse.cbi</groupId>
-  <version>1.0.300-SNAPSHOT</version>
+  <version>1.0.400-SNAPSHOT</version>
   <packaging>eclipse-repository</packaging>
 
   <parent>
     <groupId>org.eclipse.cbi</groupId>
     <artifactId>org.eclipse.cbi.p2repo.releng.parent</artifactId>
-    <version>1.0.300-SNAPSHOT</version>
+    <version>1.0.400-SNAPSHOT</version>
     <relativePath>../org.eclipse.cbi.p2repo.releng.parent</relativePath>
   </parent>
   <build>

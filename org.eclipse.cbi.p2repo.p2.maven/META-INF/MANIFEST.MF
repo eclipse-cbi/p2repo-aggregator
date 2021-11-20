@@ -2,11 +2,11 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.eclipse.cbi.p2repo.p2.maven;singleton:=true
-Bundle-Version: 1.0.300.qualifier
+Bundle-Version: 1.0.400.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-11
 Export-Package: org.eclipse.cbi.p2repo.p2.maven,
  org.eclipse.cbi.p2repo.p2.maven.indexer,
  org.eclipse.cbi.p2repo.p2.maven.loader,

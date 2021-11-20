@@ -1,8 +1,12 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright (c) 2021 Eclipse contributors and others.
  *
- * $Id$
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.aggregator.impl;
 
@@ -18,7 +22,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Configuration</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Configuration</b></em>'.
+ * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
@@ -35,7 +41,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class ConfigurationImpl extends MinimalEObjectImpl.Container implements Configuration {
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -53,8 +60,8 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 
 	/**
 	 * The default value of the '{@link #isEnabled() <em>Enabled</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isEnabled()
 	 * @generated
 	 * @ordered
@@ -73,8 +80,8 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 
 	/**
 	 * The default value of the '{@link #getOperatingSystem() <em>Operating System</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getOperatingSystem()
 	 * @generated
 	 * @ordered
@@ -83,7 +90,8 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 
 	/**
 	 * The offset of the flags representing the value of the '{@link #getOperatingSystem() <em>Operating System</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -91,7 +99,8 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 
 	/**
 	 * The flags representing the default value of the '{@link #getOperatingSystem() <em>Operating System</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -100,17 +109,17 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 
 	/**
 	 * The array of enumeration values for '{@link OperatingSystem Operating System}'
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	private static final OperatingSystem[] OPERATING_SYSTEM_EFLAG_VALUES = OperatingSystem.values();
 
 	/**
-	 * The flags representing the value of the '{@link #getOperatingSystem() <em>Operating System</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * The flags representing the value of the '{@link #getOperatingSystem() <em>Operating System</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getOperatingSystem()
 	 * @generated
 	 * @ordered
@@ -129,7 +138,8 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 
 	/**
 	 * The offset of the flags representing the value of the '{@link #getWindowSystem() <em>Window System</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -137,7 +147,8 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 
 	/**
 	 * The flags representing the default value of the '{@link #getWindowSystem() <em>Window System</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -146,17 +157,17 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 
 	/**
 	 * The array of enumeration values for '{@link WindowSystem Window System}'
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	private static final WindowSystem[] WINDOW_SYSTEM_EFLAG_VALUES = WindowSystem.values();
 
 	/**
-	 * The flags representing the value of the '{@link #getWindowSystem() <em>Window System</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * The flags representing the value of the '{@link #getWindowSystem() <em>Window System</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getWindowSystem()
 	 * @generated
 	 * @ordered
@@ -175,7 +186,8 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 
 	/**
 	 * The offset of the flags representing the value of the '{@link #getArchitecture() <em>Architecture</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -183,7 +195,8 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 
 	/**
 	 * The flags representing the default value of the '{@link #getArchitecture() <em>Architecture</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -191,18 +204,18 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 			.ordinal() << ARCHITECTURE_EFLAG_OFFSET;
 
 	/**
-	 * The array of enumeration values for '{@link Architecture Architecture}' <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 *
+	 * The array of enumeration values for '{@link Architecture Architecture}'
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	private static final Architecture[] ARCHITECTURE_EFLAG_VALUES = Architecture.values();
 
 	/**
-	 * The flags representing the value of the '{@link #getArchitecture() <em>Architecture</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * The flags representing the value of the '{@link #getArchitecture() <em>Architecture</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getArchitecture()
 	 * @generated
 	 * @ordered
@@ -210,7 +223,8 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 	protected static final int ARCHITECTURE_EFLAG = 0xf << ARCHITECTURE_EFLAG_OFFSET;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected ConfigurationImpl() {
@@ -219,7 +233,8 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -240,7 +255,8 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -261,7 +277,8 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -284,7 +301,8 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -293,7 +311,8 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -316,7 +335,8 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -325,7 +345,6 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
@@ -341,7 +360,8 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -350,7 +370,6 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
@@ -367,7 +386,8 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -376,8 +396,6 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
@@ -387,7 +405,8 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -396,8 +415,6 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
@@ -407,7 +424,8 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -423,7 +441,8 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -439,7 +458,8 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -455,7 +475,8 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -471,7 +492,8 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
