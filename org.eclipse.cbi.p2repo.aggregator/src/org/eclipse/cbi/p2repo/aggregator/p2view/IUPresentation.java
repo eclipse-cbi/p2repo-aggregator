@@ -1,11 +1,12 @@
 /**
  * Copyright (c) 2006-2011, Cloudsmith Inc.
- * The code, documentation and other materials contained herein have been
- * licensed under the Eclipse Public License - v 1.0 by the copyright holder
- * listed above, as the Initial Contributor under such license. The text of
- * such license is available at www.eclipse.org.
  *
- * $Id$
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.aggregator.p2view;
 
@@ -16,7 +17,9 @@ import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.metadata.Version;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>IU Presentation</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>IU Presentation</b></em>'.
+ * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
@@ -53,9 +56,6 @@ public interface IUPresentation {
 	/**
 	 * Returns the value of the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Description</em>' attribute isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Description</em>' attribute.
 	 * @see #setDescription(String)
@@ -68,9 +68,6 @@ public interface IUPresentation {
 	/**
 	 * Returns the value of the '<em><b>Filter</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Filter</em>' attribute isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Filter</em>' attribute.
 	 * @see #setFilter(String)
@@ -83,9 +80,6 @@ public interface IUPresentation {
 	/**
 	 * Returns the value of the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Id</em>' attribute isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Id</em>' attribute.
 	 * @see #setId(String)
@@ -98,9 +92,6 @@ public interface IUPresentation {
 	/**
 	 * Returns the value of the '<em><b>Installable Unit</b></em>' reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Iu</em>' reference isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Installable Unit</em>' reference.
 	 * @see #setInstallableUnit(IInstallableUnit)
@@ -113,9 +104,6 @@ public interface IUPresentation {
 	/**
 	 * Returns the value of the '<em><b>Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Label</em>' attribute isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Label</em>' attribute.
 	 * @see #setLabel(String)
@@ -127,11 +115,7 @@ public interface IUPresentation {
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc --> ======= Returns the value of
-	 * the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear, there really should be more of a description here...
-	 * </p>
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
@@ -145,9 +129,6 @@ public interface IUPresentation {
 	 * Returns the value of the '<em><b>Type</b></em>' attribute.
 	 * The literals are from the enumeration {@link org.eclipse.cbi.p2repo.aggregator.InstallableUnitType}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Type</em>' attribute isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Type</em>' attribute.
 	 * @see org.eclipse.cbi.p2repo.aggregator.InstallableUnitType
@@ -159,11 +140,7 @@ public interface IUPresentation {
 
 	/**
 	 * Returns the value of the '<em><b>Version</b></em>' attribute.
-	 * <!-- begin-user-doc --> ======= Returns the value
-	 * of the '<em><b>Version</b></em>' attribute. <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Version</em>' attribute isn't clear, there really should be more of a description here...
-	 * </p>
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Version</em>' attribute.
 	 * @see #setVersion(Version)
@@ -175,7 +152,8 @@ public interface IUPresentation {
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.p2view.IUPresentation#getDescription <em>Description</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Description</em>' attribute.
 	 * @see #getDescription()
 	 * @generated
@@ -194,7 +172,8 @@ public interface IUPresentation {
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.p2view.IUPresentation#getId <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Id</em>' attribute.
 	 * @see #getId()
 	 * @generated
@@ -213,7 +192,8 @@ public interface IUPresentation {
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.p2view.IUPresentation#getLabel <em>Label</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Label</em>' attribute.
 	 * @see #getLabel()
 	 * @generated
@@ -222,7 +202,8 @@ public interface IUPresentation {
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.p2view.IUPresentation#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Name</em>' attribute.
 	 * @see #getName()
 	 * @generated
@@ -231,7 +212,8 @@ public interface IUPresentation {
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.p2view.IUPresentation#getVersion <em>Version</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Version</em>' attribute.
 	 * @see #getVersion()
 	 * @generated

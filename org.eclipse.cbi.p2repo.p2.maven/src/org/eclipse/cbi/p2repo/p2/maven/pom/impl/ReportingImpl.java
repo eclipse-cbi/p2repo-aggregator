@@ -1,8 +1,12 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright (c) 2021 Eclipse contributors and others.
  *
- * $Id$
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.p2.maven.pom.impl;
 
@@ -14,11 +18,12 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object
- * '<em><b>Reporting</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Reporting</b></em>'.
+ * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
@@ -30,10 +35,11 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class ReportingImpl extends EObjectImpl implements Reporting {
+public class ReportingImpl extends MinimalEObjectImpl.Container implements Reporting {
 	/**
 	 * The default value of the '{@link #isExcludeDefaults() <em>Exclude Defaults</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isExcludeDefaults()
 	 * @generated
 	 * @ordered
@@ -42,7 +48,8 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 
 	/**
 	 * The cached value of the '{@link #isExcludeDefaults() <em>Exclude Defaults</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isExcludeDefaults()
 	 * @generated
 	 * @ordered
@@ -50,9 +57,9 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 	protected boolean excludeDefaults = EXCLUDE_DEFAULTS_EDEFAULT;
 
 	/**
-	 * This is true if the Exclude Defaults attribute has been set. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * This is true if the Exclude Defaults attribute has been set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -60,7 +67,8 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 
 	/**
 	 * The default value of the '{@link #getOutputDirectory() <em>Output Directory</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getOutputDirectory()
 	 * @generated
 	 * @ordered
@@ -69,7 +77,8 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 
 	/**
 	 * The cached value of the '{@link #getOutputDirectory() <em>Output Directory</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getOutputDirectory()
 	 * @generated
 	 * @ordered
@@ -78,7 +87,8 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 
 	/**
 	 * The cached value of the '{@link #getPlugins() <em>Plugins</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getPlugins()
 	 * @generated
 	 * @ordered
@@ -86,7 +96,8 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 	protected ReportingPluginsType plugins;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected ReportingImpl() {
@@ -94,7 +105,8 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public NotificationChain basicSetPlugins(ReportingPluginsType newPlugins, NotificationChain msgs) {
@@ -112,7 +124,8 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -129,7 +142,8 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -142,7 +156,8 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -160,7 +175,8 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -180,7 +196,8 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -200,7 +217,8 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -209,7 +227,8 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -218,7 +237,8 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -227,7 +247,8 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -236,7 +257,8 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -251,7 +273,8 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -264,7 +287,8 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -286,7 +310,8 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -294,7 +319,7 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 		if (eIsProxy())
 			return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (excludeDefaults: ");
 		if (excludeDefaultsESet)
 			result.append(excludeDefaults);
@@ -307,7 +332,8 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -322,7 +348,8 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override

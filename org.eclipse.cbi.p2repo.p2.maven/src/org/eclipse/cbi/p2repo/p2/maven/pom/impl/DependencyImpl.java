@@ -1,8 +1,12 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright (c) 2021 Eclipse contributors and others.
  *
- * $Id$
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.p2.maven.pom.impl;
 
@@ -14,11 +18,12 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object
- * '<em><b>Dependency</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Dependency</b></em>'.
+ * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
@@ -36,10 +41,11 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class DependencyImpl extends EObjectImpl implements Dependency {
+public class DependencyImpl extends MinimalEObjectImpl.Container implements Dependency {
 	/**
 	 * The default value of the '{@link #getGroupId() <em>Group Id</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getGroupId()
 	 * @generated
 	 * @ordered
@@ -48,7 +54,8 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 
 	/**
 	 * The cached value of the '{@link #getGroupId() <em>Group Id</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getGroupId()
 	 * @generated
 	 * @ordered
@@ -57,7 +64,8 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 
 	/**
 	 * The default value of the '{@link #getArtifactId() <em>Artifact Id</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getArtifactId()
 	 * @generated
 	 * @ordered
@@ -66,7 +74,8 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 
 	/**
 	 * The cached value of the '{@link #getArtifactId() <em>Artifact Id</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getArtifactId()
 	 * @generated
 	 * @ordered
@@ -75,7 +84,8 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 
 	/**
 	 * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getVersion()
 	 * @generated
 	 * @ordered
@@ -84,7 +94,8 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 
 	/**
 	 * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getVersion()
 	 * @generated
 	 * @ordered
@@ -93,7 +104,8 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 
 	/**
 	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getType()
 	 * @generated
 	 * @ordered
@@ -102,7 +114,8 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getType()
 	 * @generated
 	 * @ordered
@@ -120,7 +133,8 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 
 	/**
 	 * The default value of the '{@link #getClassifier() <em>Classifier</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getClassifier()
 	 * @generated
 	 * @ordered
@@ -129,7 +143,8 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 
 	/**
 	 * The cached value of the '{@link #getClassifier() <em>Classifier</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getClassifier()
 	 * @generated
 	 * @ordered
@@ -138,7 +153,8 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 
 	/**
 	 * The default value of the '{@link #getScope() <em>Scope</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getScope()
 	 * @generated
 	 * @ordered
@@ -147,7 +163,8 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 
 	/**
 	 * The cached value of the '{@link #getScope() <em>Scope</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getScope()
 	 * @generated
 	 * @ordered
@@ -156,7 +173,8 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 
 	/**
 	 * The default value of the '{@link #getSystemPath() <em>System Path</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getSystemPath()
 	 * @generated
 	 * @ordered
@@ -165,7 +183,8 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 
 	/**
 	 * The cached value of the '{@link #getSystemPath() <em>System Path</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getSystemPath()
 	 * @generated
 	 * @ordered
@@ -174,7 +193,8 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 
 	/**
 	 * The cached value of the '{@link #getExclusions() <em>Exclusions</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getExclusions()
 	 * @generated
 	 * @ordered
@@ -183,7 +203,8 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 
 	/**
 	 * The default value of the '{@link #isOptional() <em>Optional</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isOptional()
 	 * @generated
 	 * @ordered
@@ -192,7 +213,8 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 
 	/**
 	 * The cached value of the '{@link #isOptional() <em>Optional</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isOptional()
 	 * @generated
 	 * @ordered
@@ -201,15 +223,16 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 
 	/**
 	 * This is true if the Optional attribute has been set.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	protected boolean optionalESet;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected DependencyImpl() {
@@ -217,7 +240,8 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public NotificationChain basicSetExclusions(ExclusionsType newExclusions, NotificationChain msgs) {
@@ -235,7 +259,8 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -264,7 +289,8 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -277,7 +303,8 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -306,7 +333,8 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -344,7 +372,8 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -382,7 +411,8 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -391,7 +421,8 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -400,7 +431,8 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -409,7 +441,8 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -418,7 +451,8 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -427,7 +461,8 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -436,7 +471,8 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -445,7 +481,8 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -454,7 +491,8 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -463,7 +501,8 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -472,7 +511,8 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -481,7 +521,8 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -494,7 +535,8 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -507,7 +549,8 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -529,7 +572,8 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -542,7 +586,8 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -557,7 +602,8 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -569,7 +615,8 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -582,7 +629,8 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -597,7 +645,8 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -609,7 +658,8 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -617,7 +667,7 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 		if (eIsProxy())
 			return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (groupId: ");
 		result.append(groupId);
 		result.append(", artifactId: ");
@@ -645,7 +695,8 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -660,7 +711,8 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -675,7 +727,8 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override

@@ -1,17 +1,19 @@
 /**
  * Copyright (c) 2006-2009, Cloudsmith Inc.
- * The code, documentation and other materials contained herein have been
- * licensed under the Eclipse Public License - v 1.0 by the copyright holder
- * listed above, as the Initial Contributor under such license. The text of
- * such license is available at www.eclipse.org.
  *
- * $Id$
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.aggregator.p2view;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>IU Presentation With Details</b></em>'. <!--
- * end-user-doc -->
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>IU Presentation With Details</b></em>'.
+ * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
@@ -29,9 +31,6 @@ public interface IUPresentationWithDetails extends IUPresentation, IUDetails {
 	/**
 	 * Returns the value of the '<em><b>Details Resolved</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Details Resolved</em>' attribute isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Details Resolved</em>' attribute.
 	 * @see #setDetailsResolved(boolean)
@@ -43,7 +42,8 @@ public interface IUPresentationWithDetails extends IUPresentation, IUDetails {
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.p2view.IUPresentationWithDetails#isDetailsResolved <em>Details Resolved</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Details Resolved</em>' attribute.
 	 * @see #isDetailsResolved()
 	 * @generated

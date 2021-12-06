@@ -1,8 +1,12 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright (c) 2021 Eclipse contributors and others.
  *
- * $Id$
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.p2.maven.pom;
 
@@ -11,8 +15,9 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.FeatureMap;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Document
- * Root</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Document Root</b></em>'.
+ * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
@@ -33,10 +38,6 @@ public interface DocumentRoot extends EObject {
 	 * Returns the value of the '<em><b>Mixed</b></em>' attribute list.
 	 * The list contents are of type {@link org.eclipse.emf.ecore.util.FeatureMap.Entry}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Mixed</em>' attribute list isn't clear, there
-	 * really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Mixed</em>' attribute list.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getDocumentRoot_Mixed()
@@ -48,21 +49,20 @@ public interface DocumentRoot extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Project</b></em>' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
 	 * 3.0.0+
 	 *
-	 * The &lt;code&gt;&amp;lt;project&amp;gt;&lt;/code&gt; element is the root
-	 * of the descriptor. The following table lists all of the possible child
-	 * elements.
+	 *          The &lt;code&gt;&amp;lt;project&amp;gt;&lt;/code&gt; element is the root of the descriptor.
+	 *          The following table lists all of the possible child elements.
 	 *
 	 * <!-- end-model-doc -->
-	 *
 	 * @return the value of the '<em>Project</em>' containment reference.
 	 * @see #setProject(Model)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getDocumentRoot_Project()
-	 * @model containment="true" upper="-2" transient="true" volatile="true"
-	 *        derived="true" extendedMetaData="kind='element' name='project'
-	 *        namespace='##targetNamespace'"
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='project' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Model getProject();
@@ -72,10 +72,6 @@ public interface DocumentRoot extends EObject {
 	 * The key is of type {@link java.lang.String},
 	 * and the value is of type {@link java.lang.String},
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>XMLNS Prefix Map</em>' map isn't clear, there
-	 * really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>XMLNS Prefix Map</em>' map.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getDocumentRoot_XMLNSPrefixMap()
@@ -90,10 +86,6 @@ public interface DocumentRoot extends EObject {
 	 * The key is of type {@link java.lang.String},
 	 * and the value is of type {@link java.lang.String},
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>XSI Schema Location</em>' map isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>XSI Schema Location</em>' map.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getDocumentRoot_XSISchemaLocation()
@@ -105,8 +97,8 @@ public interface DocumentRoot extends EObject {
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.DocumentRoot#getProject <em>Project</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Project</em>' containment reference.
 	 * @see #getProject()
 	 * @generated

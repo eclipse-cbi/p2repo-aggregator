@@ -1,8 +1,12 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright (c) 2021 Eclipse contributors and others.
  *
- * $Id$
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.p2.maven.pom.impl;
 
@@ -11,11 +15,12 @@ import org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Issue
- * Management</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Issue Management</b></em>'.
+ * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
@@ -26,10 +31,11 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class IssueManagementImpl extends EObjectImpl implements IssueManagement {
+public class IssueManagementImpl extends MinimalEObjectImpl.Container implements IssueManagement {
 	/**
 	 * The default value of the '{@link #getSystem() <em>System</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getSystem()
 	 * @generated
 	 * @ordered
@@ -38,7 +44,8 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 
 	/**
 	 * The cached value of the '{@link #getSystem() <em>System</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getSystem()
 	 * @generated
 	 * @ordered
@@ -46,9 +53,9 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 	protected String system = SYSTEM_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getUrl() <em>Url</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * The default value of the '{@link #getUrl() <em>Url</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getUrl()
 	 * @generated
 	 * @ordered
@@ -56,9 +63,9 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 	protected static final String URL_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getUrl() <em>Url</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * The cached value of the '{@link #getUrl() <em>Url</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getUrl()
 	 * @generated
 	 * @ordered
@@ -66,7 +73,8 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 	protected String url = URL_EDEFAULT;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected IssueManagementImpl() {
@@ -74,7 +82,8 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -89,7 +98,8 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -104,7 +114,8 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -121,7 +132,8 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -138,7 +150,8 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -147,7 +160,8 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -156,7 +170,8 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -169,7 +184,8 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -181,7 +197,8 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -189,7 +206,7 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 		if (eIsProxy())
 			return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (system: ");
 		result.append(system);
 		result.append(", url: ");
@@ -199,7 +216,8 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override

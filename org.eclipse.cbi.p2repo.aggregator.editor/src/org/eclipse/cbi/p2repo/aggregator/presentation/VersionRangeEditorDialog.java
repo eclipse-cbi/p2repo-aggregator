@@ -1,10 +1,13 @@
-/*******************************************************************************
+/**
  * Copyright (c) 2006-2016 Cloudsmith Inc. and others
- * The code, documentation and other materials contained herein have been
- * licensed under the Eclipse Public License - v 1.0 by the copyright holder
- * listed above, as the Initial Contributor under such license. The text of
- * such license is available at www.eclipse.org.
- ******************************************************************************/
+ *
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
+ */
 
 package org.eclipse.cbi.p2repo.aggregator.presentation;
 
@@ -37,7 +40,6 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Link;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
-import org.eclipse.ui.internal.ide.IDEWorkbenchMessages;
 
 /**
  * @author Karel Brezina
@@ -98,6 +100,12 @@ public class VersionRangeEditorDialog extends Dialog {
 	private static String getString(String key) {
 		return AggregatorEditorPlugin.INSTANCE.getString(key);
 	}
+
+	@SuppressWarnings("restriction")
+	private static final String showAdvanced = org.eclipse.ui.internal.ide.IDEWorkbenchMessages.showAdvanced;
+
+	@SuppressWarnings("restriction")
+	private static final String hideAdvanced = org.eclipse.ui.internal.ide.IDEWorkbenchMessages.hideAdvanced;
 
 	protected ILabelProvider labelProvider;
 
@@ -391,7 +399,7 @@ public class VersionRangeEditorDialog extends Dialog {
 
 		advancedButton = new Button(advancedComposite, SWT.PUSH);
 		advancedButton.setFont(advancedComposite.getFont());
-		advancedButton.setText(IDEWorkbenchMessages.showAdvanced);
+		advancedButton.setText(showAdvanced);
 
 		GridData data = new GridData(GridData.HORIZONTAL_ALIGN_FILL);
 		int widthHint = IDialogConstants.BUTTON_WIDTH;
@@ -476,7 +484,7 @@ public class VersionRangeEditorDialog extends Dialog {
 			advancedFieldsComposite = null;
 			topComposite.layout();
 			shell.setSize(shellSize.x, shellSize.y - advancedFieldsHeight);
-			advancedButton.setText(IDEWorkbenchMessages.showAdvanced);
+			advancedButton.setText(showAdvanced);
 		}
 		else {
 			advancedFieldsComposite = createAdvancedContent();
@@ -486,7 +494,7 @@ public class VersionRangeEditorDialog extends Dialog {
 			}
 			shell.setSize(shellSize.x, shellSize.y + advancedFieldsHeight);
 			topComposite.layout();
-			advancedButton.setText(IDEWorkbenchMessages.hideAdvanced);
+			advancedButton.setText(hideAdvanced);
 		}
 	}
 

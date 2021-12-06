@@ -1,11 +1,12 @@
 /**
  * Copyright (c) 2006-2009, Cloudsmith Inc.
- * The code, documentation and other materials contained herein have been
- * licensed under the Eclipse Public License - v 1.0 by the copyright holder
- * listed above, as the Initial Contributor under such license. The text of
- * such license is available at www.eclipse.org.
  *
- * $Id$
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.aggregator.impl;
 
@@ -56,8 +57,9 @@ import org.eclipse.equinox.p2.query.IQueryResult;
 import org.eclipse.equinox.p2.query.QueryUtil;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Installable Unit Reference</b></em>'. <!--
- * end-user-doc -->
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Installable Unit Reference</b></em>'.
+ * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
@@ -78,9 +80,7 @@ import org.eclipse.equinox.p2.query.QueryUtil;
 public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Container
 		implements InstallableUnitRequest {
 	/**
-	 * This looks up a string in the plugin's plugin.properties file. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @generated NOT
+	 * This looks up a string in the plugin's plugin.properties file.
 	 */
 	private static String getString(String key) {
 		return AggregatorPlugin.INSTANCE.getString(key);
@@ -88,7 +88,8 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -96,8 +97,8 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 
 	/**
 	 * The cached value of the '{@link #getErrors() <em>Errors</em>}' attribute list.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getErrors()
 	 * @generated
 	 * @ordered
@@ -106,8 +107,8 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 
 	/**
 	 * The cached value of the '{@link #getWarnings() <em>Warnings</em>}' attribute list.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getWarnings()
 	 * @generated
 	 * @ordered
@@ -116,8 +117,8 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 
 	/**
 	 * The cached value of the '{@link #getInfos() <em>Infos</em>}' attribute list.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getInfos()
 	 * @generated
 	 * @ordered
@@ -206,7 +207,6 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	protected EList<AvailableVersion> availableVersions;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
@@ -267,7 +267,8 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -296,7 +297,8 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -325,7 +327,8 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -389,7 +392,8 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -419,7 +423,8 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -459,7 +464,8 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -468,7 +474,8 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -503,8 +510,6 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
@@ -537,7 +542,6 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
@@ -554,7 +558,6 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
@@ -586,7 +589,6 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
@@ -612,7 +614,8 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -630,7 +633,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -640,7 +643,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -652,8 +655,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -663,8 +665,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -759,8 +760,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -828,7 +828,8 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override

@@ -2,40 +2,30 @@
 <?eclipse version="3.0"?>
 
 <!--
- <copyright>
- </copyright>
-
- $Id$
+ Copyright (c) 2006-2009, Cloudsmith Inc.
+ 
+ This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License 2.0
+ which accompanies this distribution, and is available at
+ https://www.eclipse.org/legal/epl-2.0/
+ 
+ SPDX-License-Identifier: EPL-2.0
 -->
 
 <plugin>
+
    <extension-point id="legacy_transformation_ui" name="Legady Tansformation UI" schema="schema/legacy_transformation_ui.exsd"/>
 
    <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated Aggregator not -->
       <category
-            id="org.eclipse.cbi.p2repo"
-            name="CBI Aggregation"/>
-      <wizard
-            category="org.eclipse.cbi.p2repo"
-            class="org.eclipse.cbi.p2repo.aggregator.presentation.AggregatorModelWizard"
-            icon="icons/full/obj16/AggregatorModelFile.gif"
-            id="org.eclipse.cbi.p2repo.aggregator.presentation.AggregatorModelWizardID"
-            name="%_UI_AggregatorModelWizard_label">
-         <description>%_UI_AggregatorModelWizard_description</description>
-         <selection class="org.eclipse.core.resources.IResource"/>
-      </wizard>
-   </extension>
-
-   <extension point="org.eclipse.ui.newWizards">
-      <!-- @generated Aggregator -->
-      <category
-            id="org.eclipse.emf.ecore.Wizard.category.ID"
-            name="%_UI_Wizard_category"/>
+            id="org.eclipse.cbi"
+            name="%_UI_CBIWizard_category"/>
       <wizard
             id="org.eclipse.cbi.p2repo.aggregator.presentation.AggregatorModelWizardID"
             name="%_UI_AggregatorModelWizard_label"
             class="org.eclipse.cbi.p2repo.aggregator.presentation.AggregatorModelWizard"
-            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            category="org.eclipse.cbi"
             icon="icons/full/obj16/AggregatorModelFile.gif">
          <description>%_UI_AggregatorModelWizard_description</description>
          <selection class="org.eclipse.core.resources.IResource"/>
@@ -43,6 +33,7 @@
    </extension>
 
    <extension point="org.eclipse.ui.editors">
+      <!-- @generated Aggregator -->
       <editor
             id="org.eclipse.cbi.p2repo.aggregator.presentation.AggregatorEditorID"
             name="%_UI_AggregatorEditor_label"
@@ -64,6 +55,7 @@
             contributorClass="org.eclipse.cbi.p2repo.aggregator.p2view.presentation.P2viewActionBarContributor">
       </editor>
    </extension>
+
    <extension
          point="org.eclipse.ui.handlers">
       <handler
@@ -104,22 +96,23 @@
       </handler>
    </extension>
 
-	<extension
+   <extension
 	     point="org.eclipse.ui.bindings">
       <!--  win32:  M1=CTRL,    M2=SHIFT, M3=ALT, M4=-
             carbon: M1=COMMAND, M2=SHIFT, M3=ALT, M4=CTRL -->
-	  <key
+      <key
          commandId="org.eclipse.ui.edit.findNext"
          contextId="org.eclipse.cbi.p2repo.aggregator.presentation.aggregatorEditorScope"
          schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
          sequence="M1+K"/>
-	  <key
+      <key
          commandId="org.eclipse.ui.edit.findPrevious"
          contextId="org.eclipse.cbi.p2repo.aggregator.presentation.aggregatorEditorScope"
          schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
          sequence="M1+M2+K"/>
    </extension>
- <extension
+
+   <extension
        point="org.eclipse.ui.contexts">
     <context
           description="Aggregator Editor is open"
@@ -127,7 +120,8 @@
           name="In Aggregator Editor"
           parentId="org.eclipse.ui.contexts.window">
     </context>
- </extension>
+   </extension>
+
     <extension
          id="diagnostic"
          name="%_UI_AggregatorDiagnostic_marker"
@@ -135,6 +129,7 @@
       <super type="org.eclipse.core.resources.problemmarker"/>
       <persistent value="true"/>
    </extension>
+
    <extension
          id="diagnostic.persistent"
          name="%_UI_AggregatorDiagnostic_marker"
@@ -142,13 +137,15 @@
       <super type="org.eclipse.emf.ecore.diagnostic"/>
       <persistent value="true"/>
    </extension>
+
     <extension
          id="diagnostic.nonpersistent"
          name="%_UI_AggregatorDiagnostic_marker"
          point="org.eclipse.core.resources.markers">
       <super type="org.eclipse.emf.ecore.diagnostic"/>
       <persistent value="false"/>
-   </extension>
+    </extension>
+
     <extension
           point="org.eclipse.ui.ide.markerResolution">
          <markerResolutionGenerator
@@ -156,6 +153,7 @@
          	class="org.eclipse.cbi.p2repo.aggregator.presentation.DiagnosticMarkerResolutionGenerator">
          </markerResolutionGenerator>
     </extension>
+
     <extension
           point="org.eclipse.ui.commands">
        <command
@@ -164,6 +162,7 @@
              name="%fixVersion.command">
        </command>
     </extension>
+
     <extension
           point="org.eclipse.ui.commandImages">
        <image
@@ -171,6 +170,7 @@
              icon="icons/full/obj16/fixVersions.png">
        </image>
     </extension>
+
     <extension
           point="org.eclipse.ui.menus">
        <menuContribution

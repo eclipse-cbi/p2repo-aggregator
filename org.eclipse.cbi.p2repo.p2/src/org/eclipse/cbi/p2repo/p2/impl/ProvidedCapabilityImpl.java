@@ -1,9 +1,12 @@
 /**
  * Copyright (c) 2006-2009, Cloudsmith Inc.
- * The code, documentation and other materials contained herein have been
- * licensed under the Eclipse Public License - v 1.0 by the copyright holder
- * listed above, as the Initial Contributor under such license. The text of
- * such license is available at www.eclipse.org.
+ *
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.p2.impl;
 
@@ -20,8 +23,9 @@ import org.eclipse.equinox.p2.metadata.IProvidedCapability;
 import org.eclipse.equinox.p2.metadata.Version;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object
- * '<em><b>Provided Capability</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Provided Capability</b></em>'.
+ * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
@@ -36,8 +40,8 @@ import org.eclipse.equinox.p2.metadata.Version;
 public class ProvidedCapabilityImpl extends MinimalEObjectImpl.Container implements ProvidedCapability {
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -45,7 +49,8 @@ public class ProvidedCapabilityImpl extends MinimalEObjectImpl.Container impleme
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -54,7 +59,8 @@ public class ProvidedCapabilityImpl extends MinimalEObjectImpl.Container impleme
 
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -63,7 +69,8 @@ public class ProvidedCapabilityImpl extends MinimalEObjectImpl.Container impleme
 
 	/**
 	 * The default value of the '{@link #getNamespace() <em>Namespace</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getNamespace()
 	 * @generated
 	 * @ordered
@@ -72,7 +79,8 @@ public class ProvidedCapabilityImpl extends MinimalEObjectImpl.Container impleme
 
 	/**
 	 * The cached value of the '{@link #getNamespace() <em>Namespace</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getNamespace()
 	 * @generated
 	 * @ordered
@@ -81,7 +89,8 @@ public class ProvidedCapabilityImpl extends MinimalEObjectImpl.Container impleme
 
 	/**
 	 * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getVersion()
 	 * @generated
 	 * @ordered
@@ -90,7 +99,8 @@ public class ProvidedCapabilityImpl extends MinimalEObjectImpl.Container impleme
 
 	/**
 	 * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getVersion()
 	 * @generated
 	 * @ordered
@@ -99,13 +109,14 @@ public class ProvidedCapabilityImpl extends MinimalEObjectImpl.Container impleme
 
 	/**
 	 * NOT generated
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	private Map<String, Object> properties = Collections.emptyMap();
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected ProvidedCapabilityImpl() {
@@ -113,7 +124,8 @@ public class ProvidedCapabilityImpl extends MinimalEObjectImpl.Container impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -130,7 +142,8 @@ public class ProvidedCapabilityImpl extends MinimalEObjectImpl.Container impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -148,20 +161,17 @@ public class ProvidedCapabilityImpl extends MinimalEObjectImpl.Container impleme
 
 	@Override
 	public boolean equals(Object other) {
-		if (other == null)
-			return false;
-		if (!(other instanceof IProvidedCapability))
+		if ((other == null) || !(other instanceof IProvidedCapability))
 			return false;
 		IProvidedCapability otherCapability = (IProvidedCapability) other;
-		if (!(namespace.equals(otherCapability.getNamespace())))
-			return false;
-		if (!(name.equals(otherCapability.getName())))
+		if (!(namespace.equals(otherCapability.getNamespace())) || !(name.equals(otherCapability.getName())))
 			return false;
 		return version.equals(otherCapability.getVersion());
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -181,7 +191,8 @@ public class ProvidedCapabilityImpl extends MinimalEObjectImpl.Container impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -190,7 +201,8 @@ public class ProvidedCapabilityImpl extends MinimalEObjectImpl.Container impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -210,7 +222,8 @@ public class ProvidedCapabilityImpl extends MinimalEObjectImpl.Container impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -219,7 +232,8 @@ public class ProvidedCapabilityImpl extends MinimalEObjectImpl.Container impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -228,7 +242,8 @@ public class ProvidedCapabilityImpl extends MinimalEObjectImpl.Container impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -242,7 +257,8 @@ public class ProvidedCapabilityImpl extends MinimalEObjectImpl.Container impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setName(String newName) {
@@ -253,7 +269,8 @@ public class ProvidedCapabilityImpl extends MinimalEObjectImpl.Container impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setNamespace(String newNamespace) {
@@ -265,7 +282,8 @@ public class ProvidedCapabilityImpl extends MinimalEObjectImpl.Container impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setVersion(Version newVersion) {
@@ -277,7 +295,7 @@ public class ProvidedCapabilityImpl extends MinimalEObjectImpl.Container impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */

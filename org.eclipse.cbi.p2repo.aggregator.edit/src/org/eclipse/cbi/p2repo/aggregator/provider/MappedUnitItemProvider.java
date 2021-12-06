@@ -1,8 +1,12 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright (c) 2021 Eclipse contributors and others.
  *
- * $Id$
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.aggregator.provider;
 
@@ -26,9 +30,9 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.cbi.p2repo.aggregator.MappedUnit} object. <!--
- * begin-user-doc --> <!-- end-user-doc -->
- *
+ * This is the item provider adapter for a {@link org.eclipse.cbi.p2repo.aggregator.MappedUnit} object.
+ * <!-- begin-user-doc -->
+ * <!-- end-user-doc -->
  * @generated
  */
 public class MappedUnitItemProvider extends InstallableUnitRequestItemProvider
@@ -36,7 +40,8 @@ public class MappedUnitItemProvider extends InstallableUnitRequestItemProvider
 {
 	/**
 	 * This constructs an instance from a factory and a notifier.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public MappedUnitItemProvider(AdapterFactory adapterFactory) {
@@ -45,7 +50,8 @@ public class MappedUnitItemProvider extends InstallableUnitRequestItemProvider
 
 	/**
 	 * This adds a property descriptor for the Enabled feature.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected void addEnabledPropertyDescriptor(Object object) {
@@ -59,9 +65,9 @@ public class MappedUnitItemProvider extends InstallableUnitRequestItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Valid Configurations feature. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 *
+	 * This adds a property descriptor for the Valid Configurations feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected void addValidConfigurationsPropertyDescriptor(Object object) {
@@ -77,7 +83,8 @@ public class MappedUnitItemProvider extends InstallableUnitRequestItemProvider
 	/**
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -99,7 +106,8 @@ public class MappedUnitItemProvider extends InstallableUnitRequestItemProvider
 
 	/**
 	 * This returns the property descriptors for the adapted class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -115,7 +123,7 @@ public class MappedUnitItemProvider extends InstallableUnitRequestItemProvider
 
 	/**
 	 * This returns the label text for the adapted class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -172,10 +180,10 @@ public class MappedUnitItemProvider extends InstallableUnitRequestItemProvider
 	}
 
 	/**
-	 * This handles model notifications by calling {@link #updateChildren} to update any cached children and by creating
-	 * a viewer notification, which it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 *
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached
+	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void notifyChangedGen(Notification notification) {

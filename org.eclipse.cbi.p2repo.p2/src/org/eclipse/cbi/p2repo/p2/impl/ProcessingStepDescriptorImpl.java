@@ -1,10 +1,12 @@
 /**
  * Copyright (c) 2006-2009, Cloudsmith Inc.
- * The code, documentation and other materials contained herein have been
- * licensed under the Eclipse Public License - v 1.0 by the copyright holder
- * listed above, as the Initial Contributor under such license. The text of
- * such license is available at www.eclipse.org.
  *
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.p2.impl;
 
@@ -18,8 +20,9 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.equinox.p2.repository.artifact.IProcessingStepDescriptor;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object
- * '<em><b>Processing Step Descriptor</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Processing Step Descriptor</b></em>'.
+ * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
@@ -34,8 +37,8 @@ import org.eclipse.equinox.p2.repository.artifact.IProcessingStepDescriptor;
 public class ProcessingStepDescriptorImpl extends MinimalEObjectImpl.Container implements ProcessingStepDescriptor {
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -43,7 +46,8 @@ public class ProcessingStepDescriptorImpl extends MinimalEObjectImpl.Container i
 
 	/**
 	 * The default value of the '{@link #getProcessorId() <em>Processor Id</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getProcessorId()
 	 * @generated
 	 * @ordered
@@ -52,7 +56,8 @@ public class ProcessingStepDescriptorImpl extends MinimalEObjectImpl.Container i
 
 	/**
 	 * The cached value of the '{@link #getProcessorId() <em>Processor Id</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getProcessorId()
 	 * @generated
 	 * @ordered
@@ -61,7 +66,8 @@ public class ProcessingStepDescriptorImpl extends MinimalEObjectImpl.Container i
 
 	/**
 	 * The default value of the '{@link #getData() <em>Data</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getData()
 	 * @generated
 	 * @ordered
@@ -70,7 +76,8 @@ public class ProcessingStepDescriptorImpl extends MinimalEObjectImpl.Container i
 
 	/**
 	 * The cached value of the '{@link #getData() <em>Data</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getData()
 	 * @generated
 	 * @ordered
@@ -79,7 +86,8 @@ public class ProcessingStepDescriptorImpl extends MinimalEObjectImpl.Container i
 
 	/**
 	 * The default value of the '{@link #isRequired() <em>Required</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isRequired()
 	 * @generated
 	 * @ordered
@@ -87,10 +95,9 @@ public class ProcessingStepDescriptorImpl extends MinimalEObjectImpl.Container i
 	protected static final boolean REQUIRED_EDEFAULT = false;
 
 	/**
-	 * The flag representing the value of the '{@link #isRequired()
-	 * <em>Required</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 *
+	 * The flag representing the value of the '{@link #isRequired() <em>Required</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isRequired()
 	 * @generated
 	 * @ordered
@@ -98,7 +105,8 @@ public class ProcessingStepDescriptorImpl extends MinimalEObjectImpl.Container i
 	protected static final int REQUIRED_EFLAG = 1 << 0;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected ProcessingStepDescriptorImpl() {
@@ -106,7 +114,8 @@ public class ProcessingStepDescriptorImpl extends MinimalEObjectImpl.Container i
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -123,7 +132,8 @@ public class ProcessingStepDescriptorImpl extends MinimalEObjectImpl.Container i
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -151,7 +161,8 @@ public class ProcessingStepDescriptorImpl extends MinimalEObjectImpl.Container i
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -171,7 +182,8 @@ public class ProcessingStepDescriptorImpl extends MinimalEObjectImpl.Container i
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -180,7 +192,8 @@ public class ProcessingStepDescriptorImpl extends MinimalEObjectImpl.Container i
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -200,7 +213,8 @@ public class ProcessingStepDescriptorImpl extends MinimalEObjectImpl.Container i
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -209,7 +223,8 @@ public class ProcessingStepDescriptorImpl extends MinimalEObjectImpl.Container i
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -233,7 +248,8 @@ public class ProcessingStepDescriptorImpl extends MinimalEObjectImpl.Container i
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -242,7 +258,8 @@ public class ProcessingStepDescriptorImpl extends MinimalEObjectImpl.Container i
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setData(String newData) {
@@ -254,7 +271,8 @@ public class ProcessingStepDescriptorImpl extends MinimalEObjectImpl.Container i
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setProcessorId(String newProcessorId) {
@@ -266,7 +284,8 @@ public class ProcessingStepDescriptorImpl extends MinimalEObjectImpl.Container i
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setRequired(boolean newRequired) {
@@ -281,7 +300,8 @@ public class ProcessingStepDescriptorImpl extends MinimalEObjectImpl.Container i
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -289,7 +309,7 @@ public class ProcessingStepDescriptorImpl extends MinimalEObjectImpl.Container i
 		if (eIsProxy())
 			return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (processorId: ");
 		result.append(processorId);
 		result.append(", data: ");

@@ -1,41 +1,27 @@
-/*******************************************************************************
+/**
  * Copyright (c) 2006-2007, Cloudsmith Inc.
- * The code, documentation and other materials contained herein have been
- * licensed under the Eclipse Public License - v 1.0 by the copyright holder
- * listed above, as the Initial Contributor under such license. The text of
- * such license is available at www.eclipse.org.
- ******************************************************************************/
-
+ *
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
+ */
 package org.eclipse.cbi.p2repo.p2.maven.indexer;
 
-import java.io.File;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URI;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Set;
 
+import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.index.IndexReader;
-import org.apache.lucene.index.Term;
-import org.apache.lucene.index.TermEnum;
-import org.apache.maven.index.ArtifactInfo;
-import org.apache.maven.index.NexusIndexer;
-import org.apache.maven.index.context.IndexCreator;
+import org.apache.lucene.index.TermsEnum;
 import org.apache.maven.index.context.IndexingContext;
-import org.apache.maven.index.packer.IndexPacker;
-import org.apache.maven.index.packer.IndexPackingRequest;
-import org.apache.maven.index.updater.IndexUpdateRequest;
-import org.apache.maven.index.updater.IndexUpdater;
-import org.apache.maven.index.updater.WagonHelper;
-import org.codehaus.plexus.PlexusContainer;
-import org.eclipse.cbi.p2repo.p2.maven.MavenActivator;
 import org.eclipse.cbi.p2repo.p2.maven.loader.VersionEntry;
-import org.eclipse.cbi.p2repo.p2.maven.util.VersionUtil;
 import org.eclipse.cbi.p2repo.util.ExceptionUtils;
 import org.eclipse.core.runtime.CoreException;
 
@@ -47,33 +33,35 @@ public class MavenNexusIndexer implements IMaven2Indexer {
 	private class VersionEntryIterator implements Iterator<VersionEntry> {
 		private IndexReader indexReader;
 
-		private TermEnum termEnum;
+		private TermsEnum termEnum;
 
 		private VersionEntry nextEntry;
 
 		public VersionEntryIterator(IndexReader indexReader) throws IOException {
 			this.indexReader = indexReader;
-			termEnum = indexReader.terms(new Term(ArtifactInfo.UINFO, ""));
+			// TODO
+			// termEnum = indexReader.terms(new Term(ArtifactInfo.UINFO, ""));
 			nextEntry = getNextEntry(false);
 		}
 
 		public void close() throws IOException {
-			synchronized(MavenNexusIndexer.this) {
+			synchronized (MavenNexusIndexer.this) {
 				openIterators.remove(this);
-				if(termEnum != null)
-					termEnum.close();
-				if(indexReader != null)
+				if (termEnum != null) {
+					// TODO
+					// termEnum.close();
+				}
+				if (indexReader != null)
 					indexReader.close();
 			}
 		}
 
 		public boolean hasNext() {
 			boolean hasNext = nextEntry != null;
-			if(!hasNext)
+			if (!hasNext)
 				try {
 					close();
-				}
-				catch(IOException e) {
+				} catch (IOException e) {
 					throw new RuntimeException("Unable to close index reader");
 				}
 
@@ -81,12 +69,11 @@ public class MavenNexusIndexer implements IMaven2Indexer {
 		}
 
 		public VersionEntry next() {
-			if(nextEntry != null) {
+			if (nextEntry != null) {
 				VersionEntry entry = nextEntry;
 				try {
 					nextEntry = getNextEntry(true);
-				}
-				catch(IOException e) {
+				} catch (IOException e) {
 					throw new RuntimeException(e);
 				}
 				return entry;
@@ -100,28 +87,28 @@ public class MavenNexusIndexer implements IMaven2Indexer {
 		}
 
 		private VersionEntry getNextEntry(boolean moveToNext) throws IOException {
-			if(moveToNext && !termEnum.next())
-				return null;
-
-			while(termEnum.term() != null && ArtifactInfo.UINFO.equals(termEnum.term().field())) {
-				String record = termEnum.term().toString();
-				String[] tokens = record.split("[:|]");
-
-				// we look for something like "u:groupId|artifactId|version|NA"
-				if(tokens.length == 5) {
-					try {
-						return new VersionEntry(tokens[1], tokens[2], VersionUtil.createVersion(tokens[3]));
-					}
-					catch(CoreException e) {
-						IOException ioe = new IOException(e.getMessage());
-						ioe.initCause(e);
-						throw ioe;
-					}
-				}
-
-				if(!termEnum.next())
-					break;
-			}
+			// TODO
+			// if (moveToNext && !termEnum.next())
+			// return null;
+			//
+			// while (termEnum.term() != null && ArtifactInfo.UINFO.equals(termEnum.term().field())) {
+			// String record = termEnum.term().toString();
+			// String[] tokens = record.split("[:|]");
+			//
+			// // we look for something like "u:groupId|artifactId|version|NA"
+			// if (tokens.length == 5) {
+			// try {
+			// return new VersionEntry(tokens[1], tokens[2], VersionUtil.createVersion(tokens[3]));
+			// } catch (CoreException e) {
+			// IOException ioe = new IOException(e.getMessage());
+			// ioe.initCause(e);
+			// throw ioe;
+			// }
+			// }
+			//
+			// if (!termEnum.next())
+			// break;
+			// }
 
 			return null;
 		}
@@ -137,28 +124,26 @@ public class MavenNexusIndexer implements IMaven2Indexer {
 
 	synchronized public void closeRemoteIndex() throws CoreException {
 		try {
-			for(VersionEntryIterator itor : openIterators)
+			for (VersionEntryIterator itor : openIterators)
 				itor.close();
 
-			if(context != null) {
+			if (context != null) {
 				context.close(false);
 				context = null;
 			}
-		}
-		catch(IOException e) {
+		} catch (IOException e) {
 			throw ExceptionUtils.fromMessage(e, e.getMessage());
 		}
 	}
 
 	synchronized public Iterator<VersionEntry> getArtifacts() throws CoreException {
 		try {
-			IndexReader indexReader = IndexReader.open(context.getIndexDirectory());
+			IndexReader indexReader = DirectoryReader.open(context.getIndexDirectory());
 
 			VersionEntryIterator itor = new VersionEntryIterator(indexReader);
 			openIterators.add(itor);
 			return itor;
-		}
-		catch(IOException e) {
+		} catch (IOException e) {
 			throw ExceptionUtils.fromMessage(e, e.getMessage());
 		}
 	}
@@ -167,7 +152,7 @@ public class MavenNexusIndexer implements IMaven2Indexer {
 		// not very efficient but quite fast, may be improved later
 		Iterator<VersionEntry> artifacts = getArtifacts();
 		int counter = 0;
-		while(artifacts.hasNext()) {
+		while (artifacts.hasNext()) {
 			artifacts.next();
 			counter++;
 		}
@@ -179,83 +164,82 @@ public class MavenNexusIndexer implements IMaven2Indexer {
 		closeRemoteIndex();
 		openIterators.clear();
 
-		File cacheDirectory = null;
+		// File cacheDirectory = null;
+		// try {
+		// cacheDirectory = MavenActivator.getPlugin().getCacheDirectory(location);
+		// } catch (MalformedURLException e) {
+		// throw ExceptionUtils.wrap(e);
+		// }
+		// File indexDirectory = new File(cacheDirectory, "index");
 		try {
-			cacheDirectory = MavenActivator.getPlugin().getCacheDirectory(location);
-		}
-		catch(MalformedURLException e) {
-			throw ExceptionUtils.wrap(e);
-		}
-		File indexDirectory = new File(cacheDirectory, "index");
-		try {
-			PlexusContainer plexus = Activator.getPlugin().getPlexusContainer();
-
-			NexusIndexer indexer = plexus.lookup(NexusIndexer.class);
-			IndexUpdater updater = plexus.lookup(IndexUpdater.class);
-			IndexCreator creator = plexus.lookup(IndexCreator.class, "min");
-
-			String repoId = "mavenRepo";
-			if(!clearLocalCache)
-				context = indexer.addIndexingContext(repoId, // index id (usually the same as repository
-					// id)
-					repoId, // repository id
-					(File) null, // null for remote repo
-					indexDirectory, // Lucene directory where index is stored
-					location.toString(), // repository url, used by index updater
-					null, // null if derived from repositoryUrl
-					Collections.singletonList(creator));
-			else
-				context = indexer.addIndexingContextForced(repoId, // index id (usually the same as repository
-					// id)
-					repoId, // repository id
-					(File) null, // null for remote repo
-					indexDirectory, // Lucene directory where index is stored
-					location.toString(), // repository url, used by index updater
-					null, // null if derived from repositoryUrl
-					Collections.singletonList(creator));
-
-			WagonHelper wh = new WagonHelper(plexus);
-			IndexUpdateRequest request = new IndexUpdateRequest(context, wh.getWagonResourceFetcher(null));
-			updater.fetchAndUpdateIndex(request);
-		}
-		catch(Exception e) {
+			// PlexusContainer plexus = Activator.getPlugin().getPlexusContainer();
+			//
+			// NexusIndexer indexer = plexus.lookup(NexusIndexer.class);
+			// IndexUpdater updater = plexus.lookup(IndexUpdater.class);
+			// IndexCreator creator = plexus.lookup(IndexCreator.class, "min");
+			//
+			// String repoId = "mavenRepo";
+			// if (!clearLocalCache)
+			// context = indexer.addIndexingContext(repoId, // index id (usually the same as repository
+			// // id)
+			// repoId, // repository id
+			// (File) null, // null for remote repo
+			// indexDirectory, // Lucene directory where index is stored
+			// location.toString(), // repository url, used by index updater
+			// null, // null if derived from repositoryUrl
+			// Collections.singletonList(creator));
+			// else
+			// context = indexer.addIndexingContextForced(repoId, // index id (usually the same as repository
+			// // id)
+			// repoId, // repository id
+			// (File) null, // null for remote repo
+			// indexDirectory, // Lucene directory where index is stored
+			// location.toString(), // repository url, used by index updater
+			// null, // null if derived from repositoryUrl
+			// Collections.singletonList(creator));
+			//
+			// WagonHelper wh = new WagonHelper(plexus);
+			// IndexUpdateRequest request = new IndexUpdateRequest(context, wh.getWagonResourceFetcher(null));
+			// updater.fetchAndUpdateIndex(request);
+			new UnsupportedOperationException("Not implement");
+		} catch (Exception e) {
 			throw new IndexNotFoundException(e);
 		}
 	}
 
 	public void updateLocalIndex(URI location, boolean createNew) throws CoreException {
 		try {
-			PlexusContainer plexus = Activator.getPlugin().getPlexusContainer();
-
-			NexusIndexer indexer = plexus.lookup(NexusIndexer.class);
-			IndexPacker packer = plexus.lookup(IndexPacker.class);
-			String repoId = "mavenRepo";
-			File repository = new File(location);
-			File index = new File(repository, ".index");
-			File internalIndex = new File(
-				new File(repository.getParentFile().getParentFile(), "interim"), "maven-index");
-			List<IndexCreator> creators = new ArrayList<IndexCreator>(2);
-			creators.add(plexus.lookup(IndexCreator.class, "min"));
-			creators.add(plexus.lookup(IndexCreator.class, "jarContent"));
-			IndexingContext context = indexer.addIndexingContext(
-				repoId, repoId, repository, internalIndex, null, null, creators);
-			try {
-				indexer.scan(context, !createNew);
-				IndexPackingRequest request = new IndexPackingRequest(context, index);
-				List<IndexPackingRequest.IndexFormat> formats = new ArrayList<IndexPackingRequest.IndexFormat>(2);
-				formats.add(IndexPackingRequest.IndexFormat.FORMAT_V1);
-				formats.add(IndexPackingRequest.IndexFormat.FORMAT_LEGACY);
-				request.setFormats(formats);
-				request.setCreateChecksumFiles(true);
-				request.setCreateIncrementalChunks(!createNew);
-				packer.packIndex(request);
-			}
-			finally {
-				if(context != null)
-					context.close(false);
-			}
-		}
-		catch(Exception e) {
+			// PlexusContainer plexus = Activator.getPlugin().getPlexusContainer();
+			//
+			// NexusIndexer indexer = plexus.lookup(NexusIndexer.class);
+			// IndexPacker packer = plexus.lookup(IndexPacker.class);
+			// String repoId = "mavenRepo";
+			// File repository = new File(location);
+			// File index = new File(repository, ".index");
+			// File internalIndex = new File(
+			// new File(repository.getParentFile().getParentFile(), "interim"), "maven-index");
+			// List<IndexCreator> creators = new ArrayList<IndexCreator>(2);
+			// creators.add(plexus.lookup(IndexCreator.class, "min"));
+			// creators.add(plexus.lookup(IndexCreator.class, "jarContent"));
+			// IndexingContext context = indexer.addIndexingContext(
+			// repoId, repoId, repository, internalIndex, null, null, creators);
+			// try {
+			// indexer.scan(context, !createNew);
+			// IndexPackingRequest request = new IndexPackingRequest(context, index);
+			// List<IndexPackingRequest.IndexFormat> formats = new ArrayList<IndexPackingRequest.IndexFormat>(2);
+			// formats.add(IndexPackingRequest.IndexFormat.FORMAT_V1);
+			// formats.add(IndexPackingRequest.IndexFormat.FORMAT_LEGACY);
+			// request.setFormats(formats);
+			// request.setCreateChecksumFiles(true);
+			// request.setCreateIncrementalChunks(!createNew);
+			// packer.packIndex(request);
+			// }
+			// finally {
+			// if(context != null)
+			// context.close(false);
+			// }
+			new UnsupportedOperationException("Not implement");
+		} catch (Exception e) {
 			throw ExceptionUtils.fromMessage(e, "Unable to create an index for %s", location.toString());
 		}
 	}

@@ -1,16 +1,21 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright (c) 2021 Eclipse contributors and others.
  *
- * $Id$
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.p2.maven.pom;
 
 import org.eclipse.emf.ecore.EObject;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object
- * '<em><b>Dependency Management</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Dependency Management</b></em>'.
+ * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
  * 4.0.0
@@ -32,21 +37,23 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface DependencyManagement extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Dependencies</b></em>' containment
-	 * reference. <!-- begin-user-doc --> <!-- end-user-doc --> <!--
-	 * begin-model-doc --> 4.0.0
+	 * Returns the value of the '<em><b>Dependencies</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 4.0.0
 	 *
-	 * The dependencies specified here are not used until they are referenced in
-	 * a POM within the group. This allows the specification of a "standard"
-	 * version for a particular dependency.
+	 *             The dependencies specified here are not used until they
+	 *             are referenced in a POM within the group. This allows the
+	 *             specification of a "standard" version for a particular
+	 *             dependency.
 	 *
 	 * <!-- end-model-doc -->
-	 *
 	 * @return the value of the '<em>Dependencies</em>' containment reference.
 	 * @see #setDependencies(DependenciesType)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getDependencyManagement_Dependencies()
-	 * @model containment="true" extendedMetaData="kind='element'
-	 *        name='dependencies' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='dependencies' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	DependenciesType getDependencies();

@@ -1,9 +1,12 @@
 /**
  * Copyright (c) 2006-2016, Cloudsmith Inc. and others
- * The code, documentation and other materials contained herein have been
- * licensed under the Eclipse Public License - v 1.0 by the copyright holder
- * listed above, as the Initial Contributor under such license. The text of
- * such license is available at www.eclipse.org.
+ *
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.aggregator;
 
@@ -15,8 +18,7 @@ import org.eclipse.emf.common.util.Enumerator;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the literals of the enumeration '<em><b>Version Format</b></em>',
- * and utility methods for working with them.
+ * A representation of the literals of the enumeration '<em><b>Version Format</b></em>', and utility methods for working with them.
  * <!-- end-user-doc -->
  * @see org.eclipse.cbi.p2repo.aggregator.AggregatorPackage#getVersionFormat()
  * @model
@@ -55,7 +57,7 @@ public enum VersionFormat implements Enumerator {
 	/**
 	 * The '<em><b>Maven Snapshot</b></em>' literal object.
 	 * <!-- begin-user-doc -->
-	* <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #MAVEN_SNAPSHOT_VALUE
 	 * @generated
 	 * @ordered
@@ -65,10 +67,6 @@ public enum VersionFormat implements Enumerator {
 	/**
 	 * The '<em><b>Normal</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Normal</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #NORMAL
 	 * @model name="Normal"
@@ -80,10 +78,6 @@ public enum VersionFormat implements Enumerator {
 	/**
 	 * The '<em><b>Strict Maven</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Strict Maven</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #STRICT_MAVEN
 	 * @model name="StrictMaven"
@@ -95,10 +89,6 @@ public enum VersionFormat implements Enumerator {
 	/**
 	 * The '<em><b>Maven Release</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Maven Release</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #MAVEN_RELEASE
 	 * @model name="MavenRelease"
@@ -110,10 +100,6 @@ public enum VersionFormat implements Enumerator {
 	/**
 	 * The '<em><b>Maven Snapshot</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Maven Snapshot</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #MAVEN_SNAPSHOT
 	 * @model name="MavenSnapshot"

@@ -1,9 +1,12 @@
 /**
  * Copyright (c) 2006-2009, Cloudsmith Inc.
- * The code, documentation and other materials contained herein have been
- * licensed under the Eclipse Public License - v 1.0 by the copyright holder
- * listed above, as the Initial Contributor under such license. The text of
- * such license is available at www.eclipse.org.
+ *
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.aggregator.p2view;
 
@@ -33,9 +36,6 @@ public interface RepositoryBrowser extends StatusProvider, ChildrenProvider<Meta
 	 * Returns the value of the '<em><b>Repositories</b></em>' reference list.
 	 * The list contents are of type {@link org.eclipse.cbi.p2repo.aggregator.p2view.MetadataRepositoryStructuredView}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Repositories</em>' containment reference list isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Repositories</em>' reference list.
 	 * @see org.eclipse.cbi.p2repo.aggregator.p2view.P2viewPackage#getRepositoryBrowser_Repositories()
@@ -48,9 +48,6 @@ public interface RepositoryBrowser extends StatusProvider, ChildrenProvider<Meta
 	 * Returns the value of the '<em><b>Loading</b></em>' attribute.
 	 * The default value is <code>"false"</code>.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Loading</em>' attribute isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Loading</em>' attribute.
 	 * @see #isSetLoading()

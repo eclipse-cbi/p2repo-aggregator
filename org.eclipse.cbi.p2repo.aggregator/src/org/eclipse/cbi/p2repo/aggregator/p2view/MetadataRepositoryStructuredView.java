@@ -1,21 +1,23 @@
 /**
  * Copyright (c) 2006-2009, Cloudsmith Inc.
- * The code, documentation and other materials contained herein have been
- * licensed under the Eclipse Public License - v 1.0 by the copyright holder
- * listed above, as the Initial Contributor under such license. The text of
- * such license is available at www.eclipse.org.
  *
- * $Id$
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.aggregator.p2view;
 
 import java.net.URI;
 
-import org.eclipse.cbi.p2repo.p2.MetadataRepository;
 import org.eclipse.cbi.p2repo.aggregator.ChildrenProvider;
+import org.eclipse.cbi.p2repo.p2.MetadataRepository;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Metadata Repository Structured View</b></em>'.
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Metadata Repository Structured View</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
@@ -39,9 +41,6 @@ public interface MetadataRepositoryStructuredView extends ChildrenProvider<Insta
 	/**
 	 * Returns the value of the '<em><b>Installable Unit List</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Installable Unit List</em>' reference isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Installable Unit List</em>' containment reference.
 	 * @see #setInstallableUnitList(InstallableUnits)
@@ -54,9 +53,6 @@ public interface MetadataRepositoryStructuredView extends ChildrenProvider<Insta
 	/**
 	 * Returns the value of the '<em><b>Location</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Location</em>' attribute isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Location</em>' attribute.
 	 * @see #isSetLocation()
@@ -69,9 +65,6 @@ public interface MetadataRepositoryStructuredView extends ChildrenProvider<Insta
 	/**
 	 * Returns the value of the '<em><b>Metadata Repository</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Metadata Repository</em>' reference isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Metadata Repository</em>' containment reference.
 	 * @see #setMetadataRepository(MetadataRepository)
@@ -93,11 +86,7 @@ public interface MetadataRepositoryStructuredView extends ChildrenProvider<Insta
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc --> ======= Returns the value of
-	 * the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> >>>>>>> .r10620
-	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear, there really should be more of a description here...
-	 * </p>
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
@@ -110,9 +99,6 @@ public interface MetadataRepositoryStructuredView extends ChildrenProvider<Insta
 	/**
 	 * Returns the value of the '<em><b>Properties</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Properties</em>' reference isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Properties</em>' containment reference.
 	 * @see #setProperties(Properties)
@@ -125,9 +111,6 @@ public interface MetadataRepositoryStructuredView extends ChildrenProvider<Insta
 	/**
 	 * Returns the value of the '<em><b>Repository References</b></em>' reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Repository References</em>' reference isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Repository References</em>' reference.
 	 * @see #setRepositoryReferences(RepositoryReferences)
@@ -140,9 +123,6 @@ public interface MetadataRepositoryStructuredView extends ChildrenProvider<Insta
 	/**
 	 * Returns the value of the '<em><b>Loaded</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Loaded</em>' attribute isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Loaded</em>' attribute.
 	 * @see #setLoaded(boolean)
@@ -164,7 +144,8 @@ public interface MetadataRepositoryStructuredView extends ChildrenProvider<Insta
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.p2view.MetadataRepositoryStructuredView#getInstallableUnitList <em>Installable Unit List</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Installable Unit List</em>' containment reference.
 	 * @see #getInstallableUnitList()
 	 * @generated
@@ -173,7 +154,8 @@ public interface MetadataRepositoryStructuredView extends ChildrenProvider<Insta
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.p2view.MetadataRepositoryStructuredView#isLoaded <em>Loaded</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Loaded</em>' attribute.
 	 * @see #isLoaded()
 	 * @generated
@@ -182,7 +164,8 @@ public interface MetadataRepositoryStructuredView extends ChildrenProvider<Insta
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.p2view.MetadataRepositoryStructuredView#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Name</em>' attribute.
 	 * @see #getName()
 	 * @generated
@@ -191,7 +174,8 @@ public interface MetadataRepositoryStructuredView extends ChildrenProvider<Insta
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.p2view.MetadataRepositoryStructuredView#getProperties <em>Properties</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Properties</em>' containment reference.
 	 * @see #getProperties()
 	 * @generated

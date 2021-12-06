@@ -2,24 +2,31 @@
 <?eclipse version="3.0"?>
 
 <!--
- <copyright>
- </copyright>
-
- $Id$
+ Copyright (c) 2006-2009, Cloudsmith Inc.
+ 
+ This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License 2.0
+ which accompanies this distribution, and is available at
+ https://www.eclipse.org/legal/epl-2.0/
+ 
+ SPDX-License-Identifier: EPL-2.0
 -->
 
 <plugin>
 
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <!-- @generated Aggregator -->
       <factory
-            uri="http://www.eclipse.org/cbi/p2repo/2010/aggregator/1.0.0"
+            uri="http://www.eclipse.org/cbi/p2repo/2011/aggregator/1.1.0"
             class="org.eclipse.cbi.p2repo.aggregator.provider.AggregatorItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
                org.eclipse.emf.edit.provider.ITreeItemContentProvider
                org.eclipse.emf.edit.provider.IItemLabelProvider
-               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+               org.eclipse.emf.edit.provider.IItemPropertySource
+               org.eclipse.emf.edit.provider.IItemColorProvider
+               org.eclipse.emf.edit.provider.IItemFontProvider"/>
    </extension>
 
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">

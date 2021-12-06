@@ -16,7 +16,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.eclipse.cbi</groupId>
   <artifactId>org.eclipse.cbi.p2repo.releng.parent</artifactId>
-  <version>1.0.300-SNAPSHOT</version>
+  <version>1.0.400-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <modules>
@@ -53,8 +53,8 @@
     <buildId>${buildType}${buildTimestamp}</buildId>
     <comparator.repo>http://download.eclipse.org/cbi/updates/aggregator/ide/4.8/</comparator.repo>
     <!-- For using Tycho 23.1 (currently "staged", removed staged repo below, once released) -->
-    <tycho-version>2.0.0</tycho-version>
-    <cbi-plugins.version>1.1.7</cbi-plugins.version>
+    <tycho-version>2.3.0</tycho-version>
+    <cbi-plugins.version>1.3.1</cbi-plugins.version>
     <code.ignoredWarnings>-warn:-deprecation,raw,unchecked,discouraged</code.ignoredWarnings>
     <!--
       repo for released versions of CBI. Note, we intentionally use as specific a repo as possible.
@@ -71,7 +71,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
     <!-- Should this go in "repository pom"? Where modules defined -->
-    <tycho.scmUrl>scm:git:git://git.eclipse.org:29418/cbi/org.eclipse.cbi.p2repo.aggregator</tycho.scmUrl>
+    <tycho.scmUrl>scm:git:https://github.com/eclipse-cbi/p2repo-aggregator</tycho.scmUrl>
     <!--
       Default to error, but may need to override if doing local builds on local working tree.
       such as -DdirtyworkingTree=warning.
@@ -84,7 +84,7 @@
       the update site locations. It reflects, basically, the version of the platform that it
       was built against and the one it should be installed into (ideally).
     -->
-    <updateRelease>4.13</updateRelease>
+    <updateRelease>4.22</updateRelease>
     <!--
       Similarly, referenceRepo is not used in the build, per se, but by the
       repoReport tests. Normally the "latest build" is computed. But, if there is ever a 
@@ -245,20 +245,6 @@
             </configuration>
           </plugin>
           <plugin>
-            <groupId>org.eclipse.tycho.extras</groupId>
-            <artifactId>tycho-pack200a-plugin</artifactId>
-            <version>${tycho-version}</version>
-            <executions>
-              <execution>
-                <id>pack200-normalize</id>
-                <goals>
-                  <goal>normalize</goal>
-                </goals>
-                <phase>verify</phase>
-              </execution>
-            </executions>
-          </plugin>
-          <plugin>
             <groupId>org.eclipse.cbi.maven.plugins</groupId>
             <artifactId>eclipse-jarsigner-plugin</artifactId>
             <version>${cbi-plugins.version}</version>
@@ -274,20 +260,6 @@
             <configuration>
               <excludeInnerJars>${defaultSigning-excludeInnerJars}</excludeInnerJars>
             </configuration>
-          </plugin>
-          <plugin>
-            <groupId>org.eclipse.tycho.extras</groupId>
-            <artifactId>tycho-pack200b-plugin</artifactId>
-            <version>${tycho-version}</version>
-            <executions>
-              <execution>
-                <id>pack200-pack</id>
-                <goals>
-                  <goal>pack</goal>
-                </goals>
-                <phase>verify</phase>
-              </execution>
-            </executions>
           </plugin>
           <plugin>
             <groupId>org.eclipse.tycho</groupId>
@@ -318,34 +290,8 @@
             <artifactId>target-platform-configuration</artifactId>
             <version>${tycho-version}</version>
             <configuration>
-              <includePackedArtifacts>true</includePackedArtifacts>
+              <includePackedArtifacts>false</includePackedArtifacts>
             </configuration>
-          </plugin>
-          <plugin>
-            <groupId>org.eclipse.tycho.extras</groupId>
-            <artifactId>tycho-pack200a-plugin</artifactId>
-            <version>${tycho-version}</version>
-            <executions>
-              <execution>
-                <id>pack200-normalize</id>
-                <goals>
-                  <goal>normalize</goal>
-                </goals>
-              </execution>
-            </executions>
-          </plugin>
-          <plugin>
-            <groupId>org.eclipse.tycho.extras</groupId>
-            <artifactId>tycho-pack200b-plugin</artifactId>
-            <version>${tycho-version}</version>
-            <executions>
-              <execution>
-                <id>pack200-pack</id>
-                <goals>
-                  <goal>pack</goal>
-                </goals>
-              </execution>
-            </executions>
           </plugin>
           <plugin>
             <groupId>org.eclipse.tycho</groupId>
@@ -440,6 +386,14 @@
       </plugin>
       <plugin>
         <groupId>org.eclipse.tycho</groupId>
+        <artifactId>tycho-p2-publisher-plugin</artifactId>
+        <version>${tycho-version}</version>
+        <configuration>
+          <skip>true</skip>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
         <artifactId>target-platform-configuration</artifactId>
         <version>${tycho-version}</version>
         <configuration>
@@ -447,7 +401,7 @@
             <artifact>
               <groupId>org.eclipse.cbi</groupId>
               <artifactId>org.eclipse.cbi.p2repo.aggregator.prereqs</artifactId>
-              <version>1.0.300-SNAPSHOT</version>
+              <version>1.0.400-SNAPSHOT</version>
               <!-- Uses artifactId+.target by default -->
             </artifact>
           </target>
@@ -460,7 +414,7 @@
             <environment>
               <os>linux</os>
               <ws>gtk</ws>
-              <arch>ppc64le</arch>
+              <arch>aarch64</arch>
             </environment>
             <environment>
               <os>win32</os>
@@ -471,6 +425,11 @@
               <os>macosx</os>
               <ws>cocoa</ws>
               <arch>x86_64</arch>
+            </environment>
+            <environment>
+              <os>macosx</os>
+              <ws>cocoa</ws>
+              <arch>aarch64</arch>
             </environment>
           </environments>
         </configuration>

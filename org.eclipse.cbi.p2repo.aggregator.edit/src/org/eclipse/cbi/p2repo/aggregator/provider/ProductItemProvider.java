@@ -1,8 +1,12 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright (c) 2021 Eclipse contributors and others.
  *
- * $Id$
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.aggregator.provider;
 
@@ -20,15 +24,16 @@ import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.query.IQuery;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.cbi.p2repo.aggregator.Product} object. <!--
- * begin-user-doc --> <!-- end-user-doc -->
- *
+ * This is the item provider adapter for a {@link org.eclipse.cbi.p2repo.aggregator.Product} object.
+ * <!-- begin-user-doc -->
+ * <!-- end-user-doc -->
  * @generated
  */
 public class ProductItemProvider extends MappedUnitItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public ProductItemProvider(AdapterFactory adapterFactory) {
@@ -38,7 +43,8 @@ public class ProductItemProvider extends MappedUnitItemProvider {
 	/**
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -52,7 +58,7 @@ public class ProductItemProvider extends MappedUnitItemProvider {
 	}
 
 	/**
-	 * This returns Product.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This returns Product.gif.
 	 *
 	 * @generated NOT
 	 */
@@ -69,7 +75,8 @@ public class ProductItemProvider extends MappedUnitItemProvider {
 
 	/**
 	 * This returns the property descriptors for the adapted class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -82,7 +89,7 @@ public class ProductItemProvider extends MappedUnitItemProvider {
 	}
 
 	/**
-	 * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This returns the label text for the adapted class.
 	 *
 	 * @generated NOT
 	 */
@@ -94,10 +101,10 @@ public class ProductItemProvider extends MappedUnitItemProvider {
 	}
 
 	/**
-	 * This handles model notifications by calling {@link #updateChildren} to update any cached children and by creating
-	 * a viewer notification, which it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 *
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached
+	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override

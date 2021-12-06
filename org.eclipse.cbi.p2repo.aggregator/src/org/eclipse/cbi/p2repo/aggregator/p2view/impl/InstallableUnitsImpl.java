@@ -1,11 +1,12 @@
 /**
  * Copyright (c) 2006-2009, Cloudsmith Inc.
- * The code, documentation and other materials contained herein have been
- * licensed under the Eclipse Public License - v 1.0 by the copyright holder
- * listed above, as the Initial Contributor under such license. The text of
- * such license is available at www.eclipse.org.
  *
- * $Id$
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.aggregator.p2view.impl;
 
@@ -34,25 +35,30 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Installable Units</b></em>'. <!-- end-user-doc
- * -->
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Installable Units</b></em>'.
+ * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.aggregator.p2view.impl.InstallableUnitsImpl#getCategoryContainer <em>Category Container </em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.aggregator.p2view.impl.InstallableUnitsImpl#getFeatureContainer <em>Feature Container</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.aggregator.p2view.impl.InstallableUnitsImpl#getProductContainer <em>Product Container</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.aggregator.p2view.impl.InstallableUnitsImpl#getBundleContainer <em>Bundle Container</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.aggregator.p2view.impl.InstallableUnitsImpl#getMiscellaneousContainer <em> Miscellaneous Container</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.p2view.impl.InstallableUnitsImpl#getChildren <em>Children</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.p2view.impl.InstallableUnitsImpl#getAllIUs <em>All IUs</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.p2view.impl.InstallableUnitsImpl#getCategoryContainer <em>Category Container</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.p2view.impl.InstallableUnitsImpl#getFeatureContainer <em>Feature Container</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.p2view.impl.InstallableUnitsImpl#getProductContainer <em>Product Container</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.p2view.impl.InstallableUnitsImpl#getBundleContainer <em>Bundle Container</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.p2view.impl.InstallableUnitsImpl#getFragmentContainer <em>Fragment Container</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.p2view.impl.InstallableUnitsImpl#getMiscellaneousContainer <em>Miscellaneous Container</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implements InstallableUnits {
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -69,9 +75,9 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	protected EList<IUPresentation> allIUs;
 
 	/**
-	 * The cached value of the '{@link #getCategoryContainer() <em>Category Container</em>}' reference. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * The cached value of the '{@link #getCategoryContainer() <em>Category Container</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getCategoryContainer()
 	 * @generated
 	 * @ordered
@@ -79,9 +85,9 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	protected Categories categoryContainer;
 
 	/**
-	 * The cached value of the '{@link #getFeatureContainer() <em>Feature Container</em>}' reference. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * The cached value of the '{@link #getFeatureContainer() <em>Feature Container</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getFeatureContainer()
 	 * @generated
 	 * @ordered
@@ -89,9 +95,9 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	protected Features featureContainer;
 
 	/**
-	 * The cached value of the '{@link #getProductContainer() <em>Product Container</em>}' reference. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * The cached value of the '{@link #getProductContainer() <em>Product Container</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getProductContainer()
 	 * @generated
 	 * @ordered
@@ -100,8 +106,8 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 
 	/**
 	 * The cached value of the '{@link #getBundleContainer() <em>Bundle Container</em>}' containment reference.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getBundleContainer()
 	 * @generated
 	 * @ordered
@@ -109,9 +115,9 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	protected Bundles bundleContainer;
 
 	/**
-	 * The cached value of the '{@link #getFragmentContainer() <em>Fragment Container</em>}' reference. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * The cached value of the '{@link #getFragmentContainer() <em>Fragment Container</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getFragmentContainer()
 	 * @generated
 	 * @ordered
@@ -119,9 +125,9 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	protected Fragments fragmentContainer;
 
 	/**
-	 * The cached value of the '{@link #getMiscellaneousContainer() <em>Miscellaneous Container</em>}' reference. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * The cached value of the '{@link #getMiscellaneousContainer() <em>Miscellaneous Container</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getMiscellaneousContainer()
 	 * @generated
 	 * @ordered
@@ -129,7 +135,8 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	protected Miscellaneous miscellaneousContainer;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected InstallableUnitsImpl() {
@@ -137,7 +144,8 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public Bundles basicGetBundleContainer() {
@@ -145,7 +153,8 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public Categories basicGetCategoryContainer() {
@@ -153,7 +162,8 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public Features basicGetFeatureContainer() {
@@ -161,7 +171,8 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public Fragments basicGetFragmentContainer() {
@@ -169,7 +180,8 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public Miscellaneous basicGetMiscellaneousContainer() {
@@ -177,7 +189,8 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public Products basicGetProductContainer() {
@@ -301,7 +314,8 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -366,7 +380,8 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -393,7 +408,8 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -427,7 +443,8 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -436,7 +453,8 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -482,7 +500,8 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -509,7 +528,8 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -537,7 +557,7 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -562,7 +582,8 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -589,7 +610,8 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -617,7 +639,8 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -646,7 +669,7 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -659,7 +682,7 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -672,7 +695,7 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -685,7 +708,7 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -698,7 +721,7 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -711,7 +734,7 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -724,7 +747,8 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -751,7 +775,8 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -773,7 +798,8 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -795,7 +821,8 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -817,7 +844,8 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -839,7 +867,8 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -862,7 +891,8 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override

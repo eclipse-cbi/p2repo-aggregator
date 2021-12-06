@@ -1,15 +1,21 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright (c) 2021 Eclipse contributors and others.
  *
- * $Id$
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.aggregator;
 
 import org.eclipse.emf.common.util.EList;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Feature</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Feature</b></em>'.
+ * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
@@ -28,9 +34,6 @@ public interface Feature extends MappedUnit {
 	 * The list contents are of type {@link org.eclipse.cbi.p2repo.aggregator.CustomCategory}.
 	 * It is bidirectional and its opposite is '{@link org.eclipse.cbi.p2repo.aggregator.CustomCategory#getFeatures <em>Features</em>}'.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Categories</em>' reference list isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Categories</em>' reference list.
 	 * @see org.eclipse.cbi.p2repo.aggregator.AggregatorPackage#getFeature_Categories()

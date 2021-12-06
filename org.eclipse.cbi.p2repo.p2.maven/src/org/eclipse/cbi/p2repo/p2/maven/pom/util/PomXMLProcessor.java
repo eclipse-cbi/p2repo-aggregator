@@ -1,8 +1,12 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright (c) 2021 Eclipse contributors and others.
  *
- * $Id$
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.p2.maven.pom.util;
 
@@ -15,7 +19,8 @@ import org.eclipse.emf.ecore.xmi.util.XMLProcessor;
 
 /**
  * This class contains helper methods to serialize and deserialize XML documents
- * <!-- begin-user-doc --> <!-- end-user-doc -->
+ * <!-- begin-user-doc -->
+ * <!-- end-user-doc -->
  * @generated
  */
 public class PomXMLProcessor extends XMLProcessor {
@@ -33,7 +38,8 @@ public class PomXMLProcessor extends XMLProcessor {
 
 	/**
 	 * Register for "*" and "xml" file extensions the PomResourceFactoryImpl factory.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override

@@ -1,16 +1,21 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright (c) 2021 Eclipse contributors and others.
  *
- * $Id$
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.p2.maven.pom;
 
 import org.eclipse.emf.ecore.EObject;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object
- * '<em><b>Relocation</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Relocation</b></em>'.
+ * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
  * 4.0.0
@@ -34,70 +39,77 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Relocation extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Artifact Id</b></em>' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc --> 4.0.0
-	 * The new artifact ID of the artifact. <!-- end-model-doc -->
-	 *
+	 * Returns the value of the '<em><b>Artifact Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 4.0.0
+	 * The new artifact ID of the artifact.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Artifact Id</em>' attribute.
 	 * @see #setArtifactId(String)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getRelocation_ArtifactId()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
-	 *        extendedMetaData="kind='element' name='artifactId'
-	 *        namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='artifactId' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	String getArtifactId();
 
 	/**
-	 * Returns the value of the '<em><b>Group Id</b></em>' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc --> 4.0.0
-	 * The group ID the artifact has moved to. <!-- end-model-doc -->
-	 *
+	 * Returns the value of the '<em><b>Group Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 4.0.0
+	 * The group ID the artifact has moved to.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Group Id</em>' attribute.
 	 * @see #setGroupId(String)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getRelocation_GroupId()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
-	 *        extendedMetaData="kind='element' name='groupId'
-	 *        namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='groupId' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	String getGroupId();
 
 	/**
-	 * Returns the value of the '<em><b>Message</b></em>' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc --> 4.0.0
-	 * An additional message to show the user about the move, such as the
-	 * reason. <!-- end-model-doc -->
-	 *
+	 * Returns the value of the '<em><b>Message</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 4.0.0
+	 * An additional message to show the user about the move, such as the reason.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Message</em>' attribute.
 	 * @see #setMessage(String)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getRelocation_Message()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
-	 *        extendedMetaData="kind='element' name='message'
-	 *        namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='message' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	String getMessage();
 
 	/**
-	 * Returns the value of the '<em><b>Version</b></em>' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc --> 4.0.0
-	 * The new version of the artifact. <!-- end-model-doc -->
-	 *
+	 * Returns the value of the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 4.0.0
+	 * The new version of the artifact.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Version</em>' attribute.
 	 * @see #setVersion(String)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getRelocation_Version()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
-	 *        extendedMetaData="kind='element' name='version'
-	 *        namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='version' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	String getVersion();
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Relocation#getArtifactId <em>Artifact Id</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Artifact Id</em>' attribute.
 	 * @see #getArtifactId()
 	 * @generated
@@ -105,39 +117,30 @@ public interface Relocation extends EObject {
 	void setArtifactId(String value);
 
 	/**
-	 * Sets the value of the
-	 * '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Relocation#getGroupId
-	 * <em>Group Id</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Group Id</em>' attribute.
+	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Relocation#getGroupId <em>Group Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Group Id</em>' attribute.
 	 * @see #getGroupId()
 	 * @generated
 	 */
 	void setGroupId(String value);
 
 	/**
-	 * Sets the value of the
-	 * '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Relocation#getMessage
-	 * <em>Message</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Message</em>' attribute.
+	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Relocation#getMessage <em>Message</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Message</em>' attribute.
 	 * @see #getMessage()
 	 * @generated
 	 */
 	void setMessage(String value);
 
 	/**
-	 * Sets the value of the
-	 * '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Relocation#getVersion
-	 * <em>Version</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Version</em>' attribute.
+	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Relocation#getVersion <em>Version</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Version</em>' attribute.
 	 * @see #getVersion()
 	 * @generated
 	 */

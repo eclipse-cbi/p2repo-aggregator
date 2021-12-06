@@ -1,8 +1,12 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright (c) 2021 Eclipse contributors and others.
  *
- * $Id$
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.p2.maven.pom.impl;
 
@@ -15,11 +19,12 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object
- * '<em><b>Resource</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Resource</b></em>'.
+ * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
@@ -33,10 +38,11 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class ResourceImpl extends EObjectImpl implements Resource {
+public class ResourceImpl extends MinimalEObjectImpl.Container implements Resource {
 	/**
 	 * The default value of the '{@link #getTargetPath() <em>Target Path</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTargetPath()
 	 * @generated
 	 * @ordered
@@ -45,7 +51,8 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 
 	/**
 	 * The cached value of the '{@link #getTargetPath() <em>Target Path</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTargetPath()
 	 * @generated
 	 * @ordered
@@ -54,7 +61,8 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 
 	/**
 	 * The default value of the '{@link #isFiltering() <em>Filtering</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isFiltering()
 	 * @generated
 	 * @ordered
@@ -63,7 +71,8 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 
 	/**
 	 * The cached value of the '{@link #isFiltering() <em>Filtering</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isFiltering()
 	 * @generated
 	 * @ordered
@@ -72,8 +81,8 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 
 	/**
 	 * This is true if the Filtering attribute has been set.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -81,7 +90,8 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 
 	/**
 	 * The default value of the '{@link #getDirectory() <em>Directory</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getDirectory()
 	 * @generated
 	 * @ordered
@@ -90,7 +100,8 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 
 	/**
 	 * The cached value of the '{@link #getDirectory() <em>Directory</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getDirectory()
 	 * @generated
 	 * @ordered
@@ -99,7 +110,8 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 
 	/**
 	 * The cached value of the '{@link #getIncludes() <em>Includes</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getIncludes()
 	 * @generated
 	 * @ordered
@@ -108,7 +120,8 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 
 	/**
 	 * The cached value of the '{@link #getExcludes() <em>Excludes</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getExcludes()
 	 * @generated
 	 * @ordered
@@ -116,7 +129,8 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	protected ExcludesType excludes;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected ResourceImpl() {
@@ -124,7 +138,8 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public NotificationChain basicSetExcludes(ExcludesType newExcludes, NotificationChain msgs) {
@@ -142,7 +157,8 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public NotificationChain basicSetIncludes(IncludesType newIncludes, NotificationChain msgs) {
@@ -160,7 +176,8 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -181,7 +198,8 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -196,7 +214,8 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -217,7 +236,8 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -243,7 +263,8 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -269,7 +290,8 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -278,7 +300,8 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -287,7 +310,8 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -296,7 +320,8 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -305,7 +330,8 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -314,7 +340,8 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -323,7 +350,8 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -336,7 +364,8 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -358,7 +387,8 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -373,7 +403,8 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -395,7 +426,8 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -408,7 +440,8 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -416,7 +449,7 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 		if (eIsProxy())
 			return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (targetPath: ");
 		result.append(targetPath);
 		result.append(", filtering: ");
@@ -431,7 +464,8 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -446,7 +480,8 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override

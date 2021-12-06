@@ -1,8 +1,12 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright (c) 2021 Eclipse contributors and others.
  *
- * $Id$
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.p2.maven.pom.impl;
 
@@ -15,11 +19,12 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object
- * '<em><b>Developer</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Developer</b></em>'.
+ * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
@@ -37,11 +42,11 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class DeveloperImpl extends EObjectImpl implements Developer {
+public class DeveloperImpl extends MinimalEObjectImpl.Container implements Developer {
 	/**
-	 * The default value of the '{@link #getId() <em>Id</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getId()
 	 * @generated
 	 * @ordered
@@ -49,9 +54,9 @@ public class DeveloperImpl extends EObjectImpl implements Developer {
 	protected static final String ID_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getId()
 	 * @generated
 	 * @ordered
@@ -60,7 +65,8 @@ public class DeveloperImpl extends EObjectImpl implements Developer {
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -69,7 +75,8 @@ public class DeveloperImpl extends EObjectImpl implements Developer {
 
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -78,7 +85,8 @@ public class DeveloperImpl extends EObjectImpl implements Developer {
 
 	/**
 	 * The default value of the '{@link #getEmail() <em>Email</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getEmail()
 	 * @generated
 	 * @ordered
@@ -87,7 +95,8 @@ public class DeveloperImpl extends EObjectImpl implements Developer {
 
 	/**
 	 * The cached value of the '{@link #getEmail() <em>Email</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getEmail()
 	 * @generated
 	 * @ordered
@@ -95,9 +104,9 @@ public class DeveloperImpl extends EObjectImpl implements Developer {
 	protected String email = EMAIL_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getUrl() <em>Url</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * The default value of the '{@link #getUrl() <em>Url</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getUrl()
 	 * @generated
 	 * @ordered
@@ -105,9 +114,9 @@ public class DeveloperImpl extends EObjectImpl implements Developer {
 	protected static final String URL_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getUrl() <em>Url</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * The cached value of the '{@link #getUrl() <em>Url</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getUrl()
 	 * @generated
 	 * @ordered
@@ -116,8 +125,8 @@ public class DeveloperImpl extends EObjectImpl implements Developer {
 
 	/**
 	 * The default value of the '{@link #getOrganization() <em>Organization</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getOrganization()
 	 * @generated
 	 * @ordered
@@ -126,8 +135,8 @@ public class DeveloperImpl extends EObjectImpl implements Developer {
 
 	/**
 	 * The cached value of the '{@link #getOrganization() <em>Organization</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getOrganization()
 	 * @generated
 	 * @ordered
@@ -136,7 +145,8 @@ public class DeveloperImpl extends EObjectImpl implements Developer {
 
 	/**
 	 * The default value of the '{@link #getOrganizationUrl() <em>Organization Url</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getOrganizationUrl()
 	 * @generated
 	 * @ordered
@@ -145,7 +155,8 @@ public class DeveloperImpl extends EObjectImpl implements Developer {
 
 	/**
 	 * The cached value of the '{@link #getOrganizationUrl() <em>Organization Url</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getOrganizationUrl()
 	 * @generated
 	 * @ordered
@@ -154,7 +165,8 @@ public class DeveloperImpl extends EObjectImpl implements Developer {
 
 	/**
 	 * The cached value of the '{@link #getRoles() <em>Roles</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getRoles()
 	 * @generated
 	 * @ordered
@@ -163,7 +175,8 @@ public class DeveloperImpl extends EObjectImpl implements Developer {
 
 	/**
 	 * The default value of the '{@link #getTimezone() <em>Timezone</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTimezone()
 	 * @generated
 	 * @ordered
@@ -172,7 +185,8 @@ public class DeveloperImpl extends EObjectImpl implements Developer {
 
 	/**
 	 * The cached value of the '{@link #getTimezone() <em>Timezone</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getTimezone()
 	 * @generated
 	 * @ordered
@@ -181,7 +195,8 @@ public class DeveloperImpl extends EObjectImpl implements Developer {
 
 	/**
 	 * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getProperties()
 	 * @generated
 	 * @ordered
@@ -189,7 +204,8 @@ public class DeveloperImpl extends EObjectImpl implements Developer {
 	protected PropertiesType properties;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected DeveloperImpl() {
@@ -197,7 +213,8 @@ public class DeveloperImpl extends EObjectImpl implements Developer {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public NotificationChain basicSetProperties(PropertiesType newProperties, NotificationChain msgs) {
@@ -215,7 +232,8 @@ public class DeveloperImpl extends EObjectImpl implements Developer {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public NotificationChain basicSetRoles(RolesType newRoles, NotificationChain msgs) {
@@ -233,7 +251,8 @@ public class DeveloperImpl extends EObjectImpl implements Developer {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -262,7 +281,8 @@ public class DeveloperImpl extends EObjectImpl implements Developer {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -277,7 +297,8 @@ public class DeveloperImpl extends EObjectImpl implements Developer {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -308,7 +329,8 @@ public class DeveloperImpl extends EObjectImpl implements Developer {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -346,7 +368,8 @@ public class DeveloperImpl extends EObjectImpl implements Developer {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -384,7 +407,8 @@ public class DeveloperImpl extends EObjectImpl implements Developer {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -393,7 +417,8 @@ public class DeveloperImpl extends EObjectImpl implements Developer {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -402,7 +427,8 @@ public class DeveloperImpl extends EObjectImpl implements Developer {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -411,7 +437,8 @@ public class DeveloperImpl extends EObjectImpl implements Developer {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -420,7 +447,8 @@ public class DeveloperImpl extends EObjectImpl implements Developer {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -429,7 +457,8 @@ public class DeveloperImpl extends EObjectImpl implements Developer {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -438,7 +467,8 @@ public class DeveloperImpl extends EObjectImpl implements Developer {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -447,7 +477,8 @@ public class DeveloperImpl extends EObjectImpl implements Developer {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -456,7 +487,8 @@ public class DeveloperImpl extends EObjectImpl implements Developer {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -465,7 +497,8 @@ public class DeveloperImpl extends EObjectImpl implements Developer {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -477,7 +510,8 @@ public class DeveloperImpl extends EObjectImpl implements Developer {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -489,7 +523,8 @@ public class DeveloperImpl extends EObjectImpl implements Developer {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -501,7 +536,8 @@ public class DeveloperImpl extends EObjectImpl implements Developer {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -514,7 +550,8 @@ public class DeveloperImpl extends EObjectImpl implements Developer {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -527,7 +564,8 @@ public class DeveloperImpl extends EObjectImpl implements Developer {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -549,7 +587,8 @@ public class DeveloperImpl extends EObjectImpl implements Developer {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -570,7 +609,8 @@ public class DeveloperImpl extends EObjectImpl implements Developer {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -583,7 +623,8 @@ public class DeveloperImpl extends EObjectImpl implements Developer {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -595,7 +636,8 @@ public class DeveloperImpl extends EObjectImpl implements Developer {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -603,7 +645,7 @@ public class DeveloperImpl extends EObjectImpl implements Developer {
 		if (eIsProxy())
 			return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (id: ");
 		result.append(id);
 		result.append(", name: ");
@@ -623,7 +665,8 @@ public class DeveloperImpl extends EObjectImpl implements Developer {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override

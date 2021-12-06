@@ -1,8 +1,12 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright (c) 2021 Eclipse contributors and others.
  *
- * $Id$
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.p2.maven.pom.impl;
 
@@ -11,11 +15,12 @@ import org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object
- * '<em><b>Activation OS</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Activation OS</b></em>'.
+ * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
@@ -28,10 +33,11 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class ActivationOSImpl extends EObjectImpl implements ActivationOS {
+public class ActivationOSImpl extends MinimalEObjectImpl.Container implements ActivationOS {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -40,7 +46,8 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS {
 
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -49,7 +56,8 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS {
 
 	/**
 	 * The default value of the '{@link #getFamily() <em>Family</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getFamily()
 	 * @generated
 	 * @ordered
@@ -58,7 +66,8 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS {
 
 	/**
 	 * The cached value of the '{@link #getFamily() <em>Family</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getFamily()
 	 * @generated
 	 * @ordered
@@ -67,7 +76,8 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS {
 
 	/**
 	 * The default value of the '{@link #getArch() <em>Arch</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getArch()
 	 * @generated
 	 * @ordered
@@ -76,7 +86,8 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS {
 
 	/**
 	 * The cached value of the '{@link #getArch() <em>Arch</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getArch()
 	 * @generated
 	 * @ordered
@@ -85,7 +96,8 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS {
 
 	/**
 	 * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getVersion()
 	 * @generated
 	 * @ordered
@@ -94,7 +106,8 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS {
 
 	/**
 	 * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getVersion()
 	 * @generated
 	 * @ordered
@@ -102,7 +115,8 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS {
 	protected String version = VERSION_EDEFAULT;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected ActivationOSImpl() {
@@ -110,7 +124,8 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -129,7 +144,8 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -148,7 +164,8 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -171,7 +188,8 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -194,7 +212,8 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -203,7 +222,8 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -212,7 +232,8 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -221,7 +242,8 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -230,7 +252,8 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -242,7 +265,8 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -254,7 +278,8 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -266,7 +291,8 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -279,7 +305,8 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -287,7 +314,7 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS {
 		if (eIsProxy())
 			return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (name: ");
 		result.append(name);
 		result.append(", family: ");
@@ -301,7 +328,8 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override

@@ -1,9 +1,12 @@
 /**
  * Copyright (c) 2006-2009, Cloudsmith Inc.
- * The code, documentation and other materials contained herein have been
- * licensed under the Eclipse Public License - v 1.0 by the copyright holder
- * listed above, as the Initial Contributor under such license. The text of
- * such license is available at www.eclipse.org.
+ *
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.p2.impl;
 
@@ -16,8 +19,9 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.equinox.p2.metadata.ITouchpointInstruction;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object
- * '<em><b>Touchpoint Instruction</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Touchpoint Instruction</b></em>'.
+ * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
@@ -31,8 +35,8 @@ import org.eclipse.equinox.p2.metadata.ITouchpointInstruction;
 public class TouchpointInstructionImpl extends MinimalEObjectImpl.Container implements TouchpointInstruction {
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -40,7 +44,8 @@ public class TouchpointInstructionImpl extends MinimalEObjectImpl.Container impl
 
 	/**
 	 * The default value of the '{@link #getBody() <em>Body</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getBody()
 	 * @generated
 	 * @ordered
@@ -49,7 +54,8 @@ public class TouchpointInstructionImpl extends MinimalEObjectImpl.Container impl
 
 	/**
 	 * The cached value of the '{@link #getBody() <em>Body</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getBody()
 	 * @generated
 	 * @ordered
@@ -58,7 +64,8 @@ public class TouchpointInstructionImpl extends MinimalEObjectImpl.Container impl
 
 	/**
 	 * The default value of the '{@link #getImportAttribute() <em>Import Attribute</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getImportAttribute()
 	 * @generated
 	 * @ordered
@@ -67,7 +74,8 @@ public class TouchpointInstructionImpl extends MinimalEObjectImpl.Container impl
 
 	/**
 	 * The cached value of the '{@link #getImportAttribute() <em>Import Attribute</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getImportAttribute()
 	 * @generated
 	 * @ordered
@@ -75,7 +83,8 @@ public class TouchpointInstructionImpl extends MinimalEObjectImpl.Container impl
 	protected String importAttribute = IMPORT_ATTRIBUTE_EDEFAULT;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected TouchpointInstructionImpl() {
@@ -83,7 +92,8 @@ public class TouchpointInstructionImpl extends MinimalEObjectImpl.Container impl
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -98,7 +108,8 @@ public class TouchpointInstructionImpl extends MinimalEObjectImpl.Container impl
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -117,9 +128,7 @@ public class TouchpointInstructionImpl extends MinimalEObjectImpl.Container impl
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
-		if (obj == null)
-			return false;
-		if (!(obj instanceof ITouchpointInstruction))
+		if ((obj == null) || !(obj instanceof ITouchpointInstruction))
 			return false;
 		ITouchpointInstruction other = (ITouchpointInstruction) obj;
 		if (body == null) {
@@ -136,7 +145,8 @@ public class TouchpointInstructionImpl extends MinimalEObjectImpl.Container impl
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -153,7 +163,8 @@ public class TouchpointInstructionImpl extends MinimalEObjectImpl.Container impl
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -162,7 +173,8 @@ public class TouchpointInstructionImpl extends MinimalEObjectImpl.Container impl
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -179,7 +191,8 @@ public class TouchpointInstructionImpl extends MinimalEObjectImpl.Container impl
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -188,7 +201,8 @@ public class TouchpointInstructionImpl extends MinimalEObjectImpl.Container impl
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -206,7 +220,8 @@ public class TouchpointInstructionImpl extends MinimalEObjectImpl.Container impl
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setBody(String newBody) {
@@ -218,7 +233,8 @@ public class TouchpointInstructionImpl extends MinimalEObjectImpl.Container impl
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setImportAttribute(String newImportAttribute) {
@@ -230,7 +246,8 @@ public class TouchpointInstructionImpl extends MinimalEObjectImpl.Container impl
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -238,7 +255,7 @@ public class TouchpointInstructionImpl extends MinimalEObjectImpl.Container impl
 		if (eIsProxy())
 			return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (body: ");
 		result.append(body);
 		result.append(", importAttribute: ");

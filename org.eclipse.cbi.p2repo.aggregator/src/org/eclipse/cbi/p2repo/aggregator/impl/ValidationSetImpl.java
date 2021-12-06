@@ -1,9 +1,12 @@
 /**
  * Copyright (c) 2006-2009, Cloudsmith Inc.
- * The code, documentation and other materials contained herein have been
- * licensed under the Eclipse Public License - v 1.0 by the copyright holder
- * listed above, as the Initial Contributor under such license. The text of
- * such license is available at www.eclipse.org.
+ *
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.aggregator.impl;
 
@@ -541,7 +544,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -555,7 +558,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -583,8 +586,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -594,8 +596,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -642,8 +643,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -676,8 +676,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -731,11 +730,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * A ValidationSet is considered abstract if it is extended by another ValidationSet. The
-	 * reason for this is that the extension must validate OK and there's no reason to validate
-	 * a subset of something that is OK.
-	 * <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -750,8 +745,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -771,8 +765,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -782,8 +775,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -803,8 +795,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -815,8 +806,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -826,8 +816,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */

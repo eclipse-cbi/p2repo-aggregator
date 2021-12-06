@@ -1,9 +1,12 @@
 /**
  * Copyright (c) 2006-2009, Cloudsmith Inc.
- * The code, documentation and other materials contained herein have been
- * licensed under the Eclipse Public License - v 1.0 by the copyright holder
- * listed above, as the Initial Contributor under such license. The text of
- * such license is available at www.eclipse.org.
+ *
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.aggregator;
 
@@ -15,8 +18,7 @@ import org.eclipse.emf.common.util.Enumerator;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the literals of the enumeration '<em><b>Available From</b></em>',
- * and utility methods for working with them.
+ * A representation of the literals of the enumeration '<em><b>Available From</b></em>', and utility methods for working with them.
  * <!-- end-user-doc -->
  * @see org.eclipse.cbi.p2repo.aggregator.AggregatorPackage#getAvailableFrom()
  * @model
@@ -55,7 +57,7 @@ public enum AvailableFrom implements Enumerator {
 	/**
 	 * The '<em><b>AGGREGATION</b></em>' literal object.
 	 * <!-- begin-user-doc -->
-	* <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #AGGREGATION_VALUE
 	 * @generated
 	 * @ordered
@@ -65,9 +67,6 @@ public enum AvailableFrom implements Enumerator {
 	/**
 	 * The '<em><b>REPOSITORY</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>REPOSITORY</b></em>' literal object isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #REPOSITORY
 	 * @model literal="repository"
@@ -79,9 +78,6 @@ public enum AvailableFrom implements Enumerator {
 	/**
 	 * The '<em><b>CONTRIBUTION</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>CONTRIBUTION</b></em>' literal object isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #CONTRIBUTION
 	 * @model literal="contribution"
@@ -93,9 +89,6 @@ public enum AvailableFrom implements Enumerator {
 	/**
 	 * The '<em><b>VALIDATION SET</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>VALIDATION SET</b></em>' literal object isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #VALIDATION_SET
 	 * @model literal="validationSet"
@@ -107,9 +100,6 @@ public enum AvailableFrom implements Enumerator {
 	/**
 	 * The '<em><b>AGGREGATION</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>AGGREGATION</b></em>' literal object isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #AGGREGATION
 	 * @model literal="aggregation"

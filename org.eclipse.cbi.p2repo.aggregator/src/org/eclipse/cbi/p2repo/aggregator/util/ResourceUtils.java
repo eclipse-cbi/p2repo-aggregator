@@ -1,10 +1,13 @@
-/*******************************************************************************
+/**
  * Copyright (c) 2006-2007, Cloudsmith Inc.
- * The code, documentation and other materials contained herein have been
- * licensed under the Eclipse Public License - v 1.0 by the copyright holder
- * listed above, as the Initial Contributor under such license. The text of
- * such license is available at www.eclipse.org.
- ******************************************************************************/
+ *
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
+ */
 
 package org.eclipse.cbi.p2repo.aggregator.util;
 
@@ -15,7 +18,10 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
-import org.eclipse.cbi.p2repo.p2.MetadataRepository;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
+
 import org.eclipse.cbi.p2repo.aggregator.Aggregation;
 import org.eclipse.cbi.p2repo.aggregator.AggregatorPackage;
 import org.eclipse.cbi.p2repo.aggregator.Contribution;
@@ -24,6 +30,7 @@ import org.eclipse.cbi.p2repo.aggregator.MetadataRepositoryReference;
 import org.eclipse.cbi.p2repo.aggregator.ValidationSet;
 import org.eclipse.cbi.p2repo.aggregator.p2.util.MetadataRepositoryResourceImpl;
 import org.eclipse.cbi.p2repo.cli.HeadlessActivator;
+import org.eclipse.cbi.p2repo.p2.MetadataRepository;
 import org.eclipse.cbi.p2repo.util.ExceptionUtils;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.util.URI;
@@ -37,7 +44,6 @@ import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.DefaultHandler;
-import org.xml.sax.helpers.XMLReaderFactory;
 
 /**
  * Utilities for managing aggregator specific resources
@@ -190,22 +196,25 @@ public class ResourceUtils {
 			}
 		}
 
-		XMLReader parser;
 		XMLNSHandler xmlnsHandler = null;
 		try {
-			parser = XMLReaderFactory.createXMLReader();
+			SAXParserFactory parserFactory = SAXParserFactory.newInstance();
+			SAXParser parser = parserFactory.newSAXParser();
+			XMLReader reader = parser.getXMLReader();
 			xmlnsHandler = new XMLNSHandler();
-			parser.setContentHandler(xmlnsHandler);
+			reader.setContentHandler(xmlnsHandler);
 
 			// this is needed for parser to provide even "xmlns*" attributes
-			parser.setFeature("http://xml.org/sax/features/namespace-prefixes", true);
-			parser.parse(new InputSource(new ExtensibleURIConverterImpl().createInputStream(resourceURI)));
+			reader.setFeature("http://xml.org/sax/features/namespace-prefixes", true);
+			reader.parse(new InputSource(new ExtensibleURIConverterImpl().createInputStream(resourceURI)));
 		}
 		catch(SAXException e) {
 			if(xmlnsHandler != null)
 				return xmlnsHandler.getXMLNS();
 		}
 		catch(IOException e) {
+			// do not care
+		} catch (ParserConfigurationException e) {
 			// do not care
 		}
 		return null;

@@ -1,4 +1,12 @@
 /**
+ * Copyright (c) 2021 Eclipse contributors and others.
+ *
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.p2.maven.metadata.impl;
 
@@ -8,7 +16,7 @@ import org.eclipse.cbi.p2repo.p2.maven.metadata.MetadataPackage;
 import org.eclipse.cbi.p2repo.p2.maven.metadata.VersionsType;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EDataTypeEList;
 
 /**
@@ -24,7 +32,7 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  *
  * @generated
  */
-public class VersionsTypeImpl extends EObjectImpl implements VersionsType {
+public class VersionsTypeImpl extends MinimalEObjectImpl.Container implements VersionsType {
 	/**
 	 * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute list.
 	 * <!-- begin-user-doc -->

@@ -1,13 +1,17 @@
-/*******************************************************************************
+/**
  * Copyright (c) 2006-2007, Cloudsmith Inc.
- * The code, documentation and other materials contained herein have been
- * licensed under the Eclipse Public License - v 1.0 by the copyright holder
- * listed above, as the Initial Contributor under such license. The text of
- * such license is available at www.eclipse.org.
- ******************************************************************************/
+ *
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
+ */
 package org.eclipse.cbi.p2repo.p2.maven.loader;
 
 import java.io.BufferedReader;
+import java.io.Closeable;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -77,7 +81,6 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.SubMonitor;
-import org.eclipse.core.runtime.SubProgressMonitor;
 import org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactDescriptor;
 import org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository;
 import org.eclipse.equinox.internal.p2.repository.Transport;
@@ -588,7 +591,8 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 
 		IQueryResult<IInstallableUnit> result = mdr.query(QUERY_ALL_IUS, subMon.newChild(40));
 
-		IProgressMonitor fetchMon = new SubProgressMonitor(subMon, 20);
+		@SuppressWarnings("deprecation")
+		IProgressMonitor fetchMon = new org.eclipse.core.runtime.SubProgressMonitor(subMon, 20);
 		fetchMon.beginTask("Collecting all IUs", 1);
 		Iterator<IInstallableUnit> itor = result.iterator();
 		ArrayList<InstallableUnit> ius = new ArrayList<InstallableUnit>();
@@ -741,7 +745,7 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 			finally {
 				if(httpClient != null) {
 					try {
-						((BufferedReader) httpClient).close();
+						((Closeable) httpClient).close();
 					}
 					catch(IOException e) {
 						// ignore, since unexpected if not impossible.
@@ -796,10 +800,10 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 			repository.setLocation(location);
 
 			// remove compression property (cache is compressed but the maven original was not)
-			repository.getPropertyMap().remove(IRepository.PROP_COMPRESSED);
+			repository.getPropertyMap().removeKey(IRepository.PROP_COMPRESSED);
 
 			// remove timestamp property (cache has the timestamp of storing in the cache which is irrelevant)
-			repository.getPropertyMap().remove(IRepository.PROP_TIMESTAMP);
+			repository.getPropertyMap().removeKey(IRepository.PROP_TIMESTAMP);
 
 			String cacheTimeString = repository.getPropertyMap().get(PROP_INDEX_TIMESTAMP);
 			long cacheTime = cacheTimeString != null
@@ -892,7 +896,8 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 			Map<String, IInstallableUnit> categoryMap = new HashMap<String, IInstallableUnit>();
 
 			InstallableUnit iu;
-			IProgressMonitor cancellationOnlyMonitor = new SubProgressMonitor(monitor, 0) {
+			@SuppressWarnings("deprecation")
+			IProgressMonitor cancellationOnlyMonitor = new org.eclipse.core.runtime.SubProgressMonitor(monitor, 0) {
 				@Override
 				public void beginTask(String name, int work) {
 					// no-op

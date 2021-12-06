@@ -1,9 +1,12 @@
 /**
  * Copyright (c) 2006-2009, Cloudsmith Inc.
- * The code, documentation and other materials contained herein have been
- * licensed under the Eclipse Public License - v 1.0 by the copyright holder
- * listed above, as the Initial Contributor under such license. The text of
- * such license is available at www.eclipse.org.
+ *
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.p2.impl;
 
@@ -18,8 +21,9 @@ import org.eclipse.equinox.p2.metadata.VersionRange;
 import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object
- * '<em><b>Required Capability</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Required Capability</b></em>'.
+ * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
@@ -34,7 +38,8 @@ import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
 public class RequiredCapabilityImpl extends RequirementImpl implements RequiredCapability {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -43,7 +48,8 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -52,7 +58,8 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 
 	/**
 	 * The default value of the '{@link #getNamespace() <em>Namespace</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getNamespace()
 	 * @generated
 	 * @ordered
@@ -61,7 +68,8 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 
 	/**
 	 * The cached value of the '{@link #getNamespace() <em>Namespace</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getNamespace()
 	 * @generated
 	 * @ordered
@@ -70,7 +78,8 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 
 	/**
 	 * The default value of the '{@link #getRange() <em>Range</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getRange()
 	 * @generated
 	 * @ordered
@@ -79,7 +88,8 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 
 	/**
 	 * The cached value of the '{@link #getRange() <em>Range</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getRange()
 	 * @generated
 	 * @ordered
@@ -89,7 +99,8 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	private boolean matchesDirty = true;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected RequiredCapabilityImpl() {
@@ -108,7 +119,8 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -129,7 +141,8 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -150,7 +163,8 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -167,7 +181,8 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -187,9 +202,7 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
-		if (obj == null)
-			return false;
-		if (!(obj instanceof IRequiredCapability))
+		if ((obj == null) || !(obj instanceof IRequiredCapability))
 			return false;
 		final IRequiredCapability other = (IRequiredCapability) obj;
 		if (filter == null) {
@@ -197,13 +210,8 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 				return false;
 		} else if (!filter.equals(other.getFilter()))
 			return false;
-		if (getMin() != other.getMin())
-			return false;
-		if (getMax() != other.getMax())
-			return false;
-		if (!name.equals(other.getName()))
-			return false;
-		if (!namespace.equals(other.getNamespace()))
+		if ((getMin() != other.getMin()) || (getMax() != other.getMax()) || !name.equals(other.getName())
+				|| !namespace.equals(other.getNamespace()))
 			return false;
 		if (!range.equals(other.getRange()))
 			return false;
@@ -211,7 +219,8 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -231,7 +240,8 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -240,7 +250,8 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -268,7 +279,8 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -277,7 +289,8 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -286,7 +299,8 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -313,7 +327,7 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -323,7 +337,8 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setNameGen(String newName) {
@@ -334,7 +349,7 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -344,7 +359,8 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setNamespaceGen(String newNamespace) {
@@ -356,7 +372,7 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -366,7 +382,8 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setRangeGen(VersionRange newRange) {
@@ -378,7 +395,7 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */

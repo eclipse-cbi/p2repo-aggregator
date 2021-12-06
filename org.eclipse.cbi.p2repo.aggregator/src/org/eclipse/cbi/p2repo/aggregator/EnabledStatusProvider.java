@@ -1,17 +1,19 @@
 /**
  * Copyright (c) 2006-2009, Cloudsmith Inc.
- * The code, documentation and other materials contained herein have been
- * licensed under the Eclipse Public License - v 1.0 by the copyright holder
- * listed above, as the Initial Contributor under such license. The text of
- * such license is available at www.eclipse.org.
  *
- * $Id$
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.aggregator;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Enabled Status Provider</b></em>'. <!--
- * end-user-doc -->
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Enabled Status Provider</b></em>'.
+ * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
@@ -30,9 +32,6 @@ public interface EnabledStatusProvider {
 	 * Returns the value of the '<em><b>Branch Enabled</b></em>' attribute.
 	 * The default value is <code>"false"</code>.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Branch Enabled</em>' attribute isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Branch Enabled</em>' attribute.
 	 * @see #isSetBranchEnabled()
@@ -43,13 +42,10 @@ public interface EnabledStatusProvider {
 	boolean isBranchEnabled();
 
 	/**
-	 * Returns the value of the '<em><b>Enabled</b></em>' attribute. The default value is <code>"true"</code>. <!--
-	 * begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Enabled</em>' attribute isn't clear, there really should be more of a description here...
-	 * </p>
+	 * Returns the value of the '<em><b>Enabled</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Enabled</em>' attribute.
 	 * @see #setEnabled(boolean)
 	 * @see org.eclipse.cbi.p2repo.aggregator.AggregatorPackage#getEnabledStatusProvider_Enabled()
@@ -70,7 +66,8 @@ public interface EnabledStatusProvider {
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.EnabledStatusProvider#isEnabled <em>Enabled</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Enabled</em>' attribute.
 	 * @see #isEnabled()
 	 * @generated

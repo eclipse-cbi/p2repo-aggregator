@@ -1,16 +1,19 @@
 /**
  * Copyright (c) 2006-2009, Cloudsmith Inc.
- * The code, documentation and other materials contained herein have been
- * licensed under the Eclipse Public License - v 1.0 by the copyright holder
- * listed above, as the Initial Contributor under such license. The text of
- * such license is available at www.eclipse.org.
  *
- * $Id$
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.aggregator.p2view;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Category</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Category</b></em>'.
+ * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
@@ -32,9 +35,6 @@ public interface Category extends IUPresentation {
 	/**
 	 * Returns the value of the '<em><b>Bundle Container</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Bundle Container</em>' reference isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Bundle Container</em>' containment reference.
 	 * @see #setBundleContainer(Bundles)
@@ -47,9 +47,6 @@ public interface Category extends IUPresentation {
 	/**
 	 * Returns the value of the '<em><b>Category Container</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Category Container</em>' reference isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Category Container</em>' containment reference.
 	 * @see #setCategoryContainer(Categories)
@@ -62,9 +59,6 @@ public interface Category extends IUPresentation {
 	/**
 	 * Returns the value of the '<em><b>Feature Container</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Feature Container</em>' reference isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Feature Container</em>' containment reference.
 	 * @see #setFeatureContainer(Features)
@@ -77,9 +71,6 @@ public interface Category extends IUPresentation {
 	/**
 	 * Returns the value of the '<em><b>Fragment Container</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Fragment Container</em>' reference isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Fragment Container</em>' containment reference.
 	 * @see #setFragmentContainer(Fragments)
@@ -92,9 +83,6 @@ public interface Category extends IUPresentation {
 	/**
 	 * Returns the value of the '<em><b>Iu Details</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Iu Details</em>' reference isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Iu Details</em>' containment reference.
 	 * @see org.eclipse.cbi.p2repo.aggregator.p2view.P2viewPackage#getCategory_IuDetails()
@@ -104,35 +92,40 @@ public interface Category extends IUPresentation {
 	IUDetails getIuDetails();
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model kind="operation"
 	 * @generated
 	 */
 	Bundles getNotNullBundleContainer();
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model kind="operation"
 	 * @generated
 	 */
 	Categories getNotNullCategoryContainer();
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model kind="operation"
 	 * @generated
 	 */
 	Features getNotNullFeatureContainer();
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model kind="operation"
 	 * @generated
 	 */
 	Fragments getNotNullFragmentContainer();
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model kind="operation"
 	 * @generated
 	 */
@@ -141,9 +134,6 @@ public interface Category extends IUPresentation {
 	/**
 	 * Returns the value of the '<em><b>Product Container</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Product Container</em>' reference isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Product Container</em>' containment reference.
 	 * @see #setProductContainer(Products)
@@ -154,7 +144,8 @@ public interface Category extends IUPresentation {
 	Products getProductContainer();
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model kind="operation"
 	 * @generated
 	 */
@@ -162,7 +153,8 @@ public interface Category extends IUPresentation {
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.p2view.Category#getBundleContainer <em>Bundle Container</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Bundle Container</em>' containment reference.
 	 * @see #getBundleContainer()
 	 * @generated
@@ -171,7 +163,8 @@ public interface Category extends IUPresentation {
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.p2view.Category#getCategoryContainer <em>Category Container</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Category Container</em>' containment reference.
 	 * @see #getCategoryContainer()
 	 * @generated
@@ -180,7 +173,8 @@ public interface Category extends IUPresentation {
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.p2view.Category#getFeatureContainer <em>Feature Container</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Feature Container</em>' containment reference.
 	 * @see #getFeatureContainer()
 	 * @generated
@@ -189,7 +183,8 @@ public interface Category extends IUPresentation {
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.p2view.Category#getFragmentContainer <em>Fragment Container</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Fragment Container</em>' containment reference.
 	 * @see #getFragmentContainer()
 	 * @generated
@@ -198,7 +193,8 @@ public interface Category extends IUPresentation {
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.p2view.Category#getProductContainer <em>Product Container</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Product Container</em>' containment reference.
 	 * @see #getProductContainer()
 	 * @generated

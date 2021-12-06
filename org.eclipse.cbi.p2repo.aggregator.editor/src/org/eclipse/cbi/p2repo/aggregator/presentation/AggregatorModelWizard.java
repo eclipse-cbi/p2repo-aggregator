@@ -1,8 +1,12 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright (c) 2021 Eclipse contributors and others.
  *
- * $Id$
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.aggregator.presentation;
 
@@ -64,18 +68,21 @@ import org.eclipse.ui.part.ISetSelectionTarget;
 
 /**
  * This is a simple wizard for creating a new model file.
- * <!-- begin-user-doc --> <!-- end-user-doc -->
+ * <!-- begin-user-doc -->
+ * <!-- end-user-doc -->
  * @generated
  */
 public class AggregatorModelWizard extends Wizard implements INewWizard {
 	/**
 	 * This is the page where the type of object to create is selected.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public class AggregatorModelWizardInitialObjectCreationPage extends WizardPage {
 		/**
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		protected Combo initialObjectField;
@@ -86,13 +93,15 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 		protected List<String> encodings;
 
 		/**
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		protected Combo encodingField;
 
 		/**
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		protected ModifyListener validator = new ModifyListener() {
@@ -104,7 +113,8 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 
 		/**
 		 * Pass in the selection.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		public AggregatorModelWizardInitialObjectCreationPage(String pageId) {
@@ -112,7 +122,8 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 		}
 
 		/**
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		@Override
@@ -185,7 +196,8 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 		}
 
 		/**
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		public String getEncoding() {
@@ -193,7 +205,8 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 		}
 
 		/**
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		protected Collection<String> getEncodings() {
@@ -209,7 +222,8 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 		}
 
 		/**
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		public String getInitialObjectName() {
@@ -225,7 +239,8 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 
 		/**
 		 * Returns the label for the specified type name.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		protected String getLabel(String typeName) {
@@ -238,7 +253,8 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 		}
 
 		/**
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		@Override
@@ -256,7 +272,8 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 		}
 
 		/**
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		protected boolean validatePage() {
@@ -266,13 +283,15 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 
 	/**
 	 * This is the one page of the wizard.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public class AggregatorModelWizardNewFileCreationPage extends WizardNewFileCreationPage {
 		/**
 		 * Pass in the selection.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		public AggregatorModelWizardNewFileCreationPage(String pageId, IStructuredSelection selection) {
@@ -280,7 +299,8 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 		}
 
 		/**
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		public IFile getModelFile() {
@@ -289,7 +309,8 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 
 		/**
 		 * The framework calls this to see if the file is correct.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		@Override
@@ -310,16 +331,17 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 
 	/**
 	 * The supported extensions for created files.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public static final List<String> FILE_EXTENSIONS = Collections.unmodifiableList(Arrays.asList(
 			AggregatorEditorPlugin.INSTANCE.getString("_UI_AggregatorEditorFilenameExtensions").split("\\s*,\\s*")));
 
 	/**
-	 * A formatted list of supported file extensions, suitable for display. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 *
+	 * A formatted list of supported file extensions, suitable for display.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public static final String FORMATTED_FILE_EXTENSIONS = AggregatorEditorPlugin.INSTANCE
@@ -327,57 +349,62 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 
 	/**
 	 * This caches an instance of the model package.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected AggregatorPackage aggregatorPackage = AggregatorPackage.eINSTANCE;
 
 	/**
 	 * This caches an instance of the model factory.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected AggregatorFactory aggregatorFactory = aggregatorPackage.getAggregatorFactory();
 
 	/**
 	 * This is the file creation page.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected AggregatorModelWizardNewFileCreationPage newFileCreationPage;
 
 	/**
 	 * This is the initial object creation page.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected AggregatorModelWizardInitialObjectCreationPage initialObjectCreationPage;
 
 	/**
 	 * Remember the selection during initialization for populating the default container.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected IStructuredSelection selection;
 
 	/**
 	 * Remember the workbench during initialization.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected IWorkbench workbench;
 
 	/**
-	 * Caches the names of the types that can be created as the root object. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 *
+	 * Caches the names of the types that can be created as the root object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected List<String> initialObjectNames;
 
 	/**
-	 * The framework calls this to create the contents of the wizard. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The framework calls this to create the contents of the wizard.
 	 *
 	 * @generated NOT
 	 */
@@ -431,7 +458,7 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 	}
 
 	/**
-	 * Create a new model. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Create a new model.
 	 *
 	 * @generated NOT
 	 */
@@ -442,9 +469,9 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 	}
 
 	/**
-	 * Returns the names of the types that can be created as the root object. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 *
+	 * Returns the names of the types that can be created as the root object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected Collection<String> getInitialObjectNames() {
@@ -465,7 +492,8 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 
 	/**
 	 * Get the file from the page.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public IFile getModelFile() {
@@ -473,7 +501,7 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 	}
 
 	/**
-	 * This just records the information. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This just records the information.
 	 *
 	 * @generated NOT
 	 */
@@ -487,7 +515,7 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 	}
 
 	/**
-	 * Do the work after everything is specified. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Do the work after everything is specified.
 	 *
 	 * @generated NOT
 	 */

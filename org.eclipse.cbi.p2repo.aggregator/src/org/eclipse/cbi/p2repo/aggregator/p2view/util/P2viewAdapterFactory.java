@@ -1,11 +1,12 @@
 /**
  * Copyright (c) 2006-2009, Cloudsmith Inc.
- * The code, documentation and other materials contained herein have been
- * licensed under the Eclipse Public License - v 1.0 by the copyright holder
- * listed above, as the Initial Contributor under such license. The text of
- * such license is available at www.eclipse.org.
  *
- * $Id$
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.aggregator.p2view.util;
 
@@ -47,7 +48,8 @@ import org.eclipse.equinox.p2.metadata.IProvidedCapability;
 import org.eclipse.equinox.p2.metadata.IRequirement;
 
 /**
- * <!-- begin-user-doc --> The <b>Adapter Factory</b> for the model. It provides an adapter <code>createXXX</code> method for each class of the model.
+ * <!-- begin-user-doc -->
+ * The <b>Adapter Factory</b> for the model. It provides an adapter <code>createXXX</code> method for each class of the model.
  * <!-- end-user-doc -->
  * @see org.eclipse.cbi.p2repo.aggregator.p2view.P2viewPackage
  * @generated
@@ -55,17 +57,19 @@ import org.eclipse.equinox.p2.metadata.IRequirement;
 public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	/**
 	 * The cached model package.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected static P2viewPackage modelPackage;
 
 	/**
 	 * The switch that delegates to the <code>createXXX</code> methods.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected P2viewSwitch<Adapter> modelSwitch = new P2viewSwitch<Adapter>() {
+	protected P2viewSwitch<Adapter> modelSwitch = new P2viewSwitch<>() {
 		@Override
 		public Adapter caseBundle(Bundle object) {
 			return createBundleAdapter();
@@ -229,7 +233,8 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 
 	/**
 	 * Creates an instance of the adapter factory.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public P2viewAdapterFactory() {
@@ -240,7 +245,8 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 
 	/**
 	 * Creates an adapter for the <code>target</code>.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param target the object to adapt.
 	 * @return the adapter for the <code>target</code>.
 	 * @generated
@@ -252,8 +258,8 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 
 	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.aggregator.p2view.Bundle <em>Bundle</em>}'.
-	 * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
-	 * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.aggregator.p2view.Bundle
 	 * @generated
@@ -264,8 +270,8 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 
 	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.aggregator.p2view.Bundles <em>Bundles</em>}'.
-	 * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
-	 * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.aggregator.p2view.Bundles
 	 * @generated
@@ -275,11 +281,9 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.aggregator.p2view.Categories
-	 * <em>Categories</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily
-	 * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc
-	 * -->
-	 *
+	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.aggregator.p2view.Categories <em>Categories</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.aggregator.p2view.Categories
 	 * @generated
@@ -289,11 +293,9 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.aggregator.p2view.Category
-	 * <em>Category</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily
-	 * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc
-	 * -->
-	 *
+	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.aggregator.p2view.Category <em>Category</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.aggregator.p2view.Category
 	 * @generated
@@ -304,9 +306,8 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 
 	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.aggregator.ChildrenProvider <em>Children Provider</em>}'.
-	 * <!-- begin-user-doc --> This default implementation returns null so that we can
-	 * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.aggregator.ChildrenProvider
 	 * @generated
@@ -317,7 +318,7 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 
 	/**
 	 * Creates a new adapter for the default case.
-	 * <!-- begin-user-doc --> This default implementation returns null.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @generated
@@ -328,8 +329,8 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 
 	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.aggregator.p2view.Feature <em>Feature</em>}'.
-	 * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
-	 * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.aggregator.p2view.Feature
 	 * @generated
@@ -339,11 +340,9 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.aggregator.p2view.Features
-	 * <em>Features</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily
-	 * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc
-	 * -->
-	 *
+	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.aggregator.p2view.Features <em>Features</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.aggregator.p2view.Features
 	 * @generated
@@ -353,11 +352,9 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.aggregator.p2view.Fragment
-	 * <em>Fragment</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily
-	 * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc
-	 * -->
-	 *
+	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.aggregator.p2view.Fragment <em>Fragment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.aggregator.p2view.Fragment
 	 * @generated
@@ -367,11 +364,9 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.aggregator.p2view.Fragments
-	 * <em>Fragments</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily
-	 * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc
-	 * -->
-	 *
+	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.aggregator.p2view.Fragments <em>Fragments</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.aggregator.p2view.Fragments
 	 * @generated
@@ -382,9 +377,8 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 
 	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.aggregator.p2view.InstallableUnits <em>Installable Units</em>}'.
-	 * <!-- begin-user-doc --> This default implementation returns null so that we can
-	 * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.aggregator.p2view.InstallableUnits
 	 * @generated
@@ -395,8 +389,8 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 
 	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.equinox.p2.metadata.IProvidedCapability <em>IProvided Capability</em>}'.
-	 * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful
-	 * to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.equinox.p2.metadata.IProvidedCapability
 	 * @generated
@@ -408,8 +402,6 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.equinox.p2.metadata.IRequirement <em>IRequirement</em>}'.
 	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.equinox.p2.metadata.IRequirement
@@ -420,11 +412,9 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.aggregator.p2view.IUDetails
-	 * <em>IU Details</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily
-	 * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc
-	 * -->
-	 *
+	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.aggregator.p2view.IUDetails <em>IU Details</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.aggregator.p2view.IUDetails
 	 * @generated
@@ -435,9 +425,8 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 
 	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.aggregator.p2view.IUPresentation <em>IU Presentation</em>}'.
-	 * <!-- begin-user-doc --> This default implementation returns null so that we can
-	 * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.aggregator.p2view.IUPresentation
 	 * @generated
@@ -448,8 +437,8 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 
 	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.aggregator.p2view.IUPresentationWithDetails <em>IU Presentation With Details</em>}'.
-	 * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's
-	 * useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.aggregator.p2view.IUPresentationWithDetails
 	 * @generated
@@ -459,11 +448,9 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.aggregator.LabelProvider
-	 * <em>Label Provider</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily
-	 * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc
-	 * -->
-	 *
+	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.aggregator.LabelProvider <em>Label Provider</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.aggregator.LabelProvider
 	 * @generated
@@ -475,8 +462,6 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.aggregator.p2view.Licenses <em>Licenses</em>}'.
 	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.aggregator.p2view.Licenses
@@ -488,9 +473,8 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 
 	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.aggregator.p2view.MetadataRepositoryStructuredView <em>Metadata Repository Structured View</em>}'.
-	 * <!-- begin-user-doc --> This default implementation returns null
-	 * so that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases
-	 * anyway. <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.aggregator.p2view.MetadataRepositoryStructuredView
 	 * @generated
@@ -500,11 +484,9 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.aggregator.p2view.Miscellaneous
-	 * <em>Miscellaneous</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily
-	 * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc
-	 * -->
-	 *
+	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.aggregator.p2view.Miscellaneous <em>Miscellaneous</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.aggregator.p2view.Miscellaneous
 	 * @generated
@@ -514,11 +496,9 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.aggregator.p2view.OtherIU
-	 * <em>Other IU</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily
-	 * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc
-	 * -->
-	 *
+	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.aggregator.p2view.OtherIU <em>Other IU</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.aggregator.p2view.OtherIU
 	 * @generated
@@ -529,8 +509,8 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 
 	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.aggregator.p2view.Product <em>Product</em>}'.
-	 * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
-	 * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.aggregator.p2view.Product
 	 * @generated
@@ -540,11 +520,9 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.aggregator.p2view.Products
-	 * <em>Products</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily
-	 * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc
-	 * -->
-	 *
+	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.aggregator.p2view.Products <em>Products</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.aggregator.p2view.Products
 	 * @generated
@@ -554,11 +532,9 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.aggregator.p2view.Properties
-	 * <em>Properties</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily
-	 * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc
-	 * -->
-	 *
+	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.aggregator.p2view.Properties <em>Properties</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.aggregator.p2view.Properties
 	 * @generated
@@ -568,11 +544,9 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class ' {@link org.eclipse.cbi.p2repo.aggregator.p2view.ProvidedCapabilities
-	 * <em>Provided Capabilities</em>}'. <!--
-	 * begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful to
-	 * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 *
+	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.aggregator.p2view.ProvidedCapabilities <em>Provided Capabilities</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.aggregator.p2view.ProvidedCapabilities
 	 * @generated
@@ -583,8 +557,8 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 
 	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.aggregator.p2view.ProvidedCapabilityWrapper <em>Provided Capability Wrapper</em>}'.
-	 * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's
-	 * useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.aggregator.p2view.ProvidedCapabilityWrapper
 	 * @generated
@@ -596,8 +570,6 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.aggregator.p2view.RepositoryBrowser <em>Repository Browser</em>}'.
 	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.aggregator.p2view.RepositoryBrowser
@@ -610,8 +582,6 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.aggregator.p2view.RepositoryReferences <em>Repository References</em>}'.
 	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.aggregator.p2view.RepositoryReferences
@@ -624,8 +594,6 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.aggregator.p2view.Requirements <em>Requirements</em>}'.
 	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.aggregator.p2view.Requirements
@@ -638,8 +606,6 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.aggregator.p2view.RequirementWrapper <em>Requirement Wrapper</em>}'.
 	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.aggregator.p2view.RequirementWrapper
@@ -652,8 +618,6 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.aggregator.StatusProvider <em>Status Provider</em>}'.
 	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.aggregator.StatusProvider
@@ -664,11 +628,9 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.aggregator.p2view.Touchpoints
-	 * <em>Touchpoints</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily
-	 * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc
-	 * -->
-	 *
+	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.aggregator.p2view.Touchpoints <em>Touchpoints</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see org.eclipse.cbi.p2repo.aggregator.p2view.Touchpoints
 	 * @generated
@@ -679,9 +641,8 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 
 	/**
 	 * Returns whether this factory is applicable for the type of the object.
-	 * <!-- begin-user-doc --> This
-	 * implementation returns <code>true</code> if the object is either the model's package or is an instance object of
-	 * the model. <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return whether this factory is applicable for the type of the object.
 	 * @generated
 	 */

@@ -1,16 +1,21 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright (c) 2021 Eclipse contributors and others.
  *
- * $Id$
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.p2.maven.pom;
 
 import org.eclipse.emf.ecore.EObject;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Mailing
- * List</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Mailing List</b></em>'.
+ * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
  * 3.0.0+
@@ -38,124 +43,131 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface MailingList extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Archive</b></em>' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc --> 3.0.0+
+	 * Returns the value of the '<em><b>Archive</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 3.0.0+
 	 *
-	 * The link to a URL where you can browse the mailing list archive.
+	 *             The link to a URL where you can browse the mailing list archive.
 	 *
 	 * <!-- end-model-doc -->
-	 *
 	 * @return the value of the '<em>Archive</em>' attribute.
 	 * @see #setArchive(String)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getMailingList_Archive()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
-	 *        extendedMetaData="kind='element' name='archive'
-	 *        namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='archive' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	String getArchive();
 
 	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc --> 3.0.0+
-	 * The name of the mailing list. <!-- end-model-doc -->
-	 *
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 3.0.0+
+	 * The name of the mailing list.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getMailingList_Name()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
-	 *        extendedMetaData="kind='element' name='name'
-	 *        namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='name' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	String getName();
 
 	/**
-	 * Returns the value of the '<em><b>Other Archives</b></em>' containment
-	 * reference. <!-- begin-user-doc --> <!-- end-user-doc --> <!--
-	 * begin-model-doc --> 3.0.0+
+	 * Returns the value of the '<em><b>Other Archives</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 3.0.0+
 	 *
-	 * The link to alternate URLs where you can browse the list archive.
+	 *             The link to alternate URLs where you can browse the list archive.
 	 *
 	 * <!-- end-model-doc -->
-	 *
 	 * @return the value of the '<em>Other Archives</em>' containment reference.
 	 * @see #setOtherArchives(OtherArchivesType)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getMailingList_OtherArchives()
-	 * @model containment="true" extendedMetaData="kind='element'
-	 *        name='otherArchives' namespace='##targetNamespace'"
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='otherArchives' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	OtherArchivesType getOtherArchives();
 
 	/**
-	 * Returns the value of the '<em><b>Post</b></em>' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc --> 3.0.0+
+	 * Returns the value of the '<em><b>Post</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 3.0.0+
 	 *
-	 * The email address or link that can be used to post to the mailing list.
-	 * If this is an email address, a &lt;code&gt;mailto:&lt;/code&gt; link will
-	 * automatically be created when the documentation is created.
+	 *             The email address or link that can be used to post to
+	 *             the mailing list.  If this is an email address, a
+	 *             &lt;code&gt;mailto:&lt;/code&gt; link will automatically be created
+	 *             when the documentation is created.
 	 *
 	 * <!-- end-model-doc -->
-	 *
 	 * @return the value of the '<em>Post</em>' attribute.
 	 * @see #setPost(String)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getMailingList_Post()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
-	 *        extendedMetaData="kind='element' name='post'
-	 *        namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='post' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	String getPost();
 
 	/**
-	 * Returns the value of the '<em><b>Subscribe</b></em>' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc --> 3.0.0+
+	 * Returns the value of the '<em><b>Subscribe</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 3.0.0+
 	 *
-	 * The email address or link that can be used to subscribe to the mailing
-	 * list. If this is an email address, a &lt;code&gt;mailto:&lt;/code&gt;
-	 * link will automatically be created when the documentation is created.
+	 *             The email address or link that can be used to subscribe to the mailing list.
+	 *             If this is an email address, a
+	 *             &lt;code&gt;mailto:&lt;/code&gt; link will automatically be created when
+	 *             the documentation is created.
 	 *
 	 * <!-- end-model-doc -->
-	 *
 	 * @return the value of the '<em>Subscribe</em>' attribute.
 	 * @see #setSubscribe(String)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getMailingList_Subscribe()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
-	 *        extendedMetaData="kind='element' name='subscribe'
-	 *        namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='subscribe' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	String getSubscribe();
 
 	/**
-	 * Returns the value of the '<em><b>Unsubscribe</b></em>' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc --> 3.0.0+
+	 * Returns the value of the '<em><b>Unsubscribe</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 3.0.0+
 	 *
-	 * The email address or link that can be used to unsubscribe to the mailing
-	 * list. If this is an email address, a &lt;code&gt;mailto:&lt;/code&gt;
-	 * link will automatically be created when the documentation is created.
+	 *             The email address or link that can be used to unsubscribe to
+	 *             the mailing list.  If this is an email address, a
+	 *             &lt;code&gt;mailto:&lt;/code&gt; link will automatically be created
+	 *             when the documentation is created.
 	 *
 	 * <!-- end-model-doc -->
-	 *
 	 * @return the value of the '<em>Unsubscribe</em>' attribute.
 	 * @see #setUnsubscribe(String)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getMailingList_Unsubscribe()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
-	 *        extendedMetaData="kind='element' name='unsubscribe'
-	 *        namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='unsubscribe' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	String getUnsubscribe();
 
 	/**
-	 * Sets the value of the
-	 * '{@link org.eclipse.cbi.p2repo.p2.maven.pom.MailingList#getArchive
-	 * <em>Archive</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Archive</em>' attribute.
+	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.MailingList#getArchive <em>Archive</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Archive</em>' attribute.
 	 * @see #getArchive()
 	 * @generated
 	 */
@@ -163,7 +175,8 @@ public interface MailingList extends EObject {
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.MailingList#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Name</em>' attribute.
 	 * @see #getName()
 	 * @generated
@@ -182,7 +195,8 @@ public interface MailingList extends EObject {
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.MailingList#getPost <em>Post</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Post</em>' attribute.
 	 * @see #getPost()
 	 * @generated
@@ -190,13 +204,10 @@ public interface MailingList extends EObject {
 	void setPost(String value);
 
 	/**
-	 * Sets the value of the
-	 * '{@link org.eclipse.cbi.p2repo.p2.maven.pom.MailingList#getSubscribe
-	 * <em>Subscribe</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Subscribe</em>' attribute.
+	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.MailingList#getSubscribe <em>Subscribe</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Subscribe</em>' attribute.
 	 * @see #getSubscribe()
 	 * @generated
 	 */
@@ -204,8 +215,8 @@ public interface MailingList extends EObject {
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.MailingList#getUnsubscribe <em>Unsubscribe</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Unsubscribe</em>' attribute.
 	 * @see #getUnsubscribe()
 	 * @generated

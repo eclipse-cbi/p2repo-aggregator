@@ -1,9 +1,12 @@
 /**
  * Copyright (c) 2006-2009, Cloudsmith Inc.
- * The code, documentation and other materials contained herein have been
- * licensed under the Eclipse Public License - v 1.0 by the copyright holder
- * listed above, as the Initial Contributor under such license. The text of
- * such license is available at www.eclipse.org.
+ *
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.p2.impl;
 
@@ -18,8 +21,9 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.equinox.p2.metadata.ILicense;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object
- * '<em><b>License</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>License</b></em>'.
+ * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
@@ -34,8 +38,8 @@ import org.eclipse.equinox.p2.metadata.ILicense;
 public class LicenseImpl extends MinimalEObjectImpl.Container implements License {
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -43,7 +47,8 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
 
 	/**
 	 * The default value of the '{@link #getLocation() <em>Location</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getLocation()
 	 * @generated
 	 * @ordered
@@ -52,7 +57,8 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
 
 	/**
 	 * The cached value of the '{@link #getLocation() <em>Location</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getLocation()
 	 * @generated
 	 * @ordered
@@ -61,7 +67,8 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
 
 	/**
 	 * The default value of the '{@link #getBody() <em>Body</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getBody()
 	 * @generated
 	 * @ordered
@@ -70,7 +77,8 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
 
 	/**
 	 * The cached value of the '{@link #getBody() <em>Body</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getBody()
 	 * @generated
 	 * @ordered
@@ -79,7 +87,8 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
 
 	/**
 	 * The default value of the '{@link #getUUID() <em>UUID</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getUUID()
 	 * @generated
 	 * @ordered
@@ -88,7 +97,8 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
 
 	/**
 	 * The cached value of the '{@link #getUUID() <em>UUID</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getUUID()
 	 * @generated
 	 * @ordered
@@ -96,7 +106,8 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
 	protected String uuid = UUID_EDEFAULT;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected LicenseImpl() {
@@ -104,7 +115,8 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -121,7 +133,8 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -152,7 +165,8 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -172,7 +186,8 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -181,7 +196,8 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -201,7 +217,8 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -210,7 +227,8 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -219,7 +237,8 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -233,7 +252,8 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setBody(String newBody) {
@@ -244,7 +264,8 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setLocation(URI newLocation) {
@@ -255,7 +276,8 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setUUID(String newUUID) {
@@ -266,7 +288,8 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -274,7 +297,7 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
 		if (eIsProxy())
 			return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (location: ");
 		result.append(location);
 		result.append(", body: ");

@@ -2,10 +2,7 @@
 <?eclipse version="3.0"?>
 
 <!--
- <copyright>
- </copyright>
-
- $Id$
+ Copyright (c) 2006-2009, Cloudsmith Inc.
 -->
 
 <plugin>
@@ -33,6 +30,7 @@
             type="xml"
             class="org.eclipse.cbi.p2repo.p2.maven.metadata.util.MetadataResourceFactoryImpl"/>
    </extension>
+
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated pom -->
       <package

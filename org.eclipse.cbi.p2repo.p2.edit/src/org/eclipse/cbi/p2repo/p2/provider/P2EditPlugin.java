@@ -1,10 +1,12 @@
 /**
  * Copyright (c) 2006-2009, Cloudsmith Inc.
- * The code, documentation and other materials contained herein have been
- * licensed under the Eclipse Public License - v 1.0 by the copyright holder
- * listed above, as the Initial Contributor under such license. The text of
- * such license is available at www.eclipse.org.
  *
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.p2.provider;
 
@@ -19,15 +21,16 @@ import org.eclipse.emf.common.util.ResourceLocator;
  */
 public final class P2EditPlugin extends EMFPlugin {
 	/**
-	 * The actual implementation of the Eclipse <b>Plugin</b>. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * The actual implementation of the Eclipse <b>Plugin</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public static class Implementation extends EclipsePlugin {
 		/**
 		 * Creates an instance.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		public Implementation() {
@@ -40,25 +43,25 @@ public final class P2EditPlugin extends EMFPlugin {
 	}
 
 	/**
-	 * Keep track of the singleton. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 *
+	 * Keep track of the singleton.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public static final P2EditPlugin INSTANCE = new P2EditPlugin();
 
 	/**
-	 * Keep track of the singleton. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 *
+	 * Keep track of the singleton.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private static Implementation plugin;
 
 	/**
 	 * Returns the singleton instance of the Eclipse plugin.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the singleton instance.
 	 * @generated
 	 */
@@ -68,7 +71,8 @@ public final class P2EditPlugin extends EMFPlugin {
 
 	/**
 	 * Create the instance.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public P2EditPlugin() {
@@ -77,8 +81,8 @@ public final class P2EditPlugin extends EMFPlugin {
 
 	/**
 	 * Returns the singleton instance of the Eclipse plugin.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the singleton instance.
 	 * @generated
 	 */

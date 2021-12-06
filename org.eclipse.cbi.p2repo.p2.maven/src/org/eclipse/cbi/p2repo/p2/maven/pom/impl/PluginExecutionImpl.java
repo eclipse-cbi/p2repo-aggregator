@@ -1,8 +1,12 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright (c) 2021 Eclipse contributors and others.
  *
- * $Id$
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.p2.maven.pom.impl;
 
@@ -15,11 +19,12 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Plugin
- * Execution</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Plugin Execution</b></em>'.
+ * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
@@ -33,11 +38,11 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class PluginExecutionImpl extends EObjectImpl implements PluginExecution {
+public class PluginExecutionImpl extends MinimalEObjectImpl.Container implements PluginExecution {
 	/**
-	 * The default value of the '{@link #getId() <em>Id</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getId()
 	 * @generated
 	 * @ordered
@@ -45,9 +50,9 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 	protected static final String ID_EDEFAULT = "default";
 
 	/**
-	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getId()
 	 * @generated
 	 * @ordered
@@ -65,7 +70,8 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 
 	/**
 	 * The default value of the '{@link #getPhase() <em>Phase</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getPhase()
 	 * @generated
 	 * @ordered
@@ -74,7 +80,8 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 
 	/**
 	 * The cached value of the '{@link #getPhase() <em>Phase</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getPhase()
 	 * @generated
 	 * @ordered
@@ -83,7 +90,8 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 
 	/**
 	 * The cached value of the '{@link #getGoals() <em>Goals</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getGoals()
 	 * @generated
 	 * @ordered
@@ -92,7 +100,8 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 
 	/**
 	 * The default value of the '{@link #getInherited() <em>Inherited</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getInherited()
 	 * @generated
 	 * @ordered
@@ -101,7 +110,8 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 
 	/**
 	 * The cached value of the '{@link #getInherited() <em>Inherited</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getInherited()
 	 * @generated
 	 * @ordered
@@ -119,7 +129,8 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 	protected ConfigurationType configuration;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected PluginExecutionImpl() {
@@ -127,7 +138,8 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public NotificationChain basicSetConfiguration(ConfigurationType newConfiguration, NotificationChain msgs) {
@@ -145,7 +157,8 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public NotificationChain basicSetGoals(ExecutionGoalsType newGoals, NotificationChain msgs) {
@@ -163,7 +176,8 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -184,7 +198,8 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -199,7 +214,8 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -220,7 +236,8 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -246,7 +263,8 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -272,7 +290,8 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -281,7 +300,8 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -290,7 +310,8 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -299,7 +320,8 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -308,7 +330,8 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -317,7 +340,8 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -326,7 +350,8 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -348,7 +373,8 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -370,7 +396,8 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -385,7 +412,8 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -398,7 +426,8 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -410,7 +439,8 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -418,7 +448,7 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 		if (eIsProxy())
 			return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (id: ");
 		if (idESet)
 			result.append(id);
@@ -433,7 +463,8 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -448,7 +479,8 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override

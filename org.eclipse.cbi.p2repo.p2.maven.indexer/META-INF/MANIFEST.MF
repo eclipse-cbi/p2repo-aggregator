@@ -3,8 +3,8 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-Localization: plugin
 Bundle-SymbolicName: org.eclipse.cbi.p2repo.p2.maven.indexer;singleton:=true
-Bundle-Version: 1.0.300.qualifier
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-Version: 1.0.400.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-11
 Require-Bundle: org.eclipse.cbi.p2repo.p2.maven,
  org.eclipse.core.runtime,
  org.eclipse.cbi.p2repo.util,

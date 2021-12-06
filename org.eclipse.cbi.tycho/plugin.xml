@@ -51,9 +51,6 @@
          <run
                class="org.eclipse.cbi.tycho.GenerateTychoBuildApplication">
          </run>
-         <run
-               class="org.eclipse.cbi.tycho.Application1">
-         </run>
       </application>
    </extension>
 

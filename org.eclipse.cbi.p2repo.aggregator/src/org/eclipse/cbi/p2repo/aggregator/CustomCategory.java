@@ -1,26 +1,31 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright (c) 2021 Eclipse contributors and others.
  *
- * $Id$
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.aggregator;
 
 import org.eclipse.emf.common.util.EList;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Added Category</b></em>'.
- *
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Custom Category</b></em>'.
+ * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
- * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.aggregator.CustomCategory#getIdentifier <em>Identifier</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.aggregator.CustomCategory#getLabel <em>Label</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.aggregator.CustomCategory#getDescription <em>Description</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.aggregator.CustomCategory#getFeatures <em>Features</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.CustomCategory#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.CustomCategory#getLabel <em>Label</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.CustomCategory#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.CustomCategory#getFeatures <em>Features</em>}</li>
+ * </ul>
  *
  * @see org.eclipse.cbi.p2repo.aggregator.AggregatorPackage#getCustomCategory()
  * @model
@@ -30,9 +35,6 @@ public interface CustomCategory extends StatusProvider, InfosProvider {
 	/**
 	 * Returns the value of the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Description</em>' attribute isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Description</em>' attribute.
 	 * @see #setDescription(String)
@@ -47,9 +49,6 @@ public interface CustomCategory extends StatusProvider, InfosProvider {
 	 * The list contents are of type {@link org.eclipse.cbi.p2repo.aggregator.Feature}.
 	 * It is bidirectional and its opposite is '{@link org.eclipse.cbi.p2repo.aggregator.Feature#getCategories <em>Categories</em>}'.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Features</em>' reference list isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Features</em>' reference list.
 	 * @see org.eclipse.cbi.p2repo.aggregator.AggregatorPackage#getCustomCategory_Features()
@@ -62,9 +61,6 @@ public interface CustomCategory extends StatusProvider, InfosProvider {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Identifier</em>' attribute isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Identifier</em>' attribute.
 	 * @see #setIdentifier(String)
@@ -77,9 +73,6 @@ public interface CustomCategory extends StatusProvider, InfosProvider {
 	/**
 	 * Returns the value of the '<em><b>Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Label</em>' attribute isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Label</em>' attribute.
 	 * @see #setLabel(String)
@@ -91,7 +84,8 @@ public interface CustomCategory extends StatusProvider, InfosProvider {
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.CustomCategory#getDescription <em>Description</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Description</em>' attribute.
 	 * @see #getDescription()
 	 * @generated
@@ -100,7 +94,8 @@ public interface CustomCategory extends StatusProvider, InfosProvider {
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.CustomCategory#getIdentifier <em>Identifier</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Identifier</em>' attribute.
 	 * @see #getIdentifier()
 	 * @generated
@@ -109,7 +104,8 @@ public interface CustomCategory extends StatusProvider, InfosProvider {
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.CustomCategory#getLabel <em>Label</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Label</em>' attribute.
 	 * @see #getLabel()
 	 * @generated

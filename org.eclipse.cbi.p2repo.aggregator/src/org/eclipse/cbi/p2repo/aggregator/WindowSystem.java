@@ -1,8 +1,12 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright (c) 2021 Eclipse contributors and others.
  *
- * $Id$
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.aggregator;
 
@@ -13,8 +17,9 @@ import java.util.List;
 import org.eclipse.emf.common.util.Enumerator;
 
 /**
- * <!-- begin-user-doc --> A representation of the literals of the enumeration '<em><b>Window System</b></em>', and
- * utility methods for working with them. <!-- end-user-doc -->
+ * <!-- begin-user-doc -->
+ * A representation of the literals of the enumeration '<em><b>Window System</b></em>', and utility methods for working with them.
+ * <!-- end-user-doc -->
  * @see org.eclipse.cbi.p2repo.aggregator.AggregatorPackage#getWindowSystem()
  * @model
  * @generated
@@ -22,24 +27,26 @@ import org.eclipse.emf.common.util.Enumerator;
 public enum WindowSystem implements Enumerator {
 	/**
 	 * The '<em><b>Win32</b></em>' literal object.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #WIN32_VALUE
 	 * @generated
 	 * @ordered
 	 */
 	WIN32(0, "Win32", "win32"),
 	/**
-	* The '<em><b>GTK</b></em>' literal object. <!-- begin-user-doc --> <!-- end-user-doc
-	* -->
-	*
-	* @see #GTK_VALUE
-	* @generated
-	* @ordered
-	*/
+	 * The '<em><b>GTK</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #GTK_VALUE
+	 * @generated
+	 * @ordered
+	 */
 	GTK(1, "GTK", "gtk"),
 	/**
 	 * The '<em><b>Carbon</b></em>' literal object.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #CARBON_VALUE
 	 * @generated
 	 * @ordered
@@ -47,8 +54,8 @@ public enum WindowSystem implements Enumerator {
 	CARBON(2, "Carbon", "carbon"),
 	/**
 	 * The '<em><b>Cocoa</b></em>' literal object.
-	 * <!-- begin-user-doc --> <!--
-	* end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #COCOA_VALUE
 	 * @generated
 	 * @ordered
@@ -57,7 +64,7 @@ public enum WindowSystem implements Enumerator {
 	/**
 	 * The '<em><b>Motif</b></em>' literal object.
 	 * <!-- begin-user-doc -->
-	* <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #MOTIF_VALUE
 	 * @generated
 	 * @ordered
@@ -66,7 +73,7 @@ public enum WindowSystem implements Enumerator {
 	/**
 	 * The '<em><b>Photon</b></em>' literal object.
 	 * <!-- begin-user-doc -->
-	* <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #PHOTON_VALUE
 	 * @generated
 	 * @ordered
@@ -76,9 +83,6 @@ public enum WindowSystem implements Enumerator {
 	/**
 	 * The '<em><b>Win32</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Win32</b></em>' literal object isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #WIN32
 	 * @model name="Win32" literal="win32"
@@ -90,9 +94,6 @@ public enum WindowSystem implements Enumerator {
 	/**
 	 * The '<em><b>GTK</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>GTK</b></em>' literal object isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #GTK
 	 * @model literal="gtk"
@@ -104,9 +105,6 @@ public enum WindowSystem implements Enumerator {
 	/**
 	 * The '<em><b>Carbon</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Carbon</b></em>' literal object isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #CARBON
 	 * @model name="Carbon" literal="carbon"
@@ -118,9 +116,6 @@ public enum WindowSystem implements Enumerator {
 	/**
 	 * The '<em><b>Cocoa</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Cocoa</b></em>' literal object isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #COCOA
 	 * @model name="Cocoa" literal="cocoa"
@@ -132,9 +127,6 @@ public enum WindowSystem implements Enumerator {
 	/**
 	 * The '<em><b>Motif</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Motif</b></em>' literal object isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #MOTIF
 	 * @model name="Motif" literal="motif"
@@ -146,9 +138,6 @@ public enum WindowSystem implements Enumerator {
 	/**
 	 * The '<em><b>Photon</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Photon</b></em>' literal object isn't clear, there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #PHOTON
 	 * @model name="Photon" literal="photon"
@@ -159,15 +148,16 @@ public enum WindowSystem implements Enumerator {
 
 	/**
 	 * An array of all the '<em><b>Window System</b></em>' enumerators.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private static final WindowSystem[] VALUES_ARRAY = new WindowSystem[] { WIN32, GTK, CARBON, COCOA, MOTIF, PHOTON, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Window System</b></em>' enumerators.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public static final List<WindowSystem> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
@@ -218,8 +208,8 @@ public enum WindowSystem implements Enumerator {
 
 	/**
 	 * Returns the '<em><b>Window System</b></em>' literal with the specified name.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param name the name.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
@@ -235,26 +225,30 @@ public enum WindowSystem implements Enumerator {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private final int value;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private final String name;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private final String literal;
 
 	/**
 	 * Only this class can construct instances.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private WindowSystem(int value, String name, String literal) {
@@ -264,7 +258,8 @@ public enum WindowSystem implements Enumerator {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -273,7 +268,8 @@ public enum WindowSystem implements Enumerator {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -282,7 +278,8 @@ public enum WindowSystem implements Enumerator {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -292,8 +289,8 @@ public enum WindowSystem implements Enumerator {
 
 	/**
 	 * Returns the literal value of the enumerator, which is its string representation.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override

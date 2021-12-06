@@ -2,12 +2,12 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <artifactId>org.eclipse.cbi.p2repo.aggregator.legacy.ui</artifactId>
-  <version>1.0.300-SNAPSHOT</version>
+  <version>1.0.400-SNAPSHOT</version>
   <packaging>eclipse-plugin</packaging>
   <parent>
     <groupId>org.eclipse.cbi</groupId>
     <artifactId>org.eclipse.cbi.p2repo.releng.parent</artifactId>
     <relativePath>../org.eclipse.cbi.p2repo.releng.parent</relativePath>
-    <version>1.0.300-SNAPSHOT</version>
+    <version>1.0.400-SNAPSHOT</version>
   </parent>
 </project>

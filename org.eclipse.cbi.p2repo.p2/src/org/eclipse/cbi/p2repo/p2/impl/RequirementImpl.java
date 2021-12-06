@@ -1,9 +1,12 @@
 /**
  * Copyright (c) 2006-2009, Cloudsmith Inc.
- * The code, documentation and other materials contained herein have been
- * licensed under the Eclipse Public License - v 1.0 by the copyright holder
- * listed above, as the Initial Contributor under such license. The text of
- * such license is available at www.eclipse.org.
+ *
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.p2.impl;
 
@@ -17,8 +20,9 @@ import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object
- * '<em><b>Requirement</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Requirement</b></em>'.
+ * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
@@ -36,8 +40,8 @@ import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
 public class RequirementImpl extends MinimalEObjectImpl.Container implements Requirement {
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -45,7 +49,8 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 
 	/**
 	 * The cached value of the '{@link #getFilter() <em>Filter</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getFilter()
 	 * @generated
 	 * @ordered
@@ -53,9 +58,9 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	protected IMatchExpression<IInstallableUnit> filter;
 
 	/**
-	 * The default value of the '{@link #getMax() <em>Max</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * The default value of the '{@link #getMax() <em>Max</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getMax()
 	 * @generated
 	 * @ordered
@@ -63,9 +68,9 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	protected static final int MAX_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getMax() <em>Max</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * The cached value of the '{@link #getMax() <em>Max</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getMax()
 	 * @generated
 	 * @ordered
@@ -73,9 +78,9 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	protected int max = MAX_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getMin() <em>Min</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * The default value of the '{@link #getMin() <em>Min</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getMin()
 	 * @generated
 	 * @ordered
@@ -83,9 +88,9 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	protected static final int MIN_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getMin() <em>Min</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * The cached value of the '{@link #getMin() <em>Min</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getMin()
 	 * @generated
 	 * @ordered
@@ -94,7 +99,8 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 
 	/**
 	 * The cached value of the '{@link #getMatches() <em>Matches</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getMatches()
 	 * @generated
 	 * @ordered
@@ -103,7 +109,8 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 
 	/**
 	 * The default value of the '{@link #isGreedy() <em>Greedy</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isGreedy()
 	 * @generated
 	 * @ordered
@@ -111,10 +118,9 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	protected static final boolean GREEDY_EDEFAULT = true;
 
 	/**
-	 * The flag representing the value of the '{@link #isGreedy()
-	 * <em>Greedy</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 *
+	 * The flag representing the value of the '{@link #isGreedy() <em>Greedy</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isGreedy()
 	 * @generated
 	 * @ordered
@@ -123,7 +129,8 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 
 	/**
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getDescription()
 	 * @generated
 	 * @ordered
@@ -132,7 +139,8 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 
 	/**
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getDescription()
 	 * @generated
 	 * @ordered
@@ -140,7 +148,8 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	protected String description = DESCRIPTION_EDEFAULT;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected RequirementImpl() {
@@ -149,7 +158,8 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -172,7 +182,8 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -195,7 +206,8 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -225,7 +237,8 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -234,7 +247,8 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -263,7 +277,8 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -272,7 +287,8 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -281,7 +297,8 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -290,7 +307,8 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -299,7 +317,8 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -308,7 +327,8 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -317,7 +337,7 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */
@@ -327,7 +347,8 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setDescription(String newDescription) {
@@ -339,7 +360,8 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setFilter(IMatchExpression<IInstallableUnit> newFilter) {
@@ -350,7 +372,8 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setGreedy(boolean newGreedy) {
@@ -364,7 +387,8 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setMatches(IMatchExpression<IInstallableUnit> newMatches) {
@@ -375,7 +399,8 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setMax(int newMax) {
@@ -386,7 +411,8 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setMin(int newMin) {
@@ -397,7 +423,7 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 *
 	 * @generated NOT
 	 */

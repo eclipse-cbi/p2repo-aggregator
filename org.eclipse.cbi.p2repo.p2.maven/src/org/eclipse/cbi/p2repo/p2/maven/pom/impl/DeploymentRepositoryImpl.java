@@ -1,8 +1,12 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright (c) 2021 Eclipse contributors and others.
  *
- * $Id$
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.p2.maven.pom.impl;
 
@@ -11,11 +15,12 @@ import org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object
- * '<em><b>Deployment Repository</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Deployment Repository</b></em>'.
+ * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
@@ -29,10 +34,11 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentRepository {
+public class DeploymentRepositoryImpl extends MinimalEObjectImpl.Container implements DeploymentRepository {
 	/**
 	 * The default value of the '{@link #isUniqueVersion() <em>Unique Version</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isUniqueVersion()
 	 * @generated
 	 * @ordered
@@ -41,7 +47,8 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 
 	/**
 	 * The cached value of the '{@link #isUniqueVersion() <em>Unique Version</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isUniqueVersion()
 	 * @generated
 	 * @ordered
@@ -49,18 +56,18 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	protected boolean uniqueVersion = UNIQUE_VERSION_EDEFAULT;
 
 	/**
-	 * This is true if the Unique Version attribute has been set. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * This is true if the Unique Version attribute has been set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	protected boolean uniqueVersionESet;
 
 	/**
-	 * The default value of the '{@link #getId() <em>Id</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getId()
 	 * @generated
 	 * @ordered
@@ -68,9 +75,9 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	protected static final String ID_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getId()
 	 * @generated
 	 * @ordered
@@ -79,7 +86,8 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -88,7 +96,8 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -96,9 +105,9 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getUrl() <em>Url</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * The default value of the '{@link #getUrl() <em>Url</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getUrl()
 	 * @generated
 	 * @ordered
@@ -106,9 +115,9 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	protected static final String URL_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getUrl() <em>Url</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * The cached value of the '{@link #getUrl() <em>Url</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getUrl()
 	 * @generated
 	 * @ordered
@@ -117,7 +126,8 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 
 	/**
 	 * The default value of the '{@link #getLayout() <em>Layout</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getLayout()
 	 * @generated
 	 * @ordered
@@ -126,7 +136,8 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 
 	/**
 	 * The cached value of the '{@link #getLayout() <em>Layout</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getLayout()
 	 * @generated
 	 * @ordered
@@ -135,15 +146,16 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 
 	/**
 	 * This is true if the Layout attribute has been set.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	protected boolean layoutESet;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected DeploymentRepositoryImpl() {
@@ -151,7 +163,8 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -172,7 +185,8 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -193,7 +207,8 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -219,7 +234,8 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -245,7 +261,8 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -254,7 +271,8 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -263,7 +281,8 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -272,7 +291,8 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -281,7 +301,8 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -290,7 +311,8 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -299,7 +321,8 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -308,7 +331,8 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -320,7 +344,8 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -335,7 +360,8 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -348,7 +374,8 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -363,7 +390,8 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -375,7 +403,8 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -383,7 +412,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 		if (eIsProxy())
 			return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (uniqueVersion: ");
 		if (uniqueVersionESet)
 			result.append(uniqueVersion);
@@ -405,7 +434,8 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -420,7 +450,8 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -435,7 +466,8 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override

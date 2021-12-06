@@ -1,4 +1,12 @@
 /**
+ * Copyright (c) 2021 Eclipse contributors and others.
+ *
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.eclipse.cbi.p2repo.p2.maven.metadata.impl;
 
@@ -11,7 +19,7 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -28,7 +36,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class SnapshotVersionsTypeImpl extends EObjectImpl implements SnapshotVersionsType {
+public class SnapshotVersionsTypeImpl extends MinimalEObjectImpl.Container implements SnapshotVersionsType {
 	/**
 	 * The cached value of the '{@link #getSnapshotVersion() <em>Snapshot Version</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
