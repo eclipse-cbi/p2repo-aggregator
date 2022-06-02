@@ -10,6 +10,8 @@
  */
 package org.eclipse.cbi.p2repo.p2.provider;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
@@ -20,6 +22,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.edit.provider.ComposedImage;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -170,6 +173,16 @@ public class RequirementItemProvider extends ItemProviderAdapter implements IEdi
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected boolean shouldComposeCreationImage() {
+		return true;
+	}
+
+	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -208,7 +221,8 @@ public class RequirementItemProvider extends ItemProviderAdapter implements IEdi
 	 */
 	@Override
 	public String getText(Object object) {
-		IMatchExpression<IInstallableUnit> labelValue = ((Requirement) object).getFilter();
+		Requirement requirement = (Requirement) object;
+		IMatchExpression<IInstallableUnit> labelValue = requirement.getFilter();
 		String label = labelValue == null ? null : P2Utils.filterToString(labelValue);
 		return label == null || label.length() == 0 ? getString("_UI_Requirement_type")
 				: getString("_UI_Requirement_type") + " " + label;
@@ -236,6 +250,44 @@ public class RequirementItemProvider extends ItemProviderAdapter implements IEdi
 				return;
 		}
 		super.notifyChanged(notification);
+	}
+
+	@Override
+	protected Object overlayImage(Object object, Object image) {
+		Requirement requirement = (Requirement) object;
+		return getImage(super.overlayImage(object, image), requirement.getMin(), requirement.getMax(),
+				requirement.isGreedy());
+	}
+
+	public static Object getImage(Object baseImage, int min, int max, boolean greedy) {
+		if (max == 0) {
+			List<Object> images = new ArrayList<Object>(2);
+			images.add(baseImage);
+			images.add(P2EditPlugin.INSTANCE.getImage("full/ovr16/excluded"));
+			return new DecoratedImage(images);
+		}
+
+		if (min == 0) {
+			List<Object> images = new ArrayList<Object>(2);
+			images.add(baseImage);
+			images.add(P2EditPlugin.INSTANCE.getImage(greedy ? "full/ovr16/greedy" : "full/ovr16/optional")); //$NON-NLS-1$ //$NON-NLS-2$
+			return new DecoratedImage(images);
+		}
+
+		return baseImage;
+	}
+
+	private static final class DecoratedImage extends ComposedImage {
+		private DecoratedImage(Collection<?> images) {
+			super(images);
+		}
+
+		@Override
+		public List<Point> getDrawPoints(Size size) {
+			Point point = new Point();
+			point.x = size.width - 5;
+			return Arrays.asList(new Point[] { new Point(), point });
+		}
 	}
 
 }

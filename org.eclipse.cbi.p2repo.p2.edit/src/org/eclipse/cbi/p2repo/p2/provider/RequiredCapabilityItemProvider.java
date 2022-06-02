@@ -111,6 +111,16 @@ public class RequiredCapabilityItemProvider extends RequirementItemProvider {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected boolean shouldComposeCreationImage() {
+		return true;
+	}
+
+	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -132,13 +142,12 @@ public class RequiredCapabilityItemProvider extends RequirementItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((RequiredCapability) object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_RequiredCapability_type")
-				: getString("_UI_RequiredCapability_type") + " " + label;
+		RequiredCapability requiredCapability = (RequiredCapability) object;
+		return requiredCapability.toString();
 	}
 
 	/**

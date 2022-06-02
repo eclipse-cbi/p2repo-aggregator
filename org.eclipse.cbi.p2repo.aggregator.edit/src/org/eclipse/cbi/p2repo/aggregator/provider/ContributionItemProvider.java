@@ -369,6 +369,16 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected boolean shouldComposeCreationImage() {
+		return true;
+	}
+
+	/**
 	 * Allow adding children only if the contribution enabled
 	 */
 	@Override

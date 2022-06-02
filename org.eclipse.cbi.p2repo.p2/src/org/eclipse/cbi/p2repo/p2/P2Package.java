@@ -842,6 +842,35 @@ public interface P2Package extends EPackage {
 		EClass REQUIREMENT = eINSTANCE.getRequirement();
 
 		/**
+		 * The meta object literal for the '{@link org.eclipse.cbi.p2repo.p2.impl.RequiredPropertiesMatchImpl <em>Required Properties Match</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.cbi.p2repo.p2.impl.RequiredPropertiesMatchImpl
+		 * @see org.eclipse.cbi.p2repo.p2.impl.P2PackageImpl#getRequiredPropertiesMatch()
+		 * @since 1.1
+		 * @generated
+		 */
+		EClass REQUIRED_PROPERTIES_MATCH = eINSTANCE.getRequiredPropertiesMatch();
+
+		/**
+		 * The meta object literal for the '<em><b>Namespace</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @since 1.1
+		 * @generated
+		 */
+		EAttribute REQUIRED_PROPERTIES_MATCH__NAMESPACE = eINSTANCE.getRequiredPropertiesMatch_Namespace();
+
+		/**
+		 * The meta object literal for the '<em><b>Properties Match</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @since 1.1
+		 * @generated
+		 */
+		EAttribute REQUIRED_PROPERTIES_MATCH__PROPERTIES_MATCH = eINSTANCE.getRequiredPropertiesMatch_PropertiesMatch();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.cbi.p2repo.p2.impl.RequirementChangeImpl <em>Requirement Change</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1282,6 +1311,17 @@ public interface P2Package extends EPackage {
 		EDataType IARTIFACT_REQUEST_ARRAY = eINSTANCE.getIArtifactRequestArray();
 
 		/**
+		 * The meta object literal for the '<em>IFilter Expression</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.equinox.p2.metadata.expression.IFilterExpression
+		 * @see org.eclipse.cbi.p2repo.p2.impl.P2PackageImpl#getIFilterExpression()
+		 * @since 1.1
+		 * @generated
+		 */
+		EDataType IFILTER_EXPRESSION = eINSTANCE.getIFilterExpression();
+
+		/**
 		 * The meta object literal for the '<em>ITouchpoint Data Array</em>' data type.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1405,6 +1445,17 @@ public interface P2Package extends EPackage {
 		 * @generated
 		 */
 		EDataType FILE = eINSTANCE.getFile();
+
+		/**
+		 * The meta object literal for the '<em>Filter</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.equinox.p2.metadata.expression.IMatchExpression
+		 * @see org.eclipse.cbi.p2repo.p2.impl.P2PackageImpl#getFilter()
+		 * @since 1.1
+		 * @generated
+		 */
+		EDataType FILTER = eINSTANCE.getFilter();
 
 		/**
 		 * The meta object literal for the '<em>IArtifact Descriptor Array</em>' data type.
@@ -2073,7 +2124,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.cbi.p2repo.p2.impl.P2PackageImpl#getRequirementChange()
 	 * @generated
 	 */
-	int REQUIREMENT_CHANGE = 44;
+	int REQUIREMENT_CHANGE = 45;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.impl.TouchpointDataImpl <em>Touchpoint Data</em>}' class.
@@ -2083,7 +2134,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.cbi.p2repo.p2.impl.P2PackageImpl#getTouchpointData()
 	 * @generated
 	 */
-	int TOUCHPOINT_DATA = 47;
+	int TOUCHPOINT_DATA = 48;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.impl.TouchpointInstructionImpl <em>Touchpoint Instruction</em>}' class.
@@ -2093,7 +2144,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.cbi.p2repo.p2.impl.P2PackageImpl#getTouchpointInstruction()
 	 * @generated
 	 */
-	int TOUCHPOINT_INSTRUCTION = 48;
+	int TOUCHPOINT_INSTRUCTION = 49;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.impl.TouchpointTypeImpl <em>Touchpoint Type</em>}' class.
@@ -2103,7 +2154,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.cbi.p2repo.p2.impl.P2PackageImpl#getTouchpointType()
 	 * @generated
 	 */
-	int TOUCHPOINT_TYPE = 49;
+	int TOUCHPOINT_TYPE = 50;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.impl.UpdateDescriptorImpl <em>Update Descriptor</em>}' class.
@@ -2113,7 +2164,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.cbi.p2repo.p2.impl.P2PackageImpl#getUpdateDescriptor()
 	 * @generated
 	 */
-	int UPDATE_DESCRIPTOR = 50;
+	int UPDATE_DESCRIPTOR = 51;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.impl.PropertyImpl <em>Property</em>}' class.
@@ -4655,6 +4706,101 @@ public interface P2Package extends EPackage {
 	int REQUIRED_CAPABILITY_FEATURE_COUNT = REQUIREMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.impl.RequiredPropertiesMatchImpl <em>Required Properties Match</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.cbi.p2repo.p2.impl.RequiredPropertiesMatchImpl
+	 * @see org.eclipse.cbi.p2repo.p2.impl.P2PackageImpl#getRequiredPropertiesMatch()
+	 * @since 1.1
+	 * @generated
+	 */
+	int REQUIRED_PROPERTIES_MATCH = 44;
+
+	/**
+	 * The feature id for the '<em><b>Filter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIRED_PROPERTIES_MATCH__FILTER = REQUIREMENT__FILTER;
+
+	/**
+	 * The feature id for the '<em><b>Max</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIRED_PROPERTIES_MATCH__MAX = REQUIREMENT__MAX;
+
+	/**
+	 * The feature id for the '<em><b>Min</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIRED_PROPERTIES_MATCH__MIN = REQUIREMENT__MIN;
+
+	/**
+	 * The feature id for the '<em><b>Matches</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIRED_PROPERTIES_MATCH__MATCHES = REQUIREMENT__MATCHES;
+
+	/**
+	 * The feature id for the '<em><b>Greedy</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIRED_PROPERTIES_MATCH__GREEDY = REQUIREMENT__GREEDY;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIRED_PROPERTIES_MATCH__DESCRIPTION = REQUIREMENT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Namespace</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @since 1.1
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIRED_PROPERTIES_MATCH__NAMESPACE = REQUIREMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Properties Match</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @since 1.1
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIRED_PROPERTIES_MATCH__PROPERTIES_MATCH = REQUIREMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Required Properties Match</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @since 1.1
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIRED_PROPERTIES_MATCH_FEATURE_COUNT = REQUIREMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The feature id for the '<em><b>Apply On</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4689,7 +4835,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.cbi.p2repo.p2.impl.P2PackageImpl#getSimpleArtifactRepository()
 	 * @generated
 	 */
-	int SIMPLE_ARTIFACT_REPOSITORY = 45;
+	int SIMPLE_ARTIFACT_REPOSITORY = 46;
 
 	/**
 	 * The feature id for the '<em><b>Location</b></em>' attribute.
@@ -4807,7 +4953,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.cbi.p2repo.p2.impl.P2PackageImpl#getSimpleArtifactDescriptor()
 	 * @generated
 	 */
-	int SIMPLE_ARTIFACT_DESCRIPTOR = 46;
+	int SIMPLE_ARTIFACT_DESCRIPTOR = 47;
 
 	/**
 	 * The feature id for the '<em><b>Artifact Key</b></em>' reference.
@@ -4970,7 +5116,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.cbi.p2repo.p2.impl.P2PackageImpl#getVersion()
 	 * @generated
 	 */
-	int VERSION = 77;
+	int VERSION = 80;
 
 	/**
 	 * The meta object id for the '<em>Version Range</em>' data type.
@@ -4980,7 +5126,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.cbi.p2repo.p2.impl.P2PackageImpl#getVersionRange()
 	 * @generated
 	 */
-	int VERSION_RANGE = 78;
+	int VERSION_RANGE = 81;
 
 	/**
 	 * The meta object id for the '<em>IInstallable Unit Array</em>' data type.
@@ -4989,7 +5135,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.cbi.p2repo.p2.impl.P2PackageImpl#getIInstallableUnitArray()
 	 * @generated
 	 */
-	int IINSTALLABLE_UNIT_ARRAY = 57;
+	int IINSTALLABLE_UNIT_ARRAY = 60;
 
 	/**
 	 * The meta object id for the '<em>Collection</em>' data type.
@@ -4999,7 +5145,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.cbi.p2repo.p2.impl.P2PackageImpl#getCollection()
 	 * @generated
 	 */
-	int COLLECTION = 51;
+	int COLLECTION = 52;
 
 	/**
 	 * The meta object id for the '<em>IProvided Capability Array</em>' data type.
@@ -5008,7 +5154,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.cbi.p2repo.p2.impl.P2PackageImpl#getIProvidedCapabilityArray()
 	 * @generated
 	 */
-	int IPROVIDED_CAPABILITY_ARRAY = 63;
+	int IPROVIDED_CAPABILITY_ARRAY = 66;
 
 	/**
 	 * The meta object id for the '<em>IInstallable Unit Fragment Array</em>' data type.
@@ -5017,7 +5163,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.cbi.p2repo.p2.impl.P2PackageImpl#getIInstallableUnitFragmentArray()
 	 * @generated
 	 */
-	int IINSTALLABLE_UNIT_FRAGMENT_ARRAY = 58;
+	int IINSTALLABLE_UNIT_FRAGMENT_ARRAY = 61;
 
 	/**
 	 * The meta object id for the '<em>IArtifact Key Array</em>' data type.
@@ -5026,7 +5172,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.cbi.p2repo.p2.impl.P2PackageImpl#getIArtifactKeyArray()
 	 * @generated
 	 */
-	int IARTIFACT_KEY_ARRAY = 55;
+	int IARTIFACT_KEY_ARRAY = 57;
 
 	/**
 	 * The meta object id for the '<em>IArtifact Request Array</em>' data type.
@@ -5035,7 +5181,18 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.cbi.p2repo.p2.impl.P2PackageImpl#getIArtifactRequestArray()
 	 * @generated
 	 */
-	int IARTIFACT_REQUEST_ARRAY = 56;
+	int IARTIFACT_REQUEST_ARRAY = 58;
+
+	/**
+	 * The meta object id for the '<em>IFilter Expression</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.equinox.p2.metadata.expression.IFilterExpression
+	 * @see org.eclipse.cbi.p2repo.p2.impl.P2PackageImpl#getIFilterExpression()
+	 * @since 1.1
+	 * @generated
+	 */
+	int IFILTER_EXPRESSION = 59;
 
 	/**
 	 * The meta object id for the '<em>ITouchpoint Data Array</em>' data type.
@@ -5044,7 +5201,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.cbi.p2repo.p2.impl.P2PackageImpl#getITouchpointDataArray()
 	 * @generated
 	 */
-	int ITOUCHPOINT_DATA_ARRAY = 71;
+	int ITOUCHPOINT_DATA_ARRAY = 74;
 
 	/**
 	 * The meta object id for the '<em>IRequirement Array Array</em>' data type.
@@ -5053,7 +5210,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.cbi.p2repo.p2.impl.P2PackageImpl#getIRequirementArrayArray()
 	 * @generated
 	 */
-	int IREQUIREMENT_ARRAY_ARRAY = 65;
+	int IREQUIREMENT_ARRAY_ARRAY = 68;
 
 	/**
 	 * The meta object id for the '<em>IPool</em>' data type.
@@ -5063,7 +5220,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.cbi.p2repo.p2.impl.P2PackageImpl#getIPool()
 	 * @generated
 	 */
-	int IPOOL = 66;
+	int IPOOL = 69;
 
 	/**
 	 * The meta object id for the '<em>IProcessing Descriptor Array</em>' data type.
@@ -5072,7 +5229,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.cbi.p2repo.p2.impl.P2PackageImpl#getIProcessingDescriptorArray()
 	 * @generated
 	 */
-	int IPROCESSING_DESCRIPTOR_ARRAY = 67;
+	int IPROCESSING_DESCRIPTOR_ARRAY = 70;
 
 	/**
 	 * The meta object id for the '<em>String Array</em>' data type.
@@ -5081,7 +5238,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.cbi.p2repo.p2.impl.P2PackageImpl#getStringArray()
 	 * @generated
 	 */
-	int STRING_ARRAY = 74;
+	int STRING_ARRAY = 77;
 
 	/**
 	 * The meta object id for the '<em>Untyped Map</em>' data type.
@@ -5091,7 +5248,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.cbi.p2repo.p2.impl.P2PackageImpl#getUntypedMap()
 	 * @generated
 	 */
-	int UNTYPED_MAP = 75;
+	int UNTYPED_MAP = 78;
 
 	/**
 	 * The meta object id for the '<em>Map</em>' data type.
@@ -5101,7 +5258,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.cbi.p2repo.p2.impl.P2PackageImpl#getMap()
 	 * @generated
 	 */
-	int MAP = 72;
+	int MAP = 75;
 
 	/**
 	 * The meta object id for the '<em>Output Stream</em>' data type.
@@ -5111,7 +5268,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.cbi.p2repo.p2.impl.P2PackageImpl#getOutputStream()
 	 * @generated
 	 */
-	int OUTPUT_STREAM = 73;
+	int OUTPUT_STREAM = 76;
 
 	/**
 	 * The meta object id for the '<em>ILicense Array</em>' data type.
@@ -5120,7 +5277,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.cbi.p2repo.p2.impl.P2PackageImpl#getILicenseArray()
 	 * @generated
 	 */
-	int ILICENSE_ARRAY = 59;
+	int ILICENSE_ARRAY = 62;
 
 	/**
 	 * The meta object id for the '<em>IQuery Result</em>' data type.
@@ -5130,7 +5287,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.cbi.p2repo.p2.impl.P2PackageImpl#getIQueryResult()
 	 * @generated
 	 */
-	int IQUERY_RESULT = 62;
+	int IQUERY_RESULT = 65;
 
 	/**
 	 * The meta object id for the '<em>IQuery</em>' data type.
@@ -5140,7 +5297,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.cbi.p2repo.p2.impl.P2PackageImpl#getIQuery()
 	 * @generated
 	 */
-	int IQUERY = 61;
+	int IQUERY = 64;
 
 	/**
 	 * The meta object id for the '<em>Collector</em>' data type.
@@ -5150,7 +5307,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.cbi.p2repo.p2.impl.P2PackageImpl#getCollector()
 	 * @generated
 	 */
-	int COLLECTOR = 52;
+	int COLLECTOR = 53;
 
 	/**
 	 * The meta object id for the '<em>File</em>' data type.
@@ -5160,7 +5317,18 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.cbi.p2repo.p2.impl.P2PackageImpl#getFile()
 	 * @generated
 	 */
-	int FILE = 53;
+	int FILE = 54;
+
+	/**
+	 * The meta object id for the '<em>Filter</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.equinox.p2.metadata.expression.IMatchExpression
+	 * @see org.eclipse.cbi.p2repo.p2.impl.P2PackageImpl#getFilter()
+	 * @since 1.1
+	 * @generated
+	 */
+	int FILTER = 55;
 
 	/**
 	 * The meta object id for the '<em>IArtifact Descriptor Array</em>' data type.
@@ -5169,7 +5337,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.cbi.p2repo.p2.impl.P2PackageImpl#getIArtifactDescriptorArray()
 	 * @generated
 	 */
-	int IARTIFACT_DESCRIPTOR_ARRAY = 54;
+	int IARTIFACT_DESCRIPTOR_ARRAY = 56;
 
 	/**
 	 * The meta object id for the '<em>IProgress Monitor</em>' data type.
@@ -5179,7 +5347,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.cbi.p2repo.p2.impl.P2PackageImpl#getIProgressMonitor()
 	 * @generated
 	 */
-	int IPROGRESS_MONITOR = 68;
+	int IPROGRESS_MONITOR = 71;
 
 	/**
 	 * The meta object id for the '<em>IRunnable With Progress</em>' data type.
@@ -5189,7 +5357,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.cbi.p2repo.p2.impl.P2PackageImpl#getIRunnableWithProgress()
 	 * @generated
 	 */
-	int IRUNNABLE_WITH_PROGRESS = 69;
+	int IRUNNABLE_WITH_PROGRESS = 72;
 
 	/**
 	 * The meta object id for the '<em>IStatus</em>' data type.
@@ -5199,7 +5367,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.cbi.p2repo.p2.impl.P2PackageImpl#getIStatus()
 	 * @generated
 	 */
-	int ISTATUS = 70;
+	int ISTATUS = 73;
 
 	/**
 	 * The meta object id for the '<em>IMatch Expression</em>' data type.
@@ -5209,7 +5377,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.cbi.p2repo.p2.impl.P2PackageImpl#getIMatchExpression()
 	 * @generated
 	 */
-	int IMATCH_EXPRESSION = 60;
+	int IMATCH_EXPRESSION = 63;
 
 	/**
 	 * The meta object id for the '<em>IProvisioning Agent</em>' data type.
@@ -5219,7 +5387,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.cbi.p2repo.p2.impl.P2PackageImpl#getIProvisioningAgent()
 	 * @generated
 	 */
-	int IPROVISIONING_AGENT = 64;
+	int IPROVISIONING_AGENT = 67;
 
 	/**
 	 * The meta object id for the '<em>URI</em>' data type.
@@ -5229,7 +5397,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.cbi.p2repo.p2.impl.P2PackageImpl#getURI()
 	 * @generated
 	 */
-	int URI = 76;
+	int URI = 79;
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.cbi.p2repo.p2.ArtifactDescriptor <em>Artifact Descriptor</em>}'.
@@ -5383,6 +5551,20 @@ public interface P2Package extends EPackage {
 	EDataType getFile();
 
 	/**
+	 * Returns the meta object for data type '{@link org.eclipse.equinox.p2.metadata.expression.IMatchExpression <em>Filter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * @since 1.1
+	 * <!-- end-model-doc -->
+	 * @return the meta object for data type '<em>Filter</em>'.
+	 * @see org.eclipse.equinox.p2.metadata.expression.IMatchExpression
+	 * @model instanceClass="org.eclipse.equinox.p2.metadata.expression.IMatchExpression&lt;org.eclipse.equinox.p2.metadata.IInstallableUnit&gt;"
+	 * @generated
+	 */
+	EDataType getFilter();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.core.runtime.IAdaptable <em>IAdaptable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5499,6 +5681,20 @@ public interface P2Package extends EPackage {
 	 * @generated
 	 */
 	EDataType getIArtifactRequestArray();
+
+	/**
+	 * Returns the meta object for data type '{@link org.eclipse.equinox.p2.metadata.expression.IFilterExpression <em>IFilter Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * @since 1.1
+	 * <!-- end-model-doc -->
+	 * @return the meta object for data type '<em>IFilter Expression</em>'.
+	 * @see org.eclipse.equinox.p2.metadata.expression.IFilterExpression
+	 * @model instanceClass="org.eclipse.equinox.p2.metadata.expression.IFilterExpression"
+	 * @generated
+	 */
+	EDataType getIFilterExpression();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.equinox.p2.metadata.ICopyright <em>ICopyright</em>}'.
@@ -6822,6 +7018,41 @@ public interface P2Package extends EPackage {
 	 * @generated
 	 */
 	EClass getRequirement();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.cbi.p2repo.p2.RequiredPropertiesMatch <em>Required Properties Match</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Required Properties Match</em>'.
+	 * @see org.eclipse.cbi.p2repo.p2.RequiredPropertiesMatch
+	 * @since 1.1
+	 * @generated
+	 */
+	EClass getRequiredPropertiesMatch();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.p2.RequiredPropertiesMatch#getNamespace <em>Namespace</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Namespace</em>'.
+	 * @see org.eclipse.cbi.p2repo.p2.RequiredPropertiesMatch#getNamespace()
+	 * @see #getRequiredPropertiesMatch()
+	 * @since 1.1
+	 * @generated
+	 */
+	EAttribute getRequiredPropertiesMatch_Namespace();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.p2.RequiredPropertiesMatch#getPropertiesMatch <em>Properties Match</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Properties Match</em>'.
+	 * @see org.eclipse.cbi.p2repo.p2.RequiredPropertiesMatch#getPropertiesMatch()
+	 * @see #getRequiredPropertiesMatch()
+	 * @since 1.1
+	 * @generated
+	 */
+	EAttribute getRequiredPropertiesMatch_PropertiesMatch();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.cbi.p2repo.p2.RequirementChange <em>Requirement Change</em>}'.

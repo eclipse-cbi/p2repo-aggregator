@@ -51,6 +51,7 @@ import org.eclipse.cbi.p2repo.p2.impl.ProcessingStepDescriptorImpl;
 import org.eclipse.cbi.p2repo.p2.impl.ProvidedCapabilityImpl;
 import org.eclipse.cbi.p2repo.p2.impl.RepositoryImpl;
 import org.eclipse.cbi.p2repo.p2.impl.RequiredCapabilityImpl;
+import org.eclipse.cbi.p2repo.p2.impl.RequiredPropertiesMatchImpl;
 import org.eclipse.cbi.p2repo.p2.impl.RequirementChangeImpl;
 import org.eclipse.cbi.p2repo.p2.impl.RequirementImpl;
 import org.eclipse.cbi.p2repo.p2.impl.SimpleArtifactDescriptorImpl;
@@ -69,6 +70,7 @@ import org.eclipse.emf.common.util.EMap;
 import org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactDescriptor;
 import org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository;
 import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
+import org.eclipse.equinox.internal.p2.metadata.RequiredPropertiesMatch;
 import org.eclipse.equinox.p2.metadata.IArtifactKey;
 import org.eclipse.equinox.p2.metadata.ICopyright;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
@@ -83,6 +85,7 @@ import org.eclipse.equinox.p2.metadata.ITouchpointInstruction;
 import org.eclipse.equinox.p2.metadata.ITouchpointType;
 import org.eclipse.equinox.p2.metadata.IUpdateDescriptor;
 import org.eclipse.equinox.p2.metadata.expression.ExpressionUtil;
+import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
 import org.eclipse.equinox.p2.query.ExpressionMatchQuery;
 import org.eclipse.equinox.p2.query.IQuery;
 import org.eclipse.equinox.p2.query.IQueryResult;
@@ -463,6 +466,13 @@ public class P2Bridge {
 			mrc.setRange(rc.getRange());
 
 			mreq = mrc;
+		} else if (RequiredPropertiesMatch.isPropertiesMatchRequirement(req.getMatches())) {
+			IMatchExpression<IInstallableUnit> matches = req.getMatches();
+			RequiredPropertiesMatchImpl rpm = (RequiredPropertiesMatchImpl) P2Factory.eINSTANCE
+					.createRequiredPropertiesMatch();
+			rpm.setNamespace(RequiredPropertiesMatch.extractNamespace(matches));
+			rpm.setPropertiesMatch(RequiredPropertiesMatch.extractPropertiesMatch(matches));
+			mreq = rpm;
 		} else {
 			mreq = (RequirementImpl) P2Factory.eINSTANCE.createRequirement();
 			mreq.setMatches(req.getMatches());

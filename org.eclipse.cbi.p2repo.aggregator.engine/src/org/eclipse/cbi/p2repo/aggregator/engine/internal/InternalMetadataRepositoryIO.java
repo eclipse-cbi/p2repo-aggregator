@@ -431,7 +431,7 @@ public class InternalMetadataRepositoryIO extends MetadataRepositoryIO {
 		private IMetadataRepository theRepository = null;
 
 		public InternalParser(BundleContext context, String bundleId) {
-			super(context, bundleId);
+			super(bundleId);
 		}
 
 		@Override

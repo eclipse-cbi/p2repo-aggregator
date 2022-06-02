@@ -20,6 +20,7 @@ import org.eclipse.cbi.p2repo.aggregator.Configuration;
 import org.eclipse.cbi.p2repo.aggregator.Contact;
 import org.eclipse.cbi.p2repo.aggregator.Contribution;
 import org.eclipse.cbi.p2repo.aggregator.CustomCategory;
+import org.eclipse.cbi.p2repo.aggregator.Feature;
 import org.eclipse.cbi.p2repo.aggregator.InfosProvider;
 import org.eclipse.cbi.p2repo.aggregator.MappedRepository;
 import org.eclipse.cbi.p2repo.aggregator.MavenMapping;
@@ -1068,6 +1069,13 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 		for (MavenMapping mapping : getMavenMappings()) {
 			if ((statusCode = mapping.getStatus().getCode()) != StatusCode.OK && statusCode != StatusCode.WAITING)
 				return AggregatorFactory.eINSTANCE.createStatus(StatusCode.BROKEN);
+		}
+		for (CustomCategory customCategory : getCustomCategories()) {
+			for (Feature feature : customCategory.getFeatures()) {
+				if ((statusCode = feature.getStatus().getCode()) != StatusCode.OK && statusCode != StatusCode.WAITING) {
+					return AggregatorFactory.eINSTANCE.createStatus(StatusCode.BROKEN);
+				}
+			}
 		}
 		return AggregatorFactory.eINSTANCE.createStatus(StatusCode.OK);
 	}

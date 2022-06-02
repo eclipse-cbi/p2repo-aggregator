@@ -33,12 +33,15 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.equinox.internal.p2.director.QueryableArray;
+import org.eclipse.equinox.internal.p2.metadata.TranslationSupport;
 import org.eclipse.equinox.internal.p2.metadata.repository.CompositeMetadataRepository;
 import org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository;
 import org.eclipse.equinox.p2.core.IPool;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.query.IQuery;
 import org.eclipse.equinox.p2.query.IQueryResult;
+import org.eclipse.equinox.p2.query.IQueryable;
 import org.eclipse.equinox.p2.repository.IRepositoryReference;
 import org.eclipse.equinox.p2.repository.IRunnableWithProgress;
 import org.eclipse.equinox.p2.repository.metadata.IMetadataRepository;
@@ -92,6 +95,10 @@ public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> imp
 	 * @ordered
 	 */
 	protected EList<IRepositoryReference> references;
+
+	private IQueryable<IInstallableUnit> queryable;
+
+	private TranslationSupport translationSupport;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -289,13 +296,22 @@ public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public EList<IInstallableUnit> getInstallableUnits() {
 		if (installableUnits == null) {
 			installableUnits = new EObjectContainmentEList.Resolving<>(IInstallableUnit.class, this,
-					P2Package.METADATA_REPOSITORY__INSTALLABLE_UNITS);
+					P2Package.METADATA_REPOSITORY__INSTALLABLE_UNITS) {
+				private static final long serialVersionUID = 1L;
+
+				@Override
+				protected void didChange() {
+					queryable = null;
+					translationSupport = null;
+					super.didChange();
+				}
+			};
 		}
 		return installableUnits;
 	}
@@ -332,14 +348,23 @@ public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> imp
 		return location != null ? location : getLocationFromProxy();
 	}
 
+	public TranslationSupport getTranslationSupport() {
+		if (translationSupport == null) {
+			translationSupport = new TranslationSupport(this);
+		}
+		return translationSupport;
+	}
+
 	/**
-	 *
-	 *
 	 * @generated NOT
 	 */
 	@Override
 	public IQueryResult<IInstallableUnit> query(IQuery<IInstallableUnit> query, IProgressMonitor progress) {
-		return query.perform(getInstallableUnits().iterator());
+		if (queryable == null) {
+			EList<IInstallableUnit> installableUnits = getInstallableUnits();
+			queryable = new QueryableArray(installableUnits.toArray(new IInstallableUnit[installableUnits.size()]));
+		}
+		return queryable.query(query, progress);
 	}
 
 	/**

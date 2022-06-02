@@ -172,6 +172,16 @@ public interface P2Factory extends EFactory {
 	Requirement createRequirement();
 
 	/**
+	 * Returns a new object of class '<em>Required Properties Match</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Required Properties Match</em>'.
+	 * @since 1.1
+	 * @generated
+	 */
+	RequiredPropertiesMatch createRequiredPropertiesMatch();
+
+	/**
 	 * Returns a new object of class '<em>Requirement Change</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

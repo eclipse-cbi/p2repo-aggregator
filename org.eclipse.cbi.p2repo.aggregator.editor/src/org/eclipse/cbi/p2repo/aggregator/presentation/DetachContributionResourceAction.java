@@ -30,10 +30,9 @@ import org.eclipse.ui.PlatformUI;
  *
  */
 public class DetachContributionResourceAction extends ControlAction {
+	public static final String CONTRIBUTION_FILE_EXTENSION = "aggrcon";
 
 	protected static class DetachContributionResourceDialog extends ControlResourceDialog {
-
-		private static final String CONTRIBUTION_FILE_EXTENSION = "aggrcon";
 
 		private static final String UNTITLED_FILE_NAME = "untitled";
 

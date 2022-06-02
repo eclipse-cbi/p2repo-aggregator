@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ Copyright (c) 2021 Eclipse Foundation and others.
+ 
+ This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License 2.0
+ which accompanies this distribution, and is available at
+ https://www.eclipse.org/legal/epl-2.0/
+ 
+ SPDX-License-Identifier: EPL-2.0
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated AggregationAnalyzer -->
+      <package
+            uri="https://www.eclipse.org/cbi/p2repo/2021/aggregator/analyzer"
+            class="org.eclipse.cbi.p2repo.aggregator.analyzer.AnalyzerPackage"
+            genModel="model/AggregationAnalyzer.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated AggregationAnalyzer -->
+      <parser
+            type="aggran"
+            class="org.eclipse.cbi.p2repo.aggregator.analyzer.util.AnalyzerResourceFactoryImpl"/>
+   </extension>
+
+</plugin>

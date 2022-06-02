@@ -35,6 +35,7 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 import java.util.TimeZone;
+import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
@@ -84,6 +85,9 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.SubMonitor;
+import org.eclipse.emf.common.notify.Adapter;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
@@ -717,7 +721,7 @@ public class Builder extends ModelAbstractCommand {
 
 	public IFileArtifactRepository getAggregationArtifactRepository(IProgressMonitor monitor)
 			throws OperationCanceledException, CoreException {
-		if(aggregationAr != null) {
+		if (aggregationAr != null) {
 			MonitorUtils.complete(monitor);
 			return aggregationAr;
 		}
@@ -726,16 +730,14 @@ public class Builder extends ModelAbstractCommand {
 		File destination = new File(getBuildRoot(), REPO_FOLDER_FINAL);
 		File aggregateDestination = new File(destination, REPO_FOLDER_AGGREGATE);
 		URI aggregateURI = createURI(aggregateDestination);
-		Map<String, String> properties = new HashMap<String, String>();
-		properties.put(IRepository.PROP_COMPRESSED, Boolean.toString(true));
-		properties.put(Publisher.PUBLISH_PACK_FILES_AS_SIBLINGS, Boolean.toString(true));
 		try {
 			MonitorUtils.testCancelStatus(monitor);
 			aggregationAr = (IFileArtifactRepository) arMgr.loadRepository(aggregateURI, monitor);
-		}
-		catch(ProvisionException e) {
-			aggregationAr = (IFileArtifactRepository) arMgr.createRepository(
-				aggregateURI, getAggregation().getLabel() + " artifacts", SIMPLE_ARTIFACTS_TYPE, properties); //$NON-NLS-1$
+		} catch (ProvisionException e) {
+			Map<String, String> properties = Map.of(IRepository.PROP_COMPRESSED, Boolean.toString(true),
+					Publisher.PUBLISH_PACK_FILES_AS_SIBLINGS, Boolean.toString(true));
+			aggregationAr = (IFileArtifactRepository) arMgr.createRepository(aggregateURI,
+					getAggregation().getLabel() + " artifacts", SIMPLE_ARTIFACTS_TYPE, properties); //$NON-NLS-1$
 			MonitorUtils.complete(monitor);
 		}
 		return aggregationAr;
@@ -1137,7 +1139,7 @@ public class Builder extends ModelAbstractCommand {
 		return action == ActionType.VALIDATE;
 	}
 
-	private void loadAllMappedRepositories() throws CoreException {
+	private void loadAllMappedRepositories(IProgressMonitor monitor) throws CoreException {
 		LogUtils.info("Loading all repositories");
 
 		Set<MetadataRepositoryReference> repositoriesToLoad = new HashSet<MetadataRepositoryReference>();
@@ -1145,13 +1147,33 @@ public class Builder extends ModelAbstractCommand {
 		Aggregation aggregation = getAggregation();
 		ResourceSet topSet = ((EObject) aggregation).eResource().getResourceSet();
 		// first, set up asynchronous loading jobs so that the repos are loaded in parallel
-		for(MetadataRepositoryReference repo : aggregation.getAllMetadataRepositoryReferences(true)) {
+		EList<MetadataRepositoryReference> allMetadataRepositoryReferences = aggregation
+				.getAllMetadataRepositoryReferences(true);
+		SubMonitor subMonitor = SubMonitor.convert(monitor, allMetadataRepositoryReferences.size());
+		ConcurrentLinkedQueue<org.eclipse.emf.common.util.URI> uris = new ConcurrentLinkedQueue<>();
+		for (MetadataRepositoryReference repo : allMetadataRepositoryReferences) {
 			org.eclipse.emf.common.util.URI repoURI = org.eclipse.emf.common.util.URI.createGenericURI(
 				"p2aggr", repo.getNature() + ":" + repo.getResolvedLocation(), null);
+			uris.add(repoURI);
 			P2ResourceImpl res = (P2ResourceImpl) topSet.getResource(repoURI, false);
 			if(res == null)
 				res = (P2ResourceImpl) topSet.createResource(repoURI);
 			res.startAsynchronousLoad();
+			EList<Adapter> eAdapters = res.eAdapters();
+			eAdapters.add(new AdapterImpl() {
+				@Override
+				public void notifyChanged(Notification msg) {
+					if (msg.getFeatureID(null) == Resource.RESOURCE__IS_LOADED) {
+						eAdapters.remove(this);
+						subMonitor.worked(1);
+						uris.remove(repoURI);
+						org.eclipse.emf.common.util.URI remaining = uris.peek();
+						if (remaining != null) {
+							subMonitor.subTask("Waiting for " + remaining);
+						}
+					}
+				}
+			});
 			repositoriesToLoad.add(repo);
 		}
 
@@ -1609,13 +1631,13 @@ public class Builder extends ModelAbstractCommand {
 				ticks = 50;
 				break;
 			case VALIDATE:
-				ticks = 200;
+				ticks = 300;
 				break;
 			case BUILD:
-				ticks = 2150;
+				ticks = 2250;
 				break;
 			default:
-				ticks = 2200;
+				ticks = 2300;
 		}
 		SubMonitor subMon = SubMonitor.convert(monitor, ticks);
 		try {
@@ -1690,7 +1712,7 @@ public class Builder extends ModelAbstractCommand {
 				P2Utils.ungetProfileRegistry(provisioningAgent, profileRegistry);
 			}
 
-			loadAllMappedRepositories();
+			loadAllMappedRepositories(subMon.newChild(100));
 
 			// we generate the verification IUs in a separate loop
 			// to detect non p2 related problems early

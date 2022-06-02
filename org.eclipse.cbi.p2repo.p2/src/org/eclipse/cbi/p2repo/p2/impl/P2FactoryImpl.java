@@ -13,7 +13,9 @@ package org.eclipse.cbi.p2repo.p2.impl;
 //import java.net.URI;
 import java.io.File;
 import java.io.OutputStream;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 
 import org.eclipse.cbi.p2repo.p2.ArtifactDescriptor;
@@ -32,6 +34,7 @@ import org.eclipse.cbi.p2repo.p2.ProcessingStepDescriptor;
 import org.eclipse.cbi.p2repo.p2.ProvidedCapability;
 import org.eclipse.cbi.p2repo.p2.RepositoryReference;
 import org.eclipse.cbi.p2repo.p2.RequiredCapability;
+import org.eclipse.cbi.p2repo.p2.RequiredPropertiesMatch;
 import org.eclipse.cbi.p2repo.p2.Requirement;
 import org.eclipse.cbi.p2repo.p2.RequirementChange;
 import org.eclipse.cbi.p2repo.p2.SimpleArtifactDescriptor;
@@ -61,6 +64,10 @@ import org.eclipse.equinox.p2.metadata.ITouchpointData;
 import org.eclipse.equinox.p2.metadata.ITouchpointInstruction;
 import org.eclipse.equinox.p2.metadata.Version;
 import org.eclipse.equinox.p2.metadata.VersionRange;
+import org.eclipse.equinox.p2.metadata.expression.ExpressionUtil;
+import org.eclipse.equinox.p2.metadata.expression.IExpression;
+import org.eclipse.equinox.p2.metadata.expression.IExpressionFactory;
+import org.eclipse.equinox.p2.metadata.expression.IFilterExpression;
 import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
 import org.eclipse.equinox.p2.query.IQueryResult;
 import org.eclipse.equinox.p2.repository.IRunnableWithProgress;
@@ -137,6 +144,27 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @since 1.1
+	 * @generated NOT
+	 */
+	public IMatchExpression<IInstallableUnit> createFilterFromString(EDataType eDataType, String initialValue) {
+		return initialValue == null ? null
+				: org.eclipse.equinox.internal.p2.metadata.InstallableUnit.parseFilter(initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @since 1.1
+	 * @generated NOT
+	 */
+	public String convertFilterToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : ((IMatchExpression<?>) instanceValue).getParameters()[0].toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String convertIArtifactDescriptorArrayToString(EDataType eDataType, Object instanceValue) {
@@ -159,6 +187,26 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	 */
 	public String convertIArtifactRequestArrayToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @since 1.1
+	 * @generated NOT
+	 */
+	public IFilterExpression createIFilterExpressionFromString(EDataType eDataType, String initialValue) {
+		return initialValue == null ? null : ExpressionUtil.parseLDAP(initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @since 1.1
+	 * @generated NOT
+	 */
+	public String convertIFilterExpressionToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
 	}
 
 	/**
@@ -189,12 +237,24 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	}
 
 	/**
-	 *
-	 *
 	 * @generated NOT
 	 */
 	public String convertIMatchExpressionToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue != null ? instanceValue.toString() : null;
+		if (instanceValue == null) {
+			return null;
+		}
+
+		IMatchExpression<?> match = (IMatchExpression<?>) instanceValue;
+		IExpression operand = ExpressionUtil.getOperand(match);
+		Object[] parameters = match.getParameters();
+		IExpression[] expressions = new IExpression[parameters.length + 1];
+		expressions[0] = operand;
+		IExpressionFactory factory = ExpressionUtil.getFactory();
+		for (int i = 0; i < parameters.length; ++i) {
+			expressions[i + 1] = factory.constant(parameters[i]);
+		}
+
+		return factory.array(expressions).toString();
 	}
 
 	/**
@@ -308,12 +368,16 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 				return convertCollectionToString(eDataType, instanceValue);
 			case P2Package.FILE:
 				return convertFileToString(eDataType, instanceValue);
+			case P2Package.FILTER:
+				return convertFilterToString(eDataType, instanceValue);
 			case P2Package.IARTIFACT_DESCRIPTOR_ARRAY:
 				return convertIArtifactDescriptorArrayToString(eDataType, instanceValue);
 			case P2Package.IARTIFACT_KEY_ARRAY:
 				return convertIArtifactKeyArrayToString(eDataType, instanceValue);
 			case P2Package.IARTIFACT_REQUEST_ARRAY:
 				return convertIArtifactRequestArrayToString(eDataType, instanceValue);
+			case P2Package.IFILTER_EXPRESSION:
+				return convertIFilterExpressionToString(eDataType, instanceValue);
 			case P2Package.IINSTALLABLE_UNIT_ARRAY:
 				return convertIInstallableUnitArrayToString(eDataType, instanceValue);
 			case P2Package.IINSTALLABLE_UNIT_FRAGMENT_ARRAY:
@@ -440,6 +504,8 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 				return (EObject) createRequiredCapability();
 			case P2Package.REQUIREMENT:
 				return (EObject) createRequirement();
+			case P2Package.REQUIRED_PROPERTIES_MATCH:
+				return (EObject) createRequiredPropertiesMatch();
 			case P2Package.REQUIREMENT_CHANGE:
 				return (EObject) createRequirementChange();
 			case P2Package.SIMPLE_ARTIFACT_REPOSITORY:
@@ -543,12 +609,16 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 				return createCollectionFromString(eDataType, initialValue);
 			case P2Package.FILE:
 				return createFileFromString(eDataType, initialValue);
+			case P2Package.FILTER:
+				return createFilterFromString(eDataType, initialValue);
 			case P2Package.IARTIFACT_DESCRIPTOR_ARRAY:
 				return createIArtifactDescriptorArrayFromString(eDataType, initialValue);
 			case P2Package.IARTIFACT_KEY_ARRAY:
 				return createIArtifactKeyArrayFromString(eDataType, initialValue);
 			case P2Package.IARTIFACT_REQUEST_ARRAY:
 				return createIArtifactRequestArrayFromString(eDataType, initialValue);
+			case P2Package.IFILTER_EXPRESSION:
+				return createIFilterExpressionFromString(eDataType, initialValue);
 			case P2Package.IINSTALLABLE_UNIT_ARRAY:
 				return createIInstallableUnitArrayFromString(eDataType, initialValue);
 			case P2Package.IINSTALLABLE_UNIT_FRAGMENT_ARRAY:
@@ -649,12 +719,16 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	}
 
 	/**
-	 *
-	 *
 	 * @generated NOT
 	 */
 	public IMatchExpression<?> createIMatchExpressionFromString(EDataType eDataType, String initialValue) {
-		throw new UnsupportedOperationException();
+		if (initialValue == null) {
+			return null;
+		}
+
+		List<IExpression> expressions = Arrays.asList(ExpressionUtil.getOperands(ExpressionUtil.parse(initialValue)));
+		IExpressionFactory factory = ExpressionUtil.getFactory();
+		return factory.matchExpression(expressions.get(0), expressions.subList(1, expressions.size()).toArray());
 	}
 
 	/**
@@ -901,6 +975,18 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	public Requirement createRequirement() {
 		RequirementImpl requirement = new RequirementImpl();
 		return requirement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @since 1.1
+	 * @generated
+	 */
+	@Override
+	public RequiredPropertiesMatch createRequiredPropertiesMatch() {
+		RequiredPropertiesMatchImpl requiredPropertiesMatch = new RequiredPropertiesMatchImpl();
+		return requiredPropertiesMatch;
 	}
 
 	/**

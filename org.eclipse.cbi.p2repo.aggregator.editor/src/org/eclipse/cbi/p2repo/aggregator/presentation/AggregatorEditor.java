@@ -26,10 +26,8 @@ import java.util.Set;
 import java.util.regex.Pattern;
 
 import org.eclipse.cbi.p2repo.aggregator.Aggregation;
+import org.eclipse.cbi.p2repo.aggregator.Contribution;
 import org.eclipse.cbi.p2repo.aggregator.MetadataRepositoryReference;
-import org.eclipse.cbi.p2repo.aggregator.p2.provider.MetadataRepositoryItemProvider;
-import org.eclipse.cbi.p2repo.aggregator.p2.provider.ProvidedCapabilityItemProvider;
-import org.eclipse.cbi.p2repo.aggregator.p2.provider.RequiredCapabilityItemProvider;
 import org.eclipse.cbi.p2repo.aggregator.p2.util.MetadataRepositoryResourceImpl;
 import org.eclipse.cbi.p2repo.aggregator.p2view.MetadataRepositoryStructuredView;
 import org.eclipse.cbi.p2repo.aggregator.p2view.P2viewFactory;
@@ -44,7 +42,6 @@ import org.eclipse.cbi.p2repo.aggregator.util.AggregatorResourceImpl;
 import org.eclipse.cbi.p2repo.aggregator.util.ResourceDiagnosticImpl;
 import org.eclipse.cbi.p2repo.aggregator.util.ResourceUtils;
 import org.eclipse.cbi.p2repo.aggregator.util.StatusProviderAdapterFactory;
-import org.eclipse.cbi.p2repo.p2.provider.P2ItemProviderAdapterFactory;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IResource;
@@ -58,8 +55,10 @@ import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
+import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.common.command.BasicCommandStack;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandStack;
@@ -68,6 +67,7 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.ui.MarkerHelper;
+import org.eclipse.emf.common.ui.URIEditorInput;
 import org.eclipse.emf.common.ui.celleditor.ExtendedDialogCellEditor;
 import org.eclipse.emf.common.ui.editor.ProblemEditorPart;
 import org.eclipse.emf.common.ui.viewer.IViewerProvider;
@@ -109,6 +109,7 @@ import org.eclipse.emf.edit.ui.provider.PropertySource;
 import org.eclipse.emf.edit.ui.provider.UnwrappingSelectionProvider;
 import org.eclipse.emf.edit.ui.util.EditUIMarkerHelper;
 import org.eclipse.emf.edit.ui.util.EditUIUtil;
+import org.eclipse.emf.edit.ui.util.IRevertablePart;
 import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 import org.eclipse.equinox.p2.metadata.VersionRange;
 import org.eclipse.jface.action.IMenuListener;
@@ -128,6 +129,7 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.StructuredViewer;
@@ -158,8 +160,11 @@ import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.IPartListener;
+import org.eclipse.ui.IWorkbench;
+import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 import org.eclipse.ui.contexts.IContextActivation;
 import org.eclipse.ui.contexts.IContextService;
@@ -183,8 +188,8 @@ import org.eclipse.ui.views.properties.PropertySheetPage;
  * @generated
  */
 @SuppressWarnings("unused")
-public class AggregatorEditor extends MultiPageEditorPart
-		implements IEditingDomainProvider, ISelectionProvider, IMenuListener, IViewerProvider, IGotoMarker {
+public class AggregatorEditor extends MultiPageEditorPart implements IEditingDomainProvider, ISelectionProvider,
+		IMenuListener, IViewerProvider, IGotoMarker, IRevertablePart {
 
 	static class MDRComparator implements Comparator<MetadataRepositoryReference> {
 		@Override
@@ -315,67 +320,6 @@ public class AggregatorEditor extends MultiPageEditorPart
 					monitor.done();
 			}
 		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public class ReverseAdapterFactoryContentProvider extends AdapterFactoryContentProvider {
-
-		/**
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		public ReverseAdapterFactoryContentProvider(AdapterFactory adapterFactory) {
-			super(adapterFactory);
-		}
-
-		/**
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		@Override
-		public Object[] getChildren(Object object) {
-			Object parent = super.getParent(object);
-			return (parent == null ? Collections.EMPTY_SET : Collections.singleton(parent)).toArray();
-		}
-
-		/**
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		@Override
-		public Object[] getElements(Object object) {
-			Object parent = super.getParent(object);
-			return (parent == null ? Collections.EMPTY_SET : Collections.singleton(parent)).toArray();
-		}
-
-		/**
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		@Override
-		public Object getParent(Object object) {
-			return null;
-		}
-
-		/**
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		@Override
-		public boolean hasChildren(Object object) {
-			Object parent = super.getParent(object);
-			return parent != null;
-		}
-
 	}
 
 	public static final String AGGREGATOR_EDITOR_ID = "org.eclipse.cbi.p2repo.aggregator.presentation.AggregatorEditorID";
@@ -715,7 +659,6 @@ public class AggregatorEditor extends MultiPageEditorPart
 
 		private void updateMarkers() {
 			Runnable runnable = new Runnable() {
-
 				@Override
 				public void run() {
 					synchronized (AggregatorEditor.this) {
@@ -1012,14 +955,16 @@ public class AggregatorEditor extends MultiPageEditorPart
 		URI resourceURI = EditUIUtil.getURI(getEditorInput());
 		Exception exception = null;
 		Resource resource = null;
-		if (ResourceUtils.isCurrentModel(resourceURI))
+		ResourceSet resourceSet = editingDomain.getResourceSet();
+		if (ResourceUtils.isCurrentModel(resourceURI)
+				|| DetachContributionResourceAction.CONTRIBUTION_FILE_EXTENSION.equals(resourceURI.fileExtension()))
 			try {
 				// Load the resource through the editing domain.
 				//
-				resource = editingDomain.getResourceSet().getResource(resourceURI, true);
+				resource = resourceSet.getResource(resourceURI, true);
 			} catch (Exception e) {
 				exception = e;
-				resource = editingDomain.getResourceSet().getResource(resourceURI, false);
+				resource = resourceSet.getResource(resourceURI, false);
 			}
 		else {
 			TransformationWizard tz = new TransformationWizard(resourceURI);
@@ -1030,7 +975,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 
 			if (wd.open() == 0) {
 				resource = tz.getTargetResource();
-				editingDomain.getResourceSet().getResources().add(resource);
+				resourceSet.getResources().add(resource);
 
 				IFile modelFile = tz.getModelFile();
 				setPartName(modelFile.getName());
@@ -1038,31 +983,63 @@ public class AggregatorEditor extends MultiPageEditorPart
 			} else {
 				throw new RuntimeException("Deprecated resource was not transformed");
 			}
+
+			// initialize all repositories
+			resourceURI = EditUIUtil.getURI(getEditorInput());
+			resource = resourceSet.getResource(resourceURI, false);
 		}
 
 		Diagnostic diagnostic = analyzeResourceProblems(resource, exception);
 		if (diagnostic.getSeverity() != Diagnostic.OK) {
 			resourceToDiagnosticMap.put(resource, diagnostic);
 		}
-		editingDomain.getResourceSet().eAdapters().add(problemIndicationAdapter);
-
-		// initialize all repositories
-		resourceURI = EditUIUtil.getURI(getEditorInput());
-		resource = editingDomain.getResourceSet().getResource(resourceURI, false);
 
 		if (resource == null)
 			return;
-
-		// make sure detached resources are resolved
-		EcoreUtil.resolveAll(resource);
 
 		EList<EObject> contents = resource.getContents();
 		if (contents.size() != 1)
 			return;
 
+		// make sure detached resources are resolved
+		EcoreUtil.resolveAll(resource);
+
 		EObject obj = contents.get(0);
+
+		if (obj instanceof Contribution) {
+			for (Resource otherResource : new ArrayList<>(resourceSet.getResources())) {
+				URI uri = otherResource.getURI();
+				EList<EObject> otherResourceContents = otherResource.getContents();
+				if (contents.size() == 1) {
+					EObject eObject = otherResourceContents.get(0);
+					if (eObject instanceof Aggregation) {
+						try {
+							IEditorPart editor = openEditor(eObject);
+							if (editor instanceof AggregatorEditor) {
+								getContainer().getDisplay().asyncExec(() -> {
+									URI objURI = EcoreUtil.getURI(obj);
+									AggregatorEditor aggregatorEditor = (AggregatorEditor) editor;
+									EObject otherContribution = aggregatorEditor.getEditingDomain().getResourceSet()
+											.getEObject(objURI, true);
+									aggregatorEditor.setSelectionToViewer(Collections.singleton(otherContribution));
+									aggregatorEditor.selectionViewer.expandToLevel(otherContribution, 2);
+									getEditorSite().getPage().closeEditor(this, false);
+								});
+							}
+						} catch (PartInitException e) {
+							AggregatorEditorPlugin.INSTANCE.log(exception);
+						}
+					}
+				}
+			}
+		}
+
 		if (!(obj instanceof Aggregation))
 			return;
+
+		EcoreUtil.resolveAll(resourceSet);
+
+		resourceSet.eAdapters().add(problemIndicationAdapter);
 
 		Aggregation aggregation = (Aggregation) obj;
 		repositoryBrowser = P2viewFactory.eINSTANCE.createRepositoryBrowser(aggregation);
@@ -1088,6 +1065,16 @@ public class AggregatorEditor extends MultiPageEditorPart
 	public void createPages() {
 		createPagesGen();
 
+		Runnable showPropertiesView = () -> {
+			try {
+				getEditorSite().getPage().showView("org.eclipse.ui.views.PropertySheet", null,
+						IWorkbenchPage.VIEW_VISIBLE);
+			} catch (PartInitException exception) {
+				AggregatorEditorPlugin.INSTANCE.log(exception);
+			}
+		};
+		showPropertiesView.run();
+
 		selectionViewer.addDoubleClickListener(new IDoubleClickListener() {
 
 			@Override
@@ -1098,6 +1085,8 @@ public class AggregatorEditor extends MultiPageEditorPart
 					selectionViewer.collapseToLevel(path, 1);
 				else
 					selectionViewer.expandToLevel(path, 1);
+
+				showPropertiesView.run();
 			}
 
 		});
@@ -1116,11 +1105,11 @@ public class AggregatorEditor extends MultiPageEditorPart
 				String toolTipText = null;
 
 				if (item != null && item.getData() != null) {
+					Object unwrappedData = AdapterFactoryEditingDomain.unwrap(item.getData());
 					IEditingDomainItemProvider provider = (IEditingDomainItemProvider) adapterFactory
-							.getRootAdapterFactory().adapt(item.getData(), IEditingDomainItemProvider.class);
-
-					if (provider != null && provider instanceof TooltipTextProvider)
-						toolTipText = ((TooltipTextProvider) provider).getTooltipText(item.getData());
+							.getRootAdapterFactory().adapt(unwrappedData, IEditingDomainItemProvider.class);
+					if (provider instanceof TooltipTextProvider)
+						toolTipText = ((TooltipTextProvider) provider).getTooltipText(unwrappedData);
 				}
 
 				selectionViewer.getTree().setToolTipText(toolTipText);
@@ -1531,6 +1520,65 @@ public class AggregatorEditor extends MultiPageEditorPart
 		return editingDomain;
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public class ReverseAdapterFactoryContentProvider extends AdapterFactoryContentProvider {
+		/**
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public ReverseAdapterFactoryContentProvider(AdapterFactory adapterFactory) {
+			super(adapterFactory);
+		}
+
+		/**
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		@Override
+		public Object[] getElements(Object object) {
+			Object parent = super.getParent(object);
+			return (parent == null ? Collections.EMPTY_SET : Collections.singleton(parent)).toArray();
+		}
+
+		/**
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		@Override
+		public Object[] getChildren(Object object) {
+			Object parent = super.getParent(object);
+			return (parent == null ? Collections.EMPTY_SET : Collections.singleton(parent)).toArray();
+		}
+
+		/**
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		@Override
+		public boolean hasChildren(Object object) {
+			Object parent = super.getParent(object);
+			return parent != null;
+		}
+
+		/**
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		@Override
+		public Object getParent(Object object) {
+			return null;
+		}
+	}
+
 	private String getLabelPrefix(String location) {
 		if (location != null) {
 			URI uri = URI.createURI(location);
@@ -1816,7 +1864,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void hideTabs() {
+	protected void hideTabsGen() {
 		if (getPageCount() <= 1) {
 			setPageText(0, "");
 			if (getContainer() instanceof CTabFolder) {
@@ -1824,6 +1872,15 @@ public class AggregatorEditor extends MultiPageEditorPart
 				Rectangle clientArea = getContainer().getClientArea();
 				getContainer().setSize(point.x, 2 * point.y - clientArea.height - clientArea.y);
 			}
+		}
+	}
+
+	protected void hideTabs() {
+		hideTabsGen();
+		Object[] elements = ((ITreeContentProvider) selectionViewer.getContentProvider())
+				.getElements(selectionViewer.getInput());
+		if (elements.length != 0 && elements[0] instanceof Aggregation) {
+			selectionViewer.setSelection(new StructuredSelection(elements[0]));
 		}
 	}
 
@@ -1859,6 +1916,17 @@ public class AggregatorEditor extends MultiPageEditorPart
 			// Present only the main resource and loaded MDR's (not detached contributions)
 			@Override
 			public Adapter createResourceSetAdapter() {
+				AdapterFactoryItemDelegator adapterFactoryItemDelegator = new AdapterFactoryItemDelegator(
+						adapterFactory);
+				Comparator<String> stringComparator = CommonPlugin.INSTANCE.getComparator();
+				Comparator<Object> objectComparator = new Comparator<>() {
+					@Override
+					public int compare(Object o1, Object o2) {
+						return stringComparator.compare(adapterFactoryItemDelegator.getText(o1),
+								adapterFactoryItemDelegator.getText(o2));
+					}
+				};
+
 				return new ResourceSetItemProvider(this) {
 					@Override
 					public Collection<?> getChildren(Object object) {
@@ -1866,29 +1934,29 @@ public class AggregatorEditor extends MultiPageEditorPart
 
 						Aggregation aggregation = null;
 						List<Object> filtered = new ArrayList<>();
+						List<Object> others = new ArrayList<>();
 						List<Resource> resources = new ArrayList<>(resourceSet.getResources());
 						for (Resource resource : resources) {
 							if (resource instanceof AggregatorResource) {
 								EList<EObject> contents = resource.getContents();
 								if (contents.size() == 1) {
 									EObject obj = resource.getContents().get(0);
-									if (obj instanceof Aggregation)
+									if (obj instanceof Aggregation) {
 										filtered.add(obj);
+									} else {
+										others.add(obj);
+									}
 								}
 							}
 						}
-						filtered.add(repositoryBrowser);
 
-						for (Resource resource : resources) {
-							if (resource instanceof AggregatorResource) {
-								EList<EObject> contents = resource.getContents();
-								if (contents.size() == 1) {
-									EObject obj = resource.getContents().get(0);
-									if (!(obj instanceof Aggregation))
-										filtered.add(obj);
-								}
-							}
+						if (repositoryBrowser != null) {
+							filtered.add(repositoryBrowser);
 						}
+
+						others.sort(objectComparator);
+						filtered.addAll(others);
+
 						return filtered;
 					}
 				};
@@ -1899,36 +1967,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 		adapterFactory.addAdapterFactory(new AggregatorItemProviderAdapterFactory());
 
 		// override item providers that should be more specific to aggregator
-		adapterFactory.addAdapterFactory(new P2ItemProviderAdapterFactory() {
-
-			@Override
-			public Adapter createMetadataRepositoryAdapter() {
-				if (metadataRepositoryItemProvider == null) {
-					metadataRepositoryItemProvider = new MetadataRepositoryItemProvider(this);
-				}
-
-				return metadataRepositoryItemProvider;
-			}
-
-			@Override
-			public Adapter createProvidedCapabilityAdapter() {
-				if (providedCapabilityItemProvider == null) {
-					providedCapabilityItemProvider = new ProvidedCapabilityItemProvider(this);
-				}
-
-				return providedCapabilityItemProvider;
-			}
-
-			@Override
-			public Adapter createRequiredCapabilityAdapter() {
-				if (requiredCapabilityItemProvider == null) {
-					requiredCapabilityItemProvider = new RequiredCapabilityItemProvider(this);
-				}
-
-				return requiredCapabilityItemProvider;
-			}
-
-		});
+		adapterFactory.addAdapterFactory(new P2viewItemProviderAdapterFactory());
 
 		adapterFactory.addAdapterFactory(new P2viewItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
@@ -2033,6 +2072,66 @@ public class AggregatorEditor extends MultiPageEditorPart
 	@Override
 	public boolean isDirty() {
 		return ((BasicCommandStack) editingDomain.getCommandStack()).isSaveNeeded();
+	}
+
+	/**
+	 * This is for implementing {@link IRevertablePart}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void doRevert() {
+		ResourceSet resourceSet = editingDomain.getResourceSet();
+		List<Resource> resources = resourceSet.getResources();
+		List<Resource> unloadedResources = new ArrayList<>();
+		updateProblemIndication = false;
+		for (int i = 0; i < resources.size(); ++i) {
+			Resource resource = resources.get(i);
+			if (resource.isLoaded() && isPersisted(resource)) {
+				resource.unload();
+				unloadedResources.add(resource);
+			}
+		}
+
+		resourceToDiagnosticMap.clear();
+		for (Resource resource : unloadedResources) {
+			try {
+				resource.load(resourceSet.getLoadOptions());
+			} catch (IOException exception) {
+				if (!resourceToDiagnosticMap.containsKey(resource)) {
+					resourceToDiagnosticMap.put(resource, analyzeResourceProblems(resource, exception));
+				}
+			}
+		}
+
+		editingDomain.getCommandStack().flush();
+
+		if (AdapterFactoryEditingDomain.isStale(editorSelection)) {
+			setSelection(StructuredSelection.EMPTY);
+		}
+
+		for (Resource resource : unloadedResources) {
+			if (resource instanceof AggregatorResourceImpl) {
+				EList<EObject> contents = resource.getContents();
+				if (contents.size() == 1 && contents.get(0) instanceof Aggregation) {
+					AggregatorResourceImpl aggregatorResource = (AggregatorResourceImpl) resource;
+					aggregatorResource.analyzeResource();
+					break;
+				}
+			}
+		}
+
+		for (Resource resource : resources) {
+			if (resource instanceof MetadataRepositoryResourceImpl) {
+				((MetadataRepositoryResourceImpl) resource).startAsynchronousLoad(false);
+			}
+		}
+
+		selectionViewer.setInput(selectionViewer.getInput());
+
+		updateProblemIndication = true;
+		updateProblemIndication();
 	}
 
 	protected boolean isPersisted(Resource resource) {
@@ -2319,6 +2418,35 @@ public class AggregatorEditor extends MultiPageEditorPart
 				}
 			}
 		}
+	}
+
+	private IEditorPart openEditor(EObject eObject) throws PartInitException {
+		if (eObject != null) {
+			Resource resource = eObject.eResource();
+			if (resource != null) {
+				URI uri = resource.getURI();
+				if (uri != null) {
+					IEditorInput editorInput = null;
+					if (uri.isPlatformResource()) {
+						String path = uri.toPlatformString(true);
+						IResource workspaceResource = ResourcesPlugin.getWorkspace().getRoot()
+								.findMember(new Path(path));
+						if (workspaceResource instanceof IFile) {
+							editorInput = new FileEditorInput((IFile) workspaceResource);
+						}
+					} else {
+						editorInput = new URIEditorInput(uri);
+					}
+					if (editorInput != null) {
+						IWorkbench workbench = PlatformUI.getWorkbench();
+						IWorkbenchPage page = workbench.getActiveWorkbenchWindow().getActivePage();
+						IEditorPart editorPart = page.openEditor(editorInput, getEditorSite().getId());
+						return editorPart;
+					}
+				}
+			}
+		}
+		return null;
 	}
 
 }

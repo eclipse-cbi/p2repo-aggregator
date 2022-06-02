@@ -166,6 +166,9 @@ public class InstallableUnitItemProvider extends ItemProviderAdapter implements 
 		newChildDescriptors.add(createChildParameter(P2Package.Literals.IINSTALLABLE_UNIT__META_REQUIREMENTS,
 				P2Factory.eINSTANCE.createRequiredCapability()));
 
+		newChildDescriptors.add(createChildParameter(P2Package.Literals.IINSTALLABLE_UNIT__META_REQUIREMENTS,
+				P2Factory.eINSTANCE.createRequiredPropertiesMatch()));
+
 		newChildDescriptors.add(createChildParameter(P2Package.Literals.IINSTALLABLE_UNIT__PROVIDED_CAPABILITIES,
 				P2Factory.eINSTANCE.createProvidedCapability()));
 
@@ -174,6 +177,9 @@ public class InstallableUnitItemProvider extends ItemProviderAdapter implements 
 
 		newChildDescriptors.add(createChildParameter(P2Package.Literals.IINSTALLABLE_UNIT__REQUIREMENTS,
 				P2Factory.eINSTANCE.createRequiredCapability()));
+
+		newChildDescriptors.add(createChildParameter(P2Package.Literals.IINSTALLABLE_UNIT__REQUIREMENTS,
+				P2Factory.eINSTANCE.createRequiredPropertiesMatch()));
 
 		newChildDescriptors.add(createChildParameter(P2Package.Literals.IINSTALLABLE_UNIT__TOUCHPOINT_DATA,
 				P2Factory.eINSTANCE.createTouchpointData()));
@@ -259,6 +265,16 @@ public class InstallableUnitItemProvider extends ItemProviderAdapter implements 
 	@Override
 	public Object getImage(Object object) {
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/InstallableUnit"));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected boolean shouldComposeCreationImage() {
+		return true;
 	}
 
 	/**
