@@ -45,7 +45,19 @@
    </extension>
 
    <extension point="org.eclipse.ui.editors">
-      <!-- @generated Aggregator -->
+      <editor
+            id="org.eclipse.cbi.p2repo.aggregator.presentation.AggregatorEditorID"
+            name="%_UI_AggregatorEditor_label"
+            icon="platform:/plugin/org.eclipse.cbi.p2repo.aggregator.edit/icons/full/obj16/Contribution.gif"
+            extensions="aggrcon"
+            class="org.eclipse.cbi.p2repo.aggregator.presentation.AggregatorEditor"
+            contributorClass="org.eclipse.cbi.p2repo.aggregator.presentation.AggregatorActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated Aggregator NOT -->
+      <!--
       <editor
             id="org.eclipse.cbi.p2repo.aggregator.p2view.presentation.P2viewEditorID"
             name="%_UI_P2viewEditor_label"
@@ -54,6 +66,7 @@
             class="org.eclipse.cbi.p2repo.aggregator.p2view.presentation.P2viewEditor"
             contributorClass="org.eclipse.cbi.p2repo.aggregator.p2view.presentation.P2viewActionBarContributor">
       </editor>
+      -->
    </extension>
 
    <extension

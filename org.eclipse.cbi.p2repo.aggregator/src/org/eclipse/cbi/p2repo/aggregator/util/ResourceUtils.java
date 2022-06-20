@@ -12,7 +12,6 @@
 package org.eclipse.cbi.p2repo.aggregator.util;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
@@ -33,6 +32,7 @@ import org.eclipse.cbi.p2repo.cli.HeadlessActivator;
 import org.eclipse.cbi.p2repo.p2.MetadataRepository;
 import org.eclipse.cbi.p2repo.util.ExceptionUtils;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -134,16 +134,19 @@ public class ResourceUtils {
 		if(resourceSet == null)
 			return null;
 
-		List<Resource> resources = new ArrayList<Resource>(resourceSet.getResources());
-		Resource aggregatorResource = null;
-		for(Resource resource : resources)
-			if(resource instanceof AggregatorResourceImpl) {
-				aggregatorResource = resource;
-				break;
+		List<Resource> resources = resourceSet.getResources();
+		for (int i = 0, size = resources.size(); i < size; ++i) {
+			Resource resource = resources.get(i);
+			EList<EObject> contents = resource.getContents();
+			if (contents.size() == 1) {
+				EObject eObject = contents.get(0);
+				if (eObject instanceof Aggregation) {
+					return (Aggregation) eObject;
+				}
 			}
-		return aggregatorResource == null
-				? null
-				: (Aggregation) aggregatorResource.getContents().get(0);
+		}
+
+		return null;
 	}
 
 	/**

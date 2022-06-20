@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2006-2016, Cloudsmith Inc. and others&#xA;&#xA;This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License 2.0&#xA;which accompanies this distribution, and is available at&#xA;https://www.eclipse.org/legal/epl-2.0/&#xA;&#xA;SPDX-License-Identifier: EPL-2.0&#xA;"
-    modelDirectory="/org.eclipse.cbi.p2repo.p2/src" editorDirectory="" modelPluginID="org.eclipse.cbi.p2repo.p2"
-    forceOverwrite="true" modelName="P2" rootExtendsInterface="" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    modelDirectory="/org.eclipse.cbi.p2repo.p2/src" creationIcons="false" editorDirectory=""
+    modelPluginID="org.eclipse.cbi.p2repo.p2" forceOverwrite="true" modelName="P2"
+    rootExtendsInterface="" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     codeFormatting="true" testsDirectory="" booleanFlagsField="eFlags" importerID="org.eclipse.emf.importer.ecore"
     containmentProxies="true" complianceLevel="11.0" copyrightFields="false" packedEnums="true"
     importOrganizing="true" cleanup="true">
@@ -14,9 +15,11 @@
     </genDataTypes>
     <genDataTypes ecoreDataType="p2.ecore#//Collector"/>
     <genDataTypes ecoreDataType="p2.ecore#//File"/>
+    <genDataTypes ecoreDataType="p2.ecore#//Filter"/>
     <genDataTypes ecoreDataType="p2.ecore#//IArtifactDescriptorArray"/>
     <genDataTypes ecoreDataType="p2.ecore#//IArtifactKeyArray"/>
     <genDataTypes ecoreDataType="p2.ecore#//IArtifactRequestArray"/>
+    <genDataTypes ecoreDataType="p2.ecore#//IFilterExpression"/>
     <genDataTypes ecoreDataType="p2.ecore#//IInstallableUnitArray"/>
     <genDataTypes ecoreDataType="p2.ecore#//IInstallableUnitFragmentArray"/>
     <genDataTypes ecoreDataType="p2.ecore#//ILicenseArray"/>
@@ -441,6 +444,10 @@
     <genClasses ecoreClass="p2.ecore#//RepositoryReference"/>
     <genClasses ecoreClass="p2.ecore#//RequiredCapability"/>
     <genClasses ecoreClass="p2.ecore#//Requirement"/>
+    <genClasses ecoreClass="p2.ecore#//RequiredPropertiesMatch">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//RequiredPropertiesMatch/namespace"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//RequiredPropertiesMatch/propertiesMatch"/>
+    </genClasses>
     <genClasses ecoreClass="p2.ecore#//RequirementChange"/>
     <genClasses ecoreClass="p2.ecore#//SimpleArtifactRepository">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference p2.ecore#//SimpleArtifactRepository/rules"/>

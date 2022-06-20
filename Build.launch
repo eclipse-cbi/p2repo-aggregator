@@ -8,6 +8,6 @@
         <listEntry value="org.eclipse.ui.externaltools.launchGroup"/>
     </listAttribute>
     <stringAttribute key="org.eclipse.ui.externaltools.ATTR_LOCATION" value="${maven.build.command}"/>
-    <stringAttribute key="org.eclipse.ui.externaltools.ATTR_TOOL_ARGUMENTS" value="-DDskipTests=true&#13;&#10;-DDtycho.debug.resolver=true&#13;&#10;-DxGENERATE_SOURCE=true&#13;&#10;-DxBUILD_TYPE=milestone&#13;&#10;-DxunqualifiedVersion=1.0.400&#13;&#10;-DxbuildQualifier=v${current_date}&#13;&#10;-DX&#13;&#10;-DU&#13;&#10;clean&#13;&#10;verify"/>
+    <stringAttribute key="org.eclipse.ui.externaltools.ATTR_TOOL_ARGUMENTS" value="-DDskipTests=true&#13;&#10;-DDtycho.debug.resolver=true&#13;&#10;-Dbuild.type=nightly&#13;&#10;-DX&#13;&#10;-DU&#13;&#10;-Dpromote=true&#13;&#10;-Dorg.eclipse.justj.p2.manager.args=&quot;-remote localhost:${project_loc:/org.eclipse.cbi.p2repo.releng.parent}/repository&quot;&#13;&#10;-Dorg.eclipse.justj.p2.manager.relative=&quot;&quot;&#13;&#10;clean&#13;&#10;verify"/>
     <stringAttribute key="org.eclipse.ui.externaltools.ATTR_WORKING_DIRECTORY" value="${project_loc:/org.eclipse.cbi.p2repo.releng.parent}"/>
 </launchConfiguration>

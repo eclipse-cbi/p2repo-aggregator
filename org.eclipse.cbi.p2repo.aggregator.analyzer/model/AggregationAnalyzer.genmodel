@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2022 Eclipse Foundation and others.&#xA;&#xA;This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License 2.0&#xA;which accompanies this distribution, and is available at&#xA;https://www.eclipse.org/legal/epl-2.0/&#xA;&#xA;SPDX-License-Identifier: EPL-2.0"
+    modelDirectory="/org.eclipse.cbi.p2repo.aggregator.analyzer/src" creationIcons="false"
+    modelPluginID="org.eclipse.cbi.p2repo.aggregator.analyzer" modelName="AggregationAnalyzer"
+    modelPluginClass="org.eclipse.cbi.p2repo.aggregator.analyzer.AggregationAnalyzerPlugin"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" codeFormatting="true"
+    testsDirectory="" booleanFlagsField="eFlags" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="11.0" copyrightFields="false" providerRootExtendsClass="org.eclipse.cbi.p2repo.aggregator.analyzer.provider.AnalyzerItemProviderAdapter"
+    colorProviders="true" packedEnums="true" usedGenPackages="../../org.eclipse.cbi.p2repo.aggregator/model/Aggregator.genmodel#//aggregator ../../org.eclipse.cbi.p2repo.p2/model/p2.genmodel#//p2"
+    importOrganizing="true" decoration="Live" cleanup="true" modelDocumentation="A model used for analyzing the dependencies between the contributions of an aggregation."
+    autoResizeProperties="true" autoExpandProperties="1" findAction="true" expandAllAction="true"
+    collapseAllAction="true" revertAction="true">
+  <foreignModel>AggregationAnalyzer.ecore</foreignModel>
+  <genPackages prefix="Analyzer" basePackage="org.eclipse.cbi.p2repo.aggregator" resource="XMI"
+      disposableProviderFactory="true" multipleEditorPages="false" fileExtensions="aggran"
+      ecorePackage="AggregationAnalyzer.ecore#/">
+    <genDataTypes ecoreDataType="AggregationAnalyzer.ecore#//Pattern"/>
+    <genDataTypes ecoreDataType="AggregationAnalyzer.ecore#//URI" create="return it == null ? null : &lt;%org.eclipse.emf.common.util.URI%>.createURI(it);"
+        convert="return it == null ? null : it.toString();"/>
+    <genDataTypes ecoreDataType="AggregationAnalyzer.ecore#//Date"/>
+    <genClasses ecoreClass="AggregationAnalyzer.ecore#//Analysis">
+      <genFeatures createChild="false" propertyDescription="The date of the next scheduled release"
+          ecoreFeature="ecore:EAttribute AggregationAnalyzer.ecore#//Analysis/releaseDate"/>
+      <genFeatures createChild="false" propertyDescription="A pattern that maches all installable units that will be omitted from analysis"
+          ecoreFeature="ecore:EAttribute AggregationAnalyzer.ecore#//Analysis/exclusion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AggregationAnalyzer.ecore#//Analysis/levels"/>
+      <genFeatures property="Readonly" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference AggregationAnalyzer.ecore#//Analysis/aggregation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AggregationAnalyzer.ecore#//Analysis/contributions"/>
+      <genOperations ecoreOperation="AggregationAnalyzer.ecore#//Analysis/reconcile"/>
+    </genClasses>
+    <genClasses ecoreClass="AggregationAnalyzer.ecore#//ContributionAnalysis">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AggregationAnalyzer.ecore#//ContributionAnalysis/label"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AggregationAnalyzer.ecore#//ContributionAnalysis/dominant"/>
+      <genFeatures createChild="false" propertyDescription="A pattern that matches all installable unit to be included in the group"
+          ecoreFeature="ecore:EAttribute AggregationAnalyzer.ecore#//ContributionAnalysis/match"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AggregationAnalyzer.ecore#//ContributionAnalysis/lastModified"/>
+      <genFeatures property="Readonly" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference AggregationAnalyzer.ecore#//ContributionAnalysis/contribution"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AggregationAnalyzer.ecore#//ContributionAnalysis/installableUnits"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AggregationAnalyzer.ecore#//ContributionAnalysis/projects"/>
+    </genClasses>
+    <genClasses ecoreClass="AggregationAnalyzer.ecore#//InstallableUnitAnalysis">
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference AggregationAnalyzer.ecore#//InstallableUnitAnalysis/contribution"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference AggregationAnalyzer.ecore#//InstallableUnitAnalysis/installableUnit"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AggregationAnalyzer.ecore#//InstallableUnitAnalysis/requirements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AggregationAnalyzer.ecore#//InstallableUnitAnalysis/capabilities"/>
+    </genClasses>
+    <genClasses ecoreClass="AggregationAnalyzer.ecore#//RequirementAnalysis">
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference AggregationAnalyzer.ecore#//RequirementAnalysis/installableUnit"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference AggregationAnalyzer.ecore#//RequirementAnalysis/requirement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AggregationAnalyzer.ecore#//RequirementAnalysis/resolutions"/>
+    </genClasses>
+    <genClasses ecoreClass="AggregationAnalyzer.ecore#//RequirementResolution">
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference AggregationAnalyzer.ecore#//RequirementResolution/requirement"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference AggregationAnalyzer.ecore#//RequirementResolution/installableUnit"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference AggregationAnalyzer.ecore#//RequirementResolution/capability"/>
+    </genClasses>
+    <genClasses ecoreClass="AggregationAnalyzer.ecore#//CapabilityAnalysis">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference AggregationAnalyzer.ecore#//CapabilityAnalysis/installableUnit"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference AggregationAnalyzer.ecore#//CapabilityAnalysis/capability"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AggregationAnalyzer.ecore#//CapabilityAnalysis/resolutions"/>
+    </genClasses>
+    <genClasses ecoreClass="AggregationAnalyzer.ecore#//CapabilityResolution">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference AggregationAnalyzer.ecore#//CapabilityResolution/capability"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference AggregationAnalyzer.ecore#//CapabilityResolution/requirement"/>
+    </genClasses>
+    <genClasses ecoreClass="AggregationAnalyzer.ecore#//Project">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AggregationAnalyzer.ecore#//Project/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AggregationAnalyzer.ecore#//Project/site"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AggregationAnalyzer.ecore#//Project/version"/>
+      <genFeatures createChild="false" propertyDescription="The date of the version release"
+          ecoreFeature="ecore:EAttribute AggregationAnalyzer.ecore#//Project/releaseDate"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference AggregationAnalyzer.ecore#//Project/contribution"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference AggregationAnalyzer.ecore#//Project/parent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AggregationAnalyzer.ecore#//Project/repositories"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AggregationAnalyzer.ecore#//Project/subprojects"/>
+    </genClasses>
+    <genClasses ecoreClass="AggregationAnalyzer.ecore#//GitRepository">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AggregationAnalyzer.ecore#//GitRepository/uRI"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AggregationAnalyzer.ecore#//GitRepository/lastModified"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference AggregationAnalyzer.ecore#//GitRepository/project"/>
+    </genClasses>
+  </genPackages>
+  <codeStyle>SwitchMissingDefaultCase</codeStyle>
+  <codeStyle>UnnecessaryDeprecatedMethod</codeStyle>
+</genmodel:GenModel>

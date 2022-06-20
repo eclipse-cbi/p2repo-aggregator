@@ -88,6 +88,16 @@ public class CategoryItemProvider extends MappedUnitItemProvider {
 				+ (!((Category) object).isBranchDisabledOrMappedRepositoryBroken() ? "" : "Disabled")));
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected boolean shouldComposeCreationImage() {
+		return true;
+	}
+
 	@Override
 	protected IQuery<IInstallableUnit> getInstallableUnitQuery() {
 		return QueryUtil.createIUCategoryQuery();

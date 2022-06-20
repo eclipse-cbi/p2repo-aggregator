@@ -28,6 +28,7 @@ import org.eclipse.cbi.p2repo.p2.ProvidedCapability;
 import org.eclipse.cbi.p2repo.p2.Repository;
 import org.eclipse.cbi.p2repo.p2.RepositoryReference;
 import org.eclipse.cbi.p2repo.p2.RequiredCapability;
+import org.eclipse.cbi.p2repo.p2.RequiredPropertiesMatch;
 import org.eclipse.cbi.p2repo.p2.Requirement;
 import org.eclipse.cbi.p2repo.p2.RequirementChange;
 import org.eclipse.cbi.p2repo.p2.SimpleArtifactDescriptor;
@@ -671,6 +672,22 @@ public class P2Switch<T1> extends Switch<T1> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Required Properties Match</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Required Properties Match</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @since 1.1
+	 * @generated
+	 */
+	public T1 caseRequiredPropertiesMatch(RequiredPropertiesMatch object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Requirement Change</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1208,6 +1225,17 @@ public class P2Switch<T1> extends Switch<T1> {
 				T1 result = caseRequirement(requirement);
 				if (result == null)
 					result = caseIRequirement(requirement);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case P2Package.REQUIRED_PROPERTIES_MATCH: {
+				RequiredPropertiesMatch requiredPropertiesMatch = (RequiredPropertiesMatch) theEObject;
+				T1 result = caseRequiredPropertiesMatch(requiredPropertiesMatch);
+				if (result == null)
+					result = caseRequirement(requiredPropertiesMatch);
+				if (result == null)
+					result = caseIRequirement(requiredPropertiesMatch);
 				if (result == null)
 					result = defaultCase(theEObject);
 				return result;

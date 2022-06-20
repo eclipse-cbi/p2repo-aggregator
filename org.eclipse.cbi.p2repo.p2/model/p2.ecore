@@ -205,11 +205,8 @@
         eType="#//IArtifactKey" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="copyright" eType="#//ICopyright"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="filter" defaultValueLiteral="">
-      <eGenericType eClassifier="#//IMatchExpression">
-        <eTypeArguments eClassifier="#//IInstallableUnit"/>
-      </eGenericType>
-    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="filter" eType="#//Filter"
+        defaultValueLiteral=""/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="fragments" upperBound="-1"
         eType="#//IInstallableUnitFragment"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="licenses" upperBound="-1"
@@ -383,11 +380,7 @@
     <eOperations name="isMatch" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="installableUnit" eType="#//IInstallableUnit"/>
     </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="filter">
-      <eGenericType eClassifier="#//IMatchExpression">
-        <eTypeArguments eClassifier="#//IInstallableUnit"/>
-      </eGenericType>
-    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="filter" eType="#//Filter"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="max" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="min" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="matches">
@@ -495,6 +488,13 @@
   <eClassifiers xsi:type="ecore:EClass" name="RepositoryReference" eSuperTypes="#//IRepositoryReference"/>
   <eClassifiers xsi:type="ecore:EClass" name="RequiredCapability" eSuperTypes="#//Requirement #//IRequiredCapability"/>
   <eClassifiers xsi:type="ecore:EClass" name="Requirement" eSuperTypes="#//IRequirement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RequiredPropertiesMatch" eSuperTypes="#//Requirement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="@since 1.1"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="namespace" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="propertiesMatch" eType="#//IFilterExpression"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RequirementChange" eSuperTypes="#//IRequirementChange"/>
   <eClassifiers xsi:type="ecore:EClass" name="SimpleArtifactRepository" eSuperTypes="#//ArtifactRepository #//IFileArtifactRepository">
     <eStructuralFeatures xsi:type="ecore:EReference" name="rules" upperBound="-1"
@@ -526,9 +526,19 @@
   <eClassifiers xsi:type="ecore:EDataType" name="Collector" instanceClassName="org.eclipse.equinox.p2.query.Collector"
       serializable="false"/>
   <eClassifiers xsi:type="ecore:EDataType" name="File" instanceClassName="java.io.File"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="Filter" instanceTypeName="org.eclipse.equinox.p2.metadata.expression.IMatchExpression&lt;org.eclipse.equinox.p2.metadata.IInstallableUnit>">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="@since 1.1"/>
+    </eAnnotations>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="IArtifactDescriptorArray" instanceClassName="org.eclipse.equinox.p2.repository.artifact.IArtifactDescriptor[]"/>
   <eClassifiers xsi:type="ecore:EDataType" name="IArtifactKeyArray" instanceClassName="org.eclipse.equinox.p2.metadata.IArtifactKey[]"/>
   <eClassifiers xsi:type="ecore:EDataType" name="IArtifactRequestArray" instanceClassName="org.eclipse.equinox.p2.repository.artifact.IArtifactRequest[]"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="IFilterExpression" instanceClassName="org.eclipse.equinox.p2.metadata.expression.IFilterExpression">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="@since 1.1"/>
+    </eAnnotations>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="IInstallableUnitArray" instanceClassName="org.eclipse.equinox.p2.metadata.IInstallableUnit[]"/>
   <eClassifiers xsi:type="ecore:EDataType" name="IInstallableUnitFragmentArray" instanceClassName="org.eclipse.equinox.p2.metadata.IInstallableUnitFragment[]"/>
   <eClassifiers xsi:type="ecore:EDataType" name="ILicenseArray" instanceClassName="org.eclipse.equinox.p2.metadata.ILicense[]"/>

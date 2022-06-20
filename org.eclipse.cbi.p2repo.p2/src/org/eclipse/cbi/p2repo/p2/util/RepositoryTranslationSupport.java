@@ -11,6 +11,7 @@
 
 package org.eclipse.cbi.p2repo.p2.util;
 
+import org.eclipse.cbi.p2repo.p2.impl.MetadataRepositoryImpl;
 import org.eclipse.equinox.internal.p2.metadata.TranslationSupport;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.query.IQueryable;
@@ -22,6 +23,9 @@ import org.eclipse.equinox.p2.query.IQueryable;
 public class RepositoryTranslationSupport extends TranslationSupport {
 
 	public static TranslationSupport getInstance(IQueryable<IInstallableUnit> mdr) {
+		if (mdr instanceof MetadataRepositoryImpl) {
+			return ((MetadataRepositoryImpl) mdr).getTranslationSupport();
+		}
 		return new RepositoryTranslationSupport(mdr);
 	}
 

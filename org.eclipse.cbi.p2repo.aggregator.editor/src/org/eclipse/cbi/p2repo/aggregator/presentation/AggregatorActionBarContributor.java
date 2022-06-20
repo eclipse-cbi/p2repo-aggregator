@@ -84,10 +84,13 @@ import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.emf.edit.ui.action.CollapseAllAction;
 import org.eclipse.emf.edit.ui.action.CreateChildAction;
 import org.eclipse.emf.edit.ui.action.CreateSiblingAction;
 import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
+import org.eclipse.emf.edit.ui.action.ExpandAllAction;
 import org.eclipse.emf.edit.ui.action.LoadResourceAction;
+import org.eclipse.emf.edit.ui.action.RevertAction;
 import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
 import org.eclipse.equinox.app.IApplication;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
@@ -133,7 +136,10 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeItem;
 import org.eclipse.ui.IEditorPart;
+import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.progress.IProgressService;
 import org.xml.sax.SAXException;
 
 /**
@@ -229,9 +235,11 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 			switch (actionType) {
 				case CLEAN:
 					txt = "Clean Aggregation";
+					imageURLPath = "full/obj16/clean_task.gif";
 					break;
 				case VALIDATE:
 					txt = "Validate Aggregation";
+					imageURLPath = "full/obj16/validate_task.gif";
 					break;
 				case BUILD:
 					txt = "Build Aggregation";
@@ -260,7 +268,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 			}
 
 			if (saveModel()) {
-				new Job("CBI Aggregator") {
+				Job job = new Job("CBI Aggregator") {
 					{
 						setUser(true);
 						setPriority(Job.LONG);
@@ -305,7 +313,14 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 						return Status.OK_STATUS;
 					}
 
-				}.schedule();
+				};
+
+				job.schedule();
+				if (actionType == ActionType.VALIDATE) {
+					IWorkbench workbench = PlatformUI.getWorkbench();
+					IProgressService progressService = workbench.getProgressService();
+					progressService.showInDialog(null, job);
+				}
 			}
 
 		}
@@ -928,10 +943,14 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 		verifyRepoAction = new BuildAggregationAction(ActionType.VALIDATE);
 		buildRepoAction = new BuildAggregationAction(ActionType.BUILD);
 		cleanBuildRepoAction = new BuildAggregationAction(ActionType.CLEAN_BUILD);
+		revertAction = new RevertAction();
+		expandAllAction = new ExpandAllAction();
+		collapseAllAction = new CollapseAllAction();
 	}
 
 	@Override
 	protected void addGlobalActions(IMenuManager menuManager) {
+		menuManager.insertBefore("additions", new Separator());
 		menuManager.insertBefore("additions", new ActionContributionItem(cleanRepoAction));
 		menuManager.insertBefore("additions", new ActionContributionItem(verifyRepoAction));
 		menuManager.insertBefore("additions", new ActionContributionItem(buildRepoAction));
@@ -1151,7 +1170,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 		if (activeEditorPart == null || !(activeEditorPart instanceof IEditingDomainProvider))
 			return null;
 
-		if (lastActiveEditorPart == activeEditorPart)
+		if (lastActiveEditorPart == activeEditorPart && (aggregation == null || !((EObject) aggregation).eIsProxy()))
 			return aggregation;
 
 		lastActiveEditorPart = activeEditorPart;
@@ -1159,14 +1178,17 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 		IEditingDomainProvider edProvider = (IEditingDomainProvider) activeEditorPart;
 
 		List<Resource> resources = new ArrayList<>(edProvider.getEditingDomain().getResourceSet().getResources());
-		Resource aggregatorResource = null;
 		for (Resource resource : resources)
 			if (resource instanceof AggregatorResourceImpl) {
-				aggregatorResource = resource;
-				break;
+				EList<EObject> contents = resource.getContents();
+				if (contents.size() == 1) {
+					EObject eObject = contents.get(0);
+					if (eObject instanceof Aggregation) {
+						return aggregation = (Aggregation) eObject;
+					}
+				}
 			}
-		return aggregation = (aggregatorResource == null ? null
-				: (Aggregation) aggregatorResource.getContents().get(0));
+		return aggregation = null;
 	}
 
 	@Override
@@ -1199,6 +1221,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 		addToParentRepositoryActions = generateAddToParentRepositoryAction(lastSelection);
 		addToCustomCategoriesActions = generateAddToCustomCategoryActions(lastSelection);
 
+		menuManager.insertBefore("edit", new Separator());
 		if (addToParentRepositoryActions != null && addToParentRepositoryActions.size() > 0)
 			if (addToParentRepositoryActions.size() == 1) {
 				IAction action = addToParentRepositoryActions.get(0);

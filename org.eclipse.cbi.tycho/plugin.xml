@@ -19,7 +19,7 @@
          point="org.eclipse.ui.commands">
       <command
             id="org.eclipse.cbi.tycho.generateCategoryAndPom"
-            name="Generate category.xml and pom.xml from this model">
+            name="Generate category.xml and pom.xml">
       </command>
    </extension>
    <extension

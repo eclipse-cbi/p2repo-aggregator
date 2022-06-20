@@ -594,6 +594,11 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	 */
 	@Override
 	synchronized public Status getStatus() {
+		if (eIsProxy()) {
+			return AggregatorFactory.eINSTANCE.createStatus(StatusCode.BROKEN,
+					AggregatorPlugin.INSTANCE.getString("_UI_ErrorMessage_UnresolvedProxy",
+							new Object[] { eProxyURI() }));
+		}
 		if (!isBranchDisabledOrMappedRepositoryBroken()) {
 			if (resolveAsSingleton() == null)
 				return AggregatorFactory.eINSTANCE.createStatus(StatusCode.BROKEN,
@@ -707,6 +712,10 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 		List<AvailableVersion> avList = new ArrayList<>();
 		IQuery<IInstallableUnit> query = QueryUtil.createIUQuery(name);
 		MappedRepository mr = getMappedRepository();
+		if (mr == null) {
+			return;
+		}
+
 		addAvailableVersions(mr, query, AvailableFrom.REPOSITORY, avList);
 		Contribution contrib = (Contribution) ((EObject) mr).eContainer();
 		if (contrib == null) {

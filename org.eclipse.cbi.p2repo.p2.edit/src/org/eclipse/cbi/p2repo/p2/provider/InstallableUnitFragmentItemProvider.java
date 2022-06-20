@@ -55,6 +55,9 @@ public class InstallableUnitFragmentItemProvider extends InstallableUnitItemProv
 
 		newChildDescriptors.add(createChildParameter(P2Package.Literals.INSTALLABLE_UNIT_FRAGMENT__HOST,
 				P2Factory.eINSTANCE.createRequiredCapability()));
+
+		newChildDescriptors.add(createChildParameter(P2Package.Literals.INSTALLABLE_UNIT_FRAGMENT__HOST,
+				P2Factory.eINSTANCE.createRequiredPropertiesMatch()));
 	}
 
 	/**
@@ -118,6 +121,16 @@ public class InstallableUnitFragmentItemProvider extends InstallableUnitItemProv
 	@Override
 	public Object getImage(Object object) {
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/InstallableUnitFragment"));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected boolean shouldComposeCreationImage() {
+		return true;
 	}
 
 	/**

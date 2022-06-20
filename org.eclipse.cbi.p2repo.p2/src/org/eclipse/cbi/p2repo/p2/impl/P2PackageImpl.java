@@ -32,6 +32,7 @@ import org.eclipse.cbi.p2repo.p2.ProvidedCapability;
 import org.eclipse.cbi.p2repo.p2.Repository;
 import org.eclipse.cbi.p2repo.p2.RepositoryReference;
 import org.eclipse.cbi.p2repo.p2.RequiredCapability;
+import org.eclipse.cbi.p2repo.p2.RequiredPropertiesMatch;
 import org.eclipse.cbi.p2repo.p2.Requirement;
 import org.eclipse.cbi.p2repo.p2.RequirementChange;
 import org.eclipse.cbi.p2repo.p2.SimpleArtifactDescriptor;
@@ -72,6 +73,7 @@ import org.eclipse.equinox.p2.metadata.IUpdateDescriptor;
 import org.eclipse.equinox.p2.metadata.IVersionedId;
 import org.eclipse.equinox.p2.metadata.Version;
 import org.eclipse.equinox.p2.metadata.VersionRange;
+import org.eclipse.equinox.p2.metadata.expression.IFilterExpression;
 import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
 import org.eclipse.equinox.p2.query.Collector;
 import org.eclipse.equinox.p2.query.IQuery;
@@ -328,6 +330,14 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @since 1.1
+	 * @generated
+	 */
+	private EClass requiredPropertiesMatchEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EClass requirementChangeEClass = null;
@@ -510,6 +520,14 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @since 1.1
+	 * @generated
+	 */
+	private EDataType iFilterExpressionEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EDataType iTouchpointDataArrayEDataType = null;
@@ -597,6 +615,14 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	 * @generated
 	 */
 	private EDataType fileEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @since 1.1
+	 * @generated
+	 */
+	private EDataType filterEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -907,6 +933,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 
 		requirementEClass = createEClass(REQUIREMENT);
 
+		requiredPropertiesMatchEClass = createEClass(REQUIRED_PROPERTIES_MATCH);
+		createEAttribute(requiredPropertiesMatchEClass, REQUIRED_PROPERTIES_MATCH__NAMESPACE);
+		createEAttribute(requiredPropertiesMatchEClass, REQUIRED_PROPERTIES_MATCH__PROPERTIES_MATCH);
+
 		requirementChangeEClass = createEClass(REQUIREMENT_CHANGE);
 
 		simpleArtifactRepositoryEClass = createEClass(SIMPLE_ARTIFACT_REPOSITORY);
@@ -928,9 +958,11 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 		collectionEDataType = createEDataType(COLLECTION);
 		collectorEDataType = createEDataType(COLLECTOR);
 		fileEDataType = createEDataType(FILE);
+		filterEDataType = createEDataType(FILTER);
 		iArtifactDescriptorArrayEDataType = createEDataType(IARTIFACT_DESCRIPTOR_ARRAY);
 		iArtifactKeyArrayEDataType = createEDataType(IARTIFACT_KEY_ARRAY);
 		iArtifactRequestArrayEDataType = createEDataType(IARTIFACT_REQUEST_ARRAY);
+		iFilterExpressionEDataType = createEDataType(IFILTER_EXPRESSION);
 		iInstallableUnitArrayEDataType = createEDataType(IINSTALLABLE_UNIT_ARRAY);
 		iInstallableUnitFragmentArrayEDataType = createEDataType(IINSTALLABLE_UNIT_FRAGMENT_ARRAY);
 		iLicenseArrayEDataType = createEDataType(ILICENSE_ARRAY);
@@ -1098,6 +1130,17 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @since 1.1
+	 * @generated
+	 */
+	@Override
+	public EDataType getFilter() {
+		return filterEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -1203,6 +1246,17 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	@Override
 	public EDataType getIArtifactRequestArray() {
 		return iArtifactRequestArrayEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @since 1.1
+	 * @generated
+	 */
+	@Override
+	public EDataType getIFilterExpression() {
+		return iFilterExpressionEDataType;
 	}
 
 	/**
@@ -2428,6 +2482,39 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @since 1.1
+	 * @generated
+	 */
+	@Override
+	public EClass getRequiredPropertiesMatch() {
+		return requiredPropertiesMatchEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @since 1.1
+	 * @generated
+	 */
+	@Override
+	public EAttribute getRequiredPropertiesMatch_Namespace() {
+		return (EAttribute) requiredPropertiesMatchEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @since 1.1
+	 * @generated
+	 */
+	@Override
+	public EAttribute getRequiredPropertiesMatch_PropertiesMatch() {
+		return (EAttribute) requiredPropertiesMatchEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -2667,6 +2754,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 		requiredCapabilityEClass.getESuperTypes().add(this.getRequirement());
 		requiredCapabilityEClass.getESuperTypes().add(this.getIRequiredCapability());
 		requirementEClass.getESuperTypes().add(this.getIRequirement());
+		requiredPropertiesMatchEClass.getESuperTypes().add(this.getRequirement());
 		requirementChangeEClass.getESuperTypes().add(this.getIRequirementChange());
 		simpleArtifactRepositoryEClass.getESuperTypes().add(this.getArtifactRepository());
 		simpleArtifactRepositoryEClass.getESuperTypes().add(this.getIFileArtifactRepository());
@@ -2887,11 +2975,8 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 		initEReference(getIInstallableUnit_Copyright(), this.getICopyright(), null, "copyright", null, 0, 1,
 				IInstallableUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		g1 = createEGenericType(this.getIMatchExpression());
-		g2 = createEGenericType(this.getIInstallableUnit());
-		g1.getETypeArguments().add(g2);
-		initEAttribute(getIInstallableUnit_Filter(), g1, "filter", "", 0, 1, IInstallableUnit.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIInstallableUnit_Filter(), this.getFilter(), "filter", "", 0, 1, IInstallableUnit.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getIInstallableUnit_Fragments(), this.getIInstallableUnitFragment(), null, "fragments", null, 0,
 				-1, IInstallableUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
 				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3134,11 +3219,8 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 
 		initEClass(iRequirementEClass, IRequirement.class, "IRequirement", IS_ABSTRACT, IS_INTERFACE,
 				!IS_GENERATED_INSTANCE_CLASS);
-		g1 = createEGenericType(this.getIMatchExpression());
-		g2 = createEGenericType(this.getIInstallableUnit());
-		g1.getETypeArguments().add(g2);
-		initEAttribute(getIRequirement_Filter(), g1, "filter", null, 0, 1, IRequirement.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIRequirement_Filter(), this.getFilter(), "filter", null, 0, 1, IRequirement.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIRequirement_Max(), theXMLTypePackage.getInt(), "max", null, 0, 1, IRequirement.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIRequirement_Min(), theXMLTypePackage.getInt(), "min", null, 0, 1, IRequirement.class,
@@ -3295,6 +3377,15 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 		initEClass(requirementEClass, Requirement.class, "Requirement", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(requiredPropertiesMatchEClass, RequiredPropertiesMatch.class, "RequiredPropertiesMatch",
+				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getRequiredPropertiesMatch_Namespace(), ecorePackage.getEString(), "namespace", null, 0, 1,
+				RequiredPropertiesMatch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRequiredPropertiesMatch_PropertiesMatch(), this.getIFilterExpression(), "propertiesMatch",
+				null, 0, 1, RequiredPropertiesMatch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
+				!IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(requirementChangeEClass, RequirementChange.class, "RequirementChange", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 
@@ -3343,12 +3434,16 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 				!IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(collectorEDataType, Collector.class, "Collector", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(fileEDataType, File.class, "File", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(filterEDataType, IMatchExpression.class, "Filter", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS,
+				"org.eclipse.equinox.p2.metadata.expression.IMatchExpression<org.eclipse.equinox.p2.metadata.IInstallableUnit>");
 		initEDataType(iArtifactDescriptorArrayEDataType, IArtifactDescriptor[].class, "IArtifactDescriptorArray",
 				IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(iArtifactKeyArrayEDataType, IArtifactKey[].class, "IArtifactKeyArray", IS_SERIALIZABLE,
 				!IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(iArtifactRequestArrayEDataType, IArtifactRequest[].class, "IArtifactRequestArray",
 				IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(iFilterExpressionEDataType, IFilterExpression.class, "IFilterExpression", IS_SERIALIZABLE,
+				!IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(iInstallableUnitArrayEDataType, IInstallableUnit[].class, "IInstallableUnitArray",
 				IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(iInstallableUnitFragmentArrayEDataType, IInstallableUnitFragment[].class,

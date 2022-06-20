@@ -21,9 +21,14 @@ import org.eclipse.cbi.p2repo.aggregator.provider.AggregatorEditPlugin;
 import org.eclipse.cbi.p2repo.aggregator.provider.AggregatorItemProviderAdapter;
 import org.eclipse.cbi.p2repo.aggregator.util.CapabilityNamespaceImageProvider;
 import org.eclipse.cbi.p2repo.p2.P2Package;
+import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.command.UnexecutableCommand;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.edit.command.CopyCommand.Helper;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemColorProvider;
@@ -201,6 +206,16 @@ public class RequirementWrapperItemProvider extends AggregatorItemProviderAdapte
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected boolean shouldComposeCreationImage() {
+		return true;
+	}
+
+	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -242,6 +257,11 @@ public class RequirementWrapperItemProvider extends AggregatorItemProviderAdapte
 	@Override
 	public String getText(Object object) {
 		return ((LabelProvider) object).getLabel();
+	}
+
+	@Override
+	protected Command createCreateCopyCommand(EditingDomain domain, EObject owner, Helper helper) {
+		return UnexecutableCommand.INSTANCE;
 	}
 
 	/**

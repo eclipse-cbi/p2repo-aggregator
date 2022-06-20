@@ -17,14 +17,15 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 
 import org.eclipse.cbi.p2repo.aggregator.Aggregation;
 import org.eclipse.cbi.p2repo.aggregator.AvailableVersion;
-import org.eclipse.cbi.p2repo.aggregator.P2RepoMessages;
 import org.eclipse.cbi.p2repo.aggregator.Contribution;
 import org.eclipse.cbi.p2repo.aggregator.InstallableUnitRequest;
 import org.eclipse.cbi.p2repo.aggregator.MappedRepository;
+import org.eclipse.cbi.p2repo.aggregator.P2RepoMessages;
 import org.eclipse.equinox.p2.metadata.Version;
 import org.eclipse.equinox.p2.metadata.VersionRange;
 import org.eclipse.jface.dialogs.TitleAreaDialog;
@@ -204,6 +205,7 @@ public class FixVersionsDialog extends TitleAreaDialog {
 			}
 		});
 		viewer.setContentProvider(new ArrayContentProvider());
+		this.suggestedVersions.values().removeIf(Objects::isNull);
 		viewer.setInput(this.suggestedVersions.keySet());
 
 		return res;

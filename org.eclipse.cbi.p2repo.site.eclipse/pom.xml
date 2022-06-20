@@ -4,15 +4,16 @@
 
   <artifactId>org.eclipse.cbi.p2repo.site.eclipse</artifactId>
     <groupId>org.eclipse.cbi</groupId>
-  <version>1.0.400-SNAPSHOT</version>
+  <version>1.1.0-SNAPSHOT</version>
   <packaging>eclipse-repository</packaging>
 
   <parent>
     <groupId>org.eclipse.cbi</groupId>
     <artifactId>org.eclipse.cbi.p2repo.releng.parent</artifactId>
-    <version>1.0.400-SNAPSHOT</version>
+    <version>1.1.0-SNAPSHOT</version>
     <relativePath>../org.eclipse.cbi.p2repo.releng.parent</relativePath>
   </parent>
+
   <build>
     <plugins>
       <plugin>
@@ -20,17 +21,18 @@
         <artifactId>target-platform-configuration</artifactId>
         <version>${tycho-version}</version>
         <configuration>
-          <includePackedArtifacts>true</includePackedArtifacts>
+          <includePackedArtifacts>false</includePackedArtifacts>
         </configuration>
       </plugin>
+
       <plugin>
         <groupId>org.eclipse.tycho</groupId>
         <artifactId>tycho-p2-repository-plugin</artifactId>
         <version>${tycho-version}</version>
         <configuration>
           <repositoryName>CBI p2 Repository Aggregator Tools</repositoryName>
-          <compressed>true</compressed>
-          <includeAllDependencies>true</includeAllDependencies>
+          <xzCompress>true</xzCompress>
+          <includeAllDependencies>false</includeAllDependencies>
         </configuration>
       </plugin>
     </plugins>

@@ -59,11 +59,17 @@ public class InstallableUnitPatchItemProvider extends InstallableUnitItemProvide
 		newChildDescriptors.add(createChildParameter(P2Package.Literals.IINSTALLABLE_UNIT_PATCH__LIFE_CYCLE,
 				P2Factory.eINSTANCE.createRequiredCapability()));
 
+		newChildDescriptors.add(createChildParameter(P2Package.Literals.IINSTALLABLE_UNIT_PATCH__LIFE_CYCLE,
+				P2Factory.eINSTANCE.createRequiredPropertiesMatch()));
+
 		newChildDescriptors.add(createChildParameter(P2Package.Literals.IINSTALLABLE_UNIT_PATCH__APPLIES_TO,
 				P2Factory.eINSTANCE.createRequirement()));
 
 		newChildDescriptors.add(createChildParameter(P2Package.Literals.IINSTALLABLE_UNIT_PATCH__APPLIES_TO,
 				P2Factory.eINSTANCE.createRequiredCapability()));
+
+		newChildDescriptors.add(createChildParameter(P2Package.Literals.IINSTALLABLE_UNIT_PATCH__APPLIES_TO,
+				P2Factory.eINSTANCE.createRequiredPropertiesMatch()));
 	}
 
 	/**
@@ -130,6 +136,16 @@ public class InstallableUnitPatchItemProvider extends InstallableUnitItemProvide
 	@Override
 	public Object getImage(Object object) {
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/InstallableUnitPatch"));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected boolean shouldComposeCreationImage() {
+		return true;
 	}
 
 	/**

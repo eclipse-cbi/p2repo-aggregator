@@ -28,6 +28,7 @@ import org.eclipse.cbi.p2repo.p2.ProvidedCapability;
 import org.eclipse.cbi.p2repo.p2.Repository;
 import org.eclipse.cbi.p2repo.p2.RepositoryReference;
 import org.eclipse.cbi.p2repo.p2.RequiredCapability;
+import org.eclipse.cbi.p2repo.p2.RequiredPropertiesMatch;
 import org.eclipse.cbi.p2repo.p2.Requirement;
 import org.eclipse.cbi.p2repo.p2.RequirementChange;
 import org.eclipse.cbi.p2repo.p2.SimpleArtifactDescriptor;
@@ -308,6 +309,11 @@ public class P2AdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseRequirement(Requirement object) {
 			return createRequirementAdapter();
+		}
+
+		@Override
+		public Adapter caseRequiredPropertiesMatch(RequiredPropertiesMatch object) {
+			return createRequiredPropertiesMatchAdapter();
 		}
 
 		@Override
@@ -912,6 +918,21 @@ public class P2AdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRequirementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.p2.RequiredPropertiesMatch <em>Required Properties Match</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.cbi.p2repo.p2.RequiredPropertiesMatch
+	 * @since 1.1
+	 * @generated
+	 */
+	public Adapter createRequiredPropertiesMatchAdapter() {
 		return null;
 	}
 

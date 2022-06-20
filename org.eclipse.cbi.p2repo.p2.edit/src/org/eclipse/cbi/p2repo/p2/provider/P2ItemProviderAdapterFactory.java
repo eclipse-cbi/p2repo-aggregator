@@ -588,6 +588,31 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.cbi.p2repo.p2.RequiredPropertiesMatch} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @since 1.1
+	 * @generated
+	 */
+	protected RequiredPropertiesMatchItemProvider requiredPropertiesMatchItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.cbi.p2repo.p2.RequiredPropertiesMatch}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @since 1.1
+	 * @generated
+	 */
+	@Override
+	public Adapter createRequiredPropertiesMatchAdapter() {
+		if (requiredPropertiesMatchItemProvider == null) {
+			requiredPropertiesMatchItemProvider = new RequiredPropertiesMatchItemProvider(this);
+		}
+
+		return requiredPropertiesMatchItemProvider;
+	}
+
+	/**
 	 * This creates an adapter for a {@link org.eclipse.cbi.p2repo.p2.RequirementChange}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -736,6 +761,8 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 			requiredCapabilityItemProvider.dispose();
 		if (requirementItemProvider != null)
 			requirementItemProvider.dispose();
+		if (requiredPropertiesMatchItemProvider != null)
+			requiredPropertiesMatchItemProvider.dispose();
 		if (requirementChangeItemProvider != null)
 			requirementChangeItemProvider.dispose();
 		if (simpleArtifactRepositoryItemProvider != null)

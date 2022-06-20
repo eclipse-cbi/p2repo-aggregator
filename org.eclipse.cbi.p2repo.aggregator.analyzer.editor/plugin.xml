@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ Copyright (c) 2021 Eclipse Foundation and others.
+ 
+ This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License 2.0
+ which accompanies this distribution, and is available at
+ https://www.eclipse.org/legal/epl-2.0/
+ 
+ SPDX-License-Identifier: EPL-2.0
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated AggregationAnalyzer not -->
+      <category
+            id="org.eclipse.cbi"
+            name="%_UI_CBIWizard_category"/>
+      <wizard
+            id="org.eclipse.cbi.p2repo.aggregator.analyzer.presentation.AnalyzerModelWizardID"
+            name="%_UI_AnalyzerModelWizard_label"
+            class="org.eclipse.cbi.p2repo.aggregator.analyzer.presentation.AnalyzerModelWizard"
+            category="org.eclipse.cbi"
+            icon="icons/full/obj16/AnalyzerModelFile.gif">
+         <description>%_UI_AnalyzerModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated AggregationAnalyzer -->
+      <editor
+            id="org.eclipse.cbi.p2repo.aggregator.analyzer.presentation.AnalyzerEditorID"
+            name="%_UI_AnalyzerEditor_label"
+            icon="icons/full/obj16/AnalyzerModelFile.gif"
+            extensions="aggran"
+            class="org.eclipse.cbi.p2repo.aggregator.analyzer.presentation.AnalyzerEditor"
+            contributorClass="org.eclipse.cbi.p2repo.aggregator.analyzer.presentation.AnalyzerActionBarContributor">
+      </editor>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            id="org.eclipse.cbi.p2repo.aggregator.analyzer.editor.commands.category"
+            name="Common Build Infrastructure">
+      </category>
+      <command
+            categoryId="org.eclipse.cbi.p2repo.aggregator.analyzer.editor.commands.category"
+            id="org.eclipse.cbi.p2repo.aggregator.analyzer.editor.commands.analyze"
+            name="Analyze Contributions">
+      </command>
+      <command
+            categoryId="org.eclipse.cbi.p2repo.aggregator.analyzer.editor.commands.category"
+            id="org.eclipse.cbi.p2repo.aggregator.analyzer.editor.commands.reconcile.projects"
+            name="Reconcile Projects">
+      </command>
+      <command
+            categoryId="org.eclipse.cbi.p2repo.aggregator.analyzer.editor.commands.category"
+            id="org.eclipse.cbi.p2repo.aggregator.analyzer.editor.commands.clear.cache"
+            name="Clear Cache">
+      </command>
+      <command
+            categoryId="org.eclipse.cbi.p2repo.aggregator.analyzer.editor.commands.category"
+            id="org.eclipse.cbi.p2repo.aggregator.analyzer.editor.commands.update.last.modified"
+            name="Compute Last Modified">
+      </command>
+   </extension>
+
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="org.eclipse.cbi.p2repo.aggregator.analyzer.presentation.handlers.AnalyzeHandler"
+            commandId="org.eclipse.cbi.p2repo.aggregator.analyzer.editor.commands.analyze">
+          <activeWhen>
+             <iterate
+                   ifEmpty="false">
+                <adapt
+                      type="org.eclipse.cbi.p2repo.aggregator.analyzer.Analysis">
+                </adapt>
+             </iterate>
+         </activeWhen>
+      </handler>
+      <handler
+            class="org.eclipse.cbi.p2repo.aggregator.analyzer.presentation.handlers.ProjectReconcilerHandler"
+            commandId="org.eclipse.cbi.p2repo.aggregator.analyzer.editor.commands.reconcile.projects">
+          <activeWhen>
+             <iterate
+                   ifEmpty="false">
+                <adapt
+                      type="org.eclipse.cbi.p2repo.aggregator.analyzer.Analysis">
+                </adapt>
+             </iterate>
+         </activeWhen>
+      </handler>
+      <handler
+            class="org.eclipse.cbi.p2repo.aggregator.analyzer.presentation.handlers.ClearCacheHandler"
+            commandId="org.eclipse.cbi.p2repo.aggregator.analyzer.editor.commands.clear.cache">
+          <activeWhen>
+             <iterate
+                   ifEmpty="false">
+                <adapt
+                      type="org.eclipse.cbi.p2repo.aggregator.analyzer.Analysis">
+                </adapt>
+             </iterate>
+         </activeWhen>
+      </handler>
+      <handler
+            class="org.eclipse.cbi.p2repo.aggregator.analyzer.presentation.handlers.LastModifiedHandler"
+            commandId="org.eclipse.cbi.p2repo.aggregator.analyzer.editor.commands.update.last.modified">
+          <activeWhen>
+             <iterate
+                   ifEmpty="false">
+                <adapt
+                      type="org.eclipse.cbi.p2repo.aggregator.analyzer.Analysis">
+                </adapt>
+             </iterate>
+         </activeWhen>
+      </handler>
+   </extension>
+
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.ui.popup.any?before=additions">
+         <command
+               commandId="org.eclipse.cbi.p2repo.aggregator.analyzer.editor.commands.analyze"
+               icon="icons/full/obj16/AnalyzerModelFile.gif"
+               label="Analyze Contributions"
+               style="push">
+            <visibleWhen
+                  checkEnabled="true">
+            </visibleWhen>
+         </command>
+         <command
+               commandId="org.eclipse.cbi.p2repo.aggregator.analyzer.editor.commands.update.last.modified"
+               icon="icons/full/obj16/history.gif"
+               label="Compute Last Modified"
+               style="push">
+            <visibleWhen
+                  checkEnabled="true">
+            </visibleWhen>
+         </command>
+         <command
+               commandId="org.eclipse.cbi.p2repo.aggregator.analyzer.editor.commands.reconcile.projects"
+               icon="platform:/plugin/org.eclipse.cbi.p2repo.aggregator.analyzer.edit/icons/full/obj16/Project.gif"
+               label="Reconcile Projects"
+               style="push">
+            <visibleWhen
+                  checkEnabled="true">
+            </visibleWhen>
+         </command>
+         <command
+               commandId="org.eclipse.cbi.p2repo.aggregator.analyzer.editor.commands.clear.cache"
+               icon="icons/full/obj16/clear.gif"
+               label="Clear Remote Cache"
+               style="push">
+         </command>
+      </menuContribution>
+   </extension>
+
+</plugin>

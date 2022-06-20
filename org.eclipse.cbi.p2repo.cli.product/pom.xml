@@ -6,12 +6,12 @@
   <packaging>eclipse-repository</packaging>
   <groupId>org.eclipse.cbi</groupId>
   <artifactId>org.eclipse.cbi.p2repo.cli.product</artifactId>
-  <version>1.0.400-SNAPSHOT</version>
+  <version>1.1.0-SNAPSHOT</version>
 
   <parent>
     <groupId>org.eclipse.cbi</groupId>
     <artifactId>org.eclipse.cbi.p2repo.releng.parent</artifactId>
-    <version>1.0.400-SNAPSHOT</version>
+    <version>1.1.0-SNAPSHOT</version>
     <relativePath>../org.eclipse.cbi.p2repo.releng.parent</relativePath>
   </parent>
 
@@ -19,17 +19,8 @@
     <plugins>
       <plugin>
         <groupId>org.eclipse.tycho</groupId>
-        <artifactId>tycho-packaging-plugin</artifactId>
-        <version>${tycho-version}</version>
-        <configuration>
-          <format>'${buildId}'</format>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.eclipse.tycho</groupId>
         <artifactId>target-platform-configuration</artifactId>
         <configuration>
-          <includePackedArtifacts>false</includePackedArtifacts>
           <dependency-resolution>
             <extraRequirements>
               <requirement>
@@ -44,35 +35,9 @@
               </requirement>
             </extraRequirements>
           </dependency-resolution>
-          <environments>
-            <environment>
-              <os>macosx</os>
-              <ws>cocoa</ws>
-              <arch>x86_64</arch>
-            </environment>
-            <environment>
-              <os>macosx</os>
-              <ws>cocoa</ws>
-              <arch>aarch64</arch>
-            </environment>
-            <environment>
-              <os>win32</os>
-              <ws>win32</ws>
-              <arch>x86_64</arch>
-            </environment>
-            <environment>
-              <os>linux</os>
-              <ws>gtk</ws>
-              <arch>x86_64</arch>
-            </environment>
-            <environment>
-              <os>linux</os>
-              <ws>gtk</ws>
-              <arch>aarch64</arch>
-            </environment>
-          </environments>
         </configuration>
       </plugin>
+
       <plugin>
         <groupId>org.eclipse.tycho</groupId>
         <artifactId>tycho-p2-repository-plugin</artifactId>
@@ -81,6 +46,7 @@
           <includeAllDependencies>true</includeAllDependencies>
         </configuration>
       </plugin>
+
       <plugin>
         <groupId>org.eclipse.tycho</groupId>
         <artifactId>tycho-p2-director-plugin</artifactId>
@@ -119,6 +85,7 @@
           </execution>
         </executions>
       </plugin>
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-resources-plugin</artifactId>

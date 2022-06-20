@@ -31,6 +31,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemColorProvider;
@@ -176,7 +177,11 @@ public class InstallableUnitRequestItemProvider extends AggregatorItemProviderAd
 		bld.append(getString(typeKey));
 		bld.append(" : ");
 		if (id == null) {
-			bld.append("not mapped");
+			if (((EObject) iuRef).eIsProxy()) {
+				bld.append("unresolved reference " + ((InternalEObject) iuRef).eProxyURI());
+			} else {
+				bld.append("not mapped");
+			}
 			return false;
 		}
 
@@ -230,6 +235,16 @@ public class InstallableUnitRequestItemProvider extends AggregatorItemProviderAd
 		// adding (see {@link AddCommand}) it as a child.
 
 		return super.getChildFeature(object, child);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected boolean shouldComposeCreationImage() {
+		return true;
 	}
 
 	// hides children when disabled

@@ -10,8 +10,8 @@
  */
 package org.eclipse.cbi.p2repo.aggregator.p2.provider;
 
-import org.eclipse.cbi.p2repo.p2.RequiredCapability;
 import org.eclipse.cbi.p2repo.aggregator.util.CapabilityNamespaceImageProvider;
+import org.eclipse.cbi.p2repo.p2.RequiredCapability;
 import org.eclipse.emf.common.notify.AdapterFactory;
 
 public class RequiredCapabilityItemProvider extends org.eclipse.cbi.p2repo.p2.provider.RequiredCapabilityItemProvider {

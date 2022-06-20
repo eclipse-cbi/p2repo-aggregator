@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="analyzer" nsURI="https://www.eclipse.org/cbi/p2repo/2021/aggregator/analyzer"
+    nsPrefix="analyzer">
+  <eClassifiers xsi:type="ecore:EClass" name="Analysis">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The root analysis instance that references the aggregaton being analyzed."/>
+    </eAnnotations>
+    <eOperations name="reconcile"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="releaseDate" eType="#//Date">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The date of the next scheduled release"/>
+        <details key="propertyDescription" value="The date of the next scheduled release"/>
+        <details key="propertyEditorFactory" value="editor://org.eclipse.nebula.widgets.cdatetime/yyyy-MM-dd"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="exclusion" eType="#//Pattern">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="propertyDescription" value="A pattern that maches all installable units that will be omitted from analysis"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="levels" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="aggregation" lowerBound="1"
+        eType="ecore:EClass ../../org.eclipse.cbi.p2repo.aggregator/model/Aggregator.ecore#//Aggregation">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The aggregation being analyzed."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contributions" upperBound="-1"
+        eType="#//ContributionAnalysis" containment="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="contribution"/>
+        <details key="kind" value="element"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The analyzed contributions."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ContributionAnalysis">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A wrapper of a contribution."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The contribution's label override."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dominant" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="match" eType="#//Pattern">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="propertyDescription" value="A pattern that matches all installable unit to be included in the group"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lastModified" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"
+        transient="true" defaultValueLiteral="-9223372036854775808">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The last time in millis that this contribution was modified"/>
+        <details key="propertyEditorFactory" value="editor://org.eclipse.nebula.widgets.cdatetime/yyyy-MM-dd'T'HH:mm:ss'.'SSSZ"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contribution" lowerBound="1"
+        eType="ecore:EClass ../../org.eclipse.cbi.p2repo.aggregator/model/Aggregator.ecore#//Contribution">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The analyzed contribution."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="installableUnits" upperBound="-1"
+        eType="#//InstallableUnitAnalysis" containment="true" eOpposite="#//InstallableUnitAnalysis/contribution">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="installableUnit"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="projects" upperBound="-1"
+        eType="#//Project" containment="true" resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="project"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InstallableUnitAnalysis">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A wrapper of an installable unit."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contribution" eType="#//ContributionAnalysis"
+        eOpposite="#//ContributionAnalysis/installableUnits"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="installableUnit" lowerBound="1"
+        eType="ecore:EClass ../../org.eclipse.cbi.p2repo.p2/model/p2.ecore#//IInstallableUnit"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requirements" upperBound="-1"
+        eType="#//RequirementAnalysis" containment="true" eOpposite="#//RequirementAnalysis/installableUnit">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="requirement"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="capabilities" upperBound="-1"
+        eType="#//CapabilityAnalysis" containment="true" eOpposite="#//CapabilityAnalysis/installableUnit">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="capability"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RequirementAnalysis">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A wrapper of a requirement."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="installableUnit" eType="#//InstallableUnitAnalysis"
+        eOpposite="#//InstallableUnitAnalysis/requirements"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requirement" lowerBound="1"
+        eType="ecore:EClass ../../org.eclipse.cbi.p2repo.p2/model/p2.ecore#//IRequirement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resolutions" upperBound="-1"
+        eType="#//RequirementResolution" containment="true" eOpposite="#//RequirementResolution/requirement">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="resolution"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RequirementResolution">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requirement" eType="#//RequirementAnalysis"
+        eOpposite="#//RequirementAnalysis/resolutions"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="installableUnit" lowerBound="1"
+        eType="#//InstallableUnitAnalysis"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="capability" eType="#//CapabilityAnalysis"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CapabilityAnalysis">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A wrapper of a capability."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="installableUnit" eType="#//InstallableUnitAnalysis"
+        eOpposite="#//InstallableUnitAnalysis/capabilities"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="capability" lowerBound="1"
+        eType="ecore:EClass ../../org.eclipse.cbi.p2repo.p2/model/p2.ecore#//IProvidedCapability"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resolutions" upperBound="-1"
+        eType="#//CapabilityResolution" containment="true" eOpposite="#//CapabilityResolution/capability"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CapabilityResolution">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="capability" eType="#//CapabilityAnalysis"
+        eOpposite="#//CapabilityAnalysis/resolutions"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requirement" lowerBound="1"
+        eType="#//RequirementAnalysis"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Project">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="site" eType="#//URI"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="#//URI"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="releaseDate" eType="#//Date">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The date of the version release"/>
+        <details key="propertyDescription" value="The date of the version release"/>
+        <details key="propertyEditorFactory" value="editor://org.eclipse.nebula.widgets.cdatetime/yyyy-MM-dd"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contribution" eType="#//ContributionAnalysis"
+        changeable="false" volatile="true" transient="true" derived="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Project"
+        changeable="false" transient="true" resolveProxies="false" eOpposite="#//Project/subprojects"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="repositories" upperBound="-1"
+        eType="#//GitRepository" containment="true" resolveProxies="false" eOpposite="#//GitRepository/project">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="repository"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subprojects" upperBound="-1"
+        eType="#//Project" containment="true" resolveProxies="false" eOpposite="#//Project/parent">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="subproject"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GitRepository">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uRI" eType="#//URI">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="uri"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lastModified" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"
+        transient="true" defaultValueLiteral="-9223372036854775808">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The last time in millis of the most recent commit in this Git"/>
+        <details key="propertyEditorFactory" value="editor://org.eclipse.nebula.widgets.cdatetime/yyyy-MM-dd'T'HH:mm:ss'.'SSSZ"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="project" eType="#//Project"
+        changeable="false" transient="true" resolveProxies="false" eOpposite="#//Project/repositories"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Pattern" instanceClassName="java.util.regex.Pattern"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="URI" instanceClassName="org.eclipse.emf.common.util.URI">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="convert" value="return it == null ? null : it.toString();"/>
+      <details key="create" value="return it == null ? null : &lt;%org.eclipse.emf.common.util.URI%>.createURI(it);"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Date" instanceClassName="java.util.Date"/>
+</ecore:EPackage>

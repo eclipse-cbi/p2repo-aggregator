@@ -31,6 +31,7 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -94,9 +95,11 @@ public class RepositoryBrowserImpl extends MinimalEObjectImpl.Container implemen
 	 */
 	protected static final boolean LOADING_EDEFAULT = false;
 
-	private final Aggregation aggregation;
-
 	private final NotifyDispatcher notifyDispatcher = new NotifyDispatcher();
+
+	private final ResourceSet resourceSet;
+
+	private Aggregation aggregation;
 
 	/**
 	 *
@@ -110,7 +113,19 @@ public class RepositoryBrowserImpl extends MinimalEObjectImpl.Container implemen
 	protected RepositoryBrowserImpl(Aggregation aggregation) {
 		super();
 		this.aggregation = aggregation;
-		((EObject) aggregation).eResource().getResourceSet().eAdapters().add(notifyDispatcher);
+		resourceSet = ((EObject) aggregation).eResource().getResourceSet();
+		resourceSet.eAdapters().add(notifyDispatcher);
+	}
+
+	/**
+	 * @return the aggregation
+	 */
+	public Aggregation getAggregation() {
+		if (((EObject) aggregation).eIsProxy()) {
+			aggregation = (Aggregation) resourceSet.getEObject(((InternalEObject) aggregation).eProxyURI(), true);
+
+		}
+		return aggregation;
 	}
 
 	/**
@@ -249,7 +264,7 @@ public class RepositoryBrowserImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public EList<MetadataRepositoryStructuredView> getRepositories() {
 		List<Resource> resources = getResources();
-		EList<MetadataRepositoryStructuredView> result = new BasicEList<>(resources.size() - 1);
+		EList<MetadataRepositoryStructuredView> result = new BasicEList<>(resources.size());
 		for (Resource resource : resources) {
 			if (resource instanceof MetadataRepositoryResourceImpl) {
 				EList<EObject> contents = resource.getContents();
@@ -265,7 +280,7 @@ public class RepositoryBrowserImpl extends MinimalEObjectImpl.Container implemen
 
 	private List<Resource> getResources() {
 		List<Resource> result = null;
-		Resource aggrResource = ((EObject) aggregation).eResource();
+		Resource aggrResource = ((EObject) getAggregation()).eResource();
 		if (aggrResource != null) {
 			ResourceSet rs = aggrResource.getResourceSet();
 			if (rs != null)
