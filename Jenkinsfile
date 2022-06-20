@@ -52,7 +52,7 @@ pipeline {
             poll: false,
             scm: [
               $class: 'GitSCM',
-              branches: [[name: '*/issue-3']],
+              branches: [[name: '*/main']],
               doGenerateSubmoduleConfigurations: false,
               extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'p2repo-aggregator']],
               submoduleCfg: [],
