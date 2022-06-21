@@ -29,6 +29,7 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -2070,7 +2071,8 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 							long delta = oldest - Math.max(0, now - lastModified);
 							float brightness = 1.0f - ((float) delta) / oldest;
 							return ExtendedColorRegistry.INSTANCE.getColor(null, null,
-									URI.createURI("color://hsb/360/1.0/" + String.format("%.5f", brightness)));
+									URI.createURI(
+											"color://hsb/360/1.0/" + String.format(Locale.ROOT, "%.5f", brightness)));
 						}
 					}
 					return black;
