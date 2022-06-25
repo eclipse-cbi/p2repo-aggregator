@@ -21,6 +21,7 @@ import org.eclipse.cbi.p2repo.aggregator.provider.AggregatorEditPlugin;
 import org.eclipse.cbi.p2repo.aggregator.provider.AggregatorItemProviderAdapter;
 import org.eclipse.cbi.p2repo.aggregator.util.CapabilityNamespaceImageProvider;
 import org.eclipse.cbi.p2repo.p2.P2Package;
+import org.eclipse.cbi.p2repo.p2.provider.RequirementItemProvider;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.UnexecutableCommand;
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -41,6 +42,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
+import org.eclipse.equinox.p2.metadata.IRequirement;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.cbi.p2repo.aggregator.p2view.RequirementWrapper} object.
@@ -197,10 +199,13 @@ public class RequirementWrapperItemProvider extends AggregatorItemProviderAdapte
 
 		Object image = null;
 
-		if (rcw.getGenuine() instanceof IRequiredCapability)
-			image = CapabilityNamespaceImageProvider.getImage(((IRequiredCapability) rcw.getGenuine()).getNamespace());
+		IRequirement genuine = rcw.getGenuine();
+		if (genuine instanceof IRequiredCapability)
+			image = CapabilityNamespaceImageProvider.getImage(((IRequiredCapability) genuine).getNamespace());
 		if (image == null)
 			image = getResourceLocator().getImage("full/obj16/Requirement");
+
+		image = RequirementItemProvider.getImage(image, genuine.getMin(), genuine.getMax(), genuine.isGreedy());
 
 		return overlayImage(object, image);
 	}
