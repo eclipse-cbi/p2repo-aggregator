@@ -45,4 +45,12 @@
             protocolName="cbiaggr">
       </parser>
    </extension>
+
+   <extension
+         point="org.eclipse.core.contenttype.contentTypes">
+      <file-association
+            content-type="org.eclipse.emf.ecore.xmi"
+            file-extensions="aggrcon,aggr">
+      </file-association>
+   </extension>
 </plugin>

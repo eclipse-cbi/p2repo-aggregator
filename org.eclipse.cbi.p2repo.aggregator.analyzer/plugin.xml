@@ -29,4 +29,12 @@
             class="org.eclipse.cbi.p2repo.aggregator.analyzer.util.AnalyzerResourceFactoryImpl"/>
    </extension>
 
+   <extension
+         point="org.eclipse.core.contenttype.contentTypes">
+      <file-association
+            content-type="org.eclipse.emf.ecore.xmi"
+            file-extensions="aggran">
+      </file-association>
+   </extension>
+
 </plugin>
