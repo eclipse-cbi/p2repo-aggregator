@@ -31,6 +31,12 @@ pipeline {
       defaultValue: false,
       description: 'Whether to promote the build to the download server.'
     )
+
+    booleanParam(
+      name: 'ARCHIVE',
+      defaultValue: false,
+      description: 'Whether to archive the workspace.'
+    )
   }
 
   stages {
@@ -38,6 +44,7 @@ pipeline {
       steps {
         echo "BUILD_TYPE=${params.BUILD_TYPE}"
         echo "PROMOTE=${params.PROMOTE}"
+        echo "ARCHIVE=${params.ARCHIVE}"
         script {
           env.PROMOTE = params.PROMOTE
           env.BUILD_TYPE = params.BUILD_TYPE
@@ -96,6 +103,11 @@ pipeline {
     }
 
     stage('Archive Results') {
+      when {
+        expression {
+          params.ARCHIVE
+        }
+      }
       steps {
         archiveArtifacts 'p2repo-aggregator/**'
       }
