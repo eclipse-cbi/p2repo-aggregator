@@ -989,11 +989,6 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 			resource = resourceSet.getResource(resourceURI, false);
 		}
 
-		Diagnostic diagnostic = analyzeResourceProblems(resource, exception);
-		if (diagnostic.getSeverity() != Diagnostic.OK) {
-			resourceToDiagnosticMap.put(resource, diagnostic);
-		}
-
 		if (resource == null)
 			return;
 
@@ -1003,6 +998,18 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 
 		// make sure detached resources are resolved
 		EcoreUtil.resolveAll(resource);
+		for (Resource otherResource : new ArrayList<>(resourceSet.getResources())) {
+			Diagnostic diagnostic = analyzeResourceProblems(otherResource, null);
+			if (diagnostic.getSeverity() != Diagnostic.OK) {
+				resourceToDiagnosticMap.put(otherResource, diagnostic);
+			} else {
+				resourceToDiagnosticMap.remove(otherResource);
+			}
+		}
+
+		if (!resourceToDiagnosticMap.isEmpty()) {
+			updateProblemIndication();
+		}
 
 		EObject obj = contents.get(0);
 
