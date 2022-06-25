@@ -17,32 +17,82 @@
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated maven-metadata -->
+      <!-- @generated Maven -->
       <package
             uri="http://maven.apache.org/METADATA/1.1.0"
             class="org.eclipse.cbi.p2repo.p2.maven.metadata.MetadataPackage"
-            genModel="model/maven-metadata.genmodel"/>
+            genModel="model/Maven.genmodel"/>
    </extension>
 
-   <extension point="org.eclipse.emf.ecore.extension_parser">
-      <!-- @generated maven-metadata -->
+   <extension point="org.eclipse.emf.ecore.content_parser">
+      <!-- @generated Maven -->
       <parser
-            type="xml"
+            contentTypeIdentifier="org.eclipse.cbi.p2repo.maven.p2.metadata"
             class="org.eclipse.cbi.p2repo.p2.maven.metadata.util.MetadataResourceFactoryImpl"/>
    </extension>
 
+   <extension point="org.eclipse.core.contenttype.contentTypes">
+      <!-- @generated Maven -->
+      <content-type
+            base-type="org.eclipse.core.runtime.xml"
+            file-extensions="xml"
+            id="org.eclipse.cbi.p2repo.maven.p2.metadata"
+            name="%_UI_Metadata_content_type"
+            priority="normal">
+         <describer class="org.eclipse.emf.ecore.xmi.impl.RootXMLContentHandlerImpl$Describer">
+            <parameter name="namespace" value="http://maven.apache.org/METADATA/1.1.0"/>
+         </describer>
+      </content-type>
+   </extension>
+ 
+   <extension point="org.eclipse.core.contenttype.contentTypes">
+      <!-- handle no-namespace  -->
+      <content-type
+            base-type="org.eclipse.core.runtime.xml"
+            file-extensions="xml"
+            id="org.eclipse.cbi.p2repo.maven.p2.metadata.nonamespace"
+            name="%_UI_Metadata_content_type"
+            priority="normal">
+         <describer class="org.eclipse.emf.ecore.xmi.impl.RootXMLContentHandlerImpl$Describer">
+            <parameter name="elementNames" value="metadata"/>
+         </describer>
+      </content-type>
+   </extension>
+   
+   <extension point="org.eclipse.emf.ecore.content_parser">
+      <!-- handle no-namespace -->
+      <parser
+            contentTypeIdentifier="org.eclipse.cbi.p2repo.maven.p2.metadata.nonamespace"
+            class="org.eclipse.cbi.p2repo.p2.maven.metadata.util.MetadataResourceFactoryImpl"/>
+   </extension>
+
+
    <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated pom -->
+      <!-- @generated Maven -->
       <package
             uri="http://maven.apache.org/POM/4.0.0"
             class="org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage"
-            genModel="model/pom.genmodel"/>
+            genModel="model/Maven.genmodel"/>
    </extension>
 
-   <extension point="org.eclipse.emf.ecore.extension_parser">
-      <!-- @generated pom -->
+   <extension point="org.eclipse.emf.ecore.content_parser">
+      <!-- @generated Maven -->
       <parser
-            type="pom"
+            contentTypeIdentifier="org.eclipse.cbi.p2repo.maven.p2.pom"
             class="org.eclipse.cbi.p2repo.p2.maven.pom.util.PomResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.core.contenttype.contentTypes">
+      <!-- @generated Maven -->
+      <content-type
+            base-type="org.eclipse.core.runtime.xml"
+            file-extensions="pom,xml"
+            id="org.eclipse.cbi.p2repo.maven.p2.pom"
+            name="%_UI_Pom_content_type"
+            priority="normal">
+         <describer class="org.eclipse.emf.ecore.xmi.impl.RootXMLContentHandlerImpl$Describer">
+            <parameter name="namespace" value="http://maven.apache.org/POM/4.0.0"/>
+         </describer>
+      </content-type>
    </extension>
 </plugin>

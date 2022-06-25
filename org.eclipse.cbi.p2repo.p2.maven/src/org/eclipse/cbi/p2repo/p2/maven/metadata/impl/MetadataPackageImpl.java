@@ -21,6 +21,8 @@ import org.eclipse.cbi.p2repo.p2.maven.metadata.SnapshotVersion;
 import org.eclipse.cbi.p2repo.p2.maven.metadata.SnapshotVersionsType;
 import org.eclipse.cbi.p2repo.p2.maven.metadata.Versioning;
 import org.eclipse.cbi.p2repo.p2.maven.metadata.VersionsType;
+import org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage;
+import org.eclipse.cbi.p2repo.p2.maven.pom.impl.PomPackageImpl;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -132,11 +134,18 @@ public class MetadataPackageImpl extends EPackageImpl implements MetadataPackage
 		// Initialize simple dependencies
 		XMLTypePackage.eINSTANCE.eClass();
 
+		// Obtain or create and register interdependencies
+		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(PomPackage.eNS_URI);
+		PomPackageImpl thePomPackage = (PomPackageImpl) (registeredPackage instanceof PomPackageImpl ? registeredPackage
+				: PomPackage.eINSTANCE);
+
 		// Create package meta-data objects
 		theMetadataPackage.createPackageContents();
+		thePomPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theMetadataPackage.initializePackageContents();
+		thePomPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theMetadataPackage.freeze();
@@ -657,7 +666,7 @@ public class MetadataPackageImpl extends EPackageImpl implements MetadataPackage
 
 		// Add supertypes to classes
 
-		// Initialize classes and features; add operations and parameters
+		// Initialize classes, features, and operations; add parameters
 		initEClass(documentRootEClass, DocumentRoot.class, "DocumentRoot", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDocumentRoot_Mixed(), ecorePackage.getEFeatureMapEntry(), "mixed", null, 0, -1, null,

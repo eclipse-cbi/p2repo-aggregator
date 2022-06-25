@@ -2605,6 +2605,14 @@ public interface PomPackage extends EPackage {
 	String eNS_PREFIX = "";
 
 	/**
+	 * The package content type ID.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String eCONTENT_TYPE = "org.eclipse.cbi.p2repo.maven.p2.pom";
+
+	/**
 	 * The singleton instance of the package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2677,6 +2685,15 @@ public interface PomPackage extends EPackage {
 	int ACTIVATION_FEATURE_COUNT = 5;
 
 	/**
+	 * The number of operations of the '<em>Activation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTIVATION_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ActivationFileImpl <em>Activation File</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2712,6 +2729,15 @@ public interface PomPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACTIVATION_FILE_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Activation File</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTIVATION_FILE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ActivationOSImpl <em>Activation OS</em>}' class.
@@ -2769,6 +2795,15 @@ public interface PomPackage extends EPackage {
 	int ACTIVATION_OS_FEATURE_COUNT = 4;
 
 	/**
+	 * The number of operations of the '<em>Activation OS</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTIVATION_OS_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ActivationPropertyImpl <em>Activation Property</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2804,6 +2839,15 @@ public interface PomPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACTIVATION_PROPERTY_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Activation Property</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTIVATION_PROPERTY_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.BuildImpl <em>Build</em>}' class.
@@ -2951,6 +2995,15 @@ public interface PomPackage extends EPackage {
 	int BUILD_FEATURE_COUNT = 14;
 
 	/**
+	 * The number of operations of the '<em>Build</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILD_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.BuildBaseImpl <em>Build Base</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3042,6 +3095,15 @@ public interface PomPackage extends EPackage {
 	int BUILD_BASE_FEATURE_COUNT = 8;
 
 	/**
+	 * The number of operations of the '<em>Build Base</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILD_BASE_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.CiManagementImpl <em>Ci Management</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3088,6 +3150,15 @@ public interface PomPackage extends EPackage {
 	int CI_MANAGEMENT_FEATURE_COUNT = 3;
 
 	/**
+	 * The number of operations of the '<em>Ci Management</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CI_MANAGEMENT_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ConfigurationTypeImpl <em>Configuration Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3114,6 +3185,15 @@ public interface PomPackage extends EPackage {
 	 * @ordered
 	 */
 	int CONFIGURATION_TYPE_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Configuration Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFIGURATION_TYPE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ContributorImpl <em>Contributor</em>}' class.
@@ -3207,6 +3287,15 @@ public interface PomPackage extends EPackage {
 	int CONTRIBUTOR_FEATURE_COUNT = 8;
 
 	/**
+	 * The number of operations of the '<em>Contributor</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTRIBUTOR_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ContributorsTypeImpl <em>Contributors Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3235,6 +3324,15 @@ public interface PomPackage extends EPackage {
 	int CONTRIBUTORS_TYPE_FEATURE_COUNT = 1;
 
 	/**
+	 * The number of operations of the '<em>Contributors Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTRIBUTORS_TYPE_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.DependenciesTypeImpl <em>Dependencies Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3261,6 +3359,15 @@ public interface PomPackage extends EPackage {
 	 * @ordered
 	 */
 	int DEPENDENCIES_TYPE_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Dependencies Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEPENDENCIES_TYPE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.DependencyImpl <em>Dependency</em>}' class.
@@ -3363,6 +3470,15 @@ public interface PomPackage extends EPackage {
 	int DEPENDENCY_FEATURE_COUNT = 9;
 
 	/**
+	 * The number of operations of the '<em>Dependency</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEPENDENCY_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.DependencyManagementImpl <em>Dependency Management</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3389,6 +3505,15 @@ public interface PomPackage extends EPackage {
 	 * @ordered
 	 */
 	int DEPENDENCY_MANAGEMENT_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Dependency Management</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEPENDENCY_MANAGEMENT_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.DeploymentRepositoryImpl <em>Deployment Repository</em>}' class.
@@ -3453,6 +3578,15 @@ public interface PomPackage extends EPackage {
 	 * @ordered
 	 */
 	int DEPLOYMENT_REPOSITORY_FEATURE_COUNT = 5;
+
+	/**
+	 * The number of operations of the '<em>Deployment Repository</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEPLOYMENT_REPOSITORY_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.DeveloperImpl <em>Developer</em>}' class.
@@ -3555,6 +3689,15 @@ public interface PomPackage extends EPackage {
 	int DEVELOPER_FEATURE_COUNT = 9;
 
 	/**
+	 * The number of operations of the '<em>Developer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEVELOPER_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.DevelopersTypeImpl <em>Developers Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3581,6 +3724,15 @@ public interface PomPackage extends EPackage {
 	 * @ordered
 	 */
 	int DEVELOPERS_TYPE_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Developers Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEVELOPERS_TYPE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.DistributionManagementImpl <em>Distribution Management</em>}' class.
@@ -3656,6 +3808,15 @@ public interface PomPackage extends EPackage {
 	int DISTRIBUTION_MANAGEMENT_FEATURE_COUNT = 6;
 
 	/**
+	 * The number of operations of the '<em>Distribution Management</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISTRIBUTION_MANAGEMENT_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.DocumentRootImpl <em>Document Root</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3711,6 +3872,15 @@ public interface PomPackage extends EPackage {
 	int DOCUMENT_ROOT_FEATURE_COUNT = 4;
 
 	/**
+	 * The number of operations of the '<em>Document Root</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOCUMENT_ROOT_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ExcludesTypeImpl <em>Excludes Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3737,6 +3907,15 @@ public interface PomPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXCLUDES_TYPE_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Excludes Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXCLUDES_TYPE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ExclusionImpl <em>Exclusion</em>}' class.
@@ -3776,6 +3955,15 @@ public interface PomPackage extends EPackage {
 	int EXCLUSION_FEATURE_COUNT = 2;
 
 	/**
+	 * The number of operations of the '<em>Exclusion</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXCLUSION_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ExclusionsTypeImpl <em>Exclusions Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3802,6 +3990,15 @@ public interface PomPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXCLUSIONS_TYPE_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Exclusions Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXCLUSIONS_TYPE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ExecutionGoalsTypeImpl <em>Execution Goals Type</em>}' class.
@@ -3832,6 +4029,15 @@ public interface PomPackage extends EPackage {
 	int EXECUTION_GOALS_TYPE_FEATURE_COUNT = 1;
 
 	/**
+	 * The number of operations of the '<em>Execution Goals Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_GOALS_TYPE_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ExecutionsTypeImpl <em>Executions Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3858,6 +4064,15 @@ public interface PomPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXECUTIONS_TYPE_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Executions Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTIONS_TYPE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ExtensionImpl <em>Extension</em>}' class.
@@ -3906,6 +4121,15 @@ public interface PomPackage extends EPackage {
 	int EXTENSION_FEATURE_COUNT = 3;
 
 	/**
+	 * The number of operations of the '<em>Extension</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTENSION_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ExtensionsTypeImpl <em>Extensions Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3932,6 +4156,15 @@ public interface PomPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXTENSIONS_TYPE_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Extensions Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTENSIONS_TYPE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.FiltersTypeImpl <em>Filters Type</em>}' class.
@@ -3962,6 +4195,15 @@ public interface PomPackage extends EPackage {
 	int FILTERS_TYPE_FEATURE_COUNT = 1;
 
 	/**
+	 * The number of operations of the '<em>Filters Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTERS_TYPE_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.GoalsTypeImpl <em>Goals Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3990,6 +4232,15 @@ public interface PomPackage extends EPackage {
 	int GOALS_TYPE_FEATURE_COUNT = 1;
 
 	/**
+	 * The number of operations of the '<em>Goals Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GOALS_TYPE_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.IncludesTypeImpl <em>Includes Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4016,6 +4267,15 @@ public interface PomPackage extends EPackage {
 	 * @ordered
 	 */
 	int INCLUDES_TYPE_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Includes Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INCLUDES_TYPE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.IssueManagementImpl <em>Issue Management</em>}' class.
@@ -4053,6 +4313,15 @@ public interface PomPackage extends EPackage {
 	 * @ordered
 	 */
 	int ISSUE_MANAGEMENT_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Issue Management</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE_MANAGEMENT_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.LicenseImpl <em>License</em>}' class.
@@ -4110,6 +4379,15 @@ public interface PomPackage extends EPackage {
 	int LICENSE_FEATURE_COUNT = 4;
 
 	/**
+	 * The number of operations of the '<em>License</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LICENSE_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.LicensesTypeImpl <em>Licenses Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4136,6 +4414,15 @@ public interface PomPackage extends EPackage {
 	 * @ordered
 	 */
 	int LICENSES_TYPE_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Licenses Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LICENSES_TYPE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.MailingListImpl <em>Mailing List</em>}' class.
@@ -4211,6 +4498,15 @@ public interface PomPackage extends EPackage {
 	int MAILING_LIST_FEATURE_COUNT = 6;
 
 	/**
+	 * The number of operations of the '<em>Mailing List</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAILING_LIST_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.MailingListsTypeImpl <em>Mailing Lists Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4237,6 +4533,15 @@ public interface PomPackage extends EPackage {
 	 * @ordered
 	 */
 	int MAILING_LISTS_TYPE_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Mailing Lists Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAILING_LISTS_TYPE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModelImpl <em>Model</em>}' class.
@@ -4528,6 +4833,15 @@ public interface PomPackage extends EPackage {
 	int MODEL_FEATURE_COUNT = 30;
 
 	/**
+	 * The number of operations of the '<em>Model</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModulesTypeImpl <em>Modules Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4554,6 +4868,15 @@ public interface PomPackage extends EPackage {
 	 * @ordered
 	 */
 	int MODULES_TYPE_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Modules Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODULES_TYPE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.NotifierImpl <em>Notifier</em>}' class.
@@ -4638,6 +4961,15 @@ public interface PomPackage extends EPackage {
 	int NOTIFIER_FEATURE_COUNT = 7;
 
 	/**
+	 * The number of operations of the '<em>Notifier</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOTIFIER_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.NotifiersTypeImpl <em>Notifiers Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4664,6 +4996,15 @@ public interface PomPackage extends EPackage {
 	 * @ordered
 	 */
 	int NOTIFIERS_TYPE_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Notifiers Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOTIFIERS_TYPE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.OrganizationImpl <em>Organization</em>}' class.
@@ -4703,6 +5044,15 @@ public interface PomPackage extends EPackage {
 	int ORGANIZATION_FEATURE_COUNT = 2;
 
 	/**
+	 * The number of operations of the '<em>Organization</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ORGANIZATION_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.OtherArchivesTypeImpl <em>Other Archives Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4729,6 +5079,15 @@ public interface PomPackage extends EPackage {
 	 * @ordered
 	 */
 	int OTHER_ARCHIVES_TYPE_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Other Archives Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OTHER_ARCHIVES_TYPE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ParentImpl <em>Parent</em>}' class.
@@ -4784,6 +5143,15 @@ public interface PomPackage extends EPackage {
 	 * @ordered
 	 */
 	int PARENT_FEATURE_COUNT = 4;
+
+	/**
+	 * The number of operations of the '<em>Parent</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARENT_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.PluginImpl <em>Plugin</em>}' class.
@@ -4886,6 +5254,15 @@ public interface PomPackage extends EPackage {
 	int PLUGIN_FEATURE_COUNT = 9;
 
 	/**
+	 * The number of operations of the '<em>Plugin</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLUGIN_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.PluginExecutionImpl <em>Plugin Execution</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4950,6 +5327,15 @@ public interface PomPackage extends EPackage {
 	int PLUGIN_EXECUTION_FEATURE_COUNT = 5;
 
 	/**
+	 * The number of operations of the '<em>Plugin Execution</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLUGIN_EXECUTION_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.PluginManagementImpl <em>Plugin Management</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4976,6 +5362,15 @@ public interface PomPackage extends EPackage {
 	 * @ordered
 	 */
 	int PLUGIN_MANAGEMENT_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Plugin Management</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLUGIN_MANAGEMENT_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.PluginRepositoriesTypeImpl <em>Plugin Repositories Type</em>}' class.
@@ -5006,6 +5401,15 @@ public interface PomPackage extends EPackage {
 	int PLUGIN_REPOSITORIES_TYPE_FEATURE_COUNT = 1;
 
 	/**
+	 * The number of operations of the '<em>Plugin Repositories Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLUGIN_REPOSITORIES_TYPE_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.PluginsTypeImpl <em>Plugins Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5034,6 +5438,15 @@ public interface PomPackage extends EPackage {
 	int PLUGINS_TYPE_FEATURE_COUNT = 1;
 
 	/**
+	 * The number of operations of the '<em>Plugins Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLUGINS_TYPE_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.PrerequisitesImpl <em>Prerequisites</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5060,6 +5473,15 @@ public interface PomPackage extends EPackage {
 	 * @ordered
 	 */
 	int PREREQUISITES_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Prerequisites</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PREREQUISITES_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ProfileImpl <em>Profile</em>}' class.
@@ -5189,6 +5611,15 @@ public interface PomPackage extends EPackage {
 	int PROFILE_FEATURE_COUNT = 12;
 
 	/**
+	 * The number of operations of the '<em>Profile</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROFILE_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ProfilesTypeImpl <em>Profiles Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5217,6 +5648,15 @@ public interface PomPackage extends EPackage {
 	int PROFILES_TYPE_FEATURE_COUNT = 1;
 
 	/**
+	 * The number of operations of the '<em>Profiles Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROFILES_TYPE_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.PropertiesTypeImpl <em>Properties Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5243,6 +5683,15 @@ public interface PomPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPERTIES_TYPE_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Properties Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTIES_TYPE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.RelocationImpl <em>Relocation</em>}' class.
@@ -5300,6 +5749,15 @@ public interface PomPackage extends EPackage {
 	int RELOCATION_FEATURE_COUNT = 4;
 
 	/**
+	 * The number of operations of the '<em>Relocation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELOCATION_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ReportingImpl <em>Reporting</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5344,6 +5802,15 @@ public interface PomPackage extends EPackage {
 	 * @ordered
 	 */
 	int REPORTING_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Reporting</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPORTING_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ReportPluginImpl <em>Report Plugin</em>}' class.
@@ -5419,6 +5886,15 @@ public interface PomPackage extends EPackage {
 	int REPORT_PLUGIN_FEATURE_COUNT = 6;
 
 	/**
+	 * The number of operations of the '<em>Report Plugin</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPORT_PLUGIN_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ReportingPluginsTypeImpl <em>Reporting Plugins Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5445,6 +5921,15 @@ public interface PomPackage extends EPackage {
 	 * @ordered
 	 */
 	int REPORTING_PLUGINS_TYPE_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Reporting Plugins Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPORTING_PLUGINS_TYPE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ReportSetImpl <em>Report Set</em>}' class.
@@ -5502,6 +5987,15 @@ public interface PomPackage extends EPackage {
 	int REPORT_SET_FEATURE_COUNT = 4;
 
 	/**
+	 * The number of operations of the '<em>Report Set</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPORT_SET_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ReportSetReportsTypeImpl <em>Report Set Reports Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5528,6 +6022,15 @@ public interface PomPackage extends EPackage {
 	 * @ordered
 	 */
 	int REPORT_SET_REPORTS_TYPE_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Report Set Reports Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPORT_SET_REPORTS_TYPE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ReportSetsTypeImpl <em>Report Sets Type</em>}' class.
@@ -5558,6 +6061,15 @@ public interface PomPackage extends EPackage {
 	int REPORT_SETS_TYPE_FEATURE_COUNT = 1;
 
 	/**
+	 * The number of operations of the '<em>Report Sets Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPORT_SETS_TYPE_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ReportsTypeImpl <em>Reports Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5586,6 +6098,15 @@ public interface PomPackage extends EPackage {
 	int REPORTS_TYPE_FEATURE_COUNT = 1;
 
 	/**
+	 * The number of operations of the '<em>Reports Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPORTS_TYPE_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.RepositoriesTypeImpl <em>Repositories Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5612,6 +6133,15 @@ public interface PomPackage extends EPackage {
 	 * @ordered
 	 */
 	int REPOSITORIES_TYPE_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Repositories Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORIES_TYPE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.RepositoryImpl <em>Repository</em>}' class.
@@ -5687,6 +6217,15 @@ public interface PomPackage extends EPackage {
 	int REPOSITORY_FEATURE_COUNT = 6;
 
 	/**
+	 * The number of operations of the '<em>Repository</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.RepositoryPolicyImpl <em>Repository Policy</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5731,6 +6270,15 @@ public interface PomPackage extends EPackage {
 	 * @ordered
 	 */
 	int REPOSITORY_POLICY_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Repository Policy</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_POLICY_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ResourceImpl <em>Resource</em>}' class.
@@ -5797,6 +6345,15 @@ public interface PomPackage extends EPackage {
 	int RESOURCE_FEATURE_COUNT = 5;
 
 	/**
+	 * The number of operations of the '<em>Resource</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ResourcesTypeImpl <em>Resources Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5825,6 +6382,15 @@ public interface PomPackage extends EPackage {
 	int RESOURCES_TYPE_FEATURE_COUNT = 1;
 
 	/**
+	 * The number of operations of the '<em>Resources Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCES_TYPE_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.RolesTypeImpl <em>Roles Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5851,6 +6417,15 @@ public interface PomPackage extends EPackage {
 	 * @ordered
 	 */
 	int ROLES_TYPE_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Roles Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROLES_TYPE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ScmImpl <em>Scm</em>}' class.
@@ -5908,6 +6483,15 @@ public interface PomPackage extends EPackage {
 	int SCM_FEATURE_COUNT = 4;
 
 	/**
+	 * The number of operations of the '<em>Scm</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCM_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.SiteImpl <em>Site</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5954,6 +6538,15 @@ public interface PomPackage extends EPackage {
 	int SITE_FEATURE_COUNT = 3;
 
 	/**
+	 * The number of operations of the '<em>Site</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SITE_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.TestResourcesTypeImpl <em>Test Resources Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5980,6 +6573,15 @@ public interface PomPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEST_RESOURCES_TYPE_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Test Resources Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEST_RESOURCES_TYPE_OPERATION_COUNT = 0;
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Activation <em>Activation</em>}'.

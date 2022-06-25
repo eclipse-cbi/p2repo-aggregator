@@ -12,6 +12,8 @@ package org.eclipse.cbi.p2repo.p2.maven.pom.impl;
 
 import static org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage.RESOURCE;
 
+import org.eclipse.cbi.p2repo.p2.maven.metadata.MetadataPackage;
+import org.eclipse.cbi.p2repo.p2.maven.metadata.impl.MetadataPackageImpl;
 import org.eclipse.cbi.p2repo.p2.maven.pom.Activation;
 import org.eclipse.cbi.p2repo.p2.maven.pom.ActivationFile;
 import org.eclipse.cbi.p2repo.p2.maven.pom.ActivationOS;
@@ -590,11 +592,19 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage {
 		// Initialize simple dependencies
 		XMLTypePackage.eINSTANCE.eClass();
 
+		// Obtain or create and register interdependencies
+		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(MetadataPackage.eNS_URI);
+		MetadataPackageImpl theMetadataPackage = (MetadataPackageImpl) (registeredPackage instanceof MetadataPackageImpl
+				? registeredPackage
+				: MetadataPackage.eINSTANCE);
+
 		// Create package meta-data objects
 		thePomPackage.createPackageContents();
+		theMetadataPackage.createPackageContents();
 
 		// Initialize created meta-data
 		thePomPackage.initializePackageContents();
+		theMetadataPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		thePomPackage.freeze();
@@ -4065,7 +4075,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage {
 
 		// Add supertypes to classes
 
-		// Initialize classes and features; add operations and parameters
+		// Initialize classes, features, and operations; add parameters
 		initEClass(activationEClass, Activation.class, "Activation", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getActivation_ActiveByDefault(), theXMLTypePackage.getBoolean(), "activeByDefault", "false", 0,

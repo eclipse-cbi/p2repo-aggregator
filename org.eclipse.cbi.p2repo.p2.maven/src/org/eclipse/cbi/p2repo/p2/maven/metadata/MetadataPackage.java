@@ -386,6 +386,14 @@ public interface MetadataPackage extends EPackage {
 	String eNS_PREFIX = "";
 
 	/**
+	 * The package content type ID.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String eCONTENT_TYPE = "org.eclipse.cbi.p2repo.maven.p2.metadata";
+
+	/**
 	 * The singleton instance of the package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -447,6 +455,15 @@ public interface MetadataPackage extends EPackage {
 	 * @ordered
 	 */
 	int DOCUMENT_ROOT_FEATURE_COUNT = 4;
+
+	/**
+	 * The number of operations of the '<em>Document Root</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOCUMENT_ROOT_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.impl.MetaDataImpl <em>Meta Data</em>}' class.
@@ -522,6 +539,15 @@ public interface MetadataPackage extends EPackage {
 	int META_DATA_FEATURE_COUNT = 6;
 
 	/**
+	 * The number of operations of the '<em>Meta Data</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int META_DATA_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.impl.PluginImpl <em>Plugin</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -568,6 +594,15 @@ public interface MetadataPackage extends EPackage {
 	int PLUGIN_FEATURE_COUNT = 3;
 
 	/**
+	 * The number of operations of the '<em>Plugin</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLUGIN_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.impl.PluginsTypeImpl <em>Plugins Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -594,6 +629,15 @@ public interface MetadataPackage extends EPackage {
 	 * @ordered
 	 */
 	int PLUGINS_TYPE_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Plugins Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLUGINS_TYPE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.impl.VersioningImpl <em>Versioning</em>}' class.
@@ -662,6 +706,15 @@ public interface MetadataPackage extends EPackage {
 	int SNAPSHOT_FEATURE_COUNT = 3;
 
 	/**
+	 * The number of operations of the '<em>Snapshot</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SNAPSHOT_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.impl.SnapshotVersionImpl <em>Snapshot Version</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -717,6 +770,15 @@ public interface MetadataPackage extends EPackage {
 	int SNAPSHOT_VERSION_FEATURE_COUNT = 4;
 
 	/**
+	 * The number of operations of the '<em>Snapshot Version</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SNAPSHOT_VERSION_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.impl.SnapshotVersionsTypeImpl <em>Snapshot Versions Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -743,6 +805,15 @@ public interface MetadataPackage extends EPackage {
 	 * @ordered
 	 */
 	int SNAPSHOT_VERSIONS_TYPE_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Snapshot Versions Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SNAPSHOT_VERSIONS_TYPE_OPERATION_COUNT = 0;
 
 	/**
 	 * The feature id for the '<em><b>Latest</b></em>' attribute.
@@ -808,6 +879,15 @@ public interface MetadataPackage extends EPackage {
 	int VERSIONING_FEATURE_COUNT = 6;
 
 	/**
+	 * The number of operations of the '<em>Versioning</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VERSIONING_OPERATION_COUNT = 0;
+
+	/**
 	 * The feature id for the '<em><b>Version</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -824,6 +904,15 @@ public interface MetadataPackage extends EPackage {
 	 * @ordered
 	 */
 	int VERSIONS_TYPE_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Versions Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VERSIONS_TYPE_OPERATION_COUNT = 0;
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.DocumentRoot <em>Document Root</em>}'.
