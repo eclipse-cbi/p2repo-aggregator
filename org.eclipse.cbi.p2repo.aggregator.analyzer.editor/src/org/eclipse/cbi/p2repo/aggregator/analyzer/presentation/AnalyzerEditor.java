@@ -3358,7 +3358,7 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 		root.paint(graphics);
 		try (StringWriter stringWriter = new StringWriter()) {
 			svgGraphics2D.stream(stringWriter);
-			Path createTempFile = Files.createTempFile("Dependencies", "svg");
+			Path createTempFile = Files.createTempFile("Dependencies", ".svg");
 			Files.writeString(createTempFile, stringWriter.toString());
 			java.net.URI uri = createTempFile.toUri();
 			System.out.println("Created: " + uri);
