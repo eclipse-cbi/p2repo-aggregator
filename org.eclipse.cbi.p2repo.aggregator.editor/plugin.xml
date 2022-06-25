@@ -38,20 +38,21 @@
             id="org.eclipse.cbi.p2repo.aggregator.presentation.AggregatorEditorID"
             name="%_UI_AggregatorEditor_label"
             icon="icons/full/obj16/AggregatorModelFile.gif"
-            extensions="aggr"
             class="org.eclipse.cbi.p2repo.aggregator.presentation.AggregatorEditor"
             contributorClass="org.eclipse.cbi.p2repo.aggregator.presentation.AggregatorActionBarContributor">
+         <contentTypeBinding contentTypeId="org.eclipse.cbi.p2repo.aggregator"/>
       </editor>
    </extension>
 
    <extension point="org.eclipse.ui.editors">
+      <!-- aggrcon -->
       <editor
             id="org.eclipse.cbi.p2repo.aggregator.presentation.AggregatorEditorID"
             name="%_UI_AggregatorEditor_label"
             icon="platform:/plugin/org.eclipse.cbi.p2repo.aggregator.edit/icons/full/obj16/Contribution.gif"
-            extensions="aggrcon"
             class="org.eclipse.cbi.p2repo.aggregator.presentation.AggregatorEditor"
             contributorClass="org.eclipse.cbi.p2repo.aggregator.presentation.AggregatorActionBarContributor">
+         <contentTypeBinding contentTypeId="org.eclipse.cbi.p2repo.aggregator.con"/>
       </editor>
    </extension>
 

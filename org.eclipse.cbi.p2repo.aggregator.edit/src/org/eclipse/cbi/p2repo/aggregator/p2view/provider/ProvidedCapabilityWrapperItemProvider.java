@@ -202,7 +202,6 @@ public class ProvidedCapabilityWrapperItemProvider extends AggregatorItemProvide
 		return ((LabelProvider) object).getLabel();
 	}
 
-
 	@Override
 	protected Command createCreateCopyCommand(EditingDomain domain, EObject owner, Helper helper) {
 		return UnexecutableCommand.INSTANCE;

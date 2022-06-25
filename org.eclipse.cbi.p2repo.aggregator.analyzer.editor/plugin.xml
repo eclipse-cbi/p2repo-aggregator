@@ -36,9 +36,9 @@
             id="org.eclipse.cbi.p2repo.aggregator.analyzer.presentation.AnalyzerEditorID"
             name="%_UI_AnalyzerEditor_label"
             icon="icons/full/obj16/AnalyzerModelFile.gif"
-            extensions="aggran"
             class="org.eclipse.cbi.p2repo.aggregator.analyzer.presentation.AnalyzerEditor"
             contributorClass="org.eclipse.cbi.p2repo.aggregator.analyzer.presentation.AnalyzerActionBarContributor">
+         <contentTypeBinding contentTypeId="org.eclipse.cbi.p2repo.aggregator.analyzer"/>
       </editor>
    </extension>
    

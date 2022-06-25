@@ -23,11 +23,41 @@
             genModel="model/Aggregator.genmodel"/>
    </extension>
 
-   <extension point="org.eclipse.emf.ecore.extension_parser">
+   <extension point="org.eclipse.emf.ecore.content_parser">
       <!-- @generated Aggregator -->
       <parser
-            type="aggr"
+            contentTypeIdentifier="org.eclipse.cbi.p2repo.aggregator"
             class="org.eclipse.cbi.p2repo.aggregator.util.AggregatorResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.core.contenttype.contentTypes">
+      <!-- @generated Aggregator -->
+      <content-type
+            base-type="org.eclipse.emf.ecore.xmi"
+            file-extensions="aggr"
+            id="org.eclipse.cbi.p2repo.aggregator"
+            name="%_UI_Aggregator_content_type"
+            priority="normal">
+         <describer class="org.eclipse.emf.ecore.xmi.impl.RootXMLContentHandlerImpl$Describer">
+            <parameter name="namespace" value="http://www.eclipse.org/cbi/p2repo/2011/aggregator/1.1.0"/>
+            <parameter name="kind" value="xmi"/>
+         </describer>
+      </content-type>
+   </extension>
+
+   <extension point="org.eclipse.core.contenttype.contentTypes">
+      <!-- aggrcon -->
+      <content-type
+            base-type="org.eclipse.emf.ecore.xmi"
+            file-extensions="aggrcon"
+            id="org.eclipse.cbi.p2repo.aggregator.con"
+            name="%_UI_Aggregator_content_type"
+            priority="normal">
+         <describer class="org.eclipse.emf.ecore.xmi.impl.RootXMLContentHandlerImpl$Describer">
+            <parameter name="namespace" value="http://www.eclipse.org/cbi/p2repo/2011/aggregator/1.1.0"/>
+            <parameter name="kind" value="xmi"/>
+         </describer>
+      </content-type>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
@@ -46,11 +76,4 @@
       </parser>
    </extension>
 
-   <extension
-         point="org.eclipse.core.contenttype.contentTypes">
-      <file-association
-            content-type="org.eclipse.emf.ecore.xmi"
-            file-extensions="aggrcon,aggr">
-      </file-association>
-   </extension>
 </plugin>

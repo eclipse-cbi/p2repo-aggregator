@@ -18,7 +18,8 @@
   <foreignModel>Aggregator.ecore</foreignModel>
   <genPackages prefix="Aggregator" basePackage="org.eclipse.cbi.p2repo" resource="XMI"
       disposableProviderFactory="true" generateExampleClass="false" multipleEditorPages="false"
-      contentTypeIdentifier="" fileExtensions="aggr" ecorePackage="Aggregator.ecore#/">
+      contentTypeIdentifier="org.eclipse.cbi.p2repo.aggregator" fileExtensions="aggr"
+      ecorePackage="Aggregator.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="Aggregator.ecore#//AggregationType">
       <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//AggregationType/Stable"/>
       <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//AggregationType/Integration"/>

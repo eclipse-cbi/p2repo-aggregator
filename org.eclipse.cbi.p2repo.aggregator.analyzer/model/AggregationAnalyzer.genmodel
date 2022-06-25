@@ -13,8 +13,8 @@
     collapseAllAction="true" revertAction="true">
   <foreignModel>AggregationAnalyzer.ecore</foreignModel>
   <genPackages prefix="Analyzer" basePackage="org.eclipse.cbi.p2repo.aggregator" resource="XMI"
-      disposableProviderFactory="true" multipleEditorPages="false" fileExtensions="aggran"
-      ecorePackage="AggregationAnalyzer.ecore#/">
+      disposableProviderFactory="true" multipleEditorPages="false" contentTypeIdentifier="org.eclipse.cbi.p2repo.aggregator.analyzer"
+      fileExtensions="aggran" ecorePackage="AggregationAnalyzer.ecore#/">
     <genDataTypes ecoreDataType="AggregationAnalyzer.ecore#//Pattern"/>
     <genDataTypes ecoreDataType="AggregationAnalyzer.ecore#//URI" create="return it == null ? null : &lt;%org.eclipse.emf.common.util.URI%>.createURI(it);"
         convert="return it == null ? null : it.toString();"/>

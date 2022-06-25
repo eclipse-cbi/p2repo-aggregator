@@ -22,19 +22,26 @@
             genModel="model/AggregationAnalyzer.genmodel"/>
    </extension>
 
-   <extension point="org.eclipse.emf.ecore.extension_parser">
+   <extension point="org.eclipse.emf.ecore.content_parser">
       <!-- @generated AggregationAnalyzer -->
       <parser
-            type="aggran"
+            contentTypeIdentifier="org.eclipse.cbi.p2repo.aggregator.analyzer"
             class="org.eclipse.cbi.p2repo.aggregator.analyzer.util.AnalyzerResourceFactoryImpl"/>
    </extension>
 
-   <extension
-         point="org.eclipse.core.contenttype.contentTypes">
-      <file-association
-            content-type="org.eclipse.emf.ecore.xmi"
-            file-extensions="aggran">
-      </file-association>
+   <extension point="org.eclipse.core.contenttype.contentTypes">
+      <!-- @generated AggregationAnalyzer -->
+      <content-type
+            base-type="org.eclipse.emf.ecore.xmi"
+            file-extensions="aggran"
+            id="org.eclipse.cbi.p2repo.aggregator.analyzer"
+            name="%_UI_Analyzer_content_type"
+            priority="normal">
+         <describer class="org.eclipse.emf.ecore.xmi.impl.RootXMLContentHandlerImpl$Describer">
+            <parameter name="namespace" value="https://www.eclipse.org/cbi/p2repo/2021/aggregator/analyzer"/>
+            <parameter name="kind" value="xmi"/>
+         </describer>
+      </content-type>
    </extension>
 
 </plugin>

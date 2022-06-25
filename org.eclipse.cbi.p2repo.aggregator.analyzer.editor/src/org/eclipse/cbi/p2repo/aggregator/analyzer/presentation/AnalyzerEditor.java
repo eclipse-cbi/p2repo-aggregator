@@ -2070,9 +2070,8 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 						if (oldest != 0) {
 							long delta = oldest - Math.max(0, now - lastModified);
 							float brightness = 1.0f - ((float) delta) / oldest;
-							return ExtendedColorRegistry.INSTANCE.getColor(null, null,
-									URI.createURI(
-											"color://hsb/360/1.0/" + String.format(Locale.ROOT, "%.5f", brightness)));
+							return ExtendedColorRegistry.INSTANCE.getColor(null, null, URI.createURI(
+									"color://hsb/360/1.0/" + String.format(Locale.ROOT, "%.5f", brightness)));
 						}
 					}
 					return black;

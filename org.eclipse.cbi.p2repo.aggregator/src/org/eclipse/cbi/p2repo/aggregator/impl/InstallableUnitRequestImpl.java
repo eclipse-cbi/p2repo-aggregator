@@ -595,9 +595,8 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	@Override
 	synchronized public Status getStatus() {
 		if (eIsProxy()) {
-			return AggregatorFactory.eINSTANCE.createStatus(StatusCode.BROKEN,
-					AggregatorPlugin.INSTANCE.getString("_UI_ErrorMessage_UnresolvedProxy",
-							new Object[] { eProxyURI() }));
+			return AggregatorFactory.eINSTANCE.createStatus(StatusCode.BROKEN, AggregatorPlugin.INSTANCE
+					.getString("_UI_ErrorMessage_UnresolvedProxy", new Object[] { eProxyURI() }));
 		}
 		if (!isBranchDisabledOrMappedRepositoryBroken()) {
 			if (resolveAsSingleton() == null)

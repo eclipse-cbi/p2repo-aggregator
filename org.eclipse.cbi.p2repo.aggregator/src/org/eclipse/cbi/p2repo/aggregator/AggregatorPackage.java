@@ -1152,6 +1152,14 @@ public interface AggregatorPackage extends EPackage {
 	String eNS_PREFIX = "aggregator";
 
 	/**
+	 * The package content type ID.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String eCONTENT_TYPE = "org.eclipse.cbi.p2repo.aggregator";
+
+	/**
 	 * The singleton instance of the package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
