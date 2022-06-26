@@ -7,17 +7,6 @@
     label="p2 Repository Aggregator">
   <annotation
       source="http://www.eclipse.org/oomph/setup/BrandingInfo">
-    <annotation
-        source="http://www.eclipse.org/oomph/setup/BrandingInfo">
-      <detail
-          key="imageURI">
-        <value>https://raw.githubusercontent.com/eclipse-cbi/p2repo-aggregator/main/org.eclipse.cbi.p2repo.aggregator.editor/icons/full/wizban/NewAggregator.png</value>
-      </detail>
-      <detail
-          key="siteURI">
-        <value>https://wiki.eclipse.org/Simrel/Contributing_to_Simrel_Aggregation_Build</value>
-      </detail>
-    </annotation>
     <detail
         key="imageURI">
       <value>https://raw.githubusercontent.com/eclipse-cbi/p2repo-aggregator/main/org.eclipse.cbi.p2repo.aggregator.editor/icons/full/wizban/NewAggregator.png</value>
@@ -25,6 +14,10 @@
     <detail
         key="siteURI">
       <value>https://github.com/eclipse-cbi/p2repo-aggregator</value>
+    </detail>
+    <detail
+        key="badgeLabel">
+      <value>p2 Aggregator</value>
     </detail>
   </annotation>
   <installation
