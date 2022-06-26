@@ -4,8 +4,8 @@
 
 *       text=auto
 
-*.b3aggrcon    text
-*.b3aggr       text
+*.aggrcon    text
+*.aggr       text
 *.prefs        text
 *.xml          text
 *.ecore        text

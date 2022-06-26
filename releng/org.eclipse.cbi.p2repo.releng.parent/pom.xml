@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright (c) 2016 Eclipse Foundation.
+  All rights reserved. This program and the accompanying materials
+  are made available under the terms of the Eclipse Distribution License v1.0
+  which accompanies this distribution, and is available at
+  http://www.eclipse.org/org/documents/edl-v10.php
+
+  Contributors:
+  David Williams - improvements and maintenance
+-->
+<project
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.eclipse.cbi</groupId>
+  <artifactId>org.eclipse.cbi.p2repo.releng.parent</artifactId>
+  <version>1.1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <modules>
+    <module>../../plugins/org.eclipse.cbi.p2repo.aggregator.analyzer.edit</module>
+    <module>../../plugins/org.eclipse.cbi.p2repo.aggregator.analyzer.editor</module>
+    <module>../../plugins/org.eclipse.cbi.p2repo.aggregator.analyzer</module>
+    <module>../../plugins/org.eclipse.cbi.p2repo.aggregator.edit</module>
+    <module>../../plugins/org.eclipse.cbi.p2repo.aggregator.editor</module>
+    <module>../../plugins/org.eclipse.cbi.p2repo.aggregator.engine.maven</module>
+    <module>../../plugins/org.eclipse.cbi.p2repo.aggregator.engine</module>
+    <module>../../plugins/org.eclipse.cbi.p2repo.aggregator.legacy.ui</module>
+    <module>../../plugins/org.eclipse.cbi.p2repo.aggregator.legacy</module>
+    <module>../../plugins/org.eclipse.cbi.p2repo.aggregator</module>
+    <module>../../plugins/org.eclipse.cbi.p2repo.cli</module>
+    <module>../../plugins/org.eclipse.cbi.p2repo.p2.edit</module>
+    <module>../../plugins/org.eclipse.cbi.p2repo.p2.maven.indexer</module>
+    <module>../../plugins/org.eclipse.cbi.p2repo.p2.maven</module>
+    <module>../../plugins/org.eclipse.cbi.p2repo.p2</module>
+    <module>../../plugins/org.eclipse.cbi.p2repo.util</module>
+    <module>../../plugins/org.eclipse.cbi.tycho</module>
+    <module>../../tests/org.eclipse.cbi.p2repo.p2.tests</module>
+    <module>../../features/org.eclipse.cbi.p2repo.aggregator.analyzer.editor.feature</module>
+    <module>../../features/org.eclipse.cbi.p2repo.aggregator.dependencies.feature</module>
+    <module>../../features/org.eclipse.cbi.p2repo.aggregator.editor.feature</module>
+    <module>../../features/org.eclipse.cbi.p2repo.aggregator.engine.feature</module>
+    <module>../../features/org.eclipse.cbi.p2repo.cli.product.feature</module>
+    <module>../../features/org.eclipse.cbi.p2repo.p2.maven.indexer.feature</module>
+    <module>../../features/org.eclipse.cbi.p2repo.tests.feature</module>
+    <module>../../products/org.eclipse.cbi.p2repo.cli.product</module>
+    <module>../org.eclipse.cbi.p2repo.releng.target</module>
+    <module>../org.eclipse.cbi.p2repo.site</module>
+  </modules>
+
+  <properties>
+    <skipTests>true</skipTests>
+    <maven.build.timestamp.format>yyyyMMdd-HHmm</maven.build.timestamp.format>
+    <comparator.repo>http://download.eclipse.org/cbi/updates/aggregator/ide/4.13/</comparator.repo>
+    <tycho-version>2.7.3</tycho-version>
+    <cbi-plugins.version>1.3.1</cbi-plugins.version>
+    <code.ignoredWarnings>-warn:-deprecation,raw,unchecked,discouraged</code.ignoredWarnings>
+    <!--
+      repo for released versions of CBI. Note, we intentionally use as specific a repo as possible.
+      See bug 471835.
+    -->
+    
+   <eclipse-repo.url>https://repo.eclipse.org/content/repositories/cbi/</eclipse-repo.url>
+    <!-- comment out snapshots repo, when not intending to use snapshots. releases come from "eclipse-repo.url"
+      <cbi-snapshots-repo.url>https://repo.eclipse.org/content/repositories/cbi-snapshots/</cbi-snapshots-repo.url>
+    -->
+    <!-- 
+    <tycho-snapshots>https://repo.eclipse.org/content/repositories/tycho-snapshots/</tycho-snapshots>
+     -->
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+    <!-- Should this go in "repository pom"? Where modules defined -->
+    <tycho.scmUrl>scm:git:https://github.com/eclipse-cbi/p2repo-aggregator</tycho.scmUrl>
+    <!--
+      Default to error, but may need to override if doing local builds on local working tree.
+      such as -DdirtyworkingTree=warning.
+    -->
+    <dirtyWorkingTree>warning</dirtyWorkingTree>
+
+    <comparatorMode>warn</comparatorMode>
+    <!--
+      This 'updateRelease' value is not used in the build, per se, but when we "deploy" to
+      the update site locations. It reflects, basically, the version of the platform that it
+      was built against and the one it should be installed into (ideally).
+    -->
+    <updateRelease>4.25</updateRelease>
+    <!--
+      Similarly, referenceRepo is not used in the build, per se, but by the
+      repoReport tests. Normally the "latest build" is computed. But, if there is ever a 
+      reason to override what is computed, then this would be the place to do it. 
+    
+    <referenceRepo>/home/data/httpd/download.eclipse.org/cbi/updates/aggregator/ide/4.8/I20180126-0127</referenceRepo>
+    -->
+  </properties>
+
+  <profiles>
+    <profile>
+      <id>eclipse-sign</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.eclipse.cbi.maven.plugins</groupId>
+            <artifactId>eclipse-jarsigner-plugin</artifactId>
+            <version>${cbi-plugins.version}</version>
+            <executions>
+              <execution>
+                <id>sign</id>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+                <phase>verify</phase>
+              </execution>
+            </executions>
+            <configuration>
+              <excludeInnerJars>${defaultSigning-excludeInnerJars}</excludeInnerJars>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
+    <profile>
+      <id>promote</id>
+      <activation>
+        <property>
+          <name>promote</name>
+          <value>!false</value>
+        </property>
+      </activation>
+      <modules>
+        <module>promotion</module>
+      </modules>
+    </profile>
+
+    <profile>
+      <id>about-mappings</id>
+      <activation>
+        <file>
+          <exists>about.mappings</exists>
+        </file>
+      </activation>
+      <build>
+        <resources>
+          <resource>
+            <directory>.</directory>
+            <filtering>true</filtering>
+            <includes>
+              <include>about.mappings</include>
+            </includes>
+          </resource>
+        </resources>
+      </build>
+    </profile>
+  </profiles>
+
+  <pluginRepositories>
+    <pluginRepository>
+      <id>eclipse</id>
+      <url>${eclipse-repo.url}</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </pluginRepository>
+    <!-- 
+    <pluginRepository>
+      <id>tycho-snapshots</id>
+      <url>${tycho-snapshots}</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </pluginRepository>
+     -->
+  </pluginRepositories>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.eclipse.tycho</groupId>
+          <artifactId>tycho-source-plugin</artifactId>
+          <version>${tycho-version}</version>
+          <configuration>
+            <distinctSourceRoots>true</distinctSourceRoots>
+            <strictSrcIncludes>false</strictSrcIncludes>
+            <archive>
+              <addMavenDescriptor>false</addMavenDescriptor>
+            </archive>
+          </configuration>
+        </plugin>
+
+        <plugin>
+          <groupId>org.eclipse.tycho</groupId>
+          <artifactId>tycho-p2-director-plugin</artifactId>
+          <version>${tycho-version}</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.eclipse.tycho</groupId>
+          <artifactId>tycho-p2-repository-plugin</artifactId>
+          <version>${tycho-version}</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.eclipse.tycho</groupId>
+          <artifactId>tycho-compiler-plugin</artifactId>
+          <version>${tycho-version}</version>
+          <configuration>
+            <!-- default of 'useProjectSettings' was changed to 'true' in Tycho 1.0 -->
+            <useProjectSettings>false</useProjectSettings>
+            <compilerArgs>
+              <args>${code.ignoredWarnings}</args>
+              <args>-verbose</args>
+              <args>-enableJavadoc</args>
+              <args>-encoding</args>
+              <args>${project.build.sourceEncoding}</args>
+              <args>-proceedOnError</args>
+            </compilerArgs>
+            <useJDK>BREE</useJDK>
+            <!-- Use this form for Tycho 23 or greater -->
+            <log>xml</log>
+            <logDirectory>${project.build.directory}/compilelogs</logDirectory>
+            <showWarnings>true</showWarnings>
+            <excludeResources>
+              <exclude>**/package.html</exclude>
+            </excludeResources>
+          </configuration>
+        </plugin>
+
+        <plugin>
+          <groupId>org.eclipse.tycho</groupId>
+          <artifactId>tycho-packaging-plugin</artifactId>
+          <version>${tycho-version}</version>
+          <dependencies>
+            <dependency>
+              <groupId>org.eclipse.tycho.extras</groupId>
+              <artifactId>tycho-buildtimestamp-jgit</artifactId>
+              <version>${tycho-version}</version>
+            </dependency>
+            <dependency>
+              <groupId>org.eclipse.tycho.extras</groupId>
+              <artifactId>tycho-sourceref-jgit</artifactId>
+              <version>${tycho-version}</version>
+            </dependency>
+          </dependencies>
+          <configuration>
+            <strictBinIncludes>false</strictBinIncludes>
+            <format>'v'yyyyMMdd-HHmm</format>
+            <timestampProvider>jgit</timestampProvider>
+            <jgit.ignore>
+              pom.xml
+            </jgit.ignore>
+            <jgit.dirtyWorkingTree>${dirtyWorkingTree}</jgit.dirtyWorkingTree>
+            <sourceReferences>
+              <generate>true</generate>
+            </sourceReferences>
+            <archive>
+              <addMavenDescriptor>false</addMavenDescriptor>
+            </archive>
+          </configuration>
+        </plugin>
+
+        <plugin>
+          <groupId>org.eclipse.tycho</groupId>
+          <artifactId>target-platform-configuration</artifactId>
+          <version>${tycho-version}</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.eclipse.tycho</groupId>
+          <artifactId>tycho-p2-plugin</artifactId>
+          <version>${tycho-version}</version>
+          <configuration>
+            <!--
+              baselineMode can be 'warn', 'fail', 'disable', 'failCommon'
+              During production builds, we expect to "fail", so the issue
+              can be investigated.
+              If doing local builds, will likely need to use
+              something like -DcomparatorMode=warn since the local
+              artifacts would be unsigned and always fail the comparator test.
+              Update: After trying 'fail' on production machine, and having it fail in signature,
+              I recall now that the comparator is "too dumb" to examine signatures correctly, and
+              a simple TSA difference will cause it to 'fail'. That really should be fixed.
+              But until then, will change back to "warn". Technically, then, the log should be examined
+              as is done in the Platform build to find any "warnings" that are not simple TSA differences.
+            -->
+            <baselineMode>${comparatorMode}</baselineMode>
+            <baselineReplace>all</baselineReplace>
+            <baselineRepositories>
+              <repository>
+                <url>${comparator.repo}</url>
+              </repository>
+            </baselineRepositories>
+          </configuration>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>2.7</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+
+    <plugins>
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>tycho-maven-plugin</artifactId>
+        <version>${tycho-version}</version>
+        <extensions>true</extensions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>tycho-p2-publisher-plugin</artifactId>
+        <version>${tycho-version}</version>
+        <configuration>
+          <skip>true</skip>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>target-platform-configuration</artifactId>
+        <version>${tycho-version}</version>
+        <configuration>
+          <target>
+            <artifact>
+              <groupId>org.eclipse.cbi</groupId>
+              <artifactId>org.eclipse.cbi.p2repo.aggregator.prereqs</artifactId>
+              <version>1.1.0-SNAPSHOT</version>
+            </artifact>
+          </target>
+          <environments>
+            <environment>
+              <os>linux</os>
+              <ws>gtk</ws>
+              <arch>x86_64</arch>
+            </environment>
+            <environment>
+              <os>linux</os>
+              <ws>gtk</ws>
+              <arch>aarch64</arch>
+            </environment>
+            <environment>
+              <os>win32</os>
+              <ws>win32</ws>
+              <arch>x86_64</arch>
+            </environment>
+            <environment>
+              <os>macosx</os>
+              <ws>cocoa</ws>
+              <arch>x86_64</arch>
+            </environment>
+            <environment>
+              <os>macosx</os>
+              <ws>cocoa</ws>
+              <arch>aarch64</arch>
+            </environment>
+          </environments>
+          <includePackedArtifacts>false</includePackedArtifacts>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>tycho-source-plugin</artifactId>
+        <configuration>
+          <archive>
+            <addMavenDescriptor>false</addMavenDescriptor>
+          </archive>
+        </configuration>
+        <executions>
+          <execution>
+            <id>plugin-source</id>
+            <goals>
+              <goal>plugin-source</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>tycho-p2-plugin</artifactId>
+        <version>${tycho-version}</version>
+        <executions>
+          <execution>
+            <id>default-p2-metadata-default</id>
+            <configuration>
+              <attachP2Metadata>false</attachP2Metadata>
+            </configuration>
+          </execution>
+          <execution>
+            <id>attach-p2-metadata</id>
+            <phase>package</phase>
+            <goals>
+              <goal>p2-metadata</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <defaultP2Metadata>false</defaultP2Metadata>
+        </configuration>
+      </plugin>
+
+    </plugins>
+  </build>
+
+</project>
