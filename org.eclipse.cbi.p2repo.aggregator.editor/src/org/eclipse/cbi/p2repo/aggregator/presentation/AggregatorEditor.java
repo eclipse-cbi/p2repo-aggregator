@@ -950,7 +950,6 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	 * Get model instance resource and then initialize all repositories contained in the model using a progress bar.
 	 */
 	public void createModel() {
-
 		// get model instance resource
 		URI resourceURI = EditUIUtil.getURI(getEditorInput());
 		Exception exception = null;
@@ -1005,10 +1004,6 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 			} else {
 				resourceToDiagnosticMap.remove(otherResource);
 			}
-		}
-
-		if (!resourceToDiagnosticMap.isEmpty()) {
-			updateProblemIndication();
 		}
 
 		EObject obj = contents.get(0);
@@ -1590,13 +1585,16 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 		if (location != null) {
 			URI uri = URI.createURI(location);
 			if (uri != null && uri.fragment() != null) {
-				EObject eObject = editingDomain.getResourceSet().getEObject(uri, true);
-				if (eObject != null) {
-					IItemLabelProvider labelProvider = (IItemLabelProvider) adapterFactory.getRootAdapterFactory()
-							.adapt(eObject, IItemLabelProvider.class);
+				ResourceSet resourceSet = editingDomain.getResourceSet();
+				synchronized (resourceSet) {
+					EObject eObject = resourceSet.getEObject(uri, true);
+					if (eObject != null) {
+						IItemLabelProvider labelProvider = (IItemLabelProvider) adapterFactory.getRootAdapterFactory()
+								.adapt(eObject, IItemLabelProvider.class);
 
-					if (labelProvider != null)
-						return labelProvider.getText(eObject) + ": ";
+						if (labelProvider != null)
+							return labelProvider.getText(eObject) + ": ";
+					}
 				}
 			}
 		}
