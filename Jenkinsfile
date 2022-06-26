@@ -76,7 +76,7 @@ pipeline {
     stage('Build Tools and Products') {
       steps {
         sshagent(['projects-storage.eclipse.org-bot-ssh']) {
-          dir('p2repo-aggregator/org.eclipse.cbi.p2repo.releng.parent') {
+          dir('p2repo-aggregator/releng/org.eclipse.cbi.p2repo.releng.parent') {
             sh '''
               pwd
               if [[ $PROMOTE == false ]]; then
