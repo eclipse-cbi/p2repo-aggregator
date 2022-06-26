@@ -7,7 +7,7 @@ This job's builds produce updates sites for the
 [tools](https://download.eclipse.org/cbi/updates/p2-aggregator/tools/) and the 
 [products](https://download.eclipse.org/cbi/updates/p2-aggregator/products/).
 
-The [wiki documentation](https://download.eclipse.org/cbi/updates/p2-aggregator/products/) will need to be updated migrated at some point.
+The [wiki documentation](https://wiki.eclipse.org/CBI/aggregator) will need to be updated/migrated at some point.
 
 ### Reporting issues
 
