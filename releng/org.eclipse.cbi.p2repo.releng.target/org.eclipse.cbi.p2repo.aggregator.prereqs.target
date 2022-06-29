@@ -15,6 +15,7 @@
       <unit id="org.eclipse.gmf.runtime.draw2d.ui.render.awt" version="0.0.0"/>
       <unit id="org.eclipse.license.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.m2e.maven.indexer" version="0.0.0"/>
+      <unit id="org.eclipse.m2e.maven.runtime" version="0.0.0"/>
       <unit id="org.eclipse.sdk.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.zest.core" version="0.0.0"/>
       <unit id="org.kohsuke.args4j" version="0.0.0"/>

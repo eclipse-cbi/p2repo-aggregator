@@ -11,6 +11,7 @@
 
 package org.eclipse.cbi.p2repo.aggregator.engine.maven;
 
+import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -18,8 +19,13 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
+import java.util.stream.Collectors;
 
+import org.apache.maven.model.Dependency;
+import org.apache.maven.model.Model;
+import org.apache.maven.model.Parent;
 import org.eclipse.cbi.p2repo.aggregator.Aggregation;
 import org.eclipse.cbi.p2repo.aggregator.AggregatorFactory;
 import org.eclipse.cbi.p2repo.aggregator.Architecture;
@@ -31,16 +37,7 @@ import org.eclipse.cbi.p2repo.aggregator.StatusCode;
 import org.eclipse.cbi.p2repo.aggregator.VersionFormat;
 import org.eclipse.cbi.p2repo.aggregator.WindowSystem;
 import org.eclipse.cbi.p2repo.aggregator.util.InstallableUnitUtils;
-import org.eclipse.cbi.p2repo.p2.maven.POM;
-import org.eclipse.cbi.p2repo.p2.maven.pom.DependenciesType;
-import org.eclipse.cbi.p2repo.p2.maven.pom.Dependency;
-import org.eclipse.cbi.p2repo.p2.maven.pom.License;
-import org.eclipse.cbi.p2repo.p2.maven.pom.LicensesType;
-import org.eclipse.cbi.p2repo.p2.maven.pom.Model;
-import org.eclipse.cbi.p2repo.p2.maven.pom.Parent;
-import org.eclipse.cbi.p2repo.p2.maven.pom.PomFactory;
 import org.eclipse.cbi.p2repo.p2.maven.util.VersionUtil;
-import org.eclipse.cbi.p2repo.util.ExceptionUtils;
 import org.eclipse.cbi.p2repo.util.LogUtils;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.ecore.EObject;
@@ -196,92 +193,71 @@ public class InstallableUnitMapping implements IInstallableUnit {
 		this.versionFormat = versionFormat;
 	}
 
-	public POM asPOM() throws CoreException {
-		POM pom = new POM();
-		Model model = pom.getProject();
+	public org.apache.maven.model.Model asPOM() throws CoreException {
+		Model pom = new Model();
 		if(parent != null && !parent.isTransient()) {
-			Parent newParent = PomFactory.eINSTANCE.createParent();
+			Parent newParent = new Parent();
 			newParent.setGroupId(parent.map().getGroupId());
 			newParent.setArtifactId(parent.map().getArtifactId());
 			newParent.setVersion(parent.getVersionString(false, -1));
-			model.setParent(newParent);
+			pom.setParent(newParent);
 		}
-		model.setModelVersion(POM.MODEL_VERSION);
-		model.setGroupId(map().getGroupId());
-		model.setArtifactId(map().getArtifactId());
-		if(getMainArtifact() == null)
-			model.setPackaging("pom");
+		pom.setModelVersion("4.0");
+		pom.setGroupId(map().getGroupId());
+		pom.setArtifactId(map().getArtifactId());
+		if(getMainArtifact() == null) {
+			pom.setPackaging("pom");
+		}
 
-		if(getVersion() != null && !getVersion().equals(Version.emptyVersion))
-			model.setVersion(getVersionString(false, -1));
+		if(getVersion() != null && !getVersion().equals(Version.emptyVersion)) {
+			pom.setVersion(getVersionString(false, -1));
+		}
 
-		Collection<IRequirement> requirements = getRequirements();
-		if(requirements.size() > 0) {
-			DependenciesType dependencies = PomFactory.eINSTANCE.createDependenciesType();
-			boolean hasPlatformFragmentDependency = false;
-			for(IRequirement req : requirements) {
-				if(!(req instanceof IRequiredCapability))
-					continue;
-
-				IRequiredCapability cap = (IRequiredCapability) req;
-				// Only dependencies on IUs and OSGi bundles are considered in maven
-				if(IInstallableUnit.NAMESPACE_IU_ID.equals(cap.getNamespace()) ||
-						"osgi.bundle".equals(cap.getNamespace())) {
-					Dependency dependency = PomFactory.eINSTANCE.createDependency();
-
-					MavenItem dependencyMapping = map(cap.getName(), mappings);
-					dependency.setGroupId(dependencyMapping.getGroupId());
-					String artifactId = dependencyMapping.getArtifactId();
-					String generifiedId = generifyPlatformDependency(artifactId, req.getFilter());
-					if(generifiedId != null) {
-						if(hasPlatformFragmentDependency) {
-							continue; // don't add again
-						}
-						hasPlatformFragmentDependency = true;
-						artifactId = generifiedId;
+		boolean hasPlatformFragmentDependency[] = { false };
+		pom.setDependencies(getRequirements().stream() //
+			.filter(IRequiredCapability.class::isInstance) //
+			.map(IRequiredCapability.class::cast) //
+				// only consider require-bundle so far
+			.filter(req -> IInstallableUnit.NAMESPACE_IU_ID.equals(req.getNamespace())
+						|| "osgi.bundle".equals(req.getNamespace()))
+			.map(req -> {
+				Dependency dependency = new Dependency();
+					MavenItem dependencyMapping = map(req.getName(), mappings);
+				dependency.setGroupId(dependencyMapping.getGroupId());
+				String artifactId = dependencyMapping.getArtifactId();
+				String generifiedId = generifyPlatformDependency(artifactId, req.getFilter());
+				if(generifiedId != null) {
+					if(hasPlatformFragmentDependency[0]) {
+						return null; // don't add again
 					}
-					dependency.setArtifactId(artifactId);
-					dependencies.getDependency().add(dependency);
-
-					if(cap.getRange() != null && !cap.getRange().equals(VersionRange.emptyRange)) {
+					hasPlatformFragmentDependency[0] = true;
+					artifactId = generifiedId;
+				}
+				dependency.setArtifactId(artifactId);
+					if (req.getRange() != null && !req.getRange().equals(VersionRange.emptyRange)) {
 						StringBuilder versionRangeString = new StringBuilder();
-						Version low = cap.getRange().getMinimum();
-						Version high = cap.getRange().getMaximum();
-						if(cap.getRange().getIncludeMinimum() && Version.MAX_VERSION.equals(high)) {
-							versionRangeString.append("[").append(
-								getVersionStringForDependency(dependencyMapping, low)).append(",)");
-						}
-						else {
-							versionRangeString.append(
-								cap.getRange().getIncludeMinimum()
-										? '['
-										: '(');
+						Version low = req.getRange().getMinimum();
+						Version high = req.getRange().getMaximum();
+						if (req.getRange().getIncludeMinimum() && Version.MAX_VERSION.equals(high)) {
+							versionRangeString.append("[").append(getVersionStringForDependency(dependencyMapping, low))
+									.append(",)");
+					}
+					else {
+							versionRangeString.append(req.getRange().getIncludeMinimum() ? '[' : '(');
 							versionRangeString.append(getVersionStringForDependency(dependencyMapping, low));
 							versionRangeString.append(',');
 							versionRangeString.append(getVersionStringForDependency(dependencyMapping, high));
-							versionRangeString.append(
-								cap.getRange().getIncludeMaximum()
-										? ']'
-										: ')');
-						}
+							versionRangeString.append(req.getRange().getIncludeMaximum() ? ']' : ')');
+					}
 
 						dependency.setVersion(versionRangeString.toString());
-					}
-					else {
+					} else {
 						dependency.setVersion("[0.0,)");
-					}
-
-					if(cap.getMin() == 0)
-						dependency.setOptional(true);
 				}
-			}
-
-			// it is still possible that no dependency has been found since only dependencies on IUs and OSGi bundles
-			// are considered
-			// if no mavanizable dependency was found, don't create the dependencies section at all
-			if(dependencies.getDependency().size() > 0)
-				model.setDependencies(dependencies);
-		}
+					dependency.setOptional(req.getMin() == 0);
+					return dependency;
+				}).filter(Objects::nonNull) //
+				.collect(Collectors.toList()));
 
 		Map<String, String> iuProperties = new HashMap<String, String>(installableUnit.getProperties());
 		String name = extractProperty(iuProperties, IInstallableUnit.PROP_NAME);
@@ -299,48 +275,30 @@ public class InstallableUnitMapping implements IInstallableUnit {
 			if(description == null)
 				description = "";
 
-			model.setDescription(name + description);
+			pom.setDescription(name + description);
 		}
 
-		LicensesType licenses = PomFactory.eINSTANCE.createLicensesType();
-
-		Collection<ILicense> iuLicenses = installableUnit.getLicenses();
-		if(iuLicenses.size() > 0) {
-			for(ILicense iuLicense : iuLicenses) {
-				License license = PomFactory.eINSTANCE.createLicense();
-				boolean licenseSet = false;
-				if(iuLicense.getLocation() != null) {
-					licenseSet = true;
-					license.setUrl(iuLicense.getLocation().toString());
+		List<org.apache.maven.model.License> mavenLicenses = new ArrayList<>();
+		installableUnit.getLicenses().stream() //
+				.filter(license -> license.getLocation() != null || license.getBody() != null).map(license -> {
+					org.apache.maven.model.License mavenLicense = new org.apache.maven.model.License();
+					if (license.getLocation() != null) {
+						mavenLicense.setUrl(license.getLocation().toString());
 				}
-				if(iuLicense.getBody() != null) {
-					licenseSet = true;
-					license.setComments(iuLicense.getBody());
-				}
-				if(licenseSet)
-					licenses.getLicense().add(license);
-			}
-		}
+					mavenLicense.setComments(license.getBody());
+					return mavenLicense;
+				}).forEach(mavenLicenses::add);
 
 		ICopyright iuCopyright = installableUnit.getCopyright();
-		if(iuCopyright != null) {
-			License copyright = PomFactory.eINSTANCE.createLicense();
-			boolean copyrightSet = false;
+		if(iuCopyright != null && (iuCopyright.getLocation() != null || iuCopyright.getBody() != null)) {
+			org.apache.maven.model.License copyright = new org.apache.maven.model.License();
 			if(iuCopyright.getLocation() != null) {
-				copyrightSet = true;
 				copyright.setUrl(iuCopyright.getLocation().toString());
 			}
-			if(iuCopyright.getBody() != null) {
-				copyrightSet = true;
-				copyright.setComments(iuCopyright.getBody());
-			}
-			if(copyrightSet)
-				licenses.getLicense().add(copyright);
+			copyright.setComments(iuCopyright.getBody());
+			mavenLicenses.add(copyright);
 		}
-
-		if(licenses.getLicense().size() > 0)
-			model.setLicenses(licenses);
-
+		pom.setLicenses(mavenLicenses);
 		return pom;
 	}
 
@@ -643,7 +601,7 @@ public class InstallableUnitMapping implements IInstallableUnit {
 		return mapped;
 	}
 
-	private MavenItem map(String id, List<MavenMapping> mappings) throws CoreException {
+	private MavenItem map(String id, List<MavenMapping> mappings) throws InvalidParameterException {
 		MavenItem item = null;
 
 		for(MavenMapping mapping : mappings)
@@ -660,8 +618,8 @@ public class InstallableUnitMapping implements IInstallableUnit {
 			mappingDescriptor.append(mapping.toString());
 		}
 
-		throw ExceptionUtils.fromMessage(
-			"Unable to map IU to maven artifact: id=%s, mappings=%s", id, mappingDescriptor.toString());
+		throw new InvalidParameterException(String.format("Unable to map IU to maven artifact: id=%s, mappings=%s", id,
+				mappingDescriptor.toString()));
 	}
 
 	private boolean matchesFilter(IMatchExpression<IInstallableUnit> filter, Map<String, String> map) {
