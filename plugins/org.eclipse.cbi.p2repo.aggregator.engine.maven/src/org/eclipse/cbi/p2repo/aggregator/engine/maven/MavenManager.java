@@ -11,6 +11,7 @@
 
 package org.eclipse.cbi.p2repo.aggregator.engine.maven;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
@@ -23,6 +24,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.maven.model.io.DefaultModelWriter;
 import org.eclipse.cbi.p2repo.aggregator.Aggregation;
 import org.eclipse.cbi.p2repo.aggregator.Contribution;
 import org.eclipse.cbi.p2repo.aggregator.MavenItem;
@@ -42,6 +44,8 @@ import org.eclipse.cbi.p2repo.p2.util.IUUtils;
 import org.eclipse.cbi.p2repo.util.ExceptionUtils;
 import org.eclipse.cbi.p2repo.util.LogUtils;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -297,7 +301,12 @@ public class MavenManager {
 			boolean isSource = iu.isSourceArtifact();
 			if(!isSource) {
 				URI pomUri = createPomURI(root, iu);
-				iu.asPOM().save(pomUri);
+				try {
+					new DefaultModelWriter().write(new File(java.net.URI.create(pomUri.toString())), Map.of(),
+							iu.asPOM());
+				} catch (IOException | CoreException e) {
+					throw new CoreException(new Status(IStatus.ERROR, MavenManager.class, e.getMessage(), e));
+				}
 				createCheckSum(pomUri, uriConverter, digests);
 			}
 

@@ -13,6 +13,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.cbi.p2repo.aggregator,
  org.eclipse.cbi.p2repo.p2,
  org.eclipse.cbi.p2repo.util,
- org.eclipse.cbi.p2repo.p2.maven;visibility:=reexport
+ org.eclipse.m2e.maven.runtime,
+ org.eclipse.cbi.p2repo.p2.maven
+Import-Package: org.eclipse.cbi.p2repo.p2.maven.util
 Bundle-ActivationPolicy: lazy
 Automatic-Module-Name: org.eclipse.cbi.p2repo.aggregator.engine.maven
