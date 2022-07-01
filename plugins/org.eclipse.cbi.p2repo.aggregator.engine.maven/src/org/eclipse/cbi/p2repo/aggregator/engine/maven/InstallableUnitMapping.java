@@ -127,7 +127,6 @@ public class InstallableUnitMapping implements IInstallableUnit {
 		this.allIUMapping = allIUMapping;
 		this.mappings = new ArrayList<MavenMapping>(mappings.size() + 1);
 		this.mappings.addAll(mappings);
-		this.mappings.add(MavenMapping.DEFAULT_MAPPING);
 
 		for(MavenMapping mapping : mappings)
 			if(mapping.getStatus().getCode() != StatusCode.OK)
