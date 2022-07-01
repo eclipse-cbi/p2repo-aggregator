@@ -217,8 +217,11 @@ public class MavenManager {
 
 	public static MavenRepositoryHelper createMavenStructure(List<InstallableUnitMapping> ius, Aggregation aggregation)
 			throws CoreException {
-		List<String[]> mappingRulesList = new ArrayList<String[]>();
+		// skip IUs without artifact, as they're not meaningful to Maven
+		ius = new ArrayList<>(ius);
+		ius.removeIf(iu -> iu.getArtifacts().isEmpty());
 
+		List<String[]> mappingRulesList = new ArrayList<String[]>();
 		// Initialize with standard rules for packed artifacts (which are not usable for maven anyway)
 		mappingRulesList.add(new String[] {
 				"(& (classifier=osgi.bundle) (format=packed))",
