@@ -40,8 +40,6 @@ import org.eclipse.cbi.p2repo.aggregator.util.InstallableUnitUtils;
 import org.eclipse.cbi.p2repo.p2.maven.util.VersionUtil;
 import org.eclipse.cbi.p2repo.util.LogUtils;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
 import org.eclipse.equinox.internal.p2.metadata.InstallableUnit;
@@ -621,8 +619,7 @@ public class InstallableUnitMapping implements IInstallableUnit {
 		}
 
 		if (mapped == null) {
-			throw new CoreException(
-					new Status(IStatus.ERROR, getClass(), "Could not generate Maven mapping for " + getId()));
+			mapped = MavenMapping.DEFAULT_MAPPING.map(getId(), getVersion());
 		}
 		return mapped;
 	}
