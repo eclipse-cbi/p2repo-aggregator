@@ -1468,7 +1468,7 @@ public class Builder extends ModelAbstractCommand {
 					List<MavenMapping> allMavenMappings = contrib.getAllMavenMappings();
 					if(iusToMirror != null)
 						for(IInstallableUnit iu : iusToMirror)
-							iusToMaven.add(new InstallableUnitMapping(contrib, iu, allMavenMappings));
+							iusToMaven.add(new InstallableUnitMapping(contrib, iu, allMavenMappings, iusToMaven));
 
 					MonitorUtils.worked(contribMonitor, 100);
 				}
