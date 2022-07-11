@@ -74,6 +74,7 @@ import org.eclipse.cbi.p2repo.p2.maven.metadata.VersionsType;
 import org.eclipse.cbi.p2repo.p2.maven.util.VersionUtil;
 import org.eclipse.cbi.p2repo.p2.util.P2Bridge;
 import org.eclipse.cbi.p2repo.p2.util.P2Utils;
+import org.eclipse.cbi.p2repo.util.MonitorUtils;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
@@ -217,9 +218,9 @@ public class AnalyzeHandler extends BaseHandler {
 		}
 
 		private void gatherPOMs(SubMonitor monitor, Map<IInstallableUnit, InstallableUnit> modeledIUs,
-				InstallableUnitMapping iuMapping,
-				Pattern exclusion, Set<MavenMapping> mavenMappings, Map<String, Set<String>> localArtifactVersions,
-				Collection<Future<?>> metadata, List<Runnable> versionRangeAnalyzers) {
+				InstallableUnitMapping iuMapping, Pattern exclusion, Set<MavenMapping> mavenMappings,
+				Map<String, Set<String>> localArtifactVersions, Collection<Future<?>> metadata,
+				List<Runnable> versionRangeAnalyzers) {
 			try {
 				IInstallableUnit genuine = iuMapping.getGenuine();
 				InstallableUnit iu = modeledIUs.get(genuine);
@@ -234,13 +235,16 @@ public class AnalyzeHandler extends BaseHandler {
 						String groupURL = getURL(groupId);
 						URI groupURI = URI.createURI(groupURL);
 						metadata.add(getExecutor().submit(() -> {
-							monitor.subTask("Analyzing Maven mappings " + groupURI);
-							String groupFolderContent;
-							synchronized (groupURI) {
-								groupFolderContent = getContentOrEmpty(groupURI);
-							}
-							synchronized (properties) {
-								properties.put("maven-group-exists", Objects.toString(!groupFolderContent.isEmpty()));
+							if (!monitor.isCanceled()) {
+								monitor.subTask("Analyzing Maven mappings " + groupURI);
+								String groupFolderContent;
+								synchronized (groupURI) {
+									groupFolderContent = getContentOrEmpty(groupURI);
+								}
+								synchronized (properties) {
+									properties.put("maven-group-exists",
+											Objects.toString(!groupFolderContent.isEmpty()));
+								}
 							}
 						}));
 
@@ -249,30 +253,31 @@ public class AnalyzeHandler extends BaseHandler {
 						String artifactMetadataURL = artifactURL + "maven-metadata.xml";
 						URI artifactMetadataURI = URI.createURI(artifactMetadataURL);
 						metadata.add(getExecutor().submit(() -> {
-							monitor.subTask("Analyzing Maven mappings " + artifactMetadataURL);
-							MetaData metaData = getMetaData(resourceSet, artifactMetadataURI);
-							String version = model.getVersion();
+							if (!monitor.isCanceled()) {
+								monitor.subTask("Analyzing Maven mappings " + artifactMetadataURL);
+								MetaData metaData = getMetaData(resourceSet, artifactMetadataURI);
+								String version = model.getVersion();
 
-							synchronized (metadata) {
-								localArtifactVersions
-										.computeIfAbsent(groupId + ":" + artifactId, key -> new LinkedHashSet<String>())
-										.add(version);
-							}
+								synchronized (metadata) {
+									localArtifactVersions.computeIfAbsent(groupId + ":" + artifactId,
+											key -> new LinkedHashSet<String>()).add(version);
+								}
 
-							String plainVersion = VersionUtil.versionNotAsSnapshot(version);
-							String artifactPOMURL = artifactURL + plainVersion + "/" + artifactId + "-" + plainVersion
-									+ ".pom";
-							URI artifactPOMURI = URI.createURI(artifactPOMURL);
-							String artifactPOM;
-							synchronized (artifactPOMURI) {
-								artifactPOM = getContentOrEmpty(artifactPOMURI);
-							}
+								String plainVersion = VersionUtil.versionNotAsSnapshot(version);
+								String artifactPOMURL = artifactURL + plainVersion + "/" + artifactId + "-"
+										+ plainVersion + ".pom";
+								URI artifactPOMURI = URI.createURI(artifactPOMURL);
+								String artifactPOM;
+								synchronized (artifactPOMURI) {
+									artifactPOM = getContentOrEmpty(artifactPOMURI);
+								}
 
-							synchronized (properties) {
-								properties.put("maven-artifact-exists", Objects.toString(metaData != null));
-								properties.put("maven-artifact-version-exists",
-										Objects.toString(!artifactPOM.isEmpty()));
-								properties.put("maven-pom", MavenManager.toXML(model));
+								synchronized (properties) {
+									properties.put("maven-artifact-exists", Objects.toString(metaData != null));
+									properties.put("maven-artifact-version-exists",
+											Objects.toString(!artifactPOM.isEmpty()));
+									properties.put("maven-pom", MavenManager.toXML(model));
+								}
 							}
 						}));
 
@@ -533,8 +538,7 @@ public class AnalyzeHandler extends BaseHandler {
 						List<Future<?>> metadata = new ArrayList<Future<?>>();
 						SubMonitor pomAnalyzer = subMonitor.newChild(1);
 						gatherPOMs(pomAnalyzer, modeledIUs, iuMapping, exclusion, usedMavenMappings,
-								localArtifactVersions, metadata,
-								versionRangeAnalyzers);
+								localArtifactVersions, metadata, versionRangeAnalyzers);
 
 						pomAnalyzer.setWorkRemaining(metadata.size());
 						for (Future<?> future : metadata) {
@@ -542,6 +546,7 @@ public class AnalyzeHandler extends BaseHandler {
 							pomAnalyzer.worked(1);
 						}
 
+						MonitorUtils.testCancelStatus(monitor);
 						versionRangeAnalyzers.forEach(Runnable::run);
 
 						Set<MavenMapping> mavenMappings = new LinkedHashSet<MavenMapping>();
@@ -572,10 +577,12 @@ public class AnalyzeHandler extends BaseHandler {
 					subMonitor.worked(1);
 					subMonitor.subTask("Partitioning contributions");
 
+					MonitorUtils.testCancelStatus(monitor);
 					Map<RequirementAnalysis, Future<Set<IInstallableUnit>>> dependencies = new LinkedHashMap<>();
 					EList<ContributionAnalysis> contributions = analysis.getContributions();
 					for (boolean all : new boolean[] { false, true }) {
 						for (ContributionAnalysis contributionAnalysis : contributions) {
+							MonitorUtils.testCancelStatus(monitor);
 							Contribution contribution = contributionAnalysis.getContribution();
 							URI contributionURI = contribution == null ? null
 									: CommonPlugin.asLocalURI(EcoreUtil.getURI((EObject) contribution));
@@ -632,6 +639,7 @@ public class AnalyzeHandler extends BaseHandler {
 					Map<InstallableUnitAnalysis, Set<RequirementResolution>> dependants = new LinkedHashMap<>();
 					for (Map.Entry<RequirementAnalysis, Future<Set<IInstallableUnit>>> entry : dependencies
 							.entrySet()) {
+						MonitorUtils.testCancelStatus(monitor);
 						RequirementAnalysis requirementAnalysis = entry.getKey();
 						Set<IInstallableUnit> ius = entry.getValue().get();
 						Set<RequirementResolution> resolutions = ius.stream() //
@@ -652,6 +660,7 @@ public class AnalyzeHandler extends BaseHandler {
 					subMonitor.subTask("Building dependency results");
 
 					for (Map.Entry<InstallableUnitAnalysis, Set<RequirementResolution>> entry : dependants.entrySet()) {
+						MonitorUtils.testCancelStatus(monitor);
 						InstallableUnitAnalysis installableUnitAnalysis = entry.getKey();
 						EList<CapabilityAnalysis> capabilities = installableUnitAnalysis.getCapabilities();
 						Set<RequirementResolution> requirementResolutions = entry.getValue();
