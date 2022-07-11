@@ -15,6 +15,7 @@ import java.util.ArrayList;
 
 import org.eclipse.cbi.p2repo.aggregator.Aggregation;
 import org.eclipse.cbi.p2repo.aggregator.EnabledStatusProvider;
+import org.eclipse.cbi.p2repo.aggregator.MavenMapping;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.UniqueEList;
 import org.eclipse.emf.ecore.EObject;
@@ -25,15 +26,15 @@ public class GeneralUtils {
 	public static Aggregation getAggregation(EObject eObject) {
 		EObject p = eObject;
 		EObject c = p;
-		while(c != null) {
-			if(c instanceof Aggregation)
+		while (c != null) {
+			if (c instanceof Aggregation)
 				return (Aggregation) c;
 			p = c;
 			c = c.eContainer();
 		}
 		// Not found in parent chain. Get the resource set.
 		EList<EObject> contents = getAggregatorResource(p).getContents();
-		if(contents != null && contents.size() > 0)
+		if (contents != null && contents.size() > 0)
 			return (Aggregation) contents.get(0);
 
 		throw new IllegalArgumentException("Aggregator was not found");
@@ -42,11 +43,10 @@ public class GeneralUtils {
 	public static AggregatorResource getAggregatorResource(EObject eObject) {
 
 		try {
-			for(Resource resource : new ArrayList<Resource>(eObject.eResource().getResourceSet().getResources()))
-				if(resource instanceof AggregatorResource)
+			for (Resource resource : new ArrayList<Resource>(eObject.eResource().getResourceSet().getResources()))
+				if (resource instanceof AggregatorResource)
 					return (AggregatorResource) resource;
-		}
-		catch(Exception e) {
+		} catch (Exception e) {
 			throw new IllegalArgumentException("AggregatorResource was not found", e);
 		}
 
@@ -56,33 +56,65 @@ public class GeneralUtils {
 	public static <T extends EnabledStatusProvider> EList<T> getEnabled(EList<T> ts) {
 		int count = ts.size();
 		int idx = 0;
-		for(; idx < count; ++idx) {
-			if(!ts.get(idx).isEnabled())
+		for (; idx < count; ++idx) {
+			if (!ts.get(idx).isEnabled())
 				break;
 		}
-		if(idx == count)
+		if (idx == count)
 			return ts;
 
 		EList<T> enabledTs = new UniqueEList.FastCompare<T>(count - 1);
-		for(int sdx = 0; sdx < idx; ++sdx)
+		for (int sdx = 0; sdx < idx; ++sdx)
 			enabledTs.add(ts.get(sdx));
-		for(++idx; idx < count; ++idx) {
+		for (++idx; idx < count; ++idx) {
 			T t = ts.get(idx);
-			if(t.isEnabled())
+			if (t.isEnabled())
 				enabledTs.add(t);
 		}
 		return enabledTs;
 	}
 
 	public static boolean isBranchEnabled(Object esp) {
-		if(esp instanceof EnabledStatusProvider && !((EnabledStatusProvider) esp).isEnabled())
+		if (esp instanceof EnabledStatusProvider && !((EnabledStatusProvider) esp).isEnabled())
 			return false;
-		if(esp instanceof EObject) {
-			for(EObject v = ((EObject) esp).eContainer(); v != null; v = v.eContainer()) {
-				if(v instanceof EnabledStatusProvider)
+		if (esp instanceof EObject) {
+			for (EObject v = ((EObject) esp).eContainer(); v != null; v = v.eContainer()) {
+				if (v instanceof EnabledStatusProvider)
 					return ((EnabledStatusProvider) v).isBranchEnabled();
 			}
 		}
 		return true;
+	}
+
+	public static String toString(MavenMapping mapping) {
+		StringBuilder result = new StringBuilder();
+		String namePattern = mapping.getNamePattern();
+		if (namePattern != null) {
+			result.append(namePattern);
+		}
+
+		result.append("' => '");
+		String groupId = mapping.getGroupId();
+		if (groupId != null) {
+			result.append(groupId);
+		}
+		String artifactId = mapping.getArtifactId();
+		if (artifactId != null) {
+			result.append('/');
+			result.append(artifactId);
+		}
+
+		String versionPattern = mapping.getVersionPattern();
+		String versionTemplate = mapping.getVersionTemplate();
+		if (versionPattern != null && versionTemplate != null) {
+			result.append("', '").append(versionPattern);
+			result.append("' => '").append(versionTemplate);
+		}
+
+		if (mapping.isSnapshot()) {
+			result.append(" SNAPSHOT");
+		}
+
+		return result.toString();
 	}
 }

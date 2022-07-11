@@ -23,6 +23,7 @@ import org.eclipse.cbi.p2repo.aggregator.CustomCategory;
 import org.eclipse.cbi.p2repo.aggregator.Feature;
 import org.eclipse.cbi.p2repo.aggregator.InfosProvider;
 import org.eclipse.cbi.p2repo.aggregator.MappedRepository;
+import org.eclipse.cbi.p2repo.aggregator.MavenDependencyMapping;
 import org.eclipse.cbi.p2repo.aggregator.MavenMapping;
 import org.eclipse.cbi.p2repo.aggregator.MetadataRepositoryReference;
 import org.eclipse.cbi.p2repo.aggregator.PackedStrategy;
@@ -74,6 +75,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#getVersionFormat <em>Version Format</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#getMavenBuildNumber <em>Maven Build Number</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#getMavenMappings <em>Maven Mappings</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#getMavenDependencyMappings <em>Maven Dependency Mappings</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#isAllowLegacySites <em>Allow Legacy Sites</em>}</li>
  * </ul>
  *
@@ -444,6 +446,17 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	protected EList<MavenMapping> mavenMappings;
 
 	/**
+	 * The cached value of the '{@link #getMavenDependencyMappings() <em>Maven Dependency Mappings</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMavenDependencyMappings()
+	 * @since 1.1.0
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<MavenDependencyMapping> mavenDependencyMappings;
+
+	/**
 	 * The default value of the '{@link #isAllowLegacySites() <em>Allow Legacy Sites</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -608,6 +621,8 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 				return getMavenBuildNumber();
 			case AggregatorPackage.AGGREGATION__MAVEN_MAPPINGS:
 				return getMavenMappings();
+			case AggregatorPackage.AGGREGATION__MAVEN_DEPENDENCY_MAPPINGS:
+				return getMavenDependencyMappings();
 			case AggregatorPackage.AGGREGATION__ALLOW_LEGACY_SITES:
 				return isAllowLegacySites();
 		}
@@ -647,6 +662,8 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 				return ((InternalEList<?>) getContacts()).basicRemove(otherEnd, msgs);
 			case AggregatorPackage.AGGREGATION__MAVEN_MAPPINGS:
 				return ((InternalEList<?>) getMavenMappings()).basicRemove(otherEnd, msgs);
+			case AggregatorPackage.AGGREGATION__MAVEN_DEPENDENCY_MAPPINGS:
+				return ((InternalEList<?>) getMavenDependencyMappings()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -699,6 +716,8 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 				return mavenBuildNumber != MAVEN_BUILD_NUMBER_EDEFAULT;
 			case AggregatorPackage.AGGREGATION__MAVEN_MAPPINGS:
 				return mavenMappings != null && !mavenMappings.isEmpty();
+			case AggregatorPackage.AGGREGATION__MAVEN_DEPENDENCY_MAPPINGS:
+				return mavenDependencyMappings != null && !mavenDependencyMappings.isEmpty();
 			case AggregatorPackage.AGGREGATION__ALLOW_LEGACY_SITES:
 				return ((eFlags & ALLOW_LEGACY_SITES_EFLAG) != 0) != ALLOW_LEGACY_SITES_EDEFAULT;
 		}
@@ -778,6 +797,10 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 			case AggregatorPackage.AGGREGATION__MAVEN_MAPPINGS:
 				getMavenMappings().clear();
 				getMavenMappings().addAll((Collection<? extends MavenMapping>) newValue);
+				return;
+			case AggregatorPackage.AGGREGATION__MAVEN_DEPENDENCY_MAPPINGS:
+				getMavenDependencyMappings().clear();
+				getMavenDependencyMappings().addAll((Collection<? extends MavenDependencyMapping>) newValue);
 				return;
 			case AggregatorPackage.AGGREGATION__ALLOW_LEGACY_SITES:
 				setAllowLegacySites((Boolean) newValue);
@@ -860,6 +883,9 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 				return;
 			case AggregatorPackage.AGGREGATION__MAVEN_MAPPINGS:
 				getMavenMappings().clear();
+				return;
+			case AggregatorPackage.AGGREGATION__MAVEN_DEPENDENCY_MAPPINGS:
+				getMavenDependencyMappings().clear();
 				return;
 			case AggregatorPackage.AGGREGATION__ALLOW_LEGACY_SITES:
 				setAllowLegacySites(ALLOW_LEGACY_SITES_EDEFAULT);
@@ -1047,6 +1073,21 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 					AggregatorPackage.AGGREGATION__MAVEN_MAPPINGS);
 		}
 		return mavenMappings;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @since 1.1.0
+	 * @generated
+	 */
+	@Override
+	public EList<MavenDependencyMapping> getMavenDependencyMappings() {
+		if (mavenDependencyMappings == null) {
+			mavenDependencyMappings = new EObjectContainmentEList.Resolving<>(
+					MavenDependencyMapping.class, this, AggregatorPackage.AGGREGATION__MAVEN_DEPENDENCY_MAPPINGS);
+		}
+		return mavenDependencyMappings;
 	}
 
 	/**

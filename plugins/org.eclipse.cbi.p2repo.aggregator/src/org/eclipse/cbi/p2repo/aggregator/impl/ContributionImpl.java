@@ -20,6 +20,7 @@ import org.eclipse.cbi.p2repo.aggregator.DescriptionProvider;
 import org.eclipse.cbi.p2repo.aggregator.IdentificationProvider;
 import org.eclipse.cbi.p2repo.aggregator.InfosProvider;
 import org.eclipse.cbi.p2repo.aggregator.MappedRepository;
+import org.eclipse.cbi.p2repo.aggregator.MavenDependencyMapping;
 import org.eclipse.cbi.p2repo.aggregator.MavenMapping;
 import org.eclipse.cbi.p2repo.aggregator.Status;
 import org.eclipse.cbi.p2repo.aggregator.StatusCode;
@@ -57,6 +58,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.ContributionImpl#getRepositories <em>Repositories</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.ContributionImpl#getContacts <em>Contacts</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.ContributionImpl#getMavenMappings <em>Maven Mappings</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.ContributionImpl#getMavenDependencyMappings <em>Maven Dependency Mappings</em>}</li>
  * </ul>
  *
  * @generated
@@ -201,6 +203,17 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 	 */
 	protected EList<MavenMapping> mavenMappings;
 
+	/**
+	 * The cached value of the '{@link #getMavenDependencyMappings() <em>Maven Dependency Mappings</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMavenDependencyMappings()
+	 * @since 1.1.0
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<MavenDependencyMapping> mavenDependencyMappings;
+
 	private Status status;
 
 	/**
@@ -331,6 +344,8 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 				return getContacts();
 			case AggregatorPackage.CONTRIBUTION__MAVEN_MAPPINGS:
 				return getMavenMappings();
+			case AggregatorPackage.CONTRIBUTION__MAVEN_DEPENDENCY_MAPPINGS:
+				return getMavenDependencyMappings();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -347,6 +362,8 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 				return ((InternalEList<?>) getRepositories()).basicRemove(otherEnd, msgs);
 			case AggregatorPackage.CONTRIBUTION__MAVEN_MAPPINGS:
 				return ((InternalEList<?>) getMavenMappings()).basicRemove(otherEnd, msgs);
+			case AggregatorPackage.CONTRIBUTION__MAVEN_DEPENDENCY_MAPPINGS:
+				return ((InternalEList<?>) getMavenDependencyMappings()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -381,6 +398,8 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 				return contacts != null && !contacts.isEmpty();
 			case AggregatorPackage.CONTRIBUTION__MAVEN_MAPPINGS:
 				return mavenMappings != null && !mavenMappings.isEmpty();
+			case AggregatorPackage.CONTRIBUTION__MAVEN_DEPENDENCY_MAPPINGS:
+				return mavenDependencyMappings != null && !mavenDependencyMappings.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -426,6 +445,10 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 			case AggregatorPackage.CONTRIBUTION__MAVEN_MAPPINGS:
 				getMavenMappings().clear();
 				getMavenMappings().addAll((Collection<? extends MavenMapping>) newValue);
+				return;
+			case AggregatorPackage.CONTRIBUTION__MAVEN_DEPENDENCY_MAPPINGS:
+				getMavenDependencyMappings().clear();
+				getMavenDependencyMappings().addAll((Collection<? extends MavenDependencyMapping>) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -476,6 +499,9 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 			case AggregatorPackage.CONTRIBUTION__MAVEN_MAPPINGS:
 				getMavenMappings().clear();
 				return;
+			case AggregatorPackage.CONTRIBUTION__MAVEN_DEPENDENCY_MAPPINGS:
+				getMavenDependencyMappings().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -492,6 +518,21 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 		allMappings.addAll(myMappings);
 		allMappings.addAll(parentMappings);
 
+		return allMappings;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public EList<MavenDependencyMapping> getAllMavenDependencyMappings() {
+		EList<MavenDependencyMapping> myMappings = getMavenDependencyMappings();
+		EList<MavenDependencyMapping> parentMappings = GeneralUtils.getAggregation(this).getMavenDependencyMappings();
+		EList<MavenDependencyMapping> allMappings = new BasicEList<>(myMappings.size() + parentMappings.size());
+		allMappings.addAll(myMappings);
+		allMappings.addAll(parentMappings);
 		return allMappings;
 	}
 
@@ -576,6 +617,21 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 					AggregatorPackage.CONTRIBUTION__MAVEN_MAPPINGS);
 		}
 		return mavenMappings;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @since 1.1.0
+	 * @generated
+	 */
+	@Override
+	public EList<MavenDependencyMapping> getMavenDependencyMappings() {
+		if (mavenDependencyMappings == null) {
+			mavenDependencyMappings = new EObjectContainmentEList.Resolving<>(
+					MavenDependencyMapping.class, this, AggregatorPackage.CONTRIBUTION__MAVEN_DEPENDENCY_MAPPINGS);
+		}
+		return mavenDependencyMappings;
 	}
 
 	/**

@@ -16,6 +16,11 @@ import java.io.Closeable;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.nio.file.FileVisitResult;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.SimpleFileVisitor;
+import java.nio.file.attribute.BasicFileAttributes;
 
 /**
  * @author filip.hrbek@cloudsmith.com
@@ -27,11 +32,10 @@ public class IOUtils {
 	 * @param is
 	 */
 	public static void close(Closeable is) {
-		if(is != null)
+		if (is != null)
 			try {
 				is.close();
-			}
-			catch(IOException e) {
+			} catch (IOException e) {
 				// ignore
 			}
 	}
@@ -46,20 +50,18 @@ public class IOUtils {
 		int len;
 
 		try {
-			while((len = is.read(buffer)) != -1) {
+			while ((len = is.read(buffer)) != -1) {
 				os.write(buffer, 0, len);
 			}
-		}
-		finally {
+		} finally {
 			try {
-				if(closeInput)
+				if (closeInput)
 					is.close();
-			}
-			catch(IOException e) {
+			} catch (IOException e) {
 				// ignore
 			}
 
-			if(closeOutput)
+			if (closeOutput)
 				os.close();
 		}
 	}
@@ -74,5 +76,23 @@ public class IOUtils {
 		ByteArrayOutputStream os = new ByteArrayOutputStream();
 		copyStream(is, os);
 		return new String(os.toByteArray());
+	}
+
+	public static void delete(Path path) throws IOException {
+		Files.walkFileTree(path, new SimpleFileVisitor<Path>() {
+			@Override
+			public FileVisitResult visitFile(Path file, BasicFileAttributes attributes) throws IOException {
+				Files.delete(file);
+				return FileVisitResult.CONTINUE;
+			}
+
+			@Override
+			public FileVisitResult postVisitDirectory(Path directory, IOException exception) throws IOException {
+				if (exception == null) {
+					Files.delete(directory);
+				}
+				return super.postVisitDirectory(directory, exception);
+			}
+		});
 	}
 }

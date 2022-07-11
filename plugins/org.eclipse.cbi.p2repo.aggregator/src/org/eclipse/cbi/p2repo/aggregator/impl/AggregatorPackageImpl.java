@@ -37,6 +37,8 @@ import org.eclipse.cbi.p2repo.aggregator.LabelProvider;
 import org.eclipse.cbi.p2repo.aggregator.MapRule;
 import org.eclipse.cbi.p2repo.aggregator.MappedRepository;
 import org.eclipse.cbi.p2repo.aggregator.MappedUnit;
+import org.eclipse.cbi.p2repo.aggregator.MavenDependencyItem;
+import org.eclipse.cbi.p2repo.aggregator.MavenDependencyMapping;
 import org.eclipse.cbi.p2repo.aggregator.MavenItem;
 import org.eclipse.cbi.p2repo.aggregator.MavenMapping;
 import org.eclipse.cbi.p2repo.aggregator.MetadataRepositoryReference;
@@ -231,6 +233,14 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @since 1.1.0
+	 * @generated
+	 */
+	private EClass mavenDependencyItemEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EClass installableUnitRequestEClass = null;
@@ -318,6 +328,14 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	 * @generated
 	 */
 	private EClass mavenMappingEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @since 1.1.0
+	 * @generated
+	 */
+	private EClass mavenDependencyMappingEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -473,6 +491,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		createEAttribute(aggregationEClass, AGGREGATION__VERSION_FORMAT);
 		createEAttribute(aggregationEClass, AGGREGATION__MAVEN_BUILD_NUMBER);
 		createEReference(aggregationEClass, AGGREGATION__MAVEN_MAPPINGS);
+		createEReference(aggregationEClass, AGGREGATION__MAVEN_DEPENDENCY_MAPPINGS);
 		createEAttribute(aggregationEClass, AGGREGATION__ALLOW_LEGACY_SITES);
 
 		availableVersionsHeaderEClass = createEClass(AVAILABLE_VERSIONS_HEADER);
@@ -508,6 +527,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		createEReference(contributionEClass, CONTRIBUTION__REPOSITORIES);
 		createEReference(contributionEClass, CONTRIBUTION__CONTACTS);
 		createEReference(contributionEClass, CONTRIBUTION__MAVEN_MAPPINGS);
+		createEReference(contributionEClass, CONTRIBUTION__MAVEN_DEPENDENCY_MAPPINGS);
 
 		featureEClass = createEClass(FEATURE);
 		createEReference(featureEClass, FEATURE__CATEGORIES);
@@ -557,6 +577,12 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 		mapRuleEClass = createEClass(MAP_RULE);
 
+		mavenDependencyItemEClass = createEClass(MAVEN_DEPENDENCY_ITEM);
+		createEAttribute(mavenDependencyItemEClass, MAVEN_DEPENDENCY_ITEM__GROUP_ID);
+		createEAttribute(mavenDependencyItemEClass, MAVEN_DEPENDENCY_ITEM__ARTIFACT_ID);
+		createEAttribute(mavenDependencyItemEClass, MAVEN_DEPENDENCY_ITEM__MAPPED_VERSION_RANGE);
+		createEReference(mavenDependencyItemEClass, MAVEN_DEPENDENCY_ITEM__MAVEN_DEPENDENCY_MAPPING);
+
 		mavenItemEClass = createEClass(MAVEN_ITEM);
 		createEAttribute(mavenItemEClass, MAVEN_ITEM__GROUP_ID);
 		createEAttribute(mavenItemEClass, MAVEN_ITEM__ARTIFACT_ID);
@@ -571,6 +597,15 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		createEAttribute(mavenMappingEClass, MAVEN_MAPPING__VERSION_PATTERN);
 		createEAttribute(mavenMappingEClass, MAVEN_MAPPING__VERSION_TEMPLATE);
 		createEAttribute(mavenMappingEClass, MAVEN_MAPPING__SNAPSHOT);
+
+		mavenDependencyMappingEClass = createEClass(MAVEN_DEPENDENCY_MAPPING);
+		createEAttribute(mavenDependencyMappingEClass, MAVEN_DEPENDENCY_MAPPING__IU_NAME_PATTERN);
+		createEAttribute(mavenDependencyMappingEClass, MAVEN_DEPENDENCY_MAPPING__NAMESPACE_PATTERN);
+		createEAttribute(mavenDependencyMappingEClass, MAVEN_DEPENDENCY_MAPPING__NAME_PATTERN);
+		createEAttribute(mavenDependencyMappingEClass, MAVEN_DEPENDENCY_MAPPING__GROUP_ID);
+		createEAttribute(mavenDependencyMappingEClass, MAVEN_DEPENDENCY_MAPPING__ARTIFACT_ID);
+		createEAttribute(mavenDependencyMappingEClass, MAVEN_DEPENDENCY_MAPPING__VERSION_RANGE_PATTERN);
+		createEAttribute(mavenDependencyMappingEClass, MAVEN_DEPENDENCY_MAPPING__VERSION_RANGE_TEMPLATE);
 
 		metadataRepositoryReferenceEClass = createEClass(METADATA_REPOSITORY_REFERENCE);
 		createEReference(metadataRepositoryReferenceEClass, METADATA_REPOSITORY_REFERENCE__METADATA_REPOSITORY);
@@ -631,7 +666,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	 */
 	@Override
 	public EAttribute getAggregation_AllowLegacySites() {
-		return (EAttribute) aggregationEClass.getEStructuralFeatures().get(16);
+		return (EAttribute) aggregationEClass.getEStructuralFeatures().get(17);
 	}
 
 	/**
@@ -712,6 +747,17 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	@Override
 	public EReference getAggregation_MavenMappings() {
 		return (EReference) aggregationEClass.getEStructuralFeatures().get(15);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @since 1.1.0
+	 * @generated
+	 */
+	@Override
+	public EReference getAggregation_MavenDependencyMappings() {
+		return (EReference) aggregationEClass.getEStructuralFeatures().get(16);
 	}
 
 	/**
@@ -1082,6 +1128,17 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	@Override
 	public EReference getContribution_MavenMappings() {
 		return (EReference) contributionEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @since 1.1.0
+	 * @generated
+	 */
+	@Override
+	public EReference getContribution_MavenDependencyMappings() {
+		return (EReference) contributionEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1467,6 +1524,61 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @since 1.1.0
+	 * @generated
+	 */
+	@Override
+	public EClass getMavenDependencyItem() {
+		return mavenDependencyItemEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @since 1.1.0
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMavenDependencyItem_GroupId() {
+		return (EAttribute) mavenDependencyItemEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @since 1.1.0
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMavenDependencyItem_ArtifactId() {
+		return (EAttribute) mavenDependencyItemEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @since 1.1.0
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMavenDependencyItem_MappedVersionRange() {
+		return (EAttribute) mavenDependencyItemEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @since 1.1.0
+	 * @generated
+	 */
+	@Override
+	public EReference getMavenDependencyItem_MavenDependencyMapping() {
+		return (EReference) mavenDependencyItemEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -1572,6 +1684,94 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	@Override
 	public EAttribute getMavenMapping_Snapshot() {
 		return (EAttribute) mavenMappingEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @since 1.1.0
+	 * @generated
+	 */
+	@Override
+	public EClass getMavenDependencyMapping() {
+		return mavenDependencyMappingEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @since 1.1.0
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMavenDependencyMapping_IuNamePattern() {
+		return (EAttribute) mavenDependencyMappingEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @since 1.1.0
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMavenDependencyMapping_NamespacePattern() {
+		return (EAttribute) mavenDependencyMappingEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @since 1.1.0
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMavenDependencyMapping_NamePattern() {
+		return (EAttribute) mavenDependencyMappingEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @since 1.1.0
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMavenDependencyMapping_GroupId() {
+		return (EAttribute) mavenDependencyMappingEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @since 1.1.0
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMavenDependencyMapping_ArtifactId() {
+		return (EAttribute) mavenDependencyMappingEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @since 1.1.0
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMavenDependencyMapping_VersionRangePattern() {
+		return (EAttribute) mavenDependencyMappingEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @since 1.1.0
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMavenDependencyMapping_VersionRangeTemplate() {
+		return (EAttribute) mavenDependencyMappingEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -1939,6 +2139,8 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		mapRuleEClass.getESuperTypes().add(this.getEnabledStatusProvider());
 		mavenMappingEClass.getESuperTypes().add(this.getStatusProvider());
 		mavenMappingEClass.getESuperTypes().add(this.getInfosProvider());
+		mavenDependencyMappingEClass.getESuperTypes().add(this.getStatusProvider());
+		mavenDependencyMappingEClass.getESuperTypes().add(this.getInfosProvider());
 		metadataRepositoryReferenceEClass.getESuperTypes().add(this.getEnabledStatusProvider());
 		metadataRepositoryReferenceEClass.getESuperTypes().add(this.getStatusProvider());
 		metadataRepositoryReferenceEClass.getESuperTypes().add(this.getInfosProvider());
@@ -2007,6 +2209,9 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		initEReference(getAggregation_MavenMappings(), this.getMavenMapping(), null, "mavenMappings", null, 0, -1,
 				Aggregation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAggregation_MavenDependencyMappings(), this.getMavenDependencyMapping(), null,
+				"mavenDependencyMappings", null, 0, -1, Aggregation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAggregation_AllowLegacySites(), theXMLTypePackage.getBoolean(), "allowLegacySites", "true", 0,
 				1, Aggregation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
@@ -2105,12 +2310,18 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		initEReference(getContribution_MavenMappings(), this.getMavenMapping(), null, "mavenMappings", null, 0, -1,
 				Contribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getContribution_MavenDependencyMappings(), this.getMavenDependencyMapping(), null,
+				"mavenDependencyMappings", null, 0, -1, Contribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = addEOperation(contributionEClass, this.getMappedRepository(), "getRepositories", 0, -1, IS_UNIQUE,
 				IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "enabledOnly", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		addEOperation(contributionEClass, this.getMavenMapping(), "getAllMavenMappings", 0, -1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(contributionEClass, this.getMavenDependencyMapping(), "getAllMavenDependencyMappings", 0, -1,
+				IS_UNIQUE, IS_ORDERED);
 
 		initEClass(featureEClass, Feature.class, "Feature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getFeature_Categories(), this.getCustomCategory(), this.getCustomCategory_Features(),
@@ -2257,6 +2468,21 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 		initEClass(mapRuleEClass, MapRule.class, "MapRule", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(mavenDependencyItemEClass, MavenDependencyItem.class, "MavenDependencyItem", !IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getMavenDependencyItem_GroupId(), theXMLTypePackage.getString(), "groupId", null, 0, 1,
+				MavenDependencyItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMavenDependencyItem_ArtifactId(), ecorePackage.getEString(), "artifactId", null, 0, 1,
+				MavenDependencyItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMavenDependencyItem_MappedVersionRange(), ecorePackage.getEString(), "mappedVersionRange",
+				null, 0, 1, MavenDependencyItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
+				!IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMavenDependencyItem_MavenDependencyMapping(), this.getMavenDependencyMapping(), null,
+				"mavenDependencyMapping", null, 0, 1, MavenDependencyItem.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(mavenItemEClass, MavenItem.class, "MavenItem", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMavenItem_GroupId(), theXMLTypePackage.getString(), "groupId", null, 0, 1, MavenItem.class,
@@ -2290,8 +2516,8 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		initEAttribute(getMavenMapping_VersionTemplate(), ecorePackage.getEString(), "versionTemplate", null, 0, 1,
 				MavenMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMavenMapping_Snapshot(), theXMLTypePackage.getBoolean(), "snapshot", "false", 1, 1,
-				MavenMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+		initEAttribute(getMavenMapping_Snapshot(), theXMLTypePackage.getBoolean(), "snapshot", "false", 0, 1,
+				MavenMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
 
 		op = addEOperation(mavenMappingEClass, this.getMavenItem(), "map", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -2300,6 +2526,37 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 		op = addEOperation(mavenMappingEClass, ecorePackage.getEString(), "mapVersion", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theP2Package.getVersion(), "version", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(mavenDependencyMappingEClass, MavenDependencyMapping.class, "MavenDependencyMapping", !IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getMavenDependencyMapping_IuNamePattern(), ecorePackage.getEString(), "iuNamePattern", null, 0,
+				1, MavenDependencyMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMavenDependencyMapping_NamespacePattern(), ecorePackage.getEString(), "namespacePattern",
+				null, 0, 1, MavenDependencyMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
+				!IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMavenDependencyMapping_NamePattern(), ecorePackage.getEString(), "namePattern", null, 0, 1,
+				MavenDependencyMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMavenDependencyMapping_GroupId(), ecorePackage.getEString(), "groupId", null, 0, 1,
+				MavenDependencyMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMavenDependencyMapping_ArtifactId(), ecorePackage.getEString(), "artifactId", null, 0, 1,
+				MavenDependencyMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMavenDependencyMapping_VersionRangePattern(), ecorePackage.getEString(),
+				"versionRangePattern", null, 0, 1, MavenDependencyMapping.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMavenDependencyMapping_VersionRangeTemplate(), ecorePackage.getEString(),
+				"versionRangeTemplate", null, 0, 1, MavenDependencyMapping.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = addEOperation(mavenDependencyMappingEClass, this.getMavenDependencyItem(), "map", 0, 1, IS_UNIQUE,
+				IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "iuName", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "requirementNamespace", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "requirementName", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theP2Package.getVersionRange(), "versionRange", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(metadataRepositoryReferenceEClass, MetadataRepositoryReference.class, "MetadataRepositoryReference",
 				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2473,6 +2730,24 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 		// Create resource
 		createResource(eNS_URI);
+
+		// Create annotations
+		// http:///org/eclipse/emf/ecore/util/ExtendedMetaData
+		createExtendedMetaDataAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>http:///org/eclipse/emf/ecore/util/ExtendedMetaData</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createExtendedMetaDataAnnotations() {
+		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";
+		addAnnotation(getAggregation_MavenDependencyMappings(), source,
+				new String[] { "name", "mavenDependencyMapping" });
+		addAnnotation(getContribution_MavenDependencyMappings(), source,
+				new String[] { "name", "mavenDependencyMapping" });
 	}
 
 } // AggregatorPackageImpl

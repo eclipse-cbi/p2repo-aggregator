@@ -32,6 +32,8 @@ import org.eclipse.cbi.p2repo.aggregator.LabelProvider;
 import org.eclipse.cbi.p2repo.aggregator.MapRule;
 import org.eclipse.cbi.p2repo.aggregator.MappedRepository;
 import org.eclipse.cbi.p2repo.aggregator.MappedUnit;
+import org.eclipse.cbi.p2repo.aggregator.MavenDependencyItem;
+import org.eclipse.cbi.p2repo.aggregator.MavenDependencyMapping;
 import org.eclipse.cbi.p2repo.aggregator.MavenItem;
 import org.eclipse.cbi.p2repo.aggregator.MavenMapping;
 import org.eclipse.cbi.p2repo.aggregator.MetadataRepositoryReference;
@@ -175,6 +177,11 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseMavenDependencyItem(MavenDependencyItem object) {
+			return createMavenDependencyItemAdapter();
+		}
+
+		@Override
 		public Adapter caseMavenItem(MavenItem object) {
 			return createMavenItemAdapter();
 		}
@@ -182,6 +189,11 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseMavenMapping(MavenMapping object) {
 			return createMavenMappingAdapter();
+		}
+
+		@Override
+		public Adapter caseMavenDependencyMapping(MavenDependencyMapping object) {
+			return createMavenDependencyMappingAdapter();
 		}
 
 		@Override
@@ -531,6 +543,21 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.aggregator.MavenDependencyItem <em>Maven Dependency Item</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.cbi.p2repo.aggregator.MavenDependencyItem
+	 * @since 1.1.0
+	 * @generated
+	 */
+	public Adapter createMavenDependencyItemAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.aggregator.MavenItem <em>Maven Item</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -551,6 +578,21 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMavenMappingAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.cbi.p2repo.aggregator.MavenDependencyMapping <em>Maven Dependency Mapping</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.cbi.p2repo.aggregator.MavenDependencyMapping
+	 * @since 1.1.0
+	 * @generated
+	 */
+	public Adapter createMavenDependencyMappingAdapter() {
 		return null;
 	}
 

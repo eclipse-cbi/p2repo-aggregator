@@ -11,8 +11,8 @@
 package org.eclipse.cbi.p2repo.aggregator.analyzer.presentation.handlers;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -34,10 +34,17 @@ import java.util.function.Function;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
+import org.apache.maven.artifact.versioning.ArtifactVersion;
+import org.apache.maven.artifact.versioning.DefaultArtifactVersion;
+import org.apache.maven.artifact.versioning.InvalidVersionSpecificationException;
+import org.apache.maven.model.Dependency;
+import org.apache.maven.model.InputLocation;
+import org.apache.maven.model.Model;
 import org.eclipse.cbi.p2repo.aggregator.Aggregation;
 import org.eclipse.cbi.p2repo.aggregator.Contribution;
 import org.eclipse.cbi.p2repo.aggregator.MappedRepository;
 import org.eclipse.cbi.p2repo.aggregator.MappedUnit;
+import org.eclipse.cbi.p2repo.aggregator.MavenMapping;
 import org.eclipse.cbi.p2repo.aggregator.ValidationSet;
 import org.eclipse.cbi.p2repo.aggregator.analyzer.Analysis;
 import org.eclipse.cbi.p2repo.aggregator.analyzer.AnalyzerFactory;
@@ -47,45 +54,54 @@ import org.eclipse.cbi.p2repo.aggregator.analyzer.ContributionAnalysis;
 import org.eclipse.cbi.p2repo.aggregator.analyzer.InstallableUnitAnalysis;
 import org.eclipse.cbi.p2repo.aggregator.analyzer.RequirementAnalysis;
 import org.eclipse.cbi.p2repo.aggregator.analyzer.RequirementResolution;
+import org.eclipse.cbi.p2repo.aggregator.analyzer.presentation.AggregationAnalyzerEditorPlugin;
 import org.eclipse.cbi.p2repo.aggregator.engine.Builder;
 import org.eclipse.cbi.p2repo.aggregator.engine.Builder.ActionType;
+import org.eclipse.cbi.p2repo.aggregator.engine.maven.InstallableUnitMapping;
+import org.eclipse.cbi.p2repo.aggregator.engine.maven.MavenManager;
 import org.eclipse.cbi.p2repo.aggregator.p2.util.MetadataRepositoryResourceFactoryImpl;
 import org.eclipse.cbi.p2repo.aggregator.p2view.util.MetadataRepositoryStructuredViewBuilder;
+import org.eclipse.cbi.p2repo.aggregator.provider.MavenMappingItemProvider;
+import org.eclipse.cbi.p2repo.aggregator.util.InstallableUnitUtils;
 import org.eclipse.cbi.p2repo.p2.InstallableUnit;
 import org.eclipse.cbi.p2repo.p2.MetadataRepository;
 import org.eclipse.cbi.p2repo.p2.P2Factory;
 import org.eclipse.cbi.p2repo.p2.impl.MetadataRepositoryImpl;
+import org.eclipse.cbi.p2repo.p2.maven.metadata.MetaData;
+import org.eclipse.cbi.p2repo.p2.maven.metadata.MetadataPackage;
+import org.eclipse.cbi.p2repo.p2.maven.metadata.Versioning;
+import org.eclipse.cbi.p2repo.p2.maven.metadata.VersionsType;
+import org.eclipse.cbi.p2repo.p2.maven.util.VersionUtil;
 import org.eclipse.cbi.p2repo.p2.util.P2Bridge;
-import org.eclipse.cbi.p2repo.p2.util.P2ResourceFactoryImpl;
 import org.eclipse.cbi.p2repo.p2.util.P2Utils;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.core.runtime.Platform;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.EMap;
+import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.URIConverter;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
 import org.eclipse.equinox.internal.p2.metadata.RequiredPropertiesMatch;
 import org.eclipse.equinox.internal.p2.metadata.ResolvedInstallableUnit;
-import org.eclipse.equinox.internal.p2.metadata.TranslationSupport;
-import org.eclipse.equinox.internal.p2.metadata.index.CapabilityIndex;
-import org.eclipse.equinox.internal.p2.metadata.index.IdIndex;
-import org.eclipse.equinox.internal.p2.metadata.index.IndexProvider;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.metadata.IProvidedCapability;
 import org.eclipse.equinox.p2.metadata.IRequirement;
-import org.eclipse.equinox.p2.metadata.KeyWithLocale;
 import org.eclipse.equinox.p2.metadata.Version;
 import org.eclipse.equinox.p2.metadata.VersionRange;
 import org.eclipse.equinox.p2.metadata.expression.IFilterExpression;
 import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
-import org.eclipse.equinox.p2.metadata.index.IIndex;
 import org.eclipse.equinox.p2.query.IQuery;
 import org.eclipse.equinox.p2.query.IQueryResult;
 import org.eclipse.equinox.p2.query.IQueryable;
@@ -101,8 +117,6 @@ public class AnalyzeHandler extends BaseHandler {
 			.createURI("readonly://strict.requirement.result.aggran");
 
 	public static String AGGREGATE_REPOSITORY_LOCATION = "readonly://aggregation.result.p2";
-
-	public static final URI AGGREGATE_REPOSITORY = (URI.createURI("p2aggr:p2:" + AGGREGATE_REPOSITORY_LOCATION));
 
 	public static String STRUCTURED_AGGREGATE_REPOSITORY_LOCATION = "readonly://aggregation.structured.result.p2";
 
@@ -124,11 +138,11 @@ public class AnalyzeHandler extends BaseHandler {
 		private Analysis originalAnalysis;
 		private Analysis result;
 		private ExecutorService executor;
-		private Resource aggregateMetadataRepositoryResource;
 		private Resource structuredAggregateMetadataRepositoryResource;
 		private Builder builder;
 		private List<InstallableUnitAnalysis> duplicates;
 		private List<InstallableUnitAnalysis> strictRequirements;
+		private MetadataRepository aggregateMetadataRepository;
 
 		public Analyzer(Analysis analysis) {
 			this.originalAnalysis = analysis;
@@ -159,6 +173,7 @@ public class AnalyzeHandler extends BaseHandler {
 				if (resolvedURI != null) {
 					builder = new Builder();
 					builder.setAction(ActionType.VALIDATE);
+					builder.setAnalyzeMaven(true);
 					builder.setBuildModelLocation(new File(resolvedURI.toFileString()));
 					builder.setProvisioningAgent(P2Utils.getDefaultProvisioningAgent());
 					builder.run(false, monitor);
@@ -186,7 +201,6 @@ public class AnalyzeHandler extends BaseHandler {
 				resultResource.getContents().add(result);
 				resources.add(resultResource);
 
-				resources.add(aggregateMetadataRepositoryResource);
 				resources.add(structuredAggregateMetadataRepositoryResource);
 
 				Resource duplicateResultResource = resourceSet.getResourceFactoryRegistry()
@@ -200,6 +214,177 @@ public class AnalyzeHandler extends BaseHandler {
 				strictRequirementsResultResource.getContents().addAll(strictRequirements);
 				resources.add(strictRequirementsResultResource);
 			}
+		}
+
+		private void gatherPOMs(SubMonitor monitor, Map<IInstallableUnit, InstallableUnit> modeledIUs,
+				InstallableUnitMapping iuMapping,
+				Pattern exclusion, Set<MavenMapping> mavenMappings, Map<String, Set<String>> localArtifactVersions,
+				Collection<Future<?>> metadata, List<Runnable> versionRangeAnalyzers) {
+			try {
+				IInstallableUnit genuine = iuMapping.getGenuine();
+				InstallableUnit iu = modeledIUs.get(genuine);
+				if (iu != null && (exclusion == null || !exclusion.matcher(iu.getId()).matches())) {
+					EMap<String, String> properties = iu.getPropertyMap();
+					if (!properties.containsKey("maven-pom")) {
+						ResourceSet resourceSet = ((EObject) genuine).eResource().getResourceSet();
+
+						Model model = iuMapping.asPOM();
+						mavenMappings.addAll(iuMapping.getUsedMavenMappings());
+						String groupId = model.getGroupId();
+						String groupURL = getURL(groupId);
+						URI groupURI = URI.createURI(groupURL);
+						metadata.add(getExecutor().submit(() -> {
+							monitor.subTask("Analyzing Maven mappings " + groupURI);
+							String groupFolderContent;
+							synchronized (groupURI) {
+								groupFolderContent = getContentOrEmpty(groupURI);
+							}
+							synchronized (properties) {
+								properties.put("maven-group-exists", Objects.toString(!groupFolderContent.isEmpty()));
+							}
+						}));
+
+						String artifactId = model.getArtifactId();
+						String artifactURL = getURL(groupId, artifactId);
+						String artifactMetadataURL = artifactURL + "maven-metadata.xml";
+						URI artifactMetadataURI = URI.createURI(artifactMetadataURL);
+						metadata.add(getExecutor().submit(() -> {
+							monitor.subTask("Analyzing Maven mappings " + artifactMetadataURL);
+							MetaData metaData = getMetaData(resourceSet, artifactMetadataURI);
+							String version = model.getVersion();
+
+							synchronized (metadata) {
+								localArtifactVersions
+										.computeIfAbsent(groupId + ":" + artifactId, key -> new LinkedHashSet<String>())
+										.add(version);
+							}
+
+							String plainVersion = VersionUtil.versionNotAsSnapshot(version);
+							String artifactPOMURL = artifactURL + plainVersion + "/" + artifactId + "-" + plainVersion
+									+ ".pom";
+							URI artifactPOMURI = URI.createURI(artifactPOMURL);
+							String artifactPOM;
+							synchronized (artifactPOMURI) {
+								artifactPOM = getContentOrEmpty(artifactPOMURI);
+							}
+
+							synchronized (properties) {
+								properties.put("maven-artifact-exists", Objects.toString(metaData != null));
+								properties.put("maven-artifact-version-exists",
+										Objects.toString(!artifactPOM.isEmpty()));
+								properties.put("maven-pom", MavenManager.toXML(model));
+							}
+						}));
+
+						versionRangeAnalyzers.add(() -> {
+							List<Dependency> dependencies = model.getDependencies();
+							List<String> dependencyMapping = new ArrayList<String>();
+							List<String> dependencyResolutions = new ArrayList<String>();
+							for (Dependency dependency : dependencies) {
+								InputLocation location = dependency.getLocation("");
+								int lineNumber = location.getLineNumber();
+								dependencyMapping.add(Integer.toString(lineNumber));
+
+								org.apache.maven.artifact.versioning.VersionRange range;
+								try {
+									String dependencyVersionRange = dependency.getVersion()
+											.replace(VersionUtil.DASH_SNAPSHOT, "");
+									range = org.apache.maven.artifact.versioning.VersionRange
+											.createFromVersionSpec(dependencyVersionRange);
+								} catch (InvalidVersionSpecificationException e) {
+									AggregationAnalyzerEditorPlugin.INSTANCE.log(e);
+									dependencyResolutions.add("**invalid-version-range");
+									continue;
+								}
+
+								String unresolved = "**" + range;
+								String dependencyResolution = unresolved;
+								String dependencyGroupId = dependency.getGroupId();
+								String dependencyArtifactId = dependency.getArtifactId();
+								URI dependencyMetadataURL = URI.createURI(
+										getURL(dependencyGroupId, dependencyArtifactId) + "maven-metadata.xml");
+								MetaData dependencyMetaData = getMetaData(resourceSet, dependencyMetadataURL);
+								if (dependencyMetaData != null) {
+									Versioning versioning = dependencyMetaData.getVersioning();
+									VersionsType versionsType = versioning.getVersions();
+									List<ArtifactVersion> artifactVersions = versionsType.getVersion().stream()
+											.map(it -> new DefaultArtifactVersion(it)).collect(Collectors.toList());
+									ArtifactVersion matchVersion = range.matchVersion(artifactVersions);
+									if (matchVersion == null) {
+										Set<String> localVersions = localArtifactVersions.get(
+												dependencyGroupId + ":" + resolveOSGiPlatform(dependencyArtifactId));
+										if (localVersions != null) {
+											List<ArtifactVersion> versions = localVersions.stream()
+													.map(it -> new DefaultArtifactVersion(
+															VersionUtil.versionNotAsSnapshot(it)))
+													.collect(Collectors.toList());
+											matchVersion = range.matchVersion(versions);
+											if (matchVersion != null) {
+												dependencyResolution = "~" + matchVersion.toString();
+											}
+										}
+									} else {
+										dependencyResolution = "^" + matchVersion.toString();
+									}
+								} else {
+									dependencyResolution = "**" + dependencyMetadataURL;
+								}
+
+								dependencyResolutions.add(dependencyResolution);
+							}
+
+							properties.put("maven-dependency-requirements", String.join(" ", dependencyMapping));
+							properties.put("maven-dependency-resolutions", String.join(" ", dependencyResolutions));
+						});
+					}
+				}
+			} catch (RuntimeException ex) {
+				AggregationAnalyzerEditorPlugin.INSTANCE.log(ex);
+			}
+
+			List<InstallableUnitMapping> siblings = iuMapping.getSiblings();
+			for (InstallableUnitMapping sibling : siblings) {
+				gatherPOMs(monitor, modeledIUs, sibling, exclusion, mavenMappings, localArtifactVersions, metadata,
+						versionRangeAnalyzers);
+			}
+
+			List<InstallableUnitMapping> children = iuMapping.getChildren();
+			for (InstallableUnitMapping childMapping : children) {
+				gatherPOMs(monitor, modeledIUs, childMapping, exclusion, mavenMappings, localArtifactVersions, metadata,
+						versionRangeAnalyzers);
+			}
+		}
+
+		private Resource getMetaDataResource(ResourceSet resourceSet, URI mavenMetadataURI) {
+			Resource resource = null;
+			synchronized (resourceSet) {
+				resource = resourceSet.getResource(mavenMetadataURI, false);
+				if (resource == null) {
+					resource = resourceSet.createResource(mavenMetadataURI, MetadataPackage.eCONTENT_TYPE);
+					String artifactMetadata = getContentOrEmpty(mavenMetadataURI);
+					try {
+						resource.load(new URIConverter.ReadableInputStream(artifactMetadata), null);
+					} catch (IOException e) {
+					}
+				}
+			}
+			return resource;
+		}
+
+		private MetaData getMetaData(ResourceSet resourceSet, URI mavenMetadataURI) {
+			Resource resource = getMetaDataResource(resourceSet, mavenMetadataURI);
+			EList<EObject> contents = resource.getContents();
+			if (!contents.isEmpty()) {
+				EObject eObject = contents.get(0);
+				EList<EObject> eContents = eObject.eContents();
+				if (!eContents.isEmpty()) {
+					EObject root = eContents.get(0);
+					if (root instanceof MetaData) {
+						return (MetaData) root;
+					}
+				}
+			}
+			return null;
 		}
 
 		private List<InstallableUnitAnalysis> analyzeDuplicates(Analysis analysis) {
@@ -277,15 +462,15 @@ public class AnalyzeHandler extends BaseHandler {
 								.collect(Collectors.toSet()));
 					}
 
-					MetadataRepositoryImpl aggregateMetadataRepository = (MetadataRepositoryImpl) P2Factory.eINSTANCE
-							.createMetadataRepository();
-					aggregateMetadataRepository.setLocation(new java.net.URI(AGGREGATE_REPOSITORY_LOCATION));
+					aggregateMetadataRepository = P2Factory.eINSTANCE.createMetadataRepository();
+					((MetadataRepositoryImpl) aggregateMetadataRepository)
+							.setLocation(new java.net.URI(AGGREGATE_REPOSITORY_LOCATION));
 
 					Map<IInstallableUnit, InstallableUnit> modeledIUs = allUnitsToAggregate.stream()
 							.collect(Collectors.toMap(Function.identity(), iu -> P2Bridge.importToModel(iu)));
 					aggregateMetadataRepository.getInstallableUnits().addAll(new TreeSet<>(modeledIUs.values()));
 
-					IQueryable<IInstallableUnit> queriable = new QueryableArray(modeledIUs.values());
+					IQueryable<IInstallableUnit> queriable = InstallableUnitUtils.getIndex(modeledIUs.values());
 
 					Set<URI> contributionsWithDuplicateRepositories = new HashSet<>();
 					Map<java.net.URI, URI> owningContributions = new HashMap<>();
@@ -333,13 +518,56 @@ public class AnalyzeHandler extends BaseHandler {
 						}
 					}
 
+					subMonitor.worked(1);
+
+					Analysis analysis = EcoreUtil.copy(originalAnalysis);
+					Pattern exclusion = analysis.getExclusion();
+
+					InstallableUnitMapping iuMapping = builder.getInstallableUnitMapping();
+					if (iuMapping != null) {
+						subMonitor.subTask("Analyzing Maven mappings");
+
+						Set<MavenMapping> usedMavenMappings = new LinkedHashSet<MavenMapping>();
+						List<Runnable> versionRangeAnalyzers = new ArrayList<Runnable>();
+						Map<String, Set<String>> localArtifactVersions = new TreeMap<String, Set<String>>();
+						List<Future<?>> metadata = new ArrayList<Future<?>>();
+						SubMonitor pomAnalyzer = subMonitor.newChild(1);
+						gatherPOMs(pomAnalyzer, modeledIUs, iuMapping, exclusion, usedMavenMappings,
+								localArtifactVersions, metadata,
+								versionRangeAnalyzers);
+
+						pomAnalyzer.setWorkRemaining(metadata.size());
+						for (Future<?> future : metadata) {
+							future.get();
+							pomAnalyzer.worked(1);
+						}
+
+						versionRangeAnalyzers.forEach(Runnable::run);
+
+						Set<MavenMapping> mavenMappings = new LinkedHashSet<MavenMapping>();
+						for (TreeIterator<EObject> eAllContents = ((EObject) builder.getAggregation())
+								.eAllContents(); eAllContents.hasNext();) {
+							EObject eObject = eAllContents.next();
+							if (eObject instanceof MavenMapping) {
+								mavenMappings.add((MavenMapping) eObject);
+							}
+						}
+
+						mavenMappings.removeAll(usedMavenMappings);
+
+						if (!mavenMappings.isEmpty()) {
+							MavenMappingItemProvider mavenMappingItemProvider = new MavenMappingItemProvider(null);
+							for (MavenMapping unusedMavenMapping : mavenMappings) {
+								AggregationAnalyzerEditorPlugin.INSTANCE.log(new Status(IStatus.WARNING,
+										AggregationAnalyzerEditorPlugin.INSTANCE.getSymbolicName(),
+										"Unsed Mapping " + mavenMappingItemProvider.getText(unusedMavenMapping)));
+							}
+						}
+					}
+
 					Set<IInstallableUnit> remainingIUs = modeledIUs.keySet();
 
 					Map<IInstallableUnit, InstallableUnitAnalysis> usedIUs = new LinkedHashMap<>();
-
-					Analysis analysis = EcoreUtil.copy(originalAnalysis);
-
-					Pattern exclusion = analysis.getExclusion();
 
 					subMonitor.worked(1);
 					subMonitor.subTask("Partitioning contributions");
@@ -485,10 +713,6 @@ public class AnalyzeHandler extends BaseHandler {
 
 					aggregateMetadataRepository.getInstallableUnits().retainAll(usedIUs.keySet());
 
-					aggregateMetadataRepositoryResource = new P2ResourceFactoryImpl()
-							.createResource(AGGREGATE_REPOSITORY);
-					aggregateMetadataRepositoryResource.getContents().add(aggregateMetadataRepository);
-
 					structuredAggregateMetadataRepositoryResource = new MetadataRepositoryResourceFactoryImpl()
 							.createResource(STRUCTURED_AGGREGATE_REPOSITORY);
 					structuredAggregateMetadataRepositoryResource.getContents()
@@ -565,50 +789,17 @@ public class AnalyzeHandler extends BaseHandler {
 		}
 	}
 
-	public static class QueryableArray extends IndexProvider<IInstallableUnit> {
-		private final List<IInstallableUnit> dataSet;
-		private final IIndex<IInstallableUnit> capabilityIndex;
-		private final IIndex<IInstallableUnit> idIndex;
-		private final TranslationSupport translationSupport;
+	public static final String OSGI_PLATFORM = Platform.getOS() + '.' + Platform.getWS() + '.' + Platform.getOSArch();
 
-		public QueryableArray(IInstallableUnit[] ius) {
-			this(Arrays.asList(ius));
-		}
+	public static String getURL(String groupId) {
+		return "https://repo1.maven.org/maven2/" + groupId.replace('.', '/') + "/";
+	}
 
-		public QueryableArray(Collection<? extends IInstallableUnit> ius) {
-			dataSet = new ArrayList<>(ius);
-			capabilityIndex = new CapabilityIndex(dataSet.iterator());
-			idIndex = new IdIndex(dataSet.iterator());
-			translationSupport = new TranslationSupport(this);
-		}
+	public static String getURL(String groupId, String artifactId) {
+		return getURL(groupId) + resolveOSGiPlatform(artifactId) + "/";
+	}
 
-		@Override
-		public Iterator<IInstallableUnit> everything() {
-			return dataSet.iterator();
-		}
-
-		@Override
-		public IIndex<IInstallableUnit> getIndex(String memberName) {
-			if (org.eclipse.equinox.internal.p2.metadata.InstallableUnit.MEMBER_PROVIDED_CAPABILITIES
-					.equals(memberName)) {
-				return capabilityIndex;
-			}
-			if (org.eclipse.equinox.internal.p2.metadata.InstallableUnit.MEMBER_ID.equals(memberName)) {
-				return idIndex;
-			}
-			return null;
-		}
-
-		@Override
-		public Object getManagedProperty(Object client, String memberName, Object key) {
-			if (client instanceof IInstallableUnit
-					&& org.eclipse.equinox.internal.p2.metadata.InstallableUnit.MEMBER_TRANSLATED_PROPERTIES
-							.equals(memberName)) {
-				IInstallableUnit iu = (IInstallableUnit) client;
-				return key instanceof KeyWithLocale ? translationSupport.getIUProperty(iu, (KeyWithLocale) key)
-						: translationSupport.getIUProperty(iu, key.toString());
-			}
-			return null;
-		}
+	public static String resolveOSGiPlatform(String artifactId) {
+		return artifactId.replace("${osgi.platform}", OSGI_PLATFORM);
 	}
 }

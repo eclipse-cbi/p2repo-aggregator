@@ -32,6 +32,8 @@ import org.eclipse.cbi.p2repo.aggregator.InstallableUnitType;
 import org.eclipse.cbi.p2repo.aggregator.MapRule;
 import org.eclipse.cbi.p2repo.aggregator.MappedRepository;
 import org.eclipse.cbi.p2repo.aggregator.MappedUnit;
+import org.eclipse.cbi.p2repo.aggregator.MavenDependencyItem;
+import org.eclipse.cbi.p2repo.aggregator.MavenDependencyMapping;
 import org.eclipse.cbi.p2repo.aggregator.MavenItem;
 import org.eclipse.cbi.p2repo.aggregator.MavenMapping;
 import org.eclipse.cbi.p2repo.aggregator.MetadataRepositoryReference;
@@ -278,10 +280,14 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 				return (EObject) createInfosProvider();
 			case AggregatorPackage.MAPPED_REPOSITORY:
 				return (EObject) createMappedRepository();
+			case AggregatorPackage.MAVEN_DEPENDENCY_ITEM:
+				return (EObject) createMavenDependencyItem();
 			case AggregatorPackage.MAVEN_ITEM:
 				return (EObject) createMavenItem();
 			case AggregatorPackage.MAVEN_MAPPING:
 				return (EObject) createMavenMapping();
+			case AggregatorPackage.MAVEN_DEPENDENCY_MAPPING:
+				return (EObject) createMavenDependencyMapping();
 			case AggregatorPackage.METADATA_REPOSITORY_REFERENCE:
 				return (EObject) createMetadataRepositoryReference();
 			case AggregatorPackage.PRODUCT:
@@ -540,6 +546,18 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @since 1.1.0
+	 * @generated
+	 */
+	@Override
+	public MavenDependencyItem createMavenDependencyItem() {
+		MavenDependencyItemImpl mavenDependencyItem = new MavenDependencyItemImpl();
+		return mavenDependencyItem;
+	}
+
+	/**
 	 *
 	 * @generated NOT
 	 */
@@ -625,6 +643,18 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	public MavenMapping createMavenMapping() {
 		MavenMappingImpl mavenMapping = new MavenMappingImpl();
 		return mavenMapping;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @since 1.1.0
+	 * @generated
+	 */
+	@Override
+	public MavenDependencyMapping createMavenDependencyMapping() {
+		MavenDependencyMappingImpl mavenDependencyMapping = new MavenDependencyMappingImpl();
+		return mavenDependencyMapping;
 	}
 
 	/**

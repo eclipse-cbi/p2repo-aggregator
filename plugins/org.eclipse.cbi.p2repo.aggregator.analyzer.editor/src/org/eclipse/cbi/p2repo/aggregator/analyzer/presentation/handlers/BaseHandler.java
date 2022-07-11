@@ -64,10 +64,13 @@ public abstract class BaseHandler extends AbstractHandler {
 	protected static Path CACHE = Path
 			.of(AggregationAnalyzerEditorPlugin.getPlugin().getStateLocation().append("cache").toOSString());
 
-	protected static Path getCachePath(URI uri) throws IOException {
+	protected static Path getCachePath(URI uri) {
 		String decodedURI = URI.decode(uri.toString());
 		String[] uriSegments = decodedURI.split("[:/?#&;]+");
 		Path result = CACHE.resolve(String.join("/", uriSegments));
+		if (uri.hasTrailingPathSeparator()) {
+			return result.resolve("-folder-contents");
+		}
 		return result;
 	}
 
@@ -82,6 +85,36 @@ public abstract class BaseHandler extends AbstractHandler {
 			Files.createDirectories(path.getParent());
 			Files.writeString(path, content);
 			return content;
+		}
+	}
+
+	protected static String getContentOrEmpty(URI uri) {
+		Path path = getCachePath(uri);
+		if (Files.isRegularFile(path)) {
+			try {
+				return Files.readString(path);
+			} catch (IOException e) {
+				return "";
+			}
+		}
+
+		try {
+			Files.createDirectories(path.getParent());
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+
+		try (InputStream in = URIConverter.INSTANCE.createInputStream(uri)) {
+			String content = new String(in.readAllBytes(), StandardCharsets.UTF_8);
+			Files.writeString(path, content);
+			return content;
+		} catch (IOException e) {
+			try {
+				Files.writeString(path, "");
+			} catch (IOException e1) {
+				//$FALL-THROUGH$
+			}
+			return "";
 		}
 	}
 

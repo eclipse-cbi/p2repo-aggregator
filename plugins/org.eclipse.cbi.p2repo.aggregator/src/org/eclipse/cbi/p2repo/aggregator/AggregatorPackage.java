@@ -178,6 +178,15 @@ public interface AggregatorPackage extends EPackage {
 		EReference AGGREGATION__MAVEN_MAPPINGS = eINSTANCE.getAggregation_MavenMappings();
 
 		/**
+		 * The meta object literal for the '<em><b>Maven Dependency Mappings</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @since 1.1.0
+		 * @generated
+		 */
+		EReference AGGREGATION__MAVEN_DEPENDENCY_MAPPINGS = eINSTANCE.getAggregation_MavenDependencyMappings();
+
+		/**
 		 * The meta object literal for the '<em><b>Allow Legacy Sites</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -384,6 +393,15 @@ public interface AggregatorPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CONTRIBUTION__MAVEN_MAPPINGS = eINSTANCE.getContribution_MavenMappings();
+
+		/**
+		 * The meta object literal for the '<em><b>Maven Dependency Mappings</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @since 1.1.0
+		 * @generated
+		 */
+		EReference CONTRIBUTION__MAVEN_DEPENDENCY_MAPPINGS = eINSTANCE.getContribution_MavenDependencyMappings();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.ContactImpl <em>Contact</em>}' class.
@@ -596,6 +614,54 @@ public interface AggregatorPackage extends EPackage {
 		 * @generated
 		 */
 		EClass MAP_RULE = eINSTANCE.getMapRule();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.MavenDependencyItemImpl <em>Maven Dependency Item</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.cbi.p2repo.aggregator.impl.MavenDependencyItemImpl
+		 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getMavenDependencyItem()
+		 * @since 1.1.0
+		 * @generated
+		 */
+		EClass MAVEN_DEPENDENCY_ITEM = eINSTANCE.getMavenDependencyItem();
+
+		/**
+		 * The meta object literal for the '<em><b>Group Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @since 1.1.0
+		 * @generated
+		 */
+		EAttribute MAVEN_DEPENDENCY_ITEM__GROUP_ID = eINSTANCE.getMavenDependencyItem_GroupId();
+
+		/**
+		 * The meta object literal for the '<em><b>Artifact Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @since 1.1.0
+		 * @generated
+		 */
+		EAttribute MAVEN_DEPENDENCY_ITEM__ARTIFACT_ID = eINSTANCE.getMavenDependencyItem_ArtifactId();
+
+		/**
+		 * The meta object literal for the '<em><b>Mapped Version Range</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @since 1.1.0
+		 * @generated
+		 */
+		EAttribute MAVEN_DEPENDENCY_ITEM__MAPPED_VERSION_RANGE = eINSTANCE.getMavenDependencyItem_MappedVersionRange();
+
+		/**
+		 * The meta object literal for the '<em><b>Maven Dependency Mapping</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @since 1.1.0
+		 * @generated
+		 */
+		EReference MAVEN_DEPENDENCY_ITEM__MAVEN_DEPENDENCY_MAPPING = eINSTANCE
+				.getMavenDependencyItem_MavenDependencyMapping();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.InstallableUnitRequestImpl <em>Installable Unit Request</em>}' class.
@@ -940,6 +1006,82 @@ public interface AggregatorPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute MAVEN_MAPPING__SNAPSHOT = eINSTANCE.getMavenMapping_Snapshot();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.MavenDependencyMappingImpl <em>Maven Dependency Mapping</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.cbi.p2repo.aggregator.impl.MavenDependencyMappingImpl
+		 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getMavenDependencyMapping()
+		 * @since 1.1.0
+		 * @generated
+		 */
+		EClass MAVEN_DEPENDENCY_MAPPING = eINSTANCE.getMavenDependencyMapping();
+
+		/**
+		 * The meta object literal for the '<em><b>Iu Name Pattern</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @since 1.1.0
+		 * @generated
+		 */
+		EAttribute MAVEN_DEPENDENCY_MAPPING__IU_NAME_PATTERN = eINSTANCE.getMavenDependencyMapping_IuNamePattern();
+
+		/**
+		 * The meta object literal for the '<em><b>Namespace Pattern</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @since 1.1.0
+		 * @generated
+		 */
+		EAttribute MAVEN_DEPENDENCY_MAPPING__NAMESPACE_PATTERN = eINSTANCE.getMavenDependencyMapping_NamespacePattern();
+
+		/**
+		 * The meta object literal for the '<em><b>Name Pattern</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @since 1.1.0
+		 * @generated
+		 */
+		EAttribute MAVEN_DEPENDENCY_MAPPING__NAME_PATTERN = eINSTANCE.getMavenDependencyMapping_NamePattern();
+
+		/**
+		 * The meta object literal for the '<em><b>Group Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @since 1.1.0
+		 * @generated
+		 */
+		EAttribute MAVEN_DEPENDENCY_MAPPING__GROUP_ID = eINSTANCE.getMavenDependencyMapping_GroupId();
+
+		/**
+		 * The meta object literal for the '<em><b>Artifact Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @since 1.1.0
+		 * @generated
+		 */
+		EAttribute MAVEN_DEPENDENCY_MAPPING__ARTIFACT_ID = eINSTANCE.getMavenDependencyMapping_ArtifactId();
+
+		/**
+		 * The meta object literal for the '<em><b>Version Range Pattern</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @since 1.1.0
+		 * @generated
+		 */
+		EAttribute MAVEN_DEPENDENCY_MAPPING__VERSION_RANGE_PATTERN = eINSTANCE
+				.getMavenDependencyMapping_VersionRangePattern();
+
+		/**
+		 * The meta object literal for the '<em><b>Version Range Template</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @since 1.1.0
+		 * @generated
+		 */
+		EAttribute MAVEN_DEPENDENCY_MAPPING__VERSION_RANGE_TEMPLATE = eINSTANCE
+				.getMavenDependencyMapping_VersionRangeTemplate();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.MavenItemImpl <em>Maven Item</em>}' class.
@@ -1395,13 +1537,23 @@ public interface AggregatorPackage extends EPackage {
 	int AGGREGATION__MAVEN_MAPPINGS = DESCRIPTION_PROVIDER_FEATURE_COUNT + 19;
 
 	/**
+	 * The feature id for the '<em><b>Maven Dependency Mappings</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @since 1.1.0
+	 * @generated
+	 * @ordered
+	 */
+	int AGGREGATION__MAVEN_DEPENDENCY_MAPPINGS = DESCRIPTION_PROVIDER_FEATURE_COUNT + 20;
+
+	/**
 	 * The feature id for the '<em><b>Allow Legacy Sites</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATION__ALLOW_LEGACY_SITES = DESCRIPTION_PROVIDER_FEATURE_COUNT + 20;
+	int AGGREGATION__ALLOW_LEGACY_SITES = DESCRIPTION_PROVIDER_FEATURE_COUNT + 21;
 
 	/**
 	 * The number of structural features of the '<em>Aggregation</em>' class.
@@ -1410,7 +1562,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATION_FEATURE_COUNT = DESCRIPTION_PROVIDER_FEATURE_COUNT + 21;
+	int AGGREGATION_FEATURE_COUNT = DESCRIPTION_PROVIDER_FEATURE_COUNT + 22;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.EnabledStatusProvider <em>Enabled Status Provider</em>}' class.
@@ -1430,7 +1582,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getValidationSet()
 	 * @generated
 	 */
-	int VALIDATION_SET = 28;
+	int VALIDATION_SET = 30;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.MetadataRepositoryReferenceImpl <em>Metadata Repository Reference</em>}' class.
@@ -1440,7 +1592,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getMetadataRepositoryReference()
 	 * @generated
 	 */
-	int METADATA_REPOSITORY_REFERENCE = 23;
+	int METADATA_REPOSITORY_REFERENCE = 25;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.MappedRepositoryImpl <em>Mapped Repository</em>}' class.
@@ -1500,7 +1652,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getStatusProvider()
 	 * @generated
 	 */
-	int STATUS_PROVIDER = 27;
+	int STATUS_PROVIDER = 29;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.InstallableUnitRequestImpl <em>Installable Unit Request</em>}' class.
@@ -1540,7 +1692,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getProduct()
 	 * @generated
 	 */
-	int PRODUCT = 24;
+	int PRODUCT = 26;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.PropertyImpl <em>Property</em>}' class.
@@ -1550,7 +1702,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getProperty()
 	 * @generated
 	 */
-	int PROPERTY = 25;
+	int PROPERTY = 27;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.CategoryImpl <em>Category</em>}' class.
@@ -1600,7 +1752,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getValidConfigurationsRule()
 	 * @generated
 	 */
-	int VALID_CONFIGURATIONS_RULE = 29;
+	int VALID_CONFIGURATIONS_RULE = 31;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.LabelProvider <em>Label Provider</em>}' class.
@@ -1630,7 +1782,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getMavenMapping()
 	 * @generated
 	 */
-	int MAVEN_MAPPING = 22;
+	int MAVEN_MAPPING = 23;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.MavenItemImpl <em>Maven Item</em>}' class.
@@ -1640,7 +1792,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getMavenItem()
 	 * @generated
 	 */
-	int MAVEN_ITEM = 21;
+	int MAVEN_ITEM = 22;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.ChildrenProvider <em>Children Provider</em>}' class.
@@ -1660,7 +1812,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getStatus()
 	 * @generated
 	 */
-	int STATUS = 26;
+	int STATUS = 28;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.InfosProviderImpl <em>Infos Provider</em>}' class.
@@ -2467,13 +2619,23 @@ public interface AggregatorPackage extends EPackage {
 	int CONTRIBUTION__MAVEN_MAPPINGS = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 8;
 
 	/**
+	 * The feature id for the '<em><b>Maven Dependency Mappings</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @since 1.1.0
+	 * @generated
+	 * @ordered
+	 */
+	int CONTRIBUTION__MAVEN_DEPENDENCY_MAPPINGS = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 9;
+
+	/**
 	 * The number of structural features of the '<em>Contribution</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTRIBUTION_FEATURE_COUNT = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 9;
+	int CONTRIBUTION_FEATURE_COUNT = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Status</b></em>' reference.
@@ -3214,6 +3376,67 @@ public interface AggregatorPackage extends EPackage {
 	int MAPPED_REPOSITORY_FEATURE_COUNT = METADATA_REPOSITORY_REFERENCE_FEATURE_COUNT + 8;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.MavenDependencyItemImpl <em>Maven Dependency Item</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.cbi.p2repo.aggregator.impl.MavenDependencyItemImpl
+	 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getMavenDependencyItem()
+	 * @since 1.1.0
+	 * @generated
+	 */
+	int MAVEN_DEPENDENCY_ITEM = 21;
+
+	/**
+	 * The feature id for the '<em><b>Group Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @since 1.1.0
+	 * @generated
+	 * @ordered
+	 */
+	int MAVEN_DEPENDENCY_ITEM__GROUP_ID = 0;
+
+	/**
+	 * The feature id for the '<em><b>Artifact Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @since 1.1.0
+	 * @generated
+	 * @ordered
+	 */
+	int MAVEN_DEPENDENCY_ITEM__ARTIFACT_ID = 1;
+
+	/**
+	 * The feature id for the '<em><b>Mapped Version Range</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @since 1.1.0
+	 * @generated
+	 * @ordered
+	 */
+	int MAVEN_DEPENDENCY_ITEM__MAPPED_VERSION_RANGE = 2;
+
+	/**
+	 * The feature id for the '<em><b>Maven Dependency Mapping</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @since 1.1.0
+	 * @generated
+	 * @ordered
+	 */
+	int MAVEN_DEPENDENCY_ITEM__MAVEN_DEPENDENCY_MAPPING = 3;
+
+	/**
+	 * The number of structural features of the '<em>Maven Dependency Item</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @since 1.1.0
+	 * @generated
+	 * @ordered
+	 */
+	int MAVEN_DEPENDENCY_ITEM_FEATURE_COUNT = 4;
+
+	/**
 	 * The feature id for the '<em><b>Group Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3365,6 +3588,133 @@ public interface AggregatorPackage extends EPackage {
 	 * @ordered
 	 */
 	int MAVEN_MAPPING_FEATURE_COUNT = STATUS_PROVIDER_FEATURE_COUNT + 9;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.MavenDependencyMappingImpl <em>Maven Dependency Mapping</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.cbi.p2repo.aggregator.impl.MavenDependencyMappingImpl
+	 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getMavenDependencyMapping()
+	 * @since 1.1.0
+	 * @generated
+	 */
+	int MAVEN_DEPENDENCY_MAPPING = 24;
+
+	/**
+	 * The feature id for the '<em><b>Status</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAVEN_DEPENDENCY_MAPPING__STATUS = STATUS_PROVIDER__STATUS;
+
+	/**
+	 * The feature id for the '<em><b>Errors</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAVEN_DEPENDENCY_MAPPING__ERRORS = STATUS_PROVIDER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Warnings</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAVEN_DEPENDENCY_MAPPING__WARNINGS = STATUS_PROVIDER_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Infos</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAVEN_DEPENDENCY_MAPPING__INFOS = STATUS_PROVIDER_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Iu Name Pattern</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @since 1.1.0
+	 * @generated
+	 * @ordered
+	 */
+	int MAVEN_DEPENDENCY_MAPPING__IU_NAME_PATTERN = STATUS_PROVIDER_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Namespace Pattern</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @since 1.1.0
+	 * @generated
+	 * @ordered
+	 */
+	int MAVEN_DEPENDENCY_MAPPING__NAMESPACE_PATTERN = STATUS_PROVIDER_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Name Pattern</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @since 1.1.0
+	 * @generated
+	 * @ordered
+	 */
+	int MAVEN_DEPENDENCY_MAPPING__NAME_PATTERN = STATUS_PROVIDER_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Group Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @since 1.1.0
+	 * @generated
+	 * @ordered
+	 */
+	int MAVEN_DEPENDENCY_MAPPING__GROUP_ID = STATUS_PROVIDER_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Artifact Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @since 1.1.0
+	 * @generated
+	 * @ordered
+	 */
+	int MAVEN_DEPENDENCY_MAPPING__ARTIFACT_ID = STATUS_PROVIDER_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Version Range Pattern</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @since 1.1.0
+	 * @generated
+	 * @ordered
+	 */
+	int MAVEN_DEPENDENCY_MAPPING__VERSION_RANGE_PATTERN = STATUS_PROVIDER_FEATURE_COUNT + 8;
+
+	/**
+	 * The feature id for the '<em><b>Version Range Template</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @since 1.1.0
+	 * @generated
+	 * @ordered
+	 */
+	int MAVEN_DEPENDENCY_MAPPING__VERSION_RANGE_TEMPLATE = STATUS_PROVIDER_FEATURE_COUNT + 9;
+
+	/**
+	 * The number of structural features of the '<em>Maven Dependency Mapping</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @since 1.1.0
+	 * @generated
+	 * @ordered
+	 */
+	int MAVEN_DEPENDENCY_MAPPING_FEATURE_COUNT = STATUS_PROVIDER_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Status</b></em>' reference.
@@ -3788,7 +4138,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getAggregationType()
 	 * @generated
 	 */
-	int AGGREGATION_TYPE = 30;
+	int AGGREGATION_TYPE = 32;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.OperatingSystem <em>Operating System</em>}' enum.
@@ -3798,7 +4148,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getOperatingSystem()
 	 * @generated
 	 */
-	int OPERATING_SYSTEM = 34;
+	int OPERATING_SYSTEM = 36;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.WindowSystem <em>Window System</em>}' enum.
@@ -3808,7 +4158,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getWindowSystem()
 	 * @generated
 	 */
-	int WINDOW_SYSTEM = 38;
+	int WINDOW_SYSTEM = 40;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.VersionFormat <em>Version Format</em>}' enum.
@@ -3818,7 +4168,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getVersionFormat()
 	 * @generated
 	 */
-	int VERSION_FORMAT = 39;
+	int VERSION_FORMAT = 41;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.Architecture <em>Architecture</em>}' enum.
@@ -3828,7 +4178,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getArchitecture()
 	 * @generated
 	 */
-	int ARCHITECTURE = 31;
+	int ARCHITECTURE = 33;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.AvailableFrom <em>Available From</em>}' enum.
@@ -3838,7 +4188,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getAvailableFrom()
 	 * @generated
 	 */
-	int AVAILABLE_FROM = 32;
+	int AVAILABLE_FROM = 34;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.PackedStrategy <em>Packed Strategy</em>}' enum.
@@ -3848,7 +4198,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getPackedStrategy()
 	 * @generated
 	 */
-	int PACKED_STRATEGY = 35;
+	int PACKED_STRATEGY = 37;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.InstallableUnitType <em>Installable Unit Type</em>}' enum.
@@ -3858,7 +4208,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getInstallableUnitType()
 	 * @generated
 	 */
-	int INSTALLABLE_UNIT_TYPE = 33;
+	int INSTALLABLE_UNIT_TYPE = 35;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.StatusCode <em>Status Code</em>}' enum.
@@ -3868,7 +4218,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getStatusCode()
 	 * @generated
 	 */
-	int STATUS_CODE = 36;
+	int STATUS_CODE = 38;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.VersionMatch <em>Version Match</em>}' enum.
@@ -3878,7 +4228,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getVersionMatch()
 	 * @generated
 	 */
-	int VERSION_MATCH = 37;
+	int VERSION_MATCH = 39;
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.cbi.p2repo.aggregator.Aggregation <em>Aggregation</em>}'.
@@ -3988,6 +4338,18 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getAggregation_MavenMappings();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#getMavenDependencyMappings <em>Maven Dependency Mappings</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Maven Dependency Mappings</em>'.
+	 * @see org.eclipse.cbi.p2repo.aggregator.Aggregation#getMavenDependencyMappings()
+	 * @see #getAggregation()
+	 * @since 1.1.0
+	 * @generated
+	 */
+	EReference getAggregation_MavenDependencyMappings();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#isMavenResult <em>Maven Result</em>}'.
@@ -4382,6 +4744,18 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getContribution_MavenMappings();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.cbi.p2repo.aggregator.Contribution#getMavenDependencyMappings <em>Maven Dependency Mappings</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Maven Dependency Mappings</em>'.
+	 * @see org.eclipse.cbi.p2repo.aggregator.Contribution#getMavenDependencyMappings()
+	 * @see #getContribution()
+	 * @since 1.1.0
+	 * @generated
+	 */
+	EReference getContribution_MavenDependencyMappings();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link org.eclipse.cbi.p2repo.aggregator.Contribution#getRepositories <em>Repositories</em>}'.
@@ -4789,6 +5163,65 @@ public interface AggregatorPackage extends EPackage {
 	EClass getMapRule();
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipse.cbi.p2repo.aggregator.MavenDependencyItem <em>Maven Dependency Item</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Maven Dependency Item</em>'.
+	 * @see org.eclipse.cbi.p2repo.aggregator.MavenDependencyItem
+	 * @since 1.1.0
+	 * @generated
+	 */
+	EClass getMavenDependencyItem();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.MavenDependencyItem#getGroupId <em>Group Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Group Id</em>'.
+	 * @see org.eclipse.cbi.p2repo.aggregator.MavenDependencyItem#getGroupId()
+	 * @see #getMavenDependencyItem()
+	 * @since 1.1.0
+	 * @generated
+	 */
+	EAttribute getMavenDependencyItem_GroupId();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.MavenDependencyItem#getArtifactId <em>Artifact Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Artifact Id</em>'.
+	 * @see org.eclipse.cbi.p2repo.aggregator.MavenDependencyItem#getArtifactId()
+	 * @see #getMavenDependencyItem()
+	 * @since 1.1.0
+	 * @generated
+	 */
+	EAttribute getMavenDependencyItem_ArtifactId();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.MavenDependencyItem#getMappedVersionRange <em>Mapped Version Range</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Mapped Version Range</em>'.
+	 * @see org.eclipse.cbi.p2repo.aggregator.MavenDependencyItem#getMappedVersionRange()
+	 * @see #getMavenDependencyItem()
+	 * @since 1.1.0
+	 * @generated
+	 */
+	EAttribute getMavenDependencyItem_MappedVersionRange();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.cbi.p2repo.aggregator.MavenDependencyItem#getMavenDependencyMapping <em>Maven Dependency Mapping</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Maven Dependency Mapping</em>'.
+	 * @see org.eclipse.cbi.p2repo.aggregator.MavenDependencyItem#getMavenDependencyMapping()
+	 * @see #getMavenDependencyItem()
+	 * @since 1.1.0
+	 * @generated
+	 */
+	EReference getMavenDependencyItem_MavenDependencyMapping();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.cbi.p2repo.aggregator.MavenItem <em>Maven Item</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4906,6 +5339,101 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getMavenMapping_Snapshot();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.cbi.p2repo.aggregator.MavenDependencyMapping <em>Maven Dependency Mapping</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Maven Dependency Mapping</em>'.
+	 * @see org.eclipse.cbi.p2repo.aggregator.MavenDependencyMapping
+	 * @since 1.1.0
+	 * @generated
+	 */
+	EClass getMavenDependencyMapping();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.MavenDependencyMapping#getIuNamePattern <em>Iu Name Pattern</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Iu Name Pattern</em>'.
+	 * @see org.eclipse.cbi.p2repo.aggregator.MavenDependencyMapping#getIuNamePattern()
+	 * @see #getMavenDependencyMapping()
+	 * @since 1.1.0
+	 * @generated
+	 */
+	EAttribute getMavenDependencyMapping_IuNamePattern();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.MavenDependencyMapping#getNamespacePattern <em>Namespace Pattern</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Namespace Pattern</em>'.
+	 * @see org.eclipse.cbi.p2repo.aggregator.MavenDependencyMapping#getNamespacePattern()
+	 * @see #getMavenDependencyMapping()
+	 * @since 1.1.0
+	 * @generated
+	 */
+	EAttribute getMavenDependencyMapping_NamespacePattern();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.MavenDependencyMapping#getNamePattern <em>Name Pattern</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name Pattern</em>'.
+	 * @see org.eclipse.cbi.p2repo.aggregator.MavenDependencyMapping#getNamePattern()
+	 * @see #getMavenDependencyMapping()
+	 * @since 1.1.0
+	 * @generated
+	 */
+	EAttribute getMavenDependencyMapping_NamePattern();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.MavenDependencyMapping#getGroupId <em>Group Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Group Id</em>'.
+	 * @see org.eclipse.cbi.p2repo.aggregator.MavenDependencyMapping#getGroupId()
+	 * @see #getMavenDependencyMapping()
+	 * @since 1.1.0
+	 * @generated
+	 */
+	EAttribute getMavenDependencyMapping_GroupId();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.MavenDependencyMapping#getArtifactId <em>Artifact Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Artifact Id</em>'.
+	 * @see org.eclipse.cbi.p2repo.aggregator.MavenDependencyMapping#getArtifactId()
+	 * @see #getMavenDependencyMapping()
+	 * @since 1.1.0
+	 * @generated
+	 */
+	EAttribute getMavenDependencyMapping_ArtifactId();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.MavenDependencyMapping#getVersionRangePattern <em>Version Range Pattern</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Version Range Pattern</em>'.
+	 * @see org.eclipse.cbi.p2repo.aggregator.MavenDependencyMapping#getVersionRangePattern()
+	 * @see #getMavenDependencyMapping()
+	 * @since 1.1.0
+	 * @generated
+	 */
+	EAttribute getMavenDependencyMapping_VersionRangePattern();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.MavenDependencyMapping#getVersionRangeTemplate <em>Version Range Template</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Version Range Template</em>'.
+	 * @see org.eclipse.cbi.p2repo.aggregator.MavenDependencyMapping#getVersionRangeTemplate()
+	 * @see #getMavenDependencyMapping()
+	 * @since 1.1.0
+	 * @generated
+	 */
+	EAttribute getMavenDependencyMapping_VersionRangeTemplate();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.MavenMapping#getGroupId <em>Group Id</em>}'.

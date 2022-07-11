@@ -39,7 +39,10 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.function.BiConsumer;
+import java.util.function.BinaryOperator;
 import java.util.function.Function;
+import java.util.function.Supplier;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import org.apache.batik.svggen.DefaultExtensionHandler;
@@ -70,6 +73,14 @@ import org.eclipse.cbi.p2repo.aggregator.p2view.ProvidedCapabilityWrapper;
 import org.eclipse.cbi.p2repo.aggregator.p2view.RequirementWrapper;
 import org.eclipse.cbi.p2repo.aggregator.p2view.provider.P2viewItemProviderAdapterFactory;
 import org.eclipse.cbi.p2repo.aggregator.provider.AggregatorItemProviderAdapterFactory;
+import org.eclipse.cbi.p2repo.aggregator.util.InstallableUnitUtils;
+import org.eclipse.cbi.p2repo.p2.MetadataRepository;
+import org.eclipse.cbi.p2repo.p2.maven.pom.DependenciesType;
+import org.eclipse.cbi.p2repo.p2.maven.pom.Dependency;
+import org.eclipse.cbi.p2repo.p2.maven.pom.LicensesType;
+import org.eclipse.cbi.p2repo.p2.maven.pom.Model;
+import org.eclipse.cbi.p2repo.p2.maven.pom.util.PomResourceFactoryImpl;
+import org.eclipse.cbi.p2repo.p2.provider.MetadataRepositoryItemProvider;
 import org.eclipse.cbi.p2repo.p2.provider.P2ItemProviderAdapterFactory;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IMarker;
@@ -93,9 +104,11 @@ import org.eclipse.emf.common.command.BasicCommandStack;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.common.command.CommandStackListener;
+import org.eclipse.emf.common.command.UnexecutableCommand;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.common.ui.MarkerHelper;
 import org.eclipse.emf.common.ui.editor.ProblemEditorPart;
@@ -115,13 +128,17 @@ import org.eclipse.emf.ecore.resource.URIConverter;
 import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.command.ChangeCommand;
+import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
 import org.eclipse.emf.edit.provider.AdapterFactoryItemDelegator;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
+import org.eclipse.emf.edit.provider.DelegatingWrapperItemProvider;
+import org.eclipse.emf.edit.provider.IItemStyledLabelProvider;
 import org.eclipse.emf.edit.provider.IWrapperItemProvider;
 import org.eclipse.emf.edit.provider.ItemProvider;
+import org.eclipse.emf.edit.provider.ReflectiveItemProvider;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProvider;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
@@ -134,6 +151,7 @@ import org.eclipse.emf.edit.ui.dnd.LocalTransfer;
 import org.eclipse.emf.edit.ui.dnd.ViewerDragAdapter;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
+import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider.StyledLabelProvider;
 import org.eclipse.emf.edit.ui.provider.DecoratingColumLabelProvider;
 import org.eclipse.emf.edit.ui.provider.DelegatingStyledCellLabelProvider;
 import org.eclipse.emf.edit.ui.provider.DiagnosticDecorator;
@@ -146,10 +164,14 @@ import org.eclipse.emf.edit.ui.util.EditUIUtil;
 import org.eclipse.emf.edit.ui.util.FindAndReplaceTarget;
 import org.eclipse.emf.edit.ui.util.IRevertablePart;
 import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
+import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.metadata.IProvidedCapability;
 import org.eclipse.equinox.p2.metadata.IRequirement;
 import org.eclipse.jface.action.Action;
+import org.eclipse.jface.action.ActionContributionItem;
+import org.eclipse.jface.action.IAction;
+import org.eclipse.jface.action.IContributionItem;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.IStatusLineManager;
@@ -159,10 +181,12 @@ import org.eclipse.jface.action.Separator;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
+import org.eclipse.jface.preference.JFacePreferences;
 import org.eclipse.jface.text.IFindReplaceTarget;
 import org.eclipse.jface.util.LocalSelectionTransfer;
 import org.eclipse.jface.viewers.CellLabelProvider;
 import org.eclipse.jface.viewers.DelegatingStyledCellLabelProvider.IStyledLabelProvider;
+import org.eclipse.jface.viewers.IBaseLabelProvider;
 import org.eclipse.jface.viewers.IContentProvider;
 import org.eclipse.jface.viewers.IDoubleClickListener;
 import org.eclipse.jface.viewers.ISelection;
@@ -174,6 +198,8 @@ import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.StructuredViewer;
+import org.eclipse.jface.viewers.StyledString;
+import org.eclipse.jface.viewers.StyledString.Styler;
 import org.eclipse.jface.viewers.TreePath;
 import org.eclipse.jface.viewers.TreeSelection;
 import org.eclipse.jface.viewers.TreeViewer;
@@ -587,15 +613,17 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 
 	private TreeViewer strictRequirementsViewer;
 
-	private TreeViewer namespaceViewer;
-
-	private GraphViewer graphViewer;
-
 	private TreeViewer repositoryViewer;
 
 	private TreeViewer dependentIUsViewer;
 
 	private TreeViewer requiredIUsViewer;
+
+	private TreeViewer namespaceViewer;
+
+	private TreeViewer mavenViewer;
+
+	private GraphViewer graphViewer;
 
 	private AtomicReference<AnalyzeHandler.Analyzer> analyzer;
 
@@ -1050,6 +1078,20 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 		});
 	}
 
+	protected Analysis getAnalysis() {
+		EList<Resource> resources = editingDomain.getResourceSet().getResources();
+		if (!resources.isEmpty()) {
+			return getAnalysis(resources.get(0));
+		}
+		return null;
+	}
+
+	protected Analysis getAnalysis(Resource resource) {
+		Analysis analysis = (Analysis) EcoreUtil.getObjectByType(resource.getContents(),
+				AnalyzerPackage.Literals.ANALYSIS);
+		return analysis;
+	}
+
 	/**
 	 * This is the method called to load a resource into the editing domain's resource set based on the editor's input.
 	 * <!-- begin-user-doc -->
@@ -1147,9 +1189,7 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 		});
 
 		ResourceSet resourceSet = editingDomain.getResourceSet();
-		Resource resource = resourceSet.getResources().get(0);
-		Analysis analysis = (Analysis) EcoreUtil.getObjectByType(resource.getContents(),
-				AnalyzerPackage.Literals.ANALYSIS);
+		Analysis analysis = getAnalysis();
 		analyzer = new AtomicReference<>();
 		if (analysis != null) {
 			analyzer.set(new AnalyzeHandler.Analyzer(analysis));
@@ -1163,6 +1203,7 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 		dependentIUsViewer = createDependentIUsViewer();
 		requiredIUsViewer = createRequiredIUsViewer();
 		namespaceViewer = createNamespaceViewer();
+		mavenViewer = createViewerWithBreadcrumb(composite -> createMavenViewer(composite));
 		repositoryViewer = createRepositoryReviewer();
 		graphViewer = createGraphViewer();
 
@@ -1185,8 +1226,7 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 							setActivePage(analysisViewer);
 						}
 
-						Analysis analysis = (Analysis) EcoreUtil.getObjectByType(resource.getContents(),
-								AnalyzerPackage.Literals.ANALYSIS);
+						Analysis analysis = getAnalysis(resource);
 						if (analysis != null) {
 							dependentIUsViewer
 									.setInput(new ItemProvider(Collections.singleton(createIUDependents(analysis))));
@@ -1198,6 +1238,7 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 								.getObjectByType(resource.getContents(),
 										P2viewPackage.Literals.METADATA_REPOSITORY_STRUCTURED_VIEW);
 						repositoryViewer.setInput(metadataRepositoryStructuredView.getInstallableUnitList());
+						mavenViewer.setInput(metadataRepositoryStructuredView.getMetadataRepository());
 					}
 				}
 				setReadOnly(false);
@@ -1207,7 +1248,7 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 		showTabs();
 
 		selectionViewer.setAutoExpandLevel(2);
-		selectionViewer.setInput(resource);
+		selectionViewer.setInput(analysis.eResource());
 
 		addPageChangedListener(event -> {
 			Viewer viewer = viewers.get(event.getSelectedPage());
@@ -1243,25 +1284,33 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 			parent.setBackground(parent.getDisplay().getSystemColor(SWT.COLOR_DARK_GRAY));
 
 			BiConsumer<StructuredViewer, Object> viewerConfigurator = (viewer, input) -> {
-				AdapterFactory adapterFactory = getAdapterFactory();
-				AdapterFactoryContentProvider contentProvider = new AdapterFactoryContentProvider(adapterFactory) {
+
+				ITreeContentProvider contentProvider = (ITreeContentProvider) treeViewer.getContentProvider();
+				ITreeContentProvider delegate = new ITreeContentProvider() {
 					@Override
-					public void notifyChanged(Notification notification) {
-						// Don't respond to any notification.
-						// An avalanche of these are produced while creating the elements.
+					public boolean hasChildren(Object element) {
+						return contentProvider.hasChildren(element);
 					}
 
 					@Override
-					public Object getParent(Object object) {
-						if (object == treeViewer.getInput()) {
+					public Object getParent(Object element) {
+						if (element == treeViewer.getInput()) {
 							return null;
 						}
-						Object result = super.getParent(object);
-						return result;
+						return contentProvider.getParent(element);
 					}
 
+					@Override
+					public Object[] getElements(Object inputElement) {
+						return contentProvider.getElements(inputElement);
+					}
+
+					@Override
+					public Object[] getChildren(Object parentElement) {
+						return contentProvider.getElements(parentElement);
+					}
 				};
-				viewer.setContentProvider(contentProvider);
+				viewer.setContentProvider(delegate);
 
 				class MyLabelProvider extends AdapterFactoryLabelProvider implements IStyledLabelProvider {
 					public MyLabelProvider(AdapterFactory adapterFactory) {
@@ -1269,7 +1318,10 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 					}
 				}
 
-				MyLabelProvider styledLabelProvider = new MyLabelProvider(adapterFactory);
+				IBaseLabelProvider viewerLabelProvider = treeViewer.getLabelProvider();
+				IStyledLabelProvider styledLabelProvider = viewerLabelProvider instanceof DelegatingStyledCellLabelProvider
+						? ((DelegatingStyledCellLabelProvider) viewerLabelProvider).getStyledStringProvider()
+						: new MyLabelProvider(adapterFactory);
 				CellLabelProvider labelProvider = new DelegatingStyledCellLabelProvider(styledLabelProvider);
 				viewer.setLabelProvider(labelProvider);
 
@@ -1431,7 +1483,9 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 				.add(selection -> new ShowInAction("Strict Requirement IUs", selection, strictRequirementsViewer) {
 					@Override
 					protected void handleSelection(Object element) {
-						if (element instanceof ContributionAnalysis || element instanceof InstallableUnitAnalysis
+						if (element instanceof IInstallableUnit) {
+							setTarget(element);
+						} else if (element instanceof ContributionAnalysis || element instanceof InstallableUnitAnalysis
 								|| element instanceof CapabilityAnalysis || element instanceof CapabilityResolution) {
 							setTarget(element);
 						} else if (element instanceof IUPresentation) {
@@ -1484,7 +1538,8 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 		showInActionFactories.add(selection -> new ShowInAction("Contributed IUs", selection, analysisViewer) {
 			@Override
 			protected void handleSelection(Object element) {
-				if (element instanceof ContributionAnalysis || element instanceof InstallableUnitAnalysis
+				if (element instanceof IInstallableUnit || element instanceof ContributionAnalysis
+						|| element instanceof InstallableUnitAnalysis
 						|| element instanceof RequirementAnalysis || element instanceof CapabilityAnalysis) {
 					setTarget(element);
 				} else if (element instanceof IUPresentation) {
@@ -1532,7 +1587,7 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 		showInActionFactories.add(selection -> new ShowInAction("Dependent IUs", selection, iuDependenciesViewer) {
 			@Override
 			protected void handleSelection(Object element) {
-				if (element instanceof InstallableUnitAnalysis) {
+				if (element instanceof InstallableUnitAnalysis && element instanceof IInstallableUnit) {
 					setTarget(element);
 				} else if (element instanceof IUPresentation) {
 					setTarget(((IUPresentation) element).getInstallableUnit());
@@ -1565,7 +1620,7 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 		showInActionFactories.add(selection -> new ShowInAction("Required IUs", selection, requiredIUsViewer) {
 			@Override
 			protected void handleSelection(Object element) {
-				if (element instanceof InstallableUnitAnalysis) {
+				if (element instanceof InstallableUnitAnalysis || element instanceof IInstallableUnit) {
 					setTarget(element);
 				} else if (element instanceof IUPresentation) {
 					setTarget(((IUPresentation) element).getInstallableUnit());
@@ -1580,7 +1635,9 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 		showInActionFactories.add(selection -> new ShowInAction("Aggregated Repository", selection, repositoryViewer) {
 			@Override
 			protected void handleSelection(Object element) {
-				if (element instanceof InstallableUnitAnalysis) {
+				if (element instanceof IInstallableUnit) {
+					setTarget(element);
+				} else if (element instanceof InstallableUnitAnalysis) {
 					setTarget(((InstallableUnitAnalysis) element).getInstallableUnit());
 				} else if (element instanceof RequirementAnalysis) {
 					setTarget(((RequirementAnalysis) element).getRequirement());
@@ -1600,7 +1657,7 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 			@Override
 			protected void handleSelection(Object element) {
 				if (element instanceof ContributionAnalysis || element instanceof InstallableUnitAnalysis
-						|| element instanceof IUPresentation) {
+						|| element instanceof IUPresentation || element instanceof IInstallableUnit) {
 					setTarget(element);
 				}
 			}
@@ -1737,6 +1794,378 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 		return namespaceViewer;
 	}
 
+	private interface WithLink {
+		String getURL();
+	}
+
+	protected TreeViewer createMavenViewer(Composite parent) {
+		showInActionFactories.add(selection -> new ShowInAction("Maven", selection, mavenViewer) {
+			@Override
+			protected void handleSelection(Object element) {
+				if (element instanceof IInstallableUnit) {
+					setTarget(element);
+				} else if (element instanceof IWrapperItemProvider) {
+					setTarget(((IWrapperItemProvider) element).getValue());
+				} else if (element instanceof IUPresentation) {
+					setTarget(((IUPresentation) element).getInstallableUnit());
+				} else if (element instanceof InstallableUnitAnalysis) {
+					setTarget(((InstallableUnitAnalysis) element).getInstallableUnit());
+				} else if (element instanceof RequirementAnalysis) {
+					setTarget(((RequirementAnalysis) element).getRequirement());
+				} else if (element instanceof CapabilityAnalysis) {
+					setTarget(((CapabilityAnalysis) element).getCapability());
+				}
+			}
+		});
+
+		Map<Model, Object> modelParents = new HashMap<>();
+		Map<Dependency, IRequirement> dependencyRequirements = new HashMap<>();
+		Map<Dependency, String> dependencyResolutions = new HashMap<>();
+		P2ItemProviderAdapterFactory p2ItemProviderAdapterFactory = new P2ItemProviderAdapterFactory() {
+			@Override
+			public Adapter createMetadataRepositoryAdapter() {
+				if (metadataRepositoryItemProvider == null) {
+					metadataRepositoryItemProvider = new MetadataRepositoryItemProvider(this) {
+						private Object cachedObject;
+						private List<ItemProvider> children;
+
+						@Override
+						public Collection<?> getChildren(Object object) {
+							if (children == null || cachedObject != object) {
+								cachedObject = object;
+								modelParents.clear();
+
+								Map<IInstallableUnit, Model> poms = new HashMap<>();
+								MetadataRepository metadataRepository = (MetadataRepository) object;
+								EList<IInstallableUnit> installableUnits = metadataRepository.getInstallableUnits();
+								Map<String, Set<IInstallableUnit>> groups = new TreeMap<>();
+								for (IInstallableUnit iu : installableUnits) {
+									Map<String, String> properties = iu.getProperties();
+									String groupId = null;
+									String pom = properties.get("maven-pom");
+									if (pom != null) {
+										Resource resource = new PomResourceFactoryImpl()
+												.createResource(URI.createURI("readonly:"));
+										try {
+											resource.load(new URIConverter.ReadableInputStream(pom), null);
+											Model model = (Model) resource.getContents().get(0).eContents().get(0);
+											groupId = model.getGroupId();
+											poms.put(iu, model);
+
+											List<IRequirement> requirements = new ArrayList<>(iu.getRequirements());
+											DependenciesType dependencies = model.getDependencies();
+											if (dependencies != null) {
+												EList<Dependency> dependencyList = dependencies.getDependency();
+												int dependencyIndex = 0;
+												String[] resolutions = properties.get("maven-dependency-resolutions")
+														.split(" ");
+												for (int requirementIndex : Arrays
+														.stream(properties.get("maven-dependency-requirements")
+																.split(" "))
+														.map(Integer::parseInt).toArray(Integer[]::new)) {
+													Dependency dependency = dependencyList.get(dependencyIndex);
+													if (requirementIndex != -1) {
+														dependencyRequirements.put(dependency,
+																requirements.get(requirementIndex));
+													}
+
+													dependencyResolutions.put(dependency, resolutions[dependencyIndex]);
+
+													++dependencyIndex;
+												}
+											}
+										} catch (IOException e) {
+											AggregationAnalyzerEditorPlugin.INSTANCE.log(e);
+										}
+									}
+
+									if (groupId == null) {
+										groupId = properties.get("maven-groupId");
+									}
+									if (groupId == null) {
+										groupId = "";
+									}
+									add(groups, groupId, iu);
+								}
+
+								children = groups.entrySet().stream().map(entry -> {
+									String groupId = entry.getKey();
+									Set<IInstallableUnit> ius = entry.getValue();
+
+									String groupIdLabel = "true"
+											.equals(ius.iterator().next().getProperty("maven-group-exists")) ? groupId
+													: groupId + " **";
+
+									class GroupItemProvider extends ItemProvider implements WithLink {
+										public GroupItemProvider(AdapterFactory adapterFactory) {
+											super(adapterFactory, groupIdLabel,
+													ExtendedImageRegistry.INSTANCE
+															.getImageDescriptor(AggregationAnalyzerEditorPlugin.INSTANCE
+																	.getImage("full/obj16/namespace")),
+													metadataRepository);
+										}
+
+										@Override
+										public String getURL() {
+											return AnalyzeHandler.getURL(groupId.toString());
+										}
+									}
+
+									GroupItemProvider groupItemProvider = new GroupItemProvider(parentAdapterFactory);
+									groupItemProvider.getChildren().addAll(ius.stream().map(iu -> {
+										class DelegatingWrapperItemProviderWithLink
+												extends DelegatingWrapperItemProvider implements WithLink {
+											public DelegatingWrapperItemProviderWithLink(
+													AdapterFactory adapterFactory) {
+												super(iu, groupItemProvider, null, -1, adapterFactory);
+											}
+
+											private String getArtifactId() {
+												Model model = poms.get(iu);
+												Map<String, String> properties = iu.getProperties();
+												String artifactId = model == null ? properties.get("maven-artifactId")
+														: model.getArtifactId();
+												if (artifactId == null) {
+													artifactId = iu.getId();
+												}
+												return artifactId;
+											}
+
+											@Override
+											public String getText(Object object) {
+												Model model = poms.get(iu);
+												Map<String, String> properties = iu.getProperties();
+												String artifactId = getArtifactId();
+
+												String classifier = properties.get("maven-classifier");
+												if (classifier == null && InstallableUnitUtils.isSourceBundle(iu)) {
+													classifier = "source";
+												}
+												if (classifier != null) {
+													artifactId += ":" + classifier;
+												}
+
+												String version = model == null ? properties.get("maven-version")
+														: model.getVersion();
+												if (version != null) {
+													artifactId += " / " + version;
+												}
+
+												boolean artifactExists = "true"
+														.equals(properties.get("maven-artifact-exists"));
+												boolean artifactVersionExists = "true"
+														.equals(properties.get("maven-artifact-version-exists"));
+
+												if (!artifactExists) {
+													artifactId += " **";
+												} else if (!artifactVersionExists) {
+													artifactId += " *";
+												}
+
+												return artifactId;
+											}
+
+											@Override
+											public boolean hasChildren(Object object) {
+												return poms.get(iu) != null;
+											}
+
+											@Override
+											public Collection<?> getChildren(Object object) {
+												Model model = poms.get(iu);
+												return model == null ? Collections.emptyList()
+														: Collections.singletonList(model);
+											}
+
+											@Override
+											public String getURL() {
+												return AnalyzeHandler.getURL(groupId, getArtifactId());
+											}
+										}
+
+										DelegatingWrapperItemProviderWithLink result = new DelegatingWrapperItemProviderWithLink(
+												getRootAdapterFactory());
+										modelParents.put(poms.get(iu), result);
+										return result;
+									}).collect(Collectors.toList()));
+
+									return groupItemProvider;
+								}).collect(Collectors.toList());
+
+								children.sort((i1, i2) -> CommonPlugin.INSTANCE.getComparator().compare(i1.getText(),
+										i2.getText()));
+							}
+							return children;
+						}
+					};
+				}
+
+				return metadataRepositoryItemProvider;
+			}
+		};
+
+		Styler errorStyler = StyledString.createColorRegistryStyler(JFacePreferences.ERROR_COLOR, null);
+
+		ReflectiveItemProviderAdapterFactory reflectiveItemProviderAdapterFactory = new ReflectiveItemProviderAdapterFactory() {
+			{
+				supportedTypes.add(IItemStyledLabelProvider.class);
+				class MyReflectiveItemProvider extends ReflectiveItemProvider implements IItemStyledLabelProvider {
+					public MyReflectiveItemProvider(AdapterFactory adapterFactory) {
+						super(adapterFactory);
+					}
+
+					@Override
+					public String getText(Object object) {
+						return getStyledText(object).toString();
+					}
+
+					@Override
+					public Object getStyledText(Object object) {
+						if (object instanceof Model) {
+							Model model = (Model) object;
+							String name = model.getName();
+							return name == null ? model.getArtifactId() : name;
+						} else if (object instanceof LicensesType) {
+							return "<licences>";
+						} else if (object instanceof DependenciesType) {
+							return "<dependencies>";
+						} else if (object instanceof Dependency) {
+							Dependency dependency = (Dependency) object;
+							String groupId = dependency.getGroupId();
+							String artifactId = dependency.getArtifactId();
+							String version = dependency.getVersion();
+							String classifier = dependency.getClassifier();
+							String scope = dependency.getScope();
+							String type = dependency.isSetType() ? dependency.getType() : null;
+							String optional = dependency.isOptional() ? "?" : null;
+							StyledString separator = new StyledString().append(" ")
+									.append(":", StyledString.DECORATIONS_STYLER).append(" ");
+							IRequirement requirement = (IRequiredCapability) dependencyRequirements.get(dependency);
+							String string = requirement == null ? null : requirement.toString();
+							String resolution = dependencyResolutions.get(dependency);
+							Collector<String, StyledString, StyledString> collector = new Collector<String, StyledString, StyledString>() {
+
+								boolean first = true;
+
+								@Override
+								public Supplier<StyledString> supplier() {
+									return StyledString::new;
+								}
+
+								@Override
+								public BiConsumer<StyledString, String> accumulator() {
+									return (s, e) -> {
+										if (first) {
+											first = false;
+										} else {
+											s.append(separator);
+										}
+										if (e == groupId || e == string) {
+											s.append(e, StyledString.QUALIFIER_STYLER);
+										} else if (e == resolution && resolution.contains("**")) {
+											s.append(e, errorStyler);
+										} else if (e == version || e == resolution) {
+											s.append(e, StyledString.COUNTER_STYLER);
+										} else {
+											s.append(e);
+										}
+									};
+								}
+
+								@Override
+								public BinaryOperator<StyledString> combiner() {
+									return (left, right) -> left.append(right);
+								}
+
+								@Override
+								public Function<StyledString, StyledString> finisher() {
+									return Function.identity();
+								}
+
+								@Override
+								public Set<Characteristics> characteristics() {
+									return Set.of(Characteristics.UNORDERED);
+								}
+							};
+
+							return Arrays
+									.asList(new String[] { groupId, artifactId, version, classifier, scope, type,
+											optional, string, resolution })
+									.stream().filter(it -> it != null && !it.isBlank()).collect(collector);
+						}
+						return super.getText(object);
+					}
+
+					public Object getImage(Object object) {
+						if (object instanceof Model) {
+							return AggregationAnalyzerEditorPlugin.INSTANCE.getImage("full/obj16/pom");
+						} else if (object instanceof LicensesType || object instanceof DependenciesType) {
+							return AggregationAnalyzerEditorPlugin.INSTANCE.getImage("full/obj16/element");
+						} else if (object instanceof Dependency) {
+							return AggregationAnalyzerEditorPlugin.INSTANCE.getImage("full/obj16/dependency");
+						}
+						return super.getImage(object);
+					}
+
+					@Override
+					public Command createCommand(Object object, EditingDomain domain,
+							Class<? extends Command> commandClass, CommandParameter commandParameter) {
+						return UnexecutableCommand.INSTANCE;
+					}
+
+					@Override
+					protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+					}
+
+					@Override
+					public Object getParent(Object object) {
+						Object parent = modelParents.get(object);
+						return parent != null ? parent : super.getParent(object);
+					}
+				}
+				reflectiveItemProviderAdapter = new MyReflectiveItemProvider(this);
+			}
+
+			@Override
+			public Adapter createAdapter(Notifier target) {
+				return super.createAdapter(target);
+			}
+
+		};
+
+		ComposedAdapterFactory composedAdapterFactory = new ComposedAdapterFactory(new AdapterFactory[] {
+				reflectiveItemProviderAdapterFactory, p2ItemProviderAdapterFactory, adapterFactory });
+		Runnable setLabelProvider = () -> {
+			StyledLabelProvider labelProvider = new StyledLabelProvider(composedAdapterFactory, mavenViewer);
+			CellLabelProvider labelProvider2 = new DelegatingStyledCellLabelProvider(labelProvider);
+			mavenViewer.setLabelProvider(labelProvider2);
+		};
+
+		mavenViewer = createTreeViewer(parent, "Maven", null, menuManager -> {
+			String label = AggregationAnalyzerEditorPlugin.INSTANCE.getString("_UI_RefreshViewer_menu_item");
+			for (IContributionItem item : menuManager.getItems()) {
+				if (item instanceof ActionContributionItem) {
+					IAction action = ((ActionContributionItem) item).getAction();
+					if (label.equals(action.getText())) {
+						menuManager.insertAfter("ui-actions", new Action(label) {
+							@Override
+							public void run() {
+								setLabelProvider.run();
+								action.run();
+							}
+						});
+						menuManager.remove(item);
+						break;
+					}
+				}
+			}
+		});
+		mavenViewer.setContentProvider(new AdapterFactoryContentProvider(composedAdapterFactory));
+		setLabelProvider.run();
+
+		return mavenViewer;
+	}
+
 	private static class Link {
 		public static final Link NONE = new Link(null, null, null);
 
@@ -1765,11 +2194,6 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 	}
 
 	private GraphViewer createGraphViewer() {
-		// TreeNode root = (TreeNode) resource.getContents().get(0);
-		// EList<TreeNode> children = root.getChildren();
-		// Map<EObject, TreeNode> contributions = children.stream()
-		// .collect(Collectors.toMap(it -> it.getData(), it -> it));
-
 		GraphViewer graphViewer = new GraphViewer(getContainer(), SWT.NONE);
 		Graph graph = graphViewer.getGraphControl();
 		int pageIndex = addPage(graph);
@@ -1802,8 +2226,7 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 
 			@Override
 			public Object[] getElements(Object inputElement) {
-				Analysis analysis = (Analysis) EcoreUtil.getObjectByType(((Resource) inputElement).getContents(),
-						AnalyzerPackage.Literals.ANALYSIS);
+				Analysis analysis = getAnalysis((Resource) inputElement);
 				if (analysis != null) {
 					EList<ContributionAnalysis> contributions = analysis.getContributions();
 					if (this.analysis != analysis) {
@@ -2601,8 +3024,7 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 			doRevertGen();
 		}
 		analyzer = new AtomicReference<>();
-		Analysis analysis = (Analysis) EcoreUtil.getObjectByType(
-				editingDomain.getResourceSet().getResources().get(0).getContents(), AnalyzerPackage.Literals.ANALYSIS);
+		Analysis analysis = getAnalysis();
 		if (analysis != null) {
 			analyzer.set(new AnalyzeHandler.Analyzer(analysis));
 		}
@@ -2967,36 +3389,56 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 		MenuManager showInBrowserMenu = new MenuManager("Show In Browser");
 		manager.insertAfter("show-in", showInBrowserMenu);
 		for (Object object : selection.toArray()) {
-			if (object instanceof EObject) {
-				EObject eObject = (EObject) object;
-				handle(eObject, showInBrowserMenu);
+			handleShowInBrowser(object, showInBrowserMenu);
+		}
+	}
+
+	protected void handleShowInBrowser(Object object, IMenuManager showInBrowserMenu) {
+		if (object instanceof Dependency) {
+			Dependency dependency = (Dependency) object;
+			addShowInBrowserAction(
+					URI.createURI(
+							AnalyzeHandler.getURL(dependency.getGroupId().toString(), dependency.getArtifactId())),
+					showInBrowserMenu);
+		} else if (object instanceof EObject) {
+			EObject eObject = (EObject) object;
+			handleShowInBrowser(eObject, showInBrowserMenu);
+			showInBrowserMenu.add(new Separator());
+			for (EObject eContent : eObject.eContents()) {
+				handleShowInBrowser(eContent, showInBrowserMenu);
 				showInBrowserMenu.add(new Separator());
-				for (EObject eContent : eObject.eContents()) {
-					handle(eContent, showInBrowserMenu);
-					showInBrowserMenu.add(new Separator());
+			}
+		} else if (object instanceof WithLink) {
+			String url = ((WithLink) object).getURL();
+			if (url != null) {
+				addShowInBrowserAction(URI.createURI(url), showInBrowserMenu);
+			}
+		}
+	}
+
+	protected void handleShowInBrowser(EObject eObject, IMenuManager showInBrowserMenu) {
+		for (EAttribute eAttribute : eObject.eClass().getEAllAttributes()) {
+			if (eAttribute.getEType().getInstanceClass() == URI.class) {
+				URI uri = (URI) eObject.eGet(eAttribute);
+				if (uri != null) {
+					addShowInBrowserAction(uri, showInBrowserMenu);
 				}
 			}
 		}
 	}
 
-	protected void handle(EObject eObject, IMenuManager showInBrowserMenu) {
-		for (EAttribute eAttribute : eObject.eClass().getEAllAttributes()) {
-			if (eAttribute.getEType().getInstanceClass() == URI.class) {
-				URI uri = (URI) eObject.eGet(eAttribute);
-				if (uri != null) {
-					showInBrowserMenu.add(new Action(uri.toString()) {
-						@Override
-						public void run() {
-							String url = uri.toString();
-							if (url.startsWith("https://git.eclipse.org/r/")) {
-								url = url.replace("/r/", "/c/") + ".git";
-							}
-							openInBrowser(url);
-						}
-					});
+	protected void addShowInBrowserAction(URI uri, IMenuManager showInBrowserMenu) {
+		showInBrowserMenu.add(new Action(uri.toString()) {
+			@Override
+			public void run() {
+				String url = uri.toString();
+				if (url.startsWith("https://git.eclipse.org/r/")) {
+					url = url.replace("/r/", "/c/") + ".git";
 				}
+				openInBrowser(url);
 			}
-		}
+		});
+
 	}
 
 	/**
@@ -3069,7 +3511,6 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 	@SuppressWarnings("unused")
 	private void breakpoint() {
 		// In some lambdas one cannot set a breakpoint so call this method and set the breakpoint here.
-		System.err.println("###");
 	}
 
 	public static <K, V> Set<V> getSet(Map<K, Set<V>> map, K key) {
@@ -3279,7 +3720,7 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 			} else if (object instanceof RequirementWrapper) {
 				return ((RequirementWrapper) object).getGenuine() == target;
 			} else if (object instanceof IUPresentation) {
-				return ((IUPresentation) object).getInstallableUnit() == target;
+				return Objects.equals(((IUPresentation) object).getInstallableUnit(), target);
 			} else if (object instanceof InstallableUnitAnalysis) {
 				IInstallableUnit installableUnit = ((InstallableUnitAnalysis) object).getInstallableUnit();
 				if (target instanceof IInstallableUnit) {

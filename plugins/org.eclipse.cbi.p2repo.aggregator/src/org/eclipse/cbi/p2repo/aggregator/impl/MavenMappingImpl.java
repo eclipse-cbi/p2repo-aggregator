@@ -57,7 +57,8 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 
 	public static final String MAVEN_SOURCES_CLASSIFIER = "sources";
 
-	private static final String P2_SOURCE_SUFFIX = ".source";
+	private static final Pattern P2_SOURCE_BUNDLE_OR_FEATURE = Pattern
+			.compile("(.*)(?:\\.source)(|\\.feature\\.group)");
 
 	private Pattern compiledPattern;
 
@@ -223,6 +224,15 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 	protected static final int SNAPSHOT_EFLAG = 1 << 0;
 
 	/**
+	 * The flag representing whether the Snapshot attribute has been set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int SNAPSHOT_ESETFLAG = 1 << 1;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -237,10 +247,10 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 		setArtifactId(artifactId);
 	}
 
-	private void checkReplacements(Pattern pattern, String... replacements) {
+	static void checkReplacements(Pattern pattern, String... replacements) {
 		String emptyString = "";
 		String auxGroup = "(.*)";
-		Matcher matcher = compiledPattern.matcher(emptyString);
+		Matcher matcher = pattern.matcher(emptyString);
 		StringBuilder auxPatternBuilder = new StringBuilder();
 		for (int i = matcher.groupCount(); i > 0; i--)
 			auxPatternBuilder.append(auxGroup);
@@ -356,7 +366,7 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 				return VERSION_TEMPLATE_EDEFAULT == null ? versionTemplate != null
 						: !VERSION_TEMPLATE_EDEFAULT.equals(versionTemplate);
 			case AggregatorPackage.MAVEN_MAPPING__SNAPSHOT:
-				return ((eFlags & SNAPSHOT_EFLAG) != 0) != SNAPSHOT_EDEFAULT;
+				return isSetSnapshot();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -447,7 +457,7 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 				setVersionTemplate(VERSION_TEMPLATE_EDEFAULT);
 				return;
 			case AggregatorPackage.MAVEN_MAPPING__SNAPSHOT:
-				setSnapshot(SNAPSHOT_EDEFAULT);
+				unsetSnapshot();
 				return;
 		}
 		super.eUnset(featureID);
@@ -520,15 +530,17 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 			String pattern = StringUtils.trimmedOrNull(getNamePattern());
 			if (pattern == null || StringUtils.trimmedOrNull(getGroupId()) == null
 					|| StringUtils.trimmedOrNull(getArtifactId()) == null)
-				return AggregatorFactory.eINSTANCE.createStatus(StatusCode.BROKEN);
+				return AggregatorFactory.eINSTANCE.createStatus(StatusCode.BROKEN, "Incomplete");
 
 			compiledPattern = Pattern.compile(pattern);
 			checkReplacements(compiledPattern, getGroupId(), getArtifactId());
 			return AggregatorFactory.eINSTANCE.createStatus(StatusCode.OK);
 		} catch (PatternSyntaxException e) {
-			return AggregatorFactory.eINSTANCE.createStatus(StatusCode.BROKEN);
+			return AggregatorFactory.eINSTANCE.createStatus(StatusCode.BROKEN, e.getMessage());
 		} catch (IndexOutOfBoundsException e) {
-			return AggregatorFactory.eINSTANCE.createStatus(StatusCode.BROKEN);
+			return AggregatorFactory.eINSTANCE.createStatus(StatusCode.BROKEN, e.getMessage());
+		} catch (IllegalArgumentException e) {
+			return AggregatorFactory.eINSTANCE.createStatus(StatusCode.BROKEN, e.getMessage());
 		}
 	}
 
@@ -574,10 +586,10 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 	public MavenItem map(String installableUnitID, Version version) {
 		if (compiledPattern != null) {
 			// map osgi name suffix ".source" to maven classifier "sources":
-			boolean isSource = installableUnitID.endsWith(P2_SOURCE_SUFFIX);
+			Matcher matcher = P2_SOURCE_BUNDLE_OR_FEATURE.matcher(installableUnitID);
+			boolean isSource = matcher.matches();
 			if (isSource) {
-				installableUnitID = installableUnitID.substring(0,
-						installableUnitID.length() - P2_SOURCE_SUFFIX.length());
+				installableUnitID = matcher.group(1) + matcher.group(2);
 			}
 
 			Matcher m = compiledPattern.matcher(installableUnitID);
@@ -607,10 +619,11 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 	 */
 	@Override
 	public String mapVersion(Version version) {
-		if (this.versionPattern != null && this.versionTemplate != null) {
+		if (version != null && this.versionPattern != null && this.versionTemplate != null) {
 			if (this.compiledVersionPattern == null)
 				this.compiledVersionPattern = Pattern.compile(this.versionPattern);
-			Matcher vm = this.compiledVersionPattern.matcher(version.getOriginal());
+			String original = version.getOriginal();
+			Matcher vm = this.compiledVersionPattern.matcher(original == null ? version.toString() : original);
 			if (vm.matches()) {
 				return vm.replaceFirst(this.versionTemplate);
 			}
@@ -720,9 +733,40 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 			eFlags |= SNAPSHOT_EFLAG;
 		else
 			eFlags &= ~SNAPSHOT_EFLAG;
+		boolean oldSnapshotESet = (eFlags & SNAPSHOT_ESETFLAG) != 0;
+		eFlags |= SNAPSHOT_ESETFLAG;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.MAVEN_MAPPING__SNAPSHOT,
-					oldSnapshot, newSnapshot));
+					oldSnapshot, newSnapshot, !oldSnapshotESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void unsetSnapshot() {
+		boolean oldSnapshot = (eFlags & SNAPSHOT_EFLAG) != 0;
+		boolean oldSnapshotESet = (eFlags & SNAPSHOT_ESETFLAG) != 0;
+		if (SNAPSHOT_EDEFAULT)
+			eFlags |= SNAPSHOT_EFLAG;
+		else
+			eFlags &= ~SNAPSHOT_EFLAG;
+		eFlags &= ~SNAPSHOT_ESETFLAG;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, AggregatorPackage.MAVEN_MAPPING__SNAPSHOT,
+					oldSnapshot, SNAPSHOT_EDEFAULT, oldSnapshotESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isSetSnapshot() {
+		return (eFlags & SNAPSHOT_ESETFLAG) != 0;
 	}
 
 	/**
@@ -753,7 +797,10 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 		result.append(", versionTemplate: ");
 		result.append(versionTemplate);
 		result.append(", snapshot: ");
-		result.append((eFlags & SNAPSHOT_EFLAG) != 0);
+		if ((eFlags & SNAPSHOT_ESETFLAG) != 0)
+			result.append((eFlags & SNAPSHOT_EFLAG) != 0);
+		else
+			result.append("<unset>");
 		result.append(')');
 		return result.toString();
 	}

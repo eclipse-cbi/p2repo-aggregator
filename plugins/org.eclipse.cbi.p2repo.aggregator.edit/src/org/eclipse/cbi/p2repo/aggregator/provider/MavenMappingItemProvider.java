@@ -15,6 +15,7 @@ import java.util.List;
 
 import org.eclipse.cbi.p2repo.aggregator.AggregatorPackage;
 import org.eclipse.cbi.p2repo.aggregator.MavenMapping;
+import org.eclipse.cbi.p2repo.aggregator.util.GeneralUtils;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
@@ -218,28 +219,8 @@ public class MavenMappingItemProvider extends AggregatorItemProviderAdapter
 	 */
 	@Override
 	public String getText(Object object) {
-		MavenMapping self = (MavenMapping) object;
-		StringBuilder bld = new StringBuilder(getString("_UI_MavenMapping_type")).append(" : ['");
-		String namePattern = self.getNamePattern();
-		if (namePattern != null)
-			bld.append(namePattern);
-		bld.append("' => '");
-		String groupId = self.getGroupId();
-		if (groupId != null)
-			bld.append(groupId);
-		String artifactId = self.getArtifactId();
-		if (artifactId != null) {
-			bld.append('/');
-			bld.append(artifactId);
-		}
-		String versionPattern = self.getVersionPattern();
-		String versionTemplate = self.getVersionTemplate();
-		if (versionPattern != null && versionTemplate != null) {
-			bld.append("', '").append(versionPattern);
-			bld.append("' => '").append(versionTemplate);
-		}
-		bld.append("']");
-		return bld.toString();
+		MavenMapping mapping = (MavenMapping) object;
+		return getString("_UI_MavenMapping_type") + " : ['" + GeneralUtils.toString(mapping) + ']';
 	}
 
 	@Override

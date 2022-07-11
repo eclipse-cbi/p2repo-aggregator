@@ -37,6 +37,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#getVersionFormat <em>Version Format</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#getMavenBuildNumber <em>Maven Build Number</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#getMavenMappings <em>Maven Mappings</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#getMavenDependencyMappings <em>Maven Dependency Mappings</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#isAllowLegacySites <em>Allow Legacy Sites</em>}</li>
  * </ul>
  *
@@ -159,6 +160,22 @@ public interface Aggregation extends DescriptionProvider, StatusProvider, InfosP
 	 * @generated
 	 */
 	EList<MavenMapping> getMavenMappings();
+
+	/**
+	 * Returns the value of the '<em><b>Maven Dependency Mappings</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.cbi.p2repo.aggregator.MavenDependencyMapping}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * @since 1.1.0
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Maven Dependency Mappings</em>' containment reference list.
+	 * @see org.eclipse.cbi.p2repo.aggregator.AggregatorPackage#getAggregation_MavenDependencyMappings()
+	 * @model containment="true" resolveProxies="true"
+	 *        extendedMetaData="name='mavenDependencyMapping'"
+	 * @generated
+	 */
+	EList<MavenDependencyMapping> getMavenDependencyMappings();
 
 	/**
 	 * Returns the value of the '<em><b>Packed Strategy</b></em>' attribute.

@@ -32,6 +32,8 @@ import org.eclipse.cbi.p2repo.aggregator.LabelProvider;
 import org.eclipse.cbi.p2repo.aggregator.MapRule;
 import org.eclipse.cbi.p2repo.aggregator.MappedRepository;
 import org.eclipse.cbi.p2repo.aggregator.MappedUnit;
+import org.eclipse.cbi.p2repo.aggregator.MavenDependencyItem;
+import org.eclipse.cbi.p2repo.aggregator.MavenDependencyMapping;
 import org.eclipse.cbi.p2repo.aggregator.MavenItem;
 import org.eclipse.cbi.p2repo.aggregator.MavenMapping;
 import org.eclipse.cbi.p2repo.aggregator.MetadataRepositoryReference;
@@ -363,6 +365,22 @@ public class AggregatorSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Maven Dependency Item</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Maven Dependency Item</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @since 1.1.0
+	 * @generated
+	 */
+	public T1 caseMavenDependencyItem(MavenDependencyItem object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Maven Item</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -385,6 +403,22 @@ public class AggregatorSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseMavenMapping(MavenMapping object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Maven Dependency Mapping</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Maven Dependency Mapping</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @since 1.1.0
+	 * @generated
+	 */
+	public T1 caseMavenDependencyMapping(MavenDependencyMapping object) {
 		return null;
 	}
 
@@ -768,6 +802,13 @@ public class AggregatorSwitch<T1> extends Switch<T1> {
 					result = defaultCase(theEObject);
 				return result;
 			}
+			case AggregatorPackage.MAVEN_DEPENDENCY_ITEM: {
+				MavenDependencyItem mavenDependencyItem = (MavenDependencyItem) theEObject;
+				T1 result = caseMavenDependencyItem(mavenDependencyItem);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
 			case AggregatorPackage.MAVEN_ITEM: {
 				MavenItem mavenItem = (MavenItem) theEObject;
 				T1 result = caseMavenItem(mavenItem);
@@ -782,6 +823,17 @@ public class AggregatorSwitch<T1> extends Switch<T1> {
 					result = caseStatusProvider(mavenMapping);
 				if (result == null)
 					result = caseInfosProvider(mavenMapping);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case AggregatorPackage.MAVEN_DEPENDENCY_MAPPING: {
+				MavenDependencyMapping mavenDependencyMapping = (MavenDependencyMapping) theEObject;
+				T1 result = caseMavenDependencyMapping(mavenDependencyMapping);
+				if (result == null)
+					result = caseStatusProvider(mavenDependencyMapping);
+				if (result == null)
+					result = caseInfosProvider(mavenDependencyMapping);
 				if (result == null)
 					result = defaultCase(theEObject);
 				return result;

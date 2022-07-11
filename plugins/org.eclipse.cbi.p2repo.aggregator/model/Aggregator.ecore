@@ -37,6 +37,15 @@
         defaultValueLiteral="0"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="mavenMappings" upperBound="-1"
         eType="#//MavenMapping" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mavenDependencyMappings"
+        upperBound="-1" eType="#//MavenDependencyMapping" containment="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="mavenDependencyMapping"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="@since 1.1.0"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="allowLegacySites" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"
         defaultValueLiteral="true"/>
   </eClassifiers>
@@ -95,6 +104,11 @@
       <eParameters name="enabledOnly" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eOperations>
     <eOperations name="getAllMavenMappings" upperBound="-1" eType="#//MavenMapping"/>
+    <eOperations name="getAllMavenDependencyMappings" upperBound="-1" eType="#//MavenDependencyMapping">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="@since 1.1.0"/>
+      </eAnnotations>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="repositories" upperBound="-1"
         eType="#//MappedRepository" containment="true"/>
@@ -102,6 +116,15 @@
         eType="#//Contact" eKeys="#//Contact/email"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="mavenMappings" upperBound="-1"
         eType="#//MavenMapping" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mavenDependencyMappings"
+        upperBound="-1" eType="#//MavenDependencyMapping" containment="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="mavenDependencyMapping"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="@since 1.1.0"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Feature" eSuperTypes="#//MappedUnit">
     <eStructuralFeatures xsi:type="ecore:EReference" name="categories" upperBound="-1"
@@ -205,6 +228,16 @@
         eType="#//Configuration" eKeys="#//Configuration/operatingSystem #//Configuration/windowSystem #//Configuration/architecture"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MapRule" abstract="true" eSuperTypes="#//InstallableUnitRequest #//DescriptionProvider #//EnabledStatusProvider"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MavenDependencyItem">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="@since 1.1.0"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="groupId" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="artifactId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mappedVersionRange" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mavenDependencyMapping"
+        eType="#//MavenDependencyMapping"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MavenItem">
     <eOperations name="isSources" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="groupId" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
@@ -226,9 +259,26 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="artifactId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="versionPattern" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="versionTemplate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="snapshot" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"
-        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="snapshot" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"
+        defaultValueLiteral="false" unsettable="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MavenDependencyMapping" eSuperTypes="#//StatusProvider #//InfosProvider">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="@since 1.1.0"/>
+    </eAnnotations>
+    <eOperations name="map" eType="#//MavenDependencyItem">
+      <eParameters name="iuName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="requirementNamespace" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="requirementName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="versionRange" eType="ecore:EDataType ../../org.eclipse.cbi.p2repo.p2/model/p2.ecore#//VersionRange"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="iuNamePattern" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="namespacePattern" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="namePattern" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="groupId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="artifactId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="versionRangePattern" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="versionRangeTemplate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MetadataRepositoryReference" eSuperTypes="#//EnabledStatusProvider #//StatusProvider #//InfosProvider">
     <eOperations name="getAggregation" eType="#//Aggregation"/>

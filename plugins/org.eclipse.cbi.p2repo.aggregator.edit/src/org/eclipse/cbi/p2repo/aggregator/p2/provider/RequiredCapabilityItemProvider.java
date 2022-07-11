@@ -12,7 +12,12 @@ package org.eclipse.cbi.p2repo.aggregator.p2.provider;
 
 import org.eclipse.cbi.p2repo.aggregator.util.CapabilityNamespaceImageProvider;
 import org.eclipse.cbi.p2repo.p2.RequiredCapability;
+import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.command.UnexecutableCommand;
 import org.eclipse.emf.common.notify.AdapterFactory;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.edit.command.CopyCommand.Helper;
+import org.eclipse.emf.edit.domain.EditingDomain;
 
 public class RequiredCapabilityItemProvider extends org.eclipse.cbi.p2repo.p2.provider.RequiredCapabilityItemProvider {
 	public RequiredCapabilityItemProvider(AdapterFactory adapterFactory) {
@@ -28,5 +33,10 @@ public class RequiredCapabilityItemProvider extends org.eclipse.cbi.p2repo.p2.pr
 			image = getResourceLocator().getImage("full/obj16/RequiredCapability");
 
 		return overlayImage(object, image);
+	}
+
+	@Override
+	protected Command createCreateCopyCommand(EditingDomain domain, EObject owner, Helper helper) {
+		return UnexecutableCommand.INSTANCE;
 	}
 }

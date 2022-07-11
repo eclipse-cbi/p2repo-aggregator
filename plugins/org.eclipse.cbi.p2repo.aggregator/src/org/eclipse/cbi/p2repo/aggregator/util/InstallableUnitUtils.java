@@ -11,20 +11,32 @@
 
 package org.eclipse.cbi.p2repo.aggregator.util;
 
-import org.eclipse.cbi.p2repo.p2.InstallableUnit;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+
 import org.eclipse.cbi.p2repo.aggregator.AggregatorFactory;
 import org.eclipse.cbi.p2repo.aggregator.IAggregatorConstants;
 import org.eclipse.cbi.p2repo.aggregator.InstallableUnitType;
 import org.eclipse.cbi.p2repo.aggregator.Status;
 import org.eclipse.cbi.p2repo.aggregator.StatusCode;
+import org.eclipse.cbi.p2repo.p2.InstallableUnit;
 import org.eclipse.cbi.p2repo.util.StringUtils;
 import org.eclipse.equinox.internal.p2.metadata.RequiredCapability;
+import org.eclipse.equinox.internal.p2.metadata.TranslationSupport;
+import org.eclipse.equinox.internal.p2.metadata.index.CapabilityIndex;
+import org.eclipse.equinox.internal.p2.metadata.index.IdIndex;
+import org.eclipse.equinox.internal.p2.metadata.index.IndexProvider;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.metadata.IProvidedCapability;
 import org.eclipse.equinox.p2.metadata.IRequirement;
+import org.eclipse.equinox.p2.metadata.KeyWithLocale;
 import org.eclipse.equinox.p2.metadata.MetadataFactory.InstallableUnitDescription;
 import org.eclipse.equinox.p2.metadata.Version;
 import org.eclipse.equinox.p2.metadata.VersionRange;
+import org.eclipse.equinox.p2.metadata.index.IIndex;
+import org.eclipse.equinox.p2.query.IQueryable;
 
 /**
  * @author Karel Brezina
@@ -111,4 +123,50 @@ public class InstallableUnitUtils {
 		return false;
 	}
 
+	public static IQueryable<IInstallableUnit> getIndex(Collection<? extends IInstallableUnit> ius) {
+		return new InstallableUnitIndex(ius);
+	}
+
+	private static class InstallableUnitIndex extends IndexProvider<IInstallableUnit> {
+		private final List<IInstallableUnit> dataSet;
+		private final IIndex<IInstallableUnit> capabilityIndex;
+		private final IIndex<IInstallableUnit> idIndex;
+		private final TranslationSupport translationSupport;
+
+		public InstallableUnitIndex(Collection<? extends IInstallableUnit> ius) {
+			dataSet = new ArrayList<>(ius);
+			capabilityIndex = new CapabilityIndex(dataSet.iterator());
+			idIndex = new IdIndex(dataSet.iterator());
+			translationSupport = new TranslationSupport(this);
+		}
+
+		@Override
+		public Iterator<IInstallableUnit> everything() {
+			return dataSet.iterator();
+		}
+
+		@Override
+		public IIndex<IInstallableUnit> getIndex(String memberName) {
+			if (org.eclipse.equinox.internal.p2.metadata.InstallableUnit.MEMBER_PROVIDED_CAPABILITIES
+					.equals(memberName)) {
+				return capabilityIndex;
+			}
+			if (org.eclipse.equinox.internal.p2.metadata.InstallableUnit.MEMBER_ID.equals(memberName)) {
+				return idIndex;
+			}
+			return null;
+		}
+
+		@Override
+		public Object getManagedProperty(Object client, String memberName, Object key) {
+			if (client instanceof IInstallableUnit
+					&& org.eclipse.equinox.internal.p2.metadata.InstallableUnit.MEMBER_TRANSLATED_PROPERTIES
+							.equals(memberName)) {
+				IInstallableUnit iu = (IInstallableUnit) client;
+				return key instanceof KeyWithLocale ? translationSupport.getIUProperty(iu, (KeyWithLocale) key)
+						: translationSupport.getIUProperty(iu, key.toString());
+			}
+			return null;
+		}
+	}
 }

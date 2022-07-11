@@ -15,6 +15,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -24,6 +25,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.maven.model.Model;
 import org.apache.maven.model.io.DefaultModelWriter;
 import org.eclipse.cbi.p2repo.aggregator.Aggregation;
 import org.eclipse.cbi.p2repo.aggregator.Contribution;
@@ -217,11 +219,8 @@ public class MavenManager {
 
 	public static MavenRepositoryHelper createMavenStructure(List<InstallableUnitMapping> ius, Aggregation aggregation)
 			throws CoreException {
-		// skip IUs without artifact, as they're not meaningful to Maven
-		ius = new ArrayList<>(ius);
-		ius.removeIf(iu -> iu.getArtifacts().isEmpty());
-
 		List<String[]> mappingRulesList = new ArrayList<String[]>();
+
 		// Initialize with standard rules for packed artifacts (which are not usable for maven anyway)
 		mappingRulesList.add(new String[] {
 				"(& (classifier=osgi.bundle) (format=packed))",
@@ -307,7 +306,7 @@ public class MavenManager {
 				try {
 					new DefaultModelWriter().write(new File(java.net.URI.create(pomUri.toString())), Map.of(),
 							iu.asPOM());
-				} catch (IOException | CoreException e) {
+				} catch (IOException e) {
 					throw new CoreException(new Status(IStatus.ERROR, MavenManager.class, e.getMessage(), e));
 				}
 				createCheckSum(pomUri, uriConverter, digests);
@@ -362,12 +361,14 @@ public class MavenManager {
 			throws CoreException {
 		// find the matching classifier-less sibling IU:
 		MavenItem sourcesItem = sourcesIU.map();
+		String artifactId = sourcesItem.getArtifactId();
+		String groupId = sourcesItem.getGroupId();
 		for (InstallableUnitMapping siblingMapping : siblings) {
 			if (siblingMapping == sourcesIU)
 				continue;
 			MavenItem sibling = siblingMapping.map();
-			if (sibling.getGroupId().equals(sourcesItem.getGroupId())
-					&& sibling.getArtifactId().equals(sourcesItem.getArtifactId()) && sibling.getClassifier() == null) {
+			if (sibling.getGroupId().equals(groupId)
+					&& sibling.getArtifactId().equals(artifactId) && sibling.getClassifier() == null) {
 				siblingMapping.setHasSources(true);
 				break;
 			}
@@ -451,6 +452,16 @@ public class MavenManager {
 			snapshotVersion.setClassifier(classifier);
 		}
 		return snapshotVersion;
+	}
+
+	public static String toXML(Model model) {
+		StringWriter out = new StringWriter();
+		try {
+			new DefaultModelWriter().write(out, Map.of(), model);
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+		return out.toString();
 	}
 
 }

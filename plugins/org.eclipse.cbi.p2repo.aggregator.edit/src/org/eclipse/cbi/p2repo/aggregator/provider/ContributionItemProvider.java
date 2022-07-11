@@ -17,6 +17,7 @@ import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.function.BiFunction;
 
 import org.eclipse.cbi.p2repo.aggregator.Aggregation;
 import org.eclipse.cbi.p2repo.aggregator.AggregatorFactory;
@@ -27,6 +28,7 @@ import org.eclipse.cbi.p2repo.aggregator.EnabledStatusProvider;
 import org.eclipse.cbi.p2repo.aggregator.Feature;
 import org.eclipse.cbi.p2repo.aggregator.MappedRepository;
 import org.eclipse.cbi.p2repo.aggregator.MappedUnit;
+import org.eclipse.cbi.p2repo.aggregator.MavenDependencyMapping;
 import org.eclipse.cbi.p2repo.aggregator.MavenMapping;
 import org.eclipse.cbi.p2repo.aggregator.ValidationSet;
 import org.eclipse.cbi.p2repo.aggregator.p2view.IUPresentation;
@@ -50,6 +52,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.emf.edit.provider.AdapterFactoryItemDelegator;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemColorProvider;
@@ -221,8 +224,7 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+	private void collectNewChildDescriptorsGen(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
 		newChildDescriptors.add(createChildParameter(AggregatorPackage.Literals.CONTRIBUTION__REPOSITORIES,
@@ -230,6 +232,67 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter
 
 		newChildDescriptors.add(createChildParameter(AggregatorPackage.Literals.CONTRIBUTION__MAVEN_MAPPINGS,
 				AggregatorFactory.eINSTANCE.createMavenMapping()));
+
+		newChildDescriptors.add(createChildParameter(AggregatorPackage.Literals.CONTRIBUTION__MAVEN_DEPENDENCY_MAPPINGS,
+				AggregatorFactory.eINSTANCE.createMavenDependencyMapping()));
+	}
+
+	@Override
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+		collectNewChildDescriptorsGen(newChildDescriptors, object);
+
+		addNewChildDescriptor(this::createChildParameter, newChildDescriptors,
+				AggregatorPackage.Literals.CONTRIBUTION__MAVEN_MAPPINGS, createGenericMavenMapping());
+		addNewChildDescriptor(this::createChildParameter, newChildDescriptors,
+				AggregatorPackage.Literals.CONTRIBUTION__MAVEN_DEPENDENCY_MAPPINGS, createJavaPackageMapping());
+	}
+
+	static MavenMapping createGenericMavenMapping() {
+		MavenMapping mapping = AggregatorFactory.eINSTANCE.createMavenMapping();
+		mapping.setNamePattern(".*");
+		mapping.setGroupId("\\$maven-groupId\\$");
+		mapping.setArtifactId("\\$maven-artifactId\\$");
+		mapping.setVersionPattern(".*");
+		mapping.setVersionTemplate("\\$maven-version\\$");
+		return mapping;
+	}
+
+	static MavenDependencyMapping createJavaPackageMapping() {
+		MavenDependencyMapping mapping = AggregatorFactory.eINSTANCE.createMavenDependencyMapping();
+		mapping.setNamespacePattern("java\\.package");
+		mapping.setNamePattern(".*");
+		mapping.setGroupId("*");
+		mapping.setArtifactId("*");
+		mapping.setVersionRangePattern(".*");
+		return mapping;
+	}
+
+	static void addNewChildDescriptor(BiFunction<Object, Object, Object> childParameterCreator,
+			Collection<Object> newChildDescriptors, EReference eReference, Object child) {
+		ArrayList<Object> result = new ArrayList<>(newChildDescriptors);
+		Object childDescriptor = childParameterCreator.apply(eReference, child);
+		int index = 0;
+		for (int i = 0; i < result.size(); i++) {
+			Object object = result.get(i);
+			if (object instanceof CommandParameter) {
+				CommandParameter commandParameter = (CommandParameter) object;
+				if (commandParameter.getEStructuralFeature() == eReference) {
+					index = i;
+				}
+			}
+		}
+
+		result.add(index + 1, childDescriptor);
+		newChildDescriptors.clear();
+		newChildDescriptors.addAll(result);
+	}
+
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		if (child instanceof MavenDependencyMapping || child instanceof MavenMapping) {
+			return new AdapterFactoryItemDelegator(getRootAdapterFactory()).getText(child);
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 	@SuppressWarnings("unchecked")
@@ -353,6 +416,7 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(AggregatorPackage.Literals.CONTRIBUTION__REPOSITORIES);
 			childrenFeatures.add(AggregatorPackage.Literals.CONTRIBUTION__MAVEN_MAPPINGS);
+			childrenFeatures.add(AggregatorPackage.Literals.CONTRIBUTION__MAVEN_DEPENDENCY_MAPPINGS);
 		}
 		return childrenFeatures;
 	}
@@ -581,6 +645,7 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter
 				return;
 			case AggregatorPackage.CONTRIBUTION__REPOSITORIES:
 			case AggregatorPackage.CONTRIBUTION__MAVEN_MAPPINGS:
+			case AggregatorPackage.CONTRIBUTION__MAVEN_DEPENDENCY_MAPPINGS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}

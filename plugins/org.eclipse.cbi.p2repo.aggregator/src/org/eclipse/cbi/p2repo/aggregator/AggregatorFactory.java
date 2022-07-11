@@ -158,6 +158,16 @@ public interface AggregatorFactory extends EFactory {
 	MappedRepository createMappedRepository();
 
 	/**
+	 * Returns a new object of class '<em>Maven Dependency Item</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Maven Dependency Item</em>'.
+	 * @since 1.1.0
+	 * @generated
+	 */
+	MavenDependencyItem createMavenDependencyItem();
+
+	/**
 	 * Returns a new object of class '<em>Mapped Repository</em>'.
 	 *
 	 * @return a new object of class '<em>Mapped Repository</em>'.
@@ -192,6 +202,16 @@ public interface AggregatorFactory extends EFactory {
 	 * @generated
 	 */
 	MavenMapping createMavenMapping();
+
+	/**
+	 * Returns a new object of class '<em>Maven Dependency Mapping</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Maven Dependency Mapping</em>'.
+	 * @since 1.1.0
+	 * @generated
+	 */
+	MavenDependencyMapping createMavenDependencyMapping();
 
 	/**
 	 * Returns a new object of class '<em>Metadata Repository Reference</em>'.

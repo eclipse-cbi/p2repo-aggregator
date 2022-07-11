@@ -25,6 +25,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.Contribution#getRepositories <em>Repositories</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.Contribution#getContacts <em>Contacts</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.Contribution#getMavenMappings <em>Maven Mappings</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.Contribution#getMavenDependencyMappings <em>Maven Dependency Mappings</em>}</li>
  * </ul>
  *
  * @see org.eclipse.cbi.p2repo.aggregator.AggregatorPackage#getContribution()
@@ -40,6 +41,17 @@ public interface Contribution
 	 * @generated
 	 */
 	EList<MavenMapping> getAllMavenMappings();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * @since 1.1.0
+	 * <!-- end-model-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	EList<MavenDependencyMapping> getAllMavenDependencyMappings();
 
 	/**
 	 * Returns the value of the '<em><b>Contacts</b></em>' reference list.
@@ -76,6 +88,22 @@ public interface Contribution
 	 * @generated
 	 */
 	EList<MavenMapping> getMavenMappings();
+
+	/**
+	 * Returns the value of the '<em><b>Maven Dependency Mappings</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.cbi.p2repo.aggregator.MavenDependencyMapping}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * @since 1.1.0
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Maven Dependency Mappings</em>' containment reference list.
+	 * @see org.eclipse.cbi.p2repo.aggregator.AggregatorPackage#getContribution_MavenDependencyMappings()
+	 * @model containment="true" resolveProxies="true"
+	 *        extendedMetaData="name='mavenDependencyMapping'"
+	 * @generated
+	 */
+	EList<MavenDependencyMapping> getMavenDependencyMappings();
 
 	/**
 	 * Returns the value of the '<em><b>Repositories</b></em>' containment reference list.

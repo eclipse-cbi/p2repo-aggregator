@@ -21,6 +21,7 @@ import java.io.PrintStream;
 import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.nio.file.Files;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -30,6 +31,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
@@ -51,6 +53,7 @@ import org.eclipse.cbi.p2repo.aggregator.CustomCategory;
 import org.eclipse.cbi.p2repo.aggregator.Feature;
 import org.eclipse.cbi.p2repo.aggregator.MappedRepository;
 import org.eclipse.cbi.p2repo.aggregator.MappedUnit;
+import org.eclipse.cbi.p2repo.aggregator.MavenDependencyMapping;
 import org.eclipse.cbi.p2repo.aggregator.MavenMapping;
 import org.eclipse.cbi.p2repo.aggregator.MetadataRepositoryReference;
 import org.eclipse.cbi.p2repo.aggregator.PackedStrategy;
@@ -59,6 +62,7 @@ import org.eclipse.cbi.p2repo.aggregator.engine.maven.InstallableUnitMapping;
 import org.eclipse.cbi.p2repo.aggregator.engine.maven.MavenManager;
 import org.eclipse.cbi.p2repo.aggregator.engine.maven.MavenRepositoryHelper;
 import org.eclipse.cbi.p2repo.aggregator.impl.MetadataRepositoryReferenceImpl;
+import org.eclipse.cbi.p2repo.aggregator.util.InstallableUnitUtils;
 import org.eclipse.cbi.p2repo.aggregator.util.ResourceUtils;
 import org.eclipse.cbi.p2repo.p2.MetadataRepository;
 import org.eclipse.cbi.p2repo.p2.loader.IRepositoryLoader;
@@ -112,6 +116,7 @@ import org.eclipse.equinox.p2.metadata.expression.ExpressionUtil;
 import org.eclipse.equinox.p2.publisher.Publisher;
 import org.eclipse.equinox.p2.query.IQuery;
 import org.eclipse.equinox.p2.query.IQueryResult;
+import org.eclipse.equinox.p2.query.IQueryable;
 import org.eclipse.equinox.p2.query.QueryUtil;
 import org.eclipse.equinox.p2.repository.IRepository;
 import org.eclipse.equinox.p2.repository.artifact.IArtifactDescriptor;
@@ -498,6 +503,8 @@ public class Builder extends ModelAbstractCommand {
 	private MavenRepositoryHelper mavenHelper;
 
 	private Set<IArtifactKey> keysToExcludeFromMirroring;
+
+	private boolean analyzeMaven;
 
 	/**
 	 * Mark the specified repository as not eligible for verbatim mapping.
@@ -980,7 +987,7 @@ public class Builder extends ModelAbstractCommand {
 		return "validationSet_" + getSafeValidationSetName(validationSet);
 	}
 
-	private void initializeArtifactMirroring(IProgressMonitor monitor) throws CoreException {
+	private void initializeArtifactMirroring(Set<IInstallableUnit> ius, IProgressMonitor monitor) throws CoreException {
 		arCache = null;
 		SubMonitor subMon = SubMonitor.convert(monitor, 1000);
 		try {
@@ -988,7 +995,7 @@ public class Builder extends ModelAbstractCommand {
 			aggregationAr = getAggregationArtifactRepository(subMon.newChild(5));
 
 			if (getAggregation().isMavenResult())
-				mavenInitializeMirroring(aggregationAr, subMon.newChild(10));
+				mavenInitializeMirroring(aggregationAr, ius, subMon.newChild(10));
 
 			// Clear final destination
 			File destination = new File(getBuildRoot(), REPO_FOLDER_FINAL);
@@ -1112,8 +1119,10 @@ public class Builder extends ModelAbstractCommand {
 		return action == ActionType.VALIDATE;
 	}
 
-	private void loadAllMappedRepositories(IProgressMonitor monitor) throws CoreException {
+	private Set<IInstallableUnit> loadAllMappedRepositories(IProgressMonitor monitor) throws CoreException {
 		LogUtils.info("Loading all repositories");
+
+		Set<IInstallableUnit> ius = new LinkedHashSet<>();
 
 		Set<MetadataRepositoryReference> repositoriesToLoad = new HashSet<MetadataRepositoryReference>();
 
@@ -1170,6 +1179,8 @@ public class Builder extends ModelAbstractCommand {
 						errors.put(contrib, contribErrors = new ArrayList<String>());
 					contribErrors.add(msg);
 				}
+
+				ius.addAll(mdr.query(QueryUtil.ALL_UNITS, null).toSet());
 			}
 
 			if (errors.size() > 0) {
@@ -1177,6 +1188,8 @@ public class Builder extends ModelAbstractCommand {
 					sendEmail(entry.getKey(), entry.getValue());
 				throw ExceptionUtils.fromMessage("Not all repositories could be loaded (see log for details)");
 			}
+
+			return ius;
 		} catch (CoreException e) {
 			for (MetadataRepositoryReference repo : repositoriesToLoad) {
 				repo.cancelRepositoryLoad();
@@ -1387,8 +1400,8 @@ public class Builder extends ModelAbstractCommand {
 
 	}
 
-	private void mavenInitializeMirroring(IFileArtifactRepository aggregateAr, IProgressMonitor monitor)
-			throws CoreException {
+	private void mavenInitializeMirroring(IFileArtifactRepository aggregateAr, Set<IInstallableUnit> allIUs,
+			IProgressMonitor monitor) throws CoreException {
 		// If maven result is required, prepare the maven metadata structure
 		List<Contribution> allContribs = getAggregation().getAllContributions(true);
 		SubMonitor childMonitor = SubMonitor.convert(monitor, allContribs.size() * 10);
@@ -1397,6 +1410,8 @@ public class Builder extends ModelAbstractCommand {
 			if (vsas.getUnitsToAggregate() != null)
 				allUnitsToAggregate.addAll(vsas.getUnitsToAggregate());
 		}
+
+		IQueryable<IInstallableUnit> index = InstallableUnitUtils.getIndex(allIUs);
 
 		List<InstallableUnitMapping> iusToMaven = new ArrayList<InstallableUnitMapping>();
 		for (Contribution contrib : allContribs) {
@@ -1427,10 +1442,14 @@ public class Builder extends ModelAbstractCommand {
 						iusToMirror.add(iu);
 					}
 
-					List<MavenMapping> allMavenMappings = contrib.getAllMavenMappings();
-					if (iusToMirror != null)
+					if (iusToMirror != null) {
+						List<MavenMapping> allMavenMappings = contrib.getAllMavenMappings();
+						List<MavenDependencyMapping> allMavenDependencyMappings = contrib
+								.getAllMavenDependencyMappings();
 						for (IInstallableUnit iu : iusToMirror)
-							iusToMaven.add(new InstallableUnitMapping(contrib, iu, allMavenMappings, iusToMaven));
+							iusToMaven.add(new InstallableUnitMapping(contrib, iu, allMavenMappings,
+									allMavenDependencyMappings, index, allUnitsToAggregate));
+					}
 
 					MonitorUtils.worked(contribMonitor, 100);
 				}
@@ -1458,8 +1477,10 @@ public class Builder extends ModelAbstractCommand {
 		if (packedStrategy != PackedStrategy.SKIP && packedStrategy != PackedStrategy.UNPACK
 				&& packedStrategy != PackedStrategy.UNPACK_AS_SIBLING) {
 			packedStrategy = PackedStrategy.UNPACK_AS_SIBLING;
-			LogUtils.info("Maven result is required, changing packed strategy from %s to %s",
-					aggregation.getPackedStrategy().getName(), packedStrategy.getName());
+			if (aggregation.getPackedStrategy() != PackedStrategy.UNPACK_AS_SIBLING) {
+				LogUtils.info("Maven result is required, changing packed strategy from %s to %s",
+						aggregation.getPackedStrategy().getName(), packedStrategy.getName());
+			}
 		}
 
 		List<String[]> mappingRules = new ArrayList<String[]>();
@@ -1663,7 +1684,7 @@ public class Builder extends ModelAbstractCommand {
 				P2Utils.ungetProfileRegistry(provisioningAgent, profileRegistry);
 			}
 
-			loadAllMappedRepositories(subMon.newChild(100));
+			Set<IInstallableUnit> ius = loadAllMappedRepositories(subMon.newChild(100));
 
 			// we generate the verification IUs in a separate loop
 			// to detect non p2 related problems early
@@ -1686,7 +1707,7 @@ public class Builder extends ModelAbstractCommand {
 						runMetadataMirroring(validationSet, subMon.newChild(100));
 				}
 				runCategoriesRepoGenerator(subMon.newChild(5));
-				initializeArtifactMirroring(subMon.newChild(10));
+				initializeArtifactMirroring(ius, subMon.newChild(10));
 				for (ValidationSet validationSet : validationSets) {
 					MonitorUtils.testCancelStatus(subMon);
 					if (!validationSet.isAbstract())
@@ -1694,6 +1715,13 @@ public class Builder extends ModelAbstractCommand {
 				}
 				MonitorUtils.testCancelStatus(monitor);
 				finishMirroring(monitor);
+			} else if (analyzeMaven && getAggregation().isMavenResult()) {
+				java.nio.file.Path temporaryArtifactRepository = Files.createTempDirectory("aggr");
+				aggregationAr = (IFileArtifactRepository) arManager.createRepository(
+						temporaryArtifactRepository.toUri(), getAggregation().getLabel() + " artifacts", //$NON-NLS-1$
+						SIMPLE_ARTIFACTS_TYPE, Collections.emptyMap());
+				mavenInitializeMirroring(aggregationAr, ius, monitor);
+				IOUtils.delete(temporaryArtifactRepository);
 			}
 			return 0;
 		} catch (OperationCanceledException e) {
@@ -1948,6 +1976,14 @@ public class Builder extends ModelAbstractCommand {
 
 	public void setValidationIUs(List<IInstallableUnit> validationIUs) {
 		this.validationIUs = validationIUs;
+	}
+
+	public void setAnalyzeMaven(boolean analyzeMaven) {
+		this.analyzeMaven = analyzeMaven;
+	}
+
+	public InstallableUnitMapping getInstallableUnitMapping() {
+		return mavenHelper == null ? null : mavenHelper.getTop();
 	}
 
 	private void verifyContributions() throws CoreException {

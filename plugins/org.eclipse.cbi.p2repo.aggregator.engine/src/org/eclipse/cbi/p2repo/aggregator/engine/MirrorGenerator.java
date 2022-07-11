@@ -529,7 +529,7 @@ public class MirrorGenerator extends BuilderPhase {
 				MonitorUtils.done(contribMonitor);
 			}
 
-			LogUtils.error("Saving: " + aggregationAr.getLocation());
+			LogUtils.info("Saving: " + aggregationAr.getLocation());
 			disableSave.run();
 
 			xzCompress(aggregationAr);
@@ -553,7 +553,7 @@ public class MirrorGenerator extends BuilderPhase {
 
 	private void xzCompress(IFileArtifactRepository aggregationAr) {
 		try {
-			LogUtils.error("XZ compressing: " + aggregationAr.getLocation());
+			LogUtils.info("XZ compressing: " + aggregationAr.getLocation());
 			XZCompressor xzCompressor = new XZCompressor();
 			xzCompressor.setRepoFolder(Paths.get(aggregationAr.getLocation()).toString());
 			xzCompressor.compressRepo();

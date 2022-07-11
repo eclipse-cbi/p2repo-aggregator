@@ -409,7 +409,9 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 			result.append("bundle"); //$NON-NLS-1$
 		else if ("java.package".equals(getNamespace())) //$NON-NLS-1$
 			result.append("package"); //$NON-NLS-1$
-		else if (!IInstallableUnit.NAMESPACE_IU_ID.equals(getNamespace()))
+		else if (IInstallableUnit.NAMESPACE_IU_ID.equals(getNamespace())) // $NON-NLS-1$
+			result.append("iu"); //$NON-NLS-1$
+		else
 			result.append(getNamespace());
 		if (result.length() > 0)
 			result.append(' ');

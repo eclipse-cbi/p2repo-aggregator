@@ -249,4 +249,9 @@ public class VersionUtil {
 		}
 		return version;
 	}
+
+	public static String versionNotAsSnapshot(String version) {
+		return version.endsWith(DASH_SNAPSHOT) ? version.substring(0, version.length() - DASH_SNAPSHOT.length())
+				: version;
+	}
 }

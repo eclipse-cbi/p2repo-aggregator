@@ -477,6 +477,31 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.cbi.p2repo.aggregator.MavenDependencyItem} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @since 1.1.0
+	 * @generated
+	 */
+	protected MavenDependencyItemItemProvider mavenDependencyItemItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.cbi.p2repo.aggregator.MavenDependencyItem}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @since 1.1.0
+	 * @generated
+	 */
+	@Override
+	public Adapter createMavenDependencyItemAdapter() {
+		if (mavenDependencyItemItemProvider == null) {
+			mavenDependencyItemItemProvider = new MavenDependencyItemItemProvider(this);
+		}
+
+		return mavenDependencyItemItemProvider;
+	}
+
+	/**
 	 * This creates an adapter for a {@link org.eclipse.cbi.p2repo.aggregator.MavenItem}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -504,6 +529,31 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 		}
 
 		return mavenMappingItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.cbi.p2repo.aggregator.MavenDependencyMapping} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @since 1.1.0
+	 * @generated
+	 */
+	protected MavenDependencyMappingItemProvider mavenDependencyMappingItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.cbi.p2repo.aggregator.MavenDependencyMapping}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @since 1.1.0
+	 * @generated
+	 */
+	@Override
+	public Adapter createMavenDependencyMappingAdapter() {
+		if (mavenDependencyMappingItemProvider == null) {
+			mavenDependencyMappingItemProvider = new MavenDependencyMappingItemProvider(this);
+		}
+
+		return mavenDependencyMappingItemProvider;
 	}
 
 	/**
@@ -615,10 +665,14 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 			exclusionRuleItemProvider.dispose();
 		if (mappedRepositoryItemProvider != null)
 			mappedRepositoryItemProvider.dispose();
+		if (mavenDependencyItemItemProvider != null)
+			mavenDependencyItemItemProvider.dispose();
 		if (mavenItemItemProvider != null)
 			mavenItemItemProvider.dispose();
 		if (mavenMappingItemProvider != null)
 			mavenMappingItemProvider.dispose();
+		if (mavenDependencyMappingItemProvider != null)
+			mavenDependencyMappingItemProvider.dispose();
 		if (metadataRepositoryReferenceItemProvider != null)
 			metadataRepositoryReferenceItemProvider.dispose();
 		if (productItemProvider != null)

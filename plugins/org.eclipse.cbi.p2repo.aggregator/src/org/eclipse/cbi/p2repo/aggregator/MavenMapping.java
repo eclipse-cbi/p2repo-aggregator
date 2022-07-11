@@ -133,9 +133,11 @@ public interface MavenMapping extends StatusProvider, InfosProvider {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Snapshot</em>' attribute.
+	 * @see #isSetSnapshot()
+	 * @see #unsetSnapshot()
 	 * @see #setSnapshot(boolean)
 	 * @see org.eclipse.cbi.p2repo.aggregator.AggregatorPackage#getMavenMapping_Snapshot()
-	 * @model default="false" dataType="org.eclipse.emf.ecore.xml.type.Boolean" required="true"
+	 * @model default="false" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Boolean"
 	 * @generated
 	 */
 	boolean isSnapshot();
@@ -145,10 +147,37 @@ public interface MavenMapping extends StatusProvider, InfosProvider {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Snapshot</em>' attribute.
+	 * @see #isSetSnapshot()
+	 * @see #unsetSnapshot()
 	 * @see #isSnapshot()
 	 * @generated
 	 */
 	void setSnapshot(boolean value);
+
+	/**
+	 * Unsets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.MavenMapping#isSnapshot <em>Snapshot</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * @since 1.1.0
+	 * <!-- end-user-doc -->
+	 * @see #isSetSnapshot()
+	 * @see #isSnapshot()
+	 * @see #setSnapshot(boolean)
+	 * @generated
+	 */
+	void unsetSnapshot();
+
+	/**
+	 * Returns whether the value of the '{@link org.eclipse.cbi.p2repo.aggregator.MavenMapping#isSnapshot <em>Snapshot</em>}' attribute is set.
+	 * <!-- begin-user-doc -->
+	 * @since 1.1.0
+	 * <!-- end-user-doc -->
+	 * @return whether the value of the '<em>Snapshot</em>' attribute is set.
+	 * @see #unsetSnapshot()
+	 * @see #isSnapshot()
+	 * @see #setSnapshot(boolean)
+	 * @generated
+	 */
+	boolean isSetSnapshot();
 
 	/**
 	 * <!-- begin-user-doc -->
