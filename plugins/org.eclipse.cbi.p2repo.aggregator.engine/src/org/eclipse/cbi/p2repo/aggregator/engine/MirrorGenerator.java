@@ -192,8 +192,11 @@ public class MirrorGenerator extends BuilderPhase {
 	}
 
 	private static boolean isPacked(IArtifactDescriptor desc) {
-		return desc != null && "packed".equals(desc.getProperty(IArtifactDescriptor.FORMAT))
-				&& ProcessingStepHandler.canProcess(desc);
+		return desc != null && "packed".equals(desc.getProperty(IArtifactDescriptor.FORMAT));
+	}
+
+	private static boolean canProcessPacked(IArtifactDescriptor desc) {
+		return ProcessingStepHandler.canProcess(desc);
 	}
 
 	static void mirror(ExecutorService executor, Collection<IArtifactKey> keysToInstall, IArtifactRepository cache,
@@ -251,10 +254,13 @@ public class MirrorGenerator extends BuilderPhase {
 						IArtifactDescriptor optimized = null;
 						IArtifactDescriptor canonical = null;
 						for (IArtifactDescriptor desc : aDescs) {
-							if (isPacked(desc))
-								optimized = desc;
-							else
+							if (isPacked(desc)) {
+								if (canProcessPacked(desc)) {
+									optimized = desc;
+								}
+							} else {
 								canonical = desc;
+							}
 						}
 
 						if (optimized == null && canonical == null)
@@ -371,7 +377,8 @@ public class MirrorGenerator extends BuilderPhase {
 				// Unfortunately, this doesn't necessarily mean that everything is OK. Zero sized files are
 				// silently ignored. See bug 290986
 				// We can't have that here.
-				IArtifactDescriptor destDesc = getArtifactDescriptor(dest, targetDesc.getArtifactKey(), isPacked(targetDesc));
+				IArtifactDescriptor destDesc = getArtifactDescriptor(dest, targetDesc.getArtifactKey(),
+						isPacked(targetDesc));
 				if (destDesc != null) {
 					updateCheckSum(dest, destDesc);
 					// All is well.
