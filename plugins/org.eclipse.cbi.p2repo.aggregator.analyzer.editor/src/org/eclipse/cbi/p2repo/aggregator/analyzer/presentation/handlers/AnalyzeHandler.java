@@ -309,30 +309,34 @@ public class AnalyzeHandler extends BaseHandler {
 								URI dependencyMetadataURL = URI.createURI(
 										getURL(dependencyGroupId, dependencyArtifactId) + "maven-metadata.xml");
 								MetaData dependencyMetaData = getMetaData(resourceSet, dependencyMetadataURL);
+								ArtifactVersion matchVersion = null;
 								if (dependencyMetaData != null) {
 									Versioning versioning = dependencyMetaData.getVersioning();
 									VersionsType versionsType = versioning.getVersions();
 									List<ArtifactVersion> artifactVersions = versionsType.getVersion().stream()
 											.map(it -> new DefaultArtifactVersion(it)).collect(Collectors.toList());
-									ArtifactVersion matchVersion = range.matchVersion(artifactVersions);
-									if (matchVersion == null) {
-										Set<String> localVersions = localArtifactVersions.get(
-												dependencyGroupId + ":" + resolveOSGiPlatform(dependencyArtifactId));
-										if (localVersions != null) {
-											List<ArtifactVersion> versions = localVersions.stream()
-													.map(it -> new DefaultArtifactVersion(
-															VersionUtil.versionNotAsSnapshot(it)))
-													.collect(Collectors.toList());
-											matchVersion = range.matchVersion(versions);
-											if (matchVersion != null) {
-												dependencyResolution = "~" + matchVersion.toString();
-											}
-										}
-									} else {
+									matchVersion = range.matchVersion(artifactVersions);
+									if (matchVersion != null) {
 										dependencyResolution = "^" + matchVersion.toString();
 									}
-								} else {
-									dependencyResolution = "**" + dependencyMetadataURL;
+								}
+
+								if (matchVersion == null) {
+									Set<String> localVersions = localArtifactVersions
+											.get(dependencyGroupId + ":" + resolveOSGiPlatform(dependencyArtifactId));
+									if (localVersions != null) {
+										List<ArtifactVersion> versions = localVersions.stream().map(
+												it -> new DefaultArtifactVersion(VersionUtil.versionNotAsSnapshot(it)))
+												.collect(Collectors.toList());
+										matchVersion = range.matchVersion(versions);
+										if (matchVersion != null) {
+											dependencyResolution = "~" + matchVersion.toString();
+										}
+									}
+								}
+
+								if (dependencyMetaData == null && !dependencyResolution.startsWith("~")) {
+									dependencyResolution += " **" + dependencyMetadataURL;
 								}
 
 								dependencyResolutions.add(dependencyResolution);
