@@ -39,7 +39,7 @@ https://www.eclipse.org/projects/handbook/#resources-commit
 
 ## Setting Up a Development Environment
 
-You can set up a pre-configured IDE for the development of the p2 Repository Aggregator project's using the following link.
+You can set up a pre-configured IDE for the development of the p2 Repository Aggregator projects using the following link.
 
 [![Create Eclipse Development Environment for the p2 Repository Aggregator](https://download.eclipse.org/oomph/www/setups/svg/p2_Aggregator.svg)](https://www.eclipse.org/setups/installer/?url=https://raw.githubusercontent.com/eclipse-cbi/p2repo-aggregator/main/releng/org.eclipse.cbi.p2repo.releng.parent/setup/P2RepositoryAggregatorConfiguration.setup&show=true "Click to open Eclipse-Installer Auto Launch or drag onto your running installer's title area")
 
