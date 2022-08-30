@@ -28,7 +28,5 @@
   <includes
     id="org.eclipse.cbi.p2repo.aggregator.engine.feature"
     version="0.0.0" />
-  <includes
-    id="org.eclipse.cbi.p2repo.p2.maven.indexer.feature"
-    version="0.0.0" />
+
 </feature>

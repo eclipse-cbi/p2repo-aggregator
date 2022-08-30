@@ -32,7 +32,6 @@
     <module>../../plugins/org.eclipse.cbi.p2repo.aggregator</module>
     <module>../../plugins/org.eclipse.cbi.p2repo.cli</module>
     <module>../../plugins/org.eclipse.cbi.p2repo.p2.edit</module>
-    <module>../../plugins/org.eclipse.cbi.p2repo.p2.maven.indexer</module>
     <module>../../plugins/org.eclipse.cbi.p2repo.p2.maven</module>
     <module>../../plugins/org.eclipse.cbi.p2repo.p2</module>
     <module>../../plugins/org.eclipse.cbi.p2repo.util</module>
@@ -43,11 +42,10 @@
     <module>../../features/org.eclipse.cbi.p2repo.aggregator.editor.feature</module>
     <module>../../features/org.eclipse.cbi.p2repo.aggregator.engine.feature</module>
     <module>../../features/org.eclipse.cbi.p2repo.cli.product.feature</module>
-    <module>../../features/org.eclipse.cbi.p2repo.p2.maven.indexer.feature</module>
     <module>../../features/org.eclipse.cbi.p2repo.tests.feature</module>
+    <module>../org.eclipse.cbi.p2repo.site</module>
     <module>../../products/org.eclipse.cbi.p2repo.cli.product</module>
     <module>../org.eclipse.cbi.p2repo.releng.target</module>
-    <module>../org.eclipse.cbi.p2repo.site</module>
   </modules>
 
   <properties>
@@ -256,6 +254,7 @@
             <timestampProvider>jgit</timestampProvider>
             <jgit.ignore>
               pom.xml
+              .gitignore
             </jgit.ignore>
             <jgit.dirtyWorkingTree>${dirtyWorkingTree}</jgit.dirtyWorkingTree>
             <sourceReferences>

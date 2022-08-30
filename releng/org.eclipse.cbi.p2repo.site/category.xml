@@ -9,12 +9,6 @@
    <feature id="org.eclipse.cbi.p2repo.aggregator.engine.feature.source" version="0.0.0">
       <category name="org.eclipse.cbi.p2Repo.aggregator.misc"/>
    </feature>
-   <feature id="org.eclipse.cbi.p2repo.p2.maven.indexer.feature" version="0.0.0">
-      <category name="org.eclipse.cbi.p2Repo.aggregator.misc"/>
-   </feature>
-   <feature id="org.eclipse.cbi.p2repo.p2.maven.indexer.feature.source" version="0.0.0">
-      <category name="org.eclipse.cbi.p2Repo.aggregator.misc"/>
-   </feature>
    <feature id="org.eclipse.cbi.p2repo.aggregator.analyzer.editor.feature">
       <category name="org.eclipse.cbi.p2Repo.aggregator"/>
    </feature>
