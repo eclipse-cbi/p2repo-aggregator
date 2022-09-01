@@ -558,6 +558,8 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 		if (location == null)
 			return null;
 
+		location = StringUtils.performStringSubstitution(location);
+
 		URI uri;
 		File locationFile = new File(location);
 

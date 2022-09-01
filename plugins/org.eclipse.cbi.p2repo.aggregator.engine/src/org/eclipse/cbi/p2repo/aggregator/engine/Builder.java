@@ -42,7 +42,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
-import org.apache.tools.ant.Project;
 import org.apache.tools.ant.util.DateUtils;
 import org.apache.tools.mail.MailMessage;
 import org.eclipse.cbi.p2repo.aggregator.Aggregation;
@@ -271,13 +270,10 @@ public class Builder extends ModelAbstractCommand {
 
 	private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyyMMdd"); //$NON-NLS-1$
 
-	private static final Project PROPERTY_REPLACER = new Project();
-
 	private static final SimpleDateFormat TIME_FORMAT = new SimpleDateFormat("HHmm"); //$NON-NLS-1$
 
 	static {
 		TimeZone utc = TimeZone.getTimeZone("UTC"); //$NON-NLS-1$
-		PROPERTY_REPLACER.initProperties();
 		DATE_FORMAT.setTimeZone(utc);
 		TIME_FORMAT.setTimeZone(utc);
 		TIMESTAMP_FORMAT.setTimeZone(utc);
@@ -1328,7 +1324,7 @@ public class Builder extends ModelAbstractCommand {
 			}
 
 			if (buildRoot == null) {
-				setBuildRoot(new File(PROPERTY_REPLACER.replaceProperties(aggregation.getBuildRoot())));
+				setBuildRoot(new File(StringUtils.performStringSubstitution(aggregation.getBuildRoot())));
 
 				if (!buildRoot.isAbsolute())
 					setBuildRoot(new File(buildModelLocation.getParent(), buildRoot.getPath()).getAbsoluteFile());
