@@ -154,7 +154,7 @@ public class ProjectReconcilerHandler extends BaseHandler {
 			Map<String, String> projectsWayne = new TreeMap<>();
 			try {
 				String content = getContent(
-						URI.createURI(ProjectMapper.ECLIPSE_PROJECT_PORTAL_HOST + "releases/2022-06"));
+						URI.createURI(ProjectMapper.ECLIPSE_PROJECT_PORTAL_HOST + "releases/2022-09"));
 				Pattern projectPattern = Pattern
 						.compile("<a href=\"/projects/([^\"]+)\">([^<]+)</a></td><td><a href=\"([^\"]+)\">[^<]+</a>");
 				for (Matcher matcher = projectPattern.matcher(content); matcher.find();) {
