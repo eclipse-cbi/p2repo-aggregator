@@ -353,6 +353,8 @@ public class InstallableUnitMapping implements IInstallableUnit {
 		String description = extractProperty(iuProperties, IInstallableUnit.PROP_DESCRIPTION);
 		if (description != null && !description.isBlank()) {
 			pom.setDescription(description);
+		} else if (name != null && !name.isBlank()) {
+			pom.setDescription(name);
 		}
 
 		List<License> mavenLicenses = new ArrayList<>();
