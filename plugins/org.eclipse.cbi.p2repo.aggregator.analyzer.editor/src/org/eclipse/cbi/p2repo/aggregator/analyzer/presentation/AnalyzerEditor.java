@@ -1539,8 +1539,8 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 			@Override
 			protected void handleSelection(Object element) {
 				if (element instanceof IInstallableUnit || element instanceof ContributionAnalysis
-						|| element instanceof InstallableUnitAnalysis
-						|| element instanceof RequirementAnalysis || element instanceof CapabilityAnalysis) {
+						|| element instanceof InstallableUnitAnalysis || element instanceof RequirementAnalysis
+						|| element instanceof CapabilityAnalysis) {
 					setTarget(element);
 				} else if (element instanceof IUPresentation) {
 					setTarget(((IUPresentation) element).getInstallableUnit());
@@ -2024,7 +2024,22 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 						if (object instanceof Model) {
 							Model model = (Model) object;
 							String name = model.getName();
-							return name == null ? model.getArtifactId() : name;
+							StyledString result = new StyledString();
+							if (name != null) {
+								result.append(name);
+							}
+
+							String modelGroupId = model.getGroupId();
+							Object parent = AdapterFactoryEditingDomain.unwrap(modelParents.get(model));
+							if (parent instanceof IInstallableUnit) {
+								IInstallableUnit iu = (IInstallableUnit) parent;
+								String groupId = iu.getProperty("maven-groupId");
+								if (!Objects.equals(modelGroupId, groupId)) {
+									result.append(" ::", errorStyler);
+									result.append(groupId, errorStyler);
+								}
+							}
+							return result;
 						} else if (object instanceof LicensesType) {
 							return "<licences>";
 						} else if (object instanceof DependenciesType) {

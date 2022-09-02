@@ -232,6 +232,14 @@ public class AnalyzeHandler extends BaseHandler {
 						Model model = iuMapping.asPOM();
 						mavenMappings.addAll(iuMapping.getUsedMavenMappings());
 						String groupId = model.getGroupId();
+						if (Boolean.FALSE) {
+							String groupIdProperty = properties.get("maven-groupId");
+							if (groupIdProperty != null && !groupIdProperty.equals(groupId)) {
+								System.err.println(
+										"- " + iu.getId() + " " + iu.getVersion().toString().replaceAll("\\.v.*", "")
+												+ " " + "_" + groupId + "_" + " -> " + "**" + groupIdProperty + "**");
+							}
+						}
 						String groupURL = getURL(groupId);
 						URI groupURI = URI.createURI(groupURL);
 						metadata.add(getExecutor().submit(() -> {
