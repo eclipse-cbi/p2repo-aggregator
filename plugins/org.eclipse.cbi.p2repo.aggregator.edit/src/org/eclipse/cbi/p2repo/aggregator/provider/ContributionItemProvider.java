@@ -49,6 +49,7 @@ import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
@@ -353,7 +354,7 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter
 	@Deprecated
 	protected Command createRemoveCommand(EditingDomain domain, EObject owner, EReference feature,
 			Collection<?> collection) {
-		if (((Contribution) owner).isEnabled())
+		if (((Contribution) owner).isEnabled() || ((InternalEObject) owner).eDirectResource() != null)
 			return new RemoveCommand(domain, owner, feature, collection);
 
 		return UnexecutableCommand.INSTANCE;
@@ -369,7 +370,7 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter
 			return createRemoveCommand(domain, owner, (EReference) feature, collection);
 		}
 
-		if (((Contribution) owner).isEnabled())
+		if (((Contribution) owner).isEnabled() || ((InternalEObject) owner).eDirectResource() != null)
 			return new RemoveCommand(domain, owner, feature, collection);
 
 		return UnexecutableCommand.INSTANCE;

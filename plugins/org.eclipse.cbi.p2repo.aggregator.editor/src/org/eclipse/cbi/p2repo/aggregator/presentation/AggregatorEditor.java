@@ -79,12 +79,15 @@ import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EValidator;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.URIConverter;
 import org.eclipse.emf.ecore.resource.impl.ResourceFactoryRegistryImpl;
 import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.edit.command.CommandParameter;
+import org.eclipse.emf.edit.command.DeleteCommand;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
@@ -2045,6 +2048,26 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 					}
 
 				});
+			}
+
+			@Override
+			public Command createCommand(Class<? extends Command> commandClass, CommandParameter commandParameter) {
+				if (commandClass == DeleteCommand.class) {
+					Collection<?> collection = commandParameter.getCollection();
+					List<Object> expandedCollection = new ArrayList<>();
+					for (Object object : collection) {
+						Object unwrappedObject = AdapterFactoryEditingDomain.unwrap(object);
+						if (unwrappedObject instanceof InternalEObject) {
+							InternalEObject eObject = (InternalEObject) unwrappedObject;
+							if (eObject.eDirectResource() != null && eObject.eContainer() != null) {
+								expandedCollection.addAll(eObject.eContents());
+							}
+						}
+						expandedCollection.add(object);
+					}
+					return new DeleteCommand(this, expandedCollection);
+				}
+				return super.createCommand(commandClass, commandParameter);
 			}
 
 			@Override
