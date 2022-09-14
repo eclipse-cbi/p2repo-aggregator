@@ -47,7 +47,7 @@
       </setupTask>
     </setupTask>
     <stream
-        href="index:/org.eclipse.setup#//@projectCatalogs[name='org.eclipse']/@projects[name='cbi']/@projects[name='p2repo-aggregator%20']/@streams[name='main']"/>
+        href="index:/org.eclipse.setup#//@projectCatalogs[name='org.eclipse']/@projects[name='cbi']/@projects[name='p2repo-aggregator']/@streams[name='main']"/>
     <description>The p2 Repository Aggregator workspace provides access to the &lt;a href=&quot;https://github.com/eclipse-cbi/p2repo-aggregator&quot;>eclipse-cbi/p2repo-aggregator&lt;/a>'s projects. </description>
   </workspace>
   <description>
