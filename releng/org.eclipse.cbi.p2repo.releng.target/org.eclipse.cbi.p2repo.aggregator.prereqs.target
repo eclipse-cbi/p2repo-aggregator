@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde version="3.8"?>
-<target name="Generated from P2 Repository Aggregator" sequenceNumber="23">
+<target name="Generated from P2 Repository Aggregator" sequenceNumber="24">
   <locations>
     <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
       <unit id="com.google.guava.failureaccess" version="0.0.0"/>
@@ -24,9 +24,9 @@
       <unit id="org.objectweb.asm" version="0.0.0"/>
       <unit id="org.objectweb.asm.tree" version="0.0.0"/>
       <repository location="https://download.eclipse.org/cbi/updates/license"/>
-      <repository location="https://download.eclipse.org/eclipse/updates/4.25-I-builds"/>
+      <repository location="https://download.eclipse.org/eclipse/updates/4.26-I-builds"/>
       <repository location="https://download.eclipse.org/nebula/releases/2.6.0"/>
-      <repository location="https://download.eclipse.org/releases/2022-09"/>
+      <repository location="https://download.eclipse.org/releases/2022-12"/>
     </location>
   </locations>
 </target>
