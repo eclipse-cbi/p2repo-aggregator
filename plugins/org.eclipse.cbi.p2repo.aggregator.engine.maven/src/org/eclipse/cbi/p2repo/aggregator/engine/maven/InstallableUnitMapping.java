@@ -45,6 +45,7 @@ import org.eclipse.cbi.p2repo.aggregator.VersionFormat;
 import org.eclipse.cbi.p2repo.aggregator.WindowSystem;
 import org.eclipse.cbi.p2repo.aggregator.util.GeneralUtils;
 import org.eclipse.cbi.p2repo.aggregator.util.InstallableUnitUtils;
+import org.eclipse.cbi.p2repo.p2.maven.POM;
 import org.eclipse.cbi.p2repo.p2.maven.util.VersionUtil;
 import org.eclipse.cbi.p2repo.util.LogUtils;
 import org.eclipse.core.runtime.CoreException;
@@ -244,7 +245,7 @@ public class InstallableUnitMapping implements IInstallableUnit {
 			newParent.setVersion(parent.getVersionString(false, -1));
 			pom.setParent(newParent);
 		}
-		pom.setModelVersion("4.0");
+		pom.setModelVersion(POM.MODEL_VERSION);
 		MavenItem mavenItem = map();
 		String thisGroupId = mavenItem.getGroupId();
 		pom.setGroupId(thisGroupId);
