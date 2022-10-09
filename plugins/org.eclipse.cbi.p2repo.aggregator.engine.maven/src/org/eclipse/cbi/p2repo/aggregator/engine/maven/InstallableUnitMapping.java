@@ -146,6 +146,8 @@ public class InstallableUnitMapping implements IInstallableUnit {
 
 	private Set<IInstallableUnit> aggregatedIUs;
 
+	private Map<MavenItem, Version> mavenItemVersions = new HashMap<MavenItem, Version>();
+
 	public InstallableUnitMapping(Contribution contribution, IInstallableUnit iu, List<MavenMapping> mappings,
 			List<MavenDependencyMapping> dependencyMappings, IQueryable<IInstallableUnit> index,
 			Set<IInstallableUnit> aggregatedIUs) {
@@ -604,6 +606,9 @@ public class InstallableUnitMapping implements IInstallableUnit {
 			if (matcher.find()) {
 				StringBuilder result = new StringBuilder();
 				String dependencyVersion = mavenItem.getMappedVersion();
+				if (dependencyVersion == null) {
+					dependencyVersion = mavenItemVersions.get(mavenItem).toString();
+				}
 				Matcher versionMatcher = VERSION_PATTERN.matcher(dependencyVersion);
 				if (!versionMatcher.matches()) {
 					throw new IllegalStateException("The version '" + dependencyVersion
@@ -767,9 +772,7 @@ public class InstallableUnitMapping implements IInstallableUnit {
 
 				usedMavenMappings.add(mapping);
 
-				if (mavenItem.getMappedVersion() == null) {
-					mavenItem.setMappedVersion(version.toString());
-				}
+				mavenItemVersions.put(mavenItem, version);
 
 				return mavenItem;
 			}
