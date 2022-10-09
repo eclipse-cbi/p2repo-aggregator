@@ -106,6 +106,12 @@ public class InstallableUnitMapping implements IInstallableUnit {
 
 	private static final Version DUMMY_VERSION = Version.parseVersion("1");
 
+	private static final Pattern VERSION_EXPRESSION_PATTERN = Pattern
+			.compile("(major|minor|micro|qualifier)(?:(\\+|-)([0-9]+))?");
+
+	private static final Pattern VERSION_PATTERN = Pattern
+			.compile("([0-9]+)(?:\\.([0-9]+)(?:\\.([0-9]+)(?:([.-])(.*))?)?)?");
+
 	private Type type;
 
 	private IInstallableUnit installableUnit;
@@ -275,28 +281,9 @@ public class InstallableUnitMapping implements IInstallableUnit {
 
 				InputLocation inputLocation = new InputLocation(myRequirements.indexOf(req), 0, null);
 				String mappedVersionRange = trimOrNull(dependencyItem.getMappedVersionRange());
-				VersionRange reqRange = mappedVersionRange == null ? null : VersionRange.create(mappedVersionRange);
 
-				if (!"*".equals(dependecyItemGroupId)) {
-					String artifactId = dependencyItem.getArtifactId();
-					if (dependencies.add(dependecyItemGroupId + ":" + artifactId)) {
-						Dependency dependency = new Dependency();
-						result.add(dependency);
-
-						dependency.setLocation("", inputLocation);
-						dependency.setGroupId(dependecyItemGroupId);
-						dependency.setArtifactId(artifactId);
-						if (mappedVersionRange != null) {
-							dependency.setVersion(mappedVersionRange);
-						} else {
-							dependency.setVersion("[0.0,)");
-						}
-						dependency.setOptional(req.getMin() == 0);
-					}
-					continue;
-				}
-
-				Collection<MavenItem> dependencyMappings = map(mavenItem, req);
+				Collection<MavenItem> dependencyMappings = map(mavenItem, req, dependecyItemGroupId,
+						dependencyItem.getArtifactId());
 				for (MavenItem dependencyMapping : dependencyMappings) {
 					String groupId = dependencyMapping.getGroupId();
 					String artifactId = dependencyMapping.getArtifactId();
@@ -313,29 +300,7 @@ public class InstallableUnitMapping implements IInstallableUnit {
 					dependency.setLocation("", inputLocation);
 					dependency.setGroupId(groupId);
 					dependency.setArtifactId(artifactId);
-
-					if (reqRange != null && !reqRange.equals(VersionRange.emptyRange)) {
-						StringBuilder versionRangeString = new StringBuilder();
-						Version low = reqRange.getMinimum();
-						Version high = reqRange.getMaximum();
-						String lowDependencyVersion = getVersionStringForDependency(dependencyMapping, low);
-						if (reqRange.getIncludeMinimum() && Version.MAX_VERSION.equals(high)) {
-							versionRangeString.append("[").append(lowDependencyVersion).append(",)");
-						} else {
-							versionRangeString.append(reqRange.getIncludeMinimum() ? '[' : '(');
-							versionRangeString.append(lowDependencyVersion);
-							String highDependencyVersion = getVersionStringForDependency(dependencyMapping, high);
-							if (!lowDependencyVersion.equals(highDependencyVersion)) {
-								versionRangeString.append(',');
-								versionRangeString.append(highDependencyVersion);
-							}
-							versionRangeString.append(reqRange.getIncludeMaximum() ? ']' : ')');
-						}
-						dependency.setVersion(versionRangeString.toString());
-					} else {
-						dependency.setVersion("[0.0,)");
-					}
-
+					dependency.setVersion(getVersionRange(dependencyMapping, mappedVersionRange));
 					dependency.setOptional(req.getMin() == 0);
 
 					result.add(dependency);
@@ -633,6 +598,96 @@ public class InstallableUnitMapping implements IInstallableUnit {
 		return VersionUtil.getVersionString(dependencyVersion, versionFormat, false, -1);
 	}
 
+	public String getVersionRange(MavenItem mavenItem, String versionRange) {
+		if (versionRange != null) {
+			Matcher matcher = VERSION_EXPRESSION_PATTERN.matcher(versionRange);
+			if (matcher.find()) {
+				StringBuilder result = new StringBuilder();
+				String dependencyVersion = mavenItem.getMappedVersion();
+				Matcher versionMatcher = VERSION_PATTERN.matcher(dependencyVersion);
+				if (!versionMatcher.matches()) {
+					throw new IllegalStateException("The version '" + dependencyVersion
+							+ "' does not conform to the expected pattern:" + VERSION_PATTERN);
+				}
+
+				String major = versionMatcher.group(1);
+				String minor = versionMatcher.group(2);
+				String micro = versionMatcher.group(3);
+				String qualifierType = versionMatcher.group(4);
+				String qualifier = "-".equals(qualifierType) ? null : versionMatcher.group(5);
+
+				do {
+					String operator = matcher.group(2);
+					String operand = matcher.group(3);
+					String versionSegment = null;
+					switch (matcher.group(1)) {
+						case "major": {
+							versionSegment = getVersionSegment(major, operator, operand);
+							break;
+						}
+						case "minor": {
+							versionSegment = getVersionSegment(minor, operator, operand);
+							break;
+						}
+						case "micro": {
+							versionSegment = getVersionSegment(micro, operator, operand);
+							break;
+						}
+						case "qualifier": {
+							versionSegment = getVersionSegment(qualifier, operator, operand);
+							break;
+						}
+					}
+					matcher.appendReplacement(result,
+							versionSegment == null ? "" : Matcher.quoteReplacement(versionSegment));
+					if (result.length() > 0 && result.charAt(result.length() - 1) == '.') {
+						result.setLength(result.length() - 1);
+					}
+				} while (matcher.find());
+				matcher.appendTail(result);
+				return result.toString();
+			}
+		}
+
+		VersionRange reqRange = versionRange == null ? null : VersionRange.create(versionRange);
+		if (reqRange != null && !reqRange.equals(VersionRange.emptyRange)) {
+			StringBuilder versionRangeString = new StringBuilder();
+			Version low = reqRange.getMinimum();
+			Version high = reqRange.getMaximum();
+			String lowDependencyVersion = getVersionStringForDependency(mavenItem, low);
+			if (reqRange.getIncludeMinimum() && Version.MAX_VERSION.equals(high)) {
+				versionRangeString.append("[").append(lowDependencyVersion).append(",)");
+			} else {
+				versionRangeString.append(reqRange.getIncludeMinimum() ? '[' : '(');
+				versionRangeString.append(lowDependencyVersion);
+				String highDependencyVersion = getVersionStringForDependency(mavenItem, high);
+				if (!lowDependencyVersion.equals(highDependencyVersion)) {
+					versionRangeString.append(',');
+					versionRangeString.append(highDependencyVersion);
+				}
+				versionRangeString.append(reqRange.getIncludeMaximum() ? ']' : ')');
+			}
+			return versionRangeString.toString();
+		} else {
+			return "[0.0,)";
+		}
+	}
+
+	private static String getVersionSegment(String value, String operator, String operand) {
+		if (value != null && operator != null) {
+			switch (operator) {
+				case "+": {
+					return Integer.toString(Math.max(0, Integer.parseInt(value) + Integer.parseInt(operand)));
+				}
+				case "-": {
+					return Integer.toString(Math.max(0, Integer.parseInt(value) - Integer.parseInt(operand)));
+				}
+			}
+		}
+
+		return value;
+	}
+
 	@Override
 	public boolean isResolved() {
 		return installableUnit.isResolved();
@@ -712,6 +767,10 @@ public class InstallableUnitMapping implements IInstallableUnit {
 
 				usedMavenMappings.add(mapping);
 
+				if (mavenItem.getMappedVersion() == null) {
+					mavenItem.setMappedVersion(version.toString());
+				}
+
 				return mavenItem;
 			}
 		}
@@ -770,7 +829,8 @@ public class InstallableUnitMapping implements IInstallableUnit {
 		return ius;
 	}
 
-	private Collection<MavenItem> map(MavenItem containingMavenItem, IRequiredCapability requirement) {
+	private Collection<MavenItem> map(MavenItem containingMavenItem, IRequiredCapability requirement,
+			String targetGroupId, String targetArtifactId) {
 		Set<IInstallableUnit> ius = resolveMapping(requirement);
 		if (ius.isEmpty()) {
 			if (requirement.getMin() == 0) {
@@ -783,7 +843,9 @@ public class InstallableUnitMapping implements IInstallableUnit {
 		String artifactId = containingMavenItem.getArtifactId();
 		MavenItem[] mavenItems = ius.stream().map(this::mapIU)
 				.filter(it -> !(groupId.equals(it.getGroupId()) && artifactId.equals(it.getArtifactId()))
-						&& !"a.jre.javase".equals(it.getArtifactId()))
+						&& !"a.jre.javase".equals(it.getArtifactId())
+						&& ("*".equals(targetGroupId) || targetGroupId.equals(it.getGroupId())
+								&& targetArtifactId.equals(it.getArtifactId())))
 				.toArray(MavenItem[]::new);
 
 		if (mavenItems.length > 1) {
