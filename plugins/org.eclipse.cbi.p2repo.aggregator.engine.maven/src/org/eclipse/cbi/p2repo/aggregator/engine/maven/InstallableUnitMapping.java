@@ -619,8 +619,9 @@ public class InstallableUnitMapping implements IInstallableUnit {
 				String minor = versionMatcher.group(2);
 				String micro = versionMatcher.group(3);
 				String qualifierType = versionMatcher.group(4);
-				String qualifier = "-".equals(qualifierType) ? versionMatcher.group(5)
-						: mavenItem.getMavenMapping().isSnapshot() ? "SNAPSHOT" : null;
+				String qualifier = mavenItem.getMavenMapping().isSnapshot()
+						? "-".equals(qualifierType) ? versionMatcher.group(5) : "SNAPSHOT"
+						: null;
 
 				do {
 					String operator = matcher.group(2);
