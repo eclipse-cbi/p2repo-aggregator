@@ -619,7 +619,8 @@ public class InstallableUnitMapping implements IInstallableUnit {
 				String minor = versionMatcher.group(2);
 				String micro = versionMatcher.group(3);
 				String qualifierType = versionMatcher.group(4);
-				String qualifier = "-".equals(qualifierType) ? null : versionMatcher.group(5);
+				String qualifier = "-".equals(qualifierType) ? versionMatcher.group(5)
+						: mavenItem.getMavenMapping().isSnapshot() ? "SNAPSHOT" : null;
 
 				do {
 					String operator = matcher.group(2);
@@ -645,8 +646,11 @@ public class InstallableUnitMapping implements IInstallableUnit {
 					}
 					matcher.appendReplacement(result,
 							versionSegment == null ? "" : Matcher.quoteReplacement(versionSegment));
-					if (result.length() > 0 && result.charAt(result.length() - 1) == '.') {
-						result.setLength(result.length() - 1);
+					if (result.length() > 0) {
+						char c = result.charAt(result.length() - 1);
+						if (c == '.' || c == '-') {
+							result.setLength(result.length() - 1);
+						}
 					}
 				} while (matcher.find());
 				matcher.appendTail(result);
