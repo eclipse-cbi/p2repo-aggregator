@@ -107,7 +107,7 @@ public class InstallableUnitMapping implements IInstallableUnit {
 	private static final Version DUMMY_VERSION = Version.parseVersion("1");
 
 	private static final Pattern VERSION_EXPRESSION_PATTERN = Pattern
-			.compile("(major|minor|micro|qualifier)(?:(\\+|-)([0-9]+))?");
+			.compile("(major|minor|micro|[.-]qualifier)(?:(\\+|-)([0-9]+))?");
 
 	private static final Pattern VERSION_PATTERN = Pattern
 			.compile("([0-9]+)(?:\\.([0-9]+)(?:\\.([0-9]+)(?:([.-])(.*))?)?)?");
@@ -619,9 +619,10 @@ public class InstallableUnitMapping implements IInstallableUnit {
 				String minor = versionMatcher.group(2);
 				String micro = versionMatcher.group(3);
 				String qualifierType = versionMatcher.group(4);
-				String qualifier = mavenItem.getMavenMapping().isSnapshot()
-						? "-".equals(qualifierType) ? versionMatcher.group(5) : "SNAPSHOT"
-						: null;
+				String qualifier = versionMatcher.group(5);
+				String effectiveQualifier = mavenItem.getMavenMapping().isSnapshot()
+						? "-".equals(qualifierType) ? qualifier : "SNAPSHOT"
+						: ".".equals(qualifierType) ? qualifier : null;
 
 				do {
 					String operator = matcher.group(2);
@@ -640,8 +641,22 @@ public class InstallableUnitMapping implements IInstallableUnit {
 							versionSegment = getVersionSegment(micro, operator, operand);
 							break;
 						}
-						case "qualifier": {
-							versionSegment = getVersionSegment(qualifier, operator, operand);
+						case "-qualifier": {
+							if ("-".equals(qualifierType) || "SNAPSHOT".equals(effectiveQualifier)) {
+								versionSegment = getVersionSegment(effectiveQualifier, operator, operand);
+								if (versionSegment != null) {
+									versionSegment = "-" + versionSegment;
+								}
+							}
+							break;
+						}
+						case ".qualifier": {
+							if (".".equals(qualifierType)) {
+								versionSegment = getVersionSegment(effectiveQualifier, operator, operand);
+								if (versionSegment != null) {
+									versionSegment = "." + versionSegment;
+								}
+							}
 							break;
 						}
 					}
