@@ -83,7 +83,7 @@ public class Headless implements IApplication {
 
 	public static int run(String args[], boolean verbose) throws Exception {
 		try {
-			if(args.length == 0 || !args[0].matches("^(?i:[a-z_])+$"))
+			if (args.length == 0 || !args[0].matches("^(?i:[a-z_][-a-z_]+)$"))
 				throw new CliException("No command was specified");
 
 			AbstractCommand command = getCommand(args[0]);

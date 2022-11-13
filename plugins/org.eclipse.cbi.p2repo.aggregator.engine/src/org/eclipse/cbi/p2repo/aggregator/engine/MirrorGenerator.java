@@ -19,6 +19,13 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.lang.reflect.Field;
 import java.nio.file.Paths;
+import java.security.InvalidKeyException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
+import java.security.SignatureException;
+import java.security.cert.Certificate;
+import java.security.cert.CertificateException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -52,6 +59,7 @@ import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.equinox.internal.p2.artifact.processors.checksum.ChecksumUtilities;
+import org.eclipse.equinox.internal.p2.artifact.processors.pgp.PGPSignatureVerifier;
 import org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest;
 import org.eclipse.equinox.internal.p2.artifact.repository.RawMirrorRequest;
 import org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository;
@@ -67,9 +75,21 @@ import org.eclipse.equinox.p2.repository.artifact.IArtifactDescriptor;
 import org.eclipse.equinox.p2.repository.artifact.IArtifactRepository;
 import org.eclipse.equinox.p2.repository.artifact.IFileArtifactRepository;
 import org.eclipse.equinox.p2.repository.artifact.spi.ArtifactDescriptor;
+import org.eclipse.equinox.p2.repository.spi.PGPPublicKeyService;
 import org.eclipse.equinox.spi.p2.publisher.PublisherHelper;
+import org.eclipse.osgi.signedcontent.SignedContent;
+import org.eclipse.osgi.signedcontent.SignedContentFactory;
+import org.eclipse.osgi.signedcontent.SignerInfo;
+import org.osgi.framework.BundleContext;
+import org.osgi.framework.ServiceReference;
 
 public class MirrorGenerator extends BuilderPhase {
+
+	public static final String SIGNER_FINGERPRINTS = "cbi-signer.fingerprints";
+
+	public static final String SIGNER_PGP_PUBLIC_KEYS = "cbi-pgp.publicKeys";
+
+	public static final String SIGNER_PGP_SIGNATURES = "cbi-pgp.signatures";
 
 	/**
 	 * A request to restore the canonical form after a raw copy of the optimized form
@@ -200,8 +220,8 @@ public class MirrorGenerator extends BuilderPhase {
 	}
 
 	static void mirror(ExecutorService executor, Collection<IArtifactKey> keysToInstall, IArtifactRepository cache,
-			IArtifactRepository source, IFileArtifactRepository dest, Transport transport, PackedStrategy strategy,
-			List<String> errors, IProgressMonitor monitor) {
+			IArtifactRepository source, IFileArtifactRepository dest, boolean isSignerFingerprint,
+			Transport transport, PackedStrategy strategy, List<String> errors, IProgressMonitor monitor) {
 		IQueryResult<IArtifactKey> result = source.query(ArtifactKeyQuery.ALL_KEYS, null);
 		IArtifactKey[] keys = result.toArray(IArtifactKey.class);
 		MonitorUtils.begin(monitor, keys.length * 100);
@@ -281,15 +301,15 @@ public class MirrorGenerator extends BuilderPhase {
 							case SKIP:
 								if (!checkIfTargetPresent(dest, key, false)) {
 									LogUtils.debug("    doing copy of canonical artifact");
-									mirror(sourceForCopy, dest, canonical, new ArtifactDescriptor(canonical), transport,
-											MonitorUtils.subMonitor(monitor, 90));
+									mirror(sourceForCopy, dest, canonical, new ArtifactDescriptor(canonical),
+											isSignerFingerprint, transport, MonitorUtils.subMonitor(monitor, 90));
 								}
 								break;
 							case COPY:
 								if (!checkIfTargetPresent(dest, key, true)) {
 									LogUtils.debug("    doing copy of optimized artifact");
-									mirror(sourceForCopy, dest, optimized, new ArtifactDescriptor(optimized), transport,
-											MonitorUtils.subMonitor(monitor, 90));
+									mirror(sourceForCopy, dest, optimized, new ArtifactDescriptor(optimized),
+											isSignerFingerprint, transport, MonitorUtils.subMonitor(monitor, 90));
 								}
 								break;
 							default:
@@ -309,8 +329,8 @@ public class MirrorGenerator extends BuilderPhase {
 										break;
 								} else {
 									LogUtils.debug("    doing copy of optimized artifact");
-									mirror(sourceForCopy, dest, optimized, new ArtifactDescriptor(optimized), transport,
-											MonitorUtils.subMonitor(monitor, 70));
+									mirror(sourceForCopy, dest, optimized, new ArtifactDescriptor(optimized),
+											isSignerFingerprint, transport, MonitorUtils.subMonitor(monitor, 70));
 								}
 
 								if (isVerify)
@@ -362,8 +382,8 @@ public class MirrorGenerator extends BuilderPhase {
 	}
 
 	static IArtifactDescriptor mirror(IArtifactRepository source, IFileArtifactRepository dest,
-			IArtifactDescriptor sourceDesc, IArtifactDescriptor targetDesc, Transport transport,
-			IProgressMonitor monitor) throws OperationCanceledException, CoreException {
+			IArtifactDescriptor sourceDesc, IArtifactDescriptor targetDesc, boolean signerFingerprint,
+			Transport transport, IProgressMonitor monitor) throws OperationCanceledException, CoreException {
 		if (dest.contains(targetDesc))
 			return targetDesc;
 
@@ -381,6 +401,9 @@ public class MirrorGenerator extends BuilderPhase {
 						isPacked(targetDesc));
 				if (destDesc != null) {
 					updateCheckSum(dest, destDesc);
+					if (signerFingerprint) {
+						addSignatureFingerprint(dest, destDesc);
+					}
 					// All is well.
 					return targetDesc;
 				}
@@ -409,13 +432,61 @@ public class MirrorGenerator extends BuilderPhase {
 		if (!downloadChecksums.containsKey("sha-256")) {
 			File artifactFile = dest.getArtifactFile(destDesc);
 			Map<String, String> caculatedCheckSums = new LinkedHashMap<>();
-			IStatus status = ChecksumUtilities.calculateChecksums(artifactFile, caculatedCheckSums, Set.of("md5"));
+			IStatus status = ChecksumUtilities.calculateChecksums(artifactFile, caculatedCheckSums,
+					Set.of("md5", "sha-1"));
 			if (!status.isMultiStatus()) {
 				throw new CoreException(status);
 			}
 			((ArtifactDescriptor) destDesc).addProperties(
 					ChecksumUtilities.checksumsToProperties(IArtifactDescriptor.DOWNLOAD_CHECKSUM, caculatedCheckSums));
 			LogUtils.info("- computed new artifact checksum %s", artifactFile);
+		}
+	}
+
+	private static void addSignatureFingerprint(IFileArtifactRepository dest, IArtifactDescriptor destDesc)
+			throws CoreException {
+		String classifier = destDesc.getArtifactKey().getClassifier();
+		if ("osgi.bundle".equals(classifier) || "org.eclipse.update.feature".equals(classifier)) {
+			ArtifactDescriptor destinationDescriptor = (ArtifactDescriptor) destDesc;
+
+			String pgpSignatures = destinationDescriptor.getProperty(PGPSignatureVerifier.PGP_SIGNATURES_PROPERTY_NAME);
+			if (pgpSignatures != null) {
+				destinationDescriptor.setProperty(SIGNER_PGP_SIGNATURES, pgpSignatures);
+			}
+
+			String pgpPublicKeys = destinationDescriptor
+					.getProperty(PGPSignatureVerifier.PGP_SIGNER_KEYS_PROPERTY_NAME);
+			if (pgpPublicKeys != null) {
+				destinationDescriptor.setProperty(SIGNER_PGP_PUBLIC_KEYS, pgpPublicKeys);
+			}
+
+			BundleContext context = Engine.getDefault().getBundle().getBundleContext();
+			ServiceReference<SignedContentFactory> contentFactoryRef = context
+					.getServiceReference(SignedContentFactory.class);
+			SignedContentFactory service = context.getService(contentFactoryRef);
+			File artifactFile = dest.getArtifactFile(destDesc);
+			try {
+				SignedContent signedContent = service.getSignedContent(artifactFile);
+				if (signedContent.isSigned()) {
+					List<String> signers = new ArrayList<>();
+					SignerInfo[] signerInfos = signedContent.getSignerInfos();
+					for (SignerInfo signerInfo : signerInfos) {
+						MessageDigest digest = MessageDigest.getInstance("SHA-256");
+						Certificate[] certificateChain = signerInfo.getCertificateChain();
+						for (Certificate certificate : certificateChain) {
+							byte[] encoded = certificate.getEncoded();
+							digest.update(encoded);
+						}
+						signers.add(PGPPublicKeyService.toHex(digest.digest()));
+					}
+					destinationDescriptor.addProperties(Map.of(SIGNER_FINGERPRINTS, String.join(" ", signers)));
+				}
+			} catch (InvalidKeyException | SignatureException | CertificateException | NoSuchAlgorithmException
+					| NoSuchProviderException | IOException e) {
+				throw ExceptionUtils.wrap(e);
+			} finally {
+				context.ungetService(contentFactoryRef);
+			}
 		}
 	}
 
@@ -485,6 +556,7 @@ public class MirrorGenerator extends BuilderPhase {
 
 		SubMonitor subMon = SubMonitor.convert(monitor, 20 + 100 * contribs.size());
 		boolean artifactErrors = false;
+		boolean isSignerFingerprints = builder.isSignerFingerprints();
 		try {
 			IArtifactRepository tempAr = builder.getTemporaryArtifactRepository(subMon.newChild(10));
 			IFileArtifactRepository aggregationAr = builder.getAggregationArtifactRepository(subMon.newChild(10));
@@ -521,8 +593,8 @@ public class MirrorGenerator extends BuilderPhase {
 						contribMonitor.subTask(msg);
 						IArtifactRepository childAr = builder.getArtifactRepository(repo, contribMonitor.newChild(1,
 								SubMonitor.SUPPRESS_BEGINTASK | SubMonitor.SUPPRESS_SETTASKNAME));
-						mirror(executor, keysToMirror, tempAr, childAr, aggregationAr, getTransport(), packedStrategy,
-								errors, contribMonitor.newChild(94,
+						mirror(executor, keysToMirror, tempAr, childAr, aggregationAr, isSignerFingerprints,
+								getTransport(), packedStrategy, errors, contribMonitor.newChild(94,
 										SubMonitor.SUPPRESS_BEGINTASK | SubMonitor.SUPPRESS_SETTASKNAME));
 					} else
 						MonitorUtils.worked(contribMonitor, 95);
@@ -558,14 +630,14 @@ public class MirrorGenerator extends BuilderPhase {
 			throw ExceptionUtils.fromMessage("Not all artifacts could be mirrored, see log for details");
 	}
 
-	private void xzCompress(IFileArtifactRepository aggregationAr) {
+	public static void xzCompress(IArtifactRepository aggregationAr) {
 		try {
 			LogUtils.info("XZ compressing: " + aggregationAr.getLocation());
 			XZCompressor xzCompressor = new XZCompressor();
 			xzCompressor.setRepoFolder(Paths.get(aggregationAr.getLocation()).toString());
 			xzCompressor.compressRepo();
 		} catch (IOException e) {
-			ExceptionUtils.wrap(e);
+			throw new RuntimeException(e);
 		}
 	}
 

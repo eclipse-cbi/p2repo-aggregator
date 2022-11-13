@@ -15,6 +15,13 @@
             name="modify">
       </command>
    </extension>
+   <extension
+         point="org.eclipse.cbi.p2repo.cli.commands">
+      <command
+            class="org.eclipse.cbi.p2repo.aggregator.engine.SignatureCleaner"
+            name="signature-cleanup">
+      </command>
+   </extension>
    <!-- Uncomment to register MDR supporting enhanced requirements
    <extension
          id="internalRepository"

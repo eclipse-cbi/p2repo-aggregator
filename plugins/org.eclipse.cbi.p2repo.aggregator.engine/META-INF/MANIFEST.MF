@@ -37,3 +37,7 @@ Require-Bundle: org.apache.ant,
  org.eclipse.cbi.p2repo.p2.maven
 Bundle-Vendor: %providerName
 Automatic-Module-Name: org.eclipse.cbi.p2repo.aggregator.engine
+Import-Package: org.bouncycastle.openpgp,
+ org.bouncycastle.openpgp.bc,
+ org.bouncycastle.bcpg,
+ org.bouncycastle.openpgp.jcajce

@@ -453,6 +453,12 @@ public class Builder extends ModelAbstractCommand {
 	@Option(name = "--mavenBuildNumber", usage = "The build number to be used in metadata of maven snapshots", metaVar = "<number>")
 	private int mavenBuildNumber = -1;
 
+	@Option(name = "--signerFingerprints", usage = "Whether to generate " + MirrorGenerator.SIGNER_FINGERPRINTS + ", "
+			+ MirrorGenerator.SIGNER_PGP_PUBLIC_KEYS + ", " + MirrorGenerator.SIGNER_PGP_SIGNATURES
+			+ " properties in the artifact metadata for jar-signed and pgp-signed artifacts")
+	private boolean signerFingerprints = "true"
+			.equals(System.getProperty("org.eclipse.cbi.p2repo.aggregator.signerFingerprints"));
+
 	// === END OF OPTIONS ===
 
 	@Argument
@@ -816,6 +822,14 @@ public class Builder extends ModelAbstractCommand {
 
 	public IMetadataRepositoryManager getMdrManager() {
 		return mdrManager;
+	}
+
+	public boolean isSignerFingerprints() {
+		return signerFingerprints;
+	}
+
+	public void setSignerFingerprints(boolean signerFingerprints) {
+		this.signerFingerprints = signerFingerprints;
 	}
 
 	/**

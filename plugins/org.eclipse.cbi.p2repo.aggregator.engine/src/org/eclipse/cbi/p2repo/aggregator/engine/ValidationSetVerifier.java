@@ -644,7 +644,8 @@ public class ValidationSetVerifier extends BuilderPhase {
 			IArtifactKey key = artifacts.iterator().next();
 			ArrayList<String> errors = new ArrayList<String>();
 			ExecutorService executor = Executors.newSingleThreadExecutor();
-			MirrorGenerator.mirror(executor, artifacts, null, sourceAr, tempAr, getBuilder().getTransport(),
+			MirrorGenerator.mirror(executor, artifacts, null, sourceAr, tempAr, getBuilder().isSignerFingerprints(),
+					getBuilder().getTransport(),
 					PackedStrategy.UNPACK_AS_SIBLING, errors, subMon.newChild(1));
 			executor.shutdownNow();
 			int numErrors = errors.size();
