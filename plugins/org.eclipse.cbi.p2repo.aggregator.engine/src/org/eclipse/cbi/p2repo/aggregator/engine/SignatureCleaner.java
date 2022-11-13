@@ -74,7 +74,7 @@ public class SignatureCleaner extends AbstractCommand {
 	@Option(name = "--rejectedFingerprints", usage = "A comma-separated list of SHA-256 signature fingerprints considered insecure.")
 	private String rejectedFingerprints;
 
-	@Option(name = "--mergePGP", usage = "Specify how to handle PGP keys and signatues. DISCARD them, KEEP the current ones, REPLACE the current ones with the originals, or MERGE the current ones with the originals.")
+	@Option(name = "--pgpAction", usage = "Specify how to handle PGP keys and signatues. DISCARD them, KEEP the current ones, REPLACE the current ones with the originals, or MERGE the current ones with the originals.")
 	private PGPActionType pgpAction = PGPActionType.REPLACE;
 
 	@Override
