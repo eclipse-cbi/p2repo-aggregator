@@ -61,9 +61,13 @@ import org.eclipse.equinox.p2.repository.artifact.IArtifactRepository;
 import org.eclipse.equinox.p2.repository.artifact.IArtifactRepositoryManager;
 import org.eclipse.equinox.p2.repository.artifact.spi.ArtifactDescriptor;
 import org.eclipse.equinox.p2.repository.spi.PGPPublicKeyService;
+import org.eclipse.equinox.spi.p2.publisher.PublisherHelper;
 import org.kohsuke.args4j.Option;
 
 public class SignatureCleaner extends AbstractCommand {
+	private static final boolean IGNORE_FEATURE_PGP_SIGNATURE = "true"
+			.equals(System.getProperty("org.eclipse.cbi.p2repo.aggregator.ignoreFeaturePGPSignature"));
+
 	public enum PGPActionType {
 		DISCARD, KEEP, REPLACE, MERGE
 	}
@@ -86,9 +90,9 @@ public class SignatureCleaner extends AbstractCommand {
 	protected int run(IProgressMonitor monitor) throws Exception {
 		Path agentLocation = Files.createTempDirectory("signature-clearner");
 		IProvisioningAgent provisioningAgent = P2Utils.createDedicatedProvisioningAgent(agentLocation.toUri());
-			IArtifactRepositoryManager repositoryManager = P2Utils.getRepositoryManager(provisioningAgent,
-					IArtifactRepositoryManager.class);
-			try {
+		IArtifactRepositoryManager repositoryManager = P2Utils.getRepositoryManager(provisioningAgent,
+				IArtifactRepositoryManager.class);
+		try {
 			IArtifactRepository repository = repositoryManager.loadRepository(Path.of(repositoryLocation).toUri(),
 					monitor);
 
@@ -113,9 +117,17 @@ public class SignatureCleaner extends AbstractCommand {
 						Set<String> fingerprints = rejectedFingerprints == null ? Set.of()
 								: new HashSet<>(Arrays.asList(signerFingerprints.split(" ")));
 						fingerprints.removeAll(rejectedFingerprints);
-						if (fingerprints.isEmpty()) {
+						boolean discardPGP = !fingerprints.isEmpty();
+						if (!discardPGP) {
 							LogUtils.info("All signatures rejected " + artifactDescriptor);
-						} else {
+							if (IGNORE_FEATURE_PGP_SIGNATURE
+									&& PublisherHelper.ECLIPSE_FEATURE_CLASSIFIER.equals(key.getClassifier())) {
+								LogUtils.info("Ignore feature PGP signatures " + artifactDescriptor);
+								discardPGP = true;
+							}
+						}
+
+						if (discardPGP) {
 							// If there are valid jar signatures, remove the PGP signature, but only if there wasn't originally one.
 							// E.g., jars that are only JCE-signed from Maven are also PGP signed.
 							if (pgpPublicKeys != null && cbiPGPPublicKeys == null) {

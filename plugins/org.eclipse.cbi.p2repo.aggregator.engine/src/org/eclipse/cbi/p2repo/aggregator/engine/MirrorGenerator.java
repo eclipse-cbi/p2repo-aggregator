@@ -446,7 +446,8 @@ public class MirrorGenerator extends BuilderPhase {
 	private static void addSignatureFingerprint(IFileArtifactRepository dest, IArtifactDescriptor destDesc)
 			throws CoreException {
 		String classifier = destDesc.getArtifactKey().getClassifier();
-		if ("osgi.bundle".equals(classifier) || "org.eclipse.update.feature".equals(classifier)) {
+		if (PublisherHelper.OSGI_BUNDLE_CLASSIFIER.equals(classifier)
+				|| PublisherHelper.ECLIPSE_FEATURE_CLASSIFIER.equals(classifier)) {
 			ArtifactDescriptor destinationDescriptor = (ArtifactDescriptor) destDesc;
 
 			String pgpSignatures = destinationDescriptor.getProperty(PGPSignatureVerifier.PGP_SIGNATURES_PROPERTY_NAME);

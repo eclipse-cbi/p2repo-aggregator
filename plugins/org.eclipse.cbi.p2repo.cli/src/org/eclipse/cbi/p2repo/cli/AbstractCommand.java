@@ -48,6 +48,12 @@ public abstract class AbstractCommand implements Comparable<AbstractCommand> {
 	@Option(name = "--eclipseLogLevel", usage = "Controls the verbosity of the eclipse log trace output. Defaults to global settings.")
 	private LogLevel eclipseLogLevel;
 
+	@Option(name = "--ignored", usage = "This has no effect.", hidden = true)
+	private boolean ignored;
+
+	@Option(name = "--ignore", usage = "This has no efffect and ignores all values.", hidden = true)
+	private String[] ignore;
+
 	private String name;
 
 	@Override

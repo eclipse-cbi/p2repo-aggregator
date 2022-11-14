@@ -60,7 +60,7 @@ public class Headless implements IApplication {
 		IConfigurationElement[] commandConfigurations = getCommandConfigurations();
 		List<AbstractCommand> commands = new ArrayList<AbstractCommand>(commandConfigurations.length);
 
-		for(IConfigurationElement commandConfiguration : commandConfigurations) {
+		for (IConfigurationElement commandConfiguration : commandConfigurations) {
 			commands.add(createCommand(commandConfiguration));
 		}
 
@@ -69,8 +69,8 @@ public class Headless implements IApplication {
 	}
 
 	private static AbstractCommand getCommand(String string) throws CoreException {
-		for(IConfigurationElement commandConfiguration : getCommandConfigurations()) {
-			if(commandConfiguration.getAttribute(COMMAND_NAME_ATTR).equals(string))
+		for (IConfigurationElement commandConfiguration : getCommandConfigurations()) {
+			if (commandConfiguration.getAttribute(COMMAND_NAME_ATTR).equals(string))
 				return createCommand(commandConfiguration);
 		}
 
@@ -87,7 +87,7 @@ public class Headless implements IApplication {
 				throw new CliException("No command was specified");
 
 			AbstractCommand command = getCommand(args[0]);
-			if(command == null)
+			if (command == null)
 				throw new CliException("No such command: " + args[0]);
 
 			CmdLineParser commandParser = new CmdLineParser(command);
@@ -98,47 +98,52 @@ public class Headless implements IApplication {
 			System.arraycopy(args, 1, commandArgs, 0, commandArgs.length);
 			try {
 				commandParser.parseArgument(commandArgs);
-			}
-			catch(CmdLineException e) {
+			} catch (CmdLineException e) {
 				problem = e.getMessage();
 			}
 
 			PrintStream output = null;
 
-			if(command.isHelp())
+			if (command.isHelp())
 				output = System.out;
-			else if(problem != null)
+			else if (problem != null)
 				output = System.err;
 
-			if(output != null) {
-				if(problem != null && !command.isHelp()) {
+			if (output != null) {
+				if (problem != null && !command.isHelp()) {
 					output.println(command.getName() + ": " + problem);
+					if (commandArgs.length > 0) {
+						for (String arg : commandArgs) {
+							output.print("  '");
+							output.print(arg);
+							output.println("'");
+						}
+					}
 					output.println();
 				}
 				output.println("Usage: " + APPLICATION_NAME + " " + command.getUsageTitle());
 				commandParser.getProperties().withUsageWidth(CONSOLE_WIDTH);
 				commandParser.printUsage(output);
 
-				if(command.isHelp()) {
+				if (command.isHelp()) {
 					InputStream helpStream = command.getHelpStream();
-					if(helpStream != null) {
+					if (helpStream != null) {
 						try {
 							output.println();
 							output.println("More information:");
 
 							BufferedReader lineReader = new BufferedReader(new InputStreamReader(helpStream));
 							String helpLine;
-							while((helpLine = lineReader.readLine()) != null) {
+							while ((helpLine = lineReader.readLine()) != null) {
 								BreakIterator breaker = BreakIterator.getLineInstance(Locale.US);
 								breaker.setText(helpLine);
 								int start = breaker.first();
 								int endOk = 0;
 								int end = 0;
-								while(end != BreakIterator.DONE) {
+								while (end != BreakIterator.DONE) {
 									end = breaker.next();
-									if(end == BreakIterator.DONE ||
-											(end - start - (Character.isWhitespace(helpLine.charAt(end - 1))
-													? 1
+									if (end == BreakIterator.DONE
+											|| (end - start - (Character.isWhitespace(helpLine.charAt(end - 1)) ? 1
 													: 0)) > CONSOLE_WIDTH) {
 										output.print(StringUtils.trimRight(helpLine.substring(start, endOk)));
 										output.println();
@@ -148,28 +153,23 @@ public class Headless implements IApplication {
 									endOk = end;
 								}
 							}
-						}
-						finally {
+						} finally {
 							IOUtils.close(helpStream);
 						}
 					}
 				}
 
-				return problem == null || command.isHelp()
-						? AbstractCommand.EXIT_OK
-						: AbstractCommand.EXIT_ERROR;
+				return problem == null || command.isHelp() ? AbstractCommand.EXIT_OK : AbstractCommand.EXIT_ERROR;
 			}
 
 			try {
 				return Integer.valueOf(command.run());
-			}
-			catch(Exception e) {
+			} catch (Exception e) {
 				ExceptionUtils.deeplyPrint(e, System.err, command.isDisplayStacktrace());
 			}
-		}
-		catch(CliException e) {
+		} catch (CliException e) {
 			System.err.println(e.getMessage());
-			if(verbose) {
+			if (verbose) {
 				System.err.println();
 				System.err.println("Usage: " + APPLICATION_NAME + " command [options...]");
 				CmdLineParser globalParser = new CmdLineParser(new EmptyCommand());
@@ -179,8 +179,8 @@ public class Headless implements IApplication {
 				System.err.println("Available commands:");
 
 				List<AbstractCommand> availableCommands = getAvailableCommands();
-				if(availableCommands.size() > 0)
-					for(AbstractCommand command : availableCommands) {
+				if (availableCommands.size() > 0)
+					for (AbstractCommand command : availableCommands) {
 						System.err.printf("%s - %s\n", command.getName(), command.getShortDescription());
 
 					}
