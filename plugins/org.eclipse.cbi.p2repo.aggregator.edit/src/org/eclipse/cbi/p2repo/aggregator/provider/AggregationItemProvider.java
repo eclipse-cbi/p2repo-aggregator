@@ -64,6 +64,22 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Include Sources feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIncludeSourcesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Aggregation_includeSources_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Aggregation_includeSources_feature",
+								"_UI_Aggregation_type"),
+						AggregatorPackage.Literals.AGGREGATION__INCLUDE_SOURCES, true, false, false,
+						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Buildmaster feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -366,6 +382,7 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider {
 			addVersionFormatPropertyDescriptor(object);
 			addMavenBuildNumberPropertyDescriptor(object);
 			addAllowLegacySitesPropertyDescriptor(object);
+			addIncludeSourcesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -418,6 +435,7 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider {
 			case AggregatorPackage.AGGREGATION__VERSION_FORMAT:
 			case AggregatorPackage.AGGREGATION__MAVEN_BUILD_NUMBER:
 			case AggregatorPackage.AGGREGATION__ALLOW_LEGACY_SITES:
+			case AggregatorPackage.AGGREGATION__INCLUDE_SOURCES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case AggregatorPackage.AGGREGATION__VALIDATION_SETS:

@@ -73,6 +73,7 @@ import org.eclipse.equinox.internal.p2.engine.InstallableUnitOperand;
 import org.eclipse.equinox.internal.p2.engine.Operand;
 import org.eclipse.equinox.internal.p2.engine.ProvisioningPlan;
 import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
+import org.eclipse.equinox.internal.p2.metadata.InstallableUnit;
 import org.eclipse.equinox.internal.p2.touchpoint.eclipse.PublisherUtil;
 import org.eclipse.equinox.internal.p2.updatesite.metadata.UpdateSiteMetadataRepository;
 import org.eclipse.equinox.internal.provisional.p2.director.PlannerStatus;
@@ -86,6 +87,7 @@ import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.metadata.IInstallableUnitPatch;
 import org.eclipse.equinox.p2.metadata.IRequirement;
 import org.eclipse.equinox.p2.metadata.IRequirementChange;
+import org.eclipse.equinox.p2.metadata.IVersionedId;
 import org.eclipse.equinox.p2.metadata.Version;
 import org.eclipse.equinox.p2.planner.IPlanner;
 import org.eclipse.equinox.p2.query.IQuery;
@@ -717,6 +719,10 @@ public class ValidationSetVerifier extends BuilderPhase {
 						"Location %s appoints a legacy update site. They are not allowed in this aggregation",
 						repoLocation);
 
+			Map<IVersionedId, IInstallableUnit> allIUs = new LinkedHashMap<>();
+			sourceRepo.query(QueryUtil.createIUAnyQuery(), subMon.newChild(1)).iterator()
+					.forEachRemaining(it -> allIUs.put(it, it));
+
 			Map<CountDownLatch, Future<Void>> futures = new LinkedHashMap<>();
 
 			for (Configuration config : configs) {
@@ -845,12 +851,7 @@ public class ValidationSetVerifier extends BuilderPhase {
 							//
 							final Set<IInstallableUnit> candidates = suspectedValidationOnlyIUs;
 							final boolean hadPartialsHolder[] = new boolean[] { false };
-
-							Iterator<IInstallableUnit> allIUs = sourceRepo
-									.query(QueryUtil.createIUAnyQuery(), subMon.newChild(1)).iterator();
-
-							while (allIUs.hasNext()) {
-								IInstallableUnit iu = allIUs.next();
+							for (IInstallableUnit iu : allIUs.values()) {
 								if (candidates.contains(iu) && !unitsToAggregate.contains(iu)) {
 									try {
 										if (Boolean.valueOf(iu.getProperty(IInstallableUnit.PROP_PARTIAL_IU))
@@ -892,6 +893,25 @@ public class ValidationSetVerifier extends BuilderPhase {
 
 			if (exception != null) {
 				throw exception;
+			}
+
+			if (getBuilder().getAggregation().isIncludeSources()) {
+				Set<IInstallableUnit> additionalSourceIUs = new LinkedHashSet<>();
+				for (IInstallableUnit iu : unitsToAggregate) {
+					String id = iu.getId();
+					InstallableUnit versionedId = new InstallableUnit();
+					versionedId.setId(id.endsWith(".feature.group") ? id.replaceAll("\\.feature\\.group$", ".source.feature.group")
+							: id.endsWith(".feature.jar") ? id.replaceAll("\\.feature\\.jar$", ".source.feature.jar")
+									: id + ".source");
+					versionedId.setVersion(iu.getVersion());
+					if (!unitsToAggregate.contains(versionedId)) {
+						IInstallableUnit sourceIU = allIUs.get(versionedId);
+						if (sourceIU != null) {
+							additionalSourceIUs.add(sourceIU);
+						}
+					}
+				}
+				unitsToAggregate.addAll(additionalSourceIUs);
 			}
 
 			LogUtils.info("Verification successful"); //$NON-NLS-1$

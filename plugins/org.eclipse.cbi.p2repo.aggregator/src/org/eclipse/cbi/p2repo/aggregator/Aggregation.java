@@ -39,6 +39,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#getMavenMappings <em>Maven Mappings</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#getMavenDependencyMappings <em>Maven Dependency Mappings</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#isAllowLegacySites <em>Allow Legacy Sites</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#isIncludeSources <em>Include Sources</em>}</li>
  * </ul>
  *
  * @see org.eclipse.cbi.p2repo.aggregator.AggregatorPackage#getAggregation()
@@ -283,6 +284,28 @@ public interface Aggregation extends DescriptionProvider, StatusProvider, InfosP
 	 * @generated
 	 */
 	void setAllowLegacySites(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Include Sources</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Include Sources</em>' attribute.
+	 * @see #setIncludeSources(boolean)
+	 * @see org.eclipse.cbi.p2repo.aggregator.AggregatorPackage#getAggregation_IncludeSources()
+	 * @model
+	 * @generated
+	 */
+	boolean isIncludeSources();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#isIncludeSources <em>Include Sources</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Include Sources</em>' attribute.
+	 * @see #isIncludeSources()
+	 * @generated
+	 */
+	void setIncludeSources(boolean value);
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#getBuildmaster <em>Buildmaster</em>}' reference.

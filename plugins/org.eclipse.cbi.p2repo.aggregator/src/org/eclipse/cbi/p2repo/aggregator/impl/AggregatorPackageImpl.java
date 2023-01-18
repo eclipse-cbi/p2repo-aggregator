@@ -493,6 +493,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		createEReference(aggregationEClass, AGGREGATION__MAVEN_MAPPINGS);
 		createEReference(aggregationEClass, AGGREGATION__MAVEN_DEPENDENCY_MAPPINGS);
 		createEAttribute(aggregationEClass, AGGREGATION__ALLOW_LEGACY_SITES);
+		createEAttribute(aggregationEClass, AGGREGATION__INCLUDE_SOURCES);
 
 		availableVersionsHeaderEClass = createEClass(AVAILABLE_VERSIONS_HEADER);
 		createEReference(availableVersionsHeaderEClass, AVAILABLE_VERSIONS_HEADER__AVAILABLE_VERSIONS);
@@ -667,6 +668,16 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	@Override
 	public EAttribute getAggregation_AllowLegacySites() {
 		return (EAttribute) aggregationEClass.getEStructuralFeatures().get(17);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getAggregation_IncludeSources() {
+		return (EAttribute) aggregationEClass.getEStructuralFeatures().get(18);
 	}
 
 	/**
@@ -2214,6 +2225,9 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 				IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAggregation_AllowLegacySites(), theXMLTypePackage.getBoolean(), "allowLegacySites", "true", 0,
 				1, Aggregation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAggregation_IncludeSources(), ecorePackage.getEBoolean(), "includeSources", null, 0, 1,
+				Aggregation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
 
 		EOperation op = addEOperation(aggregationEClass, this.getMetadataRepositoryReference(),

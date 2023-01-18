@@ -77,6 +77,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#getMavenMappings <em>Maven Mappings</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#getMavenDependencyMappings <em>Maven Dependency Mappings</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#isAllowLegacySites <em>Allow Legacy Sites</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#isIncludeSources <em>Include Sources</em>}</li>
  * </ul>
  *
  * @generated
@@ -477,6 +478,26 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	protected static final int ALLOW_LEGACY_SITES_EFLAG = 1 << 11;
 
 	/**
+	 * The default value of the '{@link #isIncludeSources() <em>Include Sources</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isIncludeSources()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean INCLUDE_SOURCES_EDEFAULT = false;
+
+	/**
+	 * The flag representing the value of the '{@link #isIncludeSources() <em>Include Sources</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isIncludeSources()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int INCLUDE_SOURCES_EFLAG = 1 << 12;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -625,6 +646,8 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 				return getMavenDependencyMappings();
 			case AggregatorPackage.AGGREGATION__ALLOW_LEGACY_SITES:
 				return isAllowLegacySites();
+			case AggregatorPackage.AGGREGATION__INCLUDE_SOURCES:
+				return isIncludeSources();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -720,6 +743,8 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 				return mavenDependencyMappings != null && !mavenDependencyMappings.isEmpty();
 			case AggregatorPackage.AGGREGATION__ALLOW_LEGACY_SITES:
 				return ((eFlags & ALLOW_LEGACY_SITES_EFLAG) != 0) != ALLOW_LEGACY_SITES_EDEFAULT;
+			case AggregatorPackage.AGGREGATION__INCLUDE_SOURCES:
+				return ((eFlags & INCLUDE_SOURCES_EFLAG) != 0) != INCLUDE_SOURCES_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -805,6 +830,9 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 			case AggregatorPackage.AGGREGATION__ALLOW_LEGACY_SITES:
 				setAllowLegacySites((Boolean) newValue);
 				return;
+			case AggregatorPackage.AGGREGATION__INCLUDE_SOURCES:
+				setIncludeSources((Boolean) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -889,6 +917,9 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 				return;
 			case AggregatorPackage.AGGREGATION__ALLOW_LEGACY_SITES:
 				setAllowLegacySites(ALLOW_LEGACY_SITES_EDEFAULT);
+				return;
+			case AggregatorPackage.AGGREGATION__INCLUDE_SOURCES:
+				setIncludeSources(INCLUDE_SOURCES_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -1244,6 +1275,33 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * @generated
 	 */
 	@Override
+	public boolean isIncludeSources() {
+		return (eFlags & INCLUDE_SOURCES_EFLAG) != 0;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setIncludeSources(boolean newIncludeSources) {
+		boolean oldIncludeSources = (eFlags & INCLUDE_SOURCES_EFLAG) != 0;
+		if (newIncludeSources)
+			eFlags |= INCLUDE_SOURCES_EFLAG;
+		else
+			eFlags &= ~INCLUDE_SOURCES_EFLAG;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.AGGREGATION__INCLUDE_SOURCES,
+					oldIncludeSources, newIncludeSources));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public void setBuildmaster(Contact newBuildmaster) {
 		Contact oldBuildmaster = buildmaster;
 		buildmaster = newBuildmaster;
@@ -1463,6 +1521,8 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 		result.append(mavenBuildNumber);
 		result.append(", allowLegacySites: ");
 		result.append((eFlags & ALLOW_LEGACY_SITES_EFLAG) != 0);
+		result.append(", includeSources: ");
+		result.append((eFlags & INCLUDE_SOURCES_EFLAG) != 0);
 		result.append(')');
 		return result.toString();
 	}

@@ -116,6 +116,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Aggregator.ecore#//Aggregation/mavenMappings"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Aggregator.ecore#//Aggregation/mavenDependencyMappings"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//Aggregation/allowLegacySites"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//Aggregation/includeSources"/>
       <genOperations ecoreOperation="Aggregator.ecore#//Aggregation/getAllMetadataRepositoryReferences">
         <genParameters ecoreParameter="Aggregator.ecore#//Aggregation/getAllMetadataRepositoryReferences/enabledOnly"/>
       </genOperations>
