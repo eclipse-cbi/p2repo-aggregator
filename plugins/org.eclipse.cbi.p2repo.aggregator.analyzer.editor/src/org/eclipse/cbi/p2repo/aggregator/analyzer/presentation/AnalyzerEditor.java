@@ -189,6 +189,7 @@ import org.eclipse.jface.viewers.DelegatingStyledCellLabelProvider.IStyledLabelP
 import org.eclipse.jface.viewers.IBaseLabelProvider;
 import org.eclipse.jface.viewers.IContentProvider;
 import org.eclipse.jface.viewers.IDoubleClickListener;
+import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.ISelectionProvider;
@@ -1178,6 +1179,9 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 	public void createPages() {
 
 		createPagesGen();
+
+		selectionViewer.setLabelProvider(createLabelProvider(selectionViewer));
+
 		viewers.put(selectionViewer.getControl(), selectionViewer);
 		showInActionFactories.add(selection -> new ShowInAction(getPageText(0), selection, selectionViewer) {
 			@Override
@@ -1437,20 +1441,7 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 				}, adapterFactory });
 		AdapterFactoryContentProvider contentProvider = new AdapterFactoryContentProvider(composedAdapterFactory);
 		treeViewer.setContentProvider(contentProvider);
-		treeViewer.setLabelProvider(new DecoratingColumLabelProvider(
-				new AdapterFactoryLabelProvider.ColorProvider(adapterFactory, selectionViewer),
-				new DiagnosticDecorator(editingDomain, selectionViewer,
-						AggregationAnalyzerEditorPlugin.getPlugin().getDialogSettings())) {
-			@Override
-			public String getToolTipText(Object element) {
-				String toolTip = AnalyzerEditor.getToolTip(element);
-				if (toolTip != null) {
-					String[] lines = toolTip.split("\r?\n");
-					return String.join("<br>", lines).replaceAll(" ", "&nbsp;");
-				}
-				return super.getToolTipText(element);
-			}
-		});
+		treeViewer.setLabelProvider(createLabelProvider(treeViewer));
 
 		new AdapterFactoryTreeEditor(treeViewer.getTree(), adapterFactory);
 		new ColumnViewerInformationControlToolTipSupport(treeViewer,
@@ -1472,6 +1463,23 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 		setPageText(pageIndex, title);
 		viewers.put(control, treeViewer);
 		return treeViewer;
+	}
+
+	protected ILabelProvider createLabelProvider(StructuredViewer viewer) {
+		return new DecoratingColumLabelProvider(new AdapterFactoryLabelProvider.ColorProvider(adapterFactory, viewer),
+				new DiagnosticDecorator(editingDomain, viewer,
+						AggregationAnalyzerEditorPlugin.getPlugin().getDialogSettings())) {
+			@Override
+			public String getToolTipText(Object element) {
+				String toolTip = AnalyzerEditor.getToolTip(element);
+				if (toolTip != null) {
+					String[] lines = toolTip.split("\r?\n");
+					return String.join("<br>", lines).replaceAll(" ", "&nbsp;");
+				}
+				return super.getToolTipText(element);
+			}
+		};
+
 	}
 
 	protected TreeViewer createDuplicatesViewer(Composite parent) {

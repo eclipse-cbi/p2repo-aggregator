@@ -127,13 +127,18 @@ public class ProjectReconcilerHandler extends BaseHandler {
 			Set<String> projectIDs = new TreeSet<>(CommonPlugin.INSTANCE.getComparator());
 
 			Map<String, String> projectVersions = new TreeMap<>(CommonPlugin.INSTANCE.getComparator());
+			Map<String, String> projectNameIDs = new TreeMap<>(CommonPlugin.INSTANCE.getComparator());
 			for (Map.Entry<ContributionAnalysis, List<Project>> entry : projectLinks.entrySet()) {
 				Contribution contribution = entry.getKey().getContribution();
 				if (contribution == null || contribution.isEnabled()) {
 					for (Project project : entry.getValue()) {
 						URI version = project.getVersion();
-						projectIDs.add(project.getSite().lastSegment());
-						projectVersions.put(project.getName(), version == null ? null : version.lastSegment());
+						String projectID = project.getSite().lastSegment();
+						String projectName = project.getName();
+
+						projectIDs.add(projectID);
+						projectNameIDs.put(projectName, projectID);
+						projectVersions.put(projectName, version == null ? null : version.lastSegment());
 					}
 				}
 			}
@@ -141,6 +146,13 @@ public class ProjectReconcilerHandler extends BaseHandler {
 			System.out.println("-----------------------------");
 			for (Map.Entry<String, String> entry : projectVersions.entrySet()) {
 				System.out.println(entry.getKey() + " -> " + entry.getValue());
+			}
+
+			System.out.println("-----------------------------");
+			for (Map.Entry<String, String> entry : projectVersions.entrySet()) {
+				System.out.println(entry.getKey()
+						+ " -> https://projects.eclipse.org/projects/" + projectNameIDs.get(entry.getKey())
+						+ "/releases/" + entry.getValue());
 			}
 
 			if (Boolean.FALSE) {
@@ -154,7 +166,7 @@ public class ProjectReconcilerHandler extends BaseHandler {
 			Map<String, String> projectsWayne = new TreeMap<>();
 			try {
 				String content = getContent(
-						URI.createURI(ProjectMapper.ECLIPSE_PROJECT_PORTAL_HOST + "releases/2022-09"));
+						URI.createURI(ProjectMapper.ECLIPSE_PROJECT_PORTAL_HOST + "releases/2023-03"));
 				Pattern projectPattern = Pattern
 						.compile("<a href=\"/projects/([^\"]+)\">([^<]+)</a></td><td><a href=\"([^\"]+)\">[^<]+</a>");
 				for (Matcher matcher = projectPattern.matcher(content); matcher.find();) {

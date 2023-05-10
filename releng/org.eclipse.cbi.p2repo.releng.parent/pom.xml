@@ -52,8 +52,8 @@
     <skipTests>true</skipTests>
     <maven.build.timestamp.format>yyyyMMdd-HHmm</maven.build.timestamp.format>
     <comparator.repo>http://download.eclipse.org/cbi/updates/aggregator/ide/4.13/</comparator.repo>
-    <tycho-version>2.7.3</tycho-version>
-    <cbi-plugins.version>1.3.1</cbi-plugins.version>
+    <tycho-version>2.7.5</tycho-version>
+    <cbi-plugins.version>1.3.2</cbi-plugins.version>
     <code.ignoredWarnings>-warn:-deprecation,raw,unchecked,discouraged</code.ignoredWarnings>
     <!--
       repo for released versions of CBI. Note, we intentionally use as specific a repo as possible.
