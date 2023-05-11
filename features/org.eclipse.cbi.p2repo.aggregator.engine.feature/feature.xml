@@ -14,48 +14,68 @@
    <copyright>
       %copyright
    </copyright>
-   
+
    <license url="%licenseURL">
       %license
    </license>
 
+   <requires>
+      <import plugin="org.apache.felix.scr"/>
+   </requires>
+
    <plugin
          id="org.eclipse.cbi.p2repo.aggregator"
+         download-size="0"
+         install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cbi.p2repo.aggregator.engine"
+         download-size="0"
+         install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cbi.p2repo.aggregator.engine.maven"
+         download-size="0"
+         install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cbi.p2repo.util"
+         download-size="0"
+         install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cbi.p2repo.cli"
+         download-size="0"
+         install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cbi.p2repo.aggregator.legacy"
+         download-size="0"
+         install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cbi.p2repo.p2"
+         download-size="0"
+         install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cbi.p2repo.p2.maven"
+         download-size="0"
+         install-size="0"
          version="0.0.0"
          unpack="false"/>
 
