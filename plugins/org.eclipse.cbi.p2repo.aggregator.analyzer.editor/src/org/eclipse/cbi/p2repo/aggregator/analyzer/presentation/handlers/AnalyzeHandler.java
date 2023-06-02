@@ -45,6 +45,7 @@ import org.eclipse.cbi.p2repo.aggregator.Contribution;
 import org.eclipse.cbi.p2repo.aggregator.MappedRepository;
 import org.eclipse.cbi.p2repo.aggregator.MappedUnit;
 import org.eclipse.cbi.p2repo.aggregator.MavenMapping;
+import org.eclipse.cbi.p2repo.aggregator.MetadataRepositoryReference;
 import org.eclipse.cbi.p2repo.aggregator.ValidationSet;
 import org.eclipse.cbi.p2repo.aggregator.analyzer.Analysis;
 import org.eclipse.cbi.p2repo.aggregator.analyzer.AnalyzerFactory;
@@ -577,7 +578,7 @@ public class AnalyzeHandler extends BaseHandler {
 							for (MavenMapping unusedMavenMapping : mavenMappings) {
 								AggregationAnalyzerEditorPlugin.INSTANCE.log(new Status(IStatus.WARNING,
 										AggregationAnalyzerEditorPlugin.INSTANCE.getSymbolicName(),
-										"Unsed Mapping " + mavenMappingItemProvider.getText(unusedMavenMapping)));
+										"Unused Mapping " + mavenMappingItemProvider.getText(unusedMavenMapping)));
 							}
 						}
 					}
@@ -729,6 +730,35 @@ public class AnalyzeHandler extends BaseHandler {
 
 						if (!requirementResolutions.isEmpty()) {
 							System.err.println("###" + requirementResolutions);
+						}
+					}
+
+					Map<URI, ContributionAnalysis> contributionsMap = analysis.getContributions().stream()
+							.filter(it -> it.getContribution() != null)
+							.collect(Collectors.toMap(
+									it -> CommonPlugin.resolve(EcoreUtil.getURI((EObject) it.getContribution())),
+									Function.identity()));
+					Map<IInstallableUnit, InstallableUnit> usedIUsMap = usedIUs.keySet().stream()
+							.collect(Collectors.toMap(Function.identity(), InstallableUnit.class::cast));
+					for (MetadataRepositoryReference repository : builderAggregation
+							.getAllMetadataRepositoryReferences(true)) {
+						MetadataRepository metadataRepository = repository.getMetadataRepository();
+						EObject eContainer = ((EObject) repository).eContainer();
+						if (eContainer instanceof Contribution) {
+							Contribution contribution = (Contribution) eContainer;
+							ContributionAnalysis contributionAnalysis = contributionsMap
+									.get(EcoreUtil.getURI((EObject) contribution));
+
+							int index = contribution.getRepositories().indexOf(repository);
+							String location = metadataRepository.getLocation().toString();
+
+							for (IInstallableUnit iu : metadataRepository.getInstallableUnits()) {
+								InstallableUnit usedIU = usedIUsMap.get(iu);
+								if (usedIU != null) {
+									usedIU.getPropertyMap().put(contributionAnalysis.getLabel() + '[' + index + ']',
+											location);
+								}
+							}
 						}
 					}
 

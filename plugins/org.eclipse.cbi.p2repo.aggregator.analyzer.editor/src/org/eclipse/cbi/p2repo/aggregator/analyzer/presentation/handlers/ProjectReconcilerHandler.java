@@ -26,6 +26,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 import org.eclipse.cbi.p2repo.aggregator.Contribution;
 import org.eclipse.cbi.p2repo.aggregator.MappedRepository;
@@ -34,6 +35,7 @@ import org.eclipse.cbi.p2repo.aggregator.analyzer.AnalyzerFactory;
 import org.eclipse.cbi.p2repo.aggregator.analyzer.ContributionAnalysis;
 import org.eclipse.cbi.p2repo.aggregator.analyzer.GitRepository;
 import org.eclipse.cbi.p2repo.aggregator.analyzer.Project;
+import org.eclipse.cbi.p2repo.aggregator.analyzer.util.AnalyzerUtil;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.common.CommonPlugin;
@@ -126,7 +128,9 @@ public class ProjectReconcilerHandler extends BaseHandler {
 		private void compareWithOfficialList(Map<ContributionAnalysis, List<Project>> projectLinks) {
 			Set<String> projectIDs = new TreeSet<>(CommonPlugin.INSTANCE.getComparator());
 
+			Map<String, Project> projects = new TreeMap<>(CommonPlugin.INSTANCE.getComparator());
 			Map<String, String> projectVersions = new TreeMap<>(CommonPlugin.INSTANCE.getComparator());
+			Map<String, Date> projectDates = new TreeMap<>(CommonPlugin.INSTANCE.getComparator());
 			Map<String, String> projectNameIDs = new TreeMap<>(CommonPlugin.INSTANCE.getComparator());
 			for (Map.Entry<ContributionAnalysis, List<Project>> entry : projectLinks.entrySet()) {
 				Contribution contribution = entry.getKey().getContribution();
@@ -136,23 +140,28 @@ public class ProjectReconcilerHandler extends BaseHandler {
 						String projectID = project.getSite().lastSegment();
 						String projectName = project.getName();
 
+						projects.put(projectName, project);
 						projectIDs.add(projectID);
 						projectNameIDs.put(projectName, projectID);
 						projectVersions.put(projectName, version == null ? null : version.lastSegment());
+						projectDates.put(projectName, project.getReleaseDate());
 					}
 				}
 			}
 
 			System.out.println("-----------------------------");
 			for (Map.Entry<String, String> entry : projectVersions.entrySet()) {
-				System.out.println(entry.getKey() + " -> " + entry.getValue());
+				Date releaseDate = projectDates.get(entry.getKey());
+				String date = releaseDate == null ? "" : " " + AnalyzerUtil.format(releaseDate);
+				System.out.println(entry.getKey() + " -> " + entry.getValue() + date);
 			}
 
 			System.out.println("-----------------------------");
 			for (Map.Entry<String, String> entry : projectVersions.entrySet()) {
-				System.out.println(entry.getKey()
-						+ " -> https://projects.eclipse.org/projects/" + projectNameIDs.get(entry.getKey())
-						+ "/releases/" + entry.getValue());
+				Date releaseDate = projectDates.get(entry.getKey());
+				String date = releaseDate == null ? "" : " " + AnalyzerUtil.format(releaseDate);
+				System.out.println(entry.getKey() + " -> https://projects.eclipse.org/projects/"
+						+ projectNameIDs.get(entry.getKey()) + "/releases/" + entry.getValue() + date);
 			}
 
 			if (Boolean.FALSE) {
@@ -181,13 +190,15 @@ public class ProjectReconcilerHandler extends BaseHandler {
 			System.out.println("-----------------------------");
 
 			for (Map.Entry<String, String> project : projectVersions.entrySet()) {
-				if (!projectsWayne.containsKey(project.getKey())) {
-					System.out.println("++ " + project);
-				} else {
-					String value1 = project.getValue();
-					String value2 = projectsWayne.get(project.getKey());
-					if (!Objects.equals(value1, value2)) {
-						System.out.println("?? " + project.getKey() + " " + value1 + " != " + value2);
+				if (project.getKey() != null) {
+					if (!projectsWayne.containsKey(project.getKey())) {
+						System.out.println("++ " + project);
+					} else {
+						String value1 = project.getValue();
+						String value2 = projectsWayne.get(project.getKey());
+						if (!Objects.equals(value1, value2)) {
+							System.out.println("?? " + project.getKey() + " " + value1 + " != " + value2);
+						}
 					}
 				}
 			}
@@ -197,6 +208,26 @@ public class ProjectReconcilerHandler extends BaseHandler {
 					System.out.println("-- " + project);
 				}
 			}
+
+			System.out.println("-----------------------------");
+			for (Project project : projects.values()) {
+				Date releaseDate = project.getReleaseDate();
+				URI site = project.getSite();
+				URI version = project.getVersion();
+				System.out.print(" - [" + project.getName() + "](" + site + "/releases)");
+				if (version != null) {
+					System.out.print(" \u2022 [**" + version.lastSegment() + "**](" + version + ")");
+					if (releaseDate != null) {
+						String date = AnalyzerUtil.format(releaseDate);
+						if (AnalyzerUtil.getAgeInDays(releaseDate.getTime()) > 90) {
+							date = "~~" + date + "~~";
+						}
+						System.out.print(" \u2022 " + date);
+					}
+				}
+				System.out.println();
+			}
+
 		}
 
 		private Map<ContributionAnalysis, List<Project>> computeProjectLinks(IProgressMonitor monitor,
@@ -213,25 +244,27 @@ public class ProjectReconcilerHandler extends BaseHandler {
 
 				Set<String> projectIDs = getProjectIDs(contributionAnalysis);
 				for (String projectID : projectIDs) {
-					projects.add(createProject(projectID));
+					projects.add(createProject(projectID, true));
 				}
 			}
 
 			return result;
 		}
 
-		private Project createProject(String projectID) throws IOException {
+		private Project createProject(String projectID, boolean root) throws IOException {
 
 			Project project = AnalyzerFactory.eINSTANCE.createProject();
 			project.setSite(URI.createURI(ProjectMapper.ECLIPSE_PROJECT_PORTAL + projectID));
 			project.setName(projectMapper.getProjectName(projectID));
 
-			String latestReleaseURL = projectMapper.getLatestReleaseInfo(String.class, projectID);
-			if (latestReleaseURL != null) {
-				project.setVersion(URI.createURI(latestReleaseURL));
-				Date date = projectMapper.getLatestReleaseInfo(Date.class, projectID);
-				if (date != null) {
-					project.setReleaseDate(date);
+			if (root) {
+				String latestReleaseURL = projectMapper.getLatestReleaseInfo(String.class, projectID);
+				if (latestReleaseURL != null) {
+					project.setVersion(URI.createURI(latestReleaseURL));
+					Date date = projectMapper.getLatestReleaseInfo(Date.class, projectID);
+					if (date != null) {
+						project.setReleaseDate(date);
+					}
 				}
 			}
 
@@ -247,7 +280,7 @@ public class ProjectReconcilerHandler extends BaseHandler {
 				EList<Project> subprojects = project.getSubprojects();
 				Set<String> subprojectIDs = projectMapper.getSubprojects(projectID);
 				for (String subprojectID : subprojectIDs) {
-					subprojects.add(createProject(subprojectID));
+					subprojects.add(createProject(subprojectID, false));
 				}
 			}
 
@@ -335,10 +368,12 @@ public class ProjectReconcilerHandler extends BaseHandler {
 			String projects = getContent(PROJECTS);
 			for (String line : projects.split("\r?\n")) {
 				int tab = line.indexOf('\t');
-				String id = line.substring(0, tab);
-				if (!id.endsWith(".incubator")) {
-					String name = line.substring(tab + 1);
-					this.projects.put(id, name);
+				if (tab != -1) {
+					String id = line.substring(0, tab);
+					if (!id.endsWith(".incubator")) {
+						String name = line.substring(tab + 1);
+						this.projects.put(id, name);
+					}
 				}
 			}
 		}
@@ -359,9 +394,43 @@ public class ProjectReconcilerHandler extends BaseHandler {
 		public Set<String> getRepositories(String projectID) throws IOException {
 			Set<String> result = new TreeSet<>();
 			String content = getPMIContent(projectID);
+
+			String github = getGroup("github", content);
+			if (github != null) {
+				Set<String> orgs = getValues("org", github);
+				for (String org : orgs) {
+					for (int i = 1; i < 10; i++) {
+						String repos = getContent(
+								URI.createURI("https://api.github.com/orgs/" + org + "/repos?page=" + i));
+						Set<String> urls = getValues("html_url", repos);
+						urls.remove("https://github.com/" + org);
+						if (urls.isEmpty()) {
+							break;
+						}
+						result.addAll(urls);
+					}
+				}
+			}
+
 			String githubRepos = getSection("github_repos", content);
 			if (githubRepos != null) {
 				result.addAll(getValues("url", githubRepos));
+			}
+
+			String gitlab = getGroup("gitlab", content);
+			if (gitlab != null) {
+				Set<String> groups = getValues("project_group", gitlab);
+				for (String group : groups) {
+					for (int i = 1; i < 10; i++) {
+						String repos = getContent(URI.createURI("https://gitlab.eclipse.org/api/v4/groups/"
+								+ group.replace("/", "%2f") + "?page=" + i));
+						Set<String> urls = getValues("http_url_to_repo", repos);
+						if (!result.addAll(
+								urls.stream().map(it -> it.replaceAll("\\.git$", "")).collect(Collectors.toList()))) {
+							break;
+						}
+					}
+				}
 			}
 
 			String gitlabRepos = getSection("gitlab_repos", content);
@@ -369,13 +438,18 @@ public class ProjectReconcilerHandler extends BaseHandler {
 				result.addAll(getValues("url", gitlabRepos));
 			}
 
-			String gerritRepos = getSection("gerrit_repos", content);
-			if (gerritRepos != null) {
-				result.addAll(getValues("url", gerritRepos));
+			result.removeIf(it -> it.endsWith("/.github") || it.contains("www.eclipse.org") || it.endsWith(".incubator")
+					|| it.endsWith("-website") || it.endsWith(".github.io"));
+
+			if (result.isEmpty()) {
+				String gerritRepos = getSection("gerrit_repos", content);
+				if (gerritRepos != null) {
+					result.addAll(getValues("url", gerritRepos));
+					result.removeIf(it -> it.endsWith("/.github") || it.contains("www.eclipse.org")
+							|| it.endsWith(".incubator") || it.endsWith("-website") || it.endsWith(".github.io"));
+				}
 			}
 
-			result.removeIf(
-					it -> it.endsWith("/.github") || it.contains("www.eclipse.org") || it.endsWith(".incubator"));
 			return result;
 		}
 
@@ -415,6 +489,16 @@ public class ProjectReconcilerHandler extends BaseHandler {
 						}
 					}
 				}
+			}
+			return null;
+		}
+
+		private String getGroup(String key, String content) {
+			// {{
+			Pattern pattern = Pattern.compile('"' + key + "\":\\{([^}]*)\\}"); // }
+			Matcher matcher = pattern.matcher(content);
+			if (matcher.find()) {
+				return matcher.group(1);
 			}
 			return null;
 		}

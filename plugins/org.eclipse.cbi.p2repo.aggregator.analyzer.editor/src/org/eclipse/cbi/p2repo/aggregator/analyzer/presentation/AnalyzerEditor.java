@@ -622,6 +622,8 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 
 	private TreeViewer namespaceViewer;
 
+	private TreeViewer packageViewer;
+
 	private TreeViewer mavenViewer;
 
 	private GraphViewer graphViewer;
@@ -1207,6 +1209,7 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 		dependentIUsViewer = createDependentIUsViewer();
 		requiredIUsViewer = createRequiredIUsViewer();
 		namespaceViewer = createNamespaceViewer();
+		packageViewer = createPackageViewer();
 		mavenViewer = createViewerWithBreadcrumb(composite -> createMavenViewer(composite));
 		repositoryViewer = createRepositoryReviewer();
 		graphViewer = createGraphViewer();
@@ -1225,6 +1228,7 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 						analysisViewer.setInput(resource);
 						analysisViewer.setSelection(new StructuredSelection(resource.getContents().get(0)));
 						namespaceViewer.setInput(resource);
+						packageViewer.setInput(resource);
 						graphViewer.setInput(resource);
 						if (analyzer.getAndSet(null) != null) {
 							setActivePage(analysisViewer);
@@ -1655,6 +1659,176 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 			}
 		});
 		return createTreeViewer(getContainer(), "Aggregated Repository", null, null);
+	}
+
+	protected TreeViewer createPackageViewer() {
+		TreeViewer packageViewer = createTreeViewer(getContainer(), "Packages", null, null);
+		packageViewer.setAutoExpandLevel(3);
+
+		showInActionFactories.add(selection -> new ShowInAction("Packages", selection, packageViewer) {
+			@Override
+			protected void handleSelection(Object element) {
+				if (element instanceof ContributionAnalysis || element instanceof InstallableUnitAnalysis
+						|| element instanceof IUPresentation || element instanceof IInstallableUnit) {
+					setTarget(element);
+				}
+			}
+		});
+
+		AnalyzerItemProviderAdapterFactory analyzerItemProviderAdapterFactory = new AnalyzerItemProviderAdapterFactory() {
+			@Override
+			public Adapter createContributionAnalysisAdapter() {
+				return new ContributionAnalysisItemProvider(this) {
+					private List<ItemProvider> children;
+
+					@Override
+					public Collection<?> getChildren(Object object) {
+						if (children == null) {
+							Map<String, Set<CapabilityAnalysis>> javaPackages = new TreeMap<>();
+							ContributionAnalysis contributionAnalysis = (ContributionAnalysis) object;
+							for (InstallableUnitAnalysis iu : contributionAnalysis.getInstallableUnits()) {
+								for (CapabilityAnalysis capabilityAnalysis : iu.getCapabilities()) {
+									IProvidedCapability capability = capabilityAnalysis.getCapability();
+									if ("java.package".equals(capability.getNamespace())) {
+										javaPackages.computeIfAbsent(capability.getName(), key -> new LinkedHashSet<>())
+												.add(capabilityAnalysis);
+									}
+								}
+							}
+
+							Set<SegmentSequence> shortNamespaces = new LinkedHashSet<>();
+							Set<SegmentSequence> namespaces = new LinkedHashSet<>();
+							Set<SegmentSequence> longIDs = Set.of(SegmentSequence.create(".", "org.eclipse.emf"));
+							List<SegmentSequence> ids = javaPackages.keySet().stream()
+									.map(it -> SegmentSequence.create(".", it)).collect(Collectors.toList());
+							for (SegmentSequence id : ids) {
+								int segmentCount = id.segmentCount();
+								if (segmentCount >= 3) {
+									SegmentSequence prefix = getPrefix(id, 3);
+									if (namespaces.add(prefix) || longIDs.contains(prefix)) {
+										if (segmentCount > 3) {
+											if (longIDs.contains(prefix) && !ids.contains(prefix)) {
+												shortNamespaces.add(prefix);
+												namespaces.add(getPrefix(id, 4));
+											} else {
+												String nextSegment = id.segment(3);
+												boolean hasCommonNextSegment = true;
+												for (SegmentSequence otherID : ids) {
+													int otherSegmentCount = otherID.segmentCount();
+													if (otherSegmentCount >= 3) {
+														SegmentSequence otherPrefix = getPrefix(otherID, 3);
+														if (otherPrefix.equals(prefix)) {
+															if (otherSegmentCount == 3
+																	|| !otherID.segment(3).equals(nextSegment)) {
+																hasCommonNextSegment = false;
+																break;
+															}
+														}
+													}
+												}
+												if (hasCommonNextSegment) {
+													shortNamespaces.add(prefix);
+													namespaces.add(getPrefix(id, 4));
+												}
+											}
+										}
+									}
+								} else {
+									namespaces.add(id);
+								}
+							}
+
+							namespaces.removeAll(shortNamespaces);
+
+							children = namespaces.stream().map(namespace -> {
+								int segmentCount = namespace.segmentCount();
+								List<ItemProvider> children = javaPackages.entrySet().stream().filter(entry -> {
+									SegmentSequence id = SegmentSequence.create(".", entry.getKey());
+									return id.segmentCount() >= segmentCount
+											&& getPrefix(id, segmentCount).equals(namespace);
+								}).map(Map.Entry::getValue).flatMap(Collection::stream).map(capability -> {
+									AdapterFactoryItemDelegator itemDelegator = getItemDelegator();
+									IProvidedCapability providedCapability = capability.getCapability();
+									String contributingID = capability.getInstallableUnit().getInstallableUnit()
+											.getId();
+									Set<CapabilityAnalysis> others = javaPackages
+											.get(capability.getCapability().getName());
+									Set<CapabilityAnalysis> contributors = others.stream()
+											.filter(it -> it.getCapability().equals(providedCapability)
+													&& !contributingID
+															.equals(it.getInstallableUnit().getInstallableUnit()
+																	.getId()))
+											.collect(Collectors.toSet());
+									if (contributors.size() > 1) {
+										System.err.println("###" + capability.getCapability());
+									}
+									class MyItemProvider extends ItemProvider implements IWrapperItemProvider {
+										public MyItemProvider() {
+											super(itemDelegator.getText(capability) + " \u2190 "
+													+ itemDelegator.getText(capability.getInstallableUnit())
+													+ (contributors.size() > 1 ? " **" : ""),
+													itemDelegator.getImage(capability));
+										}
+
+										@Override
+										public Object getValue() {
+											return capability;
+										}
+
+										@Override
+										public Object getOwner() {
+											return object;
+										}
+
+										@Override
+										public EStructuralFeature getFeature() {
+											return null;
+										}
+
+										@Override
+										public int getIndex() {
+											return 0;
+										}
+
+										@Override
+										public void setIndex(int index) {
+
+										}
+									}
+									return new MyItemProvider();
+								}).collect(Collectors.toList());
+
+								Comparator<String> comparator = CommonPlugin.INSTANCE.getComparator();
+								children.sort((i1, i2) -> comparator.compare(i1.getText(), i2.getText()));
+
+								return new ItemProvider(adapterFactory, namespace.toString(),
+										ExtendedImageRegistry.INSTANCE
+												.getImageDescriptor(AggregationAnalyzerEditorPlugin.INSTANCE
+														.getImage("full/obj16/namespace")),
+										contributionAnalysis, children);
+							}).collect(Collectors.toList());
+
+							Comparator<String> comparator = CommonPlugin.INSTANCE.getComparator();
+
+							children.sort((i1, i2) -> comparator.compare(i1.getText(), i2.getText()));
+						}
+						return children;
+					}
+				};
+			}
+
+			private SegmentSequence getPrefix(SegmentSequence id, int length) {
+				return SegmentSequence.create(".", id.subSegments(0, length));
+			}
+		};
+
+		ComposedAdapterFactory composedAdapterFactory = new ComposedAdapterFactory(
+				new AdapterFactory[] { analyzerItemProviderAdapterFactory, adapterFactory });
+		packageViewer.setContentProvider(new AdapterFactoryContentProvider(composedAdapterFactory));
+		packageViewer
+				.setLabelProvider(new AdapterFactoryLabelProvider.ColorProvider(composedAdapterFactory, packageViewer));
+
+		return packageViewer;
 	}
 
 	protected TreeViewer createNamespaceViewer() {
