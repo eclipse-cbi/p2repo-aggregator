@@ -102,21 +102,25 @@ public class CategoriesGenerator extends BuilderPhase {
 		cat.setId(categoryId);
 
 		Map<String, String> props = cat.getPropertyMap().map();
-		props.put(IInstallableUnit.PROP_NAME, category.getLabel());
-		props.put(IInstallableUnit.PROP_DESCRIPTION, category.getDescription());
+		if (category.getLabel() != null) {
+			props.put(IInstallableUnit.PROP_NAME, category.getLabel());
+		}
+		if (category.getDescription() != null) {
+			props.put(IInstallableUnit.PROP_DESCRIPTION, category.getDescription());
+		}
 		props.put(InstallableUnitDescription.PROP_TYPE_CATEGORY, "true"); //$NON-NLS-1$
 
 		List<Feature> features = category.getFeatures();
 		List<IRequirement> rcs = cat.getRequirements();
 		List<VersionedId> includedBundles = new ArrayList<VersionedId>();
 		List<VersionedId> includedFeatures = new ArrayList<VersionedId>();
-		for(Feature feature : features) {
-			if(!feature.isBranchEnabled())
+		for (Feature feature : features) {
+			if (!feature.isBranchEnabled())
 				continue;
 
 			rcs.add(P2Bridge.importToModel(feature.getRequirement()));
 			VersionedId vn = new VersionedId(feature.getName(), feature.getVersionRange().getMinimum());
-			if(vn.getId().endsWith(Builder.FEATURE_GROUP_SUFFIX))
+			if (vn.getId().endsWith(Builder.FEATURE_GROUP_SUFFIX))
 				includedFeatures.add(vn);
 			else
 				includedBundles.add(vn);
