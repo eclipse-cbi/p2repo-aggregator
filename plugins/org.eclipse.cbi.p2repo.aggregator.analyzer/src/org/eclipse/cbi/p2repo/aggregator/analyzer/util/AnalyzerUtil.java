@@ -60,8 +60,11 @@ public final class AnalyzerUtil {
 	}
 
 	public static float getAgeInDays(long lastModified) {
-		long now = System.currentTimeMillis();
-		long ageInMillis = Math.max(0, now - lastModified);
+		return getAgeInDays(lastModified, System.currentTimeMillis());
+	}
+
+	public static float getAgeInDays(long lastModified, long relativeTo) {
+		long ageInMillis = Math.max(0, relativeTo - lastModified);
 		float ageInDays = ((float) ageInMillis) / 1000 / 60 / 60 / 24;
 		return ageInDays;
 	}

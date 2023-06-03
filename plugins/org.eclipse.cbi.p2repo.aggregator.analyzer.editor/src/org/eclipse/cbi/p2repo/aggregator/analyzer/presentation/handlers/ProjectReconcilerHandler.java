@@ -219,7 +219,7 @@ public class ProjectReconcilerHandler extends BaseHandler {
 					System.out.print(" \u2022 [**" + version.lastSegment() + "**](" + version + ")");
 					if (releaseDate != null) {
 						String date = AnalyzerUtil.format(releaseDate);
-						if (AnalyzerUtil.getAgeInDays(releaseDate.getTime()) > 90) {
+						if (AnalyzerUtil.getAgeInDays(releaseDate.getTime(), projectMapper.versionCutoffTime) > 90) {
 							date = "~~" + date + "~~";
 						}
 						System.out.print(" \u2022 " + date);
@@ -417,6 +417,16 @@ public class ProjectReconcilerHandler extends BaseHandler {
 				result.addAll(getValues("url", githubRepos));
 			}
 
+			cleanupRepos(result);
+
+			if (result.isEmpty()) {
+				String gerritRepos = getSection("gerrit_repos", content);
+				if (gerritRepos != null) {
+					result.addAll(getValues("url", gerritRepos));
+					cleanupRepos(result);
+				}
+			}
+
 			String gitlab = getGroup("gitlab", content);
 			if (gitlab != null) {
 				Set<String> groups = getValues("project_group", gitlab);
@@ -436,21 +446,15 @@ public class ProjectReconcilerHandler extends BaseHandler {
 			String gitlabRepos = getSection("gitlab_repos", content);
 			if (githubRepos != null) {
 				result.addAll(getValues("url", gitlabRepos));
-			}
-
-			result.removeIf(it -> it.endsWith("/.github") || it.contains("www.eclipse.org") || it.endsWith(".incubator")
-					|| it.endsWith("-website") || it.endsWith(".github.io"));
-
-			if (result.isEmpty()) {
-				String gerritRepos = getSection("gerrit_repos", content);
-				if (gerritRepos != null) {
-					result.addAll(getValues("url", gerritRepos));
-					result.removeIf(it -> it.endsWith("/.github") || it.contains("www.eclipse.org")
-							|| it.endsWith(".incubator") || it.endsWith("-website") || it.endsWith(".github.io"));
-				}
+				cleanupRepos(result);
 			}
 
 			return result;
+		}
+
+		private void cleanupRepos(Set<String> repos) {
+			repos.removeIf(it -> it.endsWith("/.github") || it.contains("www.eclipse.org") || it.endsWith(".incubator")
+					|| it.endsWith("-website") || it.endsWith(".github.io"));
 		}
 
 		public <T> T getLatestReleaseInfo(Class<T> type, String projectID) throws IOException {
