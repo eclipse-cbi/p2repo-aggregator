@@ -104,21 +104,19 @@ public class AggregatorResourceImpl extends XMIResourceImpl implements Aggregato
 
 		if (object instanceof InfosProvider) {
 			InfosProvider iProvider = (InfosProvider) object;
+			String objectURI = EcoreUtil.getURI(object).toString();
 
 			for (String error : iProvider.getErrors())
-				getErrors().add(new ResourceDiagnosticImpl(error, EcoreUtil.getURI(object).toString()));
+				getErrors().add(new ResourceDiagnosticImpl(error, objectURI));
 
 			for (String warning : iProvider.getWarnings())
-				getWarnings().add(new ResourceDiagnosticImpl(warning, EcoreUtil.getURI(object).toString()));
+				getWarnings().add(new ResourceDiagnosticImpl(warning, objectURI));
 
 			for (String info : iProvider.getInfos())
-				getInfos().add(new ResourceDiagnosticImpl(info, EcoreUtil.getURI(object).toString()));
+				getInfos().add(new ResourceDiagnosticImpl(info, objectURI));
 		}
 
-		if (object.eContents() == null)
-			return;
-
-		for (EObject childObject : object.eContents())
+		for (EObject childObject : object.eContents().toArray(EObject[]::new))
 			analyze(childObject);
 	}
 

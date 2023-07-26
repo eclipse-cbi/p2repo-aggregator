@@ -1552,7 +1552,7 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 			protected void handleSelection(Object element) {
 				if (element instanceof IInstallableUnit || element instanceof ContributionAnalysis
 						|| element instanceof InstallableUnitAnalysis || element instanceof RequirementAnalysis
-						|| element instanceof CapabilityAnalysis) {
+						|| element instanceof CapabilityAnalysis || element instanceof CapabilityResolution) {
 					setTarget(element);
 				} else if (element instanceof IUPresentation) {
 					setTarget(((IUPresentation) element).getInstallableUnit());
@@ -1759,9 +1759,6 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 															.equals(it.getInstallableUnit().getInstallableUnit()
 																	.getId()))
 											.collect(Collectors.toSet());
-									if (contributors.size() > 1) {
-										System.err.println("###" + capability.getCapability());
-									}
 									class MyItemProvider extends ItemProvider implements IWrapperItemProvider {
 										public MyItemProvider() {
 											super(itemDelegator.getText(capability) + " \u2190 "

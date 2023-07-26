@@ -132,7 +132,6 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
-import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.StructuredViewer;
@@ -1872,7 +1871,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void hideTabsGen() {
+	protected void hideTabs() {
 		if (getPageCount() <= 1) {
 			setPageText(0, "");
 			if (getContainer() instanceof CTabFolder) {
@@ -1880,15 +1879,6 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 				Rectangle clientArea = getContainer().getClientArea();
 				getContainer().setSize(point.x, 2 * point.y - clientArea.height - clientArea.y);
 			}
-		}
-	}
-
-	protected void hideTabs() {
-		hideTabsGen();
-		Object[] elements = ((ITreeContentProvider) selectionViewer.getContentProvider())
-				.getElements(selectionViewer.getInput());
-		if (elements.length != 0 && elements[0] instanceof Aggregation) {
-			selectionViewer.setSelection(new StructuredSelection(elements[0]));
 		}
 	}
 

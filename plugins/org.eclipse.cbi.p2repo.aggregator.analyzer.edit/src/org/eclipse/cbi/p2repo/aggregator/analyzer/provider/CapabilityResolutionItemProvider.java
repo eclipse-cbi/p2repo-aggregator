@@ -22,6 +22,7 @@ import org.eclipse.cbi.p2repo.p2.util.P2Utils;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.edit.provider.AdapterFactoryItemDelegator;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemColorProvider;
@@ -104,10 +105,7 @@ public class CapabilityResolutionItemProvider extends AnalyzerItemProviderAdapte
 		RequirementAnalysis requirementAnalysis = capabilityResolution.getRequirement();
 		if (requirementAnalysis != null) {
 			IRequirement requirement = requirementAnalysis.getRequirement();
-			if (requirement instanceof IRequiredCapability) {
-				IRequiredCapability requiredCapability = (IRequiredCapability) requirement;
-				P2Utils.versionRangeToString(requiredCapability.getRange());
-			}
+			return overlayImage(object, new AdapterFactoryItemDelegator(getRootAdapterFactory()).getImage(requirement));
 		}
 
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/CapabilityResolution"));

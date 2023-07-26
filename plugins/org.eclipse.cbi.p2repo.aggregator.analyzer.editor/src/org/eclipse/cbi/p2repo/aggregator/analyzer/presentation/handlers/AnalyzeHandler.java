@@ -445,11 +445,18 @@ public class AnalyzeHandler extends BaseHandler {
 				for (CapabilityResolution capabilityResolution : resolutions) {
 					RequirementAnalysis requirement = capabilityResolution.getRequirement();
 					EList<RequirementResolution> resolutions2 = requirement.getResolutions();
+					boolean hasNonOptionalResolution = false;
 					for (RequirementResolution requirementResolution : resolutions2) {
 						if (requirementResolution.getInstallableUnit() != element) {
 							toRemove.add(capabilityResolution);
 							break;
+						} else if (requirementResolution.getRequirement().getRequirement().getMin() != 0) {
+							hasNonOptionalResolution = true;
 						}
+					}
+
+					if (!hasNonOptionalResolution) {
+						toRemove.add(capabilityResolution);
 					}
 				}
 

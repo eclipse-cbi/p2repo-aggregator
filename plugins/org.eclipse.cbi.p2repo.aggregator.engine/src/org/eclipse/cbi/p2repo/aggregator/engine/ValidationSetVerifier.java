@@ -135,164 +135,173 @@ public class ValidationSetVerifier extends BuilderPhase {
 					plannerStatus.getException());
 			this.plannerStatus = plannerStatus;
 
-			RequestStatus requestStatus = plannerStatus.getRequestStatus();
-			if (requestStatus == null)
-				return;
+			try {
+				RequestStatus requestStatus = plannerStatus.getRequestStatus();
+				if (requestStatus == null)
+					return;
 
-			Set<Explanation> explanations = requestStatus.getExplanations();
-			if (explanations == null)
-				return;
+				Set<Explanation> explanations = requestStatus.getExplanations();
+				if (explanations == null)
+					return;
 
-			// The set of the root problem explanations
-			LinkedHashSet<Explanation> rootProblems = new LinkedHashSet<Explanation>();
+				// The set of the root problem explanations
+				LinkedHashSet<Explanation> rootProblems = new LinkedHashSet<Explanation>();
 
-			// The map of dependency chain explanations
-			HashMap<IInstallableUnit, HashSet<IRequirement>> links = new HashMap<IInstallableUnit, HashSet<IRequirement>>();
+				// The map of dependency chain explanations
+				HashMap<IInstallableUnit, HashSet<IRequirement>> links = new HashMap<IInstallableUnit, HashSet<IRequirement>>();
 
-			for (Explanation explanation : explanations) {
-				if (explanation instanceof HardRequirement) {
-					// This represents one link in the chain of dependencies from the root requirement
-					// (the verification IU) to the conflicting/missing IU
-					HardRequirement link = (HardRequirement) explanation;
-					HashSet<IRequirement> requirementSet = links.get(link.iu);
-					if (requirementSet == null) {
-						requirementSet = new HashSet<IRequirement>();
-						links.put(link.iu, requirementSet);
-					}
+				for (Explanation explanation : explanations) {
+					if (explanation instanceof HardRequirement) {
+						// This represents one link in the chain of dependencies from the root requirement
+						// (the verification IU) to the conflicting/missing IU
+						HardRequirement link = (HardRequirement) explanation;
+						HashSet<IRequirement> requirementSet = links.get(link.iu);
+						if (requirementSet == null) {
+							requirementSet = new HashSet<IRequirement>();
+							links.put(link.iu, requirementSet);
+						}
 
-					requirementSet.add(link.req);
-				} else if (explanation instanceof PatchedHardRequirement) {
-					// This represents one link in the chain of dependencies from the root requirement
-					// (the verification IU) to the conflicting/missing IU
-					PatchedHardRequirement link = (PatchedHardRequirement) explanation;
-					HashSet<IRequirement> requirementSet = links.get(link.iu);
-					if (requirementSet == null) {
-						requirementSet = new HashSet<IRequirement>();
-						links.put(link.iu, requirementSet);
-					}
+						requirementSet.add(link.req);
+					} else if (explanation instanceof PatchedHardRequirement) {
+						// This represents one link in the chain of dependencies from the root requirement
+						// (the verification IU) to the conflicting/missing IU
+						PatchedHardRequirement link = (PatchedHardRequirement) explanation;
+						HashSet<IRequirement> requirementSet = links.get(link.iu);
+						if (requirementSet == null) {
+							requirementSet = new HashSet<IRequirement>();
+							links.put(link.iu, requirementSet);
+						}
 
-					for (IRequirementChange change : link.patch.getRequirementsChange()) {
-						if (change.newValue().equals(link.req)) {
-							for (IRequirement r : link.iu.getRequirements()) {
-								if (r instanceof IRequiredCapability && change.matches((IRequiredCapability) r))
-									requirementSet.add(r);
+						for (IRequirementChange change : link.patch.getRequirementsChange()) {
+							if (change.newValue().equals(link.req)) {
+								for (IRequirement r : link.iu.getRequirements()) {
+									if (r instanceof IRequiredCapability && change.matches((IRequiredCapability) r))
+										requirementSet.add(r);
+								}
 							}
 						}
-					}
 
-					requirementSet = links.get(link.patch);
-					if (requirementSet == null) {
-						requirementSet = new HashSet<IRequirement>();
-						links.put(link.patch, requirementSet);
-					}
-					requirementSet.add(link.req);
-				} else if (explanation instanceof MissingIU || explanation instanceof MissingGreedyIU
-						|| explanation instanceof Singleton)
-					// MissingIU means we have a missing dependency problem
-					// Singleton means we have a dependency version conflict problem
-					rootProblems.add(explanation);
-			}
+						requirementSet = links.get(link.patch);
+						if (requirementSet == null) {
+							requirementSet = new HashSet<IRequirement>();
+							links.put(link.patch, requirementSet);
+						}
+						requirementSet.add(link.req);
+					} else if (explanation instanceof MissingIU || explanation instanceof MissingGreedyIU
+							|| explanation instanceof Singleton)
+						// MissingIU means we have a missing dependency problem
+						// Singleton means we have a dependency version conflict problem
+						rootProblems.add(explanation);
+				}
 
-			// a cache of IInstallableUnit parents
-			HashMap<IInstallableUnit, VerificationDiagnostic.DependencyLink> dependencyChainsCache = new HashMap<IInstallableUnit, VerificationDiagnostic.DependencyLink>();
-			for (Explanation rootProblem : rootProblems) {
-				if (rootProblem instanceof Singleton) {
-					IInstallableUnit[] ius = ((Singleton) rootProblem).ius;
-					LinkedHashSet<VerificationDiagnostic.DependencyLink> dependencyChains = new LinkedHashSet<VerificationDiagnostic.DependencyLink>(
-							ius.length);
+				// a cache of IInstallableUnit parents
+				HashMap<IInstallableUnit, VerificationDiagnostic.DependencyLink> dependencyChainsCache = new HashMap<IInstallableUnit, VerificationDiagnostic.DependencyLink>();
+				for (Explanation rootProblem : rootProblems) {
+					if (rootProblem instanceof Singleton) {
+						IInstallableUnit[] ius = ((Singleton) rootProblem).ius;
+						LinkedHashSet<VerificationDiagnostic.DependencyLink> dependencyChains = new LinkedHashSet<VerificationDiagnostic.DependencyLink>(
+								ius.length);
 
-					for (IInstallableUnit iu : ius) {
-						dependencyChains.add(getDependencyChain(iu, links, dependencyChainsCache));
-					}
-					// just in case we failed to construct some dependency chain
-					dependencyChains.remove(null);
+						for (IInstallableUnit iu : ius) {
+							dependencyChains.add(getDependencyChain(iu, links, dependencyChainsCache));
+						}
+						// just in case we failed to construct some dependency chain
+						dependencyChains.remove(null);
 
-					org.eclipse.emf.common.util.URI resourceURI = resource.getURI();
-					LinkedHashSet<org.eclipse.emf.common.util.URI> modelElementURISet = new LinkedHashSet<org.eclipse.emf.common.util.URI>(
-							dependencyChains.size());
-					StringBuilder messageBuilder = getRootProblemMessage(rootProblem);
-
-					for (VerificationDiagnostic.DependencyLink dependencyChain : dependencyChains) {
-						VerificationDiagnostic.identifyDependencyChain(dependencyChain, resource, "\n", MESSAGE_INDENT);
-
-						modelElementURISet.add(dependencyChain.getModelElementURI().deresolve(resourceURI));
-
-						messageBuilder.append('\n');
-						InstallableUnitUtils.appendIdentifier(messageBuilder, dependencyChain.getInstallableUnit());
-						messageBuilder.append(" is required by:");
-
-						VerificationDiagnostic.DependencyLink parent = dependencyChain.getParent();
-						if (parent != null)
-							messageBuilder.append(parent.getIdentifier());
-					}
-
-					String message = messageBuilder.toString();
-					LogUtils.error(message);
-					add(new Status(IStatus.ERROR, plannerStatus.getPlugin(), message));
-
-					// just in case we could not find URI of a model element corresponding to some of the dependency chains
-					modelElementURISet.remove(null);
-
-					VerificationDiagnostic.Singleton[] relatedDiagnostics = new VerificationDiagnostic.Singleton[modelElementURISet
-							.size()];
-					int i = 0;
-					for (org.eclipse.emf.common.util.URI modelElementURI : modelElementURISet) {
-						VerificationDiagnostic.Singleton singleton = new VerificationDiagnostic.Singleton(rootProblem,
-								modelElementURI, relatedDiagnostics);
-						relatedDiagnostics[i++] = singleton;
-						verificationDiagnostics.add(singleton);
-					}
-				} else if (rootProblem instanceof MissingIU) {
-					MissingIU missingIU = ((MissingIU) rootProblem);
-					VerificationDiagnostic.DependencyLink dependencyChain = getDependencyChain(missingIU.iu, links,
-							dependencyChainsCache);
-
-					if (dependencyChain != null) {
-						VerificationDiagnostic.identifyDependencyChain(dependencyChain, resource, "\n", MESSAGE_INDENT);
+						org.eclipse.emf.common.util.URI resourceURI = resource.getURI();
+						LinkedHashSet<org.eclipse.emf.common.util.URI> modelElementURISet = new LinkedHashSet<org.eclipse.emf.common.util.URI>(
+								dependencyChains.size());
 						StringBuilder messageBuilder = getRootProblemMessage(rootProblem);
 
-						messageBuilder.append('\n');
-						InstallableUnitUtils.appendIdentifier(messageBuilder, missingIU.req);
-						messageBuilder.append(" is required by:");
-						messageBuilder.append(dependencyChain.getIdentifier());
+						for (VerificationDiagnostic.DependencyLink dependencyChain : dependencyChains) {
+							VerificationDiagnostic.identifyDependencyChain(dependencyChain, resource, "\n",
+									MESSAGE_INDENT);
+
+							modelElementURISet.add(dependencyChain.getModelElementURI().deresolve(resourceURI));
+
+							messageBuilder.append('\n');
+							InstallableUnitUtils.appendIdentifier(messageBuilder, dependencyChain.getInstallableUnit());
+							messageBuilder.append(" is required by:");
+
+							VerificationDiagnostic.DependencyLink parent = dependencyChain.getParent();
+							if (parent != null)
+								messageBuilder.append(parent.getIdentifier());
+						}
 
 						String message = messageBuilder.toString();
 						LogUtils.error(message);
 						add(new Status(IStatus.ERROR, plannerStatus.getPlugin(), message));
 
-						org.eclipse.emf.common.util.URI modelElementURI = dependencyChain.getModelElementURI();
+						// just in case we could not find URI of a model element corresponding to some of the dependency chains
+						modelElementURISet.remove(null);
 
-						if (modelElementURI != null)
-							verificationDiagnostics.add(new VerificationDiagnostic(rootProblem.toString(),
-									dependencyChain.getModelElementURI().deresolve(resource.getURI())));
+						VerificationDiagnostic.Singleton[] relatedDiagnostics = new VerificationDiagnostic.Singleton[modelElementURISet
+								.size()];
+						int i = 0;
+						for (org.eclipse.emf.common.util.URI modelElementURI : modelElementURISet) {
+							VerificationDiagnostic.Singleton singleton = new VerificationDiagnostic.Singleton(
+									rootProblem, modelElementURI, relatedDiagnostics);
+							relatedDiagnostics[i++] = singleton;
+							verificationDiagnostics.add(singleton);
+						}
+					} else if (rootProblem instanceof MissingIU) {
+						MissingIU missingIU = ((MissingIU) rootProblem);
+						VerificationDiagnostic.DependencyLink dependencyChain = getDependencyChain(missingIU.iu, links,
+								dependencyChainsCache);
+
+						if (dependencyChain != null) {
+							VerificationDiagnostic.identifyDependencyChain(dependencyChain, resource, "\n",
+									MESSAGE_INDENT);
+							StringBuilder messageBuilder = getRootProblemMessage(rootProblem);
+
+							messageBuilder.append('\n');
+							InstallableUnitUtils.appendIdentifier(messageBuilder, missingIU.req);
+							messageBuilder.append(" is required by:");
+							messageBuilder.append(dependencyChain.getIdentifier());
+
+							String message = messageBuilder.toString();
+							LogUtils.error(message);
+							add(new Status(IStatus.ERROR, plannerStatus.getPlugin(), message));
+
+							org.eclipse.emf.common.util.URI modelElementURI = dependencyChain.getModelElementURI();
+
+							if (modelElementURI != null)
+								verificationDiagnostics.add(new VerificationDiagnostic(rootProblem.toString(),
+										dependencyChain.getModelElementURI().deresolve(resource.getURI())));
+						}
+					} else if (rootProblem instanceof MissingGreedyIU) {
+						MissingGreedyIU missingGreedyIU = ((MissingGreedyIU) rootProblem);
+						VerificationDiagnostic.DependencyLink dependencyChain = getDependencyChain(missingGreedyIU.iu,
+								links, dependencyChainsCache);
+
+						if (dependencyChain != null) {
+							VerificationDiagnostic.identifyDependencyChain(dependencyChain, resource, "\n",
+									MESSAGE_INDENT);
+							StringBuilder messageBuilder = getRootProblemMessage(rootProblem);
+
+							messageBuilder.append('\n');
+							InstallableUnitUtils.appendIdentifier(messageBuilder, missingGreedyIU.iu);
+							messageBuilder.append(" is required by:");
+
+							VerificationDiagnostic.DependencyLink parent = dependencyChain.getParent();
+							if (parent != null)
+								messageBuilder.append(parent.getIdentifier());
+
+							String message = messageBuilder.toString();
+							LogUtils.error(message);
+							add(new Status(IStatus.ERROR, plannerStatus.getPlugin(), message));
+
+							org.eclipse.emf.common.util.URI modelElementURI = dependencyChain.getModelElementURI();
+
+							if (modelElementURI != null)
+								verificationDiagnostics.add(new VerificationDiagnostic(rootProblem.toString(),
+										dependencyChain.getModelElementURI().deresolve(resource.getURI())));
+						}
 					}
-				} else if (rootProblem instanceof MissingGreedyIU) {
-					MissingGreedyIU missingGreedyIU = ((MissingGreedyIU) rootProblem);
-					VerificationDiagnostic.DependencyLink dependencyChain = getDependencyChain(missingGreedyIU.iu,
-							links, dependencyChainsCache);
-
-					if (dependencyChain != null) {
-						VerificationDiagnostic.identifyDependencyChain(dependencyChain, resource, "\n", MESSAGE_INDENT);
-						StringBuilder messageBuilder = getRootProblemMessage(rootProblem);
-
-						messageBuilder.append('\n');
-						InstallableUnitUtils.appendIdentifier(messageBuilder, missingGreedyIU.iu);
-						messageBuilder.append(" is required by:");
-
-						VerificationDiagnostic.DependencyLink parent = dependencyChain.getParent();
-						if (parent != null)
-							messageBuilder.append(parent.getIdentifier());
-
-						String message = messageBuilder.toString();
-						LogUtils.error(message);
-						add(new Status(IStatus.ERROR, plannerStatus.getPlugin(), message));
-
-						org.eclipse.emf.common.util.URI modelElementURI = dependencyChain.getModelElementURI();
-
-						if (modelElementURI != null)
-							verificationDiagnostics.add(new VerificationDiagnostic(rootProblem.toString(),
-									dependencyChain.getModelElementURI().deresolve(resource.getURI())));
-					}
+				}
+			} finally {
+				if (getChildren().length == 0) {
+					add(plannerStatus);
 				}
 			}
 		}

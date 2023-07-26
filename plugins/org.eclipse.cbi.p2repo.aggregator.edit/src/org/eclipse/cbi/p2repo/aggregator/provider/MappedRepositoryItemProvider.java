@@ -17,6 +17,7 @@ import java.util.List;
 
 import org.eclipse.cbi.p2repo.aggregator.AggregatorFactory;
 import org.eclipse.cbi.p2repo.aggregator.AggregatorPackage;
+import org.eclipse.cbi.p2repo.aggregator.ChildrenProvider;
 import org.eclipse.cbi.p2repo.aggregator.CustomCategory;
 import org.eclipse.cbi.p2repo.aggregator.Feature;
 import org.eclipse.cbi.p2repo.aggregator.MappedRepository;
@@ -143,21 +144,35 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 
 	@SuppressWarnings("unchecked")
 	private Command createAddIUsToMappedRepositoryCommand(Object owner, Collection<?> collection, int operation) {
-		ItemSorter itemSorter = new ItemSorter(collection);
+		if (collection != null) {
+			List<Object> expandedCollection = new ArrayList<>();
+			for (Object object : collection) {
+				if (object instanceof ChildrenProvider<?>) {
+					expandedCollection.addAll(((ChildrenProvider<?>) object).getChildren());
+				} else {
+					expandedCollection.add(object);
+				}
+			}
 
-		if (((MappedRepository) owner).isEnabled() && itemSorter.getTotalItemCount() > 0
-				&& (itemSorter.getTotalItemCount() == itemSorter.getGroupItems(ItemGroup.IU).size()
-						&& ItemUtils.haveSameLocation((MappedRepository) owner,
-								(List<InstallableUnit>) itemSorter.getGroupItems(ItemGroup.IU))
-						|| itemSorter.getTotalItemCount() == itemSorter.getGroupItems(ItemGroup.IU_STRUCTURED).size()
-								&& ItemUtils.haveSameLocation((MappedRepository) owner, ItemUtils.getIUs(
-										(List<IUPresentation>) itemSorter.getGroupItems(ItemGroup.IU_STRUCTURED))))) {
-			List<IInstallableUnit> ius = new ArrayList<>();
+			ItemSorter itemSorter = new ItemSorter(expandedCollection);
 
-			ius.addAll((List<InstallableUnit>) itemSorter.getGroupItems(ItemGroup.IU));
-			ius.addAll(ItemUtils.getIUs((List<IUPresentation>) itemSorter.getGroupItems(ItemGroup.IU_STRUCTURED)));
+			if (((MappedRepository) owner).isEnabled() && itemSorter.getTotalItemCount() > 0
+					&& (itemSorter.getTotalItemCount() == itemSorter.getGroupItems(ItemGroup.IU).size()
+							&& ItemUtils.haveSameLocation(
+									(MappedRepository) owner,
+									(List<InstallableUnit>) itemSorter.getGroupItems(ItemGroup.IU))
+							|| itemSorter.getTotalItemCount() == itemSorter.getGroupItems(ItemGroup.IU_STRUCTURED)
+									.size()
+									&& ItemUtils.haveSameLocation((MappedRepository) owner,
+											ItemUtils.getIUs((List<IUPresentation>) itemSorter
+													.getGroupItems(ItemGroup.IU_STRUCTURED))))) {
+				List<IInstallableUnit> ius = new ArrayList<>();
 
-			return new AddIUsToMappedRepositoryCommand((MappedRepository) owner, ius, operation);
+				ius.addAll((List<InstallableUnit>) itemSorter.getGroupItems(ItemGroup.IU));
+				ius.addAll(ItemUtils.getIUs((List<IUPresentation>) itemSorter.getGroupItems(ItemGroup.IU_STRUCTURED)));
+
+				return new AddIUsToMappedRepositoryCommand((MappedRepository) owner, ius, operation);
+			}
 		}
 
 		return null;

@@ -1221,6 +1221,17 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 		addToParentRepositoryActions = generateAddToParentRepositoryAction(lastSelection);
 		addToCustomCategoriesActions = generateAddToCustomCategoryActions(lastSelection);
 
+		if (lastSelection instanceof IStructuredSelection) {
+			List<Action> additionalActions = createAddtionalActions(((IStructuredSelection) lastSelection).toList());
+			if (!additionalActions.isEmpty()) {
+				menuManager.insertBefore("additions", new Separator("local-additions"));
+				for (Action action : additionalActions) {
+					menuManager.insertBefore("local-additions", action);
+				}
+				menuManager.insertAfter("local-additions", new Separator());
+			}
+		}
+
 		menuManager.insertBefore("edit", new Separator());
 		if (addToParentRepositoryActions != null && addToParentRepositoryActions.size() > 0)
 			if (addToParentRepositoryActions.size() == 1) {
@@ -1287,6 +1298,23 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 			submenuManager.add(sortCustomCategoriesAction);
 			menuManager.insertBefore("edit", submenuManager);
 		}
+	}
+
+	private List<Action> createAddtionalActions(List<?> selection) {
+		List<Action> result = new ArrayList<>();
+		EditingDomain editingDomain = ((IEditingDomainProvider) activeEditorPart).getEditingDomain();
+
+		MapAllUnitsAction mapAllUnitsAction = new MapAllUnitsAction(selection, editingDomain);
+		if (mapAllUnitsAction.isEnabled()) {
+			result.add(mapAllUnitsAction);
+		}
+
+		ConvertToExclusionRule convertToExclusionRule = new ConvertToExclusionRule(selection, editingDomain);
+		if (convertToExclusionRule.isEnabled()) {
+			result.add(convertToExclusionRule);
+		}
+
+		return result;
 	}
 
 	/**
