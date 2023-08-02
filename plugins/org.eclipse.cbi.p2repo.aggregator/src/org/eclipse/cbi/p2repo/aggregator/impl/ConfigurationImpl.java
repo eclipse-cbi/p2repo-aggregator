@@ -16,10 +16,18 @@ import org.eclipse.cbi.p2repo.aggregator.Configuration;
 import org.eclipse.cbi.p2repo.aggregator.OperatingSystem;
 import org.eclipse.cbi.p2repo.aggregator.WindowSystem;
 import org.eclipse.cbi.p2repo.aggregator.util.GeneralUtils;
+import org.eclipse.cbi.p2repo.p2.P2Package;
+import org.eclipse.cbi.p2repo.p2.impl.PropertyImpl;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EcoreEMap;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,6 +42,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.ConfigurationImpl#getOperatingSystem <em>Operating System</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.ConfigurationImpl#getWindowSystem <em>Window System</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.ConfigurationImpl#getArchitecture <em>Architecture</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.ConfigurationImpl#getProperties <em>Properties</em>}</li>
  * </ul>
  *
  * @generated
@@ -223,6 +232,16 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 	protected static final int ARCHITECTURE_EFLAG = 0xf << ARCHITECTURE_EFLAG_OFFSET;
 
 	/**
+	 * The cached value of the '{@link #getProperties() <em>Properties</em>}' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProperties()
+	 * @generated
+	 * @ordered
+	 */
+	protected EMap<String, String> properties;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -250,6 +269,11 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 				return getWindowSystem();
 			case AggregatorPackage.CONFIGURATION__ARCHITECTURE:
 				return getArchitecture();
+			case AggregatorPackage.CONFIGURATION__PROPERTIES:
+				if (coreType)
+					return getProperties();
+				else
+					return getProperties().map();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -272,6 +296,8 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 				return (eFlags & WINDOW_SYSTEM_EFLAG) != WINDOW_SYSTEM_EFLAG_DEFAULT;
 			case AggregatorPackage.CONFIGURATION__ARCHITECTURE:
 				return (eFlags & ARCHITECTURE_EFLAG) != ARCHITECTURE_EFLAG_DEFAULT;
+			case AggregatorPackage.CONFIGURATION__PROPERTIES:
+				return properties != null && !properties.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -295,6 +321,9 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 				return;
 			case AggregatorPackage.CONFIGURATION__ARCHITECTURE:
 				setArchitecture((Architecture) newValue);
+				return;
+			case AggregatorPackage.CONFIGURATION__PROPERTIES:
+				((EStructuralFeature.Setting) getProperties()).set(newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -329,6 +358,9 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 				return;
 			case AggregatorPackage.CONFIGURATION__ARCHITECTURE:
 				setArchitecture(ARCHITECTURE_EDEFAULT);
+				return;
+			case AggregatorPackage.CONFIGURATION__PROPERTIES:
+				getProperties().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -391,6 +423,20 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case AggregatorPackage.CONFIGURATION__PROPERTIES:
+				return ((InternalEList<?>) getProperties()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public WindowSystem getWindowSystem() {
 		return WINDOW_SYSTEM_EFLAG_VALUES[(eFlags & WINDOW_SYSTEM_EFLAG) >>> WINDOW_SYSTEM_EFLAG_OFFSET];
 	}
@@ -438,6 +484,20 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.CONFIGURATION__ARCHITECTURE,
 					oldArchitecture, newArchitecture));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EMap<String, String> getProperties() {
+		if (properties == null) {
+			properties = new EcoreEMap<>(P2Package.Literals.PROPERTY, PropertyImpl.class, this,
+					AggregatorPackage.CONFIGURATION__PROPERTIES);
+		}
+		return properties;
 	}
 
 	/**

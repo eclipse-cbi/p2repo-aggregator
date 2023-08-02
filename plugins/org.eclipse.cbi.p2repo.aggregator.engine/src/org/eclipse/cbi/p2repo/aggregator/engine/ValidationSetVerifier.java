@@ -656,8 +656,7 @@ public class ValidationSetVerifier extends BuilderPhase {
 			ArrayList<String> errors = new ArrayList<String>();
 			ExecutorService executor = Executors.newSingleThreadExecutor();
 			MirrorGenerator.mirror(executor, artifacts, null, sourceAr, tempAr, getBuilder().isSignerFingerprints(),
-					getBuilder().getTransport(),
-					PackedStrategy.UNPACK_AS_SIBLING, errors, subMon.newChild(1));
+					getBuilder().getTransport(), PackedStrategy.UNPACK_AS_SIBLING, errors, subMon.newChild(1));
 			executor.shutdownNow();
 			int numErrors = errors.size();
 			if (numErrors > 0) {
@@ -748,6 +747,10 @@ public class ValidationSetVerifier extends BuilderPhase {
 				// props.put(IProfile.PROP_FLAVOR, "tooling"); //$NON-NLS-1$
 				props.put(IProfile.PROP_ENVIRONMENTS, config.getOSGiEnvironmentString());
 				props.put(IProfile.PROP_INSTALL_FEATURES, "true");
+
+				for (Map.Entry<String, String> entry : config.getProperties().entrySet()) {
+					props.put(entry.getKey(), entry.getValue());
+				}
 
 				String profileId = profilePrefix + configName;
 
@@ -909,7 +912,8 @@ public class ValidationSetVerifier extends BuilderPhase {
 				for (IInstallableUnit iu : unitsToAggregate) {
 					String id = iu.getId();
 					InstallableUnit versionedId = new InstallableUnit();
-					versionedId.setId(id.endsWith(".feature.group") ? id.replaceAll("\\.feature\\.group$", ".source.feature.group")
+					versionedId.setId(id.endsWith(".feature.group")
+							? id.replaceAll("\\.feature\\.group$", ".source.feature.group")
 							: id.endsWith(".feature.jar") ? id.replaceAll("\\.feature\\.jar$", ".source.feature.jar")
 									: id + ".source");
 					versionedId.setVersion(iu.getVersion());

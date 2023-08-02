@@ -517,6 +517,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		createEAttribute(configurationEClass, CONFIGURATION__OPERATING_SYSTEM);
 		createEAttribute(configurationEClass, CONFIGURATION__WINDOW_SYSTEM);
 		createEAttribute(configurationEClass, CONFIGURATION__ARCHITECTURE);
+		createEReference(configurationEClass, CONFIGURATION__PROPERTIES);
 
 		contactEClass = createEClass(CONTACT);
 		createEAttribute(contactEClass, CONTACT__NAME);
@@ -1039,6 +1040,16 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	@Override
 	public EAttribute getConfiguration_Architecture() {
 		return (EAttribute) configurationEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getConfiguration_Properties() {
+		return (EReference) configurationEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -2295,6 +2306,9 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		initEAttribute(getConfiguration_Architecture(), this.getArchitecture(), "architecture", null, 1, 1,
 				Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
+		initEReference(getConfiguration_Properties(), theP2Package.getProperty(), null, "properties", null, 0, -1,
+				Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		addEOperation(configurationEClass, ecorePackage.getEString(), "getName", 0, 1, IS_UNIQUE, IS_ORDERED);
 

@@ -10,6 +10,8 @@
  */
 package org.eclipse.cbi.p2repo.aggregator;
 
+import org.eclipse.emf.common.util.EMap;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Configuration</b></em>'.
@@ -22,6 +24,7 @@ package org.eclipse.cbi.p2repo.aggregator;
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.Configuration#getOperatingSystem <em>Operating System</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.Configuration#getWindowSystem <em>Window System</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.Configuration#getArchitecture <em>Architecture</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.Configuration#getProperties <em>Properties</em>}</li>
  * </ul>
  *
  * @see org.eclipse.cbi.p2repo.aggregator.AggregatorPackage#getConfiguration()
@@ -97,6 +100,19 @@ public interface Configuration extends EnabledStatusProvider {
 	 * @generated
 	 */
 	void setArchitecture(Architecture value);
+
+	/**
+	 * Returns the value of the '<em><b>Properties</b></em>' map.
+	 * The key is of type {@link java.lang.String},
+	 * and the value is of type {@link java.lang.String},
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Properties</em>' map.
+	 * @see org.eclipse.cbi.p2repo.aggregator.AggregatorPackage#getConfiguration_Properties()
+	 * @model mapType="org.eclipse.cbi.p2repo.p2.Property&lt;org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EString&gt;"
+	 * @generated
+	 */
+	EMap<String, String> getProperties();
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.Configuration#getOperatingSystem <em>Operating System</em>}' attribute.

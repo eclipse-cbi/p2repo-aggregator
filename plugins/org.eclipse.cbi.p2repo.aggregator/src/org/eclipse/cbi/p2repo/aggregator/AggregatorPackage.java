@@ -361,6 +361,14 @@ public interface AggregatorPackage extends EPackage {
 		EAttribute CONFIGURATION__ARCHITECTURE = eINSTANCE.getConfiguration_Architecture();
 
 		/**
+		 * The meta object literal for the '<em><b>Properties</b></em>' map feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONFIGURATION__PROPERTIES = eINSTANCE.getConfiguration_Properties();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.ContributionImpl <em>Contribution</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2492,13 +2500,22 @@ public interface AggregatorPackage extends EPackage {
 	int CONFIGURATION__ARCHITECTURE = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Properties</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFIGURATION__PROPERTIES = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Configuration</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIGURATION_FEATURE_COUNT = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 3;
+	int CONFIGURATION_FEATURE_COUNT = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -4664,6 +4681,17 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getConfiguration_Architecture();
+
+	/**
+	 * Returns the meta object for the map '{@link org.eclipse.cbi.p2repo.aggregator.Configuration#getProperties <em>Properties</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the map '<em>Properties</em>'.
+	 * @see org.eclipse.cbi.p2repo.aggregator.Configuration#getProperties()
+	 * @see #getConfiguration()
+	 * @generated
+	 */
+	EReference getConfiguration_Properties();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.Configuration#getOperatingSystem <em>Operating System</em>}'.

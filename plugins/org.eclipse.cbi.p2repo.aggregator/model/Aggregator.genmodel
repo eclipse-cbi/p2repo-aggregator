@@ -149,6 +149,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//Configuration/operatingSystem"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//Configuration/windowSystem"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//Configuration/architecture"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Aggregator.ecore#//Configuration/properties"/>
       <genOperations ecoreOperation="Aggregator.ecore#//Configuration/getName"/>
       <genOperations ecoreOperation="Aggregator.ecore#//Configuration/getOSGiEnvironmentString"/>
     </genClasses>
