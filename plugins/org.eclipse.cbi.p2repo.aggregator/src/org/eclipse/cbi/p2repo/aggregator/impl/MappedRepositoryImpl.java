@@ -10,12 +10,16 @@
  */
 package org.eclipse.cbi.p2repo.aggregator.impl;
 
+import java.net.URI;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.cbi.p2repo.aggregator.Aggregation;
 import org.eclipse.cbi.p2repo.aggregator.AggregatorFactory;
 import org.eclipse.cbi.p2repo.aggregator.AggregatorPackage;
+import org.eclipse.cbi.p2repo.aggregator.AggregatorPlugin;
 import org.eclipse.cbi.p2repo.aggregator.Bundle;
 import org.eclipse.cbi.p2repo.aggregator.Category;
 import org.eclipse.cbi.p2repo.aggregator.Contribution;
@@ -584,6 +588,8 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 		return AggregatorFactory.eINSTANCE.createStatus(StatusCode.OK);
 	}
 
+	private String unresolvedLocation;
+
 	@Override
 	public String getResolvedLocation() {
 		String description = StringUtils.trimmedOrNull(getDescription());
@@ -591,7 +597,29 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 			String redirectionReference = "${org.eclipse.cbi.p2repo." + description + "}";
 			String redirection = StringUtils.performStringSubstitution(redirectionReference);
 			if (redirection != null && !redirection.startsWith("${org.eclipse.cbi.p2repo.")) {
-				return getResolvedLocation(redirection);
+				String resolvedLocation = getResolvedLocation(redirection);
+				if (resolvedLocation != null) {
+					if (resolvedLocation.startsWith("file:")) {
+						try {
+							Path path = Path.of(URI.create(resolvedLocation));
+							if (Files.exists(path)) {
+								unresolvedLocation = null;
+								return resolvedLocation;
+							}
+
+							if (!resolvedLocation.equals(unresolvedLocation)) {
+								AggregatorPlugin.INSTANCE
+										.log("Redirected location does not exist and will be ignored: " + path);
+								this.unresolvedLocation = resolvedLocation;
+							}
+						} catch (RuntimeException ex) {
+							//$FALL-THROUGH$
+						}
+					} else {
+						unresolvedLocation = null;
+						return resolvedLocation;
+					}
+				}
 			}
 		}
 		return super.getResolvedLocation();
