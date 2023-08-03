@@ -29,6 +29,7 @@ import org.eclipse.cbi.p2repo.aggregator.Product;
 import org.eclipse.cbi.p2repo.aggregator.Status;
 import org.eclipse.cbi.p2repo.aggregator.StatusCode;
 import org.eclipse.cbi.p2repo.aggregator.util.GeneralUtils;
+import org.eclipse.cbi.p2repo.util.StringUtils;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -581,6 +582,19 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 		}
 
 		return AggregatorFactory.eINSTANCE.createStatus(StatusCode.OK);
+	}
+
+	@Override
+	public String getResolvedLocation() {
+		String description = StringUtils.trimmedOrNull(getDescription());
+		if (description != null) {
+			String redirectionReference = "${org.eclipse.cbi.p2repo." + description + "}";
+			String redirection = StringUtils.performStringSubstitution(redirectionReference);
+			if (redirection != null && !redirection.startsWith("${org.eclipse.cbi.p2repo.")) {
+				return getResolvedLocation(redirection);
+			}
+		}
+		return super.getResolvedLocation();
 	}
 
 	/**

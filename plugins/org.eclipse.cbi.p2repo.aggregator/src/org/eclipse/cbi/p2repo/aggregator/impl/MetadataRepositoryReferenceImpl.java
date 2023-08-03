@@ -554,7 +554,11 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	 */
 	@Override
 	public String getResolvedLocation() {
-		String location = StringUtils.trimmedOrNull(getLocation());
+		return getResolvedLocation(StringUtils.trimmedOrNull(getLocation()));
+
+	}
+
+	protected String getResolvedLocation(String location) {
 		if (location == null)
 			return null;
 
