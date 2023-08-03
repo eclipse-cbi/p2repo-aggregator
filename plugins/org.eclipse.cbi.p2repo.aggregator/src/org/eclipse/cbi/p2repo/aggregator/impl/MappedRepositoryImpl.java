@@ -595,7 +595,7 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 		String description = StringUtils.trimmedOrNull(getDescription());
 		if (description != null) {
 			String redirectionReference = "${org.eclipse.cbi.p2repo." + description + "}";
-			String redirection = StringUtils.performStringSubstitution(redirectionReference);
+			String redirection = StringUtils.trimmedOrNull(StringUtils.performStringSubstitution(redirectionReference));
 			if (redirection != null && !redirection.startsWith("${org.eclipse.cbi.p2repo.")) {
 				String resolvedLocation = getResolvedLocation(redirection);
 				if (resolvedLocation != null) {
