@@ -427,6 +427,12 @@ public class MirrorGenerator extends BuilderPhase {
 
 	private static void updateCheckSum(IFileArtifactRepository dest, IArtifactDescriptor destDesc)
 			throws CoreException {
+
+		ArtifactDescriptor artifactDescriptor = (ArtifactDescriptor) destDesc;
+		artifactDescriptor.setProperty("download.md5", null);
+		artifactDescriptor.setProperty(IArtifactDescriptor.DOWNLOAD_CHECKSUM + ".md5", null);
+		artifactDescriptor.setProperty(IArtifactDescriptor.DOWNLOAD_CHECKSUM + ".sha-1", null);
+
 		Map<String, String> downloadChecksums = ChecksumHelper.getChecksums(destDesc,
 				IArtifactDescriptor.DOWNLOAD_CHECKSUM);
 		if (!downloadChecksums.containsKey("sha-256")) {
@@ -437,7 +443,7 @@ public class MirrorGenerator extends BuilderPhase {
 			if (!status.isMultiStatus()) {
 				throw new CoreException(status);
 			}
-			((ArtifactDescriptor) destDesc).addProperties(
+			artifactDescriptor.addProperties(
 					ChecksumUtilities.checksumsToProperties(IArtifactDescriptor.DOWNLOAD_CHECKSUM, caculatedCheckSums));
 			LogUtils.info("- computed new artifact checksum %s", artifactFile);
 		}
