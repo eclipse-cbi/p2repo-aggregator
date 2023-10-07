@@ -9,8 +9,9 @@ Bundle-Activator: org.eclipse.cbi.p2repo.aggregator.analyzer.presentation.Aggreg
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Export-Package: org.eclipse.cbi.p2repo.aggregator.analyzer.presentation
-Require-Bundle: org.apache.batik.awt.util,
- org.apache.batik.svggen,
+Import-Package: org.eclipse.equinox.security.storage
+Require-Bundle: org.apache.batik.awt.util;bundle-version="1.17.0",
+ org.apache.batik.svggen;bundle-version="1.17.0",
  org.eclipse.core.expressions,
  org.eclipse.core.resources;visibility:=reexport,
  org.eclipse.core.runtime,
@@ -33,4 +34,4 @@ Require-Bundle: org.apache.batik.awt.util,
  org.eclipse.zest.layouts,
  org.eclipse.nebula.widgets.cdatetime
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-11
+Bundle-RequiredExecutionEnvironment: JavaSE-17

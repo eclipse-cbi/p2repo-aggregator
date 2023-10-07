@@ -6,7 +6,7 @@ Bundle-Version: 1.1.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: org.eclipse.cbi.p2repo.aggregator.presentation.AggregatorEditorPlugin$Implementation
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-11
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Export-Package: org.eclipse.cbi.p2repo.aggregator.p2view.presentation,
  org.eclipse.cbi.p2repo.aggregator.presentation,
  org.eclipse.cbi.p2repo.aggregator.transformer.ui

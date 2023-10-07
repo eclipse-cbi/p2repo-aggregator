@@ -273,6 +273,9 @@ import org.eclipse.zest.layouts.dataStructures.InternalRelationship;
  */
 public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomainProvider, ISelectionProvider,
 		IMenuListener, IViewerProvider, IGotoMarker, IRevertablePart {
+
+	private static final boolean GMF_AVAIBLE = isGMFAvailable();
+
 	/**
 	 * This keeps track of the editing domain that is used to track all changes to the model.
 	 * <!-- begin-user-doc -->
@@ -1753,11 +1756,9 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 											.getId();
 									Set<CapabilityAnalysis> others = javaPackages
 											.get(capability.getCapability().getName());
-									Set<CapabilityAnalysis> contributors = others.stream()
-											.filter(it -> it.getCapability().equals(providedCapability)
-													&& !contributingID
-															.equals(it.getInstallableUnit().getInstallableUnit()
-																	.getId()))
+									Set<CapabilityAnalysis> contributors = others.stream().filter(
+											it -> it.getCapability().equals(providedCapability) && !contributingID
+													.equals(it.getInstallableUnit().getInstallableUnit().getId()))
 											.collect(Collectors.toSet());
 									class MyItemProvider extends ItemProvider implements IWrapperItemProvider {
 										public MyItemProvider() {
@@ -2862,6 +2863,8 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 					export(graph);
 				}
 			};
+			export.setEnabled(GMF_AVAIBLE);
+
 			manager.insertAfter("additions", new Separator());
 			manager.insertAfter("additions", export);
 			manager.insertAfter("additions", layout);
@@ -3978,6 +3981,16 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 					.createBrowser(IWorkbenchBrowserSupport.AS_EXTERNAL, null, "External", "").openURL(new URL(url));
 		} catch (PartInitException | MalformedURLException e) {
 			AggregationAnalyzerEditorPlugin.INSTANCE.log(e);
+		}
+	}
+
+	@SuppressWarnings("restriction")
+	private static boolean isGMFAvailable() {
+		try {
+			org.eclipse.gmf.runtime.draw2d.ui.render.awt.internal.svg.export.GraphicsSVG.class.toString();
+			return true;
+		} catch (Throwable throwable) {
+			return false;
 		}
 	}
 

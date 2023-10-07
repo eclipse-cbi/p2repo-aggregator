@@ -11,9 +11,11 @@
 package org.eclipse.cbi.p2repo.aggregator.analyzer.presentation.handlers;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
-import java.nio.charset.StandardCharsets;
+import java.net.CookieManager;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse.BodyHandlers;
 import java.nio.file.FileVisitResult;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -34,6 +36,9 @@ import org.eclipse.core.expressions.IEvaluationContext;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.URIConverter;
+import org.eclipse.equinox.security.storage.ISecurePreferences;
+import org.eclipse.equinox.security.storage.SecurePreferencesFactory;
+import org.eclipse.equinox.security.storage.StorageException;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -64,6 +69,55 @@ public abstract class BaseHandler extends AbstractHandler {
 	protected static Path CACHE = Path
 			.of(AggregationAnalyzerEditorPlugin.getPlugin().getStateLocation().append("cache").toOSString());
 
+	private static final HttpClient HTTP_CLIENT;
+
+	private static final String PAT;
+
+	static {
+		String githubPATPreference = System.getProperty(
+				"org.eclipse.cbi.p2repo.aggregator.analyzer.presentation.handlers.BaseHandler.github.pat.preference");
+		String pat = null;
+		if (githubPATPreference != null) {
+			int slash = githubPATPreference.lastIndexOf('/');
+			ISecurePreferences node = SecurePreferencesFactory.getDefault()
+					.node(githubPATPreference.substring(0, slash));
+			try {
+				pat = node.get(githubPATPreference.substring(slash + 1), null);
+			} catch (StorageException e) {
+			}
+		}
+
+		PAT = pat;
+		HTTP_CLIENT = HttpClient.newBuilder().followRedirects(HttpClient.Redirect.NORMAL)
+				.cookieHandler(new CookieManager()).build();
+	}
+
+	protected static String basicGetContent(URI uri) throws IOException {
+		return basicGetContent(java.net.URI.create(URIConverter.INSTANCE.normalize(uri).toString()));
+	}
+
+	protected static String basicGetContent(java.net.URI uri) throws IOException {
+		var requestBuilder = HttpRequest.newBuilder(uri).GET();
+
+		if (PAT != null && "api.github.com".equals(uri.getHost())) {
+			requestBuilder.header("Authorization", "Bearer " + PAT);
+			requestBuilder.header("X-GitHub-Api-Version", "2022-11-28");
+		}
+
+		try {
+			var request = requestBuilder.build();
+			var response = HTTP_CLIENT.send(request, BodyHandlers.ofString());
+			var statusCode = response.statusCode();
+			if (statusCode != 200) {
+				throw new IOException("status code " + statusCode + " -> " + uri);
+			}
+
+			return response.body();
+		} catch (IOException | InterruptedException ex) {
+			throw new IOException(ex.getMessage() + " -> " + uri, ex);
+		}
+	}
+
 	protected static Path getCachePath(URI uri) {
 		String decodedURI = URI.decode(uri.toString());
 		String[] uriSegments = decodedURI.split("[:/?#&;]+");
@@ -80,12 +134,10 @@ public abstract class BaseHandler extends AbstractHandler {
 			return Files.readString(path);
 		}
 
-		try (InputStream in = URIConverter.INSTANCE.createInputStream(uri)) {
-			String content = new String(in.readAllBytes(), StandardCharsets.UTF_8);
-			Files.createDirectories(path.getParent());
-			Files.writeString(path, content);
-			return content;
-		}
+		String content = basicGetContent(uri);
+		Files.createDirectories(path.getParent());
+		Files.writeString(path, content);
+		return content;
 	}
 
 	protected static String getContentOrEmpty(URI uri) {
@@ -104,8 +156,8 @@ public abstract class BaseHandler extends AbstractHandler {
 			throw new RuntimeException(e);
 		}
 
-		try (InputStream in = URIConverter.INSTANCE.createInputStream(uri)) {
-			String content = new String(in.readAllBytes(), StandardCharsets.UTF_8);
+		try {
+			String content = basicGetContent(uri);
 			Files.writeString(path, content);
 			return content;
 		} catch (IOException e) {

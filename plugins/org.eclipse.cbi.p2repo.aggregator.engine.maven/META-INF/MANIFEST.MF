@@ -6,7 +6,7 @@ Bundle-Version: 1.1.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-11
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Export-Package: org.eclipse.cbi.p2repo.aggregator.engine.maven
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.equinox.p2.metadata;bundle-version="[2.4.0,3.0.0)",

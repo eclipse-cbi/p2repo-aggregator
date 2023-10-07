@@ -13,7 +13,6 @@ package org.eclipse.cbi.p2repo.osgi.filter.impl;
 import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
-import java.security.AccessController;
 import java.security.PrivilegedAction;
 import java.util.Map;
 
@@ -372,11 +371,12 @@ class StringFilterImpl extends FilterImpl {
 		}
 	}
 
+	@SuppressWarnings("all")
 	private boolean compareAsComparable(Comparable<Object> value1) {
 		try {
 			Constructor<?> constructor = value1.getClass().getConstructor(constructorType);
 			if (!constructor.canAccess(value1))
-				AccessController.doPrivileged(new SetAccessibleAction(constructor));
+				java.security.AccessController.doPrivileged(new SetAccessibleAction(constructor));
 			Object value2 = constructor.newInstance(new Object[] { stringValue.trim() });
 
 			switch (getOp()) {
@@ -396,11 +396,12 @@ class StringFilterImpl extends FilterImpl {
 		return false;
 	}
 
+	@SuppressWarnings("all")
 	private boolean compareUnknown(Object value1) { // RFC 59
 		try {
 			Constructor<?> constructor = value1.getClass().getConstructor(constructorType);
 			if (!constructor.canAccess(value1))
-				AccessController.doPrivileged(new SetAccessibleAction(constructor));
+				java.security.AccessController.doPrivileged(new SetAccessibleAction(constructor));
 			Object value2 = constructor.newInstance(new Object[] { stringValue.trim() });
 			return value1.equals(value2);
 		} catch (NoSuchMethodException e) {

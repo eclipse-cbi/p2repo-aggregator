@@ -402,8 +402,8 @@ public class ProjectReconcilerHandler extends BaseHandler {
 					for (int i = 1; i < 10; i++) {
 						String repos = getContent(
 								URI.createURI("https://api.github.com/orgs/" + org + "/repos?page=" + i));
-						Set<String> urls = getValues("html_url", repos);
-						urls.remove("https://github.com/" + org);
+						List<String> urls = getFilteredValues("clone_url", "archived", repos).stream()
+								.map(it -> it.replaceAll(".git$", "")).collect(Collectors.toList());
 						if (urls.isEmpty()) {
 							break;
 						}
@@ -454,7 +454,8 @@ public class ProjectReconcilerHandler extends BaseHandler {
 
 		private void cleanupRepos(Set<String> repos) {
 			repos.removeIf(it -> it.endsWith("/.github") || it.contains("www.eclipse.org") || it.endsWith(".incubator")
-					|| it.endsWith("-website") || it.endsWith(".github.io"));
+					|| it.endsWith("-website") || it.endsWith(".github.io") || it.endsWith(".eclipsefdn")
+					|| it.contains("-ghsa-"));
 		}
 
 		public <T> T getLatestReleaseInfo(Class<T> type, String projectID) throws IOException {
@@ -514,6 +515,18 @@ public class ProjectReconcilerHandler extends BaseHandler {
 				return matcher.group(1);
 			}
 			return null;
+		}
+
+		private Set<String> getFilteredValues(String key, String booleanKey, String content) {
+			Set<String> result = new LinkedHashSet<>();
+			Matcher matcher1 = Pattern.compile('"' + key + "\":\"([^\"]+)\"").matcher(content);
+			Matcher matcher2 = Pattern.compile('"' + booleanKey + "\":(true|false)").matcher(content);
+			while (matcher1.find() && matcher2.find()) {
+				if ("false".equals(matcher2.group(1))) {
+					result.add(matcher1.group(1));
+				}
+			}
+			return result;
 		}
 
 		private Set<String> getValues(String key, String content) {
