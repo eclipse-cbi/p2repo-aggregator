@@ -281,6 +281,15 @@
         </eGenericType>
       </eParameters>
     </eOperations>
+    <eOperations name="removeReferences" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="references">
+        <eGenericType eClassifier="#//Collection">
+          <eTypeArguments>
+            <eUpperBound eClassifier="#//IRepositoryReference"/>
+          </eTypeArguments>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
     <eOperations name="removeAll"/>
     <eOperations name="removeInstallableUnits" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="installableUnits">

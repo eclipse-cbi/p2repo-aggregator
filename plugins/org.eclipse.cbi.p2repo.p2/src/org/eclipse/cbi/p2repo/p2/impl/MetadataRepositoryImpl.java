@@ -146,6 +146,14 @@ public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> imp
 			addReference(reference.getLocation(), reference.getNickname(), reference.getType(), reference.getOptions());
 	}
 
+	/**
+	 * @generated NOT
+	 */
+	@Override
+	public boolean removeReferences(Collection<? extends IRepositoryReference> references) {
+		return getReferences().removeAll(references);
+	}
+
 	public void addRepositoryReferences(IMetadataRepositoryManager mdrMgr, IMetadataRepository mdr)
 			throws CoreException, OperationCanceledException {
 		if (mdr instanceof LocalMetadataRepository) {

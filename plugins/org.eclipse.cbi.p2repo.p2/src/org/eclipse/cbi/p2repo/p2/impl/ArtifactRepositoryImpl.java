@@ -198,7 +198,7 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 			@Override
 			public IQueryResult<IArtifactDescriptor> query(IQuery<IArtifactDescriptor> query,
 					IProgressMonitor monitor) {
-				return query.perform(new CompoundIterator<IArtifactDescriptor>(getArtifactMap().values().iterator()));
+				return query.perform(new CompoundIterator<>(getArtifactMap().values().iterator()));
 			}
 		};
 	}

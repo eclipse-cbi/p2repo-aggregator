@@ -3103,6 +3103,15 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 		g2.setEUpperBound(g3);
 		addEParameter(op, g1, "references", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		op = addEOperation(iMetadataRepositoryEClass, ecorePackage.getEBoolean(), "removeReferences", 0, 1, IS_UNIQUE,
+				IS_ORDERED);
+		g1 = createEGenericType(this.getCollection());
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		g3 = createEGenericType(this.getIRepositoryReference());
+		g2.setEUpperBound(g3);
+		addEParameter(op, g1, "references", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		addEOperation(iMetadataRepositoryEClass, null, "removeAll", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(iMetadataRepositoryEClass, ecorePackage.getEBoolean(), "removeInstallableUnits", 0, 1,
