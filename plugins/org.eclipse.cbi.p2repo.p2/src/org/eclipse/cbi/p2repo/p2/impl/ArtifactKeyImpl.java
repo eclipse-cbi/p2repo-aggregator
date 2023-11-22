@@ -10,6 +10,8 @@
  */
 package org.eclipse.cbi.p2repo.p2.impl;
 
+import java.util.Objects;
+
 import org.eclipse.cbi.p2repo.p2.ArtifactKey;
 import org.eclipse.cbi.p2repo.p2.P2Package;
 import org.eclipse.emf.common.notify.Notification;
@@ -241,10 +243,7 @@ public class ArtifactKeyImpl extends MinimalEObjectImpl.Container implements Art
 
 	@Override
 	public int hashCode() {
-		int hash = id.hashCode();
-		hash = 17 * hash + getVersion().hashCode();
-		hash = 17 * hash + classifier.hashCode();
-		return hash;
+		return Objects.hash(id, getVersion(), classifier);
 	}
 
 	/**
