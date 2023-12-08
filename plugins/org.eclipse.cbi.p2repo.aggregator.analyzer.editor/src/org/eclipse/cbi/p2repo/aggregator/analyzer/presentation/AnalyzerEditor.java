@@ -2216,7 +2216,7 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 								String groupId = iu.getProperty("maven-groupId");
 								if (!Objects.equals(modelGroupId, groupId)) {
 									result.append(" ::", errorStyler);
-									result.append(groupId, errorStyler);
+									result.append(Objects.toString(groupId), errorStyler);
 								}
 							}
 							return result;
@@ -2560,6 +2560,7 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 
 				String text = super.getText(object);
 				if (object instanceof ContributionAnalysis) {
+					text += '\u200b';
 					ContributionAnalysis contributionAnalysis = (ContributionAnalysis) object;
 					Float ageInDays = AnalyzerUtil.getAgeInDays(contributionAnalysis);
 					Float gitRepositoryAgeInDays = AnalyzerUtil.getGitRepositoryAgeInDays(contributionAnalysis);
@@ -3635,7 +3636,10 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 				openInBrowser(url);
 			}
 		});
+	}
 
+	public String getDependenciesSVG() {
+		return convert(graphViewer.getGraphControl());
 	}
 
 	/**
@@ -3994,8 +3998,20 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 		}
 	}
 
-	@SuppressWarnings("restriction")
 	private static void export(Graph graph) {
+		try {
+			Path createTempFile = Files.createTempFile("Dependencies", ".svg");
+			Files.writeString(createTempFile, convert(graph));
+			java.net.URI uri = createTempFile.toUri();
+			System.out.println("Created: " + uri);
+			openInBrowser(uri.toString());
+		} catch (IOException e) {
+			AggregationAnalyzerEditorPlugin.INSTANCE.log(e);
+		}
+	}
+
+	@SuppressWarnings("restriction")
+	private static String convert(Graph graph) {
 		ScalableFigure root = graph.getRootLayer();
 		org.eclipse.draw2d.geometry.Rectangle bounds = root.getBounds();
 		org.eclipse.gmf.runtime.draw2d.ui.render.awt.internal.svg.export.GraphicsSVG graphics = org.eclipse.gmf.runtime.draw2d.ui.render.awt.internal.svg.export.GraphicsSVG
@@ -4005,13 +4021,10 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 		root.paint(graphics);
 		try (StringWriter stringWriter = new StringWriter()) {
 			svgGraphics2D.stream(stringWriter);
-			Path createTempFile = Files.createTempFile("Dependencies", ".svg");
-			Files.writeString(createTempFile, stringWriter.toString());
-			java.net.URI uri = createTempFile.toUri();
-			System.out.println("Created: " + uri);
-			openInBrowser(uri.toString());
+			stringWriter.flush();
+			return stringWriter.toString();
 		} catch (IOException e) {
-			AggregationAnalyzerEditorPlugin.INSTANCE.log(e);
+			throw new RuntimeException(e);
 		}
 	}
 }
