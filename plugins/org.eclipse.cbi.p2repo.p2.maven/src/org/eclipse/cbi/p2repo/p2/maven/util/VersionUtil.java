@@ -107,7 +107,7 @@ public class VersionUtil {
 		}
 
 		@Override
-		public void toString(StringBuffer sb) {
+		public void toString(StringBuilder sb) {
 			sb.append(mappedVersion);
 		}
 	}

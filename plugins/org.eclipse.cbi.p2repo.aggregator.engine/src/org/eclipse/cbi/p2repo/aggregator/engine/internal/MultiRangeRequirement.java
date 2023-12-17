@@ -145,7 +145,7 @@ public class MultiRangeRequirement implements IRequirement {
 		}
 
 		@Override
-		public void toString(StringBuffer bld, Variable rootVariable) {
+		public void toString(StringBuilder bld, Variable rootVariable) {
 			myOperand.toString(bld, rootVariable);
 		}
 	}

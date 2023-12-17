@@ -9,7 +9,7 @@ Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Export-Package: org.eclipse.cbi.p2repo.aggregator.engine.maven
 Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.equinox.p2.metadata;bundle-version="[2.4.0,3.0.0)",
+ org.eclipse.equinox.p2.metadata;bundle-version="[2.9.0,3.0.0)",
  org.eclipse.cbi.p2repo.aggregator,
  org.eclipse.cbi.p2repo.p2,
  org.eclipse.cbi.p2repo.util,
