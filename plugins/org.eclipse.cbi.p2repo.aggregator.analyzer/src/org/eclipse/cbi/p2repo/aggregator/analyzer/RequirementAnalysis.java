@@ -54,6 +54,9 @@ public interface RequirementAnalysis extends EObject {
 			if (ra1 == null) {
 				return -1;
 			}
+			if (ra2 == null) {
+				return 1;
+			}
 			return REQUIREMENT_COMPARATOR.compare(ra1.getRequirement(), ra2.getRequirement());
 		}
 
@@ -68,6 +71,9 @@ public interface RequirementAnalysis extends EObject {
 			}
 			if (r1 == null) {
 				return -1;
+			}
+			if (r2 == null) {
+				return 1;
 			}
 
 			int compare;
@@ -101,7 +107,7 @@ public interface RequirementAnalysis extends EObject {
 						compare = pm1.toString().compareTo(pm2.toString());
 					}
 				} else {
-					compare = r1.getClass().getName().compareTo(r1.getClass().getName());
+					compare = r1.getClass().getName().compareTo(r2.getClass().getName());
 				}
 			}
 			return compare;
