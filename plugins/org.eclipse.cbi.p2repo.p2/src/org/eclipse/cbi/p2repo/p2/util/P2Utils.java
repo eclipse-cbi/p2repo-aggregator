@@ -183,7 +183,7 @@ public class P2Utils {
 	public static String versionRangeToString(VersionRange versionRange) {
 		if(versionRange == null)
 			return null;
-		StringBuffer bld = new StringBuffer();
+		StringBuilder bld = new StringBuilder();
 		if(versionRange.getIncludeMinimum() && versionRange.getIncludeMaximum() &&
 				versionRange.getMinimum().equals(versionRange.getMaximum())) {
 			// Exact version. Don't display both upper and lower bounds

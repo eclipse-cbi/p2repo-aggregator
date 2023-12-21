@@ -404,7 +404,7 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 		if (eIsProxy())
 			return super.toString();
 
-		StringBuffer result = new StringBuffer();
+		StringBuilder result = new StringBuilder();
 		if ("osgi.bundle".equals(getNamespace())) //$NON-NLS-1$
 			result.append("bundle"); //$NON-NLS-1$
 		else if ("java.package".equals(getNamespace())) //$NON-NLS-1$

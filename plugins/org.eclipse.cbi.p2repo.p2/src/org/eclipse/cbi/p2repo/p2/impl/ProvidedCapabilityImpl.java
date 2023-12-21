@@ -304,7 +304,7 @@ public class ProvidedCapabilityImpl extends MinimalEObjectImpl.Container impleme
 		if (eIsProxy())
 			return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(namespace);
 		result.append('/');
 		result.append(name);

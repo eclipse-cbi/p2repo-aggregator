@@ -215,7 +215,7 @@ public class AvailableVersionItemProvider extends AggregatorItemProviderAdapter
 		if (version == null)
 			return "no version is available";
 
-		StringBuffer sb = new StringBuffer();
+		StringBuilder sb = new StringBuilder();
 		version.toString(sb);
 		if (av.getAvailableFrom() != AvailableFrom.REPOSITORY) {
 			sb.append(" (from another ");
