@@ -20,8 +20,16 @@ import java.util.Map;
 import java.util.MissingResourceException;
 import java.util.StringTokenizer;
 
+import org.eclipse.cbi.p2repo.aggregator.Aggregation;
 import org.eclipse.cbi.p2repo.aggregator.AggregatorFactory;
 import org.eclipse.cbi.p2repo.aggregator.AggregatorPackage;
+import org.eclipse.cbi.p2repo.aggregator.Architecture;
+import org.eclipse.cbi.p2repo.aggregator.Configuration;
+import org.eclipse.cbi.p2repo.aggregator.Contribution;
+import org.eclipse.cbi.p2repo.aggregator.MappedRepository;
+import org.eclipse.cbi.p2repo.aggregator.OperatingSystem;
+import org.eclipse.cbi.p2repo.aggregator.ValidationSet;
+import org.eclipse.cbi.p2repo.aggregator.WindowSystem;
 import org.eclipse.cbi.p2repo.aggregator.provider.AggregatorEditPlugin;
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
@@ -32,6 +40,7 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.CommonPlugin;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
@@ -462,10 +471,39 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 	 *
 	 * @generated NOT
 	 */
-	protected EObject createInitialModel() {
-		EClass eClass = aggregatorPackage.getAggregation();
-		EObject rootObject = aggregatorFactory.create(eClass);
-		return rootObject;
+	protected Aggregation createInitialModel() {
+		Aggregation aggregation = AggregatorFactory.eINSTANCE.createAggregation();
+
+		EList<Configuration> configurations = aggregation.getConfigurations();
+		configurations.add(createConfiguration(OperatingSystem.LINUX, WindowSystem.GTK, Architecture.AARCH64));
+		configurations.add(createConfiguration(OperatingSystem.LINUX, WindowSystem.GTK, Architecture.X86_64));
+		configurations.add(createConfiguration(OperatingSystem.MAC_OSX, WindowSystem.COCOA, Architecture.AARCH64));
+		configurations.add(createConfiguration(OperatingSystem.MAC_OSX, WindowSystem.COCOA, Architecture.X86_64));
+		configurations.add(createConfiguration(OperatingSystem.WIN32, WindowSystem.WIN32, Architecture.X86_64));
+
+		ValidationSet validationSet = AggregatorFactory.eINSTANCE.createValidationSet();
+		validationSet.setLabel("Main");
+		aggregation.getValidationSets().add(validationSet);
+
+		Contribution contribution = AggregatorFactory.eINSTANCE.createContribution();
+		contribution.setLabel("Main");
+		validationSet.getContributions().add(contribution);
+
+		MappedRepository mappedRepository = AggregatorFactory.eINSTANCE.createMappedRepository();
+		mappedRepository.setLocation("https://");
+		contribution.getRepositories().add(mappedRepository);
+
+		return aggregation;
+	}
+
+	private Configuration createConfiguration(OperatingSystem operatingSystem, WindowSystem windowSystem,
+			Architecture architecture) {
+		Configuration configuration = AggregatorFactory.eINSTANCE.createConfiguration();
+		configuration.setOperatingSystem(operatingSystem);
+		configuration.setArchitecture(architecture);
+		configuration.setWindowSystem(windowSystem);
+		return configuration;
+
 	}
 
 	/**
@@ -546,10 +584,9 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 
 						// Add the initial model object to the contents.
 						//
-						EObject rootObject = createInitialModel();
-						if (rootObject != null) {
-							resource.getContents().add(rootObject);
-						}
+						Aggregation aggregation = createInitialModel();
+						aggregation.setLabel(fileURI.trimFileExtension().lastSegment());
+						resource.getContents().add((EObject) aggregation);
 
 						// Save the contents of the resource to the file system.
 						//

@@ -29,6 +29,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.Project#getSite <em>Site</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.Project#getVersion <em>Version</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.Project#getReleaseDate <em>Release Date</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.Project#getRank <em>Rank</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.Project#getContribution <em>Contribution</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.Project#getParent <em>Parent</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.Project#getRepositories <em>Repositories</em>}</li>
@@ -132,6 +133,28 @@ public interface Project extends EObject {
 	void setReleaseDate(Date value);
 
 	/**
+	 * Returns the value of the '<em><b>Rank</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Rank</em>' attribute.
+	 * @see #setRank(int)
+	 * @see org.eclipse.cbi.p2repo.aggregator.analyzer.AnalyzerPackage#getProject_Rank()
+	 * @model
+	 * @generated
+	 */
+	int getRank();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.analyzer.Project#getRank <em>Rank</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Rank</em>' attribute.
+	 * @see #getRank()
+	 * @generated
+	 */
+	void setRank(int value);
+
+	/**
 	 * Returns the value of the '<em><b>Contribution</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -184,5 +207,13 @@ public interface Project extends EObject {
 	 * @generated
 	 */
 	EList<Project> getSubprojects();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	EList<Project> getAllProjects();
 
 } // Project

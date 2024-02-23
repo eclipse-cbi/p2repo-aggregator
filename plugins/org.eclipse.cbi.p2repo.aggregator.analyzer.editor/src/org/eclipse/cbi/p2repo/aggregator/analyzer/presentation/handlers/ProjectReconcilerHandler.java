@@ -11,6 +11,8 @@
 package org.eclipse.cbi.p2repo.aggregator.analyzer.presentation.handlers;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -24,6 +26,7 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.function.Predicate;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -35,6 +38,7 @@ import org.eclipse.cbi.p2repo.aggregator.analyzer.AnalyzerFactory;
 import org.eclipse.cbi.p2repo.aggregator.analyzer.ContributionAnalysis;
 import org.eclipse.cbi.p2repo.aggregator.analyzer.GitRepository;
 import org.eclipse.cbi.p2repo.aggregator.analyzer.Project;
+import org.eclipse.cbi.p2repo.aggregator.analyzer.presentation.AggregationAnalyzerEditorPlugin;
 import org.eclipse.cbi.p2repo.aggregator.analyzer.util.AnalyzerUtil;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
@@ -43,6 +47,7 @@ import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.impl.URIMappingRegistryImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -121,8 +126,49 @@ public class ProjectReconcilerHandler extends BaseHandler {
 
 		public Map<ContributionAnalysis, List<Project>> reconcile(IProgressMonitor monitor) throws Exception {
 			Map<ContributionAnalysis, List<Project>> projectLinks = computeProjectLinks(monitor, analysis);
-			compareWithOfficialList(projectLinks);
+			if (Boolean.FALSE) {
+				compareWithOfficialList(projectLinks);
+			}
+
+			update(projectLinks);
 			return projectLinks;
+		}
+
+		private void update(Map<ContributionAnalysis, List<Project>> projectLinks) {
+			String csv = System.getProperty(
+					"org.eclipse.cbi.p2repo.aggregator.analyzer.presentation.handlers.ProjectReconcilerHandler.csv");
+
+			Map<URI, List<Project>> sitesToProjects = new LinkedHashMap<>();
+			for (List<Project> projects : projectLinks.values()) {
+				for (TreeIterator<Object> allContents = EcoreUtil.getAllContents(projects); allContents.hasNext();) {
+					Object content = allContents.next();
+					if (content instanceof Project project) {
+						sitesToProjects.computeIfAbsent(project.getSite(), it -> new ArrayList<>()).add(project);
+					}
+				}
+			}
+
+			if (csv != null) {
+				try {
+					List<String> lines = Files.readAllLines(Path.of(csv));
+					for (String line : lines) {
+						String[] parts = line.split(";", -1);
+						String url = parts[1];
+						if (url.startsWith("https:")) {
+							int rank = Integer.valueOf(parts[parts.length - 1]);
+							URI uri = URI.createURI(url);
+							List<Project> projects = sitesToProjects.get(uri);
+							if (!projects.isEmpty()) {
+								for (Project project : projects) {
+									project.setRank(rank);
+								}
+							}
+						}
+					}
+				} catch (Exception ex) {
+					AggregationAnalyzerEditorPlugin.INSTANCE.log(ex);
+				}
+			}
 		}
 
 		private void compareWithOfficialList(Map<ContributionAnalysis, List<Project>> projectLinks) {
@@ -175,7 +221,7 @@ public class ProjectReconcilerHandler extends BaseHandler {
 			Map<String, String> projectsWayne = new TreeMap<>();
 			try {
 				String content = getContent(
-						URI.createURI(ProjectMapper.ECLIPSE_PROJECT_PORTAL_HOST + "releases/2023-03"));
+						URI.createURI(ProjectMapper.ECLIPSE_PROJECT_PORTAL_HOST + "releases/2023-09"));
 				Pattern projectPattern = Pattern
 						.compile("<a href=\"/projects/([^\"]+)\">([^<]+)</a></td><td><a href=\"([^\"]+)\">[^<]+</a>");
 				for (Matcher matcher = projectPattern.matcher(content); matcher.find();) {
@@ -183,8 +229,8 @@ public class ProjectReconcilerHandler extends BaseHandler {
 					String group3 = matcher.group(3);
 					projectsWayne.put(group2, URI.createURI(group3).lastSegment());
 				}
-			} catch (IOException e) {
-				e.printStackTrace();
+			} catch (IOException ex) {
+				AggregationAnalyzerEditorPlugin.INSTANCE.log(ex);
 			}
 
 			System.out.println("-----------------------------");
@@ -227,7 +273,6 @@ public class ProjectReconcilerHandler extends BaseHandler {
 				}
 				System.out.println();
 			}
-
 		}
 
 		private Map<ContributionAnalysis, List<Project>> computeProjectLinks(IProgressMonitor monitor,
@@ -243,16 +288,27 @@ public class ProjectReconcilerHandler extends BaseHandler {
 				projectSubMonitor.subTask(contributionAnalysis.getLabel());
 
 				Set<String> projectIDs = getProjectIDs(contributionAnalysis);
+				String label = contributionAnalysis.getLabel();
+				Predicate<String> filter = new Predicate<String>() {
+					private final Pattern pattern = Pattern.compile(
+							".*:webtools.java-ee-config|.*:webtools\\.releng|.*:eclipse\\.jdt\\.ls|Web Tools Platform:tools.oomph|.*To-Be-Deleted.*");
+
+					@Override
+					public boolean test(String projectID) {
+						return pattern.matcher(label + ":" + projectID).matches();
+					}
+				};
 				for (String projectID : projectIDs) {
-					projects.add(createProject(projectID, true));
+					if (!filter.test(projectID)) {
+						projects.add(createProject(filter, projectID, true));
+					}
 				}
 			}
 
 			return result;
 		}
 
-		private Project createProject(String projectID, boolean root) throws IOException {
-
+		private Project createProject(Predicate<String> filter, String projectID, boolean root) throws IOException {
 			Project project = AnalyzerFactory.eINSTANCE.createProject();
 			project.setSite(URI.createURI(ProjectMapper.ECLIPSE_PROJECT_PORTAL + projectID));
 			project.setName(projectMapper.getProjectName(projectID));
@@ -280,7 +336,9 @@ public class ProjectReconcilerHandler extends BaseHandler {
 				EList<Project> subprojects = project.getSubprojects();
 				Set<String> subprojectIDs = projectMapper.getSubprojects(projectID);
 				for (String subprojectID : subprojectIDs) {
-					subprojects.add(createProject(subprojectID, false));
+					if (!filter.test(subprojectID)) {
+						subprojects.add(createProject(filter, subprojectID, false));
+					}
 				}
 			}
 
@@ -347,6 +405,7 @@ public class ProjectReconcilerHandler extends BaseHandler {
 			}
 
 			String mappings = getContent(MAPPINGS);
+			mappings += "tools/ptp/\ttools.ptp\n";
 			for (String line : mappings.split("\r?\n")) {
 				int tab = line.indexOf('\t');
 				String path = line.substring(0, tab);
@@ -366,6 +425,7 @@ public class ProjectReconcilerHandler extends BaseHandler {
 			}
 
 			String projects = getContent(PROJECTS);
+			projects += "tools.ptp\tEclipse Parallel Tools Platform (PTP)\n";
 			for (String line : projects.split("\r?\n")) {
 				int tab = line.indexOf('\t');
 				if (tab != -1) {
@@ -417,13 +477,13 @@ public class ProjectReconcilerHandler extends BaseHandler {
 				result.addAll(getValues("url", githubRepos));
 			}
 
-			cleanupRepos(result);
+			cleanupRepos(projectID, result);
 
 			if (result.isEmpty()) {
 				String gerritRepos = getSection("gerrit_repos", content);
 				if (gerritRepos != null) {
 					result.addAll(getValues("url", gerritRepos));
-					cleanupRepos(result);
+					cleanupRepos(projectID, result);
 				}
 			}
 
@@ -446,16 +506,29 @@ public class ProjectReconcilerHandler extends BaseHandler {
 			String gitlabRepos = getSection("gitlab_repos", content);
 			if (githubRepos != null) {
 				result.addAll(getValues("url", gitlabRepos));
-				cleanupRepos(result);
+				cleanupRepos(projectID, result);
 			}
 
 			return result;
 		}
 
-		private void cleanupRepos(Set<String> repos) {
-			repos.removeIf(it -> it.endsWith("/.github") || it.contains("www.eclipse.org") || it.endsWith(".incubator")
-					|| it.endsWith("-website") || it.endsWith(".github.io") || it.endsWith(".eclipsefdn")
-					|| it.contains("-ghsa-"));
+		private void cleanupRepos(String projectID, Set<String> repos) {
+			Pattern repositoryFilter = Pattern
+					.compile(".*/org.eclipse.atl.tcs|.*/org.eclipse.dltk\\.(releng|javascript|python|ruby|sh)|"
+							+ ".*/eclipse-pde/eclipse.pde.build|.*/webtools.common.fproj|.*/webtools.jsf.docs|"
+							+ ".*/eclipse-webservices/webservices.axis2|.*eclipse-webservices/webservices.jaxws|"
+							+ ".*/ptp.doc|.*/org.eclipse.viatra2?\\..*|.*/eclipse-emf-compare/emf-compare-(acceptance|cli)|.*/eclipse-m2e/m2e-wtp-jpa|.*/eclipse-passage/(chronograph|passage-(spring|docs|images))|.*/eclipse-linuxtools/org.eclipse.linuxtools.eclipse-build|.*/gsc-ec-converter|.*/eclipse-collections-[^/]*|.*/eclipse-sirius/(sirius-web|sirius.specs)|"
+							+ ".*eclipse-scout/(scout.maven-master|scout.ci)|modeling.tmf.xtext.*xtext-[^/]*|iot.embed-cdt.*(org.eclipse.epp.packages|Liqp)|.*/(cdo\\..*|org\\.eclipse\\.mylyn\\.docs\\..*|.*-infra|servertools\\..*|assets|web-[^/]*|webtools.*(\\.snippets|\\.tests)|.*-releng|ui-.*|www\\..*|\\.github|\\.eclipsefdn|"
+							+ "jetty([.-]website|[-.]parent|-examples|\\.docker|-alpn-api|-artifact-remote-resources|-assembly-descriptors|-perf-helper|-build-support|-test-helper)|equinox\\.(bundles|framework)|eclipse\\.platform\\.(common|debug|resources|runtime|team|text|ua|ui\\.tools|releng(\\.buildtools)?))|.*(\\.incubator|-website)|.*-ghsa-.*|.*\\.github\\.io|.*\\.website|.*-pipelines|"
+							+ ".*update.eclemma.org.*|.*/[ej]git-pipelines|" //
+							+ ".*/dltk\\.(all|examples|releng)|" //
+							+ ".*\\.(ecp.other|ecp.releng)|" //
+							+ ".*/tcf.test-migration|" //
+							+ ".*/tracecompass-test-traces|" //
+							+ ".*-website-source.*" //
+					);
+
+			repos.removeIf(it -> repositoryFilter.matcher(projectID + ":" + it).matches());
 		}
 
 		public <T> T getLatestReleaseInfo(Class<T> type, String projectID) throws IOException {

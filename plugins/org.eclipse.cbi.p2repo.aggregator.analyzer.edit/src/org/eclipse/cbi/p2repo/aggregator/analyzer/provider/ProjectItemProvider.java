@@ -68,6 +68,7 @@ public class ProjectItemProvider extends AnalyzerItemProviderAdapter
 			addSitePropertyDescriptor(object);
 			addVersionPropertyDescriptor(object);
 			addReleaseDatePropertyDescriptor(object);
+			addRankPropertyDescriptor(object);
 			addContributionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -132,6 +133,21 @@ public class ProjectItemProvider extends AnalyzerItemProviderAdapter
 				AnalyzerPackage.Literals.PROJECT__RELEASE_DATE, true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null,
 				URI.createURI("editor://org.eclipse.nebula.widgets.cdatetime/yyyy-MM-dd")));
+	}
+
+	/**
+	 * This adds a property descriptor for the Rank feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRankPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Project_rank_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Project_rank_feature", "_UI_Project_type"),
+						AnalyzerPackage.Literals.PROJECT__RANK, true, false, false,
+						ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -245,6 +261,7 @@ public class ProjectItemProvider extends AnalyzerItemProviderAdapter
 			case AnalyzerPackage.PROJECT__SITE:
 			case AnalyzerPackage.PROJECT__VERSION:
 			case AnalyzerPackage.PROJECT__RELEASE_DATE:
+			case AnalyzerPackage.PROJECT__RANK:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case AnalyzerPackage.PROJECT__REPOSITORIES:

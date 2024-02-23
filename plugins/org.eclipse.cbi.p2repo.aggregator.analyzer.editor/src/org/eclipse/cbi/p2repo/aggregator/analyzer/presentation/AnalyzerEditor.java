@@ -164,7 +164,6 @@ import org.eclipse.emf.edit.ui.util.EditUIUtil;
 import org.eclipse.emf.edit.ui.util.FindAndReplaceTarget;
 import org.eclipse.emf.edit.ui.util.IRevertablePart;
 import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
-import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.metadata.IProvidedCapability;
 import org.eclipse.equinox.p2.metadata.IRequirement;
@@ -875,7 +874,7 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 
 		// Create the editing domain with a special command stack.
 		//
-		editingDomain = new AdapterFactoryEditingDomain(adapterFactory, commandStack, new HashMap<Resource, Boolean>());
+		editingDomain = new AdapterFactoryEditingDomain(adapterFactory, commandStack, new HashMap<>());
 	}
 
 	/**
@@ -2235,10 +2234,10 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 							String optional = dependency.isOptional() ? "?" : null;
 							StyledString separator = new StyledString().append(" ")
 									.append(":", StyledString.DECORATIONS_STYLER).append(" ");
-							IRequirement requirement = (IRequiredCapability) dependencyRequirements.get(dependency);
+							IRequirement requirement = dependencyRequirements.get(dependency);
 							String string = requirement == null ? null : requirement.toString();
 							String resolution = dependencyResolutions.get(dependency);
-							Collector<String, StyledString, StyledString> collector = new Collector<String, StyledString, StyledString>() {
+							Collector<String, StyledString, StyledString> collector = new Collector<>() {
 
 								boolean first = true;
 
@@ -2291,6 +2290,7 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 						return super.getText(object);
 					}
 
+					@Override
 					public Object getImage(Object object) {
 						if (object instanceof Model) {
 							return AggregationAnalyzerEditorPlugin.INSTANCE.getImage("full/obj16/pom");

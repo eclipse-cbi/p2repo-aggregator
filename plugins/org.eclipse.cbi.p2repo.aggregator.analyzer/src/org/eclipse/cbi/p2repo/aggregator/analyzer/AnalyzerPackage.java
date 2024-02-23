@@ -183,13 +183,22 @@ public interface AnalyzerPackage extends EPackage {
 	int CONTRIBUTION_ANALYSIS__LAST_MODIFIED = 3;
 
 	/**
+	 * The feature id for the '<em><b>Rank</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTRIBUTION_ANALYSIS__RANK = 4;
+
+	/**
 	 * The feature id for the '<em><b>Contribution</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTRIBUTION_ANALYSIS__CONTRIBUTION = 4;
+	int CONTRIBUTION_ANALYSIS__CONTRIBUTION = 5;
 
 	/**
 	 * The feature id for the '<em><b>Installable Units</b></em>' containment reference list.
@@ -198,7 +207,7 @@ public interface AnalyzerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTRIBUTION_ANALYSIS__INSTALLABLE_UNITS = 5;
+	int CONTRIBUTION_ANALYSIS__INSTALLABLE_UNITS = 6;
 
 	/**
 	 * The feature id for the '<em><b>Projects</b></em>' containment reference list.
@@ -207,7 +216,7 @@ public interface AnalyzerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTRIBUTION_ANALYSIS__PROJECTS = 6;
+	int CONTRIBUTION_ANALYSIS__PROJECTS = 7;
 
 	/**
 	 * The number of structural features of the '<em>Contribution Analysis</em>' class.
@@ -216,7 +225,7 @@ public interface AnalyzerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTRIBUTION_ANALYSIS_FEATURE_COUNT = 7;
+	int CONTRIBUTION_ANALYSIS_FEATURE_COUNT = 8;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.analyzer.impl.InstallableUnitAnalysisImpl <em>Installable Unit Analysis</em>}' class.
@@ -495,13 +504,22 @@ public interface AnalyzerPackage extends EPackage {
 	int PROJECT__RELEASE_DATE = 3;
 
 	/**
+	 * The feature id for the '<em><b>Rank</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROJECT__RANK = 4;
+
+	/**
 	 * The feature id for the '<em><b>Contribution</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__CONTRIBUTION = 4;
+	int PROJECT__CONTRIBUTION = 5;
 
 	/**
 	 * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -510,7 +528,7 @@ public interface AnalyzerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__PARENT = 5;
+	int PROJECT__PARENT = 6;
 
 	/**
 	 * The feature id for the '<em><b>Repositories</b></em>' containment reference list.
@@ -519,7 +537,7 @@ public interface AnalyzerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__REPOSITORIES = 6;
+	int PROJECT__REPOSITORIES = 7;
 
 	/**
 	 * The feature id for the '<em><b>Subprojects</b></em>' containment reference list.
@@ -528,7 +546,7 @@ public interface AnalyzerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__SUBPROJECTS = 7;
+	int PROJECT__SUBPROJECTS = 8;
 
 	/**
 	 * The number of structural features of the '<em>Project</em>' class.
@@ -537,7 +555,7 @@ public interface AnalyzerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT_FEATURE_COUNT = 8;
+	int PROJECT_FEATURE_COUNT = 9;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.analyzer.impl.GitRepositoryImpl <em>Git Repository</em>}' class.
@@ -733,6 +751,17 @@ public interface AnalyzerPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getContributionAnalysis_LastModified();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.analyzer.ContributionAnalysis#getRank <em>Rank</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Rank</em>'.
+	 * @see org.eclipse.cbi.p2repo.aggregator.analyzer.ContributionAnalysis#getRank()
+	 * @see #getContributionAnalysis()
+	 * @generated
+	 */
+	EAttribute getContributionAnalysis_Rank();
 
 	/**
 	 * Returns the meta object for the reference '{@link org.eclipse.cbi.p2repo.aggregator.analyzer.ContributionAnalysis#getContribution <em>Contribution</em>}'.
@@ -1037,6 +1066,17 @@ public interface AnalyzerPackage extends EPackage {
 	EAttribute getProject_ReleaseDate();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.analyzer.Project#getRank <em>Rank</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Rank</em>'.
+	 * @see org.eclipse.cbi.p2repo.aggregator.analyzer.Project#getRank()
+	 * @see #getProject()
+	 * @generated
+	 */
+	EAttribute getProject_Rank();
+
+	/**
 	 * Returns the meta object for the reference '{@link org.eclipse.cbi.p2repo.aggregator.analyzer.Project#getContribution <em>Contribution</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1269,6 +1309,14 @@ public interface AnalyzerPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CONTRIBUTION_ANALYSIS__LAST_MODIFIED = eINSTANCE.getContributionAnalysis_LastModified();
+
+		/**
+		 * The meta object literal for the '<em><b>Rank</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONTRIBUTION_ANALYSIS__RANK = eINSTANCE.getContributionAnalysis_Rank();
 
 		/**
 		 * The meta object literal for the '<em><b>Contribution</b></em>' reference feature.
@@ -1505,6 +1553,14 @@ public interface AnalyzerPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PROJECT__RELEASE_DATE = eINSTANCE.getProject_ReleaseDate();
+
+		/**
+		 * The meta object literal for the '<em><b>Rank</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROJECT__RANK = eINSTANCE.getProject_Rank();
 
 		/**
 		 * The meta object literal for the '<em><b>Contribution</b></em>' reference feature.

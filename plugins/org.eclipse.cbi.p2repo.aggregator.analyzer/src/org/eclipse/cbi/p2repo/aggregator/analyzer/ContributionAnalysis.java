@@ -33,6 +33,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.ContributionAnalysis#isDominant <em>Dominant</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.ContributionAnalysis#getMatch <em>Match</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.ContributionAnalysis#getLastModified <em>Last Modified</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.ContributionAnalysis#getRank <em>Rank</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.ContributionAnalysis#getContribution <em>Contribution</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.ContributionAnalysis#getInstallableUnits <em>Installable Units</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.ContributionAnalysis#getProjects <em>Projects</em>}</li>
@@ -139,6 +140,17 @@ public interface ContributionAnalysis extends EObject {
 	void setLastModified(long value);
 
 	/**
+	 * Returns the value of the '<em><b>Rank</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Rank</em>' attribute.
+	 * @see org.eclipse.cbi.p2repo.aggregator.analyzer.AnalyzerPackage#getContributionAnalysis_Rank()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	int getRank();
+
+	/**
 	 * Returns the value of the '<em><b>Contribution</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -190,5 +202,13 @@ public interface ContributionAnalysis extends EObject {
 	 * @generated
 	 */
 	EList<Project> getProjects();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	EList<Project> getAllProjects();
 
 } // ContributionAnalysis

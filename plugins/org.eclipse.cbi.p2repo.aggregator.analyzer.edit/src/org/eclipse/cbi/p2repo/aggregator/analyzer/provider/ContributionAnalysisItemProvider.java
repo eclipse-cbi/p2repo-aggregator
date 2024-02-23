@@ -69,6 +69,7 @@ public class ContributionAnalysisItemProvider extends AnalyzerItemProviderAdapte
 			addDominantPropertyDescriptor(object);
 			addMatchPropertyDescriptor(object);
 			addLastModifiedPropertyDescriptor(object);
+			addRankPropertyDescriptor(object);
 			addContributionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -136,6 +137,22 @@ public class ContributionAnalysisItemProvider extends AnalyzerItemProviderAdapte
 				AnalyzerPackage.Literals.CONTRIBUTION_ANALYSIS__LAST_MODIFIED, true, false, false,
 				ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null,
 				URI.createURI("editor://org.eclipse.nebula.widgets.cdatetime/yyyy-MM-dd\'T\'HH:mm:ss\'.\'SSSZ")));
+	}
+
+	/**
+	 * This adds a property descriptor for the Rank feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRankPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_ContributionAnalysis_rank_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_ContributionAnalysis_rank_feature",
+								"_UI_ContributionAnalysis_type"),
+						AnalyzerPackage.Literals.CONTRIBUTION_ANALYSIS__RANK, false, false, false,
+						ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -267,6 +284,7 @@ public class ContributionAnalysisItemProvider extends AnalyzerItemProviderAdapte
 			case AnalyzerPackage.CONTRIBUTION_ANALYSIS__DOMINANT:
 			case AnalyzerPackage.CONTRIBUTION_ANALYSIS__MATCH:
 			case AnalyzerPackage.CONTRIBUTION_ANALYSIS__LAST_MODIFIED:
+			case AnalyzerPackage.CONTRIBUTION_ANALYSIS__RANK:
 			case AnalyzerPackage.CONTRIBUTION_ANALYSIS__CONTRIBUTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

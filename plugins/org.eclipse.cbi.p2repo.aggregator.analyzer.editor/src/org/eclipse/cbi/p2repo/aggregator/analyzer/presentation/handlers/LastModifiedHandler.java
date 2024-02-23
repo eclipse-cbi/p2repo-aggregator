@@ -50,7 +50,9 @@ public class LastModifiedHandler extends BaseHandler {
 
 		private static final String GITLAB_ECLIPSE = "https://gitlab.eclipse.org";
 
-		private static final String GIT_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss'Z'";
+		private static final String GIT_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSSX";
+
+		private static final String GITLAB_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss'Z'";
 
 		private static final Pattern ECLIPSE_GITLAB_TIME_PATTERN = Pattern.compile("<time[^>]+datetime=\"([^\"]+)\"");
 
@@ -141,7 +143,7 @@ public class LastModifiedHandler extends BaseHandler {
 		public Long getLastModified(String repo) throws Exception {
 			if (repo.startsWith(GITLAB_ECLIPSE)) {
 				URI historyURI = URI.createURI(repo + "/-/commits");
-				return BaseHandler.getLastModified(historyURI, ECLIPSE_GITLAB_TIME_PATTERN, GIT_DATE_FORMAT);
+				return BaseHandler.getLastModified(historyURI, ECLIPSE_GITLAB_TIME_PATTERN, GITLAB_DATE_FORMAT);
 			} else if (repo.startsWith(GITHUB)) {
 				URI historyURI = URI.createURI(repo + "/commits");
 				return BaseHandler.getLastModified(historyURI, GITHUB_TIME_PATTERN, GIT_DATE_FORMAT);
@@ -188,8 +190,8 @@ public class LastModifiedHandler extends BaseHandler {
 
 			Matcher githubGitMatcher = GITHUB_URL_PATTERN.matcher(url);
 			if (githubGitMatcher.matches()) {
-				URI logURI = URI.createURI(GITHUB + githubGitMatcher.group(1).replaceAll("\\.git$", "")
-						+ "/commits/" + branch + "/" + repoRelativeURI);
+				URI logURI = URI.createURI(GITHUB + githubGitMatcher.group(1).replaceAll("\\.git$", "") + "/commits/"
+						+ branch + "/" + repoRelativeURI);
 				return BaseHandler.getLastModified(logURI, GITHUB_TIME_PATTERN, GIT_DATE_FORMAT);
 			}
 

@@ -56,6 +56,7 @@ import org.eclipse.cbi.p2repo.aggregator.analyzer.InstallableUnitAnalysis;
 import org.eclipse.cbi.p2repo.aggregator.analyzer.RequirementAnalysis;
 import org.eclipse.cbi.p2repo.aggregator.analyzer.RequirementResolution;
 import org.eclipse.cbi.p2repo.aggregator.analyzer.presentation.AggregationAnalyzerEditorPlugin;
+import org.eclipse.cbi.p2repo.aggregator.analyzer.util.AnalyzerUtil;
 import org.eclipse.cbi.p2repo.aggregator.engine.Builder;
 import org.eclipse.cbi.p2repo.aggregator.engine.Builder.ActionType;
 import org.eclipse.cbi.p2repo.aggregator.engine.maven.InstallableUnitMapping;
@@ -776,12 +777,7 @@ public class AnalyzeHandler extends BaseHandler {
 					structuredAggregateMetadataRepositoryResource.getContents()
 							.add((EObject) MetadataRepositoryStructuredViewBuilder.create(aggregateMetadataRepository));
 
-					Comparator<String> comparator = CommonPlugin.INSTANCE.getComparator();
-					ECollections.sort(analysis.getContributions(), (c1, c2) -> {
-						String label1 = c1.getLabel();
-						String label2 = c2.getLabel();
-						return comparator.compare(label1, label2);
-					});
+					ECollections.sort(analysis.getContributions(), AnalyzerUtil.CONTRIBUTION_ANALYSIS_COMPARATOR);
 
 					subMonitor.worked(1);
 					subMonitor.subTask("Background tasks completed");
@@ -834,7 +830,9 @@ public class AnalyzeHandler extends BaseHandler {
 								Set<IInstallableUnit> result = query(queriable,
 										QueryUtil.createIUQuery(requiredCapability.getName(), minimum));
 								if (result.isEmpty()) {
-									System.err.println("### not found " + requirement + " in " + queriable);
+									if (requirement.getMin() > 0) {
+										System.err.println("### not found " + requirement + " in " + queriable);
+									}
 								} else {
 									IInstallableUnit requiredIU = result.iterator().next();
 									collectChildren(queriable, allIUs, requiredIU);

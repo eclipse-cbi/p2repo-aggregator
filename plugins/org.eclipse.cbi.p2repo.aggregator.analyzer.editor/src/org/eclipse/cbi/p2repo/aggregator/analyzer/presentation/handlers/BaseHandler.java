@@ -64,7 +64,7 @@ public abstract class BaseHandler extends AbstractHandler {
 	 */
 	protected static final Pattern GITHUB_URL_PATTERN = Pattern.compile("(?:https?://github.com/|git@github.com:)(.*)");
 
-	protected static final Pattern GITHUB_TIME_PATTERN = Pattern.compile("<relative-time[ \t]+datetime=\"([^\"]+)\"");
+	protected static final Pattern GITHUB_TIME_PATTERN = Pattern.compile("\"committedDate\":\"([^\"]+)\"");
 
 	protected static Path CACHE = Path
 			.of(AggregationAnalyzerEditorPlugin.getPlugin().getStateLocation().append("cache").toOSString());
@@ -83,7 +83,8 @@ public abstract class BaseHandler extends AbstractHandler {
 					.node(githubPATPreference.substring(0, slash));
 			try {
 				pat = node.get(githubPATPreference.substring(slash + 1), null);
-			} catch (StorageException e) {
+			} catch (StorageException ex) {
+				AggregationAnalyzerEditorPlugin.INSTANCE.log(ex);
 			}
 		}
 
@@ -145,7 +146,8 @@ public abstract class BaseHandler extends AbstractHandler {
 		if (Files.isRegularFile(path)) {
 			try {
 				return Files.readString(path);
-			} catch (IOException e) {
+			} catch (IOException ex) {
+				AggregationAnalyzerEditorPlugin.INSTANCE.log(ex);
 				return "";
 			}
 		}
@@ -174,9 +176,14 @@ public abstract class BaseHandler extends AbstractHandler {
 		String content = getContent(logURI);
 		Matcher timeMatcher = datePattern.matcher(content);
 		if (timeMatcher.find()) {
-			Date date = new SimpleDateFormat(dateFormat).parse(timeMatcher.group(1));
-			long time = date.getTime();
-			return time;
+			try {
+				String dateLiteral = timeMatcher.group(1);
+				Date date = new SimpleDateFormat(dateFormat).parse(dateLiteral);
+				long time = date.getTime();
+				return time;
+			} catch (Exception ex) {
+				AggregationAnalyzerEditorPlugin.INSTANCE.log(ex);
+			}
 		}
 		return null;
 	}
@@ -285,18 +292,11 @@ public abstract class BaseHandler extends AbstractHandler {
 				return FileVisitResult.CONTINUE;
 			}
 
-			@Override
-			public FileVisitResult postVisitDirectory(Path directory, IOException exception) throws IOException {
-				if (exception == null) {
-					Files.delete(directory);
-				}
-				return super.postVisitDirectory(directory, exception);
-			}
-
 			public long getCacheAge() {
 				try {
 					Files.walkFileTree(CACHE, this);
-				} catch (IOException e) {
+				} catch (IOException ex) {
+					AggregationAnalyzerEditorPlugin.INSTANCE.log(ex);
 				}
 
 				return lastModifiedTime == null ? System.currentTimeMillis() : lastModifiedTime.toMillis();

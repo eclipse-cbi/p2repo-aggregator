@@ -36,10 +36,12 @@
       <genFeatures createChild="false" propertyDescription="A pattern that matches all installable unit to be included in the group"
           ecoreFeature="ecore:EAttribute AggregationAnalyzer.ecore#//ContributionAnalysis/match"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AggregationAnalyzer.ecore#//ContributionAnalysis/lastModified"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute AggregationAnalyzer.ecore#//ContributionAnalysis/rank"/>
       <genFeatures property="Readonly" createChild="false" propertySortChoices="true"
           ecoreFeature="ecore:EReference AggregationAnalyzer.ecore#//ContributionAnalysis/contribution"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AggregationAnalyzer.ecore#//ContributionAnalysis/installableUnits"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AggregationAnalyzer.ecore#//ContributionAnalysis/projects"/>
+      <genOperations ecoreOperation="AggregationAnalyzer.ecore#//ContributionAnalysis/getAllProjects"/>
     </genClasses>
     <genClasses ecoreClass="AggregationAnalyzer.ecore#//InstallableUnitAnalysis">
       <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference AggregationAnalyzer.ecore#//InstallableUnitAnalysis/contribution"/>
@@ -72,10 +74,12 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AggregationAnalyzer.ecore#//Project/version"/>
       <genFeatures createChild="false" propertyDescription="The date of the version release"
           ecoreFeature="ecore:EAttribute AggregationAnalyzer.ecore#//Project/releaseDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AggregationAnalyzer.ecore#//Project/rank"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference AggregationAnalyzer.ecore#//Project/contribution"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference AggregationAnalyzer.ecore#//Project/parent"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AggregationAnalyzer.ecore#//Project/repositories"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AggregationAnalyzer.ecore#//Project/subprojects"/>
+      <genOperations ecoreOperation="AggregationAnalyzer.ecore#//Project/getAllProjects"/>
     </genClasses>
     <genClasses ecoreClass="AggregationAnalyzer.ecore#//GitRepository">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AggregationAnalyzer.ecore#//GitRepository/uRI"/>

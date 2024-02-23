@@ -60,6 +60,11 @@
       </command>
       <command
             categoryId="org.eclipse.cbi.p2repo.aggregator.analyzer.editor.commands.category"
+            id="org.eclipse.cbi.p2repo.aggregator.analyzer.editor.commands.generate.reports"
+            name="Generate Reports">
+      </command>
+      <command
+            categoryId="org.eclipse.cbi.p2repo.aggregator.analyzer.editor.commands.category"
             id="org.eclipse.cbi.p2repo.aggregator.analyzer.editor.commands.clear.cache"
             name="Clear Cache">
       </command>
@@ -87,6 +92,18 @@
       <handler
             class="org.eclipse.cbi.p2repo.aggregator.analyzer.presentation.handlers.ProjectReconcilerHandler"
             commandId="org.eclipse.cbi.p2repo.aggregator.analyzer.editor.commands.reconcile.projects">
+          <activeWhen>
+             <iterate
+                   ifEmpty="false">
+                <adapt
+                      type="org.eclipse.cbi.p2repo.aggregator.analyzer.Analysis">
+                </adapt>
+             </iterate>
+         </activeWhen>
+      </handler>
+      <handler
+            class="org.eclipse.cbi.p2repo.aggregator.analyzer.presentation.handlers.GenerateReportsHandler"
+            commandId="org.eclipse.cbi.p2repo.aggregator.analyzer.editor.commands.generate.reports">
           <activeWhen>
              <iterate
                    ifEmpty="false">
@@ -149,6 +166,15 @@
                commandId="org.eclipse.cbi.p2repo.aggregator.analyzer.editor.commands.reconcile.projects"
                icon="platform:/plugin/org.eclipse.cbi.p2repo.aggregator.analyzer.edit/icons/full/obj16/Project.gif"
                label="Reconcile Projects"
+               style="push">
+            <visibleWhen
+                  checkEnabled="true">
+            </visibleWhen>
+         </command>
+         <command
+               commandId="org.eclipse.cbi.p2repo.aggregator.analyzer.editor.commands.generate.reports"
+               icon="icons/full/obj16/generate.png"
+               label="Generate Reports"
                style="push">
             <visibleWhen
                   checkEnabled="true">

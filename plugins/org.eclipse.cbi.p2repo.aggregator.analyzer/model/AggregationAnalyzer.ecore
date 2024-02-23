@@ -42,6 +42,7 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A wrapper of a contribution."/>
     </eAnnotations>
+    <eOperations name="getAllProjects" upperBound="-1" eType="#//Project"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The contribution's label override."/>
@@ -60,6 +61,8 @@
         <details key="propertyEditorFactory" value="editor://org.eclipse.nebula.widgets.cdatetime/yyyy-MM-dd'T'HH:mm:ss'.'SSSZ"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rank" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="contribution" lowerBound="1"
         eType="ecore:EClass ../../org.eclipse.cbi.p2repo.aggregator/model/Aggregator.ecore#//Contribution">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -145,6 +148,7 @@
         eType="#//RequirementAnalysis"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Project">
+    <eOperations name="getAllProjects" upperBound="-1" eType="#//Project"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="site" eType="#//URI"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="#//URI"/>
@@ -155,6 +159,7 @@
         <details key="propertyEditorFactory" value="editor://org.eclipse.nebula.widgets.cdatetime/yyyy-MM-dd"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rank" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="contribution" eType="#//ContributionAnalysis"
         changeable="false" volatile="true" transient="true" derived="true" resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Project"

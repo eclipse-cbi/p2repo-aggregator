@@ -11,7 +11,9 @@
 package org.eclipse.cbi.p2repo.aggregator.analyzer.impl;
 
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 import org.eclipse.cbi.p2repo.aggregator.Contribution;
 import org.eclipse.cbi.p2repo.aggregator.analyzer.AnalyzerPackage;
@@ -20,6 +22,8 @@ import org.eclipse.cbi.p2repo.aggregator.analyzer.InstallableUnitAnalysis;
 import org.eclipse.cbi.p2repo.aggregator.analyzer.Project;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.AbstractTreeIterator;
+import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -42,6 +46,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.impl.ContributionAnalysisImpl#isDominant <em>Dominant</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.impl.ContributionAnalysisImpl#getMatch <em>Match</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.impl.ContributionAnalysisImpl#getLastModified <em>Last Modified</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.impl.ContributionAnalysisImpl#getRank <em>Rank</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.impl.ContributionAnalysisImpl#getContribution <em>Contribution</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.impl.ContributionAnalysisImpl#getInstallableUnits <em>Installable Units</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.impl.ContributionAnalysisImpl#getProjects <em>Projects</em>}</li>
@@ -138,6 +143,16 @@ public class ContributionAnalysisImpl extends MinimalEObjectImpl.Container imple
 	 * @ordered
 	 */
 	protected long lastModified = LAST_MODIFIED_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getRank() <em>Rank</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRank()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int RANK_EDEFAULT = 0;
 
 	/**
 	 * The cached value of the '{@link #getContribution() <em>Contribution</em>}' reference.
@@ -301,6 +316,16 @@ public class ContributionAnalysisImpl extends MinimalEObjectImpl.Container imple
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public int getRank() {
+		return getAllProjects().stream().map(Project::getRank).collect(Collectors.maxBy(Integer::compareTo)).orElse(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -348,8 +373,8 @@ public class ContributionAnalysisImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public EList<InstallableUnitAnalysis> getInstallableUnits() {
 		if (installableUnits == null) {
-			installableUnits = new EObjectContainmentWithInverseEList<>(
-					InstallableUnitAnalysis.class, this, AnalyzerPackage.CONTRIBUTION_ANALYSIS__INSTALLABLE_UNITS,
+			installableUnits = new EObjectContainmentWithInverseEList<>(InstallableUnitAnalysis.class, this,
+					AnalyzerPackage.CONTRIBUTION_ANALYSIS__INSTALLABLE_UNITS,
 					AnalyzerPackage.INSTALLABLE_UNIT_ANALYSIS__CONTRIBUTION);
 		}
 		return installableUnits;
@@ -367,6 +392,26 @@ public class ContributionAnalysisImpl extends MinimalEObjectImpl.Container imple
 					AnalyzerPackage.CONTRIBUTION_ANALYSIS__PROJECTS);
 		}
 		return projects;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public EList<Project> getAllProjects() {
+		return ECollections.toEList((Iterator<Project>) new AbstractTreeIterator<Project>(this, false) {
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			protected Iterator<? extends Project> getChildren(Object object) {
+				if (object instanceof ContributionAnalysis contributionAnalysis) {
+					return contributionAnalysis.getProjects().iterator();
+				}
+				return ((Project) object).getSubprojects().iterator();
+			}
+		});
 	}
 
 	/**
@@ -419,6 +464,8 @@ public class ContributionAnalysisImpl extends MinimalEObjectImpl.Container imple
 				return getMatch();
 			case AnalyzerPackage.CONTRIBUTION_ANALYSIS__LAST_MODIFIED:
 				return getLastModified();
+			case AnalyzerPackage.CONTRIBUTION_ANALYSIS__RANK:
+				return getRank();
 			case AnalyzerPackage.CONTRIBUTION_ANALYSIS__CONTRIBUTION:
 				if (resolve)
 					return getContribution();
@@ -521,6 +568,8 @@ public class ContributionAnalysisImpl extends MinimalEObjectImpl.Container imple
 				return MATCH_EDEFAULT == null ? match != null : !MATCH_EDEFAULT.equals(match);
 			case AnalyzerPackage.CONTRIBUTION_ANALYSIS__LAST_MODIFIED:
 				return lastModified != LAST_MODIFIED_EDEFAULT;
+			case AnalyzerPackage.CONTRIBUTION_ANALYSIS__RANK:
+				return getRank() != RANK_EDEFAULT;
 			case AnalyzerPackage.CONTRIBUTION_ANALYSIS__CONTRIBUTION:
 				return contribution != null;
 			case AnalyzerPackage.CONTRIBUTION_ANALYSIS__INSTALLABLE_UNITS:

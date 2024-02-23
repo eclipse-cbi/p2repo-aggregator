@@ -12,6 +12,7 @@ package org.eclipse.cbi.p2repo.aggregator.analyzer.impl;
 
 import java.util.Collection;
 import java.util.Date;
+import java.util.Iterator;
 
 import org.eclipse.cbi.p2repo.aggregator.analyzer.AnalyzerPackage;
 import org.eclipse.cbi.p2repo.aggregator.analyzer.ContributionAnalysis;
@@ -19,6 +20,8 @@ import org.eclipse.cbi.p2repo.aggregator.analyzer.GitRepository;
 import org.eclipse.cbi.p2repo.aggregator.analyzer.Project;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.AbstractTreeIterator;
+import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
@@ -41,6 +44,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.impl.ProjectImpl#getSite <em>Site</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.impl.ProjectImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.impl.ProjectImpl#getReleaseDate <em>Release Date</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.impl.ProjectImpl#getRank <em>Rank</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.impl.ProjectImpl#getContribution <em>Contribution</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.impl.ProjectImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.impl.ProjectImpl#getRepositories <em>Repositories</em>}</li>
@@ -138,6 +142,26 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 	 * @ordered
 	 */
 	protected Date releaseDate = RELEASE_DATE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getRank() <em>Rank</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRank()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int RANK_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getRank() <em>Rank</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRank()
+	 * @generated
+	 * @ordered
+	 */
+	protected int rank = RANK_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getRepositories() <em>Repositories</em>}' containment reference list.
@@ -275,6 +299,29 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int getRank() {
+		return rank;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setRank(int newRank) {
+		int oldRank = rank;
+		rank = newRank;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AnalyzerPackage.PROJECT__RANK, oldRank, rank));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
@@ -326,6 +373,23 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 					AnalyzerPackage.PROJECT__SUBPROJECTS, AnalyzerPackage.PROJECT__PARENT);
 		}
 		return subprojects;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public EList<Project> getAllProjects() {
+		return ECollections.toEList((Iterator<Project>) new AbstractTreeIterator<Project>(this) {
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			protected Iterator<? extends Project> getChildren(Object object) {
+				return ((Project) object).getSubprojects().iterator();
+			}
+		});
 	}
 
 	/**
@@ -401,6 +465,8 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 				return getVersion();
 			case AnalyzerPackage.PROJECT__RELEASE_DATE:
 				return getReleaseDate();
+			case AnalyzerPackage.PROJECT__RANK:
+				return getRank();
 			case AnalyzerPackage.PROJECT__CONTRIBUTION:
 				return getContribution();
 			case AnalyzerPackage.PROJECT__PARENT:
@@ -434,6 +500,9 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 				return;
 			case AnalyzerPackage.PROJECT__RELEASE_DATE:
 				setReleaseDate((Date) newValue);
+				return;
+			case AnalyzerPackage.PROJECT__RANK:
+				setRank((Integer) newValue);
 				return;
 			case AnalyzerPackage.PROJECT__REPOSITORIES:
 				getRepositories().clear();
@@ -469,6 +538,9 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 			case AnalyzerPackage.PROJECT__RELEASE_DATE:
 				setReleaseDate(RELEASE_DATE_EDEFAULT);
 				return;
+			case AnalyzerPackage.PROJECT__RANK:
+				setRank(RANK_EDEFAULT);
+				return;
 			case AnalyzerPackage.PROJECT__REPOSITORIES:
 				getRepositories().clear();
 				return;
@@ -497,6 +569,8 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 				return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
 			case AnalyzerPackage.PROJECT__RELEASE_DATE:
 				return RELEASE_DATE_EDEFAULT == null ? releaseDate != null : !RELEASE_DATE_EDEFAULT.equals(releaseDate);
+			case AnalyzerPackage.PROJECT__RANK:
+				return rank != RANK_EDEFAULT;
 			case AnalyzerPackage.PROJECT__CONTRIBUTION:
 				return getContribution() != null;
 			case AnalyzerPackage.PROJECT__PARENT:
@@ -529,6 +603,8 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 		result.append(version);
 		result.append(", releaseDate: ");
 		result.append(releaseDate);
+		result.append(", rank: ");
+		result.append(rank);
 		result.append(')');
 		return result.toString();
 	}
