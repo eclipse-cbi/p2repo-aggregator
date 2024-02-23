@@ -302,7 +302,7 @@ public class ProjectReconcilerHandler extends BaseHandler {
 				};
 
 				Set<String> rootProjectIDs = new LinkedHashSet<>(projectIDs.keySet());
-				getProjectIDs(projectIDs, contributionAnalysis.getProjects());
+				getProjectIDs(projectIDs, contributionAnalysis.getAllProjects());
 
 				for (String projectID : rootProjectIDs) {
 					if (!filter.test(projectID)) {
