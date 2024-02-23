@@ -301,7 +301,10 @@ public class ProjectReconcilerHandler extends BaseHandler {
 					}
 				};
 
-				for (String projectID : projectIDs.keySet()) {
+				Set<String> rootProjectIDs = new LinkedHashSet<>(projectIDs.keySet());
+				getProjectIDs(projectIDs, contributionAnalysis.getProjects());
+
+				for (String projectID : rootProjectIDs) {
 					if (!filter.test(projectID)) {
 						projects.add(createProject(filter, projectID, projectIDs, true));
 					}
@@ -366,17 +369,21 @@ public class ProjectReconcilerHandler extends BaseHandler {
 				}
 			}
 
-			for (Project project : contributionAnalysis.getProjects()) {
+			getProjectIDs(projects, contributionAnalysis.getProjects());
+
+			return projects;
+		}
+
+		private void getProjectIDs(Map<String, Integer> projectIDs, List<Project> projects) {
+			for (Project project : projects) {
 				URI site = project.getSite();
 				if (site.toString().startsWith(ProjectMapper.ECLIPSE_PROJECT_PORTAL)) {
 					String projectID = site.lastSegment();
 					if (projectMapper.getProjectName(projectID) != null) {
-						projects.put(projectID, project.getRank());
+						projectIDs.put(projectID, project.getRank());
 					}
 				}
 			}
-
-			return projects;
 		}
 	}
 
