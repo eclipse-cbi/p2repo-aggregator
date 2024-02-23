@@ -47,6 +47,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.impl.AnalysisImpl#getReleaseDate <em>Release Date</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.impl.AnalysisImpl#getExclusion <em>Exclusion</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.impl.AnalysisImpl#getLevels <em>Levels</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.impl.AnalysisImpl#getGitRepositoryFilters <em>Git Repository Filters</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.impl.AnalysisImpl#getAggregation <em>Aggregation</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.impl.AnalysisImpl#getContributions <em>Contributions</em>}</li>
  * </ul>
@@ -112,6 +113,16 @@ public class AnalysisImpl extends MinimalEObjectImpl.Container implements Analys
 	 * @ordered
 	 */
 	protected EList<Integer> levels;
+
+	/**
+	 * The cached value of the '{@link #getGitRepositoryFilters() <em>Git Repository Filters</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGitRepositoryFilters()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> gitRepositoryFilters;
 
 	/**
 	 * The cached value of the '{@link #getAggregation() <em>Aggregation</em>}' reference.
@@ -197,6 +208,20 @@ public class AnalysisImpl extends MinimalEObjectImpl.Container implements Analys
 			levels = new EDataTypeUniqueEList<>(Integer.class, this, AnalyzerPackage.ANALYSIS__LEVELS);
 		}
 		return levels;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<String> getGitRepositoryFilters() {
+		if (gitRepositoryFilters == null) {
+			gitRepositoryFilters = new EDataTypeUniqueEList<>(String.class, this,
+					AnalyzerPackage.ANALYSIS__GIT_REPOSITORY_FILTERS);
+		}
+		return gitRepositoryFilters;
 	}
 
 	/**
@@ -314,6 +339,8 @@ public class AnalysisImpl extends MinimalEObjectImpl.Container implements Analys
 				return getExclusion();
 			case AnalyzerPackage.ANALYSIS__LEVELS:
 				return getLevels();
+			case AnalyzerPackage.ANALYSIS__GIT_REPOSITORY_FILTERS:
+				return getGitRepositoryFilters();
 			case AnalyzerPackage.ANALYSIS__AGGREGATION:
 				if (resolve)
 					return getAggregation();
@@ -343,6 +370,10 @@ public class AnalysisImpl extends MinimalEObjectImpl.Container implements Analys
 			case AnalyzerPackage.ANALYSIS__LEVELS:
 				getLevels().clear();
 				getLevels().addAll((Collection<? extends Integer>) newValue);
+				return;
+			case AnalyzerPackage.ANALYSIS__GIT_REPOSITORY_FILTERS:
+				getGitRepositoryFilters().clear();
+				getGitRepositoryFilters().addAll((Collection<? extends String>) newValue);
 				return;
 			case AnalyzerPackage.ANALYSIS__AGGREGATION:
 				setAggregation((Aggregation) newValue);
@@ -374,6 +405,9 @@ public class AnalysisImpl extends MinimalEObjectImpl.Container implements Analys
 			case AnalyzerPackage.ANALYSIS__LEVELS:
 				getLevels().clear();
 				return;
+			case AnalyzerPackage.ANALYSIS__GIT_REPOSITORY_FILTERS:
+				getGitRepositoryFilters().clear();
+				return;
 			case AnalyzerPackage.ANALYSIS__AGGREGATION:
 				setAggregation((Aggregation) null);
 				return;
@@ -400,6 +434,8 @@ public class AnalysisImpl extends MinimalEObjectImpl.Container implements Analys
 				return EXCLUSION_EDEFAULT == null ? exclusion != null : !EXCLUSION_EDEFAULT.equals(exclusion);
 			case AnalyzerPackage.ANALYSIS__LEVELS:
 				return levels != null && !levels.isEmpty();
+			case AnalyzerPackage.ANALYSIS__GIT_REPOSITORY_FILTERS:
+				return gitRepositoryFilters != null && !gitRepositoryFilters.isEmpty();
 			case AnalyzerPackage.ANALYSIS__AGGREGATION:
 				return aggregation != null;
 			case AnalyzerPackage.ANALYSIS__CONTRIBUTIONS:
@@ -426,6 +462,8 @@ public class AnalysisImpl extends MinimalEObjectImpl.Container implements Analys
 		result.append(exclusion);
 		result.append(", levels: ");
 		result.append(levels);
+		result.append(", gitRepositoryFilters: ");
+		result.append(gitRepositoryFilters);
 		result.append(')');
 		return result.toString();
 	}

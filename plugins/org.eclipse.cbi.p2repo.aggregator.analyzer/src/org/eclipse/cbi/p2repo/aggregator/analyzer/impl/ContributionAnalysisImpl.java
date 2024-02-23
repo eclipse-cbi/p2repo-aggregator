@@ -373,8 +373,8 @@ public class ContributionAnalysisImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public EList<InstallableUnitAnalysis> getInstallableUnits() {
 		if (installableUnits == null) {
-			installableUnits = new EObjectContainmentWithInverseEList<>(InstallableUnitAnalysis.class, this,
-					AnalyzerPackage.CONTRIBUTION_ANALYSIS__INSTALLABLE_UNITS,
+			installableUnits = new EObjectContainmentWithInverseEList<>(
+					InstallableUnitAnalysis.class, this, AnalyzerPackage.CONTRIBUTION_ANALYSIS__INSTALLABLE_UNITS,
 					AnalyzerPackage.INSTALLABLE_UNIT_ANALYSIS__CONTRIBUTION);
 		}
 		return installableUnits;

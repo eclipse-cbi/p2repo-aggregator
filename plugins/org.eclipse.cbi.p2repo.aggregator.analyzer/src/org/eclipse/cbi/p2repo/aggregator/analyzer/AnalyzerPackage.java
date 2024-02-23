@@ -110,13 +110,22 @@ public interface AnalyzerPackage extends EPackage {
 	int ANALYSIS__LEVELS = 2;
 
 	/**
+	 * The feature id for the '<em><b>Git Repository Filters</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS__GIT_REPOSITORY_FILTERS = 3;
+
+	/**
 	 * The feature id for the '<em><b>Aggregation</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS__AGGREGATION = 3;
+	int ANALYSIS__AGGREGATION = 4;
 
 	/**
 	 * The feature id for the '<em><b>Contributions</b></em>' containment reference list.
@@ -125,7 +134,7 @@ public interface AnalyzerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS__CONTRIBUTIONS = 4;
+	int ANALYSIS__CONTRIBUTIONS = 5;
 
 	/**
 	 * The number of structural features of the '<em>Analysis</em>' class.
@@ -134,7 +143,7 @@ public interface AnalyzerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS_FEATURE_COUNT = 5;
+	int ANALYSIS_FEATURE_COUNT = 6;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.analyzer.impl.ContributionAnalysisImpl <em>Contribution Analysis</em>}' class.
@@ -675,6 +684,17 @@ public interface AnalyzerPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getAnalysis_Levels();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.eclipse.cbi.p2repo.aggregator.analyzer.Analysis#getGitRepositoryFilters <em>Git Repository Filters</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Git Repository Filters</em>'.
+	 * @see org.eclipse.cbi.p2repo.aggregator.analyzer.Analysis#getGitRepositoryFilters()
+	 * @see #getAnalysis()
+	 * @generated
+	 */
+	EAttribute getAnalysis_GitRepositoryFilters();
 
 	/**
 	 * Returns the meta object for the reference '{@link org.eclipse.cbi.p2repo.aggregator.analyzer.Analysis#getAggregation <em>Aggregation</em>}'.
@@ -1251,6 +1271,14 @@ public interface AnalyzerPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ANALYSIS__LEVELS = eINSTANCE.getAnalysis_Levels();
+
+		/**
+		 * The meta object literal for the '<em><b>Git Repository Filters</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ANALYSIS__GIT_REPOSITORY_FILTERS = eINSTANCE.getAnalysis_GitRepositoryFilters();
 
 		/**
 		 * The meta object literal for the '<em><b>Aggregation</b></em>' reference feature.

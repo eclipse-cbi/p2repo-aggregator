@@ -6,7 +6,7 @@
     modelPluginClass="org.eclipse.cbi.p2repo.aggregator.analyzer.AggregationAnalyzerPlugin"
     rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" codeFormatting="true"
     testsDirectory="" booleanFlagsField="eFlags" importerID="org.eclipse.emf.importer.ecore"
-    complianceLevel="11.0" copyrightFields="false" providerRootExtendsClass="org.eclipse.cbi.p2repo.aggregator.analyzer.provider.AnalyzerItemProviderAdapter"
+    complianceLevel="17.0" copyrightFields="false" providerRootExtendsClass="org.eclipse.cbi.p2repo.aggregator.analyzer.provider.AnalyzerItemProviderAdapter"
     colorProviders="true" packedEnums="true" usedGenPackages="../../org.eclipse.cbi.p2repo.aggregator/model/Aggregator.genmodel#//aggregator ../../org.eclipse.cbi.p2repo.p2/model/p2.genmodel#//p2"
     importOrganizing="true" decoration="Live" cleanup="true" modelDocumentation="A model used for analyzing the dependencies between the contributions of an aggregation."
     autoResizeProperties="true" autoExpandProperties="1" findAction="true" expandAllAction="true"
@@ -25,6 +25,8 @@
       <genFeatures createChild="false" propertyDescription="A pattern that maches all installable units that will be omitted from analysis"
           ecoreFeature="ecore:EAttribute AggregationAnalyzer.ecore#//Analysis/exclusion"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AggregationAnalyzer.ecore#//Analysis/levels"/>
+      <genFeatures createChild="false" propertyDescription="A set of patterns that mach all Git repository URIs to be excluded from reconciliation"
+          ecoreFeature="ecore:EAttribute AggregationAnalyzer.ecore#//Analysis/gitRepositoryFilters"/>
       <genFeatures property="Readonly" createChild="false" propertySortChoices="true"
           ecoreFeature="ecore:EReference AggregationAnalyzer.ecore#//Analysis/aggregation"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AggregationAnalyzer.ecore#//Analysis/contributions"/>

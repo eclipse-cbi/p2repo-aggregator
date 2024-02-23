@@ -240,8 +240,18 @@ public class AnalyzerPackageImpl extends EPackageImpl implements AnalyzerPackage
 	 * @generated
 	 */
 	@Override
+	public EAttribute getAnalysis_GitRepositoryFilters() {
+		return (EAttribute) analysisEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EReference getAnalysis_Aggregation() {
-		return (EReference) analysisEClass.getEStructuralFeatures().get(3);
+		return (EReference) analysisEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -251,7 +261,7 @@ public class AnalyzerPackageImpl extends EPackageImpl implements AnalyzerPackage
 	 */
 	@Override
 	public EReference getAnalysis_Contributions() {
-		return (EReference) analysisEClass.getEStructuralFeatures().get(4);
+		return (EReference) analysisEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -748,6 +758,7 @@ public class AnalyzerPackageImpl extends EPackageImpl implements AnalyzerPackage
 		createEAttribute(analysisEClass, ANALYSIS__RELEASE_DATE);
 		createEAttribute(analysisEClass, ANALYSIS__EXCLUSION);
 		createEAttribute(analysisEClass, ANALYSIS__LEVELS);
+		createEAttribute(analysisEClass, ANALYSIS__GIT_REPOSITORY_FILTERS);
 		createEReference(analysisEClass, ANALYSIS__AGGREGATION);
 		createEReference(analysisEClass, ANALYSIS__CONTRIBUTIONS);
 
@@ -854,6 +865,9 @@ public class AnalyzerPackageImpl extends EPackageImpl implements AnalyzerPackage
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAnalysis_Levels(), ecorePackage.getEInt(), "levels", null, 0, -1, Analysis.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAnalysis_GitRepositoryFilters(), ecorePackage.getEString(), "gitRepositoryFilters", null, 0,
+				-1, Analysis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 		initEReference(getAnalysis_Aggregation(), theAggregatorPackage.getAggregation(), null, "aggregation", null, 1,
 				1, Analysis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1021,6 +1035,8 @@ public class AnalyzerPackageImpl extends EPackageImpl implements AnalyzerPackage
 	 */
 	protected void createExtendedMetaDataAnnotations() {
 		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";
+		addAnnotation(getAnalysis_GitRepositoryFilters(), source,
+				new String[] { "kind", "element", "name", "gitRepositoryFilter" });
 		addAnnotation(getAnalysis_Contributions(), source, new String[] { "name", "contribution", "kind", "element" });
 		addAnnotation(getContributionAnalysis_InstallableUnits(), source,
 				new String[] { "kind", "element", "name", "installableUnit" });

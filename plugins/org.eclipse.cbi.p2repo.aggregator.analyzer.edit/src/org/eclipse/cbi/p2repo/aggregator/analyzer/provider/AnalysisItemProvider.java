@@ -68,6 +68,7 @@ public class AnalysisItemProvider extends AnalyzerItemProviderAdapter
 			addReleaseDatePropertyDescriptor(object);
 			addExclusionPropertyDescriptor(object);
 			addLevelsPropertyDescriptor(object);
+			addGitRepositoryFiltersPropertyDescriptor(object);
 			addAggregationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -131,6 +132,21 @@ public class AnalysisItemProvider extends AnalyzerItemProviderAdapter
 						getString("_UI_PropertyDescriptor_description", "_UI_Analysis_aggregation_feature",
 								"_UI_Analysis_type"),
 						AnalyzerPackage.Literals.ANALYSIS__AGGREGATION, false, false, true, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Git Repository Filters feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addGitRepositoryFiltersPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Analysis_gitRepositoryFilters_feature"),
+						getString("_UI_Analysis_gitRepositoryFilters_description"),
+						AnalyzerPackage.Literals.ANALYSIS__GIT_REPOSITORY_FILTERS, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -220,6 +236,7 @@ public class AnalysisItemProvider extends AnalyzerItemProviderAdapter
 			case AnalyzerPackage.ANALYSIS__RELEASE_DATE:
 			case AnalyzerPackage.ANALYSIS__EXCLUSION:
 			case AnalyzerPackage.ANALYSIS__LEVELS:
+			case AnalyzerPackage.ANALYSIS__GIT_REPOSITORY_FILTERS:
 			case AnalyzerPackage.ANALYSIS__AGGREGATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

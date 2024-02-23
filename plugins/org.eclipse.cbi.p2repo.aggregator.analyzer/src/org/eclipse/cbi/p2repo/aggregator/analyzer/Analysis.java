@@ -33,6 +33,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.Analysis#getReleaseDate <em>Release Date</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.Analysis#getExclusion <em>Exclusion</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.Analysis#getLevels <em>Levels</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.Analysis#getGitRepositoryFilters <em>Git Repository Filters</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.Analysis#getAggregation <em>Aggregation</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.Analysis#getContributions <em>Contributions</em>}</li>
  * </ul>
@@ -100,6 +101,18 @@ public interface Analysis extends EObject {
 	 * @generated
 	 */
 	EList<Integer> getLevels();
+
+	/**
+	 * Returns the value of the '<em><b>Git Repository Filters</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Git Repository Filters</em>' attribute list.
+	 * @see org.eclipse.cbi.p2repo.aggregator.analyzer.AnalyzerPackage#getAnalysis_GitRepositoryFilters()
+	 * @model extendedMetaData="kind='element' name='gitRepositoryFilter'"
+	 * @generated
+	 */
+	EList<String> getGitRepositoryFilters();
 
 	/**
 	 * Returns the value of the '<em><b>Aggregation</b></em>' reference.

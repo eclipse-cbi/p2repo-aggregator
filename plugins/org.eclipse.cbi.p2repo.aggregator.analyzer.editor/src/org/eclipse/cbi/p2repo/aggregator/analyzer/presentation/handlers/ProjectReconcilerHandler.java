@@ -83,7 +83,9 @@ public class ProjectReconcilerHandler extends BaseHandler {
 
 		@Override
 		protected void perform(IProgressMonitor monitor) throws Exception {
-			projectMapper = new ProjectMapper(analysis.getReleaseDate());
+			EList<String> gitRepositoryFilters = analysis.getGitRepositoryFilters();
+			projectMapper = new ProjectMapper(analysis.getReleaseDate(),
+					gitRepositoryFilters.isEmpty() ? null : Pattern.compile(String.join("|", gitRepositoryFilters)));
 			projects = reconcile(monitor);
 		}
 
@@ -287,7 +289,7 @@ public class ProjectReconcilerHandler extends BaseHandler {
 				SubMonitor projectSubMonitor = subMonitor.newChild(1);
 				projectSubMonitor.subTask(contributionAnalysis.getLabel());
 
-				Set<String> projectIDs = getProjectIDs(contributionAnalysis);
+				Map<String, Integer> projectIDs = getProjectIDs(contributionAnalysis);
 				String label = contributionAnalysis.getLabel();
 				Predicate<String> filter = new Predicate<String>() {
 					private final Pattern pattern = Pattern.compile(
@@ -298,9 +300,10 @@ public class ProjectReconcilerHandler extends BaseHandler {
 						return pattern.matcher(label + ":" + projectID).matches();
 					}
 				};
-				for (String projectID : projectIDs) {
+
+				for (String projectID : projectIDs.keySet()) {
 					if (!filter.test(projectID)) {
-						projects.add(createProject(filter, projectID, true));
+						projects.add(createProject(filter, projectID, projectIDs, true));
 					}
 				}
 			}
@@ -308,8 +311,11 @@ public class ProjectReconcilerHandler extends BaseHandler {
 			return result;
 		}
 
-		private Project createProject(Predicate<String> filter, String projectID, boolean root) throws IOException {
+		private Project createProject(Predicate<String> filter, String projectID, Map<String, Integer> projectIDs,
+				boolean root) throws IOException {
 			Project project = AnalyzerFactory.eINSTANCE.createProject();
+			Integer rank = projectIDs.get(projectID);
+			project.setRank(rank == null ? 0 : rank);
 			project.setSite(URI.createURI(ProjectMapper.ECLIPSE_PROJECT_PORTAL + projectID));
 			project.setName(projectMapper.getProjectName(projectID));
 
@@ -337,7 +343,7 @@ public class ProjectReconcilerHandler extends BaseHandler {
 				Set<String> subprojectIDs = projectMapper.getSubprojects(projectID);
 				for (String subprojectID : subprojectIDs) {
 					if (!filter.test(subprojectID)) {
-						subprojects.add(createProject(filter, subprojectID, false));
+						subprojects.add(createProject(filter, subprojectID, projectIDs, false));
 					}
 				}
 			}
@@ -345,8 +351,8 @@ public class ProjectReconcilerHandler extends BaseHandler {
 			return project;
 		}
 
-		private Set<String> getProjectIDs(ContributionAnalysis contributionAnalysis) {
-			Set<String> projects = new TreeSet<>();
+		private Map<String, Integer> getProjectIDs(ContributionAnalysis contributionAnalysis) {
+			Map<String, Integer> projects = new TreeMap<>();
 			Contribution contribution = contributionAnalysis.getContribution();
 			if (contribution != null) {
 				for (MappedRepository mappedRepository : contribution.getRepositories(false)) {
@@ -355,7 +361,7 @@ public class ProjectReconcilerHandler extends BaseHandler {
 					if (projectID == null) {
 						System.out.println("Not found: " + resolvedLocation);
 					} else {
-						projects.add(projectID);
+						projects.put(projectID, null);
 					}
 				}
 			}
@@ -365,7 +371,7 @@ public class ProjectReconcilerHandler extends BaseHandler {
 				if (site.toString().startsWith(ProjectMapper.ECLIPSE_PROJECT_PORTAL)) {
 					String projectID = site.lastSegment();
 					if (projectMapper.getProjectName(projectID) != null) {
-						projects.add(projectID);
+						projects.put(projectID, project.getRank());
 					}
 				}
 			}
@@ -393,8 +399,11 @@ public class ProjectReconcilerHandler extends BaseHandler {
 
 		private long versionCutoffTime;
 
-		public ProjectMapper(Date releaseDate) throws IOException {
+		private Pattern gitRepositoryPattern;
 
+		public ProjectMapper(Date releaseDate, Pattern gitRepositoryPattern) throws IOException {
+
+			this.gitRepositoryPattern = gitRepositoryPattern;
 			if (releaseDate == null) {
 				long now = System.currentTimeMillis();
 				// Three months from now.
@@ -513,22 +522,9 @@ public class ProjectReconcilerHandler extends BaseHandler {
 		}
 
 		private void cleanupRepos(String projectID, Set<String> repos) {
-			Pattern repositoryFilter = Pattern
-					.compile(".*/org.eclipse.atl.tcs|.*/org.eclipse.dltk\\.(releng|javascript|python|ruby|sh)|"
-							+ ".*/eclipse-pde/eclipse.pde.build|.*/webtools.common.fproj|.*/webtools.jsf.docs|"
-							+ ".*/eclipse-webservices/webservices.axis2|.*eclipse-webservices/webservices.jaxws|"
-							+ ".*/ptp.doc|.*/org.eclipse.viatra2?\\..*|.*/eclipse-emf-compare/emf-compare-(acceptance|cli)|.*/eclipse-m2e/m2e-wtp-jpa|.*/eclipse-passage/(chronograph|passage-(spring|docs|images))|.*/eclipse-linuxtools/org.eclipse.linuxtools.eclipse-build|.*/gsc-ec-converter|.*/eclipse-collections-[^/]*|.*/eclipse-sirius/(sirius-web|sirius.specs)|"
-							+ ".*eclipse-scout/(scout.maven-master|scout.ci)|modeling.tmf.xtext.*xtext-[^/]*|iot.embed-cdt.*(org.eclipse.epp.packages|Liqp)|.*/(cdo\\..*|org\\.eclipse\\.mylyn\\.docs\\..*|.*-infra|servertools\\..*|assets|web-[^/]*|webtools.*(\\.snippets|\\.tests)|.*-releng|ui-.*|www\\..*|\\.github|\\.eclipsefdn|"
-							+ "jetty([.-]website|[-.]parent|-examples|\\.docker|-alpn-api|-artifact-remote-resources|-assembly-descriptors|-perf-helper|-build-support|-test-helper)|equinox\\.(bundles|framework)|eclipse\\.platform\\.(common|debug|resources|runtime|team|text|ua|ui\\.tools|releng(\\.buildtools)?))|.*(\\.incubator|-website)|.*-ghsa-.*|.*\\.github\\.io|.*\\.website|.*-pipelines|"
-							+ ".*update.eclemma.org.*|.*/[ej]git-pipelines|" //
-							+ ".*/dltk\\.(all|examples|releng)|" //
-							+ ".*\\.(ecp.other|ecp.releng)|" //
-							+ ".*/tcf.test-migration|" //
-							+ ".*/tracecompass-test-traces|" //
-							+ ".*-website-source.*" //
-					);
-
-			repos.removeIf(it -> repositoryFilter.matcher(projectID + ":" + it).matches());
+			if (gitRepositoryPattern != null) {
+				repos.removeIf(it -> gitRepositoryPattern.matcher(projectID + ":" + it).matches());
+			}
 		}
 
 		public <T> T getLatestReleaseInfo(Class<T> type, String projectID) throws IOException {
