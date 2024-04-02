@@ -78,6 +78,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#getMavenDependencyMappings <em>Maven Dependency Mappings</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#isAllowLegacySites <em>Allow Legacy Sites</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#isIncludeSources <em>Include Sources</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#isExcludeValidationSetUnits <em>Exclude Validation Set Units</em>}</li>
  * </ul>
  *
  * @generated
@@ -498,6 +499,26 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	protected static final int INCLUDE_SOURCES_EFLAG = 1 << 12;
 
 	/**
+	 * The default value of the '{@link #isExcludeValidationSetUnits() <em>Exclude Validation Set Units</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isExcludeValidationSetUnits()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean EXCLUDE_VALIDATION_SET_UNITS_EDEFAULT = false;
+
+	/**
+	 * The flag representing the value of the '{@link #isExcludeValidationSetUnits() <em>Exclude Validation Set Units</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isExcludeValidationSetUnits()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int EXCLUDE_VALIDATION_SET_UNITS_EFLAG = 1 << 13;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -648,6 +669,8 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 				return isAllowLegacySites();
 			case AggregatorPackage.AGGREGATION__INCLUDE_SOURCES:
 				return isIncludeSources();
+			case AggregatorPackage.AGGREGATION__EXCLUDE_VALIDATION_SET_UNITS:
+				return isExcludeValidationSetUnits();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -745,6 +768,8 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 				return ((eFlags & ALLOW_LEGACY_SITES_EFLAG) != 0) != ALLOW_LEGACY_SITES_EDEFAULT;
 			case AggregatorPackage.AGGREGATION__INCLUDE_SOURCES:
 				return ((eFlags & INCLUDE_SOURCES_EFLAG) != 0) != INCLUDE_SOURCES_EDEFAULT;
+			case AggregatorPackage.AGGREGATION__EXCLUDE_VALIDATION_SET_UNITS:
+				return ((eFlags & EXCLUDE_VALIDATION_SET_UNITS_EFLAG) != 0) != EXCLUDE_VALIDATION_SET_UNITS_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -833,6 +858,9 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 			case AggregatorPackage.AGGREGATION__INCLUDE_SOURCES:
 				setIncludeSources((Boolean) newValue);
 				return;
+			case AggregatorPackage.AGGREGATION__EXCLUDE_VALIDATION_SET_UNITS:
+				setExcludeValidationSetUnits((Boolean) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -920,6 +948,9 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 				return;
 			case AggregatorPackage.AGGREGATION__INCLUDE_SOURCES:
 				setIncludeSources(INCLUDE_SOURCES_EDEFAULT);
+				return;
+			case AggregatorPackage.AGGREGATION__EXCLUDE_VALIDATION_SET_UNITS:
+				setExcludeValidationSetUnits(EXCLUDE_VALIDATION_SET_UNITS_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -1302,6 +1333,34 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * @generated
 	 */
 	@Override
+	public boolean isExcludeValidationSetUnits() {
+		return (eFlags & EXCLUDE_VALIDATION_SET_UNITS_EFLAG) != 0;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setExcludeValidationSetUnits(boolean newExcludeValidationSetUnits) {
+		boolean oldExcludeValidationSetUnits = (eFlags & EXCLUDE_VALIDATION_SET_UNITS_EFLAG) != 0;
+		if (newExcludeValidationSetUnits)
+			eFlags |= EXCLUDE_VALIDATION_SET_UNITS_EFLAG;
+		else
+			eFlags &= ~EXCLUDE_VALIDATION_SET_UNITS_EFLAG;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					AggregatorPackage.AGGREGATION__EXCLUDE_VALIDATION_SET_UNITS, oldExcludeValidationSetUnits,
+					newExcludeValidationSetUnits));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public void setBuildmaster(Contact newBuildmaster) {
 		Contact oldBuildmaster = buildmaster;
 		buildmaster = newBuildmaster;
@@ -1523,6 +1582,8 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 		result.append((eFlags & ALLOW_LEGACY_SITES_EFLAG) != 0);
 		result.append(", includeSources: ");
 		result.append((eFlags & INCLUDE_SOURCES_EFLAG) != 0);
+		result.append(", excludeValidationSetUnits: ");
+		result.append((eFlags & EXCLUDE_VALIDATION_SET_UNITS_EFLAG) != 0);
 		result.append(')');
 		return result.toString();
 	}

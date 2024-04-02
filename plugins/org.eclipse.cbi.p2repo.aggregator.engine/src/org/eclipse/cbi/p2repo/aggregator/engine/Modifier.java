@@ -44,7 +44,7 @@ public class Modifier extends ModelAbstractCommand {
 	@Option(name = "--repoLocation", usage = "Appoints a new repository for aggregation")
 	private String repoLocation;
 
-	@Option(name = "--validationSet", usage = "Appoints the targeted valiation set")
+	@Option(name = "--validationSet", usage = "Appoints the targeted validation set")
 	private String validationSetName;
 
 	/*

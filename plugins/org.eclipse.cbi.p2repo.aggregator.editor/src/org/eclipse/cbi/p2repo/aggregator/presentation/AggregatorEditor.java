@@ -2005,8 +2005,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 
 		// Create the editing domain with a special command stack and a shared clipboard.
 		//
-		editingDomain = new AdapterFactoryEditingDomain(adapterFactory, commandStack,
-				new HashMap<Resource, Boolean>()) {
+		editingDomain = new AdapterFactoryEditingDomain(adapterFactory, commandStack, new HashMap<>()) {
 
 			{
 				final ResourceSet resourceSet = getResourceSet();

@@ -857,7 +857,8 @@ public class ValidationSetVerifier extends BuilderPhase {
 							}
 						}
 
-						if (suspectedValidationOnlyIUs != null) {
+						if (suspectedValidationOnlyIUs != null
+								&& !getBuilder().getAggregation().isExcludeValidationSetUnits()) {
 							// Prune the set of IU's that we suspect are there for validation
 							// purposes only using the source repository
 							//

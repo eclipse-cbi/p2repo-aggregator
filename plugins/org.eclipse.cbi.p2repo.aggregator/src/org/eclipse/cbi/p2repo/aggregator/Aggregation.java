@@ -40,6 +40,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#getMavenDependencyMappings <em>Maven Dependency Mappings</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#isAllowLegacySites <em>Allow Legacy Sites</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#isIncludeSources <em>Include Sources</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#isExcludeValidationSetUnits <em>Exclude Validation Set Units</em>}</li>
  * </ul>
  *
  * @see org.eclipse.cbi.p2repo.aggregator.AggregatorPackage#getAggregation()
@@ -306,6 +307,31 @@ public interface Aggregation extends DescriptionProvider, StatusProvider, InfosP
 	 * @generated
 	 */
 	void setIncludeSources(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Exclude Validation Set Units</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Whether to exclude units from the aggregation if available in a validation set repository, even if available in a contribution repository.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Exclude Validation Set Units</em>' attribute.
+	 * @see #setExcludeValidationSetUnits(boolean)
+	 * @see org.eclipse.cbi.p2repo.aggregator.AggregatorPackage#getAggregation_ExcludeValidationSetUnits()
+	 * @model
+	 * @generated
+	 */
+	boolean isExcludeValidationSetUnits();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#isExcludeValidationSetUnits <em>Exclude Validation Set Units</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Exclude Validation Set Units</em>' attribute.
+	 * @see #isExcludeValidationSetUnits()
+	 * @generated
+	 */
+	void setExcludeValidationSetUnits(boolean value);
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#getBuildmaster <em>Buildmaster</em>}' reference.

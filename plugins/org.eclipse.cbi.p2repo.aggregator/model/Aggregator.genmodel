@@ -9,7 +9,7 @@
     rootExtendsInterface="" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     rootImplementsInterface="" codeFormatting="true" testsDirectory="" testSuiteClass=""
     booleanFlagsField="eFlags" importerID="org.eclipse.emf.importer.ecore" containmentProxies="true"
-    complianceLevel="11.0" copyrightFields="false" providerRootExtendsClass="org.eclipse.cbi.p2repo.aggregator.provider.AggregatorItemProviderAdapter"
+    complianceLevel="17.0" copyrightFields="false" providerRootExtendsClass="org.eclipse.cbi.p2repo.aggregator.provider.AggregatorItemProviderAdapter"
     editPluginID="org.eclipse.cbi.p2repo.aggregator.edit" editorPluginID="org.eclipse.cbi.p2repo.aggregator.editor"
     testsPluginID="org.eclipse.cbi.p2repo.aggregator.editor" colorProviders="true"
     fontProviders="true" language="" packedEnums="true" usedGenPackages="../../org.eclipse.cbi.p2repo.p2/model/p2.genmodel#//p2"
@@ -117,6 +117,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Aggregator.ecore#//Aggregation/mavenDependencyMappings"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//Aggregation/allowLegacySites"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//Aggregation/includeSources"/>
+      <genFeatures createChild="false" propertyDescription="Whether to exclude units from the aggregation if available in a validation set repository, even if available in a contribution repository"
+          ecoreFeature="ecore:EAttribute Aggregator.ecore#//Aggregation/excludeValidationSetUnits"/>
       <genOperations ecoreOperation="Aggregator.ecore#//Aggregation/getAllMetadataRepositoryReferences">
         <genParameters ecoreParameter="Aggregator.ecore#//Aggregation/getAllMetadataRepositoryReferences/enabledOnly"/>
       </genOperations>

@@ -203,6 +203,14 @@ public interface AggregatorPackage extends EPackage {
 		EAttribute AGGREGATION__INCLUDE_SOURCES = eINSTANCE.getAggregation_IncludeSources();
 
 		/**
+		 * The meta object literal for the '<em><b>Exclude Validation Set Units</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute AGGREGATION__EXCLUDE_VALIDATION_SET_UNITS = eINSTANCE.getAggregation_ExcludeValidationSetUnits();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.ValidationSetImpl <em>Validation Set</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1581,13 +1589,22 @@ public interface AggregatorPackage extends EPackage {
 	int AGGREGATION__INCLUDE_SOURCES = DESCRIPTION_PROVIDER_FEATURE_COUNT + 22;
 
 	/**
+	 * The feature id for the '<em><b>Exclude Validation Set Units</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AGGREGATION__EXCLUDE_VALIDATION_SET_UNITS = DESCRIPTION_PROVIDER_FEATURE_COUNT + 23;
+
+	/**
 	 * The number of structural features of the '<em>Aggregation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATION_FEATURE_COUNT = DESCRIPTION_PROVIDER_FEATURE_COUNT + 23;
+	int AGGREGATION_FEATURE_COUNT = DESCRIPTION_PROVIDER_FEATURE_COUNT + 24;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.EnabledStatusProvider <em>Enabled Status Provider</em>}' class.
@@ -4295,6 +4312,17 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getAggregation_IncludeSources();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#isExcludeValidationSetUnits <em>Exclude Validation Set Units</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Exclude Validation Set Units</em>'.
+	 * @see org.eclipse.cbi.p2repo.aggregator.Aggregation#isExcludeValidationSetUnits()
+	 * @see #getAggregation()
+	 * @generated
+	 */
+	EAttribute getAggregation_ExcludeValidationSetUnits();
 
 	/**
 	 * Returns the meta object for the reference '{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#getBuildmaster <em>Buildmaster</em>}'.

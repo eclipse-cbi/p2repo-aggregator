@@ -80,6 +80,21 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Exclude Validation Set Units feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addExcludeValidationSetUnitsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Aggregation_excludeValidationSetUnits_feature"),
+						getString("_UI_Aggregation_excludeValidationSetUnits_description"),
+						AggregatorPackage.Literals.AGGREGATION__EXCLUDE_VALIDATION_SET_UNITS, true, false, false,
+						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Buildmaster feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -383,6 +398,7 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider {
 			addMavenBuildNumberPropertyDescriptor(object);
 			addAllowLegacySitesPropertyDescriptor(object);
 			addIncludeSourcesPropertyDescriptor(object);
+			addExcludeValidationSetUnitsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -436,6 +452,7 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider {
 			case AggregatorPackage.AGGREGATION__MAVEN_BUILD_NUMBER:
 			case AggregatorPackage.AGGREGATION__ALLOW_LEGACY_SITES:
 			case AggregatorPackage.AGGREGATION__INCLUDE_SOURCES:
+			case AggregatorPackage.AGGREGATION__EXCLUDE_VALIDATION_SET_UNITS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case AggregatorPackage.AGGREGATION__VALIDATION_SETS:
