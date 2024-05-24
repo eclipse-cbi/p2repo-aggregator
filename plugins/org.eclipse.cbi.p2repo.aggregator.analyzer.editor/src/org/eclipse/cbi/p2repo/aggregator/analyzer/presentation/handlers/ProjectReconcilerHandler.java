@@ -160,7 +160,7 @@ public class ProjectReconcilerHandler extends BaseHandler {
 							int rank = Integer.valueOf(parts[parts.length - 1]);
 							URI uri = URI.createURI(url);
 							List<Project> projects = sitesToProjects.get(uri);
-							if (!projects.isEmpty()) {
+							if (projects != null && !projects.isEmpty()) {
 								for (Project project : projects) {
 									project.setRank(rank);
 								}
@@ -448,7 +448,7 @@ public class ProjectReconcilerHandler extends BaseHandler {
 					String id = line.substring(0, tab);
 					if (!id.endsWith(".incubator")) {
 						String name = line.substring(tab + 1);
-						this.projects.put(id, name);
+						this.projects.put(id, name.replace("\\", ""));
 					}
 				}
 			}
@@ -509,7 +509,7 @@ public class ProjectReconcilerHandler extends BaseHandler {
 				for (String group : groups) {
 					for (int i = 1; i < 10; i++) {
 						String repos = getContent(URI.createURI("https://gitlab.eclipse.org/api/v4/groups/"
-								+ group.replace("/", "%2f") + "?page=" + i));
+								+ group.replace("\\", "").replace("/", "%2f") + "?page=" + i));
 						Set<String> urls = getValues("http_url_to_repo", repos);
 						if (!result.addAll(
 								urls.stream().map(it -> it.replaceAll("\\.git$", "")).collect(Collectors.toList()))) {
@@ -538,36 +538,29 @@ public class ProjectReconcilerHandler extends BaseHandler {
 			String content = getPMIContent(projectID);
 			String releases = getSection("releases", content);
 			if (releases != null) {
-				Set<String> values = getValues("url", releases);
-				Pattern releasePattern = Pattern.compile(
-						"<span[^>]+property=\"dc:date\"[^>]+datatype=\"xsd:dateTime\"[^>]+content=\"([^\"]+)\">");
-				for (String releaseURI : values) {
-					String releaseRecord = getContent(URI.createURI(releaseURI));
-					Matcher matcher = releasePattern.matcher(releaseRecord);
-					if (matcher.find()) {
-						String date = matcher.group(1);
-						try {
-							SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssX");
-							Date dateValue = simpleDateFormat.parse(date);
-
-							long delta = versionCutoffTime - dateValue.getTime();
-							if (delta > 0) {
-								if (type.isInstance(releaseURI)) {
-									return type.cast(releaseURI);
-								}
-								if (type.isInstance(dateValue)) {
-									return type.cast(dateValue);
-								}
-
-								throw new IllegalArgumentException("Type " + type.getName() + " not expected");
-							} else {
-								// Release is after the cutoff date
-								System.out.println("-- " + projectID + " -> " + releaseURI + " -> " + date + " > "
-										+ simpleDateFormat.format(new Date(versionCutoffTime)));
+				SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+				Map<String, String> values = getValues("url", "date", releases);
+				for (Map.Entry<String, String> release : values.entrySet()) {
+					String releaseURI = release.getKey();
+					try {
+						Date dateValue = simpleDateFormat.parse(release.getValue());
+						long delta = versionCutoffTime - dateValue.getTime();
+						if (delta > 0) {
+							if (type.isInstance(releaseURI)) {
+								return type.cast(releaseURI);
 							}
-						} catch (ParseException e) {
-							throw new IOException(e);
+							if (type.isInstance(dateValue)) {
+								return type.cast(dateValue);
+							}
+
+							throw new IllegalArgumentException("Type " + type.getName() + " not expected");
+						} else {
+							// Release is after the cutoff date
+							System.out.println("-- " + projectID + " -> " + releaseURI + " -> " + release.getValue()
+									+ " > " + simpleDateFormat.format(new Date(versionCutoffTime)));
 						}
+					} catch (ParseException e) {
+						throw new IOException(e);
 					}
 				}
 			}
@@ -599,7 +592,7 @@ public class ProjectReconcilerHandler extends BaseHandler {
 			Matcher matcher2 = Pattern.compile('"' + booleanKey + "\":(true|false)").matcher(content);
 			while (matcher1.find() && matcher2.find()) {
 				if ("false".equals(matcher2.group(1))) {
-					result.add(matcher1.group(1));
+					result.add(matcher1.group(1).replace("\\", ""));
 				}
 			}
 			return result;
@@ -609,7 +602,18 @@ public class ProjectReconcilerHandler extends BaseHandler {
 			Set<String> result = new LinkedHashSet<>();
 			Matcher matcher = Pattern.compile('"' + key + "\":\"([^\"]+)\"").matcher(content);
 			while (matcher.find()) {
-				result.add(matcher.group(1));
+				result.add(matcher.group(1).replace("\\", ""));
+			}
+			return result;
+		}
+
+		private Map<String, String> getValues(String key, String value, String content) {
+			Map<String, String> result = new LinkedHashMap<>();
+			// {
+			Matcher matcher = Pattern.compile('"' + key + "\":\"([^\"]+)\"" + "[^}]*" + '"' + value + "\":\"([^\"]+)\"")
+					.matcher(content);
+			while (matcher.find()) {
+				result.put(matcher.group(1).replace("\\", ""), matcher.group(2).replace("\\", ""));
 			}
 			return result;
 		}

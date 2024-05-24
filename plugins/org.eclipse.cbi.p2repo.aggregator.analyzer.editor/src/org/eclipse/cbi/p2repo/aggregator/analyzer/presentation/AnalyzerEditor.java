@@ -48,6 +48,7 @@ import java.util.stream.Collectors;
 import org.apache.batik.svggen.DefaultExtensionHandler;
 import org.apache.batik.svggen.SVGGraphics2D;
 import org.eclipse.cbi.p2repo.aggregator.Contribution;
+import org.eclipse.cbi.p2repo.aggregator.InstallableUnitType;
 import org.eclipse.cbi.p2repo.aggregator.analyzer.Analysis;
 import org.eclipse.cbi.p2repo.aggregator.analyzer.AnalyzerPackage;
 import org.eclipse.cbi.p2repo.aggregator.analyzer.CapabilityAnalysis;
@@ -1751,19 +1752,40 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 								}).map(Map.Entry::getValue).flatMap(Collection::stream).map(capability -> {
 									AdapterFactoryItemDelegator itemDelegator = getItemDelegator();
 									IProvidedCapability providedCapability = capability.getCapability();
-									String contributingID = capability.getInstallableUnit().getInstallableUnit()
-											.getId();
+									IInstallableUnit installableUnit = capability.getInstallableUnit()
+											.getInstallableUnit();
+									String contributingID = installableUnit.getId();
 									Set<CapabilityAnalysis> others = javaPackages
 											.get(capability.getCapability().getName());
-									Set<CapabilityAnalysis> contributors = others.stream().filter(
-											it -> it.getCapability().equals(providedCapability) && !contributingID
-													.equals(it.getInstallableUnit().getInstallableUnit().getId()))
-											.collect(Collectors.toSet());
+									Set<CapabilityAnalysis> contributors = InstallableUnitUtils
+											.getType(installableUnit) == InstallableUnitType.FRAGMENT
+													? Set.of()
+													: others.stream()
+															.filter(it -> it.getCapability().equals(providedCapability)
+																	&& !contributingID.equals(it.getInstallableUnit()
+																			.getInstallableUnit().getId()))
+															.filter(it -> InstallableUnitUtils.getType(it
+																	.getInstallableUnit()
+																	.getInstallableUnit()) != InstallableUnitType.FRAGMENT)
+															.collect(Collectors.toSet());
+
+									// This is useful for producing the list for this issue:
+									// https://github.com/eclipse-platform/eclipse.platform.releng.aggregator/issues/2044#issuecomment-2127010148
+									if (Boolean.FALSE && contributors.size() >= 1) {
+										String text = itemDelegator.getText(capability) + " <-- "
+												+ itemDelegator.getText(capability.getInstallableUnit());
+										text = text.replace("Java Package ", "");
+										if (text.contains("swt")) {
+											text.toString();
+										}
+										System.err.println(text);
+									}
+
 									class MyItemProvider extends ItemProvider implements IWrapperItemProvider {
 										public MyItemProvider() {
 											super(itemDelegator.getText(capability) + " \u2190 "
 													+ itemDelegator.getText(capability.getInstallableUnit())
-													+ (contributors.size() > 1 ? " **" : ""),
+													+ (contributors.size() >= 1 ? " **" : ""),
 													itemDelegator.getImage(capability));
 										}
 
