@@ -131,6 +131,7 @@ import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.ISelectionProvider;
+import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
@@ -1122,6 +1123,12 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 			}
 
 		});
+
+		Object[] elements = ((IStructuredContentProvider) selectionViewer.getContentProvider())
+				.getElements(selectionViewer.getInput());
+		if (elements.length > 0) {
+			selectionViewer.setSelection(new StructuredSelection(elements[0]), true);
+		}
 
 		if (repositoryLoadingJob != null) {
 			repositoryLoadingJob.schedule();

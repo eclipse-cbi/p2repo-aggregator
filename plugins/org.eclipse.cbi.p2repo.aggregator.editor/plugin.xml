@@ -175,6 +175,11 @@
              id="org.eclipse.cbi.p2repo.aggregator.editor.fixVersion"
              name="%fixVersion.command">
        </command>
+       <command
+             defaultHandler="org.eclipse.cbi.p2repo.aggregator.presentation.DeleteUnusedContactsHandler"
+             id="org.eclipse.cbi.p2repo.aggregator.editor.deleteUnusedContacts"
+             name="%deleteUnusedContacts.command">
+       </command>
     </extension>
 
     <extension
@@ -182,6 +187,10 @@
        <image
              commandId="org.eclipse.cbi.p2repo.aggregator.editor.fixVersion"
              icon="icons/full/obj16/fixVersions.png">
+       </image>
+       <image
+             commandId="org.eclipse.cbi.p2repo.aggregator.editor.deleteUnusedContacts"
+             icon="icons/full/obj16/DeleteContact.gif">
        </image>
     </extension>
 
@@ -192,6 +201,10 @@
              locationURI="popup:org.eclipse.cbi.p2repo.aggregator.presentation.AggregatorEditorID?before=additions">
           <command
                 commandId="org.eclipse.cbi.p2repo.aggregator.editor.fixVersion"
+                style="push">
+          </command>
+          <command
+                commandId="org.eclipse.cbi.p2repo.aggregator.editor.deleteUnusedContacts"
                 style="push">
           </command>
        </menuContribution>

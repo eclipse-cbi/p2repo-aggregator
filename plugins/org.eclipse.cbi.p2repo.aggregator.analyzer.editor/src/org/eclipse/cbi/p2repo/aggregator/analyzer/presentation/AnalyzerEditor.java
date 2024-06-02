@@ -1261,6 +1261,12 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 		selectionViewer.setAutoExpandLevel(2);
 		selectionViewer.setInput(analysis.eResource());
 
+		Object[] elements = ((IStructuredContentProvider) selectionViewer.getContentProvider())
+				.getElements(selectionViewer.getInput());
+		if (elements.length > 0) {
+			selectionViewer.setSelection(new StructuredSelection(elements[0]), true);
+		}
+
 		addPageChangedListener(event -> {
 			Viewer viewer = viewers.get(event.getSelectedPage());
 			setCurrentViewer(viewer);
