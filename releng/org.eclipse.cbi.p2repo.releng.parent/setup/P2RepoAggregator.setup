@@ -188,6 +188,10 @@
         </detail>
       </annotation>
       <requirement
+          name="slf4j.nop"
+          optional="true"
+          max="0"/>
+      <requirement
           name="org.eclipse.sdk.feature.group"/>
       <requirement
           name="*"/>
