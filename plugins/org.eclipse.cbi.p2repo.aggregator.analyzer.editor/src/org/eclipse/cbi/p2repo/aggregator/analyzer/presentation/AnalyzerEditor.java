@@ -1537,6 +1537,8 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 							setTarget(element);
 						} else if (element instanceof IUPresentation) {
 							setTarget(((IUPresentation) element).getInstallableUnit());
+						} else if (element instanceof RequirementResolution requirementResolution) {
+							setTarget(requirementResolution.getInstallableUnit());
 						}
 					}
 				});
@@ -1595,6 +1597,8 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 					setTarget(((RequirementWrapper) element).getGenuine());
 				} else if (element instanceof ProvidedCapabilityWrapper) {
 					setTarget(((ProvidedCapabilityWrapper) element).getGenuine());
+				} else if (element instanceof RequirementResolution requirementResolution) {
+					setTarget(requirementResolution.getInstallableUnit());
 				}
 			}
 		});
@@ -1638,6 +1642,8 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 					setTarget(element);
 				} else if (element instanceof IUPresentation) {
 					setTarget(((IUPresentation) element).getInstallableUnit());
+				} else if (element instanceof RequirementResolution requirementResolution) {
+					setTarget(requirementResolution.getInstallableUnit());
 				}
 			}
 		});
@@ -1671,6 +1677,10 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 					setTarget(element);
 				} else if (element instanceof IUPresentation) {
 					setTarget(((IUPresentation) element).getInstallableUnit());
+				} else if (element instanceof RequirementResolution requirementResolution) {
+					setTarget(requirementResolution.getInstallableUnit());
+				} else if (element instanceof RequirementResolution requirementResolution) {
+					setTarget(requirementResolution.getInstallableUnit());
 				}
 			}
 		});
@@ -1706,6 +1716,8 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 				if (element instanceof ContributionAnalysis || element instanceof InstallableUnitAnalysis
 						|| element instanceof IUPresentation || element instanceof IInstallableUnit) {
 					setTarget(element);
+				} else if (element instanceof RequirementResolution requirementResolution) {
+					setTarget(requirementResolution.getInstallableUnit());
 				}
 			}
 		});
@@ -1892,6 +1904,8 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 				if (element instanceof ContributionAnalysis || element instanceof InstallableUnitAnalysis
 						|| element instanceof IUPresentation || element instanceof IInstallableUnit) {
 					setTarget(element);
+				} else if (element instanceof RequirementResolution requirementResolution) {
+					setTarget(requirementResolution.getInstallableUnit());
 				}
 			}
 		});
