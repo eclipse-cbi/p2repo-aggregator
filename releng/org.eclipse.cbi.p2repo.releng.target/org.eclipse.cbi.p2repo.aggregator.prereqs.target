@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde version="3.8"?>
-<target name="Generated from P2 Repository Aggregator" sequenceNumber="40">
+<target name="Generated from P2 Repository Aggregator" sequenceNumber="41">
   <locations>
     <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
       <unit id="a.jre.javase" version="0.0.0"/>
@@ -18,15 +18,15 @@
       <unit id="jakarta.annotation-api" version="0.0.0"/>
       <unit id="jakarta.inject.jakarta.inject-api" version="0.0.0"/>
       <unit id="jakarta.xml.bind-api" version="0.0.0"/>
-      <unit id="javax.annotation" version="0.0.0"/>
       <unit id="org.apache.aries.spifly.dynamic.bundle" version="0.0.0"/>
       <unit id="org.apache.batik.constants" version="0.0.0"/>
       <unit id="org.apache.batik.i18n" version="0.0.0"/>
       <unit id="org.apache.batik.parser" version="0.0.0"/>
       <unit id="org.apache.batik.script" version="0.0.0"/>
       <unit id="org.apache.commons.cli" version="0.0.0"/>
+      <unit id="org.apache.commons.collections" version="0.0.0"/>
+      <unit id="org.apache.commons.commons-beanutils" version="0.0.0"/>
       <unit id="org.apache.commons.commons-io" version="0.0.0"/>
-      <unit id="org.apache.commons.lang3" version="0.0.0"/>
       <unit id="org.apache.commons.logging" version="0.0.0"/>
       <unit id="org.apache.felix.scr" version="0.0.0"/>
       <unit id="org.apache.httpcomponents.httpclient" version="0.0.0"/>
@@ -59,6 +59,7 @@
       <unit id="org.eclipse.orbit.xml-apis-ext" version="0.0.0"/>
       <unit id="org.eclipse.sdk.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.zest.core" version="0.0.0"/>
+      <unit id="org.jdom" version="0.0.0"/>
       <unit id="org.kohsuke.args4j" version="0.0.0"/>
       <unit id="org.mortbay.jasper.apache-el" version="0.0.0"/>
       <unit id="org.mortbay.jasper.apache-jsp" version="0.0.0"/>
@@ -71,10 +72,10 @@
       <unit id="slf4j.api" version="0.0.0"/>
       <unit id="slf4j.simple" version="0.0.0"/>
       <repository location="https://download.eclipse.org/cbi/updates/license"/>
-      <repository location="https://download.eclipse.org/eclipse/updates/4.33-I-builds"/>
+      <repository location="https://download.eclipse.org/eclipse/updates/4.34-I-builds"/>
       <repository location="https://download.eclipse.org/nebula/updates/release/latest"/>
-      <repository location="https://download.eclipse.org/releases/2024-09"/>
-      <repository location="https://download.eclipse.org/tools/orbit/simrel/orbit-aggregation/2024-09"/>
+      <repository location="https://download.eclipse.org/releases/2024-12"/>
+      <repository location="https://download.eclipse.org/tools/orbit/simrel/orbit-aggregation/2024-12"/>
     </location>
   </locations>
 </target>

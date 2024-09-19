@@ -52,7 +52,7 @@
     <skipTests>true</skipTests>
     <maven.build.timestamp.format>yyyyMMdd-HHmm</maven.build.timestamp.format>
     <comparator.repo>http://download.eclipse.org/cbi/updates/aggregator/ide/4.13/</comparator.repo>
-    <tycho-version>4.0.8</tycho-version>
+    <tycho-version>4.0.9</tycho-version>
     <cbi-plugins.version>1.5.0</cbi-plugins.version>
     <code.ignoredWarnings>-warn:-deprecation,raw,unchecked,discouraged</code.ignoredWarnings>
     <!--
@@ -78,19 +78,7 @@
     <dirtyWorkingTree>warning</dirtyWorkingTree>
 
     <comparatorMode>warn</comparatorMode>
-    <!--
-      This 'updateRelease' value is not used in the build, per se, but when we "deploy" to
-      the update site locations. It reflects, basically, the version of the platform that it
-      was built against and the one it should be installed into (ideally).
-    -->
-    <updateRelease>4.25</updateRelease>
-    <!--
-      Similarly, referenceRepo is not used in the build, per se, but by the
-      repoReport tests. Normally the "latest build" is computed. But, if there is ever a 
-      reason to override what is computed, then this would be the place to do it. 
-    
-    <referenceRepo>/home/data/httpd/download.eclipse.org/cbi/updates/aggregator/ide/4.8/I20180126-0127</referenceRepo>
-    -->
+
   </properties>
 
   <profiles>
@@ -328,7 +316,6 @@
       <plugin>
         <groupId>org.eclipse.tycho</groupId>
         <artifactId>target-platform-configuration</artifactId>
-        <version>${tycho-version}</version>
         <configuration>
           <target>
             <artifact>
@@ -388,7 +375,6 @@
       <plugin>
         <groupId>org.eclipse.tycho</groupId>
         <artifactId>tycho-p2-plugin</artifactId>
-        <version>${tycho-version}</version>
         <executions>
           <execution>
             <id>default-p2-metadata-default</id>
