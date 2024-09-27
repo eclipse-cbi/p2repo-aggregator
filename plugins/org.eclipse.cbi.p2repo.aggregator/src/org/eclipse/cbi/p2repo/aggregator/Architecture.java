@@ -143,7 +143,16 @@ public enum Architecture implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ARM64(12, "arm64", "arm64");
+	ARM64(12, "arm64", "arm64"),
+	/**
+	 * The '<em><b>Riscv64</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #RISCV64_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	RISCV64(13, "riscv64", "riscv64");
 
 	/**
 	 * The '<em><b>X86</b></em>' literal value.
@@ -289,13 +298,24 @@ public enum Architecture implements Enumerator {
 	public static final int ARM64_VALUE = 12;
 
 	/**
+	 * The '<em><b>Riscv64</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #RISCV64
+	 * @model name="riscv64"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int RISCV64_VALUE = 13;
+
+	/**
 	 * An array of all the '<em><b>Architecture</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private static final Architecture[] VALUES_ARRAY = new Architecture[] { X86, PPC, X86_64, IA64, IA64_32, SPARC,
-			PPC64, S390, S390X, SPARCV9, PPC64LE, AARCH64, ARM64, };
+			PPC64, S390, S390X, SPARCV9, PPC64LE, AARCH64, ARM64, RISCV64, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Architecture</b></em>' enumerators.
@@ -341,6 +361,8 @@ public enum Architecture implements Enumerator {
 				return AARCH64;
 			case ARM64_VALUE:
 				return ARM64;
+			case RISCV64_VALUE:
+				return RISCV64;
 		}
 		return null;
 	}

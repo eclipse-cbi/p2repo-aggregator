@@ -42,6 +42,7 @@
       <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//Architecture/PPC64LE"/>
       <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//Architecture/aarch64"/>
       <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//Architecture/arm64"/>
+      <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//Architecture/riscv64"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="Aggregator.ecore#//AvailableFrom">
       <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//AvailableFrom/REPOSITORY"/>

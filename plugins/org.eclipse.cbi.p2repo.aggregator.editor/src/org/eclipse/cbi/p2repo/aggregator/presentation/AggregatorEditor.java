@@ -190,7 +190,6 @@ import org.eclipse.ui.views.properties.PropertySheetPage;
  * <!-- end-user-doc -->
  * @generated
  */
-@SuppressWarnings("unused")
 public class AggregatorEditor extends MultiPageEditorPart implements IEditingDomainProvider, ISelectionProvider,
 		IMenuListener, IViewerProvider, IGotoMarker, IRevertablePart {
 
@@ -1013,7 +1012,6 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 
 		if (obj instanceof Contribution) {
 			for (Resource otherResource : new ArrayList<>(resourceSet.getResources())) {
-				URI uri = otherResource.getURI();
 				EList<EObject> otherResourceContents = otherResource.getContents();
 				if (contents.size() == 1) {
 					EObject eObject = otherResourceContents.get(0);
@@ -1691,17 +1689,6 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 		return repositoryBrowser;
 	}
 
-	private Resource getResourceByURI(URI uri) {
-		if (uri == null)
-			return null;
-
-		for (Resource resource : new ArrayList<>(editingDomain.getResourceSet().getResources()))
-			if (uri.equals(resource.getURI()))
-				return resource;
-
-		return null;
-	}
-
 	/**
 	 * This implements {@link org.eclipse.jface.viewers.ISelectionProvider} to return this editor's overall selection.
 	 * <!-- begin-user-doc -->
@@ -1936,8 +1923,6 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 					@Override
 					public Collection<?> getChildren(Object object) {
 						ResourceSet resourceSet = (ResourceSet) object;
-
-						Aggregation aggregation = null;
 						List<Object> filtered = new ArrayList<>();
 						List<Object> others = new ArrayList<>();
 						List<Resource> resources = new ArrayList<>(resourceSet.getResources());

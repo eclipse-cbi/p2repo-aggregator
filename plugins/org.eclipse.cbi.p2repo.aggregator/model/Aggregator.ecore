@@ -373,6 +373,7 @@
     <eLiterals name="PPC64LE" value="10" literal="ppc64le"/>
     <eLiterals name="aarch64" value="11" literal="aarch64"/>
     <eLiterals name="arm64" value="12" literal="arm64"/>
+    <eLiterals name="riscv64" value="13" literal="riscv64"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="AvailableFrom">
     <eLiterals name="REPOSITORY" literal="repository"/>
