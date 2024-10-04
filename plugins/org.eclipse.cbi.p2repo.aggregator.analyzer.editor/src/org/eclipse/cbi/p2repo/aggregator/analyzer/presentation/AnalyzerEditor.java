@@ -229,6 +229,7 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Item;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Tree;
@@ -258,15 +259,10 @@ import org.eclipse.zest.core.viewers.IConnectionStyleProvider;
 import org.eclipse.zest.core.viewers.IEntityStyleProvider;
 import org.eclipse.zest.core.viewers.IGraphEntityRelationshipContentProvider;
 import org.eclipse.zest.core.widgets.Graph;
-import org.eclipse.zest.core.widgets.GraphNode;
 import org.eclipse.zest.core.widgets.ZestStyles;
-import org.eclipse.zest.layouts.LayoutAlgorithm;
-import org.eclipse.zest.layouts.LayoutEntity;
-import org.eclipse.zest.layouts.LayoutStyles;
 import org.eclipse.zest.layouts.algorithms.AbstractLayoutAlgorithm;
-import org.eclipse.zest.layouts.algorithms.CompositeLayoutAlgorithm;
-import org.eclipse.zest.layouts.dataStructures.InternalNode;
-import org.eclipse.zest.layouts.dataStructures.InternalRelationship;
+import org.eclipse.zest.layouts.dataStructures.DisplayIndependentDimension;
+import org.eclipse.zest.layouts.interfaces.EntityLayout;
 
 /**
  * This is an example of a Analyzer model editor.
@@ -2459,6 +2455,7 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 	private GraphViewer createGraphViewer() {
 		GraphViewer graphViewer = new GraphViewer(getContainer(), SWT.NONE);
 		Graph graph = graphViewer.getGraphControl();
+		graph.setDynamicLayout(false);
 		int pageIndex = addPage(graph);
 
 		showInActionFactories.add(selection -> new ShowInAction("Dependencies", selection, graphViewer) {
@@ -2779,28 +2776,16 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 		graphViewer.setContentProvider(contentProvider);
 
 		class MyLayout extends AbstractLayoutAlgorithm {
-			public MyLayout(int styles) {
-				super(styles);
-			}
 
 			@Override
-			public void setLayoutArea(double x, double y, double width, double height) {
-			}
+			public void applyLayout(boolean clean) {
+				double boundsWidth = context.getBounds().width;
+				EntityLayout[] entities = context.getEntities();
 
-			@Override
-			protected boolean isValidConfiguration(boolean asynchronous, boolean continuous) {
-				return true;
-			}
-
-			@Override
-			protected void applyLayoutInternal(InternalNode[] entitiesToLayout,
-					InternalRelationship[] relationshipsToConsider, double boundsX, double boundsY, double boundsWidth,
-					double boundsHeight) {
-
-				Map<Integer, Set<InternalNode>> rows = new TreeMap<>(Comparator.reverseOrder());
+				Map<Integer, Set<EntityLayout>> rows = new TreeMap<>(Comparator.reverseOrder());
 				int[] ranges = contentProvider.analysis.getLevels().stream().mapToInt(Integer::intValue).toArray();
 
-				for (InternalNode node : entitiesToLayout) {
+				for (EntityLayout node : entities) {
 					int usageCount = getUsageCount(node);
 					int groupCount = usageCount;
 					for (int range : ranges) {
@@ -2813,8 +2798,8 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 					add(rows, groupCount, node);
 				}
 
-				List<List<InternalNode>> partitionedRows = new ArrayList<>();
-				for (Collection<? extends Collection<InternalNode>> collection : List.of(rows.values(),
+				List<List<EntityLayout>> partitionedRows = new ArrayList<>();
+				for (Collection<? extends Collection<EntityLayout>> collection : List.of(rows.values(),
 						partitionedRows)) {
 					final double heightPadding = 30.0;
 					final double spacing = 10.0;
@@ -2822,13 +2807,13 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 					double offset = 10.0;
 					double width = 0.0;
 
-					for (Collection<InternalNode> nodes : collection) {
-						List<InternalNode> nodeList = new ArrayList<>(nodes);
-						nodeList.sort(new Comparator<InternalNode>() {
+					for (Collection<EntityLayout> nodes : collection) {
+						List<EntityLayout> nodeList = new ArrayList<>(nodes);
+						nodeList.sort(new Comparator<EntityLayout>() {
 							Comparator<String> comparator = CommonPlugin.INSTANCE.getComparator();
 
 							@Override
-							public int compare(InternalNode o1, InternalNode o2) {
+							public int compare(EntityLayout o1, EntityLayout o2) {
 								int result = Integer.compare(getUsageCount(o2), getUsageCount(o1));
 								if (result == 0) {
 									result = comparator.compare(labelProvider.getText(o1), labelProvider.getText(o2));
@@ -2838,8 +2823,8 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 						});
 
 						double fullRowWidth = spacing;
-						for (InternalNode node : nodeList) {
-							double widthInLayout = node.getWidthInLayout();
+						for (EntityLayout node : nodeList) {
+							double widthInLayout = node.getSize().width;
 							fullRowWidth += widthInLayout + spacing;
 						}
 
@@ -2848,23 +2833,22 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 						offset += rowHeight + heightPadding;
 						rowHeight = 0.0;
 						double rowWidth = spacing + padding;
-						List<InternalNode> nodesInCurrentRow = new ArrayList<>();
+						List<EntityLayout> nodesInCurrentRow = new ArrayList<>();
 						partitionedRows.add(nodesInCurrentRow);
-						for (InternalNode node : nodeList) {
-							double heightInLayout = node.getHeightInLayout();
+						for (EntityLayout node : nodeList) {
+							DisplayIndependentDimension size = node.getSize();
+							double heightInLayout = size.height;
 							rowHeight = Math.max(rowHeight, heightInLayout);
-
-							double widthInLayout = node.getWidthInLayout();
+							double widthInLayout = size.width;
 							if (rowWidth + widthInLayout > boundsWidth) {
 								offset += rowHeight + heightPadding;
 								nodesInCurrentRow = new ArrayList<>();
 								partitionedRows.add(nodesInCurrentRow);
 								rowWidth = spacing + padding;
 							}
+
 							nodesInCurrentRow.add(node);
-
-							node.setInternalLocation(rowWidth, offset);
-
+							node.setLocation(rowWidth, offset);
 							rowWidth += widthInLayout + spacing + padding;
 						}
 
@@ -2873,43 +2857,18 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 
 					partitionedRows = new ArrayList<>();
 				}
-
-				updateLayoutLocations(entitiesToLayout);
 			}
 
-			private int getUsageCount(InternalNode node) {
-				InternalNode layoutEntity = (InternalNode) node.getLayoutEntity();
-				LayoutEntity graphData = layoutEntity.getLayoutEntity();
-				GraphNode graphData2 = (GraphNode) graphData.getGraphData();
-				Object data = graphData2.getData();
+			private int getUsageCount(EntityLayout entity) {
+				Item[] items = entity.getItems();
+				Object data = items[0].getData();
 				int usageCount = usageCounts.get(data).get();
 				return usageCount;
 			}
-
-			@Override
-			protected void preLayoutAlgorithm(InternalNode[] entitiesToLayout,
-					InternalRelationship[] relationshipsToConsider, double x, double y, double width, double height) {
-			}
-
-			@Override
-			protected void postLayoutAlgorithm(InternalNode[] entitiesToLayout,
-					InternalRelationship[] relationshipsToConsider) {
-
-			}
-
-			@Override
-			protected int getTotalNumberOfLayoutSteps() {
-				return 0;
-			}
-
-			@Override
-			protected int getCurrentLayoutStep() {
-				return 0;
-			}
 		}
 
-		graph.setLayoutAlgorithm(new CompositeLayoutAlgorithm(LayoutStyles.NO_LAYOUT_NODE_RESIZING,
-				new LayoutAlgorithm[] { new MyLayout(LayoutStyles.NO_LAYOUT_NODE_RESIZING), }), true);
+		graph.setLayoutAlgorithm(new MyLayout(), true);
+
 		setPageText(pageIndex, "Dependencies");
 
 		MenuManager contextMenu = new MenuManager("#PopUp");
