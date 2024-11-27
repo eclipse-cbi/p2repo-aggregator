@@ -521,7 +521,8 @@ public class ProjectReconcilerHandler extends BaseHandler {
 
 			String gitlabRepos = getSection("gitlab_repos", content);
 			if (githubRepos != null) {
-				result.addAll(getValues("url", gitlabRepos));
+				result.addAll(getValues("url", gitlabRepos).stream().map(it -> it.replaceAll("\\.git$", ""))
+						.collect(Collectors.toList()));
 				cleanupRepos(projectID, result);
 			}
 
