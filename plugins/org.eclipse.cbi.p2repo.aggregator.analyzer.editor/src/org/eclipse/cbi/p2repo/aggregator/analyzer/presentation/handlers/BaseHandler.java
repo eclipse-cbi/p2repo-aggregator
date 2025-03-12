@@ -293,11 +293,12 @@ public abstract class BaseHandler extends AbstractHandler {
 			}
 
 			public long getCacheAge() {
-				try {
-					Files.walkFileTree(CACHE, this);
-				} catch (IOException ex) {
-					AggregationAnalyzerEditorPlugin.INSTANCE.log(ex);
-				}
+				if (Files.exists(CACHE))
+					try {
+						Files.walkFileTree(CACHE, this);
+					} catch (IOException ex) {
+						AggregationAnalyzerEditorPlugin.INSTANCE.log(ex);
+					}
 
 				return lastModifiedTime == null ? System.currentTimeMillis() : lastModifiedTime.toMillis();
 			}
