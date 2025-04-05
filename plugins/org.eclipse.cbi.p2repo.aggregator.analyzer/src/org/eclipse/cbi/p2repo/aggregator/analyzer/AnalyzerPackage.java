@@ -567,13 +567,22 @@ public interface AnalyzerPackage extends EPackage {
 	int PROJECT__RANK = 4;
 
 	/**
+	 * The feature id for the '<em><b>Tags</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROJECT__TAGS = 5;
+
+	/**
 	 * The feature id for the '<em><b>Contribution</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__CONTRIBUTION = 5;
+	int PROJECT__CONTRIBUTION = 6;
 
 	/**
 	 * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -582,7 +591,7 @@ public interface AnalyzerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__PARENT = 6;
+	int PROJECT__PARENT = 7;
 
 	/**
 	 * The feature id for the '<em><b>Repositories</b></em>' containment reference list.
@@ -591,7 +600,7 @@ public interface AnalyzerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__REPOSITORIES = 7;
+	int PROJECT__REPOSITORIES = 8;
 
 	/**
 	 * The feature id for the '<em><b>Subprojects</b></em>' containment reference list.
@@ -600,7 +609,7 @@ public interface AnalyzerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__SUBPROJECTS = 8;
+	int PROJECT__SUBPROJECTS = 9;
 
 	/**
 	 * The number of structural features of the '<em>Project</em>' class.
@@ -609,7 +618,7 @@ public interface AnalyzerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT_FEATURE_COUNT = 9;
+	int PROJECT_FEATURE_COUNT = 10;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.analyzer.impl.GitRepositoryImpl <em>Git Repository</em>}' class.
@@ -1197,6 +1206,17 @@ public interface AnalyzerPackage extends EPackage {
 	EAttribute getProject_Rank();
 
 	/**
+	 * Returns the meta object for the attribute list '{@link org.eclipse.cbi.p2repo.aggregator.analyzer.Project#getTags <em>Tags</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Tags</em>'.
+	 * @see org.eclipse.cbi.p2repo.aggregator.analyzer.Project#getTags()
+	 * @see #getProject()
+	 * @generated
+	 */
+	EAttribute getProject_Tags();
+
+	/**
 	 * Returns the meta object for the reference '{@link org.eclipse.cbi.p2repo.aggregator.analyzer.Project#getContribution <em>Contribution</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1729,6 +1749,14 @@ public interface AnalyzerPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PROJECT__RANK = eINSTANCE.getProject_Rank();
+
+		/**
+		 * The meta object literal for the '<em><b>Tags</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROJECT__TAGS = eINSTANCE.getProject_Tags();
 
 		/**
 		 * The meta object literal for the '<em><b>Contribution</b></em>' reference feature.

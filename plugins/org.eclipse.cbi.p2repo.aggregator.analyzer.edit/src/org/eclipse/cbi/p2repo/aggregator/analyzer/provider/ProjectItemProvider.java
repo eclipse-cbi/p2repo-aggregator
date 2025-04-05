@@ -14,12 +14,14 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
+import org.eclipse.cbi.p2repo.aggregator.analyzer.Analysis;
 import org.eclipse.cbi.p2repo.aggregator.analyzer.AnalyzerFactory;
 import org.eclipse.cbi.p2repo.aggregator.analyzer.AnalyzerPackage;
 import org.eclipse.cbi.p2repo.aggregator.analyzer.Project;
 import org.eclipse.cbi.p2repo.aggregator.analyzer.util.AnalyzerUtil;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -69,6 +71,7 @@ public class ProjectItemProvider extends AnalyzerItemProviderAdapter
 			addVersionPropertyDescriptor(object);
 			addReleaseDatePropertyDescriptor(object);
 			addRankPropertyDescriptor(object);
+			addTagsPropertyDescriptor(object);
 			addContributionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -151,6 +154,20 @@ public class ProjectItemProvider extends AnalyzerItemProviderAdapter
 	}
 
 	/**
+	 * This adds a property descriptor for the Tags feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTagsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Project_tags_feature"),
+						getString("_UI_Project_tags_description"), AnalyzerPackage.Literals.PROJECT__TAGS, true, false,
+						false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Contribution feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -165,6 +182,22 @@ public class ProjectItemProvider extends AnalyzerItemProviderAdapter
 						AnalyzerPackage.Literals.PROJECT__CONTRIBUTION, true, false, true, null, null, null));
 	}
 
+	private boolean showTags(Object object) {
+		Project project = (Project) object;
+		Analysis analysis = project.getAnalysis();
+		return analysis != null && analysis.isShowTags();
+	}
+
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		childrenFeatures = null;
+		Collection<? extends EStructuralFeature> result = getChildrenFeaturesGen(object);
+		if (!showTags(object)) {
+			result.remove(AnalyzerPackage.Literals.PROJECT__TAGS);
+		}
+		return result;
+	}
+
 	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
@@ -173,10 +206,10 @@ public class ProjectItemProvider extends AnalyzerItemProviderAdapter
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+	public Collection<? extends EStructuralFeature> getChildrenFeaturesGen(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(AnalyzerPackage.Literals.PROJECT__TAGS);
 			childrenFeatures.add(AnalyzerPackage.Literals.PROJECT__REPOSITORIES);
 			childrenFeatures.add(AnalyzerPackage.Literals.PROJECT__SUBPROJECTS);
 		}
@@ -264,6 +297,7 @@ public class ProjectItemProvider extends AnalyzerItemProviderAdapter
 			case AnalyzerPackage.PROJECT__RANK:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case AnalyzerPackage.PROJECT__TAGS:
 			case AnalyzerPackage.PROJECT__REPOSITORIES:
 			case AnalyzerPackage.PROJECT__SUBPROJECTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
@@ -274,6 +308,20 @@ public class ProjectItemProvider extends AnalyzerItemProviderAdapter
 		}
 	}
 
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+		Project project = (Project) object;
+		Analysis analysis = project.getAnalysis();
+		if (analysis != null && analysis.isShowTags()) {
+			EList<String> existingTags = project.getTags();
+			for (String tag : analysis.getTags()) {
+				if (!existingTags.contains(tag)) {
+					newChildDescriptors.add(createChildParameter(AnalyzerPackage.Literals.PROJECT__TAGS, tag));
+				}
+			}
+		}
+		collectNewChildDescriptorsGen(newChildDescriptors, object);
+	}
+
 	/**
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
@@ -281,8 +329,7 @@ public class ProjectItemProvider extends AnalyzerItemProviderAdapter
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptorsGen(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
 		newChildDescriptors.add(createChildParameter(AnalyzerPackage.Literals.PROJECT__REPOSITORIES,

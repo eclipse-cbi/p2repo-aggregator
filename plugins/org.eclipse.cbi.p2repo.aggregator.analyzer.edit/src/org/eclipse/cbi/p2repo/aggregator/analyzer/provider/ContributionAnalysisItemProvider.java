@@ -220,7 +220,6 @@ public class ContributionAnalysisItemProvider extends AnalyzerItemProviderAdapte
 
 	private boolean showTags(Object object) {
 		ContributionAnalysis contributionAnalysis = (ContributionAnalysis) object;
-		;
 		Analysis analysis = contributionAnalysis.getAnalysis();
 		return analysis != null && analysis.isShowTags();
 	}

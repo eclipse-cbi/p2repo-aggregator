@@ -670,8 +670,8 @@ public class AnalyzerPackageImpl extends EPackageImpl implements AnalyzerPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getProject_Contribution() {
-		return (EReference) projectEClass.getEStructuralFeatures().get(5);
+	public EAttribute getProject_Tags() {
+		return (EAttribute) projectEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -680,7 +680,7 @@ public class AnalyzerPackageImpl extends EPackageImpl implements AnalyzerPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getProject_Parent() {
+	public EReference getProject_Contribution() {
 		return (EReference) projectEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -690,7 +690,7 @@ public class AnalyzerPackageImpl extends EPackageImpl implements AnalyzerPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getProject_Repositories() {
+	public EReference getProject_Parent() {
 		return (EReference) projectEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -700,8 +700,18 @@ public class AnalyzerPackageImpl extends EPackageImpl implements AnalyzerPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getProject_Subprojects() {
+	public EReference getProject_Repositories() {
 		return (EReference) projectEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getProject_Subprojects() {
+		return (EReference) projectEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -858,6 +868,7 @@ public class AnalyzerPackageImpl extends EPackageImpl implements AnalyzerPackage
 		createEAttribute(projectEClass, PROJECT__VERSION);
 		createEAttribute(projectEClass, PROJECT__RELEASE_DATE);
 		createEAttribute(projectEClass, PROJECT__RANK);
+		createEAttribute(projectEClass, PROJECT__TAGS);
 		createEReference(projectEClass, PROJECT__CONTRIBUTION);
 		createEReference(projectEClass, PROJECT__PARENT);
 		createEReference(projectEClass, PROJECT__REPOSITORIES);
@@ -1056,6 +1067,8 @@ public class AnalyzerPackageImpl extends EPackageImpl implements AnalyzerPackage
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProject_Rank(), ecorePackage.getEInt(), "rank", null, 0, 1, Project.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getProject_Tags(), ecorePackage.getEString(), "tags", null, 0, -1, Project.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProject_Contribution(), this.getContributionAnalysis(), null, "contribution", null, 0, 1,
 				Project.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
@@ -1070,6 +1083,8 @@ public class AnalyzerPackageImpl extends EPackageImpl implements AnalyzerPackage
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		addEOperation(projectEClass, this.getProject(), "getAllProjects", 0, -1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(projectEClass, this.getAnalysis(), "getAnalysis", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(gitRepositoryEClass, GitRepository.class, "GitRepository", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -1119,6 +1134,7 @@ public class AnalyzerPackageImpl extends EPackageImpl implements AnalyzerPackage
 				new String[] { "kind", "element", "name", "capability" });
 		addAnnotation(getRequirementAnalysis_Resolutions(), source,
 				new String[] { "kind", "element", "name", "resolution" });
+		addAnnotation(getProject_Tags(), source, new String[] { "kind", "element", "name", "tag" });
 		addAnnotation(getProject_Repositories(), source, new String[] { "kind", "element", "name", "repository" });
 		addAnnotation(getProject_Subprojects(), source, new String[] { "kind", "element", "name", "subproject" });
 		addAnnotation(getGitRepository_URI(), source, new String[] { "name", "uri" });

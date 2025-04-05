@@ -30,6 +30,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.Project#getVersion <em>Version</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.Project#getReleaseDate <em>Release Date</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.Project#getRank <em>Rank</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.Project#getTags <em>Tags</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.Project#getContribution <em>Contribution</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.Project#getParent <em>Parent</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.Project#getRepositories <em>Repositories</em>}</li>
@@ -155,6 +156,21 @@ public interface Project extends EObject {
 	void setRank(int value);
 
 	/**
+	 * Returns the value of the '<em><b>Tags</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A subset of tags declared for the analysis.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Tags</em>' attribute list.
+	 * @see org.eclipse.cbi.p2repo.aggregator.analyzer.AnalyzerPackage#getProject_Tags()
+	 * @model extendedMetaData="kind='element' name='tag'"
+	 * @generated
+	 */
+	EList<String> getTags();
+
+	/**
 	 * Returns the value of the '<em><b>Contribution</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -215,5 +231,13 @@ public interface Project extends EObject {
 	 * @generated
 	 */
 	EList<Project> getAllProjects();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	Analysis getAnalysis();
 
 } // Project

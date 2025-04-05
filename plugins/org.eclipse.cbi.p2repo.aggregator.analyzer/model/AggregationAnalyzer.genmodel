@@ -85,11 +85,14 @@
       <genFeatures createChild="false" propertyDescription="The date of the version release"
           ecoreFeature="ecore:EAttribute AggregationAnalyzer.ecore#//Project/releaseDate"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AggregationAnalyzer.ecore#//Project/rank"/>
+      <genFeatures children="true" createChild="false" propertyDescription="A subset of tags declared for the analysis"
+          ecoreFeature="ecore:EAttribute AggregationAnalyzer.ecore#//Project/tags"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference AggregationAnalyzer.ecore#//Project/contribution"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference AggregationAnalyzer.ecore#//Project/parent"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AggregationAnalyzer.ecore#//Project/repositories"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AggregationAnalyzer.ecore#//Project/subprojects"/>
       <genOperations ecoreOperation="AggregationAnalyzer.ecore#//Project/getAllProjects"/>
+      <genOperations ecoreOperation="AggregationAnalyzer.ecore#//Project/getAnalysis"/>
     </genClasses>
     <genClasses ecoreClass="AggregationAnalyzer.ecore#//GitRepository">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AggregationAnalyzer.ecore#//GitRepository/uRI"/>

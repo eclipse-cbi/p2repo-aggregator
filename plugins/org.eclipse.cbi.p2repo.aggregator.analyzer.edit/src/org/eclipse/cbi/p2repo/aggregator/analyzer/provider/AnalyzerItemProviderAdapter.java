@@ -73,23 +73,26 @@ public class AnalyzerItemProviderAdapter extends ItemProviderAdapter {
 		};
 	}
 
-	@Override
-	protected Object createWrapper(EObject object, EStructuralFeature feature, Object value, int index) {
+	protected boolean isTagsFeature(Object feature) {
 		return feature == AnalyzerPackage.Literals.CONTRIBUTION_ANALYSIS__TAGS
 				|| feature == AnalyzerPackage.Literals.ANALYSIS__TAGS
-						? new AttributeValueWrapperItemProvider(value, object, (EAttribute) feature, index,
-								adapterFactory, getResourceLocator()) {
-							@Override
-							public Object getImage(Object object) {
-								return getResourceLocator().getImage("full/obj16/Tag");
-							}
-						}
-						: super.createWrapper(object, feature, value, index);
+				|| feature == AnalyzerPackage.Literals.PROJECT__TAGS;
+	}
+
+	@Override
+	protected Object createWrapper(EObject object, EStructuralFeature feature, Object value, int index) {
+		return isTagsFeature(feature) ? //
+				new AttributeValueWrapperItemProvider(value, object, (EAttribute) feature, index, adapterFactory,
+						getResourceLocator()) {
+					@Override
+					public Object getImage(Object object) {
+						return getResourceLocator().getImage("full/obj16/Tag");
+					}
+				} : super.createWrapper(object, feature, value, index);
 	}
 
 	protected Object getPropertyImage(Object feature, Object staticImage) {
-		return feature == AnalyzerPackage.Literals.CONTRIBUTION_ANALYSIS__TAGS
-				|| feature == AnalyzerPackage.Literals.ANALYSIS__TAGS ? getImage("full/obj16/Tag") : staticImage;
+		return isTagsFeature(feature) ? getImage("full/obj16/Tag") : staticImage;
 	}
 
 	@Override
@@ -99,9 +102,7 @@ public class AnalyzerItemProviderAdapter extends ItemProviderAdapter {
 
 	@Override
 	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
-		return feature == AnalyzerPackage.Literals.CONTRIBUTION_ANALYSIS__TAGS
-				|| feature == AnalyzerPackage.Literals.ANALYSIS__TAGS ? child.toString()
-						: super.getCreateChildText(owner, feature, child, selection);
+		return isTagsFeature(feature) ? child.toString() : super.getCreateChildText(owner, feature, child, selection);
 	}
 
 	protected Collection<?> getChoiceOfValues(Object object, Object feature) {
