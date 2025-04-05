@@ -101,13 +101,31 @@ public interface AnalyzerPackage extends EPackage {
 	int ANALYSIS__EXCLUSION = 1;
 
 	/**
+	 * The feature id for the '<em><b>Show Tags</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS__SHOW_TAGS = 2;
+
+	/**
+	 * The feature id for the '<em><b>Tags</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS__TAGS = 3;
+
+	/**
 	 * The feature id for the '<em><b>Levels</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS__LEVELS = 2;
+	int ANALYSIS__LEVELS = 4;
 
 	/**
 	 * The feature id for the '<em><b>Git Repository Filters</b></em>' attribute list.
@@ -116,7 +134,7 @@ public interface AnalyzerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS__GIT_REPOSITORY_FILTERS = 3;
+	int ANALYSIS__GIT_REPOSITORY_FILTERS = 5;
 
 	/**
 	 * The feature id for the '<em><b>Aggregation</b></em>' reference.
@@ -125,7 +143,7 @@ public interface AnalyzerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS__AGGREGATION = 4;
+	int ANALYSIS__AGGREGATION = 6;
 
 	/**
 	 * The feature id for the '<em><b>Contributions</b></em>' containment reference list.
@@ -134,7 +152,7 @@ public interface AnalyzerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS__CONTRIBUTIONS = 5;
+	int ANALYSIS__CONTRIBUTIONS = 7;
 
 	/**
 	 * The number of structural features of the '<em>Analysis</em>' class.
@@ -143,7 +161,7 @@ public interface AnalyzerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS_FEATURE_COUNT = 6;
+	int ANALYSIS_FEATURE_COUNT = 8;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.analyzer.impl.ContributionAnalysisImpl <em>Contribution Analysis</em>}' class.
@@ -156,13 +174,22 @@ public interface AnalyzerPackage extends EPackage {
 	int CONTRIBUTION_ANALYSIS = 1;
 
 	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTRIBUTION_ANALYSIS__ENABLED = 0;
+
+	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTRIBUTION_ANALYSIS__LABEL = 0;
+	int CONTRIBUTION_ANALYSIS__LABEL = 1;
 
 	/**
 	 * The feature id for the '<em><b>Dominant</b></em>' attribute.
@@ -171,7 +198,7 @@ public interface AnalyzerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTRIBUTION_ANALYSIS__DOMINANT = 1;
+	int CONTRIBUTION_ANALYSIS__DOMINANT = 2;
 
 	/**
 	 * The feature id for the '<em><b>Match</b></em>' attribute.
@@ -180,7 +207,7 @@ public interface AnalyzerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTRIBUTION_ANALYSIS__MATCH = 2;
+	int CONTRIBUTION_ANALYSIS__MATCH = 3;
 
 	/**
 	 * The feature id for the '<em><b>Last Modified</b></em>' attribute.
@@ -189,7 +216,7 @@ public interface AnalyzerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTRIBUTION_ANALYSIS__LAST_MODIFIED = 3;
+	int CONTRIBUTION_ANALYSIS__LAST_MODIFIED = 4;
 
 	/**
 	 * The feature id for the '<em><b>Rank</b></em>' attribute.
@@ -198,7 +225,25 @@ public interface AnalyzerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTRIBUTION_ANALYSIS__RANK = 4;
+	int CONTRIBUTION_ANALYSIS__RANK = 5;
+
+	/**
+	 * The feature id for the '<em><b>Tags</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTRIBUTION_ANALYSIS__TAGS = 6;
+
+	/**
+	 * The feature id for the '<em><b>Analysis</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTRIBUTION_ANALYSIS__ANALYSIS = 7;
 
 	/**
 	 * The feature id for the '<em><b>Contribution</b></em>' reference.
@@ -207,7 +252,7 @@ public interface AnalyzerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTRIBUTION_ANALYSIS__CONTRIBUTION = 5;
+	int CONTRIBUTION_ANALYSIS__CONTRIBUTION = 8;
 
 	/**
 	 * The feature id for the '<em><b>Installable Units</b></em>' containment reference list.
@@ -216,7 +261,7 @@ public interface AnalyzerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTRIBUTION_ANALYSIS__INSTALLABLE_UNITS = 6;
+	int CONTRIBUTION_ANALYSIS__INSTALLABLE_UNITS = 9;
 
 	/**
 	 * The feature id for the '<em><b>Projects</b></em>' containment reference list.
@@ -225,7 +270,7 @@ public interface AnalyzerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTRIBUTION_ANALYSIS__PROJECTS = 7;
+	int CONTRIBUTION_ANALYSIS__PROJECTS = 10;
 
 	/**
 	 * The number of structural features of the '<em>Contribution Analysis</em>' class.
@@ -234,7 +279,7 @@ public interface AnalyzerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTRIBUTION_ANALYSIS_FEATURE_COUNT = 8;
+	int CONTRIBUTION_ANALYSIS_FEATURE_COUNT = 11;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.analyzer.impl.InstallableUnitAnalysisImpl <em>Installable Unit Analysis</em>}' class.
@@ -675,6 +720,28 @@ public interface AnalyzerPackage extends EPackage {
 	EAttribute getAnalysis_Exclusion();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.analyzer.Analysis#isShowTags <em>Show Tags</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Show Tags</em>'.
+	 * @see org.eclipse.cbi.p2repo.aggregator.analyzer.Analysis#isShowTags()
+	 * @see #getAnalysis()
+	 * @generated
+	 */
+	EAttribute getAnalysis_ShowTags();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.eclipse.cbi.p2repo.aggregator.analyzer.Analysis#getTags <em>Tags</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Tags</em>'.
+	 * @see org.eclipse.cbi.p2repo.aggregator.analyzer.Analysis#getTags()
+	 * @see #getAnalysis()
+	 * @generated
+	 */
+	EAttribute getAnalysis_Tags();
+
+	/**
 	 * Returns the meta object for the attribute list '{@link org.eclipse.cbi.p2repo.aggregator.analyzer.Analysis#getLevels <em>Levels</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -727,6 +794,17 @@ public interface AnalyzerPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getContributionAnalysis();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.analyzer.ContributionAnalysis#isEnabled <em>Enabled</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Enabled</em>'.
+	 * @see org.eclipse.cbi.p2repo.aggregator.analyzer.ContributionAnalysis#isEnabled()
+	 * @see #getContributionAnalysis()
+	 * @generated
+	 */
+	EAttribute getContributionAnalysis_Enabled();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.analyzer.ContributionAnalysis#getLabel <em>Label</em>}'.
@@ -782,6 +860,28 @@ public interface AnalyzerPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getContributionAnalysis_Rank();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.eclipse.cbi.p2repo.aggregator.analyzer.ContributionAnalysis#getTags <em>Tags</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Tags</em>'.
+	 * @see org.eclipse.cbi.p2repo.aggregator.analyzer.ContributionAnalysis#getTags()
+	 * @see #getContributionAnalysis()
+	 * @generated
+	 */
+	EAttribute getContributionAnalysis_Tags();
+
+	/**
+	 * Returns the meta object for the container reference '{@link org.eclipse.cbi.p2repo.aggregator.analyzer.ContributionAnalysis#getAnalysis <em>Analysis</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Analysis</em>'.
+	 * @see org.eclipse.cbi.p2repo.aggregator.analyzer.ContributionAnalysis#getAnalysis()
+	 * @see #getContributionAnalysis()
+	 * @generated
+	 */
+	EReference getContributionAnalysis_Analysis();
 
 	/**
 	 * Returns the meta object for the reference '{@link org.eclipse.cbi.p2repo.aggregator.analyzer.ContributionAnalysis#getContribution <em>Contribution</em>}'.
@@ -1265,6 +1365,22 @@ public interface AnalyzerPackage extends EPackage {
 		EAttribute ANALYSIS__EXCLUSION = eINSTANCE.getAnalysis_Exclusion();
 
 		/**
+		 * The meta object literal for the '<em><b>Show Tags</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ANALYSIS__SHOW_TAGS = eINSTANCE.getAnalysis_ShowTags();
+
+		/**
+		 * The meta object literal for the '<em><b>Tags</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ANALYSIS__TAGS = eINSTANCE.getAnalysis_Tags();
+
+		/**
 		 * The meta object literal for the '<em><b>Levels</b></em>' attribute list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1307,6 +1423,14 @@ public interface AnalyzerPackage extends EPackage {
 		EClass CONTRIBUTION_ANALYSIS = eINSTANCE.getContributionAnalysis();
 
 		/**
+		 * The meta object literal for the '<em><b>Enabled</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONTRIBUTION_ANALYSIS__ENABLED = eINSTANCE.getContributionAnalysis_Enabled();
+
+		/**
 		 * The meta object literal for the '<em><b>Label</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1345,6 +1469,22 @@ public interface AnalyzerPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CONTRIBUTION_ANALYSIS__RANK = eINSTANCE.getContributionAnalysis_Rank();
+
+		/**
+		 * The meta object literal for the '<em><b>Tags</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONTRIBUTION_ANALYSIS__TAGS = eINSTANCE.getContributionAnalysis_Tags();
+
+		/**
+		 * The meta object literal for the '<em><b>Analysis</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONTRIBUTION_ANALYSIS__ANALYSIS = eINSTANCE.getContributionAnalysis_Analysis();
 
 		/**
 		 * The meta object literal for the '<em><b>Contribution</b></em>' reference feature.

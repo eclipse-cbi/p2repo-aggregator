@@ -16,6 +16,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 import org.eclipse.cbi.p2repo.aggregator.Contribution;
+import org.eclipse.cbi.p2repo.aggregator.analyzer.Analysis;
 import org.eclipse.cbi.p2repo.aggregator.analyzer.AnalyzerPackage;
 import org.eclipse.cbi.p2repo.aggregator.analyzer.ContributionAnalysis;
 import org.eclipse.cbi.p2repo.aggregator.analyzer.InstallableUnitAnalysis;
@@ -30,6 +31,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -42,11 +44,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.impl.ContributionAnalysisImpl#isEnabled <em>Enabled</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.impl.ContributionAnalysisImpl#getLabel <em>Label</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.impl.ContributionAnalysisImpl#isDominant <em>Dominant</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.impl.ContributionAnalysisImpl#getMatch <em>Match</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.impl.ContributionAnalysisImpl#getLastModified <em>Last Modified</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.impl.ContributionAnalysisImpl#getRank <em>Rank</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.impl.ContributionAnalysisImpl#getTags <em>Tags</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.impl.ContributionAnalysisImpl#getAnalysis <em>Analysis</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.impl.ContributionAnalysisImpl#getContribution <em>Contribution</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.impl.ContributionAnalysisImpl#getInstallableUnits <em>Installable Units</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.impl.ContributionAnalysisImpl#getProjects <em>Projects</em>}</li>
@@ -63,6 +68,26 @@ public class ContributionAnalysisImpl extends MinimalEObjectImpl.Container imple
 	 * @ordered
 	 */
 	protected int eFlags = 0;
+
+	/**
+	 * The default value of the '{@link #isEnabled() <em>Enabled</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isEnabled()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean ENABLED_EDEFAULT = true;
+
+	/**
+	 * The flag representing the value of the '{@link #isEnabled() <em>Enabled</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isEnabled()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int ENABLED_EFLAG = 1 << 0;
 
 	/**
 	 * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
@@ -102,7 +127,7 @@ public class ContributionAnalysisImpl extends MinimalEObjectImpl.Container imple
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int DOMINANT_EFLAG = 1 << 0;
+	protected static final int DOMINANT_EFLAG = 1 << 1;
 
 	/**
 	 * The default value of the '{@link #getMatch() <em>Match</em>}' attribute.
@@ -155,6 +180,16 @@ public class ContributionAnalysisImpl extends MinimalEObjectImpl.Container imple
 	protected static final int RANK_EDEFAULT = 0;
 
 	/**
+	 * The cached value of the '{@link #getTags() <em>Tags</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTags()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> tags;
+
+	/**
 	 * The cached value of the '{@link #getContribution() <em>Contribution</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -191,6 +226,7 @@ public class ContributionAnalysisImpl extends MinimalEObjectImpl.Container imple
 	 */
 	protected ContributionAnalysisImpl() {
 		super();
+		eFlags |= ENABLED_EFLAG;
 	}
 
 	/**
@@ -201,6 +237,33 @@ public class ContributionAnalysisImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	protected EClass eStaticClass() {
 		return AnalyzerPackage.Literals.CONTRIBUTION_ANALYSIS;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isEnabled() {
+		return (eFlags & ENABLED_EFLAG) != 0;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setEnabled(boolean newEnabled) {
+		boolean oldEnabled = (eFlags & ENABLED_EFLAG) != 0;
+		if (newEnabled)
+			eFlags |= ENABLED_EFLAG;
+		else
+			eFlags &= ~ENABLED_EFLAG;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AnalyzerPackage.CONTRIBUTION_ANALYSIS__ENABLED,
+					oldEnabled, newEnabled));
 	}
 
 	@Override
@@ -329,6 +392,31 @@ public class ContributionAnalysisImpl extends MinimalEObjectImpl.Container imple
 	 * @generated
 	 */
 	@Override
+	public EList<String> getTags() {
+		if (tags == null) {
+			tags = new EDataTypeUniqueEList<>(String.class, this, AnalyzerPackage.CONTRIBUTION_ANALYSIS__TAGS);
+		}
+		return tags;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Analysis getAnalysis() {
+		if (eContainerFeatureID() != AnalyzerPackage.CONTRIBUTION_ANALYSIS__ANALYSIS)
+			return null;
+		return (Analysis) eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Contribution getContribution() {
 		if (contribution != null && ((EObject) contribution).eIsProxy()) {
 			InternalEObject oldContribution = (InternalEObject) contribution;
@@ -423,6 +511,10 @@ public class ContributionAnalysisImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case AnalyzerPackage.CONTRIBUTION_ANALYSIS__ANALYSIS:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return eBasicSetContainer(otherEnd, AnalyzerPackage.CONTRIBUTION_ANALYSIS__ANALYSIS, msgs);
 			case AnalyzerPackage.CONTRIBUTION_ANALYSIS__INSTALLABLE_UNITS:
 				return ((InternalEList<InternalEObject>) (InternalEList<?>) getInstallableUnits()).basicAdd(otherEnd,
 						msgs);
@@ -439,6 +531,8 @@ public class ContributionAnalysisImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case AnalyzerPackage.CONTRIBUTION_ANALYSIS__ANALYSIS:
+				return eBasicSetContainer(null, AnalyzerPackage.CONTRIBUTION_ANALYSIS__ANALYSIS, msgs);
 			case AnalyzerPackage.CONTRIBUTION_ANALYSIS__INSTALLABLE_UNITS:
 				return ((InternalEList<?>) getInstallableUnits()).basicRemove(otherEnd, msgs);
 			case AnalyzerPackage.CONTRIBUTION_ANALYSIS__PROJECTS:
@@ -454,8 +548,26 @@ public class ContributionAnalysisImpl extends MinimalEObjectImpl.Container imple
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case AnalyzerPackage.CONTRIBUTION_ANALYSIS__ANALYSIS:
+				return eInternalContainer().eInverseRemove(this, AnalyzerPackage.ANALYSIS__CONTRIBUTIONS,
+						Analysis.class, msgs);
+			default:
+				return super.eBasicRemoveFromContainerFeature(msgs);
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case AnalyzerPackage.CONTRIBUTION_ANALYSIS__ENABLED:
+				return isEnabled();
 			case AnalyzerPackage.CONTRIBUTION_ANALYSIS__LABEL:
 				return getLabel();
 			case AnalyzerPackage.CONTRIBUTION_ANALYSIS__DOMINANT:
@@ -466,6 +578,10 @@ public class ContributionAnalysisImpl extends MinimalEObjectImpl.Container imple
 				return getLastModified();
 			case AnalyzerPackage.CONTRIBUTION_ANALYSIS__RANK:
 				return getRank();
+			case AnalyzerPackage.CONTRIBUTION_ANALYSIS__TAGS:
+				return getTags();
+			case AnalyzerPackage.CONTRIBUTION_ANALYSIS__ANALYSIS:
+				return getAnalysis();
 			case AnalyzerPackage.CONTRIBUTION_ANALYSIS__CONTRIBUTION:
 				if (resolve)
 					return getContribution();
@@ -488,6 +604,9 @@ public class ContributionAnalysisImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case AnalyzerPackage.CONTRIBUTION_ANALYSIS__ENABLED:
+				setEnabled((Boolean) newValue);
+				return;
 			case AnalyzerPackage.CONTRIBUTION_ANALYSIS__LABEL:
 				setLabel((String) newValue);
 				return;
@@ -499,6 +618,10 @@ public class ContributionAnalysisImpl extends MinimalEObjectImpl.Container imple
 				return;
 			case AnalyzerPackage.CONTRIBUTION_ANALYSIS__LAST_MODIFIED:
 				setLastModified((Long) newValue);
+				return;
+			case AnalyzerPackage.CONTRIBUTION_ANALYSIS__TAGS:
+				getTags().clear();
+				getTags().addAll((Collection<? extends String>) newValue);
 				return;
 			case AnalyzerPackage.CONTRIBUTION_ANALYSIS__CONTRIBUTION:
 				setContribution((Contribution) newValue);
@@ -525,6 +648,9 @@ public class ContributionAnalysisImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case AnalyzerPackage.CONTRIBUTION_ANALYSIS__ENABLED:
+				setEnabled(ENABLED_EDEFAULT);
+				return;
 			case AnalyzerPackage.CONTRIBUTION_ANALYSIS__LABEL:
 				setLabel(LABEL_EDEFAULT);
 				return;
@@ -536,6 +662,9 @@ public class ContributionAnalysisImpl extends MinimalEObjectImpl.Container imple
 				return;
 			case AnalyzerPackage.CONTRIBUTION_ANALYSIS__LAST_MODIFIED:
 				setLastModified(LAST_MODIFIED_EDEFAULT);
+				return;
+			case AnalyzerPackage.CONTRIBUTION_ANALYSIS__TAGS:
+				getTags().clear();
 				return;
 			case AnalyzerPackage.CONTRIBUTION_ANALYSIS__CONTRIBUTION:
 				setContribution((Contribution) null);
@@ -560,6 +689,8 @@ public class ContributionAnalysisImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case AnalyzerPackage.CONTRIBUTION_ANALYSIS__ENABLED:
+				return ((eFlags & ENABLED_EFLAG) != 0) != ENABLED_EDEFAULT;
 			case AnalyzerPackage.CONTRIBUTION_ANALYSIS__LABEL:
 				return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
 			case AnalyzerPackage.CONTRIBUTION_ANALYSIS__DOMINANT:
@@ -570,6 +701,10 @@ public class ContributionAnalysisImpl extends MinimalEObjectImpl.Container imple
 				return lastModified != LAST_MODIFIED_EDEFAULT;
 			case AnalyzerPackage.CONTRIBUTION_ANALYSIS__RANK:
 				return getRank() != RANK_EDEFAULT;
+			case AnalyzerPackage.CONTRIBUTION_ANALYSIS__TAGS:
+				return tags != null && !tags.isEmpty();
+			case AnalyzerPackage.CONTRIBUTION_ANALYSIS__ANALYSIS:
+				return getAnalysis() != null;
 			case AnalyzerPackage.CONTRIBUTION_ANALYSIS__CONTRIBUTION:
 				return contribution != null;
 			case AnalyzerPackage.CONTRIBUTION_ANALYSIS__INSTALLABLE_UNITS:
@@ -592,7 +727,9 @@ public class ContributionAnalysisImpl extends MinimalEObjectImpl.Container imple
 			return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (label: ");
+		result.append(" (enabled: ");
+		result.append((eFlags & ENABLED_EFLAG) != 0);
+		result.append(", label: ");
 		result.append(label);
 		result.append(", dominant: ");
 		result.append((eFlags & DOMINANT_EFLAG) != 0);
@@ -600,6 +737,8 @@ public class ContributionAnalysisImpl extends MinimalEObjectImpl.Container imple
 		result.append(match);
 		result.append(", lastModified: ");
 		result.append(lastModified);
+		result.append(", tags: ");
+		result.append(tags);
 		result.append(')');
 		return result.toString();
 	}

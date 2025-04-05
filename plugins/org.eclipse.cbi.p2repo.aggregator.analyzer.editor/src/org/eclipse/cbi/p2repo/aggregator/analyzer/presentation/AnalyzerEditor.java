@@ -64,6 +64,7 @@ import org.eclipse.cbi.p2repo.aggregator.analyzer.presentation.handlers.AnalyzeH
 import org.eclipse.cbi.p2repo.aggregator.analyzer.presentation.handlers.BaseHandler;
 import org.eclipse.cbi.p2repo.aggregator.analyzer.presentation.handlers.LastModifiedHandler;
 import org.eclipse.cbi.p2repo.aggregator.analyzer.presentation.handlers.LastModifiedHandler.LastModifiedUpdater;
+import org.eclipse.cbi.p2repo.aggregator.analyzer.provider.AnalysisItemProvider;
 import org.eclipse.cbi.p2repo.aggregator.analyzer.provider.AnalyzerItemProviderAdapterFactory;
 import org.eclipse.cbi.p2repo.aggregator.analyzer.provider.ContributionAnalysisItemProvider;
 import org.eclipse.cbi.p2repo.aggregator.analyzer.util.AnalyzerUtil;
@@ -1456,6 +1457,23 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 		treeViewer.setUseHashlookup(true);
 		ComposedAdapterFactory composedAdapterFactory = new ComposedAdapterFactory(
 				new AdapterFactory[] { new AnalyzerItemProviderAdapterFactory() {
+					@Override
+					public Adapter createAnalysisAdapter() {
+						if (analysisItemProvider == null) {
+							analysisItemProvider = new AnalysisItemProvider(this) {
+								@Override
+								public java.util.Collection<? extends EStructuralFeature> getChildrenFeatures(
+										Object object) {
+									Collection<? extends EStructuralFeature> childrenFeatures = super.getChildrenFeatures(
+											object);
+									childrenFeatures.remove(AnalyzerPackage.Literals.ANALYSIS__TAGS);
+									return childrenFeatures;
+								}
+							};
+						}
+						return analysisItemProvider;
+					}
+
 					@Override
 					public Adapter createContributionAnalysisAdapter() {
 						if (contributionAnalysisItemProvider == null) {

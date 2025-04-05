@@ -10,15 +10,18 @@
  */
 package org.eclipse.cbi.p2repo.aggregator.analyzer.provider;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.cbi.p2repo.aggregator.Contribution;
+import org.eclipse.cbi.p2repo.aggregator.analyzer.Analysis;
 import org.eclipse.cbi.p2repo.aggregator.analyzer.AnalyzerFactory;
 import org.eclipse.cbi.p2repo.aggregator.analyzer.AnalyzerPackage;
 import org.eclipse.cbi.p2repo.aggregator.analyzer.ContributionAnalysis;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
@@ -65,14 +68,32 @@ public class ContributionAnalysisItemProvider extends AnalyzerItemProviderAdapte
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addEnabledPropertyDescriptor(object);
 			addLabelPropertyDescriptor(object);
 			addDominantPropertyDescriptor(object);
 			addMatchPropertyDescriptor(object);
 			addLastModifiedPropertyDescriptor(object);
 			addRankPropertyDescriptor(object);
+			addTagsPropertyDescriptor(object);
 			addContributionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Enabled feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addEnabledPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_ContributionAnalysis_enabled_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_ContributionAnalysis_enabled_feature",
+						"_UI_ContributionAnalysis_type"),
+				AnalyzerPackage.Literals.CONTRIBUTION_ANALYSIS__ENABLED, true, false, false,
+				ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -156,6 +177,33 @@ public class ContributionAnalysisItemProvider extends AnalyzerItemProviderAdapte
 	}
 
 	/**
+	 * This adds a property descriptor for the Tags feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTagsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_ContributionAnalysis_tags_feature"),
+						getString("_UI_ContributionAnalysis_tags_description"),
+						AnalyzerPackage.Literals.CONTRIBUTION_ANALYSIS__TAGS, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	@Override
+	protected Collection<?> getChoiceOfValues(Object object, Object feature) {
+		if (feature == AnalyzerPackage.Literals.CONTRIBUTION_ANALYSIS__TAGS) {
+			ContributionAnalysis contributionAnalysis = (ContributionAnalysis) object;
+			Analysis analysis = contributionAnalysis.getAnalysis();
+			if (analysis != null) {
+				return new ArrayList<>(analysis.getTags());
+			}
+		}
+		return super.getChoiceOfValues(object, feature);
+	}
+
+	/**
 	 * This adds a property descriptor for the Contribution feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -170,6 +218,23 @@ public class ContributionAnalysisItemProvider extends AnalyzerItemProviderAdapte
 				AnalyzerPackage.Literals.CONTRIBUTION_ANALYSIS__CONTRIBUTION, false, false, true, null, null, null));
 	}
 
+	private boolean showTags(Object object) {
+		ContributionAnalysis contributionAnalysis = (ContributionAnalysis) object;
+		;
+		Analysis analysis = contributionAnalysis.getAnalysis();
+		return analysis != null && analysis.isShowTags();
+	}
+
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		childrenFeatures = null;
+		Collection<? extends EStructuralFeature> result = getChildrenFeaturesGen(object);
+		if (!showTags(object)) {
+			result.remove(AnalyzerPackage.Literals.CONTRIBUTION_ANALYSIS__TAGS);
+		}
+		return result;
+	}
+
 	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
@@ -178,10 +243,10 @@ public class ContributionAnalysisItemProvider extends AnalyzerItemProviderAdapte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+	public Collection<? extends EStructuralFeature> getChildrenFeaturesGen(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(AnalyzerPackage.Literals.CONTRIBUTION_ANALYSIS__TAGS);
 			childrenFeatures.add(AnalyzerPackage.Literals.CONTRIBUTION_ANALYSIS__INSTALLABLE_UNITS);
 			childrenFeatures.add(AnalyzerPackage.Literals.CONTRIBUTION_ANALYSIS__PROJECTS);
 		}
@@ -280,6 +345,7 @@ public class ContributionAnalysisItemProvider extends AnalyzerItemProviderAdapte
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ContributionAnalysis.class)) {
+			case AnalyzerPackage.CONTRIBUTION_ANALYSIS__ENABLED:
 			case AnalyzerPackage.CONTRIBUTION_ANALYSIS__LABEL:
 			case AnalyzerPackage.CONTRIBUTION_ANALYSIS__DOMINANT:
 			case AnalyzerPackage.CONTRIBUTION_ANALYSIS__MATCH:
@@ -288,6 +354,7 @@ public class ContributionAnalysisItemProvider extends AnalyzerItemProviderAdapte
 			case AnalyzerPackage.CONTRIBUTION_ANALYSIS__CONTRIBUTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case AnalyzerPackage.CONTRIBUTION_ANALYSIS__TAGS:
 			case AnalyzerPackage.CONTRIBUTION_ANALYSIS__INSTALLABLE_UNITS:
 			case AnalyzerPackage.CONTRIBUTION_ANALYSIS__PROJECTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
@@ -298,6 +365,22 @@ public class ContributionAnalysisItemProvider extends AnalyzerItemProviderAdapte
 		}
 	}
 
+	@Override
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+		ContributionAnalysis contributionAnalysis = (ContributionAnalysis) object;
+		Analysis analysis = contributionAnalysis.getAnalysis();
+		if (analysis != null && analysis.isShowTags()) {
+			EList<String> existingTags = contributionAnalysis.getTags();
+			for (String tag : analysis.getTags()) {
+				if (!existingTags.contains(tag)) {
+					newChildDescriptors
+							.add(createChildParameter(AnalyzerPackage.Literals.CONTRIBUTION_ANALYSIS__TAGS, tag));
+				}
+			}
+		}
+		collectNewChildDescriptorsGen(newChildDescriptors, object);
+	}
+
 	/**
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
@@ -305,8 +388,7 @@ public class ContributionAnalysisItemProvider extends AnalyzerItemProviderAdapte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptorsGen(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
 		newChildDescriptors.add(createChildParameter(AnalyzerPackage.Literals.CONTRIBUTION_ANALYSIS__INSTALLABLE_UNITS,

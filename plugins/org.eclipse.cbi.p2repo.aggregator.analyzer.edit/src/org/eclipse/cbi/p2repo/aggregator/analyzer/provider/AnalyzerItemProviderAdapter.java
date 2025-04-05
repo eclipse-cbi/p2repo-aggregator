@@ -15,11 +15,14 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.cbi.p2repo.aggregator.analyzer.AnalyzerPackage;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.AdapterFactoryItemDelegator;
+import org.eclipse.emf.edit.provider.AttributeValueWrapperItemProvider;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedImage;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -50,7 +53,8 @@ public class AnalyzerItemProviderAdapter extends ItemProviderAdapter {
 			boolean isSettable, boolean multiLine, boolean sortChoices, Object staticImage, String category,
 			String[] filterFlags, Object propertyEditorFactory) {
 		return new ItemPropertyDescriptor(adapterFactory, resourceLocator, displayName, description, feature,
-				isSettable, multiLine, sortChoices, staticImage, category, filterFlags, propertyEditorFactory) {
+				isSettable, multiLine, sortChoices, getPropertyImage(feature, staticImage), category, filterFlags,
+				propertyEditorFactory) {
 			@Override
 			protected Object createPropertyValueWrapper(Object object, Object propertyValue) {
 				if (propertyValue instanceof EObject) {
@@ -59,18 +63,49 @@ public class AnalyzerItemProviderAdapter extends ItemProviderAdapter {
 				return super.createPropertyValueWrapper(object, propertyValue);
 			}
 
-			/*
-			 * (non-Javadoc)
-			 * 
-			 * @see org.eclipse.emf.edit.provider.ItemPropertyDescriptor#getChoiceOfValues(java.lang.Object)
-			 */
 			@Override
 			public Collection<?> getChoiceOfValues(Object object) {
-				// TODO Auto-generated method stub
-				return super.getChoiceOfValues(object);
+				Collection<?> choiceOfValues = AnalyzerItemProviderAdapter.this.getChoiceOfValues(object,
+						getFeature(object));
+				return choiceOfValues != null ? choiceOfValues : super.getChoiceOfValues(object);
 			}
 
 		};
+	}
+
+	@Override
+	protected Object createWrapper(EObject object, EStructuralFeature feature, Object value, int index) {
+		return feature == AnalyzerPackage.Literals.CONTRIBUTION_ANALYSIS__TAGS
+				|| feature == AnalyzerPackage.Literals.ANALYSIS__TAGS
+						? new AttributeValueWrapperItemProvider(value, object, (EAttribute) feature, index,
+								adapterFactory, getResourceLocator()) {
+							@Override
+							public Object getImage(Object object) {
+								return getResourceLocator().getImage("full/obj16/Tag");
+							}
+						}
+						: super.createWrapper(object, feature, value, index);
+	}
+
+	protected Object getPropertyImage(Object feature, Object staticImage) {
+		return feature == AnalyzerPackage.Literals.CONTRIBUTION_ANALYSIS__TAGS
+				|| feature == AnalyzerPackage.Literals.ANALYSIS__TAGS ? getImage("full/obj16/Tag") : staticImage;
+	}
+
+	@Override
+	public Object getCreateChildImage(Object owner, Object feature, Object child, Collection<?> selection) {
+		return getPropertyImage(feature, super.getCreateChildImage(owner, feature, child, selection));
+	}
+
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		return feature == AnalyzerPackage.Literals.CONTRIBUTION_ANALYSIS__TAGS
+				|| feature == AnalyzerPackage.Literals.ANALYSIS__TAGS ? child.toString()
+						: super.getCreateChildText(owner, feature, child, selection);
+	}
+
+	protected Collection<?> getChoiceOfValues(Object object, Object feature) {
+		return null;
 	}
 
 	protected Object getDirectionOverlay(Object object) {

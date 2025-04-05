@@ -22,8 +22,12 @@
     <genClasses ecoreClass="AggregationAnalyzer.ecore#//Analysis">
       <genFeatures createChild="false" propertyDescription="The date of the next scheduled release"
           ecoreFeature="ecore:EAttribute AggregationAnalyzer.ecore#//Analysis/releaseDate"/>
-      <genFeatures createChild="false" propertyDescription="A pattern that maches all installable units that will be omitted from analysis"
+      <genFeatures createChild="false" propertyDescription="A pattern that matches all installable units that will be omitted from analysis"
           ecoreFeature="ecore:EAttribute AggregationAnalyzer.ecore#//Analysis/exclusion"/>
+      <genFeatures createChild="false" propertyDescription="Whether to show the tags as children in the editor"
+          ecoreFeature="ecore:EAttribute AggregationAnalyzer.ecore#//Analysis/showTags"/>
+      <genFeatures children="true" createChild="false" propertyDescription="Tags that may be used with contribution analysis items"
+          ecoreFeature="ecore:EAttribute AggregationAnalyzer.ecore#//Analysis/tags"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AggregationAnalyzer.ecore#//Analysis/levels"/>
       <genFeatures createChild="false" propertyDescription="A set of patterns that mach all Git repository URIs to be excluded from reconciliation"
           ecoreFeature="ecore:EAttribute AggregationAnalyzer.ecore#//Analysis/gitRepositoryFilters"/>
@@ -33,12 +37,16 @@
       <genOperations ecoreOperation="AggregationAnalyzer.ecore#//Analysis/reconcile"/>
     </genClasses>
     <genClasses ecoreClass="AggregationAnalyzer.ecore#//ContributionAnalysis">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AggregationAnalyzer.ecore#//ContributionAnalysis/enabled"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AggregationAnalyzer.ecore#//ContributionAnalysis/label"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AggregationAnalyzer.ecore#//ContributionAnalysis/dominant"/>
       <genFeatures createChild="false" propertyDescription="A pattern that matches all installable unit to be included in the group"
           ecoreFeature="ecore:EAttribute AggregationAnalyzer.ecore#//ContributionAnalysis/match"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AggregationAnalyzer.ecore#//ContributionAnalysis/lastModified"/>
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute AggregationAnalyzer.ecore#//ContributionAnalysis/rank"/>
+      <genFeatures children="true" createChild="false" propertyDescription="A subset of tags declared for the analysis"
+          ecoreFeature="ecore:EAttribute AggregationAnalyzer.ecore#//ContributionAnalysis/tags"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference AggregationAnalyzer.ecore#//ContributionAnalysis/analysis"/>
       <genFeatures property="Readonly" createChild="false" propertySortChoices="true"
           ecoreFeature="ecore:EReference AggregationAnalyzer.ecore#//ContributionAnalysis/contribution"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AggregationAnalyzer.ecore#//ContributionAnalysis/installableUnits"/>

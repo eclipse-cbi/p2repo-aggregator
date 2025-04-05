@@ -33,7 +33,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -46,6 +46,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.impl.AnalysisImpl#getReleaseDate <em>Release Date</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.impl.AnalysisImpl#getExclusion <em>Exclusion</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.impl.AnalysisImpl#isShowTags <em>Show Tags</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.impl.AnalysisImpl#getTags <em>Tags</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.impl.AnalysisImpl#getLevels <em>Levels</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.impl.AnalysisImpl#getGitRepositoryFilters <em>Git Repository Filters</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.impl.AnalysisImpl#getAggregation <em>Aggregation</em>}</li>
@@ -103,6 +105,36 @@ public class AnalysisImpl extends MinimalEObjectImpl.Container implements Analys
 	 * @ordered
 	 */
 	protected Pattern exclusion = EXCLUSION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isShowTags() <em>Show Tags</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isShowTags()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean SHOW_TAGS_EDEFAULT = false;
+
+	/**
+	 * The flag representing the value of the '{@link #isShowTags() <em>Show Tags</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isShowTags()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int SHOW_TAGS_EFLAG = 1 << 0;
+
+	/**
+	 * The cached value of the '{@link #getTags() <em>Tags</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTags()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> tags;
 
 	/**
 	 * The cached value of the '{@link #getLevels() <em>Levels</em>}' attribute list.
@@ -274,8 +306,8 @@ public class AnalysisImpl extends MinimalEObjectImpl.Container implements Analys
 	@Override
 	public EList<ContributionAnalysis> getContributions() {
 		if (contributions == null) {
-			contributions = new EObjectContainmentEList<>(ContributionAnalysis.class, this,
-					AnalyzerPackage.ANALYSIS__CONTRIBUTIONS);
+			contributions = new EObjectContainmentWithInverseEList<>(ContributionAnalysis.class,
+					this, AnalyzerPackage.ANALYSIS__CONTRIBUTIONS, AnalyzerPackage.CONTRIBUTION_ANALYSIS__ANALYSIS);
 		}
 		return contributions;
 	}
@@ -303,6 +335,30 @@ public class AnalysisImpl extends MinimalEObjectImpl.Container implements Analys
 					}).collect(Collectors.toList());
 			contributions.removeAll(staleContributions);
 			contributions.addAll(missingContributions);
+			for (ContributionAnalysis contributionAnalysis : contributions) {
+				Contribution contribution = contributionAnalysis.getContribution();
+				boolean enabled = contribution != null && contribution.isEnabled();
+				if (enabled != contributionAnalysis.isEnabled()) {
+					contributionAnalysis.setEnabled(enabled);
+				}
+			}
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case AnalyzerPackage.ANALYSIS__CONTRIBUTIONS:
+				return ((InternalEList<InternalEObject>) (InternalEList<?>) getContributions()).basicAdd(otherEnd,
+						msgs);
+			default:
+				return super.eInverseAdd(otherEnd, featureID, msgs);
 		}
 	}
 
@@ -337,6 +393,10 @@ public class AnalysisImpl extends MinimalEObjectImpl.Container implements Analys
 				return getReleaseDate();
 			case AnalyzerPackage.ANALYSIS__EXCLUSION:
 				return getExclusion();
+			case AnalyzerPackage.ANALYSIS__SHOW_TAGS:
+				return isShowTags();
+			case AnalyzerPackage.ANALYSIS__TAGS:
+				return getTags();
 			case AnalyzerPackage.ANALYSIS__LEVELS:
 				return getLevels();
 			case AnalyzerPackage.ANALYSIS__GIT_REPOSITORY_FILTERS:
@@ -366,6 +426,13 @@ public class AnalysisImpl extends MinimalEObjectImpl.Container implements Analys
 				return;
 			case AnalyzerPackage.ANALYSIS__EXCLUSION:
 				setExclusion((Pattern) newValue);
+				return;
+			case AnalyzerPackage.ANALYSIS__SHOW_TAGS:
+				setShowTags((Boolean) newValue);
+				return;
+			case AnalyzerPackage.ANALYSIS__TAGS:
+				getTags().clear();
+				getTags().addAll((Collection<? extends String>) newValue);
 				return;
 			case AnalyzerPackage.ANALYSIS__LEVELS:
 				getLevels().clear();
@@ -402,6 +469,12 @@ public class AnalysisImpl extends MinimalEObjectImpl.Container implements Analys
 			case AnalyzerPackage.ANALYSIS__EXCLUSION:
 				setExclusion(EXCLUSION_EDEFAULT);
 				return;
+			case AnalyzerPackage.ANALYSIS__SHOW_TAGS:
+				setShowTags(SHOW_TAGS_EDEFAULT);
+				return;
+			case AnalyzerPackage.ANALYSIS__TAGS:
+				getTags().clear();
+				return;
 			case AnalyzerPackage.ANALYSIS__LEVELS:
 				getLevels().clear();
 				return;
@@ -432,6 +505,10 @@ public class AnalysisImpl extends MinimalEObjectImpl.Container implements Analys
 				return RELEASE_DATE_EDEFAULT == null ? releaseDate != null : !RELEASE_DATE_EDEFAULT.equals(releaseDate);
 			case AnalyzerPackage.ANALYSIS__EXCLUSION:
 				return EXCLUSION_EDEFAULT == null ? exclusion != null : !EXCLUSION_EDEFAULT.equals(exclusion);
+			case AnalyzerPackage.ANALYSIS__SHOW_TAGS:
+				return ((eFlags & SHOW_TAGS_EFLAG) != 0) != SHOW_TAGS_EDEFAULT;
+			case AnalyzerPackage.ANALYSIS__TAGS:
+				return tags != null && !tags.isEmpty();
 			case AnalyzerPackage.ANALYSIS__LEVELS:
 				return levels != null && !levels.isEmpty();
 			case AnalyzerPackage.ANALYSIS__GIT_REPOSITORY_FILTERS:
@@ -460,6 +537,10 @@ public class AnalysisImpl extends MinimalEObjectImpl.Container implements Analys
 		result.append(releaseDate);
 		result.append(", exclusion: ");
 		result.append(exclusion);
+		result.append(", showTags: ");
+		result.append((eFlags & SHOW_TAGS_EFLAG) != 0);
+		result.append(", tags: ");
+		result.append(tags);
 		result.append(", levels: ");
 		result.append(levels);
 		result.append(", gitRepositoryFilters: ");
@@ -480,6 +561,46 @@ public class AnalysisImpl extends MinimalEObjectImpl.Container implements Analys
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, AnalyzerPackage.ANALYSIS__EXCLUSION, oldExclusion,
 					exclusion));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isShowTags() {
+		return (eFlags & SHOW_TAGS_EFLAG) != 0;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setShowTags(boolean newShowTags) {
+		boolean oldShowTags = (eFlags & SHOW_TAGS_EFLAG) != 0;
+		if (newShowTags)
+			eFlags |= SHOW_TAGS_EFLAG;
+		else
+			eFlags &= ~SHOW_TAGS_EFLAG;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AnalyzerPackage.ANALYSIS__SHOW_TAGS, oldShowTags,
+					newShowTags));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<String> getTags() {
+		if (tags == null) {
+			tags = new EDataTypeUniqueEList<>(String.class, this, AnalyzerPackage.ANALYSIS__TAGS);
+		}
+		return tags;
 	}
 
 } // AnalysisImpl

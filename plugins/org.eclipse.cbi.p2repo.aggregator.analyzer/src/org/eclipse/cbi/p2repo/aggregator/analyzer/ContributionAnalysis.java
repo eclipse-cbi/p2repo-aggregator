@@ -29,11 +29,14 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.ContributionAnalysis#isEnabled <em>Enabled</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.ContributionAnalysis#getLabel <em>Label</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.ContributionAnalysis#isDominant <em>Dominant</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.ContributionAnalysis#getMatch <em>Match</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.ContributionAnalysis#getLastModified <em>Last Modified</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.ContributionAnalysis#getRank <em>Rank</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.ContributionAnalysis#getTags <em>Tags</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.ContributionAnalysis#getAnalysis <em>Analysis</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.ContributionAnalysis#getContribution <em>Contribution</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.ContributionAnalysis#getInstallableUnits <em>Installable Units</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.ContributionAnalysis#getProjects <em>Projects</em>}</li>
@@ -44,6 +47,29 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface ContributionAnalysis extends EObject {
+	/**
+	 * Returns the value of the '<em><b>Enabled</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Enabled</em>' attribute.
+	 * @see #setEnabled(boolean)
+	 * @see org.eclipse.cbi.p2repo.aggregator.analyzer.AnalyzerPackage#getContributionAnalysis_Enabled()
+	 * @model default="true" dataType="org.eclipse.emf.ecore.xml.type.Boolean"
+	 * @generated
+	 */
+	boolean isEnabled();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.analyzer.ContributionAnalysis#isEnabled <em>Enabled</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Enabled</em>' attribute.
+	 * @see #isEnabled()
+	 * @generated
+	 */
+	void setEnabled(boolean value);
+
 	/**
 	 * Returns the value of the '<em><b>Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -149,6 +175,34 @@ public interface ContributionAnalysis extends EObject {
 	 * @generated
 	 */
 	int getRank();
+
+	/**
+	 * Returns the value of the '<em><b>Tags</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A subset of tags declared for the analysis.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Tags</em>' attribute list.
+	 * @see org.eclipse.cbi.p2repo.aggregator.analyzer.AnalyzerPackage#getContributionAnalysis_Tags()
+	 * @model extendedMetaData="kind='element' name='tag'"
+	 * @generated
+	 */
+	EList<String> getTags();
+
+	/**
+	 * Returns the value of the '<em><b>Analysis</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link org.eclipse.cbi.p2repo.aggregator.analyzer.Analysis#getContributions <em>Contributions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Analysis</em>' container reference.
+	 * @see org.eclipse.cbi.p2repo.aggregator.analyzer.AnalyzerPackage#getContributionAnalysis_Analysis()
+	 * @see org.eclipse.cbi.p2repo.aggregator.analyzer.Analysis#getContributions
+	 * @model opposite="contributions" changeable="false"
+	 * @generated
+	 */
+	Analysis getAnalysis();
 
 	/**
 	 * Returns the value of the '<em><b>Contribution</b></em>' reference.

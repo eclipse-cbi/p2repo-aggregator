@@ -32,6 +32,8 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.Analysis#getReleaseDate <em>Release Date</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.Analysis#getExclusion <em>Exclusion</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.Analysis#isShowTags <em>Show Tags</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.Analysis#getTags <em>Tags</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.Analysis#getLevels <em>Levels</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.Analysis#getGitRepositoryFilters <em>Git Repository Filters</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.Analysis#getAggregation <em>Aggregation</em>}</li>
@@ -72,6 +74,9 @@ public interface Analysis extends EObject {
 	 * Returns the value of the '<em><b>Exclusion</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A pattern that matches all installable units that will be omitted from analysis
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Exclusion</em>' attribute.
 	 * @see #setExclusion(Pattern)
 	 * @see org.eclipse.cbi.p2repo.aggregator.analyzer.AnalyzerPackage#getAnalysis_Exclusion()
@@ -89,6 +94,46 @@ public interface Analysis extends EObject {
 	 * @generated
 	 */
 	void setExclusion(Pattern value);
+
+	/**
+	 * Returns the value of the '<em><b>Show Tags</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Whether to show the tags as children in the editor.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Show Tags</em>' attribute.
+	 * @see #setShowTags(boolean)
+	 * @see org.eclipse.cbi.p2repo.aggregator.analyzer.AnalyzerPackage#getAnalysis_ShowTags()
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.Boolean"
+	 * @generated
+	 */
+	boolean isShowTags();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.analyzer.Analysis#isShowTags <em>Show Tags</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Show Tags</em>' attribute.
+	 * @see #isShowTags()
+	 * @generated
+	 */
+	void setShowTags(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Tags</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Tags that may be used with contribution analysis items
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Tags</em>' attribute list.
+	 * @see org.eclipse.cbi.p2repo.aggregator.analyzer.AnalyzerPackage#getAnalysis_Tags()
+	 * @model extendedMetaData="kind='element' name='tag'"
+	 * @generated
+	 */
+	EList<String> getTags();
 
 	/**
 	 * Returns the value of the '<em><b>Levels</b></em>' attribute list.
@@ -142,6 +187,7 @@ public interface Analysis extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Contributions</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.cbi.p2repo.aggregator.analyzer.ContributionAnalysis}.
+	 * It is bidirectional and its opposite is '{@link org.eclipse.cbi.p2repo.aggregator.analyzer.ContributionAnalysis#getAnalysis <em>Analysis</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -149,7 +195,8 @@ public interface Analysis extends EObject {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Contributions</em>' containment reference list.
 	 * @see org.eclipse.cbi.p2repo.aggregator.analyzer.AnalyzerPackage#getAnalysis_Contributions()
-	 * @model containment="true"
+	 * @see org.eclipse.cbi.p2repo.aggregator.analyzer.ContributionAnalysis#getAnalysis
+	 * @model opposite="analysis" containment="true"
 	 *        extendedMetaData="name='contribution' kind='element'"
 	 * @generated
 	 */

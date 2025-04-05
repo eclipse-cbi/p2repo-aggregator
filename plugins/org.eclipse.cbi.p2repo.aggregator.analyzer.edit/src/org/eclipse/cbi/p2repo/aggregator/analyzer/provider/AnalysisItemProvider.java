@@ -67,6 +67,8 @@ public class AnalysisItemProvider extends AnalyzerItemProviderAdapter
 
 			addReleaseDatePropertyDescriptor(object);
 			addExclusionPropertyDescriptor(object);
+			addShowTagsPropertyDescriptor(object);
+			addTagsPropertyDescriptor(object);
 			addLevelsPropertyDescriptor(object);
 			addGitRepositoryFiltersPropertyDescriptor(object);
 			addAggregationPropertyDescriptor(object);
@@ -101,6 +103,34 @@ public class AnalysisItemProvider extends AnalyzerItemProviderAdapter
 						getResourceLocator(), getString("_UI_Analysis_exclusion_feature"),
 						getString("_UI_Analysis_exclusion_description"), AnalyzerPackage.Literals.ANALYSIS__EXCLUSION,
 						true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Show Tags feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addShowTagsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Analysis_showTags_feature"),
+						getString("_UI_Analysis_showTags_description"), AnalyzerPackage.Literals.ANALYSIS__SHOW_TAGS,
+						true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Tags feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTagsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Analysis_tags_feature"),
+						getString("_UI_Analysis_tags_description"), AnalyzerPackage.Literals.ANALYSIS__TAGS, true,
+						false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -149,6 +179,21 @@ public class AnalysisItemProvider extends AnalyzerItemProviderAdapter
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
+	private boolean showTags(Object object) {
+		Analysis analysis = (Analysis) object;
+		return analysis.isShowTags();
+	}
+
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		childrenFeatures = null;
+		Collection<? extends EStructuralFeature> result = getChildrenFeaturesGen(object);
+		if (!showTags(object)) {
+			result.remove(AnalyzerPackage.Literals.ANALYSIS__TAGS);
+		}
+		return result;
+	}
+
 	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
@@ -157,10 +202,10 @@ public class AnalysisItemProvider extends AnalyzerItemProviderAdapter
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+	public Collection<? extends EStructuralFeature> getChildrenFeaturesGen(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(AnalyzerPackage.Literals.ANALYSIS__TAGS);
 			childrenFeatures.add(AnalyzerPackage.Literals.ANALYSIS__CONTRIBUTIONS);
 		}
 		return childrenFeatures;
@@ -221,6 +266,14 @@ public class AnalysisItemProvider extends AnalyzerItemProviderAdapter
 		return getString("_UI_Analysis_type");
 	}
 
+	@Override
+	public void notifyChanged(Notification notification) {
+		notifyChangedGen(notification);
+		if (notification.getFeatureID(Analysis.class) == AnalyzerPackage.ANALYSIS__SHOW_TAGS) {
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+		}
+	}
+
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
@@ -228,24 +281,33 @@ public class AnalysisItemProvider extends AnalyzerItemProviderAdapter
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public void notifyChanged(Notification notification) {
+	public void notifyChangedGen(Notification notification) {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Analysis.class)) {
 			case AnalyzerPackage.ANALYSIS__RELEASE_DATE:
 			case AnalyzerPackage.ANALYSIS__EXCLUSION:
+			case AnalyzerPackage.ANALYSIS__SHOW_TAGS:
 			case AnalyzerPackage.ANALYSIS__LEVELS:
 			case AnalyzerPackage.ANALYSIS__GIT_REPOSITORY_FILTERS:
 			case AnalyzerPackage.ANALYSIS__AGGREGATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case AnalyzerPackage.ANALYSIS__TAGS:
 			case AnalyzerPackage.ANALYSIS__CONTRIBUTIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 			default:
 				super.notifyChanged(notification);
 				return;
+		}
+	}
+
+	@Override
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+		collectNewChildDescriptorsGen(newChildDescriptors, object);
+		if (showTags(object)) {
+			newChildDescriptors.add(createChildParameter(AnalyzerPackage.Literals.ANALYSIS__TAGS, "new-tag"));
 		}
 	}
 
@@ -256,8 +318,7 @@ public class AnalysisItemProvider extends AnalyzerItemProviderAdapter
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptorsGen(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
 		newChildDescriptors.add(createChildParameter(AnalyzerPackage.Literals.ANALYSIS__CONTRIBUTIONS,

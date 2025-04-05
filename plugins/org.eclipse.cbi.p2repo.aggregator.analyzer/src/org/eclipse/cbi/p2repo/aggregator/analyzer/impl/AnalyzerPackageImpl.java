@@ -230,7 +230,7 @@ public class AnalyzerPackageImpl extends EPackageImpl implements AnalyzerPackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getAnalysis_Levels() {
+	public EAttribute getAnalysis_ShowTags() {
 		return (EAttribute) analysisEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -240,7 +240,7 @@ public class AnalyzerPackageImpl extends EPackageImpl implements AnalyzerPackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getAnalysis_GitRepositoryFilters() {
+	public EAttribute getAnalysis_Tags() {
 		return (EAttribute) analysisEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -250,8 +250,28 @@ public class AnalyzerPackageImpl extends EPackageImpl implements AnalyzerPackage
 	 * @generated
 	 */
 	@Override
+	public EAttribute getAnalysis_Levels() {
+		return (EAttribute) analysisEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getAnalysis_GitRepositoryFilters() {
+		return (EAttribute) analysisEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EReference getAnalysis_Aggregation() {
-		return (EReference) analysisEClass.getEStructuralFeatures().get(4);
+		return (EReference) analysisEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -261,7 +281,7 @@ public class AnalyzerPackageImpl extends EPackageImpl implements AnalyzerPackage
 	 */
 	@Override
 	public EReference getAnalysis_Contributions() {
-		return (EReference) analysisEClass.getEStructuralFeatures().get(5);
+		return (EReference) analysisEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -280,7 +300,7 @@ public class AnalyzerPackageImpl extends EPackageImpl implements AnalyzerPackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getContributionAnalysis_Label() {
+	public EAttribute getContributionAnalysis_Enabled() {
 		return (EAttribute) contributionAnalysisEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -290,7 +310,7 @@ public class AnalyzerPackageImpl extends EPackageImpl implements AnalyzerPackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getContributionAnalysis_Dominant() {
+	public EAttribute getContributionAnalysis_Label() {
 		return (EAttribute) contributionAnalysisEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -300,7 +320,7 @@ public class AnalyzerPackageImpl extends EPackageImpl implements AnalyzerPackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getContributionAnalysis_Match() {
+	public EAttribute getContributionAnalysis_Dominant() {
 		return (EAttribute) contributionAnalysisEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -310,7 +330,7 @@ public class AnalyzerPackageImpl extends EPackageImpl implements AnalyzerPackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getContributionAnalysis_LastModified() {
+	public EAttribute getContributionAnalysis_Match() {
 		return (EAttribute) contributionAnalysisEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -320,7 +340,7 @@ public class AnalyzerPackageImpl extends EPackageImpl implements AnalyzerPackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getContributionAnalysis_Rank() {
+	public EAttribute getContributionAnalysis_LastModified() {
 		return (EAttribute) contributionAnalysisEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -330,8 +350,38 @@ public class AnalyzerPackageImpl extends EPackageImpl implements AnalyzerPackage
 	 * @generated
 	 */
 	@Override
+	public EAttribute getContributionAnalysis_Rank() {
+		return (EAttribute) contributionAnalysisEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getContributionAnalysis_Tags() {
+		return (EAttribute) contributionAnalysisEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getContributionAnalysis_Analysis() {
+		return (EReference) contributionAnalysisEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EReference getContributionAnalysis_Contribution() {
-		return (EReference) contributionAnalysisEClass.getEStructuralFeatures().get(5);
+		return (EReference) contributionAnalysisEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -341,7 +391,7 @@ public class AnalyzerPackageImpl extends EPackageImpl implements AnalyzerPackage
 	 */
 	@Override
 	public EReference getContributionAnalysis_InstallableUnits() {
-		return (EReference) contributionAnalysisEClass.getEStructuralFeatures().get(6);
+		return (EReference) contributionAnalysisEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -351,7 +401,7 @@ public class AnalyzerPackageImpl extends EPackageImpl implements AnalyzerPackage
 	 */
 	@Override
 	public EReference getContributionAnalysis_Projects() {
-		return (EReference) contributionAnalysisEClass.getEStructuralFeatures().get(7);
+		return (EReference) contributionAnalysisEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -757,17 +807,22 @@ public class AnalyzerPackageImpl extends EPackageImpl implements AnalyzerPackage
 		analysisEClass = createEClass(ANALYSIS);
 		createEAttribute(analysisEClass, ANALYSIS__RELEASE_DATE);
 		createEAttribute(analysisEClass, ANALYSIS__EXCLUSION);
+		createEAttribute(analysisEClass, ANALYSIS__SHOW_TAGS);
+		createEAttribute(analysisEClass, ANALYSIS__TAGS);
 		createEAttribute(analysisEClass, ANALYSIS__LEVELS);
 		createEAttribute(analysisEClass, ANALYSIS__GIT_REPOSITORY_FILTERS);
 		createEReference(analysisEClass, ANALYSIS__AGGREGATION);
 		createEReference(analysisEClass, ANALYSIS__CONTRIBUTIONS);
 
 		contributionAnalysisEClass = createEClass(CONTRIBUTION_ANALYSIS);
+		createEAttribute(contributionAnalysisEClass, CONTRIBUTION_ANALYSIS__ENABLED);
 		createEAttribute(contributionAnalysisEClass, CONTRIBUTION_ANALYSIS__LABEL);
 		createEAttribute(contributionAnalysisEClass, CONTRIBUTION_ANALYSIS__DOMINANT);
 		createEAttribute(contributionAnalysisEClass, CONTRIBUTION_ANALYSIS__MATCH);
 		createEAttribute(contributionAnalysisEClass, CONTRIBUTION_ANALYSIS__LAST_MODIFIED);
 		createEAttribute(contributionAnalysisEClass, CONTRIBUTION_ANALYSIS__RANK);
+		createEAttribute(contributionAnalysisEClass, CONTRIBUTION_ANALYSIS__TAGS);
+		createEReference(contributionAnalysisEClass, CONTRIBUTION_ANALYSIS__ANALYSIS);
 		createEReference(contributionAnalysisEClass, CONTRIBUTION_ANALYSIS__CONTRIBUTION);
 		createEReference(contributionAnalysisEClass, CONTRIBUTION_ANALYSIS__INSTALLABLE_UNITS);
 		createEReference(contributionAnalysisEClass, CONTRIBUTION_ANALYSIS__PROJECTS);
@@ -844,10 +899,10 @@ public class AnalyzerPackageImpl extends EPackageImpl implements AnalyzerPackage
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		AggregatorPackage theAggregatorPackage = (AggregatorPackage) EPackage.Registry.INSTANCE
-				.getEPackage(AggregatorPackage.eNS_URI);
 		XMLTypePackage theXMLTypePackage = (XMLTypePackage) EPackage.Registry.INSTANCE
 				.getEPackage(XMLTypePackage.eNS_URI);
+		AggregatorPackage theAggregatorPackage = (AggregatorPackage) EPackage.Registry.INSTANCE
+				.getEPackage(AggregatorPackage.eNS_URI);
 		P2Package theP2Package = (P2Package) EPackage.Registry.INSTANCE.getEPackage(P2Package.eNS_URI);
 
 		// Create type parameters
@@ -863,6 +918,10 @@ public class AnalyzerPackageImpl extends EPackageImpl implements AnalyzerPackage
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAnalysis_Exclusion(), this.getPattern(), "exclusion", null, 0, 1, Analysis.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAnalysis_ShowTags(), theXMLTypePackage.getBoolean(), "showTags", null, 0, 1, Analysis.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAnalysis_Tags(), ecorePackage.getEString(), "tags", null, 0, -1, Analysis.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAnalysis_Levels(), ecorePackage.getEInt(), "levels", null, 0, -1, Analysis.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAnalysis_GitRepositoryFilters(), ecorePackage.getEString(), "gitRepositoryFilters", null, 0,
@@ -871,14 +930,18 @@ public class AnalyzerPackageImpl extends EPackageImpl implements AnalyzerPackage
 		initEReference(getAnalysis_Aggregation(), theAggregatorPackage.getAggregation(), null, "aggregation", null, 1,
 				1, Analysis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAnalysis_Contributions(), this.getContributionAnalysis(), null, "contributions", null, 0, -1,
-				Analysis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAnalysis_Contributions(), this.getContributionAnalysis(),
+				this.getContributionAnalysis_Analysis(), "contributions", null, 0, -1, Analysis.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
 
 		addEOperation(analysisEClass, null, "reconcile", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(contributionAnalysisEClass, ContributionAnalysis.class, "ContributionAnalysis", !IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getContributionAnalysis_Enabled(), theXMLTypePackage.getBoolean(), "enabled", "true", 0, 1,
+				ContributionAnalysis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getContributionAnalysis_Label(), ecorePackage.getEString(), "label", null, 0, 1,
 				ContributionAnalysis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -894,6 +957,12 @@ public class AnalyzerPackageImpl extends EPackageImpl implements AnalyzerPackage
 		initEAttribute(getContributionAnalysis_Rank(), ecorePackage.getEInt(), "rank", null, 0, 1,
 				ContributionAnalysis.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getContributionAnalysis_Tags(), ecorePackage.getEString(), "tags", null, 0, -1,
+				ContributionAnalysis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getContributionAnalysis_Analysis(), this.getAnalysis(), this.getAnalysis_Contributions(),
+				"analysis", null, 0, 1, ContributionAnalysis.class, IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE,
+				!IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getContributionAnalysis_Contribution(), theAggregatorPackage.getContribution(), null,
 				"contribution", null, 1, 1, ContributionAnalysis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
 				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1035,9 +1104,11 @@ public class AnalyzerPackageImpl extends EPackageImpl implements AnalyzerPackage
 	 */
 	protected void createExtendedMetaDataAnnotations() {
 		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";
+		addAnnotation(getAnalysis_Tags(), source, new String[] { "kind", "element", "name", "tag" });
 		addAnnotation(getAnalysis_GitRepositoryFilters(), source,
 				new String[] { "kind", "element", "name", "gitRepositoryFilter" });
 		addAnnotation(getAnalysis_Contributions(), source, new String[] { "name", "contribution", "kind", "element" });
+		addAnnotation(getContributionAnalysis_Tags(), source, new String[] { "kind", "element", "name", "tag" });
 		addAnnotation(getContributionAnalysis_InstallableUnits(), source,
 				new String[] { "kind", "element", "name", "installableUnit" });
 		addAnnotation(getContributionAnalysis_Projects(), source,
