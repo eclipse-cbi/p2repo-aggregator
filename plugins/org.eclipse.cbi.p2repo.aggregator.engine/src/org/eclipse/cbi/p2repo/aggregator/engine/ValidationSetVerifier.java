@@ -33,6 +33,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 import org.eclipse.cbi.p2repo.aggregator.Aggregation;
+import org.eclipse.cbi.p2repo.aggregator.AvailableVersion;
 import org.eclipse.cbi.p2repo.aggregator.Configuration;
 import org.eclipse.cbi.p2repo.aggregator.Contribution;
 import org.eclipse.cbi.p2repo.aggregator.MappedRepository;
@@ -40,6 +41,7 @@ import org.eclipse.cbi.p2repo.aggregator.MappedUnit;
 import org.eclipse.cbi.p2repo.aggregator.MetadataRepositoryReference;
 import org.eclipse.cbi.p2repo.aggregator.PackedStrategy;
 import org.eclipse.cbi.p2repo.aggregator.ValidationSet;
+import org.eclipse.cbi.p2repo.aggregator.VersionMatch;
 import org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl;
 import org.eclipse.cbi.p2repo.aggregator.util.InstallableUnitUtils;
 import org.eclipse.cbi.p2repo.aggregator.util.SpecialQueries;
@@ -857,25 +859,48 @@ public class ValidationSetVerifier extends BuilderPhase {
 							}
 						}
 
-						if (suspectedValidationOnlyIUs != null
-								&& !getBuilder().getAggregation().isExcludeValidationSetUnits()) {
-							// Prune the set of IU's that we suspect are there for validation
-							// purposes only using the source repository
-							//
-							final Set<IInstallableUnit> candidates = suspectedValidationOnlyIUs;
-							final boolean hadPartialsHolder[] = new boolean[] { false };
-							for (IInstallableUnit iu : allIUs.values()) {
-								if (candidates.contains(iu) && !unitsToAggregate.contains(iu)) {
-									try {
-										if (Boolean.valueOf(iu.getProperty(IInstallableUnit.PROP_PARTIAL_IU))
-												.booleanValue()) {
-											iu = resolvePartialIU(iu, SubMonitor.convert(new NullProgressMonitor()));
-											hadPartialsHolder[0] = true;
+						if (suspectedValidationOnlyIUs != null) {
+							if (aggregation.isExcludeValidationSetUnits()) {
+								for (Contribution contribution : aggregation.getAllContributions(true)) {
+									for (MappedRepository mappedRepository : contribution.getRepositories(true)) {
+										LOOP: for (MappedUnit unit : mappedRepository.getUnits(true)) {
+											String name = unit.getName();
+											for (IInstallableUnit iu : suspectedValidationOnlyIUs) {
+												if (iu.getId().equals(name)) {
+													Version version = iu.getVersion();
+													for (AvailableVersion availableVersion : unit
+															.getAvailableVersions()) {
+														if (availableVersion.getVersionMatch() == VersionMatch.MATCHES
+																&& availableVersion.getVersion().equals(version)) {
+															unitsToAggregate.add(iu);
+															break LOOP;
+														}
+													}
+												}
+											}
 										}
-									} catch (CoreException e) {
-										throw new RuntimeException(e);
 									}
-									unitsToAggregate.add(iu);
+								}
+							} else {
+								// Prune the set of IU's that we suspect are there for validation
+								// purposes only using the source repository
+								//
+								final Set<IInstallableUnit> candidates = suspectedValidationOnlyIUs;
+								final boolean hadPartialsHolder[] = new boolean[] { false };
+								for (IInstallableUnit iu : allIUs.values()) {
+									if (candidates.contains(iu) && !unitsToAggregate.contains(iu)) {
+										try {
+											if (Boolean.valueOf(iu.getProperty(IInstallableUnit.PROP_PARTIAL_IU))
+													.booleanValue()) {
+												iu = resolvePartialIU(iu,
+														SubMonitor.convert(new NullProgressMonitor()));
+												hadPartialsHolder[0] = true;
+											}
+										} catch (CoreException e) {
+											throw new RuntimeException(e);
+										}
+										unitsToAggregate.add(iu);
+									}
 								}
 							}
 						}
@@ -942,6 +967,13 @@ public class ValidationSetVerifier extends BuilderPhase {
 			}
 
 			executor.shutdown();
+
+			if (aggregation.isExcludeFeatures()) {
+				unitsToAggregate.removeIf(iu -> {
+					String id = iu.getId();
+					return id.endsWith(".feature.group") || id.endsWith(".feature.jar");
+				});
+			}
 		}
 	}
 

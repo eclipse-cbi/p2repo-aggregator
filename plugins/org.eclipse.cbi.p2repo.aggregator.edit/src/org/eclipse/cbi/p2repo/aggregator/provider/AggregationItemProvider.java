@@ -95,6 +95,21 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Exclude Features feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addExcludeFeaturesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Aggregation_excludeFeatures_feature"),
+						getString("_UI_Aggregation_excludeFeatures_description"),
+						AggregatorPackage.Literals.AGGREGATION__EXCLUDE_FEATURES, true, false, false,
+						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Buildmaster feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -399,6 +414,7 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider {
 			addAllowLegacySitesPropertyDescriptor(object);
 			addIncludeSourcesPropertyDescriptor(object);
 			addExcludeValidationSetUnitsPropertyDescriptor(object);
+			addExcludeFeaturesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -453,6 +469,7 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider {
 			case AggregatorPackage.AGGREGATION__ALLOW_LEGACY_SITES:
 			case AggregatorPackage.AGGREGATION__INCLUDE_SOURCES:
 			case AggregatorPackage.AGGREGATION__EXCLUDE_VALIDATION_SET_UNITS:
+			case AggregatorPackage.AGGREGATION__EXCLUDE_FEATURES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case AggregatorPackage.AGGREGATION__VALIDATION_SETS:

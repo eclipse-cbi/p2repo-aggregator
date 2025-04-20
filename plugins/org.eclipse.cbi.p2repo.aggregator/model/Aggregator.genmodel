@@ -120,6 +120,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//Aggregation/includeSources"/>
       <genFeatures createChild="false" propertyDescription="Whether to exclude units from the aggregation if available in a validation set repository, even if available in a contribution repository"
           ecoreFeature="ecore:EAttribute Aggregator.ecore#//Aggregation/excludeValidationSetUnits"/>
+      <genFeatures createChild="false" propertyDescription="Whether to exclude feature units from the aggregation"
+          ecoreFeature="ecore:EAttribute Aggregator.ecore#//Aggregation/excludeFeatures"/>
       <genOperations ecoreOperation="Aggregator.ecore#//Aggregation/getAllMetadataRepositoryReferences">
         <genParameters ecoreParameter="Aggregator.ecore#//Aggregation/getAllMetadataRepositoryReferences/enabledOnly"/>
       </genOperations>

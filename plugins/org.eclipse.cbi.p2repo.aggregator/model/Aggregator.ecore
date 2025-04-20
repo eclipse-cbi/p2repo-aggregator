@@ -56,6 +56,12 @@
         <details key="propertyDescription" value="Whether to exclude units from the aggregation if available in a validation set repository, even if available in a contribution repository"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="excludeFeatures" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Whether to exclude feature units from the aggregation."/>
+        <details key="propertyDescription" value="Whether to exclude feature units from the aggregation"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AvailableVersionsHeader">
     <eStructuralFeatures xsi:type="ecore:EReference" name="availableVersions" upperBound="-1"

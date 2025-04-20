@@ -41,6 +41,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#isAllowLegacySites <em>Allow Legacy Sites</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#isIncludeSources <em>Include Sources</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#isExcludeValidationSetUnits <em>Exclude Validation Set Units</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#isExcludeFeatures <em>Exclude Features</em>}</li>
  * </ul>
  *
  * @see org.eclipse.cbi.p2repo.aggregator.AggregatorPackage#getAggregation()
@@ -332,6 +333,31 @@ public interface Aggregation extends DescriptionProvider, StatusProvider, InfosP
 	 * @generated
 	 */
 	void setExcludeValidationSetUnits(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Exclude Features</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Whether to exclude feature units from the aggregation.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Exclude Features</em>' attribute.
+	 * @see #setExcludeFeatures(boolean)
+	 * @see org.eclipse.cbi.p2repo.aggregator.AggregatorPackage#getAggregation_ExcludeFeatures()
+	 * @model
+	 * @generated
+	 */
+	boolean isExcludeFeatures();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#isExcludeFeatures <em>Exclude Features</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Exclude Features</em>' attribute.
+	 * @see #isExcludeFeatures()
+	 * @generated
+	 */
+	void setExcludeFeatures(boolean value);
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#getBuildmaster <em>Buildmaster</em>}' reference.
