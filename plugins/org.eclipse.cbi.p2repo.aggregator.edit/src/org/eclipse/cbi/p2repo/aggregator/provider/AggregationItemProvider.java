@@ -110,6 +110,36 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Included IU Pattern feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIncludedIUPatternPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Aggregation_includedIUPattern_feature"),
+						getString("_UI_Aggregation_includedIUPattern_description"),
+						AggregatorPackage.Literals.AGGREGATION__INCLUDED_IU_PATTERN, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Validate Nexus Publishing Requirements feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addValidateNexusPublishingRequirementsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Aggregation_validateNexusPublishingRequirements_feature"),
+						getString("_UI_Aggregation_validateNexusPublishingRequirements_description"),
+						AggregatorPackage.Literals.AGGREGATION__VALIDATE_NEXUS_PUBLISHING_REQUIREMENTS, true, false,
+						false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Buildmaster feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -415,6 +445,8 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider {
 			addIncludeSourcesPropertyDescriptor(object);
 			addExcludeValidationSetUnitsPropertyDescriptor(object);
 			addExcludeFeaturesPropertyDescriptor(object);
+			addIncludedIUPatternPropertyDescriptor(object);
+			addValidateNexusPublishingRequirementsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -470,6 +502,8 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider {
 			case AggregatorPackage.AGGREGATION__INCLUDE_SOURCES:
 			case AggregatorPackage.AGGREGATION__EXCLUDE_VALIDATION_SET_UNITS:
 			case AggregatorPackage.AGGREGATION__EXCLUDE_FEATURES:
+			case AggregatorPackage.AGGREGATION__INCLUDED_IU_PATTERN:
+			case AggregatorPackage.AGGREGATION__VALIDATE_NEXUS_PUBLISHING_REQUIREMENTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case AggregatorPackage.AGGREGATION__VALIDATION_SETS:

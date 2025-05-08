@@ -1341,9 +1341,9 @@ public class Builder extends ModelAbstractCommand {
 				setBuildRoot(new File(StringUtils.performStringSubstitution(aggregation.getBuildRoot())));
 
 				if (!buildRoot.isAbsolute())
-					setBuildRoot(new File(buildModelLocation.getParent(), buildRoot.getPath()).getAbsoluteFile());
+					setBuildRoot(new File(buildModelLocation.getParent(), buildRoot.getPath()).getCanonicalFile());
 			} else if (!buildRoot.isAbsolute())
-				setBuildRoot(buildRoot.getAbsoluteFile());
+				setBuildRoot(buildRoot.getCanonicalFile());
 		} catch (Exception e) {
 			throw ExceptionUtils.wrap(e);
 		}
@@ -1361,7 +1361,8 @@ public class Builder extends ModelAbstractCommand {
 		File aggregateDestination = new File(destination, REPO_FOLDER_AGGREGATE);
 
 		MavenManager.saveMetadata(org.eclipse.emf.common.util.URI.createFileURI(aggregateDestination.getAbsolutePath()),
-				mavenHelper.getTop(), errors, aggregation.getMavenBuildNumber());
+				mavenHelper.getTop(), errors, aggregation.getMavenBuildNumber(),
+				getAggregation().isValidateNexusPublishingRequirements());
 
 		if (errors.size() > 0) {
 			everythingOk = false;

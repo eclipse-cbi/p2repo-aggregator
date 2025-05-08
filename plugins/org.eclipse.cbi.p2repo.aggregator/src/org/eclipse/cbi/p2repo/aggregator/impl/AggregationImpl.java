@@ -80,6 +80,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#isIncludeSources <em>Include Sources</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#isExcludeValidationSetUnits <em>Exclude Validation Set Units</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#isExcludeFeatures <em>Exclude Features</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#getIncludedIUPattern <em>Included IU Pattern</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#isValidateNexusPublishingRequirements <em>Validate Nexus Publishing Requirements</em>}</li>
  * </ul>
  *
  * @generated
@@ -540,6 +542,46 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	protected static final int EXCLUDE_FEATURES_EFLAG = 1 << 14;
 
 	/**
+	 * The default value of the '{@link #getIncludedIUPattern() <em>Included IU Pattern</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIncludedIUPattern()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String INCLUDED_IU_PATTERN_EDEFAULT = ".*";
+
+	/**
+	 * The cached value of the '{@link #getIncludedIUPattern() <em>Included IU Pattern</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIncludedIUPattern()
+	 * @generated
+	 * @ordered
+	 */
+	protected String includedIUPattern = INCLUDED_IU_PATTERN_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isValidateNexusPublishingRequirements() <em>Validate Nexus Publishing Requirements</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isValidateNexusPublishingRequirements()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean VALIDATE_NEXUS_PUBLISHING_REQUIREMENTS_EDEFAULT = false;
+
+	/**
+	 * The flag representing the value of the '{@link #isValidateNexusPublishingRequirements() <em>Validate Nexus Publishing Requirements</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isValidateNexusPublishingRequirements()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int VALIDATE_NEXUS_PUBLISHING_REQUIREMENTS_EFLAG = 1 << 15;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -694,6 +736,10 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 				return isExcludeValidationSetUnits();
 			case AggregatorPackage.AGGREGATION__EXCLUDE_FEATURES:
 				return isExcludeFeatures();
+			case AggregatorPackage.AGGREGATION__INCLUDED_IU_PATTERN:
+				return getIncludedIUPattern();
+			case AggregatorPackage.AGGREGATION__VALIDATE_NEXUS_PUBLISHING_REQUIREMENTS:
+				return isValidateNexusPublishingRequirements();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -795,6 +841,12 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 				return ((eFlags & EXCLUDE_VALIDATION_SET_UNITS_EFLAG) != 0) != EXCLUDE_VALIDATION_SET_UNITS_EDEFAULT;
 			case AggregatorPackage.AGGREGATION__EXCLUDE_FEATURES:
 				return ((eFlags & EXCLUDE_FEATURES_EFLAG) != 0) != EXCLUDE_FEATURES_EDEFAULT;
+			case AggregatorPackage.AGGREGATION__INCLUDED_IU_PATTERN:
+				return INCLUDED_IU_PATTERN_EDEFAULT == null ? includedIUPattern != null
+						: !INCLUDED_IU_PATTERN_EDEFAULT.equals(includedIUPattern);
+			case AggregatorPackage.AGGREGATION__VALIDATE_NEXUS_PUBLISHING_REQUIREMENTS:
+				return ((eFlags
+						& VALIDATE_NEXUS_PUBLISHING_REQUIREMENTS_EFLAG) != 0) != VALIDATE_NEXUS_PUBLISHING_REQUIREMENTS_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -889,6 +941,12 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 			case AggregatorPackage.AGGREGATION__EXCLUDE_FEATURES:
 				setExcludeFeatures((Boolean) newValue);
 				return;
+			case AggregatorPackage.AGGREGATION__INCLUDED_IU_PATTERN:
+				setIncludedIUPattern((String) newValue);
+				return;
+			case AggregatorPackage.AGGREGATION__VALIDATE_NEXUS_PUBLISHING_REQUIREMENTS:
+				setValidateNexusPublishingRequirements((Boolean) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -982,6 +1040,12 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 				return;
 			case AggregatorPackage.AGGREGATION__EXCLUDE_FEATURES:
 				setExcludeFeatures(EXCLUDE_FEATURES_EDEFAULT);
+				return;
+			case AggregatorPackage.AGGREGATION__INCLUDED_IU_PATTERN:
+				setIncludedIUPattern(INCLUDED_IU_PATTERN_EDEFAULT);
+				return;
+			case AggregatorPackage.AGGREGATION__VALIDATE_NEXUS_PUBLISHING_REQUIREMENTS:
+				setValidateNexusPublishingRequirements(VALIDATE_NEXUS_PUBLISHING_REQUIREMENTS_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -1419,6 +1483,58 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * @generated
 	 */
 	@Override
+	public String getIncludedIUPattern() {
+		return includedIUPattern;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setIncludedIUPattern(String newIncludedIUPattern) {
+		String oldIncludedIUPattern = includedIUPattern;
+		includedIUPattern = newIncludedIUPattern;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.AGGREGATION__INCLUDED_IU_PATTERN,
+					oldIncludedIUPattern, includedIUPattern));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isValidateNexusPublishingRequirements() {
+		return (eFlags & VALIDATE_NEXUS_PUBLISHING_REQUIREMENTS_EFLAG) != 0;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setValidateNexusPublishingRequirements(boolean newValidateNexusPublishingRequirements) {
+		boolean oldValidateNexusPublishingRequirements = (eFlags & VALIDATE_NEXUS_PUBLISHING_REQUIREMENTS_EFLAG) != 0;
+		if (newValidateNexusPublishingRequirements)
+			eFlags |= VALIDATE_NEXUS_PUBLISHING_REQUIREMENTS_EFLAG;
+		else
+			eFlags &= ~VALIDATE_NEXUS_PUBLISHING_REQUIREMENTS_EFLAG;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					AggregatorPackage.AGGREGATION__VALIDATE_NEXUS_PUBLISHING_REQUIREMENTS,
+					oldValidateNexusPublishingRequirements, newValidateNexusPublishingRequirements));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public void setBuildmaster(Contact newBuildmaster) {
 		Contact oldBuildmaster = buildmaster;
 		buildmaster = newBuildmaster;
@@ -1644,6 +1760,10 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 		result.append((eFlags & EXCLUDE_VALIDATION_SET_UNITS_EFLAG) != 0);
 		result.append(", excludeFeatures: ");
 		result.append((eFlags & EXCLUDE_FEATURES_EFLAG) != 0);
+		result.append(", includedIUPattern: ");
+		result.append(includedIUPattern);
+		result.append(", validateNexusPublishingRequirements: ");
+		result.append((eFlags & VALIDATE_NEXUS_PUBLISHING_REQUIREMENTS_EFLAG) != 0);
 		result.append(')');
 		return result.toString();
 	}

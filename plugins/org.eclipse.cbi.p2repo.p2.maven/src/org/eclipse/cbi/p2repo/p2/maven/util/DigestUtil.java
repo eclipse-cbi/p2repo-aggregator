@@ -22,7 +22,7 @@ public class DigestUtil {
 	public static final MessageDigest[] MESSAGE_DIGESTERS;
 
 	static {
-		String[] algorithms = { "MD5", "SHA1" };
+		String[] algorithms = { "MD5", "SHA1", "SHA256", "SHA512" };
 		MESSAGE_DIGESTERS = new MessageDigest[algorithms.length];
 		int i = 0;
 		for(String checkSumAlgorithm : algorithms)

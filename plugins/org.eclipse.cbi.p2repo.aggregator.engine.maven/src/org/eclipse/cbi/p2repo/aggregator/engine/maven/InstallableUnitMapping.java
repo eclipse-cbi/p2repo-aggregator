@@ -27,10 +27,14 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.apache.maven.model.Dependency;
+import org.apache.maven.model.Developer;
 import org.apache.maven.model.InputLocation;
+import org.apache.maven.model.IssueManagement;
 import org.apache.maven.model.License;
 import org.apache.maven.model.Model;
+import org.apache.maven.model.Organization;
 import org.apache.maven.model.Parent;
+import org.apache.maven.model.Scm;
 import org.eclipse.cbi.p2repo.aggregator.Aggregation;
 import org.eclipse.cbi.p2repo.aggregator.AggregatorFactory;
 import org.eclipse.cbi.p2repo.aggregator.Architecture;
@@ -71,6 +75,9 @@ import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
 import org.eclipse.equinox.p2.query.IQueryResult;
 import org.eclipse.equinox.p2.query.IQueryable;
 import org.eclipse.equinox.p2.query.QueryUtil;
+import org.eclipse.osgi.util.ManifestElement;
+import org.osgi.framework.BundleException;
+import org.osgi.framework.Constants;
 
 /**
  * @author Filip Hrbek (filip.hrbek@cloudsmith.com)
@@ -245,6 +252,10 @@ public class InstallableUnitMapping implements IInstallableUnit {
 	static final Set<String> namespaces = new HashSet<String>();
 
 	public Model asPOM() {
+		return (asPOM(Map.of()));
+	}
+
+	public Model asPOM(Map<String, String> manifest) {
 		Model pom = new Model();
 		if (parent != null && !parent.isTransient()) {
 			Parent newParent = new Parent();
@@ -346,6 +357,77 @@ public class InstallableUnitMapping implements IInstallableUnit {
 			mavenLicenses.add(copyright);
 		}
 		pom.setLicenses(mavenLicenses);
+
+		String eclipseSourceReferences = manifest.get("Eclipse-SourceReferences");
+		if (eclipseSourceReferences != null) {
+			new MavenManager.SourceReferenceAnalyzer(eclipseSourceReferences) {
+				private Scm scm;
+
+				public void handleSourceReference(String value, String path, String commitId) {
+					scm = new Scm();
+					scm.setConnection(value);
+					scm.setDeveloperConnection(value);
+					if (commitId != null) {
+						scm.setTag(commitId);
+					}
+					pom.setScm(scm);
+				}
+
+				public void handleGitHubSourceReference(String org, String repo, String path, String commitId) {
+					String baseURL = createGitHubURL(org, repo);
+					pom.setUrl(baseURL);
+
+					String url = baseURL + "tree/" + commitId + "/" + path;
+
+					scm.setUrl(url);
+
+					IssueManagement issueManagement = new IssueManagement();
+					issueManagement.setSystem("GitHub");
+					issueManagement.setUrl(baseURL + "issues");
+					pom.setIssueManagement(issueManagement);
+
+					Developer developer = new Developer();
+					developer.setUrl(baseURL + "graphs/contributors");
+					pom.setDevelopers(List.of(developer));
+
+					Organization organization = new Organization();
+					if (org.startsWith("eclipse-") || org.equals("eclipse")) {
+						organization.setName("Eclipse Foundation");
+						organization.setUrl("https://www.eclipse.org");
+					} else {
+						organization.setName(org);
+						organization.setUrl("https://github.com/org");
+					}
+					pom.setOrganization(organization);
+				}
+			}.analyze();
+		}
+
+		String bundleLicense = manifest.get(Constants.BUNDLE_LICENSE);
+		if (bundleLicense != null) {
+			try {
+				ManifestElement[] bundleLicenseElements;
+				bundleLicenseElements = ManifestElement.parseHeader("Bundle-License", bundleLicense);
+				List<License> licenses = new ArrayList<>();
+				for (var bundleLicenseElement : bundleLicenseElements) {
+					String value = bundleLicenseElement.getValue();
+					String descriptionAttribute = bundleLicenseElement.getAttribute("description");
+					String linkAttribute = bundleLicenseElement.getAttribute("link");
+					License license = new License();
+					license.setName(value);
+					license.setDistribution("repo");
+					license.setComments(descriptionAttribute);
+					license.setUrl(linkAttribute);
+					licenses.add(license);
+				}
+				if (!licenses.isEmpty()) {
+					pom.setLicenses(licenses);
+				}
+			} catch (BundleException e) {
+				throw new RuntimeException(e);
+			}
+		}
+
 		return pom;
 	}
 

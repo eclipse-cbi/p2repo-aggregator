@@ -496,6 +496,8 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		createEAttribute(aggregationEClass, AGGREGATION__INCLUDE_SOURCES);
 		createEAttribute(aggregationEClass, AGGREGATION__EXCLUDE_VALIDATION_SET_UNITS);
 		createEAttribute(aggregationEClass, AGGREGATION__EXCLUDE_FEATURES);
+		createEAttribute(aggregationEClass, AGGREGATION__INCLUDED_IU_PATTERN);
+		createEAttribute(aggregationEClass, AGGREGATION__VALIDATE_NEXUS_PUBLISHING_REQUIREMENTS);
 
 		availableVersionsHeaderEClass = createEClass(AVAILABLE_VERSIONS_HEADER);
 		createEReference(availableVersionsHeaderEClass, AVAILABLE_VERSIONS_HEADER__AVAILABLE_VERSIONS);
@@ -701,6 +703,26 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	@Override
 	public EAttribute getAggregation_ExcludeFeatures() {
 		return (EAttribute) aggregationEClass.getEStructuralFeatures().get(20);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getAggregation_IncludedIUPattern() {
+		return (EAttribute) aggregationEClass.getEStructuralFeatures().get(21);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getAggregation_ValidateNexusPublishingRequirements() {
+		return (EAttribute) aggregationEClass.getEStructuralFeatures().get(22);
 	}
 
 	/**
@@ -2268,6 +2290,12 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		initEAttribute(getAggregation_ExcludeFeatures(), ecorePackage.getEBoolean(), "excludeFeatures", null, 0, 1,
 				Aggregation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAggregation_IncludedIUPattern(), ecorePackage.getEString(), "includedIUPattern", ".*", 0, 1,
+				Aggregation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAggregation_ValidateNexusPublishingRequirements(), ecorePackage.getEBoolean(),
+				"validateNexusPublishingRequirements", null, 0, 1, Aggregation.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = addEOperation(aggregationEClass, this.getMetadataRepositoryReference(),
 				"getAllMetadataRepositoryReferences", 0, -1, IS_UNIQUE, IS_ORDERED);

@@ -31,6 +31,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+import java.util.regex.Pattern;
 
 import org.eclipse.cbi.p2repo.aggregator.Aggregation;
 import org.eclipse.cbi.p2repo.aggregator.AvailableVersion;
@@ -101,6 +102,7 @@ import org.eclipse.equinox.p2.repository.artifact.IArtifactRepositoryManager;
 import org.eclipse.equinox.p2.repository.artifact.IFileArtifactRepository;
 import org.eclipse.equinox.p2.repository.metadata.IMetadataRepository;
 import org.eclipse.equinox.p2.repository.metadata.IMetadataRepositoryManager;
+import org.eclipse.equinox.spi.p2.publisher.PublisherHelper;
 
 public class ValidationSetVerifier extends BuilderPhase {
 
@@ -968,13 +970,48 @@ public class ValidationSetVerifier extends BuilderPhase {
 
 			executor.shutdown();
 
-			if (aggregation.isExcludeFeatures()) {
+			Pattern includedIUPattern = compile(aggregation.getIncludedIUPattern());
+			boolean excludeFeatures = aggregation.isExcludeFeatures();
+			if (excludeFeatures || includedIUPattern != null) {
 				unitsToAggregate.removeIf(iu -> {
 					String id = iu.getId();
-					return id.endsWith(".feature.group") || id.endsWith(".feature.jar");
+					if (includedIUPattern != null && !includedIUPattern.matcher(id).matches()) {
+						return true;
+					}
+
+					if (excludeFeatures) {
+						// Also exclude purely metadata IUs in this case.
+						Collection<IArtifactKey> artifacts = iu.getArtifacts();
+						if (artifacts.isEmpty()) {
+							return true;
+						}
+
+						// Also exclude binary and feature IUs.
+						for (IArtifactKey key : artifacts) {
+							String artifactClassifier = key.getClassifier();
+							if (PublisherHelper.BINARY_ARTIFACT_CLASSIFIER.equals(artifactClassifier)
+									|| PublisherHelper.ECLIPSE_FEATURE_CLASSIFIER.equals(artifactClassifier)) {
+								return true;
+							}
+						}
+					}
+
+					return false;
 				});
 			}
 		}
+	}
+
+	private Pattern compile(String includedIUPattern) {
+		try {
+			if (includedIUPattern != null && !includedIUPattern.isEmpty() && !".*".equals(includedIUPattern)) {
+				return Pattern.compile(includedIUPattern);
+			}
+		} catch (RuntimeException ex) {
+			LogUtils.error("Included IU Pattern '" + includedIUPattern + "' is invalid" + ex.getMessage());
+			throw ex;
+		}
+		return null;
 	}
 
 	private void sendEmails(PlannerStatus plannerStatus) {

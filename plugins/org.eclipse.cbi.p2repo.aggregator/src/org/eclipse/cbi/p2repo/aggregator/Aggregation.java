@@ -42,6 +42,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#isIncludeSources <em>Include Sources</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#isExcludeValidationSetUnits <em>Exclude Validation Set Units</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#isExcludeFeatures <em>Exclude Features</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#getIncludedIUPattern <em>Included IU Pattern</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#isValidateNexusPublishingRequirements <em>Validate Nexus Publishing Requirements</em>}</li>
  * </ul>
  *
  * @see org.eclipse.cbi.p2repo.aggregator.AggregatorPackage#getAggregation()
@@ -358,6 +360,57 @@ public interface Aggregation extends DescriptionProvider, StatusProvider, InfosP
 	 * @generated
 	 */
 	void setExcludeFeatures(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Included IU Pattern</b></em>' attribute.
+	 * The default value is <code>".*"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A regular expresion to match the ID of each unit to be included in the aggregation.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Included IU Pattern</em>' attribute.
+	 * @see #setIncludedIUPattern(String)
+	 * @see org.eclipse.cbi.p2repo.aggregator.AggregatorPackage#getAggregation_IncludedIUPattern()
+	 * @model default=".*"
+	 * @generated
+	 */
+	String getIncludedIUPattern();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#getIncludedIUPattern <em>Included IU Pattern</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Included IU Pattern</em>' attribute.
+	 * @see #getIncludedIUPattern()
+	 * @generated
+	 */
+	void setIncludedIUPattern(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Validate Nexus Publishing Requirements</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Whether to validate that the POMs meet the <a href="https://central.sonatype.org/publish/requirements">Sonatype publishing requirements</a>.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Validate Nexus Publishing Requirements</em>' attribute.
+	 * @see #setValidateNexusPublishingRequirements(boolean)
+	 * @see org.eclipse.cbi.p2repo.aggregator.AggregatorPackage#getAggregation_ValidateNexusPublishingRequirements()
+	 * @model
+	 * @generated
+	 */
+	boolean isValidateNexusPublishingRequirements();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#isValidateNexusPublishingRequirements <em>Validate Nexus Publishing Requirements</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Validate Nexus Publishing Requirements</em>' attribute.
+	 * @see #isValidateNexusPublishingRequirements()
+	 * @generated
+	 */
+	void setValidateNexusPublishingRequirements(boolean value);
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#getBuildmaster <em>Buildmaster</em>}' reference.

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde version="3.8"?>
-<target name="Generated from P2 Repository Aggregator" sequenceNumber="42">
+<target name="Generated from P2 Repository Aggregator" sequenceNumber="43">
   <locations>
     <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
       <unit id="a.jre.javase" version="0.0.0"/>
@@ -11,6 +11,7 @@
       <unit id="biz.aQute.bndlib" version="0.0.0"/>
       <unit id="biz.aQute.resolve" version="0.0.0"/>
       <unit id="bndtools.api" version="0.0.0"/>
+      <unit id="com.github.weisj.jsvg" version="0.0.0"/>
       <unit id="com.google.guava.failureaccess" version="0.0.0"/>
       <unit id="com.ibm.icu" version="0.0.0"/>
       <unit id="com.sun.el.javax.el" version="0.0.0"/>
@@ -47,7 +48,6 @@
       <unit id="org.eclipse.jetty.ee8.servlet" version="0.0.0"/>
       <unit id="org.eclipse.jetty.http" version="0.0.0"/>
       <unit id="org.eclipse.jetty.io" version="0.0.0"/>
-      <unit id="org.eclipse.jetty.logging" version="0.0.0"/>
       <unit id="org.eclipse.jetty.security" version="0.0.0"/>
       <unit id="org.eclipse.jetty.server" version="0.0.0"/>
       <unit id="org.eclipse.jetty.servlet-api" version="0.0.0"/>
@@ -69,6 +69,7 @@
       <unit id="org.osgi.service.coordinator" version="0.0.0"/>
       <unit id="org.osgi.service.repository" version="0.0.0"/>
       <unit id="slf4j.api" version="0.0.0"/>
+      <unit id="slf4j.simple" version="0.0.0"/>
       <repository location="https://download.eclipse.org/cbi/updates/license"/>
       <repository location="https://download.eclipse.org/eclipse/updates/4.36-I-builds"/>
       <repository location="https://download.eclipse.org/nebula/updates/release/latest"/>

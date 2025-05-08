@@ -219,6 +219,23 @@ public interface AggregatorPackage extends EPackage {
 		EAttribute AGGREGATION__EXCLUDE_FEATURES = eINSTANCE.getAggregation_ExcludeFeatures();
 
 		/**
+		 * The meta object literal for the '<em><b>Included IU Pattern</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute AGGREGATION__INCLUDED_IU_PATTERN = eINSTANCE.getAggregation_IncludedIUPattern();
+
+		/**
+		 * The meta object literal for the '<em><b>Validate Nexus Publishing Requirements</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute AGGREGATION__VALIDATE_NEXUS_PUBLISHING_REQUIREMENTS = eINSTANCE
+				.getAggregation_ValidateNexusPublishingRequirements();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.ValidationSetImpl <em>Validation Set</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1615,13 +1632,31 @@ public interface AggregatorPackage extends EPackage {
 	int AGGREGATION__EXCLUDE_FEATURES = DESCRIPTION_PROVIDER_FEATURE_COUNT + 24;
 
 	/**
+	 * The feature id for the '<em><b>Included IU Pattern</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AGGREGATION__INCLUDED_IU_PATTERN = DESCRIPTION_PROVIDER_FEATURE_COUNT + 25;
+
+	/**
+	 * The feature id for the '<em><b>Validate Nexus Publishing Requirements</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AGGREGATION__VALIDATE_NEXUS_PUBLISHING_REQUIREMENTS = DESCRIPTION_PROVIDER_FEATURE_COUNT + 26;
+
+	/**
 	 * The number of structural features of the '<em>Aggregation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATION_FEATURE_COUNT = DESCRIPTION_PROVIDER_FEATURE_COUNT + 25;
+	int AGGREGATION_FEATURE_COUNT = DESCRIPTION_PROVIDER_FEATURE_COUNT + 27;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.EnabledStatusProvider <em>Enabled Status Provider</em>}' class.
@@ -4351,6 +4386,28 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getAggregation_ExcludeFeatures();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#getIncludedIUPattern <em>Included IU Pattern</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Included IU Pattern</em>'.
+	 * @see org.eclipse.cbi.p2repo.aggregator.Aggregation#getIncludedIUPattern()
+	 * @see #getAggregation()
+	 * @generated
+	 */
+	EAttribute getAggregation_IncludedIUPattern();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#isValidateNexusPublishingRequirements <em>Validate Nexus Publishing Requirements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Validate Nexus Publishing Requirements</em>'.
+	 * @see org.eclipse.cbi.p2repo.aggregator.Aggregation#isValidateNexusPublishingRequirements()
+	 * @see #getAggregation()
+	 * @generated
+	 */
+	EAttribute getAggregation_ValidateNexusPublishingRequirements();
 
 	/**
 	 * Returns the meta object for the reference '{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#getBuildmaster <em>Buildmaster</em>}'.
