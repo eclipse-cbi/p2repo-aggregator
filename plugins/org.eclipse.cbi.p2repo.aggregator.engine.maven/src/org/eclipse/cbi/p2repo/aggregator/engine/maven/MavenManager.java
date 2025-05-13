@@ -29,6 +29,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.jar.Attributes.Name;
+import java.util.jar.JarInputStream;
 import java.util.jar.JarOutputStream;
 import java.util.jar.Manifest;
 import java.util.regex.Matcher;
@@ -286,22 +287,39 @@ public class MavenManager {
 		}
 	}
 
-	private static Map<String, String> getManifest(URI fileUri, URIConverter uriConverter) {
+	private static Map<String, String> getManifest(URI fileURI, URIConverter uriConverter) {
 		try (var inputStream = uriConverter
-				.createInputStream(URI.createURI("archive:" + fileUri + "!/META-INF/MANIFEST.MF"))) {
+				.createInputStream(URI.createURI("archive:" + fileURI + "!/META-INF/MANIFEST.MF"))) {
 			Map<String, String> manifest = ManifestElement.parseBundleManifest(inputStream);
 			if (Boolean.FALSE) {
-				getLicenseFromAbout(fileUri, manifest, uriConverter);
+				getLicenseFromAbout(fileURI, manifest, uriConverter);
 			}
 			getLicenseFromGitHubRepository(manifest, uriConverter);
+			getLicenseFromLICENSE(fileURI, manifest, uriConverter);
 			return manifest;
 		} catch (IOException | BundleException e) {
 			return Map.of();
 		}
 	}
 
-	private static void getLicenseFromAbout(URI fileUri, Map<String, String> manifest,
-			URIConverter uriConverter) {
+	private static void getLicenseFromLICENSE(URI fileUri, Map<String, String> manifest, URIConverter uriConverter) {
+		if (manifest.get(Constants.BUNDLE_LICENSE) == null) {
+			try (var inputStream = uriConverter
+					.createInputStream(URI.createURI("archive:" + fileUri + "!/META-INF/LICENSE"))) {
+				String content = new String(inputStream.readAllBytes(), StandardCharsets.UTF_8);
+				Pattern apache20Pattern = Pattern.compile(
+						"^\\s*Apache License\\s*Version\\s+2.0,\\s*January\\s*2004\\s+http://www.apache.org/licenses/");
+				if (apache20Pattern.matcher(content).find()) {
+					manifest.put(Constants.BUNDLE_LICENSE,
+							"Apache-2.0;link=\"https://www.apache.org/licenses/LICENSE-2.0.txt\"");
+				}
+			} catch (IOException e) {
+				//$FALL-THROUGH$
+			}
+		}
+	}
+
+	private static void getLicenseFromAbout(URI fileUri, Map<String, String> manifest, URIConverter uriConverter) {
 		try (var inputStream = uriConverter.createInputStream(URI.createURI("archive:" + fileUri + "!/about.html"))) {
 			String content = new String(inputStream.readAllBytes(), StandardCharsets.UTF_8);
 			Pattern HREF_PATTERN = Pattern.compile("<a[^>]*href=[\"'>]([^\"'>]+)[\"'>]");
@@ -323,13 +341,20 @@ public class MavenManager {
 					// https://raw.githubusercontent.com/eclipse-emf/org.eclipse.emf/1d0383954386cab3166f245e5a80d83a38344420/LICENSE
 					URI rawLicenceURI = URI.createURI(
 							"https://raw.githubusercontent.com/" + org + '/' + repo + "/" + commitId + "/LICENSE");
-					try (InputStream licenseInputStream = uriConverter.createInputStream(rawLicenceURI)) {
-						String license = new String(licenseInputStream.readAllBytes(), StandardCharsets.UTF_8);
-						if (license.startsWith("Eclipse Public License - v 2.0")) {
-							manifest.put(Constants.BUNDLE_LICENSE,
-									"EPL-2.0;link=\"https://www.eclipse.org/legal/epl-2.0/\"");
+					URI rawLicenceURIMaster = URI
+							.createURI("https://raw.githubusercontent.com/" + org + '/' + repo + "/master/LICENSE");
+					URI rawLicenceURIMain = URI
+							.createURI("https://raw.githubusercontent.com/" + org + '/' + repo + "/main/LICENSE");
+					for (URI uri : new URI[] { rawLicenceURI, rawLicenceURIMaster, rawLicenceURIMain }) {
+						try (InputStream licenseInputStream = uriConverter.createInputStream(uri)) {
+							String license = new String(licenseInputStream.readAllBytes(), StandardCharsets.UTF_8);
+							if (license.startsWith("Eclipse Public License - v 2.0")) {
+								manifest.put(Constants.BUNDLE_LICENSE,
+										"EPL-2.0;link=\"https://www.eclipse.org/legal/epl-2.0/\"");
+								return;
+							}
+						} catch (IOException e) {
 						}
-					} catch (IOException e) {
 					}
 				}
 			}.analyze();
@@ -450,6 +475,15 @@ public class MavenManager {
 					Model pom = iu.asPOM(getManifest(artifactUri, uriConverter));
 					// https://central.sonatype.org/publish/requirements/
 					if (validateNexusPublishingRequirements) {
+						URI sourceArtifactURI = URI
+								.createURI(artifactUri.toString().replaceAll("\\.jar$", "-sources.jar"));
+						if (hasClassFiles(artifactUri, uriConverter)) {
+							if (!uriConverter.exists(sourceArtifactURI, Map.of())) {
+								throw new CoreException(new Status(IStatus.ERROR, MavenManager.class, iu
+										+ " contains .class files and is missing a corresponding source bundle artifact."));
+							}
+						}
+
 						Set<String> missingRequiredElements = new TreeSet<>();
 						if (pom.getName() == null) {
 							missingRequiredElements.add("name");
@@ -483,7 +517,7 @@ public class MavenManager {
 
 						if (!missingRequiredElements.isEmpty()) {
 							throw new CoreException(new Status(IStatus.ERROR, MavenManager.class,
-									iu.toString() + " missing " + missingRequiredElements));
+									iu + " missing " + missingRequiredElements));
 						}
 					}
 					new DefaultModelWriter().write(new File(java.net.URI.create(pomUri.toString())), Map.of(), pom);
@@ -542,6 +576,49 @@ public class MavenManager {
 			savePOMs(root, child, uriConverter, digests, metadataCollector, errors,
 					validateNexusPublishingRequirements);
 		}
+	}
+
+	private static boolean hasClassFiles(URI artifactURI, URIConverter uriConverter) {
+		try (JarInputStream inputStream = new JarInputStream(uriConverter.createInputStream(artifactURI))) {
+			for (ZipEntry nextEntry = inputStream.getNextEntry(); nextEntry != null; nextEntry = inputStream
+					.getNextEntry()) {
+				String name = nextEntry.getName();
+				if (name.endsWith(".class")) {
+					return true;
+				}
+				if (name.endsWith(".jar")) {
+					try (JarInputStream nestedInputStream = new JarInputStream(inputStream)) {
+						for (ZipEntry nestedNextEntry = nestedInputStream
+								.getNextEntry(); nestedNextEntry != null; nestedNextEntry = nestedInputStream
+										.getNextEntry()) {
+							if (nestedNextEntry.getName().endsWith(".class")) {
+								return true;
+							}
+						}
+					}
+				}
+			}
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+
+		// Remove once the Platform no longer has unnecessary source bundles
+		if (Boolean.FALSE) {
+			URI sourceArtifactURI = URI.createURI(artifactURI.toString().replaceAll("\\.jar$", "-sources.jar"));
+			boolean exists = uriConverter.exists(sourceArtifactURI, Map.of());
+			if (exists) {
+				try (JarInputStream inputStream = new JarInputStream(uriConverter.createInputStream(artifactURI))) {
+					for (ZipEntry nextEntry = inputStream.getNextEntry(); nextEntry != null; nextEntry = inputStream
+							.getNextEntry()) {
+						System.err.println("###>>>>>" + nextEntry.getName());
+					}
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+				}
+			}
+		}
+
+		return false;
 	}
 
 	private static void createJavadocJar(URI javadocArfiactURI, URIConverter uriConverter) throws CoreException {

@@ -396,7 +396,7 @@ public class InstallableUnitMapping implements IInstallableUnit {
 						organization.setUrl("https://www.eclipse.org");
 					} else {
 						organization.setName(org);
-						organization.setUrl("https://github.com/org");
+						organization.setUrl("https://github.com/" + org);
 					}
 					pom.setOrganization(organization);
 				}
