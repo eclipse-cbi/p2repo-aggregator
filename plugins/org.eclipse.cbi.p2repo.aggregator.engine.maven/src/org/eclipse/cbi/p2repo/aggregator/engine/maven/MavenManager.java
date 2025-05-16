@@ -477,11 +477,10 @@ public class MavenManager {
 					if (validateNexusPublishingRequirements) {
 						URI sourceArtifactURI = URI
 								.createURI(artifactUri.toString().replaceAll("\\.jar$", "-sources.jar"));
-						if (hasClassFiles(artifactUri, uriConverter)) {
-							if (!uriConverter.exists(sourceArtifactURI, Map.of())) {
-								throw new CoreException(new Status(IStatus.ERROR, MavenManager.class, iu
-										+ " contains .class files and is missing a corresponding source bundle artifact."));
-							}
+						if (!uriConverter.exists(sourceArtifactURI, Map.of())
+								&& hasClassFiles(artifactUri, uriConverter)) {
+							throw new CoreException(new Status(IStatus.ERROR, MavenManager.class, iu
+									+ " contains .class files and is missing a corresponding source bundle artifact."));
 						}
 
 						Set<String> missingRequiredElements = new TreeSet<>();
@@ -600,22 +599,6 @@ public class MavenManager {
 			}
 		} catch (IOException e) {
 			throw new RuntimeException(e);
-		}
-
-		// Remove once the Platform no longer has unnecessary source bundles
-		if (Boolean.FALSE) {
-			URI sourceArtifactURI = URI.createURI(artifactURI.toString().replaceAll("\\.jar$", "-sources.jar"));
-			boolean exists = uriConverter.exists(sourceArtifactURI, Map.of());
-			if (exists) {
-				try (JarInputStream inputStream = new JarInputStream(uriConverter.createInputStream(artifactURI))) {
-					for (ZipEntry nextEntry = inputStream.getNextEntry(); nextEntry != null; nextEntry = inputStream
-							.getNextEntry()) {
-						System.err.println("###>>>>>" + nextEntry.getName());
-					}
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-				}
-			}
 		}
 
 		return false;
