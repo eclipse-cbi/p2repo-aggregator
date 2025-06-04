@@ -18,6 +18,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -49,6 +51,7 @@ import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.impl.URIMappingRegistryImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.command.ChangeCommand;
@@ -101,8 +104,30 @@ public class ProjectReconcilerHandler extends BaseHandler {
 				@Override
 				protected void doExecute() {
 					for (Map.Entry<ContributionAnalysis, List<Project>> entry : projects.entrySet()) {
-						if (!EcoreUtil.equals(entry.getKey().getProjects(), entry.getValue())) {
-							ECollections.setEList(entry.getKey().getProjects(), entry.getValue());
+						EList<Project> oldProjects = entry.getKey().getProjects();
+						List<Project> newProjects = entry.getValue();
+						if (!EcoreUtil.equals(oldProjects, newProjects)) {
+							reconcile(oldProjects, newProjects);
+							ECollections.setEList(oldProjects, newProjects);
+						}
+					}
+				}
+
+				private void reconcile(List<Project> oldProjects, List<Project> newProjects) {
+					Map<String, EList<String>> tags = new HashMap<>();
+					for (Iterator<EObject> it = EcoreUtil.getAllContents(oldProjects); it.hasNext();) {
+						EObject eObject = it.next();
+						if (eObject instanceof Project project) {
+							tags.put(project.getName(), project.getTags());
+						}
+					}
+					for (Iterator<EObject> it = EcoreUtil.getAllContents(newProjects); it.hasNext();) {
+						EObject eObject = it.next();
+						if (eObject instanceof Project project) {
+							EList<String> projectTags = tags.get(project.getName());
+							if (projectTags != null) {
+								project.getTags().addAll(projectTags);
+							}
 						}
 					}
 				}
