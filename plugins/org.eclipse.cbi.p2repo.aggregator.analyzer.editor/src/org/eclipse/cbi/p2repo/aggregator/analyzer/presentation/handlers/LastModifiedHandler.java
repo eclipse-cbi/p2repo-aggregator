@@ -59,7 +59,7 @@ public class LastModifiedHandler extends BaseHandler {
 		private static final Pattern GIT_CONFIG_URL_PATTERN = Pattern.compile("\n[ \t]*url[ \t]*=[ \t]*([^\n\r \t]+)");
 
 		private static final Pattern GIT_CONFIG_BRANCH_PATTERN = Pattern
-				.compile("\n\\[[ \t]*branch[ \t]+\"([^\"]+)\"[ \t]*\\]");
+				.compile("\n\\[[ \t]*branch[ \t]+\"(main|master)\"[ \t]*\\]");
 
 		private Analysis analysis;
 

@@ -106,8 +106,8 @@ public class ProjectReconcilerHandler extends BaseHandler {
 					for (Map.Entry<ContributionAnalysis, List<Project>> entry : projects.entrySet()) {
 						EList<Project> oldProjects = entry.getKey().getProjects();
 						List<Project> newProjects = entry.getValue();
+						reconcile(oldProjects, newProjects);
 						if (!EcoreUtil.equals(oldProjects, newProjects)) {
-							reconcile(oldProjects, newProjects);
 							ECollections.setEList(oldProjects, newProjects);
 						}
 					}
@@ -248,13 +248,16 @@ public class ProjectReconcilerHandler extends BaseHandler {
 			Map<String, String> projectsWayne = new TreeMap<>();
 			try {
 				String content = getContent(
-						URI.createURI(ProjectMapper.ECLIPSE_PROJECT_PORTAL_HOST + "releases/2023-09"));
-				Pattern projectPattern = Pattern
-						.compile("<a href=\"/projects/([^\"]+)\">([^<]+)</a></td><td><a href=\"([^\"]+)\">[^<]+</a>");
+						URI.createURI(ProjectMapper.ECLIPSE_PROJECT_PORTAL_HOST + "releases/2024-06"));
+				Pattern projectPattern = Pattern.compile(
+						"<a href=\"/projects/([^\"]+)\"[^>]*>([^<]+)</a></td>\\s*<td><a href=\"([^\"]+)\"[^>]*>[^<]+</a>");
 				for (Matcher matcher = projectPattern.matcher(content); matcher.find();) {
 					String group2 = matcher.group(2).trim().replace("\u2122", "");
 					String group3 = matcher.group(3);
-					projectsWayne.put(group2, URI.createURI(group3).lastSegment());
+					String other = projectsWayne.put(group2, URI.createURI(group3).lastSegment());
+					if (other != null) {
+						System.err.println(">> " + other);
+					}
 				}
 			} catch (IOException ex) {
 				AggregationAnalyzerEditorPlugin.INSTANCE.log(ex);
