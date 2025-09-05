@@ -1,5 +1,5 @@
 pipeline {
-  agent { label 'migration' }
+  agent any
 
    options {
     buildDiscarder(logRotator(numToKeepStr: '10'))
@@ -9,7 +9,7 @@ pipeline {
 
   tools {
     maven 'apache-maven-latest'
-    jdk 'temurin-jdk17-latest'
+    jdk 'temurin-jdk21-latest'
   }
 
   environment {
