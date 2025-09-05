@@ -346,7 +346,7 @@ There are several child components some of which can be reference in other parts
 [Contact](#contact),
 [Validation Set](#validation-set),
 [Custom Category](#custom-category),
-[Maven Mapping](#maven-mMapping).
+[Maven Mapping](#maven-mapping).
 
 <table>
 <thead><tr class="header"><th><p>Property</p></th><th><p>Value(s)</p></th><th><p>Default Value</p></th><th><p>Comment</p></th></tr></thead>
@@ -644,20 +644,20 @@ A Maven repository requires a structure and use of naming conventions that may h
 There is a default translation from BSN naming standard to Maven naming.
 If that is not satisfactory,
 custom transformations are supported by the definition of one or more Maven Mappings which can be defined at the
-[Aggregator](#aggregator) and the
+[Aggregator](#aggregation) and the
 [Contribution](#contribution) level.
 
-This only applies when the `Maven Result` property of the [Aggregator](#aggregator) model is set to true.
+This only applies when the `Maven Result` property of the [Aggregator](#aggregation) model is set to true.
 In that case all defined Maven Mappings are applied in the order in which they appear in the model starting from the most specific to the most generic.
 That means for each artifact that a [Contribution](#contribution) adds to the aggregated repository:
 
 1. First Maven Mappings defined as children of a [Contribution](#contribution) are applied
    in the order in which they appear as children of the parent [Contribution](#contribution) node.
-2. Second Maven Mappings defined as children of the [Aggregator](#aggregator) model are applied
-   in the order in which they appear as children of the parent [Aggregator](#aggregator) node.
+2. Second Maven Mappings defined as children of the [Aggregator](#aggregation) model are applied
+   in the order in which they appear as children of the parent [Aggregator](#aggregation) node.
 3. Finally the default Maven Mapping is applied.
 
-The most generic mapping is a default pattern that is applied whenever a Maven artfiact is created.
+The most generic mapping is a default pattern that is applied whenever a Maven artifact is created.
 It does not need to be added explicitly to the model.
 A mapping is specified using a regular expression that is applied to each BSN.
 The regular expression must specify two replacements;

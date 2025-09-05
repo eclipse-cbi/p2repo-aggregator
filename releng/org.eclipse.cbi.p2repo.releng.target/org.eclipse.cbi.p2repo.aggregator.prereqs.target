@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde version="3.8"?>
-<target name="Generated from P2 Repository Aggregator" sequenceNumber="43">
+<target name="Generated from P2 Repository Aggregator" sequenceNumber="44">
   <locations>
     <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
       <unit id="a.jre.javase" version="0.0.0"/>
+      <unit id="aQute.libg" version="0.0.0"/>
       <unit id="bcpg" version="0.0.0"/>
       <unit id="bcprov" version="0.0.0"/>
       <unit id="bcutil" version="0.0.0"/>
@@ -14,7 +15,6 @@
       <unit id="com.github.weisj.jsvg" version="0.0.0"/>
       <unit id="com.google.guava.failureaccess" version="0.0.0"/>
       <unit id="com.ibm.icu" version="0.0.0"/>
-      <unit id="com.sun.el.javax.el" version="0.0.0"/>
       <unit id="jakarta.activation-api" version="0.0.0"/>
       <unit id="jakarta.annotation-api" version="0.0.0"/>
       <unit id="jakarta.inject.jakarta.inject-api" version="0.0.0"/>
@@ -25,9 +25,14 @@
       <unit id="org.apache.batik.parser" version="0.0.0"/>
       <unit id="org.apache.batik.script" version="0.0.0"/>
       <unit id="org.apache.commons.cli" version="0.0.0"/>
+      <unit id="org.apache.commons.commons-codec" version="0.0.0"/>
       <unit id="org.apache.commons.commons-io" version="0.0.0"/>
+      <unit id="org.apache.commons.commons-logging" version="0.0.0"/>
       <unit id="org.apache.commons.logging" version="0.0.0"/>
       <unit id="org.apache.felix.scr" version="0.0.0"/>
+      <unit id="org.apache.httpcomponents.client5.httpclient5" version="0.0.0"/>
+      <unit id="org.apache.httpcomponents.core5.httpcore5" version="0.0.0"/>
+      <unit id="org.apache.httpcomponents.core5.httpcore5-h2" version="0.0.0"/>
       <unit id="org.apache.httpcomponents.httpclient" version="0.0.0"/>
       <unit id="org.apache.httpcomponents.httpcore" version="0.0.0"/>
       <unit id="org.apache.xalan" version="0.0.0"/>
@@ -40,8 +45,11 @@
       <unit id="org.bndtools.templating" version="0.0.0"/>
       <unit id="org.bndtools.versioncontrol.ignores.manager" version="0.0.0"/>
       <unit id="org.bndtools.versioncontrol.ignores.plugin.git" version="0.0.0"/>
+      <unit id="org.commonmark" version="0.0.0"/>
+      <unit id="org.commonmark.ext-gfm-tables" version="0.0.0"/>
       <unit id="org.eclipse.equinox.core.feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.equinox.executable.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.equinox.slf4j" version="0.0.0"/>
       <unit id="org.eclipse.gmf.runtime.draw2d.ui.render.awt" version="0.0.0"/>
       <unit id="org.eclipse.jetty.ee8.security" version="0.0.0"/>
       <unit id="org.eclipse.jetty.ee8.server" version="0.0.0"/>
@@ -69,12 +77,11 @@
       <unit id="org.osgi.service.coordinator" version="0.0.0"/>
       <unit id="org.osgi.service.repository" version="0.0.0"/>
       <unit id="slf4j.api" version="0.0.0"/>
-      <unit id="slf4j.simple" version="0.0.0"/>
       <repository location="https://download.eclipse.org/cbi/updates/license"/>
-      <repository location="https://download.eclipse.org/eclipse/updates/4.36-I-builds"/>
+      <repository location="https://download.eclipse.org/eclipse/updates/4.37-I-builds"/>
       <repository location="https://download.eclipse.org/nebula/updates/release/latest"/>
-      <repository location="https://download.eclipse.org/releases/2025-06"/>
-      <repository location="https://download.eclipse.org/tools/orbit/simrel/orbit-aggregation/2025-06"/>
+      <repository location="https://download.eclipse.org/releases/2025-09"/>
+      <repository location="https://download.eclipse.org/tools/orbit/simrel/orbit-aggregation/2025-09"/>
     </location>
   </locations>
 </target>

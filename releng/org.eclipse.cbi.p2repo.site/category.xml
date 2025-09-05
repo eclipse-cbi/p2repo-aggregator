@@ -3,28 +3,13 @@
    <feature id="org.eclipse.cbi.p2repo.aggregator.editor.feature" version="0.0.0">
       <category name="org.eclipse.cbi.p2Repo.aggregator"/>
    </feature>
-   <feature id="org.eclipse.cbi.p2repo.aggregator.editor.feature.source" version="0.0.0">
-      <category name="org.eclipse.cbi.p2Repo.aggregator.misc"/>
-   </feature>
-   <feature id="org.eclipse.cbi.p2repo.aggregator.engine.feature.source" version="0.0.0">
-      <category name="org.eclipse.cbi.p2Repo.aggregator.misc"/>
-   </feature>
    <feature id="org.eclipse.cbi.p2repo.aggregator.analyzer.editor.feature">
       <category name="org.eclipse.cbi.p2Repo.aggregator"/>
-   </feature>
-   <feature id="org.eclipse.cbi.p2repo.aggregator.analyzer.editor.feature.source">
-      <category name="org.eclipse.cbi.p2Repo.aggregator.misc"/>
    </feature>
    <feature id="org.eclipse.cbi.p2repo.aggregator.dependencies.feature">
       <category name="org.eclipse.cbi.p2Repo.aggregator.misc"/>
    </feature>
-   <feature id="org.eclipse.cbi.p2repo.aggregator.dependencies.feature.source">
-      <category name="org.eclipse.cbi.p2Repo.aggregator.misc"/>
-   </feature>
    <bundle id="org.eclipse.cbi.tycho" version="0.0.0">
-      <category name="org.eclipse.cbi.p2Repo.aggregator.misc"/>
-   </bundle>
-   <bundle id="org.eclipse.cbi.tycho.source" version="0.0.0">
       <category name="org.eclipse.cbi.p2Repo.aggregator.misc"/>
    </bundle>
    <category-def name="org.eclipse.cbi.p2Repo.aggregator" label="Eclipse CBI Repository Aggregator Editor">

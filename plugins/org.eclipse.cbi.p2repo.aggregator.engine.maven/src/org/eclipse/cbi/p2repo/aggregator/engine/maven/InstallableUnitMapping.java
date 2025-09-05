@@ -22,10 +22,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
+import java.util.TreeSet;
 import java.util.function.Consumer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.maven.model.Activation;
+import org.apache.maven.model.ActivationOS;
 import org.apache.maven.model.Dependency;
 import org.apache.maven.model.Developer;
 import org.apache.maven.model.InputLocation;
@@ -34,6 +37,7 @@ import org.apache.maven.model.License;
 import org.apache.maven.model.Model;
 import org.apache.maven.model.Organization;
 import org.apache.maven.model.Parent;
+import org.apache.maven.model.Profile;
 import org.apache.maven.model.Scm;
 import org.eclipse.cbi.p2repo.aggregator.Aggregation;
 import org.eclipse.cbi.p2repo.aggregator.AggregatorFactory;
@@ -54,6 +58,7 @@ import org.eclipse.cbi.p2repo.p2.maven.util.VersionUtil;
 import org.eclipse.cbi.p2repo.util.LogUtils;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
 import org.eclipse.equinox.internal.p2.metadata.InstallableUnit;
@@ -93,8 +98,6 @@ public class InstallableUnitMapping implements IInstallableUnit {
 
 	private static final Pattern IU_PROPERTY_SUBSTITUTION_PATTERN = Pattern.compile("\\$(.*)\\$");
 
-	private static final String GENERIC_PLATFORM_SUFFIX = ".${osgi.platform}";
-
 	private static final Set<String> KNOWN_OSGI_WS, KNOWN_OSGI_OS, KNOWN_OSGI_ARCH;
 	static {
 		Set<String> values = new HashSet<>();
@@ -110,6 +113,19 @@ public class InstallableUnitMapping implements IInstallableUnit {
 			values.add(arch.getLiteral());
 		KNOWN_OSGI_ARCH = Collections.unmodifiableSet(values);
 	}
+
+	private static final Map<String, String> OSGI_OS_TO_MAVEN_FAMILY_MAP = Map.of(//
+			Platform.OS_LINUX, "linux", //
+			Platform.OS_MACOSX, "mac", //
+			Platform.OS_WIN32, "windows" //
+	);
+
+	private static final Map<String, Set<String>> OSGI_ARCH_TO_MAVEN_ARCH_MAP = Map.of(//
+			Platform.ARCH_AARCH64, Set.of("aarch64"), //
+			Platform.ARCH_RISCV64, Set.of("riscv64"), //
+			Platform.ARCH_X86_64, new TreeSet<>(Set.of("x86_64", "amd64")), //
+			Platform.ARCH_PPC64LE, Set.of("ppc64le") //
+	);
 
 	private static final Version DUMMY_VERSION = Version.parseVersion("1");
 
@@ -300,11 +316,6 @@ public class InstallableUnitMapping implements IInstallableUnit {
 				for (MavenItem dependencyMapping : dependencyMappings) {
 					String groupId = dependencyMapping.getGroupId();
 					String artifactId = dependencyMapping.getArtifactId();
-					String generifiedId = generifyPlatformDependency(artifactId, req.getFilter());
-					if (generifiedId != null) {
-						artifactId = generifiedId;
-					}
-
 					if (!dependencies.add(groupId + ":" + artifactId)) {
 						continue;
 					}
@@ -316,7 +327,14 @@ public class InstallableUnitMapping implements IInstallableUnit {
 					dependency.setVersion(getVersionRange(dependencyMapping, mappedVersionRange));
 					dependency.setOptional(req.getMin() == 0);
 
-					result.add(dependency);
+					Map<String, String> nativeDetails = getNativeDetails(artifactId, req.getFilter());
+					if (nativeDetails == null || nativeDetails.isEmpty()) {
+						result.add(dependency);
+					} else {
+						for (Profile profile : getProfiles(pom, nativeDetails)) {
+							profile.addDependency(dependency.clone());
+						}
+					}
 				}
 			}
 		}
@@ -436,6 +454,44 @@ public class InstallableUnitMapping implements IInstallableUnit {
 		return installableUnit.compareTo(other);
 	}
 
+	private List<Profile> getProfiles(Model pom, Map<String, String> nativeDependencies) {
+		String os = nativeDependencies.get("osgi.os");
+		String family = OSGI_OS_TO_MAVEN_FAMILY_MAP.get(os);
+		if (family == null) {
+			throw new IllegalArgumentException("Unsupported: osgi.os=" + os);
+		}
+		String arch = nativeDependencies.get("osgi.arch");
+		Set<String> mavenArchs = OSGI_ARCH_TO_MAVEN_ARCH_MAP.get(arch);
+		if (mavenArchs == null) {
+			throw new IllegalArgumentException("Unsupported: osgi.arch=" + arch);
+		}
+
+		List<Profile> profiles = new ArrayList<>();
+		LOOP: for (String mavenArch : mavenArchs) {
+			String id = family + '.' + mavenArch;
+			for (Profile profile : pom.getProfiles()) {
+				if (profile.getId().equals(mavenArch)) {
+					profiles.add(profile);
+					continue LOOP;
+				}
+			}
+
+			Profile profile = new Profile();
+			profile.setId(id);
+			Activation activation = new Activation();
+			profile.setActivation(activation);
+			ActivationOS activationOS = new ActivationOS();
+			activationOS.setFamily(family);
+			activationOS.setArch(mavenArch);
+			activation.setOs(activationOS);
+			pom.addProfile(profile);
+			profiles.add(profile);
+			pom.getProfiles().sort((p1, p2) -> p1.getId().compareTo(p2.getId()));
+		}
+
+		return profiles;
+	}
+
 	private String extractProperty(Map<String, String> iuProperties, String key) {
 		String value = iuProperties.remove(key);
 		if (value != null) {
@@ -451,38 +507,34 @@ public class InstallableUnitMapping implements IInstallableUnit {
 		return trimOrNull(value);
 	}
 
-	private String generifyPlatformDependency(String artifactId, IMatchExpression<IInstallableUnit> filter) {
+	private Map<String, String> getNativeDetails(String artifactId, IMatchExpression<IInstallableUnit> filter) {
 		if (artifactId == null || filter == null)
 			return null;
 		String[] tokens = artifactId.split("\\.");
 		if (tokens.length < 4)
 			return null;
 		Map<String, String> declared = new HashMap<>();
-		int end = artifactId.length();
 		int platformStart = tokens.length - 3;
 
 		String token = tokens[platformStart];
 		if (!KNOWN_OSGI_WS.contains(token))
 			return null;
 		declared.put("osgi.ws", token);
-		end -= token.length() + 1;
 
 		token = tokens[platformStart + 1];
 		if (!KNOWN_OSGI_OS.contains(token))
 			return null;
 		declared.put("osgi.os", token);
-		end -= token.length() + 1;
 
 		token = tokens[platformStart + 2];
 		if (!KNOWN_OSGI_ARCH.contains(token))
 			return null;
 		declared.put("osgi.arch", token);
-		end -= token.length() + 1;
 
 		if (!matchesFilter(filter, declared))
 			return null;
 
-		return artifactId.substring(0, end) + GENERIC_PLATFORM_SUFFIX;
+		return declared;
 	}
 
 	private String getArtifactFileName() throws CoreException {

@@ -77,10 +77,14 @@ import org.eclipse.cbi.p2repo.aggregator.p2view.provider.P2viewItemProviderAdapt
 import org.eclipse.cbi.p2repo.aggregator.provider.AggregatorItemProviderAdapterFactory;
 import org.eclipse.cbi.p2repo.aggregator.util.InstallableUnitUtils;
 import org.eclipse.cbi.p2repo.p2.MetadataRepository;
+import org.eclipse.cbi.p2repo.p2.maven.pom.Activation;
+import org.eclipse.cbi.p2repo.p2.maven.pom.ActivationOS;
 import org.eclipse.cbi.p2repo.p2.maven.pom.DependenciesType;
 import org.eclipse.cbi.p2repo.p2.maven.pom.Dependency;
 import org.eclipse.cbi.p2repo.p2.maven.pom.LicensesType;
 import org.eclipse.cbi.p2repo.p2.maven.pom.Model;
+import org.eclipse.cbi.p2repo.p2.maven.pom.Profile;
+import org.eclipse.cbi.p2repo.p2.maven.pom.ProfilesType;
 import org.eclipse.cbi.p2repo.p2.maven.pom.util.PomResourceFactoryImpl;
 import org.eclipse.cbi.p2repo.p2.provider.MetadataRepositoryItemProvider;
 import org.eclipse.cbi.p2repo.p2.provider.P2ItemProviderAdapterFactory;
@@ -2303,8 +2307,22 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 							return result;
 						} else if (object instanceof LicensesType) {
 							return "<licences>";
+						} else if (object instanceof ProfilesType) {
+							return "<profiles>";
 						} else if (object instanceof DependenciesType) {
 							return "<dependencies>";
+						} else if (object instanceof Profile profile) {
+							return profile.getId();
+						} else if (object instanceof Activation) {
+							return "<activation>";
+						} else if (object instanceof ActivationOS activationOS) {
+							List<String> attributeValues = new ArrayList<>();
+							for (EAttribute eAttribute : activationOS.eClass().getEAllAttributes()) {
+								if (activationOS.eIsSet(eAttribute)) {
+									attributeValues.add(eAttribute.getName() + "=" + activationOS.eGet(eAttribute));
+								}
+							}
+							return String.join(", ", attributeValues);
 						} else if (object instanceof Dependency) {
 							Dependency dependency = (Dependency) object;
 							String groupId = dependency.getGroupId();
@@ -2376,7 +2394,9 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 					public Object getImage(Object object) {
 						if (object instanceof Model) {
 							return AggregationAnalyzerEditorPlugin.INSTANCE.getImage("full/obj16/pom");
-						} else if (object instanceof LicensesType || object instanceof DependenciesType) {
+						} else if (object instanceof LicensesType || object instanceof DependenciesType
+								|| object instanceof Profile || object instanceof ProfilesType
+								|| object instanceof Activation || object instanceof ActivationOS) {
 							return AggregationAnalyzerEditorPlugin.INSTANCE.getImage("full/obj16/element");
 						} else if (object instanceof Dependency) {
 							return AggregationAnalyzerEditorPlugin.INSTANCE.getImage("full/obj16/dependency");

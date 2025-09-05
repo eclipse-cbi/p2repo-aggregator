@@ -19,7 +19,6 @@
       <plugin>
         <groupId>org.eclipse.tycho</groupId>
         <artifactId>target-platform-configuration</artifactId>
-        <version>${tycho-version}</version>
         <configuration>
         </configuration>
       </plugin>
@@ -27,11 +26,11 @@
       <plugin>
         <groupId>org.eclipse.tycho</groupId>
         <artifactId>tycho-p2-repository-plugin</artifactId>
-        <version>${tycho-version}</version>
         <configuration>
           <repositoryName>CBI p2 Repository Aggregator Tools</repositoryName>
           <xzCompress>true</xzCompress>
           <includeAllDependencies>false</includeAllDependencies>
+          <includeAllSources>true</includeAllSources>
         </configuration>
       </plugin>
     </plugins>
