@@ -140,6 +140,36 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Validate POM Dependencies feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addValidatePOMDependenciesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Aggregation_validatePOMDependencies_feature"),
+						getString("_UI_Aggregation_validatePOMDependencies_description"),
+						AggregatorPackage.Literals.AGGREGATION__VALIDATE_POM_DEPENDENCIES, true, false, false,
+						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Filter Published Artifacts feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addFilterPublishedArtifactsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Aggregation_filterPublishedArtifacts_feature"),
+						getString("_UI_Aggregation_filterPublishedArtifacts_description"),
+						AggregatorPackage.Literals.AGGREGATION__FILTER_PUBLISHED_ARTIFACTS, true, false, false,
+						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Buildmaster feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -447,6 +477,8 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider {
 			addExcludeFeaturesPropertyDescriptor(object);
 			addIncludedIUPatternPropertyDescriptor(object);
 			addValidateNexusPublishingRequirementsPropertyDescriptor(object);
+			addValidatePOMDependenciesPropertyDescriptor(object);
+			addFilterPublishedArtifactsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -504,6 +536,8 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider {
 			case AggregatorPackage.AGGREGATION__EXCLUDE_FEATURES:
 			case AggregatorPackage.AGGREGATION__INCLUDED_IU_PATTERN:
 			case AggregatorPackage.AGGREGATION__VALIDATE_NEXUS_PUBLISHING_REQUIREMENTS:
+			case AggregatorPackage.AGGREGATION__VALIDATE_POM_DEPENDENCIES:
+			case AggregatorPackage.AGGREGATION__FILTER_PUBLISHED_ARTIFACTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case AggregatorPackage.AGGREGATION__VALIDATION_SETS:

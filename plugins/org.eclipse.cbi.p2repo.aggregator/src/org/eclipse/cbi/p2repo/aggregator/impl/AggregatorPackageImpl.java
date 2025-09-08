@@ -498,6 +498,8 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		createEAttribute(aggregationEClass, AGGREGATION__EXCLUDE_FEATURES);
 		createEAttribute(aggregationEClass, AGGREGATION__INCLUDED_IU_PATTERN);
 		createEAttribute(aggregationEClass, AGGREGATION__VALIDATE_NEXUS_PUBLISHING_REQUIREMENTS);
+		createEAttribute(aggregationEClass, AGGREGATION__VALIDATE_POM_DEPENDENCIES);
+		createEAttribute(aggregationEClass, AGGREGATION__FILTER_PUBLISHED_ARTIFACTS);
 
 		availableVersionsHeaderEClass = createEClass(AVAILABLE_VERSIONS_HEADER);
 		createEReference(availableVersionsHeaderEClass, AVAILABLE_VERSIONS_HEADER__AVAILABLE_VERSIONS);
@@ -723,6 +725,26 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	@Override
 	public EAttribute getAggregation_ValidateNexusPublishingRequirements() {
 		return (EAttribute) aggregationEClass.getEStructuralFeatures().get(22);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getAggregation_ValidatePOMDependencies() {
+		return (EAttribute) aggregationEClass.getEStructuralFeatures().get(23);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getAggregation_FilterPublishedArtifacts() {
+		return (EAttribute) aggregationEClass.getEStructuralFeatures().get(24);
 	}
 
 	/**
@@ -2296,6 +2318,12 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		initEAttribute(getAggregation_ValidateNexusPublishingRequirements(), ecorePackage.getEBoolean(),
 				"validateNexusPublishingRequirements", null, 0, 1, Aggregation.class, !IS_TRANSIENT, !IS_VOLATILE,
 				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAggregation_ValidatePOMDependencies(), ecorePackage.getEBoolean(), "validatePOMDependencies",
+				null, 0, 1, Aggregation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAggregation_FilterPublishedArtifacts(), ecorePackage.getEBoolean(),
+				"filterPublishedArtifacts", null, 0, 1, Aggregation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = addEOperation(aggregationEClass, this.getMetadataRepositoryReference(),
 				"getAllMetadataRepositoryReferences", 0, -1, IS_UNIQUE, IS_ORDERED);

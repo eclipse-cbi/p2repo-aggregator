@@ -44,6 +44,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#isExcludeFeatures <em>Exclude Features</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#getIncludedIUPattern <em>Included IU Pattern</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#isValidateNexusPublishingRequirements <em>Validate Nexus Publishing Requirements</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#isValidatePOMDependencies <em>Validate POM Dependencies</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#isFilterPublishedArtifacts <em>Filter Published Artifacts</em>}</li>
  * </ul>
  *
  * @see org.eclipse.cbi.p2repo.aggregator.AggregatorPackage#getAggregation()
@@ -411,6 +413,56 @@ public interface Aggregation extends DescriptionProvider, StatusProvider, InfosP
 	 * @generated
 	 */
 	void setValidateNexusPublishingRequirements(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Validate POM Dependencies</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Whether to validate that the dependencies in the generated POMs can be resolved to artifacts in Maven Central.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Validate POM Dependencies</em>' attribute.
+	 * @see #setValidatePOMDependencies(boolean)
+	 * @see org.eclipse.cbi.p2repo.aggregator.AggregatorPackage#getAggregation_ValidatePOMDependencies()
+	 * @model
+	 * @generated
+	 */
+	boolean isValidatePOMDependencies();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#isValidatePOMDependencies <em>Validate POM Dependencies</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Validate POM Dependencies</em>' attribute.
+	 * @see #isValidatePOMDependencies()
+	 * @generated
+	 */
+	void setValidatePOMDependencies(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Filter Published Artifacts</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Whether to generate a 'final-filtered' folder containing only the artfiacts not already published in Maven Central.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Filter Published Artifacts</em>' attribute.
+	 * @see #setFilterPublishedArtifacts(boolean)
+	 * @see org.eclipse.cbi.p2repo.aggregator.AggregatorPackage#getAggregation_FilterPublishedArtifacts()
+	 * @model
+	 * @generated
+	 */
+	boolean isFilterPublishedArtifacts();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#isFilterPublishedArtifacts <em>Filter Published Artifacts</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Filter Published Artifacts</em>' attribute.
+	 * @see #isFilterPublishedArtifacts()
+	 * @generated
+	 */
+	void setFilterPublishedArtifacts(boolean value);
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#getBuildmaster <em>Buildmaster</em>}' reference.

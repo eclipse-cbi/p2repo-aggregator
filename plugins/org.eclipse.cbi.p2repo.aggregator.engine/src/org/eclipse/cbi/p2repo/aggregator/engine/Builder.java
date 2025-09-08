@@ -549,7 +549,7 @@ public class Builder extends ModelAbstractCommand {
 		deleteMetadataRepository(mdrMgr, new File(interimRepo, REPO_FOLDER_VERIFICATION));
 	}
 
-	private void finishMirroring(IProgressMonitor monitor) throws CoreException {
+	private void finishMirroring(IProgressMonitor monitor) throws CoreException, IOException {
 		if (mavenHelper != null)
 			mavenAddMetadata();
 
@@ -675,6 +675,7 @@ public class Builder extends ModelAbstractCommand {
 				p2Index.setProperty("artifact.repository.factory.order", "compositeArtifacts.xml,!");
 				LogUtils.info("Done building final artifact composite");
 			}
+
 			if (!p2Index.isEmpty()) {
 				p2Index.setProperty("version", "1");
 				File p2IndexFile = new File(destination, "p2.index");
@@ -697,6 +698,15 @@ public class Builder extends ModelAbstractCommand {
 				MonitorUtils.testCancelStatus(monitor);
 				if (!aggregateDestination.delete())
 					throw ExceptionUtils.fromMessage("Unable to remove %s", aggregateDestination.getAbsolutePath());
+			}
+
+			if (mavenHelper != null) {
+				mavenHelper.pgpSign(destination);
+				boolean validatePOMDependencies = getAggregation().isValidatePOMDependencies();
+				boolean filterPublishedArtifacts = getAggregation().isFilterPublishedArtifacts();
+				if (validatePOMDependencies || filterPublishedArtifacts) {
+					mavenHelper.filter(destination, validatePOMDependencies, filterPublishedArtifacts);
+				}
 			}
 		} catch (OperationCanceledException e) {
 			LogUtils.info("Operation canceled."); //$NON-NLS-1$

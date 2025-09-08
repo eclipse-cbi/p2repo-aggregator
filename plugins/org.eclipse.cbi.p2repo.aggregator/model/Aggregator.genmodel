@@ -126,6 +126,10 @@
           ecoreFeature="ecore:EAttribute Aggregator.ecore#//Aggregation/includedIUPattern"/>
       <genFeatures createChild="false" propertyDescription="Whether to validate that the POMs meet the Sonatype publishing requirements"
           ecoreFeature="ecore:EAttribute Aggregator.ecore#//Aggregation/validateNexusPublishingRequirements"/>
+      <genFeatures createChild="false" propertyDescription="Whether to validate that the dependencies in the generated POMs can be resolved to artifacts in Maven Central"
+          ecoreFeature="ecore:EAttribute Aggregator.ecore#//Aggregation/validatePOMDependencies"/>
+      <genFeatures createChild="false" propertyDescription="Whether to generate a 'final-filtered' folder containing only the artfiacts not already published in Maven Central"
+          ecoreFeature="ecore:EAttribute Aggregator.ecore#//Aggregation/filterPublishedArtifacts"/>
       <genOperations ecoreOperation="Aggregator.ecore#//Aggregation/getAllMetadataRepositoryReferences">
         <genParameters ecoreParameter="Aggregator.ecore#//Aggregation/getAllMetadataRepositoryReferences/enabledOnly"/>
       </genOperations>

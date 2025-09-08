@@ -82,6 +82,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#isExcludeFeatures <em>Exclude Features</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#getIncludedIUPattern <em>Included IU Pattern</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#isValidateNexusPublishingRequirements <em>Validate Nexus Publishing Requirements</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#isValidatePOMDependencies <em>Validate POM Dependencies</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#isFilterPublishedArtifacts <em>Filter Published Artifacts</em>}</li>
  * </ul>
  *
  * @generated
@@ -582,6 +584,46 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	protected static final int VALIDATE_NEXUS_PUBLISHING_REQUIREMENTS_EFLAG = 1 << 15;
 
 	/**
+	 * The default value of the '{@link #isValidatePOMDependencies() <em>Validate POM Dependencies</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isValidatePOMDependencies()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean VALIDATE_POM_DEPENDENCIES_EDEFAULT = false;
+
+	/**
+	 * The flag representing the value of the '{@link #isValidatePOMDependencies() <em>Validate POM Dependencies</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isValidatePOMDependencies()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int VALIDATE_POM_DEPENDENCIES_EFLAG = 1 << 16;
+
+	/**
+	 * The default value of the '{@link #isFilterPublishedArtifacts() <em>Filter Published Artifacts</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isFilterPublishedArtifacts()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean FILTER_PUBLISHED_ARTIFACTS_EDEFAULT = false;
+
+	/**
+	 * The flag representing the value of the '{@link #isFilterPublishedArtifacts() <em>Filter Published Artifacts</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isFilterPublishedArtifacts()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int FILTER_PUBLISHED_ARTIFACTS_EFLAG = 1 << 17;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -740,6 +782,10 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 				return getIncludedIUPattern();
 			case AggregatorPackage.AGGREGATION__VALIDATE_NEXUS_PUBLISHING_REQUIREMENTS:
 				return isValidateNexusPublishingRequirements();
+			case AggregatorPackage.AGGREGATION__VALIDATE_POM_DEPENDENCIES:
+				return isValidatePOMDependencies();
+			case AggregatorPackage.AGGREGATION__FILTER_PUBLISHED_ARTIFACTS:
+				return isFilterPublishedArtifacts();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -847,6 +893,10 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 			case AggregatorPackage.AGGREGATION__VALIDATE_NEXUS_PUBLISHING_REQUIREMENTS:
 				return ((eFlags
 						& VALIDATE_NEXUS_PUBLISHING_REQUIREMENTS_EFLAG) != 0) != VALIDATE_NEXUS_PUBLISHING_REQUIREMENTS_EDEFAULT;
+			case AggregatorPackage.AGGREGATION__VALIDATE_POM_DEPENDENCIES:
+				return ((eFlags & VALIDATE_POM_DEPENDENCIES_EFLAG) != 0) != VALIDATE_POM_DEPENDENCIES_EDEFAULT;
+			case AggregatorPackage.AGGREGATION__FILTER_PUBLISHED_ARTIFACTS:
+				return ((eFlags & FILTER_PUBLISHED_ARTIFACTS_EFLAG) != 0) != FILTER_PUBLISHED_ARTIFACTS_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -947,6 +997,12 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 			case AggregatorPackage.AGGREGATION__VALIDATE_NEXUS_PUBLISHING_REQUIREMENTS:
 				setValidateNexusPublishingRequirements((Boolean) newValue);
 				return;
+			case AggregatorPackage.AGGREGATION__VALIDATE_POM_DEPENDENCIES:
+				setValidatePOMDependencies((Boolean) newValue);
+				return;
+			case AggregatorPackage.AGGREGATION__FILTER_PUBLISHED_ARTIFACTS:
+				setFilterPublishedArtifacts((Boolean) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -1046,6 +1102,12 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 				return;
 			case AggregatorPackage.AGGREGATION__VALIDATE_NEXUS_PUBLISHING_REQUIREMENTS:
 				setValidateNexusPublishingRequirements(VALIDATE_NEXUS_PUBLISHING_REQUIREMENTS_EDEFAULT);
+				return;
+			case AggregatorPackage.AGGREGATION__VALIDATE_POM_DEPENDENCIES:
+				setValidatePOMDependencies(VALIDATE_POM_DEPENDENCIES_EDEFAULT);
+				return;
+			case AggregatorPackage.AGGREGATION__FILTER_PUBLISHED_ARTIFACTS:
+				setFilterPublishedArtifacts(FILTER_PUBLISHED_ARTIFACTS_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -1535,6 +1597,62 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * @generated
 	 */
 	@Override
+	public boolean isValidatePOMDependencies() {
+		return (eFlags & VALIDATE_POM_DEPENDENCIES_EFLAG) != 0;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setValidatePOMDependencies(boolean newValidatePOMDependencies) {
+		boolean oldValidatePOMDependencies = (eFlags & VALIDATE_POM_DEPENDENCIES_EFLAG) != 0;
+		if (newValidatePOMDependencies)
+			eFlags |= VALIDATE_POM_DEPENDENCIES_EFLAG;
+		else
+			eFlags &= ~VALIDATE_POM_DEPENDENCIES_EFLAG;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					AggregatorPackage.AGGREGATION__VALIDATE_POM_DEPENDENCIES, oldValidatePOMDependencies,
+					newValidatePOMDependencies));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isFilterPublishedArtifacts() {
+		return (eFlags & FILTER_PUBLISHED_ARTIFACTS_EFLAG) != 0;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setFilterPublishedArtifacts(boolean newFilterPublishedArtifacts) {
+		boolean oldFilterPublishedArtifacts = (eFlags & FILTER_PUBLISHED_ARTIFACTS_EFLAG) != 0;
+		if (newFilterPublishedArtifacts)
+			eFlags |= FILTER_PUBLISHED_ARTIFACTS_EFLAG;
+		else
+			eFlags &= ~FILTER_PUBLISHED_ARTIFACTS_EFLAG;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					AggregatorPackage.AGGREGATION__FILTER_PUBLISHED_ARTIFACTS, oldFilterPublishedArtifacts,
+					newFilterPublishedArtifacts));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public void setBuildmaster(Contact newBuildmaster) {
 		Contact oldBuildmaster = buildmaster;
 		buildmaster = newBuildmaster;
@@ -1764,6 +1882,10 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 		result.append(includedIUPattern);
 		result.append(", validateNexusPublishingRequirements: ");
 		result.append((eFlags & VALIDATE_NEXUS_PUBLISHING_REQUIREMENTS_EFLAG) != 0);
+		result.append(", validatePOMDependencies: ");
+		result.append((eFlags & VALIDATE_POM_DEPENDENCIES_EFLAG) != 0);
+		result.append(", filterPublishedArtifacts: ");
+		result.append((eFlags & FILTER_PUBLISHED_ARTIFACTS_EFLAG) != 0);
 		result.append(')');
 		return result.toString();
 	}

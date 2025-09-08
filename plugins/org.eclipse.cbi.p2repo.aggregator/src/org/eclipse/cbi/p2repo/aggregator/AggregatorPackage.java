@@ -236,6 +236,22 @@ public interface AggregatorPackage extends EPackage {
 				.getAggregation_ValidateNexusPublishingRequirements();
 
 		/**
+		 * The meta object literal for the '<em><b>Validate POM Dependencies</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute AGGREGATION__VALIDATE_POM_DEPENDENCIES = eINSTANCE.getAggregation_ValidatePOMDependencies();
+
+		/**
+		 * The meta object literal for the '<em><b>Filter Published Artifacts</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute AGGREGATION__FILTER_PUBLISHED_ARTIFACTS = eINSTANCE.getAggregation_FilterPublishedArtifacts();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.ValidationSetImpl <em>Validation Set</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1650,13 +1666,31 @@ public interface AggregatorPackage extends EPackage {
 	int AGGREGATION__VALIDATE_NEXUS_PUBLISHING_REQUIREMENTS = DESCRIPTION_PROVIDER_FEATURE_COUNT + 26;
 
 	/**
+	 * The feature id for the '<em><b>Validate POM Dependencies</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AGGREGATION__VALIDATE_POM_DEPENDENCIES = DESCRIPTION_PROVIDER_FEATURE_COUNT + 27;
+
+	/**
+	 * The feature id for the '<em><b>Filter Published Artifacts</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AGGREGATION__FILTER_PUBLISHED_ARTIFACTS = DESCRIPTION_PROVIDER_FEATURE_COUNT + 28;
+
+	/**
 	 * The number of structural features of the '<em>Aggregation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATION_FEATURE_COUNT = DESCRIPTION_PROVIDER_FEATURE_COUNT + 27;
+	int AGGREGATION_FEATURE_COUNT = DESCRIPTION_PROVIDER_FEATURE_COUNT + 29;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.EnabledStatusProvider <em>Enabled Status Provider</em>}' class.
@@ -4408,6 +4442,28 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getAggregation_ValidateNexusPublishingRequirements();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#isValidatePOMDependencies <em>Validate POM Dependencies</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Validate POM Dependencies</em>'.
+	 * @see org.eclipse.cbi.p2repo.aggregator.Aggregation#isValidatePOMDependencies()
+	 * @see #getAggregation()
+	 * @generated
+	 */
+	EAttribute getAggregation_ValidatePOMDependencies();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#isFilterPublishedArtifacts <em>Filter Published Artifacts</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Filter Published Artifacts</em>'.
+	 * @see org.eclipse.cbi.p2repo.aggregator.Aggregation#isFilterPublishedArtifacts()
+	 * @see #getAggregation()
+	 * @generated
+	 */
+	EAttribute getAggregation_FilterPublishedArtifacts();
 
 	/**
 	 * Returns the meta object for the reference '{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#getBuildmaster <em>Buildmaster</em>}'.

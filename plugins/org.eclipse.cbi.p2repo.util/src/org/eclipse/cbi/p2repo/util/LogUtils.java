@@ -17,9 +17,11 @@ import static org.eclipse.cbi.p2repo.util.LogLevel.INFO;
 import static org.eclipse.cbi.p2repo.util.LogLevel.WARNING;
 
 import org.eclipse.core.runtime.ILog;
+import org.eclipse.core.runtime.ILogListener;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.Status;
+import org.osgi.framework.Bundle;
 
 /**
  * @author filip.hrbek@cloudsmith.com
@@ -44,6 +46,28 @@ public class LogUtils {
 	}
 
 	public static ILog getLog() {
+		if (P2RepoUtil.getPlugin().getBundle() == null) {
+			return new ILog() {
+				@Override
+				public void removeLogListener(ILogListener listener) {
+				}
+
+				@Override
+				public void log(IStatus status) {
+					System.out.println(status);
+				}
+
+				@Override
+				public Bundle getBundle() {
+					return null;
+				}
+
+				@Override
+				public void addLogListener(ILogListener listener) {
+				}
+			};
+
+		}
 		return Platform.getLog(P2RepoUtil.getPlugin().getBundle());
 	}
 
@@ -57,9 +81,9 @@ public class LogUtils {
 
 	public static void log(IStatus status) {
 		P2RepoUtil plugin = P2RepoUtil.getPlugin();
-		if(status.getSeverity() >= plugin.getConsoleLogLevel().ordinal()) {
+		if (status.getSeverity() >= plugin.getConsoleLogLevel().ordinal()) {
 			String fullMessage = status.getMessage();
-			if(status.getSeverity() >= IStatus.WARNING)
+			if (status.getSeverity() >= IStatus.WARNING)
 				System.err.println(fullMessage);
 			else
 				System.out.println(fullMessage);
@@ -72,18 +96,16 @@ public class LogUtils {
 	}
 
 	public static void log(LogLevel level, Throwable t, String msg, Object... args) {
-		String fullMessage = (args == null || args.length == 0)
-				? msg
-				: String.format(msg, args);
+		String fullMessage = (args == null || args.length == 0) ? msg : String.format(msg, args);
 
 		P2RepoUtil plugin = P2RepoUtil.getPlugin();
-		if(level.ordinal() >= plugin.getConsoleLogLevel().ordinal())
-			if(level.ordinal() >= IStatus.WARNING)
+		if (level.ordinal() >= plugin.getConsoleLogLevel().ordinal())
+			if (level.ordinal() >= IStatus.WARNING)
 				System.err.println(fullMessage);
 			else
 				System.out.println(fullMessage);
 
-		if(level.ordinal() >= plugin.getEclipseLogLevel().ordinal())
+		if (level.ordinal() >= plugin.getEclipseLogLevel().ordinal())
 			getLog().log(new Status(level.getStatusLevel(), P2RepoUtil.getPluginID(), MAGIC, fullMessage, t));
 	}
 
