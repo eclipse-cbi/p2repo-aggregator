@@ -69,15 +69,16 @@ public class MavenRepositoryHelper {
 
 	public void pgpSign(File repository) throws IOException {
 		var passphrase = System.getProperty("gpg.passphrase", System.getenv("MAVEN_GPG_PASSPHRASE"));
-		var keyPathFile = System.getProperty("gpg.keyFilePath", System.getenv("KEY_RING"));
+		var keyPathFile = System.getProperty("gpg.keyFilePath", System.getenv("KEYRING"));
 		if (passphrase != null && keyPathFile != null) {
 			var bouncyCastleSigner = new BouncyCastleSigner();
 			try {
 				bouncyCastleSigner.configure(System.getProperty("gpg.keyname"), passphrase, null,
 						Files.readString(Path.of(keyPathFile), StandardCharsets.US_ASCII));
 			} catch (PGPException e) {
-				new IOException(e);
+				throw new IOException(e);
 			}
+
 			var repositoryPath = repository.toPath();
 			Files.walkFileTree(repositoryPath, new SimpleFileVisitor<Path>() {
 				@Override
