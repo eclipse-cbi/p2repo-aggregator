@@ -12,7 +12,6 @@
     Contributors:
         David Williams - initial implementation or maintenance
  -->
-
 <feature
       id="org.eclipse.cbi.p2repo.tests.feature"
       label="%featureName"
@@ -21,13 +20,13 @@
       license-feature="org.eclipse.license"
       license-feature-version="0.0.0">
 
-  <copyright>
-    %copyright
-  </copyright>
-
    <description>
       %description
    </description>
+
+   <copyright>
+      %copyright
+   </copyright>
 
    <license url="%licenseURL">
       %license
@@ -35,12 +34,6 @@
 
    <plugin
          id="org.eclipse.cbi.p2repo.p2.tests"
-         version="0.0.0"
-         unpack="false"/>
-<!-- Do we require this here? Or, better elsewhere? -->
-   <plugin
-         id="org.junit"
-         version="0.0.0" 
-         unpack="false"/>
+         version="0.0.0"/>
 
 </feature>
