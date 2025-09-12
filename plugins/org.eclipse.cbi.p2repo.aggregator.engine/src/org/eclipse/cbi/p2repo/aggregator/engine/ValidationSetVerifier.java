@@ -939,16 +939,15 @@ public class ValidationSetVerifier extends BuilderPhase {
 				Set<IInstallableUnit> additionalSourceIUs = new LinkedHashSet<>();
 				for (IInstallableUnit iu : unitsToAggregate) {
 					String id = iu.getId();
-					InstallableUnit versionedId = new InstallableUnit();
-					versionedId.setId(id.endsWith(".feature.group")
-							? id.replaceAll("\\.feature\\.group$", ".source.feature.group")
-							: id.endsWith(".feature.jar") ? id.replaceAll("\\.feature\\.jar$", ".source.feature.jar")
-									: id + ".source");
-					versionedId.setVersion(iu.getVersion());
-					if (!unitsToAggregate.contains(versionedId)) {
-						IInstallableUnit sourceIU = allIUs.get(versionedId);
-						if (sourceIU != null) {
-							additionalSourceIUs.add(sourceIU);
+					if (!id.endsWith(".feature.group") && !id.endsWith(".feature.jar")) {
+						InstallableUnit versionedId = new InstallableUnit();
+						versionedId.setId(id + ".source");
+						versionedId.setVersion(iu.getVersion());
+						if (!unitsToAggregate.contains(versionedId)) {
+							IInstallableUnit sourceIU = allIUs.get(versionedId);
+							if (sourceIU != null) {
+								additionalSourceIUs.add(sourceIU);
+							}
 						}
 					}
 				}
