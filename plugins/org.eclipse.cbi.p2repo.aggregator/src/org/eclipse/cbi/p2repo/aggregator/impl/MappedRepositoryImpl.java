@@ -60,6 +60,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.MappedRepositoryImpl#isMirrorArtifacts <em>Mirror Artifacts</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.MappedRepositoryImpl#getCategoryPrefix <em>Category Prefix</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.MappedRepositoryImpl#getMapRules <em>Map Rules</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.MappedRepositoryImpl#getMirrorArtifactRepositoryPropertiesPattern <em>Mirror Artifact Repository Properties Pattern</em>}</li>
  * </ul>
  *
  * @generated
@@ -180,6 +181,26 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	protected EList<MapRule> mapRules;
 
 	/**
+	 * The default value of the '{@link #getMirrorArtifactRepositoryPropertiesPattern() <em>Mirror Artifact Repository Properties Pattern</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMirrorArtifactRepositoryPropertiesPattern()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String MIRROR_ARTIFACT_REPOSITORY_PROPERTIES_PATTERN_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getMirrorArtifactRepositoryPropertiesPattern() <em>Mirror Artifact Repository Properties Pattern</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMirrorArtifactRepositoryPropertiesPattern()
+	 * @generated
+	 * @ordered
+	 */
+	protected String mirrorArtifactRepositoryPropertiesPattern = MIRROR_ARTIFACT_REPOSITORY_PROPERTIES_PATTERN_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -275,6 +296,8 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 				return getCategoryPrefix();
 			case AggregatorPackage.MAPPED_REPOSITORY__MAP_RULES:
 				return getMapRules();
+			case AggregatorPackage.MAPPED_REPOSITORY__MIRROR_ARTIFACT_REPOSITORY_PROPERTIES_PATTERN:
+				return getMirrorArtifactRepositoryPropertiesPattern();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -326,6 +349,11 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 						: !CATEGORY_PREFIX_EDEFAULT.equals(categoryPrefix);
 			case AggregatorPackage.MAPPED_REPOSITORY__MAP_RULES:
 				return mapRules != null && !mapRules.isEmpty();
+			case AggregatorPackage.MAPPED_REPOSITORY__MIRROR_ARTIFACT_REPOSITORY_PROPERTIES_PATTERN:
+				return MIRROR_ARTIFACT_REPOSITORY_PROPERTIES_PATTERN_EDEFAULT == null
+						? mirrorArtifactRepositoryPropertiesPattern != null
+						: !MIRROR_ARTIFACT_REPOSITORY_PROPERTIES_PATTERN_EDEFAULT
+								.equals(mirrorArtifactRepositoryPropertiesPattern);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -367,6 +395,9 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 			case AggregatorPackage.MAPPED_REPOSITORY__MAP_RULES:
 				getMapRules().clear();
 				getMapRules().addAll((Collection<? extends MapRule>) newValue);
+				return;
+			case AggregatorPackage.MAPPED_REPOSITORY__MIRROR_ARTIFACT_REPOSITORY_PROPERTIES_PATTERN:
+				setMirrorArtifactRepositoryPropertiesPattern((String) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -413,6 +444,9 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 				return;
 			case AggregatorPackage.MAPPED_REPOSITORY__MAP_RULES:
 				getMapRules().clear();
+				return;
+			case AggregatorPackage.MAPPED_REPOSITORY__MIRROR_ARTIFACT_REPOSITORY_PROPERTIES_PATTERN:
+				setMirrorArtifactRepositoryPropertiesPattern(MIRROR_ARTIFACT_REPOSITORY_PROPERTIES_PATTERN_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -534,6 +568,31 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 					AggregatorPackage.MAPPED_REPOSITORY__MAP_RULES);
 		}
 		return mapRules;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getMirrorArtifactRepositoryPropertiesPattern() {
+		return mirrorArtifactRepositoryPropertiesPattern;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setMirrorArtifactRepositoryPropertiesPattern(String newMirrorArtifactRepositoryPropertiesPattern) {
+		String oldMirrorArtifactRepositoryPropertiesPattern = mirrorArtifactRepositoryPropertiesPattern;
+		mirrorArtifactRepositoryPropertiesPattern = newMirrorArtifactRepositoryPropertiesPattern;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					AggregatorPackage.MAPPED_REPOSITORY__MIRROR_ARTIFACT_REPOSITORY_PROPERTIES_PATTERN,
+					oldMirrorArtifactRepositoryPropertiesPattern, mirrorArtifactRepositoryPropertiesPattern));
 	}
 
 	/**
@@ -761,6 +820,8 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 		result.append((eFlags & MIRROR_ARTIFACTS_EFLAG) != 0);
 		result.append(", categoryPrefix: ");
 		result.append(categoryPrefix);
+		result.append(", mirrorArtifactRepositoryPropertiesPattern: ");
+		result.append(mirrorArtifactRepositoryPropertiesPattern);
 		result.append(')');
 		return result.toString();
 	}

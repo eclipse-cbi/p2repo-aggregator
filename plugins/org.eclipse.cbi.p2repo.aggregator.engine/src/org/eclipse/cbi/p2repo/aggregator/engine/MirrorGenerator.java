@@ -32,12 +32,14 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
+import java.util.regex.Pattern;
 
 import org.eclipse.cbi.p2repo.aggregator.Aggregation;
 import org.eclipse.cbi.p2repo.aggregator.Contribution;
@@ -220,8 +222,8 @@ public class MirrorGenerator extends BuilderPhase {
 	}
 
 	static void mirror(ExecutorService executor, Collection<IArtifactKey> keysToInstall, IArtifactRepository cache,
-			IArtifactRepository source, IFileArtifactRepository dest, boolean isSignerFingerprint,
-			Transport transport, PackedStrategy strategy, List<String> errors, IProgressMonitor monitor) {
+			IArtifactRepository source, IFileArtifactRepository dest, boolean isSignerFingerprint, Transport transport,
+			PackedStrategy strategy, List<String> errors, IProgressMonitor monitor) {
 		IQueryResult<IArtifactKey> result = source.query(ArtifactKeyQuery.ALL_KEYS, null);
 		IArtifactKey[] keys = result.toArray(IArtifactKey.class);
 		MonitorUtils.begin(monitor, keys.length * 100);
@@ -600,6 +602,19 @@ public class MirrorGenerator extends BuilderPhase {
 						contribMonitor.subTask(msg);
 						IArtifactRepository childAr = builder.getArtifactRepository(repo, contribMonitor.newChild(1,
 								SubMonitor.SUPPRESS_BEGINTASK | SubMonitor.SUPPRESS_SETTASKNAME));
+						String mirrorArtifactRepositoryPropertiesPattern = repo
+								.getMirrorArtifactRepositoryPropertiesPattern();
+						if (mirrorArtifactRepositoryPropertiesPattern != null
+								&& !mirrorArtifactRepositoryPropertiesPattern.isBlank()) {
+							Pattern pattern = Pattern.compile(mirrorArtifactRepositoryPropertiesPattern);
+							Map<String, String> properties = childAr.getProperties();
+							for (Entry<String, String> entry : properties.entrySet()) {
+								String key = entry.getKey();
+								if (pattern.matcher(key).matches()) {
+									aggregationAr.setProperty(key, entry.getValue());
+								}
+							}
+						}
 						mirror(executor, keysToMirror, tempAr, childAr, aggregationAr, isSignerFingerprints,
 								getTransport(), packedStrategy, errors, contribMonitor.newChild(94,
 										SubMonitor.SUPPRESS_BEGINTASK | SubMonitor.SUPPRESS_SETTASKNAME));

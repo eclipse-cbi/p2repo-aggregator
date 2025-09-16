@@ -368,6 +368,15 @@ public interface AggregatorPackage extends EPackage {
 		EReference MAPPED_REPOSITORY__MAP_RULES = eINSTANCE.getMappedRepository_MapRules();
 
 		/**
+		 * The meta object literal for the '<em><b>Mirror Artifact Repository Properties Pattern</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MAPPED_REPOSITORY__MIRROR_ARTIFACT_REPOSITORY_PROPERTIES_PATTERN = eINSTANCE
+				.getMappedRepository_MirrorArtifactRepositoryPropertiesPattern();
+
+		/**
 		 * The meta object literal for the '<em><b>Categories</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3504,13 +3513,23 @@ public interface AggregatorPackage extends EPackage {
 	int MAPPED_REPOSITORY__MAP_RULES = METADATA_REPOSITORY_REFERENCE_FEATURE_COUNT + 7;
 
 	/**
+	 * The feature id for the '<em><b>Mirror Artifact Repository Properties Pattern</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAPPED_REPOSITORY__MIRROR_ARTIFACT_REPOSITORY_PROPERTIES_PATTERN = METADATA_REPOSITORY_REFERENCE_FEATURE_COUNT
+			+ 8;
+
+	/**
 	 * The number of structural features of the '<em>Mapped Repository</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MAPPED_REPOSITORY_FEATURE_COUNT = METADATA_REPOSITORY_REFERENCE_FEATURE_COUNT + 8;
+	int MAPPED_REPOSITORY_FEATURE_COUNT = METADATA_REPOSITORY_REFERENCE_FEATURE_COUNT + 9;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.MavenDependencyItemImpl <em>Maven Dependency Item</em>}' class.
@@ -5333,6 +5352,17 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getMappedRepository_MapRules();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.MappedRepository#getMirrorArtifactRepositoryPropertiesPattern <em>Mirror Artifact Repository Properties Pattern</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Mirror Artifact Repository Properties Pattern</em>'.
+	 * @see org.eclipse.cbi.p2repo.aggregator.MappedRepository#getMirrorArtifactRepositoryPropertiesPattern()
+	 * @see #getMappedRepository()
+	 * @generated
+	 */
+	EAttribute getMappedRepository_MirrorArtifactRepositoryPropertiesPattern();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.MappedRepository#isMirrorArtifacts <em>Mirror Artifacts</em>}'.

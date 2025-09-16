@@ -28,6 +28,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.MappedRepository#isMirrorArtifacts <em>Mirror Artifacts</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.MappedRepository#getCategoryPrefix <em>Category Prefix</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.MappedRepository#getMapRules <em>Map Rules</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.MappedRepository#getMirrorArtifactRepositoryPropertiesPattern <em>Mirror Artifact Repository Properties Pattern</em>}</li>
  * </ul>
  *
  * @see org.eclipse.cbi.p2repo.aggregator.AggregatorPackage#getMappedRepository()
@@ -102,6 +103,31 @@ public interface MappedRepository extends MetadataRepositoryReference, Descripti
 	 * @generated
 	 */
 	EList<MapRule> getMapRules();
+
+	/**
+	 * Returns the value of the '<em><b>Mirror Artifact Repository Properties Pattern</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A pattern used to match properties of the artifact repository that should be mirrored to the target artifact repository.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Mirror Artifact Repository Properties Pattern</em>' attribute.
+	 * @see #setMirrorArtifactRepositoryPropertiesPattern(String)
+	 * @see org.eclipse.cbi.p2repo.aggregator.AggregatorPackage#getMappedRepository_MirrorArtifactRepositoryPropertiesPattern()
+	 * @model
+	 * @generated
+	 */
+	String getMirrorArtifactRepositoryPropertiesPattern();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.MappedRepository#getMirrorArtifactRepositoryPropertiesPattern <em>Mirror Artifact Repository Properties Pattern</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Mirror Artifact Repository Properties Pattern</em>' attribute.
+	 * @see #getMirrorArtifactRepositoryPropertiesPattern()
+	 * @generated
+	 */
+	void setMirrorArtifactRepositoryPropertiesPattern(String value);
 
 	/**
 	 * <!-- begin-user-doc -->

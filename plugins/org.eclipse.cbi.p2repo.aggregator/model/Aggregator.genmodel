@@ -240,6 +240,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//MappedRepository/mirrorArtifacts"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//MappedRepository/categoryPrefix"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Aggregator.ecore#//MappedRepository/mapRules"/>
+      <genFeatures createChild="false" propertyDescription="A pattern used to match properties of the artifact repository that should be mirrored to the target artifact repository"
+          ecoreFeature="ecore:EAttribute Aggregator.ecore#//MappedRepository/mirrorArtifactRepositoryPropertiesPattern"/>
       <genOperations ecoreOperation="Aggregator.ecore#//MappedRepository/getMapRules">
         <genParameters ecoreParameter="Aggregator.ecore#//MappedRepository/getMapRules/enabledOnly"/>
       </genOperations>

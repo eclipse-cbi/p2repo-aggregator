@@ -81,6 +81,21 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 	}
 
 	/**
+	 * This adds a property descriptor for the Mirror Artifact Repository Properties Pattern feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMirrorArtifactRepositoryPropertiesPatternPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_MappedRepository_mirrorArtifactRepositoryPropertiesPattern_feature"),
+				getString("_UI_MappedRepository_mirrorArtifactRepositoryPropertiesPattern_description"),
+				AggregatorPackage.Literals.MAPPED_REPOSITORY__MIRROR_ARTIFACT_REPOSITORY_PROPERTIES_PATTERN, true,
+				false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Description feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -358,6 +373,7 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 			addDescriptionPropertyDescriptor(object);
 			addMirrorArtifactsPropertyDescriptor(object);
 			addCategoryPrefixPropertyDescriptor(object);
+			addMirrorArtifactRepositoryPropertiesPatternPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}

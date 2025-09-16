@@ -579,6 +579,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		createEAttribute(mappedRepositoryEClass, MAPPED_REPOSITORY__MIRROR_ARTIFACTS);
 		createEAttribute(mappedRepositoryEClass, MAPPED_REPOSITORY__CATEGORY_PREFIX);
 		createEReference(mappedRepositoryEClass, MAPPED_REPOSITORY__MAP_RULES);
+		createEAttribute(mappedRepositoryEClass, MAPPED_REPOSITORY__MIRROR_ARTIFACT_REPOSITORY_PROPERTIES_PATTERN);
 
 		mappedUnitEClass = createEClass(MAPPED_UNIT);
 		createEReference(mappedUnitEClass, MAPPED_UNIT__VALID_CONFIGURATIONS);
@@ -1557,6 +1558,16 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	@Override
 	public EReference getMappedRepository_MapRules() {
 		return (EReference) mappedRepositoryEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMappedRepository_MirrorArtifactRepositoryPropertiesPattern() {
+		return (EAttribute) mappedRepositoryEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -2551,6 +2562,9 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		initEReference(getMappedRepository_MapRules(), this.getMapRule(), null, "mapRules", null, 0, -1,
 				MappedRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMappedRepository_MirrorArtifactRepositoryPropertiesPattern(), ecorePackage.getEString(),
+				"mirrorArtifactRepositoryPropertiesPattern", null, 0, 1, MappedRepository.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = addEOperation(mappedRepositoryEClass, this.getMapRule(), "getMapRules", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "enabledOnly", 0, 1, IS_UNIQUE, IS_ORDERED);
