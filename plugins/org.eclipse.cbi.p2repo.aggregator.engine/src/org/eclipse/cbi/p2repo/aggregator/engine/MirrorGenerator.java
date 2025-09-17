@@ -18,6 +18,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.lang.reflect.Field;
+import java.net.URI;
 import java.nio.file.Paths;
 import java.security.InvalidKeyException;
 import java.security.MessageDigest;
@@ -28,6 +29,7 @@ import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -68,13 +70,16 @@ import org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifact
 import org.eclipse.equinox.internal.p2.repository.Transport;
 import org.eclipse.equinox.internal.p2.repository.helpers.ChecksumHelper;
 import org.eclipse.equinox.internal.provisional.p2.artifact.repository.processing.ProcessingStepHandler;
+import org.eclipse.equinox.p2.core.ProvisionException;
 import org.eclipse.equinox.p2.internal.repository.tools.XZCompressor;
 import org.eclipse.equinox.p2.metadata.IArtifactKey;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.query.IQueryResult;
+import org.eclipse.equinox.p2.repository.ICompositeRepository;
 import org.eclipse.equinox.p2.repository.artifact.ArtifactKeyQuery;
 import org.eclipse.equinox.p2.repository.artifact.IArtifactDescriptor;
 import org.eclipse.equinox.p2.repository.artifact.IArtifactRepository;
+import org.eclipse.equinox.p2.repository.artifact.IArtifactRepositoryManager;
 import org.eclipse.equinox.p2.repository.artifact.IFileArtifactRepository;
 import org.eclipse.equinox.p2.repository.artifact.spi.ArtifactDescriptor;
 import org.eclipse.equinox.p2.repository.spi.PGPPublicKeyService;
@@ -607,7 +612,7 @@ public class MirrorGenerator extends BuilderPhase {
 						if (mirrorArtifactRepositoryPropertiesPattern != null
 								&& !mirrorArtifactRepositoryPropertiesPattern.isBlank()) {
 							Pattern pattern = Pattern.compile(mirrorArtifactRepositoryPropertiesPattern);
-							Map<String, String> properties = childAr.getProperties();
+							Map<String, String> properties = getEffectiveProperties(builder.getArManager(), childAr);
 							for (Entry<String, String> entry : properties.entrySet()) {
 								String key = entry.getKey();
 								if (pattern.matcher(key).matches()) {
@@ -681,5 +686,26 @@ public class MirrorGenerator extends BuilderPhase {
 			return () -> {
 			};
 		}
+	}
+
+	private Map<String, String> getEffectiveProperties(IArtifactRepositoryManager manager,
+			IArtifactRepository repository) throws ProvisionException {
+		if (repository instanceof ICompositeRepository<?> composite) {
+			Map<String, Set<String>> allProperties = new LinkedHashMap<>();
+			for (URI uri : composite.getChildren()) {
+				IArtifactRepository childRepository = manager.loadRepository(uri, null);
+				for (Entry<String, String> entry : getEffectiveProperties(manager, childRepository).entrySet()) {
+					allProperties.computeIfAbsent(entry.getKey(), key -> new HashSet<>()).add(entry.getValue());
+				}
+			}
+			Map<String, String> commonProperties = new LinkedHashMap<>();
+			for (Entry<String, Set<String>> entry : allProperties.entrySet()) {
+				if (entry.getValue().size() == 1) {
+					commonProperties.put(entry.getKey(), entry.getValue().iterator().next());
+				}
+			}
+			return commonProperties;
+		}
+		return repository.getProperties();
 	}
 }
