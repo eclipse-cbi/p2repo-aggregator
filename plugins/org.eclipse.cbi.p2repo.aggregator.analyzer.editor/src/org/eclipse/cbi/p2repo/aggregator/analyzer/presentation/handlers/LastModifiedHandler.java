@@ -142,10 +142,10 @@ public class LastModifiedHandler extends BaseHandler {
 
 		public Long getLastModified(String repo) throws Exception {
 			if (repo.startsWith(GITLAB_ECLIPSE)) {
-				URI historyURI = URI.createURI(repo + "/-/commits");
+				URI historyURI = URI.createURI(repo + "/-/commits/");
 				return BaseHandler.getLastModified(historyURI, ECLIPSE_GITLAB_TIME_PATTERN, GITLAB_DATE_FORMAT);
 			} else if (repo.startsWith(GITHUB)) {
-				URI historyURI = URI.createURI(repo + "/commits");
+				URI historyURI = URI.createURI(repo + "/commits/");
 				return BaseHandler.getLastModified(historyURI, GITHUB_TIME_PATTERN, GIT_DATE_FORMAT);
 			} else if (repo.startsWith(GIT_ECLIPSE)) {
 				URI historyURI = URI.createURI(repo.replace("/r/", "/c/") + ".git/log/");

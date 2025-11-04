@@ -196,6 +196,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="site" eType="#//URI"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="#//URI"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="news" eType="#//URI"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="releaseDate" eType="#//Date">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The date of the version release"/>

@@ -2526,7 +2526,9 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 			public Object[] getElements(Object inputElement) {
 				Analysis analysis = getAnalysis((Resource) inputElement);
 				if (analysis != null) {
-					EList<ContributionAnalysis> contributions = analysis.getContributions();
+					// filter disabled contributions.
+					List<ContributionAnalysis> contributions = analysis.getContributions().stream()
+							.filter(it -> it.getContribution() == null || it.getContribution().isEnabled()).toList();
 					if (this.analysis != analysis) {
 						// Populate the usage counts.
 						this.analysis = analysis;

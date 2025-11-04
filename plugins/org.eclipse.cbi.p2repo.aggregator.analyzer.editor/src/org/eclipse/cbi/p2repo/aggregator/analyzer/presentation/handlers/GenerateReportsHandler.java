@@ -174,8 +174,12 @@ public class GenerateReportsHandler extends BaseHandler {
 					while (matcher.find()) {
 						String label = matcher.group(1);
 						String anchor = anchors.get(label);
-						matcher.appendReplacement(linkifiedSVG, Matcher.quoteReplacement(
-								"<a xlink:href= '" + plainReportURI + "#-" + anchor + "'>" + matcher.group() + "</a>"));
+						matcher.appendReplacement(linkifiedSVG, Matcher.quoteReplacement("<a xlink:href= '"
+								+ "/simrel/?file=report/report.md#-" + anchor + "'>" + matcher.group() + "</a>"));
+						if (Boolean.FALSE) {
+							matcher.appendReplacement(linkifiedSVG, Matcher.quoteReplacement("<a xlink:href= '"
+									+ plainReportURI + "#-" + anchor + "'>" + matcher.group() + "</a>"));
+						}
 					}
 					matcher.appendTail(linkifiedSVG);
 
@@ -186,17 +190,23 @@ public class GenerateReportsHandler extends BaseHandler {
 						AggregationAnalyzerEditorPlugin.INSTANCE.log(ex);
 					}
 
-					URI rawURI = AnalyzerUtil.getGitRepositoryURI(reportSVGURI).getRawURI();
-					if (rawURI != null) {
-						out.println("![](" + rawURI + ")");
-					} else {
-						out.println("![](report.svg)");
+					out.println("# Dependencies");
+					out.println(" [![](report.svg)](report.svg)");
+					out.println();
+
+					if (Boolean.FALSE) {
+						URI rawURI = AnalyzerUtil.getGitRepositoryURI(reportSVGURI).getRawURI();
+						if (rawURI != null) {
+							out.println("![](" + rawURI + ")");
+						} else {
+							out.println("![](report.svg)");
+						}
 					}
 				}
 
 				Collections.sort(contributions, AnalyzerUtil.CONTRIBUTION_ANALYSIS_COMPARATOR_WITH_RANK);
 
-				out.println("# Contributing Projects and Git Repositories");
+				out.println("# Projects");
 				out.println();
 
 				for (ContributionAnalysis contributionAnalysis : contributions) {
@@ -217,7 +227,7 @@ public class GenerateReportsHandler extends BaseHandler {
 								printGitRepositories(out, "", project);
 								out.println();
 							}
-							out.println("##");
+							out.println("---");
 						}
 
 						Contribution contribution = contributionAnalysis.getContribution();
@@ -295,7 +305,7 @@ public class GenerateReportsHandler extends BaseHandler {
 									out.println();
 								}
 								out.println();
-								out.println("##");
+								out.println("---");
 							}
 						}
 					}
@@ -424,6 +434,12 @@ public class GenerateReportsHandler extends BaseHandler {
 				out.print(new SimpleDateFormat("yyyy-MM-dd").format(releaseDate));
 			}
 
+			URI news = project.getNews();
+			if (news != null) {
+				out.print(" ");
+				printLink(out, "&#128240;", news);
+			}
+
 			out.println();
 
 			String nestedIndent = indent + "    ";
@@ -465,7 +481,6 @@ public class GenerateReportsHandler extends BaseHandler {
 			out.print(uri);
 			out.print(")");
 		}
-
 	}
 
 	private static class ReportsDialog extends Dialog {
@@ -496,7 +511,7 @@ public class GenerateReportsHandler extends BaseHandler {
 			group.setLayout(layout);
 
 			Label label = new Label(group, SWT.NONE);
-			label.setText("Report Folder");
+			label.setText("Report folder");
 
 			text = new Text(group, SWT.SINGLE | SWT.BORDER);
 			text.setLayoutData(GridDataFactory.fillDefaults().grab(true, false).create());
@@ -509,7 +524,7 @@ public class GenerateReportsHandler extends BaseHandler {
 
 		@Override
 		protected void okPressed() {
-			REPORT_DIALOG_SETTINGS.put("target", getFolder());
+			REPORT_DIALOG_SETTINGS.put("target", text.getText());
 			super.okPressed();
 		}
 

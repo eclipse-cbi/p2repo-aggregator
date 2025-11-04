@@ -69,6 +69,7 @@ public class ProjectItemProvider extends AnalyzerItemProviderAdapter
 			addNamePropertyDescriptor(object);
 			addSitePropertyDescriptor(object);
 			addVersionPropertyDescriptor(object);
+			addNewsPropertyDescriptor(object);
 			addReleaseDatePropertyDescriptor(object);
 			addRankPropertyDescriptor(object);
 			addTagsPropertyDescriptor(object);
@@ -120,6 +121,21 @@ public class ProjectItemProvider extends AnalyzerItemProviderAdapter
 						getString("_UI_PropertyDescriptor_description", "_UI_Project_version_feature",
 								"_UI_Project_type"),
 						AnalyzerPackage.Literals.PROJECT__VERSION, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the News feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNewsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Project_news_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Project_news_feature", "_UI_Project_type"),
+						AnalyzerPackage.Literals.PROJECT__NEWS, true, false, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
@@ -293,6 +309,7 @@ public class ProjectItemProvider extends AnalyzerItemProviderAdapter
 			case AnalyzerPackage.PROJECT__NAME:
 			case AnalyzerPackage.PROJECT__SITE:
 			case AnalyzerPackage.PROJECT__VERSION:
+			case AnalyzerPackage.PROJECT__NEWS:
 			case AnalyzerPackage.PROJECT__RELEASE_DATE:
 			case AnalyzerPackage.PROJECT__RANK:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
@@ -308,6 +325,7 @@ public class ProjectItemProvider extends AnalyzerItemProviderAdapter
 		}
 	}
 
+	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		Project project = (Project) object;
 		Analysis analysis = project.getAnalysis();

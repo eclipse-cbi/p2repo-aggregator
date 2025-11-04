@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.Project#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.Project#getSite <em>Site</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.Project#getVersion <em>Version</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.Project#getNews <em>News</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.Project#getReleaseDate <em>Release Date</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.Project#getRank <em>Rank</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.Project#getTags <em>Tags</em>}</li>
@@ -107,6 +108,28 @@ public interface Project extends EObject {
 	 * @generated
 	 */
 	void setVersion(URI value);
+
+	/**
+	 * Returns the value of the '<em><b>News</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>News</em>' attribute.
+	 * @see #setNews(URI)
+	 * @see org.eclipse.cbi.p2repo.aggregator.analyzer.AnalyzerPackage#getProject_News()
+	 * @model dataType="org.eclipse.cbi.p2repo.aggregator.analyzer.URI"
+	 * @generated
+	 */
+	URI getNews();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.analyzer.Project#getNews <em>News</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>News</em>' attribute.
+	 * @see #getNews()
+	 * @generated
+	 */
+	void setNews(URI value);
 
 	/**
 	 * Returns the value of the '<em><b>Release Date</b></em>' attribute.

@@ -11,53 +11,48 @@
 package org.eclipse.cbi.p2repo.aggregator.analyzer.presentation.handlers;
 
 import java.io.IOException;
+import java.nio.file.FileVisitResult;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.SimpleFileVisitor;
+import java.nio.file.attribute.BasicFileAttributes;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.function.Predicate;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 
-import org.eclipse.cbi.p2repo.aggregator.Contribution;
-import org.eclipse.cbi.p2repo.aggregator.MappedRepository;
 import org.eclipse.cbi.p2repo.aggregator.analyzer.Analysis;
 import org.eclipse.cbi.p2repo.aggregator.analyzer.AnalyzerFactory;
 import org.eclipse.cbi.p2repo.aggregator.analyzer.ContributionAnalysis;
-import org.eclipse.cbi.p2repo.aggregator.analyzer.GitRepository;
 import org.eclipse.cbi.p2repo.aggregator.analyzer.Project;
 import org.eclipse.cbi.p2repo.aggregator.analyzer.presentation.AggregationAnalyzerEditorPlugin;
-import org.eclipse.cbi.p2repo.aggregator.analyzer.util.AnalyzerUtil;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
-import org.eclipse.emf.common.CommonPlugin;
-import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.impl.URIMappingRegistryImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.command.ChangeCommand;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
-import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.equinox.p2.metadata.Version;
 import org.eclipse.swt.widgets.Shell;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 public class ProjectReconcilerHandler extends BaseHandler {
 
@@ -86,7 +81,7 @@ public class ProjectReconcilerHandler extends BaseHandler {
 
 		@Override
 		protected void perform(IProgressMonitor monitor) throws Exception {
-			EList<String> gitRepositoryFilters = analysis.getGitRepositoryFilters();
+			var gitRepositoryFilters = analysis.getGitRepositoryFilters();
 			projectMapper = new ProjectMapper(analysis.getReleaseDate(),
 					gitRepositoryFilters.isEmpty() ? null : Pattern.compile(String.join("|", gitRepositoryFilters)));
 			projects = reconcile(monitor);
@@ -94,8 +89,8 @@ public class ProjectReconcilerHandler extends BaseHandler {
 
 		@Override
 		protected void asyncExec() {
-			EditingDomain editingDomain = AdapterFactoryEditingDomain.getEditingDomainFor(analysis);
-			CommandStack commandStack = editingDomain.getCommandStack();
+			var editingDomain = AdapterFactoryEditingDomain.getEditingDomainFor(analysis);
+			var commandStack = editingDomain.getCommandStack();
 			class ProjectReconcileCommand extends ChangeCommand {
 				private ProjectReconcileCommand(Collection<Notifier> notifiers) {
 					super(notifiers);
@@ -103,9 +98,9 @@ public class ProjectReconcilerHandler extends BaseHandler {
 
 				@Override
 				protected void doExecute() {
-					for (Map.Entry<ContributionAnalysis, List<Project>> entry : projects.entrySet()) {
-						EList<Project> oldProjects = entry.getKey().getProjects();
-						List<Project> newProjects = entry.getValue();
+					for (var entry : projects.entrySet()) {
+						var oldProjects = entry.getKey().getProjects();
+						var newProjects = entry.getValue();
 						reconcile(oldProjects, newProjects);
 						if (!EcoreUtil.equals(oldProjects, newProjects)) {
 							ECollections.setEList(oldProjects, newProjects);
@@ -114,17 +109,17 @@ public class ProjectReconcilerHandler extends BaseHandler {
 				}
 
 				private void reconcile(List<Project> oldProjects, List<Project> newProjects) {
-					Map<String, EList<String>> tags = new HashMap<>();
-					for (Iterator<EObject> it = EcoreUtil.getAllContents(oldProjects); it.hasNext();) {
-						EObject eObject = it.next();
+					var tags = new HashMap<String, EList<String>>();
+					for (var it = EcoreUtil.<EObject>getAllContents(oldProjects); it.hasNext();) {
+						var eObject = it.next();
 						if (eObject instanceof Project project) {
 							tags.put(project.getName(), project.getTags());
 						}
 					}
-					for (Iterator<EObject> it = EcoreUtil.getAllContents(newProjects); it.hasNext();) {
-						EObject eObject = it.next();
+					for (var it = EcoreUtil.<EObject>getAllContents(newProjects); it.hasNext();) {
+						var eObject = it.next();
 						if (eObject instanceof Project project) {
-							EList<String> projectTags = tags.get(project.getName());
+							var projectTags = tags.get(project.getName());
 							if (projectTags != null) {
 								project.getTags().addAll(projectTags);
 							}
@@ -132,6 +127,7 @@ public class ProjectReconcilerHandler extends BaseHandler {
 					}
 				}
 
+				@Override
 				public String getLabel() {
 					return "Reconcile Projects";
 				}
@@ -141,7 +137,7 @@ public class ProjectReconcilerHandler extends BaseHandler {
 				}
 			}
 
-			ProjectReconcileCommand reconcileCommand = new ProjectReconcileCommand(List.of(analysis));
+			var reconcileCommand = new ProjectReconcileCommand(List.of(analysis));
 			commandStack.execute(reconcileCommand);
 
 			// If the reconcile operation produced no changes, the command is a no-op so we can remove it from the command stack.
@@ -152,23 +148,19 @@ public class ProjectReconcilerHandler extends BaseHandler {
 		}
 
 		public Map<ContributionAnalysis, List<Project>> reconcile(IProgressMonitor monitor) throws Exception {
-			Map<ContributionAnalysis, List<Project>> projectLinks = computeProjectLinks(monitor, analysis);
-			if (Boolean.FALSE) {
-				compareWithOfficialList(projectLinks);
-			}
-
+			var projectLinks = computeProjectLinks(monitor, analysis);
 			update(projectLinks);
 			return projectLinks;
 		}
 
 		private void update(Map<ContributionAnalysis, List<Project>> projectLinks) {
-			String csv = System.getProperty(
+			var csv = System.getProperty(
 					"org.eclipse.cbi.p2repo.aggregator.analyzer.presentation.handlers.ProjectReconcilerHandler.csv");
 
-			Map<URI, List<Project>> sitesToProjects = new LinkedHashMap<>();
-			for (List<Project> projects : projectLinks.values()) {
-				for (TreeIterator<Object> allContents = EcoreUtil.getAllContents(projects); allContents.hasNext();) {
-					Object content = allContents.next();
+			var sitesToProjects = new LinkedHashMap<URI, List<Project>>();
+			for (var projects : projectLinks.values()) {
+				for (var allContents = EcoreUtil.getAllContents(projects); allContents.hasNext();) {
+					var content = allContents.next();
 					if (content instanceof Project project) {
 						sitesToProjects.computeIfAbsent(project.getSite(), it -> new ArrayList<>()).add(project);
 					}
@@ -177,16 +169,16 @@ public class ProjectReconcilerHandler extends BaseHandler {
 
 			if (csv != null) {
 				try {
-					List<String> lines = Files.readAllLines(Path.of(csv));
-					for (String line : lines) {
-						String[] parts = line.split(";", -1);
-						String url = parts[1];
+					var lines = Files.readAllLines(Path.of(csv));
+					for (var line : lines) {
+						var parts = line.split(";", -1);
+						var url = parts[1];
 						if (url.startsWith("https:")) {
-							int rank = Integer.valueOf(parts[parts.length - 1]);
-							URI uri = URI.createURI(url);
-							List<Project> projects = sitesToProjects.get(uri);
+							var rank = Integer.valueOf(parts[parts.length - 1]);
+							var uri = URI.createURI(url);
+							var projects = sitesToProjects.get(uri);
 							if (projects != null && !projects.isEmpty()) {
-								for (Project project : projects) {
+								for (var project : projects) {
 									project.setRank(rank);
 								}
 							}
@@ -198,128 +190,21 @@ public class ProjectReconcilerHandler extends BaseHandler {
 			}
 		}
 
-		private void compareWithOfficialList(Map<ContributionAnalysis, List<Project>> projectLinks) {
-			Set<String> projectIDs = new TreeSet<>(CommonPlugin.INSTANCE.getComparator());
-
-			Map<String, Project> projects = new TreeMap<>(CommonPlugin.INSTANCE.getComparator());
-			Map<String, String> projectVersions = new TreeMap<>(CommonPlugin.INSTANCE.getComparator());
-			Map<String, Date> projectDates = new TreeMap<>(CommonPlugin.INSTANCE.getComparator());
-			Map<String, String> projectNameIDs = new TreeMap<>(CommonPlugin.INSTANCE.getComparator());
-			for (Map.Entry<ContributionAnalysis, List<Project>> entry : projectLinks.entrySet()) {
-				Contribution contribution = entry.getKey().getContribution();
-				if (contribution == null || contribution.isEnabled()) {
-					for (Project project : entry.getValue()) {
-						URI version = project.getVersion();
-						String projectID = project.getSite().lastSegment();
-						String projectName = project.getName();
-
-						projects.put(projectName, project);
-						projectIDs.add(projectID);
-						projectNameIDs.put(projectName, projectID);
-						projectVersions.put(projectName, version == null ? null : version.lastSegment());
-						projectDates.put(projectName, project.getReleaseDate());
-					}
-				}
-			}
-
-			System.out.println("-----------------------------");
-			for (Map.Entry<String, String> entry : projectVersions.entrySet()) {
-				Date releaseDate = projectDates.get(entry.getKey());
-				String date = releaseDate == null ? "" : " " + AnalyzerUtil.format(releaseDate);
-				System.out.println(entry.getKey() + " -> " + entry.getValue() + date);
-			}
-
-			System.out.println("-----------------------------");
-			for (Map.Entry<String, String> entry : projectVersions.entrySet()) {
-				Date releaseDate = projectDates.get(entry.getKey());
-				String date = releaseDate == null ? "" : " " + AnalyzerUtil.format(releaseDate);
-				System.out.println(entry.getKey() + " -> https://projects.eclipse.org/projects/"
-						+ projectNameIDs.get(entry.getKey()) + "/releases/" + entry.getValue() + date);
-			}
-
-			if (Boolean.FALSE) {
-				// If Wayne asks for a list of IDs, this can be enabled.
-				System.out.println("-----------------------------");
-				for (String project : projectIDs) {
-					System.out.println(project);
-				}
-			}
-
-			Map<String, String> projectsWayne = new TreeMap<>();
-			try {
-				String content = getContent(
-						URI.createURI(ProjectMapper.ECLIPSE_PROJECT_PORTAL_HOST + "releases/2024-06"));
-				Pattern projectPattern = Pattern.compile(
-						"<a href=\"/projects/([^\"]+)\"[^>]*>([^<]+)</a></td>\\s*<td><a href=\"([^\"]+)\"[^>]*>[^<]+</a>");
-				for (Matcher matcher = projectPattern.matcher(content); matcher.find();) {
-					String group2 = matcher.group(2).trim().replace("\u2122", "");
-					String group3 = matcher.group(3);
-					String other = projectsWayne.put(group2, URI.createURI(group3).lastSegment());
-					if (other != null) {
-						System.err.println(">> " + other);
-					}
-				}
-			} catch (IOException ex) {
-				AggregationAnalyzerEditorPlugin.INSTANCE.log(ex);
-			}
-
-			System.out.println("-----------------------------");
-
-			for (Map.Entry<String, String> project : projectVersions.entrySet()) {
-				if (project.getKey() != null) {
-					if (!projectsWayne.containsKey(project.getKey())) {
-						System.out.println("++ " + project);
-					} else {
-						String value1 = project.getValue();
-						String value2 = projectsWayne.get(project.getKey());
-						if (!Objects.equals(value1, value2)) {
-							System.out.println("?? " + project.getKey() + " " + value1 + " != " + value2);
-						}
-					}
-				}
-			}
-
-			for (String project : projectsWayne.keySet()) {
-				if (!projectVersions.containsKey(project)) {
-					System.out.println("-- " + project);
-				}
-			}
-
-			System.out.println("-----------------------------");
-			for (Project project : projects.values()) {
-				Date releaseDate = project.getReleaseDate();
-				URI site = project.getSite();
-				URI version = project.getVersion();
-				System.out.print(" - [" + project.getName() + "](" + site + "/releases)");
-				if (version != null) {
-					System.out.print(" \u2022 [**" + version.lastSegment() + "**](" + version + ")");
-					if (releaseDate != null) {
-						String date = AnalyzerUtil.format(releaseDate);
-						if (AnalyzerUtil.getAgeInDays(releaseDate.getTime(), projectMapper.versionCutoffTime) > 90) {
-							date = "~~" + date + "~~";
-						}
-						System.out.print(" \u2022 " + date);
-					}
-				}
-				System.out.println();
-			}
-		}
-
 		private Map<ContributionAnalysis, List<Project>> computeProjectLinks(IProgressMonitor monitor,
 				Analysis analysis) throws Exception {
-			Map<ContributionAnalysis, List<Project>> result = new LinkedHashMap<>();
-			EList<ContributionAnalysis> contributions = analysis.getContributions();
-			SubMonitor subMonitor = SubMonitor.convert(monitor, "Analyzing", contributions.size());
-			for (ContributionAnalysis contributionAnalysis : contributions) {
-				List<Project> projects = new ArrayList<>();
+			var result = new LinkedHashMap<ContributionAnalysis, List<Project>>();
+			var contributions = analysis.getContributions();
+			var subMonitor = SubMonitor.convert(monitor, "Analyzing", contributions.size());
+			for (var contributionAnalysis : contributions) {
+				var projects = new ArrayList<Project>();
 				result.put(contributionAnalysis, projects);
 
-				SubMonitor projectSubMonitor = subMonitor.newChild(1);
+				var projectSubMonitor = subMonitor.newChild(1);
 				projectSubMonitor.subTask(contributionAnalysis.getLabel());
 
-				Map<String, Integer> projectIDs = getProjectIDs(contributionAnalysis);
-				String label = contributionAnalysis.getLabel();
-				Predicate<String> filter = new Predicate<String>() {
+				var projectIDs = getProjectIDs(contributionAnalysis);
+				var label = contributionAnalysis.getLabel();
+				var filter = new Predicate<String>() {
 					private final Pattern pattern = Pattern.compile(
 							".*:webtools.java-ee-config|.*:webtools\\.releng|.*:eclipse\\.jdt\\.ls|Web Tools Platform:tools.oomph|.*To-Be-Deleted.*");
 
@@ -329,10 +214,10 @@ public class ProjectReconcilerHandler extends BaseHandler {
 					}
 				};
 
-				Set<String> rootProjectIDs = new LinkedHashSet<>(projectIDs.keySet());
+				var rootProjectIDs = new LinkedHashSet<String>(projectIDs.keySet());
 				getProjectIDs(projectIDs, contributionAnalysis.getAllProjects());
 
-				for (String projectID : rootProjectIDs) {
+				for (var projectID : rootProjectIDs) {
 					if (!filter.test(projectID)) {
 						projects.add(createProject(filter, projectID, projectIDs, true));
 					}
@@ -344,35 +229,61 @@ public class ProjectReconcilerHandler extends BaseHandler {
 
 		private Project createProject(Predicate<String> filter, String projectID, Map<String, Integer> projectIDs,
 				boolean root) throws IOException {
-			Project project = AnalyzerFactory.eINSTANCE.createProject();
-			Integer rank = projectIDs.get(projectID);
+			var project = AnalyzerFactory.eINSTANCE.createProject();
+			var rank = projectIDs.get(projectID);
 			project.setRank(rank == null ? 0 : rank);
 			project.setSite(URI.createURI(ProjectMapper.ECLIPSE_PROJECT_PORTAL + projectID));
 			project.setName(projectMapper.getProjectName(projectID));
 
 			if (root) {
-				String latestReleaseURL = projectMapper.getLatestReleaseInfo(String.class, projectID);
+				var latestReleaseURL = projectMapper.getLatestReleaseInfo(String.class, projectID);
 				if (latestReleaseURL != null) {
 					project.setVersion(URI.createURI(latestReleaseURL));
-					Date date = projectMapper.getLatestReleaseInfo(Date.class, projectID);
+					var date = projectMapper.getLatestReleaseInfo(Date.class, projectID);
 					if (date != null) {
 						project.setReleaseDate(date);
 					}
 				}
 			}
 
-			EList<GitRepository> repositories = project.getRepositories();
-			Set<String> repositoryURIs = projectMapper.getRepositories(projectID);
-			for (String repositoryURI : repositoryURIs) {
-				GitRepository gitRepository = AnalyzerFactory.eINSTANCE.createGitRepository();
+			if ("modeling.emf.cdo".equals(projectID)) {
+				URI site = project.getSite();
+				for (var contributionAnalysis : analysis.getContributions()) {
+					for (var orginalProject : contributionAnalysis.getAllProjects()) {
+						if (site.equals(orginalProject.getSite())) {
+							for (var mappedRepository : contributionAnalysis.getContribution().getRepositories(true)) {
+								try {
+									project.setNews(URI.createURI(projectMapper
+											.validate(mappedRepository.getLocation() + "/" + "relnotes.html")));
+									break;
+								} catch (Exception e) {
+									//$FALL-THROUGH$
+								}
+							}
+							break;
+						}
+					}
+				}
+			}
+
+			var repositories = project.getRepositories();
+			var repositoryURIs = projectMapper.getRepositories(projectID);
+			for (var repositoryURI : repositoryURIs) {
+				var gitRepository = AnalyzerFactory.eINSTANCE.createGitRepository();
 				gitRepository.setURI(URI.createURI(repositoryURI));
+				if (project.getNews() == null) {
+					var news = projectMapper.getNews(gitRepository.getURI());
+					if (news != null) {
+						project.setNews(URI.createURI(news));
+					}
+				}
 				repositories.add(gitRepository);
 			}
 
 			if (!projectID.contains(".")) {
-				EList<Project> subprojects = project.getSubprojects();
-				Set<String> subprojectIDs = projectMapper.getSubprojects(projectID);
-				for (String subprojectID : subprojectIDs) {
+				var subprojects = project.getSubprojects();
+				var subprojectIDs = projectMapper.getSubprojects(projectID);
+				for (var subprojectID : subprojectIDs) {
 					if (!filter.test(subprojectID)) {
 						subprojects.add(createProject(filter, subprojectID, projectIDs, false));
 					}
@@ -383,12 +294,12 @@ public class ProjectReconcilerHandler extends BaseHandler {
 		}
 
 		private Map<String, Integer> getProjectIDs(ContributionAnalysis contributionAnalysis) {
-			Map<String, Integer> projects = new TreeMap<>();
-			Contribution contribution = contributionAnalysis.getContribution();
+			var projects = new TreeMap<String, Integer>();
+			var contribution = contributionAnalysis.getContribution();
 			if (contribution != null) {
-				for (MappedRepository mappedRepository : contribution.getRepositories(false)) {
-					String resolvedLocation = mappedRepository.getResolvedLocation();
-					String projectID = projectMapper.getProjectID(URI.createURI(resolvedLocation));
+				for (var mappedRepository : contribution.getRepositories(true)) {
+					var resolvedLocation = mappedRepository.getResolvedLocation();
+					var projectID = projectMapper.getProjectID(URI.createURI(resolvedLocation));
 					if (projectID == null) {
 						System.out.println("Not found: " + resolvedLocation);
 					} else {
@@ -403,10 +314,10 @@ public class ProjectReconcilerHandler extends BaseHandler {
 		}
 
 		private void getProjectIDs(Map<String, Integer> projectIDs, List<Project> projects) {
-			for (Project project : projects) {
-				URI site = project.getSite();
+			for (var project : projects) {
+				var site = project.getSite();
 				if (site.toString().startsWith(ProjectMapper.ECLIPSE_PROJECT_PORTAL)) {
-					String projectID = site.lastSegment();
+					var projectID = site.lastSegment();
 					if (projectMapper.getProjectName(projectID) != null) {
 						projectIDs.put(projectID, project.getRank());
 					}
@@ -428,7 +339,7 @@ public class ProjectReconcilerHandler extends BaseHandler {
 
 		private final URIMappingRegistryImpl registry = new URIMappingRegistryImpl();
 
-		private final Map<String, String> pmiContent = new TreeMap<>();
+		private final Map<String, JSONObject> pmiContent = new TreeMap<>();
 
 		private final Map<String, String> projects = new TreeMap<>();
 
@@ -440,7 +351,7 @@ public class ProjectReconcilerHandler extends BaseHandler {
 
 			this.gitRepositoryPattern = gitRepositoryPattern;
 			if (releaseDate == null) {
-				long now = System.currentTimeMillis();
+				var now = System.currentTimeMillis();
 				// Three months from now.
 				versionCutoffTime = now + 1000L * 60L * 60L * 24L * 30L * 3L;
 			} else {
@@ -448,12 +359,12 @@ public class ProjectReconcilerHandler extends BaseHandler {
 				versionCutoffTime = releaseDate.getTime() + 1000L * 60L * 60L * 24L;
 			}
 
-			String mappings = getContent(MAPPINGS);
+			var mappings = getContent(MAPPINGS);
 			mappings += "tools/ptp/\ttools.ptp\n";
-			for (String line : mappings.split("\r?\n")) {
-				int tab = line.indexOf('\t');
-				String path = line.substring(0, tab);
-				String project = line.substring(tab + 1);
+			for (var line : mappings.split("\r?\n")) {
+				var tab = line.indexOf('\t');
+				var path = line.substring(0, tab);
+				var project = line.substring(tab + 1);
 
 				if ("webtools.releng".equals(project)) {
 					project = "webtools";
@@ -461,21 +372,21 @@ public class ProjectReconcilerHandler extends BaseHandler {
 					project = "eclipse";
 				}
 
-				URI projectURI = URI.createURI("project://" + project + "/");
+				var projectURI = URI.createURI("project://" + project + "/");
 				for (String host : new String[] { "https://download.eclipse.org", "https://archive.eclipse.org",
 						"http://download.eclipse.org", "http://archive.eclipse.org" }) {
 					registry.put(createURI(host, path), projectURI);
 				}
 			}
 
-			String projects = getContent(PROJECTS);
+			var projects = getContent(PROJECTS);
 			projects += "tools.ptp\tEclipse Parallel Tools Platform (PTP)\n";
-			for (String line : projects.split("\r?\n")) {
-				int tab = line.indexOf('\t');
+			for (var line : projects.split("\r?\n")) {
+				var tab = line.indexOf('\t');
 				if (tab != -1) {
-					String id = line.substring(0, tab);
+					var id = line.substring(0, tab);
 					if (!id.endsWith(".incubator")) {
-						String name = line.substring(tab + 1);
+						var name = line.substring(tab + 1);
 						this.projects.put(id, name.replace("\\", ""));
 					}
 				}
@@ -483,7 +394,7 @@ public class ProjectReconcilerHandler extends BaseHandler {
 		}
 
 		public String getProjectID(URI uri) {
-			URI projectURI = registry.getURI(uri);
+			var projectURI = registry.getURI(uri);
 			if (projectURI != null && "project".equals(projectURI.scheme())) {
 				return projectURI.authority();
 			}
@@ -496,63 +407,48 @@ public class ProjectReconcilerHandler extends BaseHandler {
 		}
 
 		public Set<String> getRepositories(String projectID) throws IOException {
-			Set<String> result = new TreeSet<>();
-			String content = getPMIContent(projectID);
-
-			String github = getGroup("github", content);
+			var result = new TreeSet<String>();
+			var content = getPMIContent(projectID);
+			var github = get(content, "github");
 			if (github != null) {
-				Set<String> orgs = getValues("org", github);
-				for (String org : orgs) {
-					for (int i = 1; i < 10; i++) {
-						String repos = getContent(
-								URI.createURI("https://api.github.com/orgs/" + org + "/repos?page=" + i));
-						List<String> urls = getFilteredValues("clone_url", "archived", repos).stream()
-								.map(it -> it.replaceAll(".git$", "")).collect(Collectors.toList());
-						if (urls.isEmpty()) {
-							break;
+				var org = github.getString("org");
+				if (!org.isBlank()) {
+					var repos = getPaginatedContent(URI.createURI("https://api.github.com/orgs/" + org + "/repos"));
+					for (var repo : toJSONObjects(repos)) {
+						if (!repo.getBoolean("archived")) {
+							result.add(repo.getString("clone_url").replaceAll(".git$", ""));
 						}
-						result.addAll(urls);
 					}
 				}
 			}
 
-			String githubRepos = getSection("github_repos", content);
-			if (githubRepos != null) {
-				result.addAll(getValues("url", githubRepos));
+			if (content.has("github_repos")) {
+				var githubRepos = content.getJSONArray("github_repos");
+				if (githubRepos != null) {
+					for (var repo : toJSONObjects(githubRepos)) {
+						result.add(repo.getString("url"));
+					}
+				}
+			}
+
+			// var gitlab = get(content, "gitlab");
+			// if (gitlab != null) {
+			// var group = gitlab.getString("project_group");
+			// if (!group.isBlank()) {
+			// var repos = new JSONObject(getContent(URI.createURI("https://gitlab.eclipse.org/api/v4/groups/"
+			// + group.replace("\\", "").replace("/", "%2f") + "/")));
+			// }
+			// }
+
+			if (content.has("gitlab_repos")) {
+				var gitlabRepos = content.getJSONArray("gitlab_repos");
+				for (var repo : toJSONObjects(gitlabRepos)) {
+					result.add(repo.getString("url").replaceAll(".git$", ""));
+				}
+
 			}
 
 			cleanupRepos(projectID, result);
-
-			if (result.isEmpty()) {
-				String gerritRepos = getSection("gerrit_repos", content);
-				if (gerritRepos != null) {
-					result.addAll(getValues("url", gerritRepos));
-					cleanupRepos(projectID, result);
-				}
-			}
-
-			String gitlab = getGroup("gitlab", content);
-			if (gitlab != null) {
-				Set<String> groups = getValues("project_group", gitlab);
-				for (String group : groups) {
-					for (int i = 1; i < 10; i++) {
-						String repos = getContent(URI.createURI("https://gitlab.eclipse.org/api/v4/groups/"
-								+ group.replace("\\", "").replace("/", "%2f") + "?page=" + i));
-						Set<String> urls = getValues("http_url_to_repo", repos);
-						if (!result.addAll(
-								urls.stream().map(it -> it.replaceAll("\\.git$", "")).collect(Collectors.toList()))) {
-							break;
-						}
-					}
-				}
-			}
-
-			String gitlabRepos = getSection("gitlab_repos", content);
-			if (githubRepos != null) {
-				result.addAll(getValues("url", gitlabRepos).stream().map(it -> it.replaceAll("\\.git$", ""))
-						.collect(Collectors.toList()));
-				cleanupRepos(projectID, result);
-			}
 
 			return result;
 		}
@@ -564,93 +460,48 @@ public class ProjectReconcilerHandler extends BaseHandler {
 		}
 
 		public <T> T getLatestReleaseInfo(Class<T> type, String projectID) throws IOException {
-			String content = getPMIContent(projectID);
-			String releases = getSection("releases", content);
-			if (releases != null) {
-				SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-				Map<String, String> values = getValues("url", "date", releases);
-				for (Map.Entry<String, String> release : values.entrySet()) {
-					String releaseURI = release.getKey();
+			var content = getPMIContent(projectID);
+			var releases = content.getString("releases");
+			var jsonArray = getPaginatedContent(URI.createURI(releases + "/"));
+			var values = new TreeMap<>(Collections.reverseOrder());
+			var simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+			for (var release : toJSONObjects(jsonArray)) {
+				var releaseURI = release.getString("url");
+				var date = release.getString("date");
+				if (!date.isBlank()) {
 					try {
-						Date dateValue = simpleDateFormat.parse(release.getValue());
-						long delta = versionCutoffTime - dateValue.getTime();
+						var dateValue = simpleDateFormat.parse(date);
+						var delta = versionCutoffTime - dateValue.getTime();
 						if (delta > 0) {
 							if (type.isInstance(releaseURI)) {
-								return type.cast(releaseURI);
+								values.put(dateValue, releaseURI);
+								// return type.cast(releaseURI);
+							} else if (type.isInstance(dateValue)) {
+								values.put(dateValue, dateValue);
+								// return type.cast(dateValue);
+							} else {
+								throw new IllegalArgumentException("Type " + type.getName() + " not expected");
 							}
-							if (type.isInstance(dateValue)) {
-								return type.cast(dateValue);
-							}
-
-							throw new IllegalArgumentException("Type " + type.getName() + " not expected");
 						} else {
 							// Release is after the cutoff date
-							System.out.println("-- " + projectID + " -> " + releaseURI + " -> " + release.getValue()
-									+ " > " + simpleDateFormat.format(new Date(versionCutoffTime)));
+							System.out.println("-- " + projectID + " -> " + releaseURI + " -> " + date + " > "
+									+ simpleDateFormat.format(new Date(versionCutoffTime)));
 						}
 					} catch (ParseException e) {
 						throw new IOException(e);
 					}
 				}
 			}
-			return null;
-		}
-
-		private String getGroup(String key, String content) {
-			// {{
-			Pattern pattern = Pattern.compile('"' + key + "\":\\{([^}]*)\\}"); // }
-			Matcher matcher = pattern.matcher(content);
-			if (matcher.find()) {
-				return matcher.group(1);
+			if (values.isEmpty()) {
+				return null;
 			}
-			return null;
-		}
-
-		private String getSection(String key, String content) {
-			Pattern pattern = Pattern.compile('"' + key + "\":\\[([^]]*)\\]");
-			Matcher matcher = pattern.matcher(content);
-			if (matcher.find()) {
-				return matcher.group(1);
-			}
-			return null;
-		}
-
-		private Set<String> getFilteredValues(String key, String booleanKey, String content) {
-			Set<String> result = new LinkedHashSet<>();
-			Matcher matcher1 = Pattern.compile('"' + key + "\":\"([^\"]+)\"").matcher(content);
-			Matcher matcher2 = Pattern.compile('"' + booleanKey + "\":(true|false)").matcher(content);
-			while (matcher1.find() && matcher2.find()) {
-				if ("false".equals(matcher2.group(1))) {
-					result.add(matcher1.group(1).replace("\\", ""));
-				}
-			}
-			return result;
-		}
-
-		private Set<String> getValues(String key, String content) {
-			Set<String> result = new LinkedHashSet<>();
-			Matcher matcher = Pattern.compile('"' + key + "\":\"([^\"]+)\"").matcher(content);
-			while (matcher.find()) {
-				result.add(matcher.group(1).replace("\\", ""));
-			}
-			return result;
-		}
-
-		private Map<String, String> getValues(String key, String value, String content) {
-			Map<String, String> result = new LinkedHashMap<>();
-			// {
-			Matcher matcher = Pattern.compile('"' + key + "\":\"([^\"]+)\"" + "[^}]*" + '"' + value + "\":\"([^\"]+)\"")
-					.matcher(content);
-			while (matcher.find()) {
-				result.put(matcher.group(1).replace("\\", ""), matcher.group(2).replace("\\", ""));
-			}
-			return result;
+			return type.cast(values.firstEntry().getValue());
 		}
 
 		public Set<String> getSubprojects(String projectID) {
-			Set<String> result = new LinkedHashSet<>();
-			String prefix = projectID + '.';
-			for (String otherProjectID : projects.keySet()) {
+			var result = new LinkedHashSet<String>();
+			var prefix = projectID + '.';
+			for (var otherProjectID : projects.keySet()) {
 				if (otherProjectID.startsWith(prefix) && !otherProjectID.equals("eclipse.e4")) {
 					result.add(otherProjectID);
 				}
@@ -658,12 +509,13 @@ public class ProjectReconcilerHandler extends BaseHandler {
 			return result;
 		}
 
-		public String getPMIContent(String projectID) throws IOException {
-			String result = pmiContent.get(projectID);
+		public JSONObject getPMIContent(String projectID) throws IOException {
+			var result = pmiContent.get(projectID);
 			if (result == null) {
-				String pmiID = projectID.replace('.', '_');
-				URI pmiURI = URI.createURI(ECLIPSE_PROJECT_PORTAL_HOST + "api/projects/" + pmiID);
-				result = getContent(pmiURI);
+				var pmiID = projectID.replace('.', '_');
+				var pmiURI = URI.createURI(ECLIPSE_PROJECT_PORTAL_HOST + "api/projects/" + pmiID + "/");
+				var text = getContent(pmiURI);
+				result = new JSONArray(text).getJSONObject(0);
 				pmiContent.put(projectID, result);
 			}
 			return result;
@@ -675,6 +527,228 @@ public class ProjectReconcilerHandler extends BaseHandler {
 			}
 
 			return URI.createURI(baseURI + "/" + path);
+		}
+
+		public String getNews(URI gitRepository) {
+			var host = gitRepository.host();
+			if ("gitlab.eclipse.org".equals(host)) {
+				var org = gitRepository.segment(1);
+				if ("graphiti".equals(org)) {
+					return getGitLabWebsiteFile("eclipse%2Fgraphiti%2Fgraphiti-website", "https://eclipse.dev/graphiti",
+							Pattern.compile("whats-new-(?<version>[0-9.]+)\\.html"));
+				}
+			} else {
+				if ("github.com".equals(host)) {
+					var org = gitRepository.segment(0);
+					var repo = gitRepository.segment(1);
+					if ("eclipse-cdo".equals(org)) {
+					}
+					if ("eclipse-equinox".equals(org)) {
+						return getEclipseProjectNews("platform_isv.html");
+					}
+					if ("eclipse-pde".equals(org)) {
+						return getEclipseProjectNews("pde.html");
+					}
+					if ("eclipse-jdt".equals(org)) {
+						return getEclipseProjectNews("jdt.html");
+					}
+					if ("eclipse-platform".equals(org)) {
+						return getEclipseProjectNews("platform.html");
+					}
+					if ("eclipse-cdt".equals(org)) {
+						return getGitHubFile("eclipse-cdt", "cdt", "NewAndNoteworthy",
+								Pattern.compile("CDT-(?<version>[0-9.]+)\\.md"));
+					}
+					if ("eclipse-egit".equals(org)) {
+						return getWikiPage("eclipse-egit", "egit",
+								Pattern.compile("(?<path>New-and-Noteworthy-(?<version>[0-9.]+))\\.md"));
+					}
+					if ("eclipse-jgit".equals(org)) {
+						return getWikiPage("eclipse-jgit", "jgit",
+								Pattern.compile("(?<path>New-and-Noteworthy-(?<version>[0-9.]+))\\.md"));
+					}
+					if ("eclipse-tracecompass".equals(org)) {
+						return getWikiPage("eclipse-tracecompass", "org.eclipse.tracecompass",
+								Pattern.compile("(?<path>NewIn(?<version>[0-9.]{4,}))\\.md"));
+					}
+					if ("eclipse-windowbuilder".equals(org)) {
+						return getGitHubFile("eclipse-windowbuilder", "windowbuilder",
+								"org.eclipse.wb.doc.user/html-src/whatsnew",
+								Pattern.compile("v(?<version>[0-9.]+)\\.asciidoc"));
+					}
+					if ("eclipse-scout".equals(org)) {
+						return validate("https://eclipsescout.github.io/");
+					}
+					if ("eclipse-tm4e".equals(org) || "eclipse-lsp4e".equals(org)
+							|| "eclipse-wildwebdeveloper".equals(org)) {
+						return getGitHubLatestRelease(org, repo);
+					}
+					if ("eclipse-emfservices".equals(org)) {
+						// There are three repositories and the release notes are not well maintained.
+						return null;
+					}
+					if ("eclipse-gef".equals(org)) {
+						// The GEF 5 repo is basically dead.
+						if ("gef".equals(repo)) {
+							return null;
+						}
+					}
+					if ("eclipse-ecf".equals(org)) {
+						return "https://github.com/eclipse-ecf/ecf/blob/master/README.md";
+					}
+
+					var releaseInfoNews = getGitHubReleaseInfo(org, repo);
+					if (releaseInfoNews != null) {
+						return releaseInfoNews;
+					}
+
+					if (!Set.of("eclipse-embed-cdt", "eclipse-efx").contains(org)) {
+						var githubReleastLatestNews = getGitHubLatestRelease(org, repo);
+						if (githubReleastLatestNews != null) {
+							return githubReleastLatestNews;
+						}
+					}
+				}
+			}
+			return null;
+		}
+
+		private String validate(String uri) {
+			try {
+				getContent(uri);
+				return uri;
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+		}
+
+		private String getEclipseProjectNews(String name) {
+			var latestVersionNewsFolder = getGitHubFolder("eclipse-platform", "www.eclipse.org-eclipse", "news",
+					Pattern.compile("(?<version>[0-9.]+)"));
+			var lastSegment = URI.createURI(latestVersionNewsFolder).lastSegment();
+			return validate("https://eclipse.dev/eclipse/news/" + lastSegment + "/" + name);
+		}
+
+		private String getGitHubLatestRelease(String org, String repo) {
+			var latestURI = "https://api.github.com/repos/" + org + "/" + repo + "/releases/latest";
+			try {
+				var content = getContent(URI.createURI(latestURI));
+				var jsonEntry = new JSONObject(content);
+				return jsonEntry.getString("html_url");
+			} catch (IOException e) {
+				return null;
+			}
+		}
+
+		private String getGitHubReleaseInfo(String org, String repo) {
+			var contentURI = "https://api.github.com/repos/" + org + "/" + repo + "/contents/";
+			try {
+				var content = getContent(URI.createURI(contentURI));
+				var jsonContent = new JSONArray(content);
+				for (var jsonEntry : toJSONObjects(jsonContent)) {
+					if ("file".equals(jsonEntry.getString("type"))) {
+						var name = jsonEntry.getString("name");
+						var pattern = Pattern.compile("(CHANGELOG|RELEASE_NOTES)\\..*");
+						if (pattern.matcher(name).matches()) {
+							return jsonEntry.getString("html_url");
+						}
+					}
+				}
+				return null;
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+		}
+
+		private String getGitHubFolder(String org, String repo, String path, Pattern versionPattern) {
+			var contentURI = "https://api.github.com/repos/" + org + "/" + repo + "/contents/" + path;
+			try {
+				var content = getContent(URI.createURI(contentURI));
+				var jsonContent = new JSONArray(content);
+				var entries = new TreeMap<Version, String>(Collections.reverseOrder());
+				for (var entry : jsonContent) {
+					var jsonEntry = (JSONObject) entry;
+					if ("dir".equals(jsonEntry.getString("type"))) {
+						var name = jsonEntry.getString("name");
+						var matcher = versionPattern.matcher(name);
+						if (matcher.matches()) {
+							var version = Version.create(matcher.group("version"));
+							entries.put(version, jsonEntry.getString("html_url"));
+						}
+					}
+				}
+				return entries.firstEntry().getValue();
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+		}
+
+		private String getGitHubFile(String org, String repo, String path, Pattern versionPattern) {
+			var contentURI = "https://api.github.com/repos/" + org + "/" + repo + "/contents/" + path;
+			try {
+				var content = getContent(URI.createURI(contentURI));
+				var jsonContent = new JSONArray(content);
+				var entries = new TreeMap<Version, String>(Collections.reverseOrder());
+				for (var entry : jsonContent) {
+					var jsonEntry = (JSONObject) entry;
+					if ("file".equals(jsonEntry.getString("type"))) {
+						var name = jsonEntry.getString("name");
+						var matcher = versionPattern.matcher(name);
+						if (matcher.matches()) {
+							var version = Version.create(matcher.group("version"));
+							entries.put(version, jsonEntry.getString("html_url"));
+						}
+					}
+				}
+				return entries.firstEntry().getValue();
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+		}
+
+		private String getGitLabWebsiteFile(String id, String website, Pattern versionPatterm) {
+			var contentURI = "https://gitlab.eclipse.org/api/v4/projects/" + id
+					+ "/repository/tree/?recursive=true&per_page=100";
+			try {
+				var entries = new TreeMap<Version, String>(Collections.reverseOrder());
+				var content = getPaginatedContent(URI.createURI(contentURI));
+				for (var entry : toJSONObjects(content)) {
+					var name = entry.getString("name");
+					var matcher = versionPatterm.matcher(name);
+					if (matcher.matches()) {
+						var version = Version.create(matcher.group("version"));
+						entries.put(version, entry.getString("path"));
+					}
+				}
+				return validate(website + "/" + entries.firstEntry().getValue());
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+		}
+
+		private String getWikiPage(String org, String repo1, Pattern versionPattern) {
+			var wikiCloneURI = "https://github.com/" + org + "/" + repo1 + ".wiki.git";
+			var cloneFolder = getClone(wikiCloneURI);
+			var entries = new TreeMap<Version, String>(Collections.reverseOrder());
+			try {
+				Files.walkFileTree(cloneFolder, new SimpleFileVisitor<Path>() {
+					@Override
+					public FileVisitResult visitFile(Path file, BasicFileAttributes attributes) throws IOException {
+						var fileName = file.getFileName().toString();
+						var matcher = versionPattern.matcher(fileName);
+						if (matcher.matches()) {
+							var version = Version.create(matcher.group("version"));
+							var relativePath = cloneFolder.relativize(file);
+							entries.put(version, "https://github.com/" + org + "/" + repo1 + "/wiki/"
+									+ relativePath.toString().replace("\\", "/").replaceAll("\\.md$", ""));
+						}
+						return FileVisitResult.CONTINUE;
+					}
+				});
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+			return validate(entries.firstEntry().getValue());
 		}
 	}
 }

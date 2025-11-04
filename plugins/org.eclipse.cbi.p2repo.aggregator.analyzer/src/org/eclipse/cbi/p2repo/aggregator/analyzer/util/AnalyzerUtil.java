@@ -146,8 +146,7 @@ public final class AnalyzerUtil {
 			Matcher githubGitMatcher = GITHUB_URL_PATTERN.matcher(base);
 			if (githubGitMatcher.matches()) {
 				return URI.createURI(
-						GITHUB + githubGitMatcher.group(1).replaceAll("\\.git$", "") + "/blob/" + branch
-						+ "/" + path);
+						GITHUB + githubGitMatcher.group(1).replaceAll("\\.git$", "") + "/blob/" + branch + "/" + path);
 			}
 
 			return null;
@@ -176,7 +175,7 @@ public final class AnalyzerUtil {
 		if (resolvedURI.isFile()) {
 			Path contributionPath = Path.of(resolvedURI.toFileString());
 			for (Path path = contributionPath.getParent(); path != null
-					&& Files.isReadable(path); path = path.getParent()) {
+					&& (!Files.exists(path) || Files.isReadable(path)); path = path.getParent()) {
 				// Look for a git repository configuration.
 				Path configPath = path.resolve(".git/config");
 				if (Files.isRegularFile(configPath)) {
@@ -187,7 +186,7 @@ public final class AnalyzerUtil {
 						Matcher urlMatcher = GIT_CONFIG_URL_PATTERN.matcher(config);
 						if (urlMatcher.find() && branchMatcher.find()) {
 							URI repoRelativeURI = URI.createFileURI(path.relativize(contributionPath).toString());
-							String repo = urlMatcher.group(1);
+							String repo = urlMatcher.group(1).replaceAll("^git@github.com:", "https://github.com/");
 							return new Repo(URI.createURI(repo), repoRelativeURI, branchMatcher.group(1));
 						}
 					} catch (IOException e) {

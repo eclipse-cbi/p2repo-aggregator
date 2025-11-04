@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde version="3.8"?>
-<target name="Generated from P2 Repository Aggregator" sequenceNumber="46">
+<target name="Generated from P2 Repository Aggregator" sequenceNumber="49">
   <locations>
     <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
       <unit id="a.jre.javase" version="0.0.0"/>
@@ -14,11 +14,13 @@
       <unit id="bndtools.api" version="0.0.0"/>
       <unit id="com.github.weisj.jsvg" version="0.0.0"/>
       <unit id="com.google.guava.failureaccess" version="0.0.0"/>
+      <unit id="com.googlecode.javaewah.JavaEWAH" version="0.0.0"/>
       <unit id="com.ibm.icu" version="0.0.0"/>
       <unit id="jakarta.activation-api" version="0.0.0"/>
       <unit id="jakarta.annotation-api" version="0.0.0"/>
       <unit id="jakarta.inject.jakarta.inject-api" version="0.0.0"/>
       <unit id="jakarta.xml.bind-api" version="0.0.0"/>
+      <unit id="json" version="0.0.0"/>
       <unit id="org.apache.aries.spifly.dynamic.bundle" version="0.0.0"/>
       <unit id="org.apache.batik.constants" version="0.0.0"/>
       <unit id="org.apache.batik.i18n" version="0.0.0"/>
@@ -49,7 +51,6 @@
       <unit id="org.commonmark.ext-gfm-tables" version="0.0.0"/>
       <unit id="org.eclipse.equinox.core.feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.equinox.executable.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.equinox.slf4j" version="0.0.0"/>
       <unit id="org.eclipse.gmf.runtime.draw2d.ui.render.awt" version="0.0.0"/>
       <unit id="org.eclipse.jetty.ee8.security" version="0.0.0"/>
       <unit id="org.eclipse.jetty.ee8.server" version="0.0.0"/>
@@ -61,6 +62,7 @@
       <unit id="org.eclipse.jetty.servlet-api" version="0.0.0"/>
       <unit id="org.eclipse.jetty.session" version="0.0.0"/>
       <unit id="org.eclipse.jetty.util" version="0.0.0"/>
+      <unit id="org.eclipse.jgit" version="0.0.0"/>
       <unit id="org.eclipse.license.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.m2e.maven.runtime" version="0.0.0"/>
       <unit id="org.eclipse.oomph.p2.ui" version="0.0.0"/>
@@ -68,7 +70,7 @@
       <unit id="org.eclipse.sdk.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.zest.core" version="0.0.0"/>
       <unit id="org.kohsuke.args4j" version="0.0.0"/>
-      <unit id="org.mortbay.jasper.apache-el" version="0.0.0"/>
+      <unit id="org.mortbay.jasper.mortbay-apache-el" version="0.0.0"/>
       <unit id="org.mortbay.jasper.mortbay-apache-jsp" version="0.0.0"/>
       <unit id="org.objectweb.asm.commons" version="0.0.0"/>
       <unit id="org.osgi.namespace.contract" version="0.0.0"/>
@@ -77,6 +79,7 @@
       <unit id="org.osgi.service.coordinator" version="0.0.0"/>
       <unit id="org.osgi.service.repository" version="0.0.0"/>
       <unit id="slf4j.api" version="0.0.0"/>
+      <unit id="slf4j.simple" version="0.0.0"/>
       <repository location="https://download.eclipse.org/cbi/updates/license"/>
       <repository location="https://download.eclipse.org/eclipse/updates/4.38-I-builds"/>
       <repository location="https://download.eclipse.org/nebula/updates/release/latest"/>

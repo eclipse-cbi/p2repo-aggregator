@@ -82,6 +82,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AggregationAnalyzer.ecore#//Project/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AggregationAnalyzer.ecore#//Project/site"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AggregationAnalyzer.ecore#//Project/version"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AggregationAnalyzer.ecore#//Project/news"/>
       <genFeatures createChild="false" propertyDescription="The date of the version release"
           ecoreFeature="ecore:EAttribute AggregationAnalyzer.ecore#//Project/releaseDate"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AggregationAnalyzer.ecore#//Project/rank"/>

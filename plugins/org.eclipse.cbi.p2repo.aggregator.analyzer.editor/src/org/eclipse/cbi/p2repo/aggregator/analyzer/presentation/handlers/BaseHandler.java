@@ -23,7 +23,9 @@ import java.nio.file.SimpleFileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.nio.file.attribute.FileTime;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -42,10 +44,15 @@ import org.eclipse.equinox.security.storage.StorageException;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jgit.api.Git;
+import org.eclipse.jgit.api.errors.GitAPIException;
+import org.eclipse.jgit.lib.TextProgressMonitor;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.ISources;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.handlers.HandlerUtil;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 public abstract class BaseHandler extends AbstractHandler {
 
@@ -93,6 +100,34 @@ public abstract class BaseHandler extends AbstractHandler {
 				.cookieHandler(new CookieManager()).build();
 	}
 
+	protected static JSONObject get(JSONObject jsonObject, String key) {
+		return jsonObject.has(key) ? jsonObject.getJSONObject(key) : null;
+	}
+
+	protected static Iterable<JSONObject> toJSONObjects(JSONArray jsonArray) {
+		return toIterable(jsonArray, JSONObject.class);
+	}
+
+	protected static <T> Iterable<T> toIterable(JSONArray jsonArray, Class<T> clazz) {
+		return new Iterable<T>() {
+			@Override
+			public Iterator<T> iterator() {
+				var it = jsonArray.iterator();
+				return new Iterator<T>() {
+					@Override
+					public boolean hasNext() {
+						return it.hasNext();
+					}
+
+					@Override
+					public T next() {
+						return clazz.cast(it.next());
+					}
+				};
+			}
+		};
+	}
+
 	protected static String basicGetContent(URI uri) throws IOException {
 		return basicGetContent(java.net.URI.create(URIConverter.INSTANCE.normalize(uri).toString()));
 	}
@@ -124,7 +159,75 @@ public abstract class BaseHandler extends AbstractHandler {
 		String[] uriSegments = decodedURI.split("[:/?#&;]+");
 		Path result = CACHE.resolve(String.join("/", uriSegments));
 		if (uri.hasTrailingPathSeparator()) {
-			return result.resolve("-folder-contents");
+			return result.resolve("folder-contents");
+		}
+		return result;
+	}
+
+	protected static Path getClone(String repo) {
+		try {
+			Path cloneFolder = getCachePath(URI.createURI(repo));
+			if (!Files.isDirectory(cloneFolder)) {
+				System.out.println("Cloning: " + repo);
+				long start = System.currentTimeMillis();
+				var cloneRepository = Git.cloneRepository();
+				cloneRepository.setCloneSubmodules(false);
+				cloneRepository.setURI(repo);
+				cloneRepository.setDepth(1);
+				cloneRepository.setDirectory(cloneFolder.toFile());
+				cloneRepository.setProgressMonitor(new TextProgressMonitor() {
+					@Override
+					protected void onUpdate(String taskName, int cmp, int totalWork, int pcnt, Duration duration) {
+						if (pcnt % 25 == 0)
+							super.onUpdate(taskName, cmp, totalWork, pcnt, duration);
+					}
+
+					@Override
+					protected void onEndTask(String taskName, int cmp, int totalWork, int pcnt, Duration duration) {
+						// super.onEndTask(taskName, cmp, totalWork, pcnt, duration);
+					}
+				});
+
+				var clone = cloneRepository.call();
+				long finish = System.currentTimeMillis();
+				System.out.println("Cloned: " + repo + " elapsed=" + (finish - start) / 1000);
+				clone.close();
+			}
+			return cloneFolder;
+		} catch (GitAPIException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	protected static String getContent(String uri) throws IOException {
+		return getContent(URI.createURI(uri));
+	}
+
+	protected static JSONArray getPaginatedContent(URI uri) throws IOException {
+		var result = new JSONArray();
+		var query = uri.query();
+		for (var i = 1; i < 100; ++i) {
+			var page = "page=" + i;
+			var pageURI = uri.appendQuery(query == null ? page : query + "&" + page);
+			var content = getContent(pageURI);
+			if (content.startsWith("{")) { // }
+				var pageObject = new JSONObject(content);
+				var names = pageObject.keySet();
+				if (names.size() != 1) {
+					throw new IOException();
+				}
+				var pageContent = pageObject.getJSONArray(names.iterator().next());
+				result.putAll(pageContent);
+				if (pageContent.length() == 0) {
+					break;
+				}
+			} else {
+				var pageContent = new JSONArray(content);
+				result.putAll(pageContent);
+				if (pageContent.length() == 0) {
+					break;
+				}
+			}
 		}
 		return result;
 	}

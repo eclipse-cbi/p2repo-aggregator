@@ -45,6 +45,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.impl.ProjectImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.impl.ProjectImpl#getSite <em>Site</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.impl.ProjectImpl#getVersion <em>Version</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.impl.ProjectImpl#getNews <em>News</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.impl.ProjectImpl#getReleaseDate <em>Release Date</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.impl.ProjectImpl#getRank <em>Rank</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.impl.ProjectImpl#getTags <em>Tags</em>}</li>
@@ -125,6 +126,26 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 	 * @ordered
 	 */
 	protected URI version = VERSION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getNews() <em>News</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNews()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final URI NEWS_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getNews() <em>News</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNews()
+	 * @generated
+	 * @ordered
+	 */
+	protected URI news = NEWS_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getReleaseDate() <em>Release Date</em>}' attribute.
@@ -283,6 +304,29 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, AnalyzerPackage.PROJECT__VERSION, oldVersion,
 					version));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public URI getNews() {
+		return news;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setNews(URI newNews) {
+		URI oldNews = news;
+		news = newNews;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AnalyzerPackage.PROJECT__NEWS, oldNews, news));
 	}
 
 	/**
@@ -504,6 +548,8 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 				return getSite();
 			case AnalyzerPackage.PROJECT__VERSION:
 				return getVersion();
+			case AnalyzerPackage.PROJECT__NEWS:
+				return getNews();
 			case AnalyzerPackage.PROJECT__RELEASE_DATE:
 				return getReleaseDate();
 			case AnalyzerPackage.PROJECT__RANK:
@@ -540,6 +586,9 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 				return;
 			case AnalyzerPackage.PROJECT__VERSION:
 				setVersion((URI) newValue);
+				return;
+			case AnalyzerPackage.PROJECT__NEWS:
+				setNews((URI) newValue);
 				return;
 			case AnalyzerPackage.PROJECT__RELEASE_DATE:
 				setReleaseDate((Date) newValue);
@@ -582,6 +631,9 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 			case AnalyzerPackage.PROJECT__VERSION:
 				setVersion(VERSION_EDEFAULT);
 				return;
+			case AnalyzerPackage.PROJECT__NEWS:
+				setNews(NEWS_EDEFAULT);
+				return;
 			case AnalyzerPackage.PROJECT__RELEASE_DATE:
 				setReleaseDate(RELEASE_DATE_EDEFAULT);
 				return;
@@ -617,6 +669,8 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 				return SITE_EDEFAULT == null ? site != null : !SITE_EDEFAULT.equals(site);
 			case AnalyzerPackage.PROJECT__VERSION:
 				return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
+			case AnalyzerPackage.PROJECT__NEWS:
+				return NEWS_EDEFAULT == null ? news != null : !NEWS_EDEFAULT.equals(news);
 			case AnalyzerPackage.PROJECT__RELEASE_DATE:
 				return RELEASE_DATE_EDEFAULT == null ? releaseDate != null : !RELEASE_DATE_EDEFAULT.equals(releaseDate);
 			case AnalyzerPackage.PROJECT__RANK:
@@ -653,6 +707,8 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 		result.append(site);
 		result.append(", version: ");
 		result.append(version);
+		result.append(", news: ");
+		result.append(news);
 		result.append(", releaseDate: ");
 		result.append(releaseDate);
 		result.append(", rank: ");

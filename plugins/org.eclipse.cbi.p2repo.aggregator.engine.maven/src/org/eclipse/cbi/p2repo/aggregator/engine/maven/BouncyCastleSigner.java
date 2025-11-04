@@ -375,7 +375,6 @@ public class BouncyCastleSigner {
 			return out.toString(StandardCharsets.US_ASCII);
 		}
 
-		@SuppressWarnings("unchecked")
 		private static Set<PGPPublicKey> readKeys(String keys) {
 			if (keys == null) {
 				return Set.of();
