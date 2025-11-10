@@ -370,6 +370,8 @@ public class ProjectReconcilerHandler extends BaseHandler {
 					project = "webtools";
 				} else if ("eclipse.platform".equals(project)) {
 					project = "eclipse";
+				} else if ("modeling.tmf.xtext".equals(project)) {
+					project = "modeling.xtext";
 				}
 
 				var projectURI = URI.createURI("project://" + project + "/");
@@ -387,6 +389,9 @@ public class ProjectReconcilerHandler extends BaseHandler {
 					var id = line.substring(0, tab);
 					if (!id.endsWith(".incubator")) {
 						var name = line.substring(tab + 1);
+						if ("modeling.tmf.xtext".equals(id)) {
+							id = "modeling.xtext";
+						}
 						this.projects.put(id, name.replace("\\", ""));
 					}
 				}
