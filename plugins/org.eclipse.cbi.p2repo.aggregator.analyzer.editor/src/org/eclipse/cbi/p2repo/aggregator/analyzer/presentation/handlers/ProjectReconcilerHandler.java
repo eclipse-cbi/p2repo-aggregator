@@ -246,7 +246,7 @@ public class ProjectReconcilerHandler extends BaseHandler {
 				}
 			}
 
-			if ("modeling.emf.cdo".equals(projectID)) {
+			if ("modeling.cdo".equals(projectID)) {
 				URI site = project.getSite();
 				for (var contributionAnalysis : analysis.getContributions()) {
 					for (var orginalProject : contributionAnalysis.getAllProjects()) {
@@ -361,6 +361,7 @@ public class ProjectReconcilerHandler extends BaseHandler {
 
 			var mappings = getContent(MAPPINGS);
 			mappings += "tools/ptp/\ttools.ptp\n";
+			mappings += "modeling/emft/mwe/\tmodeling.mwe\n";
 			for (var line : mappings.split("\r?\n")) {
 				var tab = line.indexOf('\t');
 				var path = line.substring(0, tab);
@@ -370,8 +371,10 @@ public class ProjectReconcilerHandler extends BaseHandler {
 					project = "webtools";
 				} else if ("eclipse.platform".equals(project)) {
 					project = "eclipse";
-				} else if ("modeling.tmf.xtext".equals(project)) {
-					project = "modeling.xtext";
+				} else if ("modeling.emft".equals(project)) {
+					continue;
+				} else {
+					project = toActualID(project);
 				}
 
 				var projectURI = URI.createURI("project://" + project + "/");
@@ -386,16 +389,26 @@ public class ProjectReconcilerHandler extends BaseHandler {
 			for (var line : projects.split("\r?\n")) {
 				var tab = line.indexOf('\t');
 				if (tab != -1) {
-					var id = line.substring(0, tab);
+					var id = toActualID(line.substring(0, tab));
 					if (!id.endsWith(".incubator")) {
 						var name = line.substring(tab + 1);
-						if ("modeling.tmf.xtext".equals(id)) {
-							id = "modeling.xtext";
-						}
 						this.projects.put(id, name.replace("\\", ""));
 					}
 				}
 			}
+		}
+
+		private String toActualID(String project) {
+			if ("modeling.tmf.xtext".equals(project)) {
+				return "modeling.xtext";
+			} else if (project.startsWith("modeling.emf.")) {
+				return project.replace("modeling.emf.", "modeling.");
+			} else if (project.startsWith("modeling.mdt.")) {
+				return project.replace("modeling.mdt.", "modeling.");
+			} else if (project.startsWith("modeling.mmt.")) {
+				return project.replace("modeling.mmt.", "modeling.");
+			}
+			return project;
 		}
 
 		public String getProjectID(URI uri) {
@@ -417,6 +430,11 @@ public class ProjectReconcilerHandler extends BaseHandler {
 			var github = get(content, "github");
 			if (github != null) {
 				var org = github.getString("org");
+				if (org.isBlank()) {
+					if ("modeling.emf".equals(projectID)) {
+						org = "eclipse-emf";
+					}
+				}
 				if (!org.isBlank()) {
 					var repos = getPaginatedContent(URI.createURI("https://api.github.com/orgs/" + org + "/repos"));
 					for (var repo : toJSONObjects(repos)) {
@@ -450,7 +468,6 @@ public class ProjectReconcilerHandler extends BaseHandler {
 				for (var repo : toJSONObjects(gitlabRepos)) {
 					result.add(repo.getString("url").replaceAll(".git$", ""));
 				}
-
 			}
 
 			cleanupRepos(projectID, result);
