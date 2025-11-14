@@ -11,6 +11,7 @@
 package org.eclipse.cbi.p2repo.aggregator.analyzer.presentation.handlers;
 
 import java.io.IOException;
+import java.nio.file.Files;
 
 import org.eclipse.cbi.p2repo.util.IOUtils;
 import org.eclipse.core.commands.ExecutionEvent;
@@ -20,10 +21,12 @@ public class ClearCacheHandler extends BaseHandler {
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		try {
-			IOUtils.delete(CACHE);
-		} catch (IOException e) {
-			throw new ExecutionException(e.getLocalizedMessage(), e);
+		if (Files.exists(CACHE)) {
+			try {
+				IOUtils.delete(CACHE);
+			} catch (IOException e) {
+				throw new ExecutionException(e.getLocalizedMessage(), e);
+			}
 		}
 		return null;
 	}

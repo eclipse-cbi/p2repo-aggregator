@@ -167,7 +167,7 @@ public class ProjectReconcilerHandler extends BaseHandler {
 				}
 			}
 
-			if (csv != null) {
+			if (csv != null && Files.exists(Path.of(csv))) {
 				try {
 					var lines = Files.readAllLines(Path.of(csv));
 					for (var line : lines) {
@@ -430,11 +430,6 @@ public class ProjectReconcilerHandler extends BaseHandler {
 			var github = get(content, "github");
 			if (github != null) {
 				var org = github.getString("org");
-				if (org.isBlank()) {
-					if ("modeling.emf".equals(projectID)) {
-						org = "eclipse-emf";
-					}
-				}
 				if (!org.isBlank()) {
 					var repos = getPaginatedContent(URI.createURI("https://api.github.com/orgs/" + org + "/repos"));
 					for (var repo : toJSONObjects(repos)) {

@@ -13,6 +13,7 @@ package org.eclipse.cbi.p2repo.util;
 
 import java.io.ByteArrayOutputStream;
 import java.io.Closeable;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -21,6 +22,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.SimpleFileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
+import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * @author filip.hrbek@cloudsmith.com
@@ -79,10 +81,19 @@ public class IOUtils {
 	}
 
 	public static void delete(Path path) throws IOException {
+		var exception = new AtomicReference<IOException>();
 		Files.walkFileTree(path, new SimpleFileVisitor<Path>() {
 			@Override
 			public FileVisitResult visitFile(Path file, BasicFileAttributes attributes) throws IOException {
-				Files.delete(file);
+				try {
+					Files.delete(file);
+				} catch (IOException e) {
+					File plainFile = file.toFile();
+					if (!plainFile.delete()) {
+						plainFile.deleteOnExit();
+						exception.set(e);
+					}
+				}
 				return FileVisitResult.CONTINUE;
 			}
 
@@ -94,5 +105,8 @@ public class IOUtils {
 				return super.postVisitDirectory(directory, exception);
 			}
 		});
+		if (exception.get() != null) {
+			throw exception.get();
+		}
 	}
 }
