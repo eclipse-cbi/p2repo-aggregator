@@ -246,26 +246,6 @@ public class ProjectReconcilerHandler extends BaseHandler {
 				}
 			}
 
-			if ("modeling.cdo".equals(projectID)) {
-				URI site = project.getSite();
-				for (var contributionAnalysis : analysis.getContributions()) {
-					for (var orginalProject : contributionAnalysis.getAllProjects()) {
-						if (site.equals(orginalProject.getSite())) {
-							for (var mappedRepository : contributionAnalysis.getContribution().getRepositories(true)) {
-								try {
-									project.setNews(URI.createURI(projectMapper
-											.validate(mappedRepository.getLocation() + "/" + "relnotes.html")));
-									break;
-								} catch (Exception e) {
-									//$FALL-THROUGH$
-								}
-							}
-							break;
-						}
-					}
-				}
-			}
-
 			var repositories = project.getRepositories();
 			var repositoryURIs = projectMapper.getRepositories(projectID);
 			for (var repositoryURI : repositoryURIs) {
@@ -362,6 +342,9 @@ public class ProjectReconcilerHandler extends BaseHandler {
 			var mappings = getContent(MAPPINGS);
 			mappings += "tools/ptp/\ttools.ptp\n";
 			mappings += "modeling/emft/mwe/\tmodeling.mwe\n";
+			mappings += "mmt/qvto/\tmodeling.qvt-oml\n";
+			mappings += "mmt/qvtd/\tmodeling.qvtd\n";
+			mappings += "mmt/atl/\tmodeling.atl\n";
 			for (var line : mappings.split("\r?\n")) {
 				var tab = line.indexOf('\t');
 				var path = line.substring(0, tab);
@@ -559,6 +542,7 @@ public class ProjectReconcilerHandler extends BaseHandler {
 					var org = gitRepository.segment(0);
 					var repo = gitRepository.segment(1);
 					if ("eclipse-cdo".equals(org)) {
+						return "https://download.eclipse.org/modeling/emf/cdo/updates/all-relnotes.html";
 					}
 					if ("eclipse-equinox".equals(org)) {
 						return getEclipseProjectNews("platform_isv.html");
