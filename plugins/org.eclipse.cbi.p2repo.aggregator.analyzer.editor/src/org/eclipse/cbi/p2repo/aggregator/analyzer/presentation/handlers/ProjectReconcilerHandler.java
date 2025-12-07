@@ -482,7 +482,7 @@ public class ProjectReconcilerHandler extends BaseHandler {
 			for (var release : toJSONObjects(jsonArray)) {
 				var releaseURI = release.getString("url");
 				var date = release.getString("date");
-				if (!date.isBlank()) {
+				if (!date.isBlank() && !releaseURI.contains("testme")) {
 					try {
 						var dateValue = simpleDateFormat.parse(date);
 						var delta = versionCutoffTime - dateValue.getTime();
