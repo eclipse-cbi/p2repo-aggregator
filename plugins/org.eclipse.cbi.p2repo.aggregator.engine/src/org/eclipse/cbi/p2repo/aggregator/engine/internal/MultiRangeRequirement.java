@@ -184,6 +184,7 @@ public class MultiRangeRequirement implements IRequirement {
 
 	private IMatchExpression<IInstallableUnit> filter;
 
+	@Deprecated
 	public MultiRangeRequirement(String name, String namespace, Set<Version> versions, Set<VersionRange> versionRanges,
 			IMatchExpression<IInstallableUnit> filter) {
 		if(versions == null)
@@ -267,26 +268,31 @@ public class MultiRangeRequirement implements IRequirement {
 			fakeOperand, parameters.toArray(new Object[parameters.size()]));
 	}
 
+	@Deprecated
 	@Override
 	public String getDescription() {
 		return null;
 	}
 
+	@Deprecated
 	@Override
 	public IMatchExpression<IInstallableUnit> getFilter() {
 		return filter;
 	}
 
+	@Deprecated
 	@Override
 	public IMatchExpression<IInstallableUnit> getMatches() {
 		return matchExpression;
 	}
 
+	@Deprecated
 	@Override
 	public int getMax() {
 		return Integer.MAX_VALUE;
 	}
 
+	@Deprecated
 	@Override
 	public int getMin() {
 		return 1;
@@ -295,6 +301,7 @@ public class MultiRangeRequirement implements IRequirement {
 	/**
 	 * @return the name
 	 */
+	@Deprecated
 	public String getName() {
 		return name;
 	}
@@ -302,6 +309,7 @@ public class MultiRangeRequirement implements IRequirement {
 	/**
 	 * @return the namespace
 	 */
+	@Deprecated
 	public String getNamespace() {
 		return namespace;
 	}
@@ -309,6 +317,7 @@ public class MultiRangeRequirement implements IRequirement {
 	/**
 	 * @return the version ranges
 	 */
+	@Deprecated
 	public Set<VersionRange> getVersionRanges() {
 		return versionRanges;
 	}
@@ -316,20 +325,24 @@ public class MultiRangeRequirement implements IRequirement {
 	/**
 	 * @return the versions
 	 */
+	@Deprecated
 	public Set<Version> getVersions() {
 		return versions;
 	}
 
+	@Deprecated
 	@Override
 	public boolean isGreedy() {
 		return true;
 	}
 
+	@Deprecated
 	@Override
 	public boolean isMatch(IInstallableUnit iu) {
 		return getMatches().isMatch(iu);
 	}
 
+	@Deprecated
 	@Override
 	public String toString() {
 		StringBuffer result = new StringBuffer();

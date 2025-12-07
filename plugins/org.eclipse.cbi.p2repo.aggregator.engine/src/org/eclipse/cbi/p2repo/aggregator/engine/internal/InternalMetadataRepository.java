@@ -44,12 +44,16 @@ import org.eclipse.equinox.p2.repository.metadata.IMetadataRepositoryManager;
 @Deprecated
 public class InternalMetadataRepository extends LocalMetadataRepository {
 
+	@Deprecated
 	static final public String CONTENT_FILENAME = "internalContent"; //$NON-NLS-1$
 
+	@Deprecated
 	static final public String JAR_EXTENSION = ".jar"; //$NON-NLS-1$
 
+	@Deprecated
 	static final public String XML_EXTENSION = ".xml"; //$NON-NLS-1$
 
+	@Deprecated
 	static File getActualLocation(URI location, String extension) {
 		File spec = URIUtil.toFile(location);
 		String path = spec.getAbsolutePath();
@@ -65,6 +69,7 @@ public class InternalMetadataRepository extends LocalMetadataRepository {
 		return new File(path + extension);
 	}
 
+	@Deprecated
 	public InternalMetadataRepository(IProvisioningAgent agent) {
 		super(agent);
 	}
@@ -74,6 +79,7 @@ public class InternalMetadataRepository extends LocalMetadataRepository {
 	 * @param name
 	 * @param properties
 	 */
+	@Deprecated
 	public InternalMetadataRepository(IProvisioningAgent agent, URI location, String name,
 			Map<String, String> properties) {
 		super(agent);
@@ -86,6 +92,7 @@ public class InternalMetadataRepository extends LocalMetadataRepository {
 		save();
 	}
 
+	@Deprecated
 	public synchronized void addInstallableUnits(IInstallableUnit[] installableUnits) {
 		if(installableUnits == null || installableUnits.length == 0)
 			return;
@@ -93,6 +100,7 @@ public class InternalMetadataRepository extends LocalMetadataRepository {
 		save();
 	}
 
+	@Deprecated
 	public synchronized String basicSetProperty(String key, String value) {
 		assertModifiable();
 		return (value == null
@@ -100,12 +108,14 @@ public class InternalMetadataRepository extends LocalMetadataRepository {
 				: getProperties().put(key, value));
 	}
 
+	@Deprecated
 	@Override
 	public synchronized void removeAll() {
 		units.clear();
 		save();
 	}
 
+	@Deprecated
 	public synchronized boolean removeInstallableUnits(IInstallableUnit[] installableUnits, IProgressMonitor monitor) {
 		boolean changed = false;
 		if(installableUnits != null && installableUnits.length > 0) {
@@ -117,6 +127,7 @@ public class InternalMetadataRepository extends LocalMetadataRepository {
 		return changed;
 	}
 
+	@Deprecated
 	@Override
 	public void save() {
 		File file = getActualLocation(getLocation(), XML_EXTENSION);
@@ -162,6 +173,7 @@ public class InternalMetadataRepository extends LocalMetadataRepository {
 		}
 	}
 
+	@Deprecated
 	@Override
 	public String setProperty(String key, String newValue) {
 		String oldValue = null;

@@ -483,13 +483,16 @@ public class InternalMetadataRepositoryIO extends MetadataRepositoryIO {
 		}
 	}
 
+	@Deprecated
 	protected class InternalWriter extends Writer {
 
+		@Deprecated
 		public InternalWriter(OutputStream output, Class<? extends IMetadataRepository> repositoryClass)
 				throws IOException {
 			super(output, repositoryClass);
 		}
 
+		@Deprecated
 		protected void writeRequiredCapability(IRequirement requirement) {
 			if(requirement instanceof MultiRangeRequirement) {
 				MultiRangeRequirement req = (MultiRangeRequirement) requirement;
@@ -557,6 +560,7 @@ public class InternalMetadataRepositoryIO extends MetadataRepositoryIO {
 
 	private static final String REQUIREMENT_VERSION_SERIALIZED_ATTRIBUTE = "serialized";
 
+	@Deprecated
 	public InternalMetadataRepositoryIO(IProvisioningAgent agent) {
 		super(agent);
 	}
@@ -564,6 +568,7 @@ public class InternalMetadataRepositoryIO extends MetadataRepositoryIO {
 	/**
 	 * returns null if operation cancelled
 	 */
+	@Deprecated
 	@Override
 	public IMetadataRepository read(URL location, InputStream input, IProgressMonitor monitor)
 			throws ProvisionException {
@@ -606,6 +611,7 @@ public class InternalMetadataRepositoryIO extends MetadataRepositoryIO {
 		return null;
 	}
 
+	@Deprecated
 	@Override
 	public void write(IMetadataRepository repository, OutputStream output) throws IOException {
 		OutputStream bufferedOutput = null;

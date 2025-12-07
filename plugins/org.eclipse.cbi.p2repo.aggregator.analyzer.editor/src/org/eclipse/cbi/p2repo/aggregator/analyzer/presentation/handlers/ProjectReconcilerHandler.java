@@ -18,6 +18,9 @@ import java.nio.file.SimpleFileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -323,13 +326,17 @@ public class ProjectReconcilerHandler extends BaseHandler {
 
 		private final Map<String, String> projects = new TreeMap<>();
 
-		private long versionCutoffTime;
+		private final long versionCutoffTime;
 
-		private Pattern gitRepositoryPattern;
+		private final LocalDate releaseDate;
+
+		private final Version platformVersion;
+
+		private final Pattern gitRepositoryPattern;
 
 		public ProjectMapper(Date releaseDate, Pattern gitRepositoryPattern) throws IOException {
-
 			this.gitRepositoryPattern = gitRepositoryPattern;
+
 			if (releaseDate == null) {
 				var now = System.currentTimeMillis();
 				// Three months from now.
@@ -338,6 +345,13 @@ public class ProjectReconcilerHandler extends BaseHandler {
 				// Plus one day for time zone differences.
 				versionCutoffTime = releaseDate.getTime() + 1000L * 60L * 60L * 24L;
 			}
+
+			this.releaseDate = releaseDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+			int year = this.releaseDate.getYear();
+			int month = this.releaseDate.getMonthValue();
+			int quater = month / 3;
+			int offset = year - 2025;
+			platformVersion = Version.createOSGi(4, 34 + offset + quater, 0);
 
 			var mappings = getContent(MAPPINGS);
 			mappings += "tools/ptp/\ttools.ptp\n";
@@ -625,7 +639,8 @@ public class ProjectReconcilerHandler extends BaseHandler {
 
 		private String getEclipseProjectNews(String name) {
 			var latestVersionNewsFolder = getGitHubFolder("eclipse-platform", "www.eclipse.org-eclipse", "news",
-					Pattern.compile("(?<version>[0-9.]+)"));
+					Pattern.compile("(?<version>" + platformVersion.getSegment(0) + "\\."
+							+ platformVersion.getSegment(1) + ")"));
 			var lastSegment = URI.createURI(latestVersionNewsFolder).lastSegment();
 			return validate("https://eclipse.dev/eclipse/news/" + lastSegment + "/" + name);
 		}
@@ -635,8 +650,15 @@ public class ProjectReconcilerHandler extends BaseHandler {
 			try {
 				var content = getContent(URI.createURI(latestURI));
 				var jsonEntry = new JSONObject(content);
-				return jsonEntry.getString("html_url");
-			} catch (IOException e) {
+				jsonEntry.getString("html_url");
+				var created = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").parse(jsonEntry.getString("created_at"))
+						.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+				var age = ChronoUnit.DAYS.between(created, releaseDate);
+				if (age > 30 * 6) {
+					return null;
+				}
+				return "https://github.com/" + org + "/" + repo + "/releases/latest";
+			} catch (IOException | ParseException e) {
 				return null;
 			}
 		}

@@ -57,6 +57,7 @@ public class InternalMetadataRepositoryFactory extends SimpleMetadataRepositoryF
 		return URIUtil.append(base, InternalMetadataRepository.CONTENT_FILENAME + extension);
 	}
 
+	@Deprecated
 	@Override
 	public IMetadataRepository create(URI location, String name, String type, Map<String, String> properties) {
 		if(location.getScheme().equals("file")) //$NON-NLS-1$
@@ -115,6 +116,7 @@ public class InternalMetadataRepositoryFactory extends SimpleMetadataRepositoryF
 		}
 	}
 
+	@Deprecated
 	protected IMetadataRepository validateAndLoad(URI location, boolean doLoad, int flags, IProgressMonitor monitor)
 			throws ProvisionException {
 		long time = 0;
