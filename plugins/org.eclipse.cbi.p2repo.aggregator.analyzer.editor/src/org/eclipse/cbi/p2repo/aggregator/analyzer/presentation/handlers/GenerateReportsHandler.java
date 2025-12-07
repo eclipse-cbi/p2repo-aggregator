@@ -209,6 +209,9 @@ public class GenerateReportsHandler extends BaseHandler {
 				out.println("# Projects");
 				out.println();
 
+				out.println("This report was generated " + new SimpleDateFormat("yyyy-MM-dd").format(new Date()) + ".");
+				out.println();
+
 				for (ContributionAnalysis contributionAnalysis : contributions) {
 					List<Project> projects = contributionAnalysis.getProjects();
 					if (isEnabled(contributionAnalysis)) {
