@@ -29,6 +29,8 @@
       <genFeatures children="true" createChild="false" propertyDescription="Tags that may be used with contribution analysis items"
           ecoreFeature="ecore:EAttribute AggregationAnalyzer.ecore#//Analysis/tags"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AggregationAnalyzer.ecore#//Analysis/levels"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AggregationAnalyzer.ecore#//Analysis/layoutWidth"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AggregationAnalyzer.ecore#//Analysis/layoutHeight"/>
       <genFeatures createChild="false" propertyDescription="A set of patterns that mach all Git repository URIs to be excluded from reconciliation"
           ecoreFeature="ecore:EAttribute AggregationAnalyzer.ecore#//Analysis/gitRepositoryFilters"/>
       <genFeatures property="Readonly" createChild="false" propertySortChoices="true"

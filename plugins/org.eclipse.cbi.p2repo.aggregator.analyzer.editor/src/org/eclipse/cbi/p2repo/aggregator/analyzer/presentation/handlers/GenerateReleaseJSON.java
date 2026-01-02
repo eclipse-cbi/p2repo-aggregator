@@ -64,7 +64,7 @@ public class GenerateReleaseJSON extends BaseHandler {
 
 		@Override
 		public boolean isEnabled() {
-			return analysis.eResource().getURI().lastSegment().equals("simrel.aggran");
+			return "simrel.aggran".equals(analysis.eResource().getURI().lastSegment());
 		}
 
 		@Override

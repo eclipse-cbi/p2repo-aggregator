@@ -621,6 +621,8 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 
 	private TreeViewer strictRequirementsViewer;
 
+	private TreeViewer exactRequirementsViewer;
+
 	private TreeViewer repositoryViewer;
 
 	private TreeViewer dependentIUsViewer;
@@ -803,7 +805,8 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 						Collection<?> children = super.getChildren(object);
 						URI uri = ((Resource) object).getURI();
 						if (!children.isEmpty() && !uri.equals(AnalyzeHandler.DUPLICATE_ANALYSIS_RESULT)
-								&& !uri.equals(AnalyzeHandler.STRICT_REQUIREMENT_ANALYSIS_RESULT)) {
+								&& !uri.equals(AnalyzeHandler.STRICT_REQUIREMENT_ANALYSIS_RESULT)
+								&& !uri.equals(AnalyzeHandler.EXACT_REQUIREMENT_ANALYSIS_RESULT)) {
 							return Collections.singleton(children.iterator().next());
 						}
 						return children;
@@ -1235,6 +1238,7 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 		analysisViewer = createViewerWithBreadcrumb(composite -> createAnalysisViewer(composite));
 		duplicatesViewer = createViewerWithBreadcrumb(composite -> createDuplicatesViewer(composite));
 		strictRequirementsViewer = createViewerWithBreadcrumb(composite -> createStrictRequirementsViewer(composite));
+		exactRequirementsViewer = createViewerWithBreadcrumb(composite -> createExactRequirementsViewer(composite));
 
 		dependentIUsViewer = createDependentIUsViewer();
 		requiredIUsViewer = createRequiredIUsViewer();
@@ -1252,6 +1256,8 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 					URI uri = resource.getURI();
 					if (uri.equals(AnalyzeHandler.STRICT_REQUIREMENT_ANALYSIS_RESULT)) {
 						strictRequirementsViewer.setInput(resource);
+					} else if (uri.equals(AnalyzeHandler.EXACT_REQUIREMENT_ANALYSIS_RESULT)) {
+						exactRequirementsViewer.setInput(resource);
 					} else if (uri.equals(AnalyzeHandler.DUPLICATE_ANALYSIS_RESULT)) {
 						duplicatesViewer.setInput(resource);
 					} else if (uri.equals(AnalyzeHandler.ANALYSIS_RESULT)) {
@@ -1571,6 +1577,42 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 				for (EObject eObject : capabilityResolution.eResource().getContents()) {
 					if (((InstallableUnitAnalysis) eObject).getInstallableUnit() == installableUnit) {
 						setExpandedSelection(strictRequirementsViewer, new StructuredSelection(eObject));
+						break;
+					}
+				}
+			}
+		}, manager -> {
+		});
+	}
+
+	protected TreeViewer createExactRequirementsViewer(Composite parent) {
+		showInActionFactories
+				.add(selection -> new ShowInAction("Exact Requirement IUs", selection, exactRequirementsViewer) {
+					@Override
+					protected void handleSelection(Object element) {
+						if (element instanceof IInstallableUnit) {
+							setTarget(element);
+						} else if (element instanceof ContributionAnalysis || element instanceof InstallableUnitAnalysis
+								|| element instanceof CapabilityAnalysis || element instanceof CapabilityResolution) {
+							setTarget(element);
+						} else if (element instanceof IUPresentation) {
+							setTarget(((IUPresentation) element).getInstallableUnit());
+						} else if (element instanceof RequirementResolution requirementResolution) {
+							setTarget(requirementResolution.getInstallableUnit());
+						}
+					}
+				});
+
+		return createTreeViewer(parent, "Exact Requirement IUs", event -> {
+			ISelection selection = event.getSelection();
+			Object element = ((IStructuredSelection) selection).getFirstElement();
+			if (element instanceof CapabilityResolution) {
+				CapabilityResolution capabilityResolution = (CapabilityResolution) element;
+				IInstallableUnit installableUnit = capabilityResolution.getRequirement().getInstallableUnit()
+						.getInstallableUnit();
+				for (EObject eObject : capabilityResolution.eResource().getContents()) {
+					if (((InstallableUnitAnalysis) eObject).getInstallableUnit() == installableUnit) {
+						setExpandedSelection(exactRequirementsViewer, new StructuredSelection(eObject));
 						break;
 					}
 				}
@@ -2870,7 +2912,9 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 
 						double padding = Math.max(0, (boundsWidth - fullRowWidth) / (nodes.size() + 1));
 
-						offset += rowHeight + heightPadding;
+						if (rowHeight > 0) {
+							offset += rowHeight + heightPadding;
+						}
 						rowHeight = 0.0;
 						double rowWidth = spacing + padding;
 						List<EntityLayout> nodesInCurrentRow = new ArrayList<>();
@@ -2928,7 +2972,7 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 			Action export = new Action("Export to SVG") {
 				@Override
 				public void run() {
-					export(graph);
+					export(graph, getAnalysis());
 				}
 			};
 			export.setEnabled(GMF_AVAIBLE);
@@ -3706,7 +3750,7 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 	}
 
 	public String getDependenciesSVG() {
-		return convert(graphViewer.getGraphControl());
+		return convert(graphViewer.getGraphControl(), getAnalysis());
 	}
 
 	/**
@@ -4065,10 +4109,10 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 		}
 	}
 
-	private static void export(Graph graph) {
+	private static void export(Graph graph, Analysis analysis) {
 		try {
 			Path createTempFile = Files.createTempFile("Dependencies", ".svg");
-			Files.writeString(createTempFile, convert(graph));
+			Files.writeString(createTempFile, convert(graph, analysis));
 			java.net.URI uri = createTempFile.toUri();
 			System.out.println("Created: " + uri);
 			openInBrowser(uri.toString());
@@ -4078,14 +4122,46 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 	}
 
 	@SuppressWarnings("restriction")
-	private static String convert(Graph graph) {
+	private static String convert(Graph graph, Analysis analysis) {
 		ScalableFigure root = graph.getRootLayer();
-		org.eclipse.draw2d.geometry.Rectangle bounds = root.getBounds();
+		var normalizer = new Object() {
+			private final double scale = root.getScale();
+			private final int layoutWidth = analysis.getLayoutWidth();
+			private final int layoutHeight = analysis.getLayoutHeight();
+
+			public void normalize() {
+				root.setScale(1.0);
+				if (layoutWidth > 0 && layoutHeight > 0) {
+					graph.setPreferredSize(layoutWidth, layoutHeight);
+					root.setBounds(getBounds());
+				}
+				graph.applyLayoutNow();
+			}
+
+			public void reset() {
+				root.setScale(scale);
+				if (layoutWidth > 0 && layoutHeight > 0) {
+					graph.setPreferredSize(-1, -1);
+				}
+			}
+
+			public org.eclipse.draw2d.geometry.Rectangle getBounds() {
+				return layoutWidth > 0 && layoutHeight > 0
+						? new org.eclipse.draw2d.geometry.Rectangle(0, 0, layoutWidth, layoutHeight)
+						: root.getBounds();
+			}
+		};
+
+		normalizer.normalize();
+
 		org.eclipse.gmf.runtime.draw2d.ui.render.awt.internal.svg.export.GraphicsSVG graphics = org.eclipse.gmf.runtime.draw2d.ui.render.awt.internal.svg.export.GraphicsSVG
-				.getInstance(bounds);
+				.getInstance(normalizer.getBounds());
 		SVGGraphics2D svgGraphics2D = graphics.getSVGGraphics2D();
 		svgGraphics2D.setExtensionHandler(new DefaultExtensionHandler());
 		root.paint(graphics);
+
+		normalizer.reset();
+
 		try (StringWriter stringWriter = new StringWriter()) {
 			svgGraphics2D.stream(stringWriter);
 			stringWriter.flush();

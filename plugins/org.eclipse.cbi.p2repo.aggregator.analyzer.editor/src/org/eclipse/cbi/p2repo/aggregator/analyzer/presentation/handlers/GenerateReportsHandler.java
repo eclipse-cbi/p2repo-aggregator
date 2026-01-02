@@ -26,8 +26,11 @@ import java.util.HexFormat;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
+import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 import org.eclipse.cbi.p2repo.aggregator.Contribution;
 import org.eclipse.cbi.p2repo.aggregator.MappedRepository;
@@ -118,7 +121,13 @@ public class GenerateReportsHandler extends BaseHandler {
 		protected void perform(IProgressMonitor monitor) throws Exception {
 			SubMonitor subMonitor = SubMonitor.convert(monitor, 100);
 			lastModifiedUpdater.perform(subMonitor.split(90));
+			subMonitor.split(5);
+			subMonitor.setTaskName("Generate Main Report");
 			generateReport();
+
+			subMonitor.setTaskName("Generate Third Party Include Report");
+			subMonitor.split(5);
+			generateThirdPartyIncludesReport();
 		}
 
 		private String getImage(Object object) {
@@ -145,25 +154,30 @@ public class GenerateReportsHandler extends BaseHandler {
 			return "![](" + name + ") ";
 		}
 
+		private String getReportAnchor(ContributionAnalysis contributionAnalysis) {
+			String label = contributionAnalysis.getLabel();
+			String anchor = label.replace(' ', '-').replaceAll("[.():,]", "").toLowerCase();
+			int rank = contributionAnalysis.getRank();
+			if (rank != 0) {
+				anchor += "--" + rank;
+			}
+			return anchor;
+		}
+
 		private void generateReport() {
 			URI reportURI = reportRootURI.appendSegment("report.md");
 			URI plainReportURI = AnalyzerUtil.getGitRepositoryURI(reportURI).getPlainURI();
 			try (PrintStream out = new PrintStream(uriConverter.createOutputStream(reportURI), true,
 					StandardCharsets.UTF_8)) {
 
-				Map<String, String> anchors = new HashMap<>();
 				List<ContributionAnalysis> contributions = new ArrayList<>(analysis.getContributions());
-				for (ContributionAnalysis contributionAnalysis : contributions) {
-					String label = contributionAnalysis.getLabel();
-					String anchor = label.replace(' ', '-').replaceAll("[.():,]", "").toLowerCase();
-					int rank = contributionAnalysis.getRank();
-					if (rank != 0) {
-						anchor += "--" + rank;
-					}
-					anchors.put(label, anchor);
-				}
 
 				if (analyzerEditor != null) {
+					Map<String, String> anchors = new HashMap<>();
+					for (ContributionAnalysis contributionAnalysis : contributions) {
+						anchors.put(contributionAnalysis.getLabel(), getReportAnchor(contributionAnalysis));
+					}
+
 					URI reportSVGURI = reportRootURI.appendSegment("report.svg");
 					String svg = analyzerEditor.getEditorSite().getShell().getDisplay()
 							.syncCall(() -> analyzerEditor.getDependenciesSVG());
@@ -382,6 +396,86 @@ public class GenerateReportsHandler extends BaseHandler {
 			} catch (IOException ex) {
 				AggregationAnalyzerEditorPlugin.INSTANCE.log(ex);
 			}
+		}
+
+		private void generateThirdPartyIncludesReport() {
+			if (!"simrel.aggran".equals(analysis.eResource().getURI().lastSegment())) {
+				return;
+			}
+
+			var analysisResultResource = analysis.eResource().getResourceSet()
+					.getResource(AnalyzeHandler.ANALYSIS_RESULT, false);
+			var exactRequirementsResource = analysis.eResource().getResourceSet()
+					.getResource(AnalyzeHandler.EXACT_REQUIREMENT_ANALYSIS_RESULT, false);
+			if (analysisResultResource == null || exactRequirementsResource == null) {
+				return;
+			}
+
+			((Analysis) analysisResultResource.getContents().get(0)).getContributions().stream()
+					.filter(it -> "3rd Party".equals(it.getLabel())).findFirst().ifPresent(thirdParty -> {
+						URI reportURI = reportRootURI.appendSegment("third-party-include-report.md");
+						try (PrintStream out = new PrintStream(uriConverter.createOutputStream(reportURI), true,
+								StandardCharsets.UTF_8)) {
+							var thirdPartyIUs = thirdParty.getInstallableUnits().stream()
+									.map(InstallableUnitAnalysis::getInstallableUnit).collect(Collectors.toSet());
+
+							var includingUnits = new TreeMap<InstallableUnitAnalysis, Set<IInstallableUnit>>(
+									AnalyzeHandler.INSTALLABLE_UNIT_ANALYIS_COMPARATOR);
+
+							for (var eObject : exactRequirementsResource.getContents()) {
+								if (eObject instanceof InstallableUnitAnalysis iua) {
+									var iu = iua.getInstallableUnit();
+									if (thirdPartyIUs.contains(iu) && !iu.getArtifacts().isEmpty()
+											&& !"org.eclipse.m2e.maven.runtime".equals(iu.getId())) {
+										var capabilities = iua.getCapabilities();
+										if (!capabilities.isEmpty()) {
+											for (var capability : capabilities) {
+												var resolutions = capability.getResolutions();
+												for (var resolution : resolutions) {
+													InstallableUnitAnalysis includingIUA = resolution.getRequirement()
+															.getInstallableUnit();
+													includingUnits.computeIfAbsent(includingIUA, it -> new TreeSet<>())
+															.add(iu);
+												}
+											}
+										}
+									}
+								}
+							}
+
+							out.println("# Third Party Includes");
+
+							for (ContributionAnalysis contribution : thirdParty.getAnalysis().getContributions()) {
+								var filteredIncludedUnits = includingUnits.entrySet().stream()
+										.filter(entry -> entry.getKey().getContribution() == contribution).toList();
+								if (!filteredIncludedUnits.isEmpty()) {
+									out.print("## [");
+									out.print(contribution.getLabel());
+									out.print("](report.md#-");
+									out.print(getReportAnchor(contribution));
+									out.print(")");
+									out.println();
+									for (var entry : filteredIncludedUnits) {
+										var includingIUA = entry.getKey();
+										out.print("- ");
+										out.print(toString(includingIUA.getInstallableUnit()));
+										out.println();
+										for (var includedIU : entry.getValue()) {
+											out.print("  - ");
+											out.print(toString(includedIU));
+											out.println();
+										}
+									}
+								}
+							}
+						} catch (IOException ex) {
+							AggregationAnalyzerEditorPlugin.INSTANCE.log(ex);
+						}
+					});
+		}
+
+		private static String toString(IInstallableUnit iu) {
+			return iu.getId() + " - `" + iu.getVersion() + "`";
 		}
 
 		private URI getBlobURI(Contribution contribution) {

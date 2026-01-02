@@ -49,6 +49,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.impl.AnalysisImpl#isShowTags <em>Show Tags</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.impl.AnalysisImpl#getTags <em>Tags</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.impl.AnalysisImpl#getLevels <em>Levels</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.impl.AnalysisImpl#getLayoutWidth <em>Layout Width</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.impl.AnalysisImpl#getLayoutHeight <em>Layout Height</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.impl.AnalysisImpl#getGitRepositoryFilters <em>Git Repository Filters</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.impl.AnalysisImpl#getAggregation <em>Aggregation</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.impl.AnalysisImpl#getContributions <em>Contributions</em>}</li>
@@ -147,6 +149,46 @@ public class AnalysisImpl extends MinimalEObjectImpl.Container implements Analys
 	protected EList<Integer> levels;
 
 	/**
+	 * The default value of the '{@link #getLayoutWidth() <em>Layout Width</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLayoutWidth()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int LAYOUT_WIDTH_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getLayoutWidth() <em>Layout Width</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLayoutWidth()
+	 * @generated
+	 * @ordered
+	 */
+	protected int layoutWidth = LAYOUT_WIDTH_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getLayoutHeight() <em>Layout Height</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLayoutHeight()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int LAYOUT_HEIGHT_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getLayoutHeight() <em>Layout Height</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLayoutHeight()
+	 * @generated
+	 * @ordered
+	 */
+	protected int layoutHeight = LAYOUT_HEIGHT_EDEFAULT;
+
+	/**
 	 * The cached value of the '{@link #getGitRepositoryFilters() <em>Git Repository Filters</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -240,6 +282,54 @@ public class AnalysisImpl extends MinimalEObjectImpl.Container implements Analys
 			levels = new EDataTypeUniqueEList<>(Integer.class, this, AnalyzerPackage.ANALYSIS__LEVELS);
 		}
 		return levels;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int getLayoutWidth() {
+		return layoutWidth;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setLayoutWidth(int newLayoutWidth) {
+		int oldLayoutWidth = layoutWidth;
+		layoutWidth = newLayoutWidth;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AnalyzerPackage.ANALYSIS__LAYOUT_WIDTH,
+					oldLayoutWidth, layoutWidth));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int getLayoutHeight() {
+		return layoutHeight;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setLayoutHeight(int newLayoutHeight) {
+		int oldLayoutHeight = layoutHeight;
+		layoutHeight = newLayoutHeight;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AnalyzerPackage.ANALYSIS__LAYOUT_HEIGHT,
+					oldLayoutHeight, layoutHeight));
 	}
 
 	/**
@@ -399,6 +489,10 @@ public class AnalysisImpl extends MinimalEObjectImpl.Container implements Analys
 				return getTags();
 			case AnalyzerPackage.ANALYSIS__LEVELS:
 				return getLevels();
+			case AnalyzerPackage.ANALYSIS__LAYOUT_WIDTH:
+				return getLayoutWidth();
+			case AnalyzerPackage.ANALYSIS__LAYOUT_HEIGHT:
+				return getLayoutHeight();
 			case AnalyzerPackage.ANALYSIS__GIT_REPOSITORY_FILTERS:
 				return getGitRepositoryFilters();
 			case AnalyzerPackage.ANALYSIS__AGGREGATION:
@@ -437,6 +531,12 @@ public class AnalysisImpl extends MinimalEObjectImpl.Container implements Analys
 			case AnalyzerPackage.ANALYSIS__LEVELS:
 				getLevels().clear();
 				getLevels().addAll((Collection<? extends Integer>) newValue);
+				return;
+			case AnalyzerPackage.ANALYSIS__LAYOUT_WIDTH:
+				setLayoutWidth((Integer) newValue);
+				return;
+			case AnalyzerPackage.ANALYSIS__LAYOUT_HEIGHT:
+				setLayoutHeight((Integer) newValue);
 				return;
 			case AnalyzerPackage.ANALYSIS__GIT_REPOSITORY_FILTERS:
 				getGitRepositoryFilters().clear();
@@ -478,6 +578,12 @@ public class AnalysisImpl extends MinimalEObjectImpl.Container implements Analys
 			case AnalyzerPackage.ANALYSIS__LEVELS:
 				getLevels().clear();
 				return;
+			case AnalyzerPackage.ANALYSIS__LAYOUT_WIDTH:
+				setLayoutWidth(LAYOUT_WIDTH_EDEFAULT);
+				return;
+			case AnalyzerPackage.ANALYSIS__LAYOUT_HEIGHT:
+				setLayoutHeight(LAYOUT_HEIGHT_EDEFAULT);
+				return;
 			case AnalyzerPackage.ANALYSIS__GIT_REPOSITORY_FILTERS:
 				getGitRepositoryFilters().clear();
 				return;
@@ -511,6 +617,10 @@ public class AnalysisImpl extends MinimalEObjectImpl.Container implements Analys
 				return tags != null && !tags.isEmpty();
 			case AnalyzerPackage.ANALYSIS__LEVELS:
 				return levels != null && !levels.isEmpty();
+			case AnalyzerPackage.ANALYSIS__LAYOUT_WIDTH:
+				return layoutWidth != LAYOUT_WIDTH_EDEFAULT;
+			case AnalyzerPackage.ANALYSIS__LAYOUT_HEIGHT:
+				return layoutHeight != LAYOUT_HEIGHT_EDEFAULT;
 			case AnalyzerPackage.ANALYSIS__GIT_REPOSITORY_FILTERS:
 				return gitRepositoryFilters != null && !gitRepositoryFilters.isEmpty();
 			case AnalyzerPackage.ANALYSIS__AGGREGATION:
@@ -543,6 +653,10 @@ public class AnalysisImpl extends MinimalEObjectImpl.Container implements Analys
 		result.append(tags);
 		result.append(", levels: ");
 		result.append(levels);
+		result.append(", layoutWidth: ");
+		result.append(layoutWidth);
+		result.append(", layoutHeight: ");
+		result.append(layoutHeight);
 		result.append(", gitRepositoryFilters: ");
 		result.append(gitRepositoryFilters);
 		result.append(')');

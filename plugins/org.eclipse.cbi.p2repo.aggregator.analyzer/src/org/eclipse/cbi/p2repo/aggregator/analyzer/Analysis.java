@@ -35,6 +35,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.Analysis#isShowTags <em>Show Tags</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.Analysis#getTags <em>Tags</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.Analysis#getLevels <em>Levels</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.Analysis#getLayoutWidth <em>Layout Width</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.Analysis#getLayoutHeight <em>Layout Height</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.Analysis#getGitRepositoryFilters <em>Git Repository Filters</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.Analysis#getAggregation <em>Aggregation</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.analyzer.Analysis#getContributions <em>Contributions</em>}</li>
@@ -146,6 +148,50 @@ public interface Analysis extends EObject {
 	 * @generated
 	 */
 	EList<Integer> getLevels();
+
+	/**
+	 * Returns the value of the '<em><b>Layout Width</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Layout Width</em>' attribute.
+	 * @see #setLayoutWidth(int)
+	 * @see org.eclipse.cbi.p2repo.aggregator.analyzer.AnalyzerPackage#getAnalysis_LayoutWidth()
+	 * @model
+	 * @generated
+	 */
+	int getLayoutWidth();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.analyzer.Analysis#getLayoutWidth <em>Layout Width</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Layout Width</em>' attribute.
+	 * @see #getLayoutWidth()
+	 * @generated
+	 */
+	void setLayoutWidth(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Layout Height</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Layout Height</em>' attribute.
+	 * @see #setLayoutHeight(int)
+	 * @see org.eclipse.cbi.p2repo.aggregator.analyzer.AnalyzerPackage#getAnalysis_LayoutHeight()
+	 * @model
+	 * @generated
+	 */
+	int getLayoutHeight();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.analyzer.Analysis#getLayoutHeight <em>Layout Height</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Layout Height</em>' attribute.
+	 * @see #getLayoutHeight()
+	 * @generated
+	 */
+	void setLayoutHeight(int value);
 
 	/**
 	 * Returns the value of the '<em><b>Git Repository Filters</b></em>' attribute list.

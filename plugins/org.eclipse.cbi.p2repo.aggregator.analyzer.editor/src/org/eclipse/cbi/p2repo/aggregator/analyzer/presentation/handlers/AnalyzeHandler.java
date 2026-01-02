@@ -119,6 +119,9 @@ public class AnalyzeHandler extends BaseHandler {
 	public static final URI STRICT_REQUIREMENT_ANALYSIS_RESULT = URI
 			.createURI("readonly://strict.requirement.result.aggran");
 
+	public static final URI EXACT_REQUIREMENT_ANALYSIS_RESULT = URI
+			.createURI("readonly://exact.requirement.result.aggran");
+
 	public static String AGGREGATE_REPOSITORY_LOCATION = "readonly://aggregation.result.p2";
 
 	public static String STRUCTURED_AGGREGATE_REPOSITORY_LOCATION = "readonly://aggregation.structured.result.p2";
@@ -145,6 +148,7 @@ public class AnalyzeHandler extends BaseHandler {
 		private Builder builder;
 		private List<InstallableUnitAnalysis> duplicates;
 		private List<InstallableUnitAnalysis> strictRequirements;
+		private List<InstallableUnitAnalysis> exactRequirements;
 		private MetadataRepository aggregateMetadataRepository;
 
 		public Analyzer(Analysis analysis) {
@@ -190,6 +194,7 @@ public class AnalyzeHandler extends BaseHandler {
 			result = analyze(monitor);
 			duplicates = analyzeDuplicates(result);
 			strictRequirements = analyzeStrictRequirements(result);
+			exactRequirements = analyzeExactRequirements(result);
 		}
 
 		@Override
@@ -216,6 +221,12 @@ public class AnalyzeHandler extends BaseHandler {
 						.createResource(STRICT_REQUIREMENT_ANALYSIS_RESULT);
 				strictRequirementsResultResource.getContents().addAll(strictRequirements);
 				resources.add(strictRequirementsResultResource);
+
+				Resource exactRequirementsResultResource = resourceSet.getResourceFactoryRegistry()
+						.getFactory(EXACT_REQUIREMENT_ANALYSIS_RESULT)
+						.createResource(EXACT_REQUIREMENT_ANALYSIS_RESULT);
+				exactRequirementsResultResource.getContents().addAll(exactRequirements);
+				resources.add(exactRequirementsResultResource);
 			}
 		}
 
@@ -461,6 +472,38 @@ public class AnalyzeHandler extends BaseHandler {
 					}
 				}
 
+				resolutions.removeAll(toRemove);
+			}
+
+			copy.getCapabilities().removeIf(c -> c.getResolutions().isEmpty());
+			return copy;
+		}
+
+		private List<InstallableUnitAnalysis> analyzeExactRequirements(Analysis analysis) {
+			List<InstallableUnitAnalysis> result = analysis.getContributions().stream()
+					.flatMap(c -> c.getInstallableUnits().stream()).map(i -> computeExactlyRequiredBy(i))
+					.collect(Collectors.toList());
+			result.sort(INSTALLABLE_UNIT_ANALYIS_COMPARATOR);
+			return result;
+		}
+
+		public static InstallableUnitAnalysis computeExactlyRequiredBy(InstallableUnitAnalysis element) {
+			InstallableUnitAnalysis copy = EcoreUtil.copy(element);
+			copy.getRequirements().clear();
+			for (CapabilityAnalysis capabilityAnalysis : copy.getCapabilities()) {
+				EList<CapabilityResolution> resolutions = capabilityAnalysis.getResolutions();
+				List<CapabilityResolution> toRemove = new ArrayList<>();
+				for (CapabilityResolution capabilityResolution : resolutions) {
+					RequirementAnalysis requirement = capabilityResolution.getRequirement();
+					if (requirement.getRequirement() instanceof IRequiredCapability requiredCapability) {
+						VersionRange range = requiredCapability.getRange();
+						if (!range.getMinimum().equals(range.getMaximum())) {
+							toRemove.add(capabilityResolution);
+						}
+					} else {
+						toRemove.add(capabilityResolution);
+					}
+				}
 				resolutions.removeAll(toRemove);
 			}
 

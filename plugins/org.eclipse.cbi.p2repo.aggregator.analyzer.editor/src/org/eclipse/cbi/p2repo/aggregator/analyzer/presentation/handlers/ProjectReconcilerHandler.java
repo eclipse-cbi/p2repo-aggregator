@@ -351,7 +351,7 @@ public class ProjectReconcilerHandler extends BaseHandler {
 			int month = this.releaseDate.getMonthValue();
 			int quater = month / 3;
 			int offset = year - 2025;
-			platformVersion = Version.createOSGi(4, 34 + offset + quater, 0);
+			platformVersion = Version.createOSGi(4, 34 + 4 * offset + quater, 0);
 
 			var mappings = getContent(MAPPINGS);
 			mappings += "tools/ptp/\ttools.ptp\n";

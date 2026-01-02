@@ -260,7 +260,7 @@ public class AnalyzerPackageImpl extends EPackageImpl implements AnalyzerPackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getAnalysis_GitRepositoryFilters() {
+	public EAttribute getAnalysis_LayoutWidth() {
 		return (EAttribute) analysisEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -270,8 +270,28 @@ public class AnalyzerPackageImpl extends EPackageImpl implements AnalyzerPackage
 	 * @generated
 	 */
 	@Override
+	public EAttribute getAnalysis_LayoutHeight() {
+		return (EAttribute) analysisEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getAnalysis_GitRepositoryFilters() {
+		return (EAttribute) analysisEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EReference getAnalysis_Aggregation() {
-		return (EReference) analysisEClass.getEStructuralFeatures().get(6);
+		return (EReference) analysisEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -281,7 +301,7 @@ public class AnalyzerPackageImpl extends EPackageImpl implements AnalyzerPackage
 	 */
 	@Override
 	public EReference getAnalysis_Contributions() {
-		return (EReference) analysisEClass.getEStructuralFeatures().get(7);
+		return (EReference) analysisEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -830,6 +850,8 @@ public class AnalyzerPackageImpl extends EPackageImpl implements AnalyzerPackage
 		createEAttribute(analysisEClass, ANALYSIS__SHOW_TAGS);
 		createEAttribute(analysisEClass, ANALYSIS__TAGS);
 		createEAttribute(analysisEClass, ANALYSIS__LEVELS);
+		createEAttribute(analysisEClass, ANALYSIS__LAYOUT_WIDTH);
+		createEAttribute(analysisEClass, ANALYSIS__LAYOUT_HEIGHT);
 		createEAttribute(analysisEClass, ANALYSIS__GIT_REPOSITORY_FILTERS);
 		createEReference(analysisEClass, ANALYSIS__AGGREGATION);
 		createEReference(analysisEClass, ANALYSIS__CONTRIBUTIONS);
@@ -945,6 +967,10 @@ public class AnalyzerPackageImpl extends EPackageImpl implements AnalyzerPackage
 		initEAttribute(getAnalysis_Tags(), ecorePackage.getEString(), "tags", null, 0, -1, Analysis.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAnalysis_Levels(), ecorePackage.getEInt(), "levels", null, 0, -1, Analysis.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAnalysis_LayoutWidth(), ecorePackage.getEInt(), "layoutWidth", null, 0, 1, Analysis.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAnalysis_LayoutHeight(), ecorePackage.getEInt(), "layoutHeight", null, 0, 1, Analysis.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAnalysis_GitRepositoryFilters(), ecorePackage.getEString(), "gitRepositoryFilters", null, 0,
 				-1, Analysis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,

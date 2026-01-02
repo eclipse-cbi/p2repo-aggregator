@@ -70,6 +70,8 @@ public class AnalysisItemProvider extends AnalyzerItemProviderAdapter
 			addShowTagsPropertyDescriptor(object);
 			addTagsPropertyDescriptor(object);
 			addLevelsPropertyDescriptor(object);
+			addLayoutWidthPropertyDescriptor(object);
+			addLayoutHeightPropertyDescriptor(object);
 			addGitRepositoryFiltersPropertyDescriptor(object);
 			addAggregationPropertyDescriptor(object);
 		}
@@ -146,6 +148,38 @@ public class AnalysisItemProvider extends AnalyzerItemProviderAdapter
 						getString("_UI_PropertyDescriptor_description", "_UI_Analysis_levels_feature",
 								"_UI_Analysis_type"),
 						AnalyzerPackage.Literals.ANALYSIS__LEVELS, true, false, false,
+						ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Layout Width feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addLayoutWidthPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Analysis_layoutWidth_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Analysis_layoutWidth_feature",
+								"_UI_Analysis_type"),
+						AnalyzerPackage.Literals.ANALYSIS__LAYOUT_WIDTH, true, false, false,
+						ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Layout Height feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addLayoutHeightPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Analysis_layoutHeight_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Analysis_layoutHeight_feature",
+								"_UI_Analysis_type"),
+						AnalyzerPackage.Literals.ANALYSIS__LAYOUT_HEIGHT, true, false, false,
 						ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
 	}
 
@@ -289,6 +323,8 @@ public class AnalysisItemProvider extends AnalyzerItemProviderAdapter
 			case AnalyzerPackage.ANALYSIS__EXCLUSION:
 			case AnalyzerPackage.ANALYSIS__SHOW_TAGS:
 			case AnalyzerPackage.ANALYSIS__LEVELS:
+			case AnalyzerPackage.ANALYSIS__LAYOUT_WIDTH:
+			case AnalyzerPackage.ANALYSIS__LAYOUT_HEIGHT:
 			case AnalyzerPackage.ANALYSIS__GIT_REPOSITORY_FILTERS:
 			case AnalyzerPackage.ANALYSIS__AGGREGATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
