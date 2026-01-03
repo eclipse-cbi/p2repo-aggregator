@@ -234,6 +234,7 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Item;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.Shell;
@@ -4135,7 +4136,20 @@ public class AnalyzerEditor extends MultiPageEditorPart implements IEditingDomai
 					graph.setPreferredSize(layoutWidth, layoutHeight);
 					root.setBounds(getBounds());
 				}
+
 				graph.applyLayoutNow();
+
+				// Give the UI some time to actually show the layout changes.
+				Display display = graph.getDisplay();
+				display.syncExec(() -> {
+					long timeMillis = System.currentTimeMillis();
+					while (display.readAndDispatch()) {
+						display.sleep();
+						if (System.currentTimeMillis() - timeMillis > 1000) {
+							break;
+						}
+					}
+				});
 			}
 
 			public void reset() {
