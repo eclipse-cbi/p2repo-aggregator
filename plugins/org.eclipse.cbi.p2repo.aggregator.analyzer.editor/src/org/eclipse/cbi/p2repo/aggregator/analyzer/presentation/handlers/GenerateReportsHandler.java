@@ -416,8 +416,16 @@ public class GenerateReportsHandler extends BaseHandler {
 						URI reportURI = reportRootURI.appendSegment("third-party-include-report.md");
 						try (PrintStream out = new PrintStream(uriConverter.createOutputStream(reportURI), true,
 								StandardCharsets.UTF_8)) {
+
 							var thirdPartyIUs = thirdParty.getInstallableUnits().stream()
 									.map(InstallableUnitAnalysis::getInstallableUnit).collect(Collectors.toSet());
+
+							var jettyIUs = thirdParty.getAnalysis().getContributions().stream()
+									.filter(it -> "Jetty".equals(it.getLabel())).findFirst()
+									.map(jetty -> jetty.getInstallableUnits().stream()
+											.map(InstallableUnitAnalysis::getInstallableUnit)
+											.collect(Collectors.toSet()))
+									.orElseGet(Set::of);
 
 							var includingUnits = new TreeMap<InstallableUnitAnalysis, Set<IInstallableUnit>>(
 									AnalyzeHandler.INSTALLABLE_UNIT_ANALYIS_COMPARATOR);
@@ -425,7 +433,8 @@ public class GenerateReportsHandler extends BaseHandler {
 							for (var eObject : exactRequirementsResource.getContents()) {
 								if (eObject instanceof InstallableUnitAnalysis iua) {
 									var iu = iua.getInstallableUnit();
-									if (thirdPartyIUs.contains(iu) && !iu.getArtifacts().isEmpty()
+									if ((thirdPartyIUs.contains(iu) || jettyIUs.contains(iu))
+											&& !iu.getArtifacts().isEmpty()
 											&& !"org.eclipse.m2e.maven.runtime".equals(iu.getId())) {
 										var capabilities = iua.getCapabilities();
 										if (!capabilities.isEmpty()) {
