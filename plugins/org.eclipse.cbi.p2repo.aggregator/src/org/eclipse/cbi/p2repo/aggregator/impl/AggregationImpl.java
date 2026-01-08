@@ -78,6 +78,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#getMavenDependencyMappings <em>Maven Dependency Mappings</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#isAllowLegacySites <em>Allow Legacy Sites</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#isIncludeSources <em>Include Sources</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#getExcludedSourceIUPattern <em>Excluded Source IU Pattern</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#isExcludeValidationSetUnits <em>Exclude Validation Set Units</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#isExcludeFeatures <em>Exclude Features</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#getIncludedIUPattern <em>Included IU Pattern</em>}</li>
@@ -504,6 +505,26 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	protected static final int INCLUDE_SOURCES_EFLAG = 1 << 12;
 
 	/**
+	 * The default value of the '{@link #getExcludedSourceIUPattern() <em>Excluded Source IU Pattern</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExcludedSourceIUPattern()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String EXCLUDED_SOURCE_IU_PATTERN_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getExcludedSourceIUPattern() <em>Excluded Source IU Pattern</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExcludedSourceIUPattern()
+	 * @generated
+	 * @ordered
+	 */
+	protected String excludedSourceIUPattern = EXCLUDED_SOURCE_IU_PATTERN_EDEFAULT;
+
+	/**
 	 * The default value of the '{@link #isExcludeValidationSetUnits() <em>Exclude Validation Set Units</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -774,6 +795,8 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 				return isAllowLegacySites();
 			case AggregatorPackage.AGGREGATION__INCLUDE_SOURCES:
 				return isIncludeSources();
+			case AggregatorPackage.AGGREGATION__EXCLUDED_SOURCE_IU_PATTERN:
+				return getExcludedSourceIUPattern();
 			case AggregatorPackage.AGGREGATION__EXCLUDE_VALIDATION_SET_UNITS:
 				return isExcludeValidationSetUnits();
 			case AggregatorPackage.AGGREGATION__EXCLUDE_FEATURES:
@@ -883,6 +906,9 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 				return ((eFlags & ALLOW_LEGACY_SITES_EFLAG) != 0) != ALLOW_LEGACY_SITES_EDEFAULT;
 			case AggregatorPackage.AGGREGATION__INCLUDE_SOURCES:
 				return ((eFlags & INCLUDE_SOURCES_EFLAG) != 0) != INCLUDE_SOURCES_EDEFAULT;
+			case AggregatorPackage.AGGREGATION__EXCLUDED_SOURCE_IU_PATTERN:
+				return EXCLUDED_SOURCE_IU_PATTERN_EDEFAULT == null ? excludedSourceIUPattern != null
+						: !EXCLUDED_SOURCE_IU_PATTERN_EDEFAULT.equals(excludedSourceIUPattern);
 			case AggregatorPackage.AGGREGATION__EXCLUDE_VALIDATION_SET_UNITS:
 				return ((eFlags & EXCLUDE_VALIDATION_SET_UNITS_EFLAG) != 0) != EXCLUDE_VALIDATION_SET_UNITS_EDEFAULT;
 			case AggregatorPackage.AGGREGATION__EXCLUDE_FEATURES:
@@ -984,6 +1010,9 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 				return;
 			case AggregatorPackage.AGGREGATION__INCLUDE_SOURCES:
 				setIncludeSources((Boolean) newValue);
+				return;
+			case AggregatorPackage.AGGREGATION__EXCLUDED_SOURCE_IU_PATTERN:
+				setExcludedSourceIUPattern((String) newValue);
 				return;
 			case AggregatorPackage.AGGREGATION__EXCLUDE_VALIDATION_SET_UNITS:
 				setExcludeValidationSetUnits((Boolean) newValue);
@@ -1090,6 +1119,9 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 				return;
 			case AggregatorPackage.AGGREGATION__INCLUDE_SOURCES:
 				setIncludeSources(INCLUDE_SOURCES_EDEFAULT);
+				return;
+			case AggregatorPackage.AGGREGATION__EXCLUDED_SOURCE_IU_PATTERN:
+				setExcludedSourceIUPattern(EXCLUDED_SOURCE_IU_PATTERN_EDEFAULT);
 				return;
 			case AggregatorPackage.AGGREGATION__EXCLUDE_VALIDATION_SET_UNITS:
 				setExcludeValidationSetUnits(EXCLUDE_VALIDATION_SET_UNITS_EDEFAULT);
@@ -1490,6 +1522,31 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * @generated
 	 */
 	@Override
+	public String getExcludedSourceIUPattern() {
+		return excludedSourceIUPattern;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setExcludedSourceIUPattern(String newExcludedSourceIUPattern) {
+		String oldExcludedSourceIUPattern = excludedSourceIUPattern;
+		excludedSourceIUPattern = newExcludedSourceIUPattern;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					AggregatorPackage.AGGREGATION__EXCLUDED_SOURCE_IU_PATTERN, oldExcludedSourceIUPattern,
+					excludedSourceIUPattern));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public boolean isExcludeValidationSetUnits() {
 		return (eFlags & EXCLUDE_VALIDATION_SET_UNITS_EFLAG) != 0;
 	}
@@ -1874,6 +1931,8 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 		result.append((eFlags & ALLOW_LEGACY_SITES_EFLAG) != 0);
 		result.append(", includeSources: ");
 		result.append((eFlags & INCLUDE_SOURCES_EFLAG) != 0);
+		result.append(", excludedSourceIUPattern: ");
+		result.append(excludedSourceIUPattern);
 		result.append(", excludeValidationSetUnits: ");
 		result.append((eFlags & EXCLUDE_VALIDATION_SET_UNITS_EFLAG) != 0);
 		result.append(", excludeFeatures: ");

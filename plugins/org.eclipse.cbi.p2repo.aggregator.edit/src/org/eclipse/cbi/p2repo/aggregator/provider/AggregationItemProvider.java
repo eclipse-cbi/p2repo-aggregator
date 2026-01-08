@@ -80,6 +80,22 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Excluded Source IU Pattern feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addExcludedSourceIUPatternPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Aggregation_excludedSourceIUPattern_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_Aggregation_excludedSourceIUPattern_feature",
+						"_UI_Aggregation_type"),
+				AggregatorPackage.Literals.AGGREGATION__EXCLUDED_SOURCE_IU_PATTERN, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Exclude Validation Set Units feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -473,6 +489,7 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider {
 			addMavenBuildNumberPropertyDescriptor(object);
 			addAllowLegacySitesPropertyDescriptor(object);
 			addIncludeSourcesPropertyDescriptor(object);
+			addExcludedSourceIUPatternPropertyDescriptor(object);
 			addExcludeValidationSetUnitsPropertyDescriptor(object);
 			addExcludeFeaturesPropertyDescriptor(object);
 			addIncludedIUPatternPropertyDescriptor(object);
@@ -532,6 +549,7 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider {
 			case AggregatorPackage.AGGREGATION__MAVEN_BUILD_NUMBER:
 			case AggregatorPackage.AGGREGATION__ALLOW_LEGACY_SITES:
 			case AggregatorPackage.AGGREGATION__INCLUDE_SOURCES:
+			case AggregatorPackage.AGGREGATION__EXCLUDED_SOURCE_IU_PATTERN:
 			case AggregatorPackage.AGGREGATION__EXCLUDE_VALIDATION_SET_UNITS:
 			case AggregatorPackage.AGGREGATION__EXCLUDE_FEATURES:
 			case AggregatorPackage.AGGREGATION__INCLUDED_IU_PATTERN:

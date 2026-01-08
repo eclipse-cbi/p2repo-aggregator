@@ -40,6 +40,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#getMavenDependencyMappings <em>Maven Dependency Mappings</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#isAllowLegacySites <em>Allow Legacy Sites</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#isIncludeSources <em>Include Sources</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#getExcludedSourceIUPattern <em>Excluded Source IU Pattern</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#isExcludeValidationSetUnits <em>Exclude Validation Set Units</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#isExcludeFeatures <em>Exclude Features</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#getIncludedIUPattern <em>Included IU Pattern</em>}</li>
@@ -312,6 +313,28 @@ public interface Aggregation extends DescriptionProvider, StatusProvider, InfosP
 	 * @generated
 	 */
 	void setIncludeSources(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Excluded Source IU Pattern</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Excluded Source IU Pattern</em>' attribute.
+	 * @see #setExcludedSourceIUPattern(String)
+	 * @see org.eclipse.cbi.p2repo.aggregator.AggregatorPackage#getAggregation_ExcludedSourceIUPattern()
+	 * @model
+	 * @generated
+	 */
+	String getExcludedSourceIUPattern();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#getExcludedSourceIUPattern <em>Excluded Source IU Pattern</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Excluded Source IU Pattern</em>' attribute.
+	 * @see #getExcludedSourceIUPattern()
+	 * @generated
+	 */
+	void setExcludedSourceIUPattern(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Exclude Validation Set Units</b></em>' attribute.

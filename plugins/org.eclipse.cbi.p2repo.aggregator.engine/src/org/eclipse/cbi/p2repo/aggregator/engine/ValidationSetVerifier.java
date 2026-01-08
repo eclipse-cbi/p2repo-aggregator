@@ -725,8 +725,7 @@ public class ValidationSetVerifier extends BuilderPhase {
 			}
 
 			IMetadataRepository sourceRepo = mdrMgr.loadRepository(repoLocation, subMon.newChild(1));
-			if (sourceRepo instanceof UpdateSiteMetadataRepository
-					&& !getBuilder().getAggregation().isAllowLegacySites())
+			if (sourceRepo instanceof UpdateSiteMetadataRepository && !aggregation.isAllowLegacySites())
 				throw ExceptionUtils.fromMessage(
 						"Location %s appoints a legacy update site. They are not allowed in this aggregation",
 						repoLocation);
@@ -935,7 +934,11 @@ public class ValidationSetVerifier extends BuilderPhase {
 				throw exception;
 			}
 
-			if (getBuilder().getAggregation().isIncludeSources()) {
+			if (aggregation.isIncludeSources()) {
+				String excludedSourceIUPatternLiteral = aggregation.getExcludedSourceIUPattern();
+				Pattern excludedSourceIUPattern = excludedSourceIUPatternLiteral != null
+						? Pattern.compile(excludedSourceIUPatternLiteral)
+						: null;
 				Set<IInstallableUnit> additionalSourceIUs = new LinkedHashSet<>();
 				for (IInstallableUnit iu : unitsToAggregate) {
 					String id = iu.getId();
@@ -946,7 +949,10 @@ public class ValidationSetVerifier extends BuilderPhase {
 						if (!unitsToAggregate.contains(versionedId)) {
 							IInstallableUnit sourceIU = allIUs.get(versionedId);
 							if (sourceIU != null) {
-								additionalSourceIUs.add(sourceIU);
+								if (excludedSourceIUPattern == null
+										|| !excludedSourceIUPattern.matcher(versionedId.getId()).matches()) {
+									additionalSourceIUs.add(sourceIU);
+								}
 							}
 						}
 					}

@@ -203,6 +203,14 @@ public interface AggregatorPackage extends EPackage {
 		EAttribute AGGREGATION__INCLUDE_SOURCES = eINSTANCE.getAggregation_IncludeSources();
 
 		/**
+		 * The meta object literal for the '<em><b>Excluded Source IU Pattern</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute AGGREGATION__EXCLUDED_SOURCE_IU_PATTERN = eINSTANCE.getAggregation_ExcludedSourceIUPattern();
+
+		/**
 		 * The meta object literal for the '<em><b>Exclude Validation Set Units</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1639,13 +1647,22 @@ public interface AggregatorPackage extends EPackage {
 	int AGGREGATION__INCLUDE_SOURCES = DESCRIPTION_PROVIDER_FEATURE_COUNT + 22;
 
 	/**
+	 * The feature id for the '<em><b>Excluded Source IU Pattern</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AGGREGATION__EXCLUDED_SOURCE_IU_PATTERN = DESCRIPTION_PROVIDER_FEATURE_COUNT + 23;
+
+	/**
 	 * The feature id for the '<em><b>Exclude Validation Set Units</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATION__EXCLUDE_VALIDATION_SET_UNITS = DESCRIPTION_PROVIDER_FEATURE_COUNT + 23;
+	int AGGREGATION__EXCLUDE_VALIDATION_SET_UNITS = DESCRIPTION_PROVIDER_FEATURE_COUNT + 24;
 
 	/**
 	 * The feature id for the '<em><b>Exclude Features</b></em>' attribute.
@@ -1654,7 +1671,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATION__EXCLUDE_FEATURES = DESCRIPTION_PROVIDER_FEATURE_COUNT + 24;
+	int AGGREGATION__EXCLUDE_FEATURES = DESCRIPTION_PROVIDER_FEATURE_COUNT + 25;
 
 	/**
 	 * The feature id for the '<em><b>Included IU Pattern</b></em>' attribute.
@@ -1663,7 +1680,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATION__INCLUDED_IU_PATTERN = DESCRIPTION_PROVIDER_FEATURE_COUNT + 25;
+	int AGGREGATION__INCLUDED_IU_PATTERN = DESCRIPTION_PROVIDER_FEATURE_COUNT + 26;
 
 	/**
 	 * The feature id for the '<em><b>Validate Nexus Publishing Requirements</b></em>' attribute.
@@ -1672,7 +1689,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATION__VALIDATE_NEXUS_PUBLISHING_REQUIREMENTS = DESCRIPTION_PROVIDER_FEATURE_COUNT + 26;
+	int AGGREGATION__VALIDATE_NEXUS_PUBLISHING_REQUIREMENTS = DESCRIPTION_PROVIDER_FEATURE_COUNT + 27;
 
 	/**
 	 * The feature id for the '<em><b>Validate POM Dependencies</b></em>' attribute.
@@ -1681,7 +1698,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATION__VALIDATE_POM_DEPENDENCIES = DESCRIPTION_PROVIDER_FEATURE_COUNT + 27;
+	int AGGREGATION__VALIDATE_POM_DEPENDENCIES = DESCRIPTION_PROVIDER_FEATURE_COUNT + 28;
 
 	/**
 	 * The feature id for the '<em><b>Filter Published Artifacts</b></em>' attribute.
@@ -1690,7 +1707,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATION__FILTER_PUBLISHED_ARTIFACTS = DESCRIPTION_PROVIDER_FEATURE_COUNT + 28;
+	int AGGREGATION__FILTER_PUBLISHED_ARTIFACTS = DESCRIPTION_PROVIDER_FEATURE_COUNT + 29;
 
 	/**
 	 * The number of structural features of the '<em>Aggregation</em>' class.
@@ -1699,7 +1716,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATION_FEATURE_COUNT = DESCRIPTION_PROVIDER_FEATURE_COUNT + 29;
+	int AGGREGATION_FEATURE_COUNT = DESCRIPTION_PROVIDER_FEATURE_COUNT + 30;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.EnabledStatusProvider <em>Enabled Status Provider</em>}' class.
@@ -4417,6 +4434,17 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getAggregation_IncludeSources();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#getExcludedSourceIUPattern <em>Excluded Source IU Pattern</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Excluded Source IU Pattern</em>'.
+	 * @see org.eclipse.cbi.p2repo.aggregator.Aggregation#getExcludedSourceIUPattern()
+	 * @see #getAggregation()
+	 * @generated
+	 */
+	EAttribute getAggregation_ExcludedSourceIUPattern();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#isExcludeValidationSetUnits <em>Exclude Validation Set Units</em>}'.
