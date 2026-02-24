@@ -446,14 +446,23 @@ public class ProjectReconcilerHandler extends BaseHandler {
 				}
 			}
 
-			// var gitlab = get(content, "gitlab");
-			// if (gitlab != null) {
-			// var group = gitlab.getString("project_group");
-			// if (!group.isBlank()) {
-			// var repos = new JSONObject(getContent(URI.createURI("https://gitlab.eclipse.org/api/v4/groups/"
-			// + group.replace("\\", "").replace("/", "%2f") + "/")));
-			// }
-			// }
+			var gitlab = get(content, "gitlab");
+			if (gitlab != null) {
+				var group = gitlab.getString("project_group");
+				if (!group.isBlank()) {
+					var groups = new JSONObject(getContent(URI.createURI("https://gitlab.eclipse.org/api/v4/groups/"
+							+ group.replace("\\", "").replace("/", "%2f") + "/")));
+					if (groups.has("projects")) {
+						var projects = groups.getJSONArray("projects");
+						for (var project : projects) {
+							if (((JSONObject) project).has("http_url_to_repo")) {
+								var url = ((JSONObject) project).getString("http_url_to_repo");
+								result.add(url.replaceAll(".git$", ""));
+							}
+						}
+					}
+				}
+			}
 
 			if (content.has("gitlab_repos")) {
 				var gitlabRepos = content.getJSONArray("gitlab_repos");
