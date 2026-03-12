@@ -128,18 +128,6 @@
          version="0.0.0"/>
 
    <plugin
-         id="org.apache.xalan"
-         version="0.0.0"/>
-
-   <plugin
-         id="org.apache.xerces"
-         version="0.0.0"/>
-
-   <plugin
-         id="org.apache.xml.resolver"
-         version="0.0.0"/>
-
-   <plugin
          id="org.eclipse.nebula.cwt"
          version="0.0.0"/>
 
@@ -177,6 +165,22 @@
 
    <plugin
          id="bcutil"
+         version="0.0.0"/>
+
+   <plugin
+         id="org.apache.httpcomponents.httpclient"
+         version="0.0.0"/>
+
+   <plugin
+         id="org.apache.httpcomponents.httpcore"
+         version="0.0.0"/>
+
+   <plugin
+         id="org.apache.commons.logging"
+         version="0.0.0"/>
+
+   <plugin
+         id="json"
          version="0.0.0"/>
 
 </feature>
