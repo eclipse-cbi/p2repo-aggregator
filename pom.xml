@@ -315,7 +315,7 @@
               <version>1.1.0-SNAPSHOT</version>
             </artifact>
           </target>
-          <executionEnvironment>JavaSE-21</executionEnvironment>
+          <executionEnvironment>JavaSE-25</executionEnvironment>
           <environments>
             <environment>
               <os>linux</os>
