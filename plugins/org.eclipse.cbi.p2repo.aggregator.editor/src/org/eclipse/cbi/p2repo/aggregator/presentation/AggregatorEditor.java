@@ -1099,13 +1099,6 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 
 			@Override
 			public void doubleClick(DoubleClickEvent event) {
-				TreePath path = ((TreeSelection) event.getSelection()).getPaths()[0];
-
-				if (selectionViewer.getExpandedState(path))
-					selectionViewer.collapseToLevel(path, 1);
-				else
-					selectionViewer.expandToLevel(path, 1);
-
 				showPropertiesView.run();
 			}
 
