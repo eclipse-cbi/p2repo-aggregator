@@ -9,6 +9,12 @@
    <launcherArgs>
       <programArgs>-nosplash --launcher.suppressErrors --launcher.appendVmargs
       </programArgs>
+      <vmArgs>--add-modules=ALL-SYSTEM
+--add-opens=java.base/java.lang=ALL-UNNAMED 
+--enable-native-access=ALL-UNNAMED
+-Dosgi.requiredJavaVersion=25
+-Declipse.platform.mergeTrust=true
+      </vmArgs>
       <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts
       </vmArgsMac>
    </launcherArgs>
