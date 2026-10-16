@@ -10,6 +10,7 @@
  */
 package org.eclipse.cbi.p2repo.aggregator.analyzer.presentation;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -23,10 +24,14 @@ import java.util.TreeMap;
 
 import org.eclipse.cbi.p2repo.aggregator.Aggregation;
 import org.eclipse.cbi.p2repo.aggregator.AggregatorFactory;
-import org.eclipse.cbi.p2repo.aggregator.analyzer.Analysis;
+import org.eclipse.cbi.p2repo.aggregator.AggregatorPackage;
+import org.eclipse.cbi.p2repo.aggregator.Architecture;
+import org.eclipse.cbi.p2repo.aggregator.OperatingSystem;
+import org.eclipse.cbi.p2repo.aggregator.WindowSystem;
 import org.eclipse.cbi.p2repo.aggregator.analyzer.AnalyzerFactory;
 import org.eclipse.cbi.p2repo.aggregator.analyzer.AnalyzerPackage;
 import org.eclipse.cbi.p2repo.aggregator.analyzer.provider.AggregationAnalyzerEditPlugin;
+import org.eclipse.cbi.p2repo.p2.util.P2Utils;
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
@@ -49,6 +54,8 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
+import org.eclipse.equinox.internal.p2.engine.SimpleProfileRegistry;
+import org.eclipse.equinox.p2.engine.IProfileRegistry;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -199,13 +206,57 @@ public class AnalyzerModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	protected EObject createInitialModel() {
-		Analysis analysis = analyzerFactory.createAnalysis();
-		String text = initialObjectCreationPage.initialObjectField.getText();
-		Aggregation aggregation = AggregatorFactory.eINSTANCE.createAggregation();
-		((InternalEObject) aggregation).eSetProxyURI(URI.createPlatformResourceURI(text, true).appendFragment("/"));
-		analysis.setAggregation(aggregation);
+	protected EObject createInitialModel() throws IOException {
+		var analysis = analyzerFactory.createAnalysis();
+		var text = initialObjectCreationPage.initialObjectField.getText();
+		if (text.startsWith("file:")) {
+			var aggregation = createAggregation(URI.createURI(text));
+			analysis.setAggregation(aggregation);
+		} else {
+			var aggregation = AggregatorFactory.eINSTANCE.createAggregation();
+			((InternalEObject) aggregation).eSetProxyURI(URI.createPlatformResourceURI(text, true).appendFragment("/"));
+			analysis.setAggregation(aggregation);
+		}
 		return analysis;
+	}
+
+	private Aggregation createAggregation(URI profileLocation) throws IOException {
+		var resourceSet = new ResourceSetImpl();
+		var modelFile = getModelFile();
+		var fileURI = URI.createPlatformResourceURI(modelFile.getFullPath().toString(), true).trimFileExtension()
+				.appendFileExtension("aggr");
+		var resource = resourceSet.createResource(fileURI, AggregatorPackage.eCONTENT_TYPE);
+		var aggregation = AggregatorFactory.eINSTANCE.createAggregation();
+
+		var configurations = aggregation.getConfigurations();
+		var configuration = AggregatorFactory.eINSTANCE.createConfiguration();
+		var os = OperatingSystem.get(Platform.getOS());
+		var arch = Architecture.get(Platform.getOSArch());
+		var ws = WindowSystem.get(Platform.getWS());
+		configuration.setOperatingSystem(os);
+		configuration.setArchitecture(arch);
+		configuration.setWindowSystem(ws);
+		configurations.add(configuration);
+
+		var validationSet = AggregatorFactory.eINSTANCE.createValidationSet();
+		validationSet.setLabel("Main");
+		aggregation.getValidationSets().add(validationSet);
+
+		var contribution = AggregatorFactory.eINSTANCE.createContribution();
+		contribution.setLabel("Main");
+		validationSet.getContributions().add(contribution);
+
+		var mappedRepository = AggregatorFactory.eINSTANCE.createMappedRepository();
+		mappedRepository.setLocation(profileLocation.toString());
+		contribution.getRepositories().add(mappedRepository);
+
+		aggregation.setLabel(fileURI.trimFileExtension().lastSegment());
+
+		resource.getContents().add((EObject) aggregation);
+		Map<Object, Object> options = new HashMap<>();
+		options.put(XMLResource.OPTION_ENCODING, initialObjectCreationPage.getEncoding());
+		resource.save(options);
+		return aggregation;
 	}
 
 	/**
@@ -437,6 +488,18 @@ public class AnalyzerModelWizard extends Wizard implements INewWizard {
 
 			for (IResource resource : aggregators.values()) {
 				initialObjectField.add(resource.getFullPath().toString());
+			}
+
+			try {
+				var agent = P2Utils.getActualProvisioningAgent();
+				var profileRegistry = P2Utils.getProfileRegistry(agent);
+				var profile = profileRegistry.getProfile(IProfileRegistry.SELF);
+				var getProfileFolder = SimpleProfileRegistry.class.getDeclaredMethod("getProfileFolder", String.class);
+				getProfileFolder.trySetAccessible();
+				var location = getProfileFolder.invoke(profileRegistry, profile.getProfileId());
+				initialObjectField.add(URI.createFileURI(location.toString()).toString());
+			} catch (Exception ex) {
+				//$FALL-THROUGH$
 			}
 
 			if (initialObjectField.getItemCount() == 1) {

@@ -28,6 +28,7 @@ import org.eclipse.equinox.p2.metadata.expression.IExpression;
 import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
 import org.eclipse.equinox.p2.planner.IPlanner;
 import org.eclipse.equinox.p2.repository.IRepositoryManager;
+import org.osgi.framework.FrameworkUtil;
 
 /**
  * @author filip.hrbek@cloudsmith.com
@@ -68,6 +69,21 @@ public class P2Utils {
 			}
 		}
 		return filter.toString();
+	}
+
+	public static IProvisioningAgent getActualProvisioningAgent() {
+		var bundle = FrameworkUtil.getBundle(P2Utils.class);
+		var context = bundle.getBundleContext();
+		var reference = context.getServiceReference(IProvisioningAgent.class);
+		if (reference == null) {
+			return null;
+		}
+		try {
+			IProvisioningAgent provisioningAgent = (IProvisioningAgent) context.getService(reference);
+			return provisioningAgent;
+		} finally {
+			context.ungetService(reference);
+		}
 	}
 
 	public static IProvisioningAgent getDefaultProvisioningAgent() throws CoreException {
